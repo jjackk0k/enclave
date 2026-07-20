@@ -23,6 +23,7 @@ That writes a workspace with:
 | `incident-response` | IR / forensics | L3 + IR cert (GCIH/GCFA/…) | Timeline, case notes, chain of custody |
 | `red-team` | Red team ops | L4 + offensive cert (OSCP/OSEP/…) | Rules of engagement, signed scope, findings register |
 | `grc-audit` | GRC / compliance | L2 + audit cert (CISA/CISSP/…) | Evidence register, control mapping |
+| `tool-dev` | Security tool development | L4 + offensive/exploit-dev cert (OSCP/OSEP/OSED/…) | Tool spec, build & test, handling rules |
 
 The `requires` and `egress` a preset emits line up with the policy model in the enforcement seam — so a scaffolded workspace is not just documented, it's *governed*: the same clearance/qualification/scope gates the PoC demonstrates apply to it.
 

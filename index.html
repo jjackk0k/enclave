@@ -134,6 +134,21 @@
   .cta h2{font-size:clamp(28px,4vw,44px)}
   .cta .sub{margin:0 auto 30px}
 
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  @media(max-width:860px){.price-grid{grid-template-columns:1fr}}
+  .price{border:1px solid var(--border-soft);border-radius:14px;padding:26px;background:var(--panel);display:flex;flex-direction:column}
+  .price.featured{border-color:rgba(91,140,255,.5);box-shadow:0 0 0 1px rgba(91,140,255,.25)}
+  .price .pname{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-2);font-weight:700}
+  .price .pprice{font-size:30px;font-weight:720;letter-spacing:-.02em;margin:10px 0 2px}
+  .price .pnote{font-size:11.5px;color:var(--text-faint);font-family:var(--mono);min-height:14px}
+  .price .ptag{color:var(--text-dim);font-size:14px;margin:8px 0 18px}
+  .price ul{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:10px}
+  .price li{font-size:14px;color:var(--text-dim);display:flex;gap:9px;align-items:flex-start}
+  .price li .ck{color:var(--secure);flex:0 0 auto}
+  .price li.head{color:var(--text);font-weight:600}
+  .price .btn{margin-top:auto;justify-content:center}
+  .pbadge{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--accent-2);border:1px solid rgba(91,140,255,.3);border-radius:5px;padding:2px 7px;margin-left:6px;letter-spacing:0;text-transform:none}
+
   footer{border-top:1px solid var(--border-soft);padding:40px 0;color:var(--text-faint);font-size:13.5px}
   .foot-in{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
   .foot-in .brand small{color:var(--text-faint)}
@@ -160,6 +175,7 @@
       <a href="#features">Platform</a>
       <a href="#architecture">Security</a>
       <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
       <a href="app.html">Live demo</a>
     </nav>
     <div class="nav-cta">
@@ -328,6 +344,67 @@
         <h3>Work — fully logged</h3>
         <p>They collaborate with Claude on real artifacts. Every step is scoped to policy and written to an immutable trail. Tear down when done.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="kicker" style="text-align:center">Pricing</p>
+    <h2 style="text-align:center;margin-inline:auto">Start free. Scale to regulated and on-prem.</h2>
+    <p class="sub" style="margin:0 auto 8px;text-align:center">Plans map to what the platform actually enforces — isolation strength, identity, and compliance. Prices are indicative.</p>
+    <div class="price-grid">
+
+      <div class="price">
+        <div class="pname">Community</div>
+        <div class="pprice">Free</div>
+        <div class="pnote">&nbsp;</div>
+        <div class="ptag">Try the workflow, solo.</div>
+        <ul>
+          <li><span class="ck">✓</span> Single operator</li>
+          <li><span class="ck">✓</span> Process-tier sandbox (dev isolation)</li>
+          <li><span class="ck">✓</span> Bring your own Claude key</li>
+          <li><span class="ck">✓</span> All workspace presets</li>
+          <li><span class="ck">✓</span> Hash-chained audit (local)</li>
+          <li><span class="ck">✓</span> Community support</li>
+        </ul>
+        <a class="btn btn-ghost" href="app.html">Start free</a>
+      </div>
+
+      <div class="price featured">
+        <div class="pname">Team <span class="pbadge">most teams</span></div>
+        <div class="pprice">$—<span style="font-size:15px;font-weight:500;color:var(--text-faint)">/seat·mo</span></div>
+        <div class="pnote">indicative</div>
+        <div class="ptag">For a security team adopting AI.</div>
+        <ul>
+          <li class="head"><span class="ck">✦</span> Everything in Community, plus:</li>
+          <li><span class="ck">✓</span> Hardware micro-VM isolation per session</li>
+          <li><span class="ck">✓</span> SSO (OIDC) · role / clearance / licenses</li>
+          <li><span class="ck">✓</span> Clearance + qualification enforcement</li>
+          <li><span class="ck">✓</span> Tool-dev workload + curated tool shelf</li>
+          <li><span class="ck">✓</span> Exportable audit trail</li>
+          <li><span class="ck">✓</span> Email support</li>
+        </ul>
+        <a class="btn btn-primary" href="#cta">Request access</a>
+      </div>
+
+      <div class="price">
+        <div class="pname">Enterprise</div>
+        <div class="pprice">Contact us</div>
+        <div class="pnote">&nbsp;</div>
+        <div class="ptag">Regulated, on-prem, at scale.</div>
+        <ul>
+          <li class="head"><span class="ck">✦</span> Everything in Team, plus:</li>
+          <li><span class="ck">✓</span> Single-tenant / on-prem deployment</li>
+          <li><span class="ck">✓</span> SOC 2 / ISO 27001 compliance package</li>
+          <li><span class="ck">✓</span> SD-JWT · DPoP · SPIFFE workload identity</li>
+          <li><span class="ck">✓</span> WORM + Merkle audit anchoring</li>
+          <li><span class="ck">✓</span> Red-team scoping + HITL approvals</li>
+          <li><span class="ck">✓</span> Windows isolation tier · SSO/SCIM · SLA</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:hello@enclave.example">Talk to us</a>
+      </div>
+
     </div>
   </div>
 </section>
