@@ -44,6 +44,8 @@ const checks = [
     want: [/Scaffolded "_selftest"/, /clearance ≥ L4/], notWant: [/«FILL/] },
   { name: 'persona-work · the AI makes something befitting the persona', cwd: 'poc/persona-work', cmd: NODE, args: ['demo.mjs'],
     want: [/Alert Triage Note/, /Engagement Recon Plan/, /that needs L3/] },
+  { name: 'full-stack · isolated sandbox + broker (no data leaves, key never enters)', cwd: 'poc/full-stack', cmd: NODE, args: ['demo.mjs'],
+    want: [/FULL-STACK: (PASS|SKIP)/] }, // SKIPs cleanly when Docker is off
 ];
 
 let failed = 0;

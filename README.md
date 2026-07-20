@@ -57,6 +57,7 @@ Or run each on its own:
 | [`poc/egress-broker`](poc/egress-broker) | `npm run demo` — deny-all egress + the Anthropic key injected *outside* the sandbox (BYO-key that never enters it). |
 | [`presets`](presets) | `node scaffold.mjs --list` — scaffold a governed, pre-filled workspace from a preset. |
 | [`poc/persona-work`](poc/persona-work) | `npm run demo` — the AI produces a role- and clearance-appropriate deliverable per persona (offline, or `--live` with a key). |
+| [`poc/full-stack`](poc/full-stack) | `npm run demo` *(Docker)* — an isolated sandbox with no internet whose only egress is the key-injecting broker: no data leaves, the key never enters. |
 
 ## Status
 
