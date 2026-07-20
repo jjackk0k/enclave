@@ -75,6 +75,21 @@ function matrix(active) {
   console.log('       ' + C.dim(b.reason || ''));
   console.log('');
 
+  // ── Act 2c — prove the egress deny is real: attempt an outbound connection ──
+  if (mgr.provider.enforces.egressDenied) {
+    const EGRESS = "const net=require('net');const s=net.connect(443,'1.1.1.1');s.setTimeout(2500);" +
+      "s.on('connect',()=>{console.log('REACHED');process.exit()});" +
+      "s.on('error',e=>{console.log('blocked:'+e.code);process.exit()});" +
+      "s.on('timeout',()=>{console.log('blocked:timeout');process.exit()});";
+    const e = mgr.provider.run(box, EGRESS);
+    const out = (e.stdout || '').trim();
+    const blocked = out.startsWith('blocked');
+    console.log('  ' + C.b('2c) egress from inside the sandbox') + `  connect 1.1.1.1:443  →  ${blocked ? C.g(`BLOCKED (${out}) ✓`) : C.r(out || 'reached ✗')} ${C.dim('← kernel-enforced --network none')}`);
+  } else {
+    console.log('  ' + C.b('2c) egress from inside the sandbox') + `  ${C.dim(`skipped — the ${mgr.provider.name} tier does not kernel-enforce egress (Docker / Firecracker do)`)}`);
+  }
+  console.log('');
+
   // ── Act 3 — teardown wipes the sandbox ──
   const wiped = mgr.teardown(box, dana);
   const gone = box.workdir ? !existsSync(box.workdir) : wiped;

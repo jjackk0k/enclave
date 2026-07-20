@@ -25,7 +25,7 @@ export default {
     const r = docker(['run', '-d', '--rm', '--name', name,
       '--network', 'none',              // deny-all egress, kernel-enforced
       '--read-only',                    // immutable rootfs
-      '--tmpfs', '/work:rw,size=256m',  // ephemeral scratch, gone on stop
+      '--tmpfs', '/work:rw,size=256m,mode=1777',  // ephemeral scratch (world-writable so the non-root user can write), gone on stop
       '--cap-drop', 'ALL',
       '--security-opt', 'no-new-privileges',
       '--user', '65534',                // nobody
@@ -37,7 +37,10 @@ export default {
   },
 
   run(sandbox, code) {
-    const r = docker(['exec', sandbox.container, 'node', '-e', code], 15000);
+    // Pipe the program to `node` over stdin (via `docker exec -i`) rather than as a
+    // `-e` argument — avoids cross-platform arg-escaping mangling the code string.
+    const r = spawnSync('docker', ['exec', '-i', sandbox.container, 'node'],
+      { input: code, encoding: 'utf8', timeout: 15000 });
     return { code: r.status, stdout: (r.stdout || '').trim(), stderr: (r.stderr || '').trim() };
   },
 

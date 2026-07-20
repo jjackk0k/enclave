@@ -33,30 +33,32 @@ cd ../enforcement-seam && npm install && cd -
 npm run demo
 ```
 
-Real output on this (Windows, Docker off) machine — the process tier:
+Real output on the **container tier** (Docker running — auto-selected, no code change):
 
 ```
   what each tier enforces          (★ = the tier running now)
-  property                ★ local-process   docker   firecracker
-  ephemeral filesystem      true            true     true
-  secrets scrubbed          true            true     true
-  egress denied (kernel)    false           true     true
+  property                  local-process   ★ docker   firecracker
+  ephemeral filesystem      true            true       true
+  secrets scrubbed          true            true       true
+  egress denied (kernel)    false           true       true
   isolation                 none            namespaces+seccomp   hardware VM (KVM)
 
-  1) provisioned  session sess-1003 · <ephemeral dir> · local-process
+  1) provisioned  session sess-1003 · enclave-sess-1003 · docker
 
   2a) allowed work    dana (L3) · "ls -la ./evidence"   → ALLOW → ran in sandbox
+       in-sandbox cwd: /work
        wrote a file in the ephemeral dir: yes   sandbox can see the ANTHROPIC key: no (scrubbed ✓)
 
   2b) disallowed work dana (L3) · "nmap -sS 10.10.5.20" → DENY
        executed in sandbox: no (gate precedes execution ✓)
-       blocked: network scan requires clearance ≥ L4. …decided against the bound identity.
+
+  2c) egress from inside the sandbox   connect 1.1.1.1:443 → BLOCKED (ENETUNREACH) ✓  ← kernel-enforced --network none
 
   3) teardown  sandbox destroyed, state wiped: yes
   audit ledger: 4 hash-chained entries, integrity verified ✓
 ```
 
-Start Docker Desktop and re-run: the manager auto-upgrades to the **container tier** with real kernel-enforced `--network none` egress deny — no code change.
+With Docker stopped, the same command falls back to the **process tier** (dev-only: ephemeral dir + scrubbed env, but no kernel-enforced egress) — no code change either way.
 
 ## What it proves
 
