@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enclave Console</title>
+<style>
+  :root{
+    --bg:#080b11; --bg-elev:#0b0f18; --panel:#0e131f; --panel-2:#121826;
+    --border:#1d2536; --border-soft:#171e2c;
+    --text:#e7ecf4; --text-dim:#95a0b4; --text-faint:#647087;
+    --accent:#5b8cff; --accent-2:#7aa2ff; --accent-ink:#070a10;
+    --secure:#35d99a; --warn:#f5b544; --danger:#f16d6d;
+    --mono:'Cascadia Code','JetBrains Mono',Consolas,'SF Mono',monospace;
+    --sans:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;overflow:hidden}
+  .mono{font-family:var(--mono)}
+  button{font-family:inherit;cursor:pointer}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#1e2637;border-radius:8px;border:2px solid var(--bg)}
+  ::-webkit-scrollbar-thumb:hover{background:#2a3448}
+
+  /* ---------- LOGIN ---------- */
+  #login{position:fixed;inset:0;z-index:100;display:grid;place-items:center;
+    background:radial-gradient(700px 380px at 50% -5%,rgba(91,140,255,.12),transparent 60%),var(--bg)}
+  .login-card{width:390px;max-width:92vw;border:1px solid var(--border);border-radius:16px;
+    background:linear-gradient(180deg,#0f1420,#0b0f19);padding:34px;box-shadow:0 40px 100px -50px #000}
+  .login-brand{display:flex;align-items:center;gap:11px;font-weight:650;font-size:19px;margin-bottom:4px}
+  .login-brand small{color:var(--text-faint);font-weight:500;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+  .login-card p.sub{color:var(--text-dim);font-size:14px;margin:0 0 24px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:12.5px;color:var(--text-dim);margin-bottom:6px;font-weight:600}
+  .field select,.field input{width:100%;background:#0a0e17;border:1px solid var(--border);color:var(--text);
+    border-radius:9px;padding:11px 13px;font-size:14px;font-family:inherit}
+  .field select:focus,.field input:focus{outline:none;border-color:var(--accent)}
+  .sso{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);
+    color:var(--accent-ink);font-weight:650;border:none;border-radius:9px;padding:13px;font-size:15px;margin-top:8px}
+  .sso:hover{background:var(--accent-2)}
+  .login-foot{margin-top:18px;text-align:center;font-size:12px;color:var(--text-faint)}
+  .login-foot .lock{color:var(--secure)}
+
+  /* ---------- APP SHELL ---------- */
+  #app{display:none;grid-template-columns:264px 1fr 340px;grid-template-rows:52px 1fr;height:100vh}
+  #app.on{display:grid}
+  .topbar{grid-column:1/4;display:flex;align-items:center;gap:16px;padding:0 16px;
+    border-bottom:1px solid var(--border-soft);background:var(--bg-elev)}
+  .topbar .brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:15px}
+  .topbar .brand small{color:var(--text-faint);font-weight:500;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+  .ws-pill{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-dim);
+    border:1px solid var(--border);border-radius:7px;padding:5px 11px;font-family:var(--mono)}
+  .ws-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--secure);box-shadow:0 0 0 3px rgba(53,217,154,.16)}
+  .top-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .icon-btn{width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--border);
+    border-radius:8px;background:transparent;color:var(--text-dim);font-size:14px}
+  .icon-btn:hover{color:var(--text);border-color:#2c3650}
+  .clear-chip{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;
+    border:1px solid rgba(53,217,154,.32);color:var(--secure);border-radius:7px;padding:5px 10px}
+
+  /* ---------- SIDEBAR ---------- */
+  .side{grid-row:2;border-right:1px solid var(--border-soft);background:var(--bg-elev);
+    display:flex;flex-direction:column;overflow:hidden}
+  .side-scroll{overflow-y:auto;padding:14px 12px;flex:1}
+  .side h4{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-faint);
+    margin:16px 6px 8px;font-weight:700}
+  .side h4:first-child{margin-top:4px}
+  .ws{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:var(--text-dim);
+    font-size:13.5px;cursor:pointer;border:1px solid transparent}
+  .ws:hover{background:var(--panel)}
+  .ws.active{background:var(--panel-2);color:var(--text);border-color:var(--border)}
+  .ws .wi{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:12px;
+    background:rgba(91,140,255,.12);flex:0 0 auto}
+  .ws .meta{overflow:hidden}
+  .ws .meta .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:550}
+  .ws .meta .sm{font-size:11px;color:var(--text-faint);font-family:var(--mono)}
+  .newws{margin:6px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;
+    border:1px dashed var(--border);border-radius:9px;color:var(--text-dim);font-size:13px;background:transparent;width:calc(100% - 12px)}
+  .newws:hover{border-color:var(--accent);color:var(--text)}
+
+  /* profile card */
+  .profile{border-top:1px solid var(--border-soft);padding:13px;background:var(--panel)}
+  .pf-row{display:flex;align-items:center;gap:11px;cursor:pointer;border-radius:9px;padding:6px}
+  .pf-row:hover{background:var(--panel-2)}
+  .avatar{width:38px;height:38px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;
+    font-weight:700;color:#0a0e17;background:linear-gradient(135deg,#7aa2ff,#5b8cff)}
+  .pf-row .nm{font-weight:600;font-size:14px}
+  .pf-row .rl{font-size:11.5px;color:var(--text-faint)}
+  .pf-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+  .badge{font-family:var(--mono);font-size:10.5px;padding:3px 8px;border-radius:6px;border:1px solid var(--border)}
+  .badge.clr{color:var(--secure);border-color:rgba(53,217,154,.3);background:rgba(53,217,154,.06)}
+  .badge.lic{color:var(--accent-2);border-color:rgba(91,140,255,.3);background:rgba(91,140,255,.06)}
+
+  /* ---------- CHAT ---------- */
+  .chat{grid-row:2;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+  .chat-scroll{flex:1;overflow-y:auto;padding:26px 0}
+  .cc{max-width:760px;margin:0 auto;padding:0 26px}
+  .msg{display:flex;gap:14px;margin-bottom:26px}
+  .msg .who{width:30px;height:30px;border-radius:8px;flex:0 0 auto;display:grid;place-items:center;
+    font-size:12px;font-weight:700}
+  .msg.user .who{background:linear-gradient(135deg,#7aa2ff,#5b8cff);color:#0a0e17}
+  .msg.ai .who{background:#101725;border:1px solid var(--border);color:var(--accent-2)}
+  .msg .body{flex:1;padding-top:3px}
+  .msg .name{font-size:12.5px;color:var(--text-faint);margin-bottom:5px;font-weight:600}
+  .msg .content{font-size:15px;line-height:1.65;color:var(--text)}
+  .msg .content p{margin:0 0 10px}
+  .msg .content code{font-family:var(--mono);font-size:13px;background:#101725;border:1px solid var(--border-soft);
+    padding:1px 6px;border-radius:5px;color:#cdd7ea}
+  .msg .content .pre{font-family:var(--mono);font-size:12.5px;background:#0a0e17;border:1px solid var(--border);
+    border-radius:9px;padding:13px 15px;margin:10px 0;color:#cdd7ea;white-space:pre-wrap;overflow-x:auto;line-height:1.6}
+  .notice{border-radius:9px;padding:11px 13px;font-size:13.5px;margin:10px 0;display:flex;gap:10px;align-items:flex-start}
+  .notice.block{background:rgba(241,109,109,.07);border:1px solid rgba(241,109,109,.28);color:#f3a6a6}
+  .notice.allow{background:rgba(53,217,154,.06);border:1px solid rgba(53,217,154,.26);color:#9be9c8}
+  .notice .ni{font-size:14px;line-height:1.3}
+  .msg .content .cite{font-family:var(--mono);font-size:11.5px;color:var(--text-faint);margin-top:6px}
+
+  .welcome{max-width:760px;margin:8vh auto 0;padding:0 26px;text-align:center}
+  .welcome .wm{width:52px;height:52px;margin:0 auto 18px;border-radius:13px;display:grid;place-items:center;
+    background:rgba(91,140,255,.1);border:1px solid rgba(91,140,255,.24)}
+  .welcome h2{font-size:24px;margin:0 0 8px;letter-spacing:-.01em}
+  .welcome p{color:var(--text-dim);font-size:15px;margin:0 auto 26px;max-width:520px}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .chip{border:1px solid var(--border);border-radius:10px;padding:11px 14px;font-size:13.5px;color:var(--text-dim);
+    background:var(--panel);text-align:left;max-width:240px}
+  .chip:hover{border-color:var(--accent);color:var(--text)}
+  .chip b{display:block;color:var(--text);font-weight:600;font-size:13.5px;margin-bottom:2px}
+
+  /* composer */
+  .composer{border-top:1px solid var(--border-soft);padding:16px 26px 20px;background:var(--bg-elev)}
+  .composer-in{max-width:760px;margin:0 auto}
+  .cbox{border:1px solid var(--border);border-radius:13px;background:var(--panel);padding:12px 14px;
+    display:flex;flex-direction:column;gap:10px}
+  .cbox:focus-within{border-color:#33456e;box-shadow:0 0 0 3px rgba(91,140,255,.1)}
+  .cbox textarea{width:100%;background:transparent;border:none;color:var(--text);font-family:inherit;
+    font-size:15px;resize:none;outline:none;line-height:1.5;max-height:160px}
+  .cbox-bar{display:flex;align-items:center;gap:10px}
+  .attach{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-faint);font-family:var(--mono);
+    border:1px solid var(--border);border-radius:7px;padding:5px 9px;background:transparent}
+  .attach:hover{color:var(--text-dim)}
+  .send{margin-left:auto;width:34px;height:34px;border-radius:9px;border:none;background:var(--accent);
+    color:var(--accent-ink);font-size:16px;display:grid;place-items:center}
+  .send:hover{background:var(--accent-2)}
+  .send:disabled{opacity:.4;cursor:not-allowed}
+  .composer-note{text-align:center;font-size:11.5px;color:var(--text-faint);margin-top:10px;font-family:var(--mono)}
+
+  /* ---------- RIGHT: SANDBOX ---------- */
+  .sandbox{grid-row:2;border-left:1px solid var(--border-soft);background:var(--bg-elev);
+    display:flex;flex-direction:column;overflow:hidden}
+  .sb-scroll{overflow-y:auto;padding:16px;flex:1}
+  .sb-head{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+  .sb-head h3{font-size:13px;margin:0;letter-spacing:.04em}
+  .sb-head .pulse{width:8px;height:8px;border-radius:50%;background:var(--secure);
+    box-shadow:0 0 0 0 rgba(53,217,154,.5);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,217,154,.4)}70%{box-shadow:0 0 0 8px rgba(53,217,154,0)}100%{box-shadow:0 0 0 0 rgba(53,217,154,0)}}
+  .sb-card{border:1px solid var(--border-soft);border-radius:11px;background:var(--panel);padding:14px;margin-bottom:12px}
+  .sb-card .lbl{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-faint);font-weight:700;margin-bottom:11px}
+  .kv{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;padding:5px 0;font-family:var(--mono)}
+  .kv .k{color:var(--text-dim)}
+  .kv .v{color:var(--text)}
+  .kv .v.ok{color:var(--secure)}.kv .v.warn{color:var(--warn)}.kv .v.dan{color:var(--danger)}
+  .meter{height:5px;border-radius:4px;background:#0a0e17;overflow:hidden;margin-top:3px}
+  .meter i{display:block;height:100%;background:var(--accent)}
+  .egress-row{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;padding:5px 0}
+  .egress-row .st{width:6px;height:6px;border-radius:50%}
+  .egress-row .st.deny{background:var(--danger)}
+  .egress-row .st.allow{background:var(--secure)}
+  .egress-row .host{color:var(--text-dim)}
+  .egress-row .tag{margin-left:auto;color:var(--text-faint);font-size:10.5px}
+  .log{font-family:var(--mono);font-size:11px;line-height:1.7;max-height:220px;overflow-y:auto}
+  .log .ln{display:flex;gap:8px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+  .log .ts{color:var(--text-faint);flex:0 0 auto}
+  .log .ev{color:var(--text-dim)}
+  .log .ev.ok{color:var(--secure)}.log .ev.warn{color:var(--warn)}.log .ev.dan{color:var(--danger)}
+  .sb-foot{border-top:1px solid var(--border-soft);padding:12px 16px;display:flex;gap:8px}
+  .sb-foot button{flex:1;font-size:12.5px;padding:9px;border-radius:8px;border:1px solid var(--border);
+    background:transparent;color:var(--text-dim)}
+  .sb-foot button:hover{color:var(--text);border-color:#2c3650}
+  .sb-foot button.danger:hover{color:var(--danger);border-color:rgba(241,109,109,.4)}
+
+  /* ---------- PROFILE MODAL ---------- */
+  .modal-bg{position:fixed;inset:0;z-index:90;background:rgba(4,6,10,.68);backdrop-filter:blur(3px);
+    display:none;place-items:center}
+  .modal-bg.on{display:grid}
+  .modal{width:520px;max-width:94vw;max-height:88vh;overflow-y:auto;border:1px solid var(--border);
+    border-radius:16px;background:var(--panel);box-shadow:0 40px 100px -50px #000}
+  .modal-h{display:flex;align-items:center;gap:14px;padding:22px;border-bottom:1px solid var(--border-soft)}
+  .modal-h .avatar{width:52px;height:52px;border-radius:12px;font-size:18px}
+  .modal-h .nm{font-size:18px;font-weight:650}
+  .modal-h .rl{color:var(--text-dim);font-size:13.5px}
+  .modal-h .x{margin-left:auto;width:32px;height:32px;border-radius:8px;border:1px solid var(--border);
+    background:transparent;color:var(--text-dim);font-size:16px}
+  .modal-b{padding:22px}
+  .mrow{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--border-soft);font-size:14px}
+  .mrow:last-child{border:none}
+  .mrow .mk{color:var(--text-dim)}
+  .mrow .mv{color:var(--text);text-align:right;font-weight:550}
+  .mrow .mv .badge{margin-left:6px}
+  .ai-note{margin-top:18px;border-radius:10px;border:1px solid rgba(91,140,255,.24);
+    background:rgba(91,140,255,.05);padding:13px 15px;font-size:12.5px;color:var(--text-dim);line-height:1.6}
+  .ai-note b{color:var(--accent-2)}
+  .enf-note{margin-top:10px;border-radius:10px;border:1px solid var(--border-soft);
+    padding:13px 15px;font-size:12.5px;color:var(--text-dim);line-height:1.6}
+  .enf-note b{color:var(--secure)}
+
+  @media(max-width:1080px){#app{grid-template-columns:230px 1fr}.sandbox{display:none}}
+  @media(max-width:720px){#app{grid-template-columns:1fr}.side{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="login">
+  <div class="login-card">
+    <div class="login-brand">
+      <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3.2 L27 8 V16.5 C27 23 22.2 27.4 16 29.2 C9.8 27.4 5 23 5 16.5 V8 Z" stroke="#5b8cff" stroke-width="1.6" fill="rgba(91,140,255,.06)"/>
+        <path d="M16 10 L21.5 13 V17.6 C21.5 20.8 19 22.9 16 23.9 C13 22.9 10.5 20.8 10.5 17.6 V13 Z" stroke="#7aa2ff" stroke-width="1.4"/>
+        <circle cx="16" cy="16.4" r="1.7" fill="#35d99a"/>
+      </svg>
+      Enclave <small>secure&nbsp;ai</small>
+    </div>
+    <p class="sub">Sign in to your isolated workspace.</p>
+
+    <div class="field">
+      <label>Identity (demo — pick a persona)</label>
+      <select id="persona">
+        <option value="ir">Dana Okoye · IR Analyst · Clearance L3</option>
+        <option value="red">Marcus Vale · Red Team Lead · Clearance L4</option>
+        <option value="grc">Priya Nair · GRC Auditor · Clearance L2</option>
+        <option value="jr">Sam Reeve · SOC Analyst (Junior) · Clearance L1</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Organization</label>
+      <input value="acme-security.io" readonly />
+    </div>
+    <button class="sso" onclick="doLogin()">
+      <span>◈</span> Continue with Acme SSO
+    </button>
+    <div class="login-foot"><span class="lock">🔒</span> Identity is signed &amp; verified server-side · demo build, no real auth</div>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="app">
+  <!-- topbar -->
+  <div class="topbar">
+    <div class="brand">
+      <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+        <path d="M16 3.2 L27 8 V16.5 C27 23 22.2 27.4 16 29.2 C9.8 27.4 5 23 5 16.5 V8 Z" stroke="#5b8cff" stroke-width="1.6" fill="rgba(91,140,255,.06)"/>
+        <circle cx="16" cy="16.4" r="1.7" fill="#35d99a"/>
+      </svg>
+      Enclave <small>console</small>
+    </div>
+    <div class="ws-pill"><span class="dot"></span> <span id="topWs">incident-2231</span></div>
+    <div class="top-right">
+      <div class="clear-chip">◈ <span id="topClear">L3</span> · ISOLATED</div>
+      <button class="icon-btn" title="Attach Claude CLI" onclick="toast('Claude CLI attached to this enclave')">◧</button>
+      <button class="icon-btn" title="Sign out" onclick="signOut()">⏻</button>
+    </div>
+  </div>
+
+  <!-- sidebar -->
+  <aside class="side">
+    <div class="side-scroll">
+      <button class="newws" onclick="toast('New enclave provisioning…')">+ New enclave</button>
+      <h4>Active enclaves</h4>
+      <div class="ws active"><div class="wi">🛡️</div><div class="meta"><div class="nm">incident-2231</div><div class="sm">IR · egress deny-all</div></div></div>
+      <div class="ws"><div class="wi">🔎</div><div class="meta"><div class="nm">malware-triage</div><div class="sm">isolated · 2 tools</div></div></div>
+      <div class="ws"><div class="wi">🧪</div><div class="meta"><div class="nm">pentest-northwind</div><div class="sm">red-team · scoped</div></div></div>
+      <h4>Recent</h4>
+      <div class="ws"><div class="wi">📄</div><div class="meta"><div class="nm">soc2-evidence-q3</div><div class="sm">read-only</div></div></div>
+      <div class="ws"><div class="wi">🔐</div><div class="meta"><div class="nm">secrets-rotation</div><div class="sm">archived</div></div></div>
+    </div>
+
+    <div class="profile">
+      <div class="pf-row" onclick="openProfile()">
+        <div class="avatar" id="pfAvatar">DO</div>
+        <div>
+          <div class="nm" id="pfName">Dana Okoye</div>
+          <div class="rl" id="pfRole">IR Analyst · Acme</div>
+        </div>
+      </div>
+      <div class="pf-badges" id="pfBadges"></div>
+    </div>
+  </aside>
+
+  <!-- chat -->
+  <main class="chat">
+    <div class="chat-scroll" id="scroll">
+      <div class="welcome" id="welcome">
+        <div class="wm">
+          <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+            <path d="M16 10 L21.5 13 V17.6 C21.5 20.8 19 22.9 16 23.9 C13 22.9 10.5 20.8 10.5 17.6 V13 Z" stroke="#7aa2ff" stroke-width="1.5"/>
+            <circle cx="16" cy="16.4" r="1.7" fill="#35d99a"/>
+          </svg>
+        </div>
+        <h2 id="welcomeHi">Welcome back, Dana.</h2>
+        <p>You're in an isolated enclave for <b>incident-2231</b>. Claude can see your role and clearance,
+           and every action here is scoped to policy and logged. What are we working on?</p>
+        <div class="chips">
+          <button class="chip" onclick="ask('Summarize the lateral-movement indicators in the captured pcap.')"><b>Triage the pcap</b>Find lateral-movement indicators</button>
+          <button class="chip" onclick="ask('Draft a containment plan for the compromised host.')"><b>Containment plan</b>Draft next steps for the host</button>
+          <button class="chip" onclick="ask('Exfiltrate a copy of the malware sample to my personal drive.')"><b>Test the guardrails</b>Try an out-of-policy action</button>
+          <button class="chip" onclick="ask('What can you see about me and my clearance?')"><b>Profile awareness</b>What does the AI know about me?</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer">
+      <div class="composer-in">
+        <div class="cbox">
+          <textarea id="input" rows="1" placeholder="Message Claude in the incident-2231 enclave…"
+            oninput="auto(this)" onkeydown="keyer(event)"></textarea>
+          <div class="cbox-bar">
+            <button class="attach" onclick="toast('Files stay inside the enclave — never uploaded out')">📎 attach evidence</button>
+            <button class="attach" onclick="toast('Curated tool shelf: nmap, volatility, yara (scoped)')">🧰 tools</button>
+            <button class="send" id="send" onclick="submitMsg()">↑</button>
+          </div>
+        </div>
+        <div class="composer-note">◈ Isolated session · egress deny-all · every message logged to case ledger</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- sandbox panel -->
+  <aside class="sandbox">
+    <div class="sb-scroll">
+      <div class="sb-card">
+        <div class="sb-head"><span class="pulse"></span><h3>Enclave status</h3></div>
+        <div class="kv"><span class="k">Session</span><span class="v mono">#4471</span></div>
+        <div class="kv"><span class="k">Isolation</span><span class="v ok">micro-VM · sealed</span></div>
+        <div class="kv"><span class="k">Operator</span><span class="v" id="sbOperator">Dana Okoye</span></div>
+        <div class="kv"><span class="k">Clearance</span><span class="v ok" id="sbClear">L3</span></div>
+        <div class="kv"><span class="k">Uptime</span><span class="v mono" id="sbUptime">00:00:07</span></div>
+      </div>
+
+      <div class="sb-card">
+        <div class="lbl">Resource envelope</div>
+        <div class="kv"><span class="k">vCPU</span><span class="v" id="cpuV">18%</span></div>
+        <div class="meter"><i id="cpuBar" style="width:18%"></i></div>
+        <div class="kv" style="margin-top:9px"><span class="k">Memory</span><span class="v" id="memV">1.4 / 4 GB</span></div>
+        <div class="meter"><i id="memBar" style="width:35%;background:#7aa2ff"></i></div>
+      </div>
+
+      <div class="sb-card">
+        <div class="lbl">Egress firewall · deny-all</div>
+        <div class="egress-row"><span class="st allow"></span><span class="host">api.anthropic.com</span><span class="tag">allow · model</span></div>
+        <div class="egress-row"><span class="st allow"></span><span class="host">case-ledger.internal</span><span class="tag">allow · audit</span></div>
+        <div class="egress-row"><span class="st deny"></span><span class="host">*.public-cloud.net</span><span class="tag">deny</span></div>
+        <div class="egress-row"><span class="st deny"></span><span class="host">pastebin.com</span><span class="tag">deny</span></div>
+        <div class="egress-row"><span class="st deny"></span><span class="host">personal-drive.io</span><span class="tag">blocked ×1</span></div>
+      </div>
+
+      <div class="sb-card">
+        <div class="sb-head" style="margin-bottom:11px"><h3 style="font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-faint);font-weight:700">Audit ledger · live</h3></div>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+    <div class="sb-foot">
+      <button onclick="toast('Ledger exported (SOC 2 / ISO 27001 format)')">⇩ Export trail</button>
+      <button class="danger" onclick="destroyEnclave()">⨂ Tear down</button>
+    </div>
+  </aside>
+</div>
+
+<!-- ===================== PROFILE MODAL ===================== -->
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeProfile()">
+  <div class="modal">
+    <div class="modal-h">
+      <div class="avatar" id="mAvatar">DO</div>
+      <div>
+        <div class="nm" id="mName">Dana Okoye</div>
+        <div class="rl" id="mRole">Incident Response Analyst</div>
+      </div>
+      <button class="x" onclick="closeProfile()">✕</button>
+    </div>
+    <div class="modal-b">
+      <div class="mrow"><span class="mk">Organization</span><span class="mv">Acme Security · acme-security.io</span></div>
+      <div class="mrow"><span class="mk">Team</span><span class="mv" id="mTeam">Incident Response (IR)</span></div>
+      <div class="mrow"><span class="mk">Clearance level</span><span class="mv"><span id="mClearTxt">L3 — Restricted</span><span class="badge clr" id="mClearBadge">◈ L3</span></span></div>
+      <div class="mrow"><span class="mk">Licenses &amp; certs</span><span class="mv" id="mLicenses"></span></div>
+      <div class="mrow"><span class="mk">Authorized scopes</span><span class="mv" id="mScopes"></span></div>
+      <div class="mrow"><span class="mk">Identity source</span><span class="mv">Acme SSO · signed &amp; verified</span></div>
+
+      <div class="ai-note">
+        <b>What Claude sees.</b> Your role, team, clearance and licenses are shared with the AI as
+        <i>context</i> — so it surfaces the right tooling, phrases findings for your audience, and
+        avoids suggesting things outside your remit.
+      </div>
+      <div class="enf-note">
+        <b>What actually gates access.</b> Clearance is <i>never</i> enforced by the AI. Every
+        privileged action is checked server-side against your signed identity — so no prompt,
+        however it's worded, can escalate its own permissions.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" style="position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(30px);
+  opacity:0;transition:.25s;background:#141b2b;border:1px solid var(--border);color:var(--text);
+  padding:11px 18px;border-radius:10px;font-size:13.5px;z-index:120;box-shadow:0 20px 50px -20px #000"></div>
+
+<script>
+/* ---------------- personas ---------------- */
+const PERSONAS = {
+  ir:  {init:'DO', name:'Dana Okoye', role:'IR Analyst · Acme', roleFull:'Incident Response Analyst',
+        team:'Incident Response (IR)', clear:'L3', clearTxt:'L3 — Restricted',
+        licenses:['GCIH','GCFA'], scopes:['read:evidence','run:forensics','write:case-notes'], ws:'incident-2231'},
+  red: {init:'MV', name:'Marcus Vale', role:'Red Team Lead · Acme', roleFull:'Red Team Lead',
+        team:'Offensive Security', clear:'L4', clearTxt:'L4 — Secret',
+        licenses:['OSCP','OSEP','CRTO'], scopes:['read:evidence','run:offensive-tools','write:findings','scope:engagement'], ws:'pentest-northwind'},
+  grc: {init:'PN', name:'Priya Nair', role:'GRC Auditor · Acme', roleFull:'Governance, Risk & Compliance Auditor',
+        team:'GRC', clear:'L2', clearTxt:'L2 — Internal',
+        licenses:['CISA','CISSP'], scopes:['read:evidence','read:policy','write:audit-notes'], ws:'soc2-evidence-q3'},
+  jr:  {init:'SR', name:'Sam Reeve', role:'SOC Analyst (Jr) · Acme', roleFull:'SOC Analyst — Tier 1',
+        team:'Security Operations', clear:'L1', clearTxt:'L1 — General',
+        licenses:['Security+'], scopes:['read:alerts','write:tickets'], ws:'triage-queue'}
+};
+let P = PERSONAS.ir;
+
+/* ---------------- login ---------------- */
+function doLogin(){
+  P = PERSONAS[document.getElementById('persona').value];
+  applyPersona();
+  document.getElementById('login').style.display='none';
+  document.getElementById('app').classList.add('on');
+  startClock(); startLog(); startMeters();
+}
+function signOut(){ location.reload(); }
+
+function applyPersona(){
+  const set=(id,v)=>document.getElementById(id).textContent=v;
+  set('pfAvatar',P.init); set('pfName',P.name); set('pfRole',P.role);
+  set('mAvatar',P.init); set('mName',P.name); set('mRole',P.roleFull);
+  set('mTeam',P.team); set('mClearTxt',P.clearTxt);
+  set('topClear',P.clear); set('sbClear',P.clear); set('sbOperator',P.name);
+  set('welcomeHi','Welcome back, '+P.name.split(' ')[0]+'.');
+  set('topWs',P.ws);
+  document.getElementById('mClearBadge').textContent='◈ '+P.clear;
+  document.getElementById('mLicenses').innerHTML=P.licenses.map(l=>'<span class="badge lic">'+l+'</span>').join(' ');
+  document.getElementById('mScopes').innerHTML='<span class="mono" style="font-size:12px;color:var(--text-dim)">'+P.scopes.join(' · ')+'</span>';
+  document.getElementById('pfBadges').innerHTML =
+    '<span class="badge clr">◈ '+P.clear+'</span>'+P.licenses.map(l=>'<span class="badge lic">'+l+'</span>').join('');
+  document.getElementById('input').placeholder='Message Claude in the '+P.ws+' enclave…';
+}
+
+/* ---------------- profile modal ---------------- */
+function openProfile(){document.getElementById('modal').classList.add('on');logEvent('profile.view','ok');}
+function closeProfile(){document.getElementById('modal').classList.remove('on');}
+
+/* ---------------- chat engine ---------------- */
+let started=false;
+function ask(t){document.getElementById('input').value=t;submitMsg();}
+function keyer(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submitMsg();}}
+function auto(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,160)+'px';}
+
+function submitMsg(){
+  const el=document.getElementById('input');
+  const text=el.value.trim(); if(!text)return;
+  if(!started){document.getElementById('welcome').remove();started=true;}
+  addMsg('user',text);
+  el.value='';el.style.height='auto';
+  logEvent('prompt.submit · '+text.length+'b','');
+  const send=document.getElementById('send');send.disabled=true;
+  setTimeout(()=>{respond(text);send.disabled=false;},650);
+}
+
+function addMsg(who,html){
+  const scroll=document.getElementById('scroll');
+  const wrap=document.createElement('div');wrap.className='msg '+who;
+  const label = who==='user' ? P.name : 'Claude · enclave';
+  const badge = who==='user' ? P.init : '◈';
+  wrap.innerHTML='<div class="who">'+badge+'</div><div class="body"><div class="name">'+label+'</div><div class="content">'+html+'</div></div>';
+  scroll.appendChild(wrap);
+  scroll.scrollTop=scroll.scrollHeight;
+}
+
+function respond(t){
+  const q=t.toLowerCase();
+  let html='';
+
+  if(/exfil|copy.*(sample|malware).*(drive|personal)|send.*(sample|malware|secret)|upload.*out|leak|personal[- ]?drive/.test(q)){
+    html = '<p>I can’t do that from inside this enclave — and it isn’t about trust, it’s policy.</p>'+
+      '<div class="notice block"><span class="ni">⛔</span><div>Action <code>egress:copy → personal-drive.io</code> <b>blocked</b> by the enclave egress firewall (deny-all). '+
+      'This was rejected <b>server-side</b>, independent of your L'+P.clear.slice(1)+' clearance — no prompt can override it.</div></div>'+
+      '<p>If you need the sample off-box for analysis, request a <b>scoped transfer</b> to an approved malware-analysis enclave. That routes through your IR lead for sign-off and stays fully logged.</p>'+
+      '<div class="cite">policy: egress.deny-all · event hashed to case-ledger</div>';
+    logEvent('egress.copy → personal-drive.io BLOCKED','dan');
+  }
+  else if(/what.*(you|claude).*(see|know).*(me|clearance|profile)|about me/.test(q)){
+    html = '<p>Here’s exactly what I’m given about you for this session — nothing more:</p>'+
+      '<div class="pre">operator : '+P.name+'\nrole     : '+P.roleFull+'\nteam     : '+P.team+'\nclearance: '+P.clear+' ('+(P.clearTxt.split(/[—-]/)[1]||'').trim()+')\nlicenses : '+P.licenses.join(', ')+'\nscopes   : '+P.scopes.join(', ')+'</div>'+
+      '<p>I use this to tailor <i>how</i> I help — which tooling I surface, how I phrase findings, what I flag as out-of-remit. '+
+      'But I don’t <i>grant</i> any of it. Whether an action actually runs is decided by the policy engine below me, against your signed identity.</p>'+
+      '<div class="cite">context: identity.signed · read-only to model</div>';
+    logEvent('profile.context read by model','');
+  }
+  else if(/pcap|lateral|movement|indicator|triage/.test(q)){
+    html = '<p>Working through the captured pcap for <code>incident-2231</code> inside the enclave. Early read:</p>'+
+      '<div class="pre">→ SMB (445) bursts: WS-4471 → 3 hosts in 40s\n→ New svc “WinRMHelper” on FS-02 (T1021.006)\n→ Kerberos TGS spray → possible Kerberoast (T1558.003)\n→ Beacon-like 300s jitter → 10.0.4.12 (internal)</div>'+
+      '<p>That pattern reads as hands-on-keyboard lateral movement, not automated worming. I’d prioritize isolating <code>FS-02</code> and pulling its memory image next.</p>'+
+      '<div class="notice allow"><span class="ni">✓</span><div>All analysis ran on-box. Nothing left the enclave; finding written to the case ledger.</div></div>'+
+      '<div class="cite">mapped to MITRE ATT&CK · hash 9f2a…c7</div>';
+    logEvent('forensics.pcap analyzed','ok');
+  }
+  else if(/contain|remediat|next step|plan|isolate/.test(q)){
+    const jr = P.clear==='L1';
+    html = '<p>Here’s a containment sequence scoped to your access'+(jr?' — and I’ve flagged the steps that need a higher-clearance operator':'')+':</p>'+
+      '<div class="pre">1. Network-isolate FS-02 (VLAN quarantine)\n2. Snapshot memory + disk before any change\n3. Disable svc “WinRMHelper”; kill beacon PID\n4. Rotate creds seen in the TGS spray\n5. Hunt the beacon IOC across the fleet</div>'+
+      (jr? '<div class="notice block"><span class="ni">⚠</span><div>Steps 3–4 need <b>L2+</b> (write:forensics / cred-rotation). Your L1 profile can stage them, but execution routes to a senior analyst for approval.</div></div>'
+         : '<div class="notice allow"><span class="ni">✓</span><div>Your L'+P.clear.slice(1)+' scopes cover all five steps. Say the word and I’ll draft the runbook + ledger entries.</div></div>')+
+      '<div class="cite">scoped to: '+P.scopes.join(', ')+'</div>';
+    logEvent('containment.plan drafted','');
+  }
+  else {
+    html = '<p>Got it. I’m operating inside the <code>'+P.ws+'</code> enclave with your L'+P.clear.slice(1)+' context, egress locked to deny-all, and this exchange written to the case ledger.</p>'+
+      '<p>This is a front-end prototype, so my answers here are scripted rather than a live model — but in the real build this is exactly where your attached <b>Claude CLI</b> runs, sandboxed. Try “<i>triage the pcap</i>”, “<i>containment plan</i>”, or the <i>out-of-policy</i> chip to see the guardrails.</p>';
+    logEvent('prompt.handled','');
+  }
+  addMsg('ai',html);
+}
+
+/* ---------------- live sandbox ---------------- */
+let secs=7;
+function startClock(){setInterval(()=>{secs++;const h=String(Math.floor(secs/3600)).padStart(2,'0');
+  const m=String(Math.floor(secs%3600/60)).padStart(2,'0');const s=String(secs%60).padStart(2,'0');
+  const u=document.getElementById('sbUptime');if(u)u.textContent=h+':'+m+':'+s;},1000);}
+
+let mseed=42;
+function rnd(){mseed=(mseed*1103515245+12345)&0x7fffffff;return mseed/0x7fffffff;}
+function startMeters(){setInterval(()=>{
+  const cpu=Math.floor(12+rnd()*22),mem=(1.2+rnd()*1.1);
+  const cv=document.getElementById('cpuV'),cb=document.getElementById('cpuBar'),
+        mv=document.getElementById('memV'),mb=document.getElementById('memBar');
+  if(cv){cv.textContent=cpu+'%';cb.style.width=cpu+'%';}
+  if(mv){mv.textContent=mem.toFixed(1)+' / 4 GB';mb.style.width=(mem/4*100)+'%';}
+},2200);}
+
+const LOGSEED=[['identity.verified','ok'],['sandbox.provisioned','ok'],['egress.policy deny-all','ok'],
+  ['claude-cli.attached','ok'],['tool-shelf mounted','']];
+function pad(n){return String(n).padStart(2,'0');}
+function nowStamp(){secs; const base=10*3600+14*60; const tt=base+secs;
+  return pad(Math.floor(tt/3600)%24)+':'+pad(Math.floor(tt%3600/60))+':'+pad(tt%60);}
+function logEvent(ev,cls){
+  const log=document.getElementById('log');if(!log)return;
+  const ln=document.createElement('div');ln.className='ln';
+  ln.innerHTML='<span class="ts">'+nowStamp()+'</span><span class="ev '+(cls||'')+'">'+ev+'</span>';
+  log.appendChild(ln);log.scrollTop=log.scrollHeight;
+}
+function startLog(){LOGSEED.forEach((e,i)=>setTimeout(()=>logEvent(e[0],e[1]),i*90));}
+
+/* ---------------- misc ---------------- */
+function destroyEnclave(){
+  logEvent('enclave.teardown requested','warn');
+  toast('Enclave torn down — all session state wiped');
+  setTimeout(()=>{logEvent('state.wiped · unrecoverable','dan');},500);
+}
+let tt;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(tt);tt=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(30px)';},2600);}
+
+document.getElementById('persona').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+</script>
+</body>
+</html>

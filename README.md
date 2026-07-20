@@ -1,0 +1,49 @@
+# Enclave
+
+**The secure workspace where security teams put AI to work.**
+
+Enclave is a hardened sandbox and professional console where security professionals — red teams, AppSec, IR, SOC, GRC — collaborate with Claude on real, sensitive systems inside per-session isolation, with every action scoped to their role, clearance, and license, and written to an immutable audit trail.
+
+> **Why it exists:** the people who'd benefit most from AI are the ones who legally and practically *can't* paste their work into a public chatbot — breach data, exploits, proprietary source. Enclave gives them the AI leverage **and** the containment.
+
+## 🔗 Live demo
+
+Marketing site + interactive console (GitHub Pages): **https://jjackk0k.github.io/enclave/**
+
+- `index.html` — landing site
+- `app.html` — the console (mock SSO → chat + profile + live sandbox panel). Pick a persona, try the **"triage the pcap"** and **"test the guardrails"** prompts.
+
+## Focus areas
+
+Enclave leads with two workloads that share one hardened backend:
+
+| Workload | Best for | Why it fits |
+|---|---|---|
+| **Secure code review** | AppSec teams, regulated software (fintech / health / defense), pre-release audits | The sensitive asset is *source/IP*; the work is *analysis* — where Claude is already strongest. Near-zero egress. The clean "land" product. |
+| **Red team ops** | Offensive-security teams, pentest firms, purple teaming | Active, tooling-driven work needing *scoped authorization*, *strong containment*, and *defensible audit*. The differentiator that proves the isolation moat — the "expand" product. |
+
+## Security model (the important part)
+
+The pretty UI is *just the door*. Real security lives in the backend, in layers, and **authorization is enforced below the model, never by it**:
+
+- A user's clearance/profile **informs** the AI (what to surface, how to phrase) — it **never authorizes** it.
+- Every privileged action is checked **server-side** against a signed identity, so no prompt (including prompt injection) can escalate its own permissions.
+- Per-session disposable isolation · deny-all egress firewall · hashed, immutable audit ledger.
+
+The full backend design lives in [`docs/security-architecture.md`](docs/security-architecture.md).
+
+## Run locally
+
+No build step — the pages are self-contained (inline CSS/JS). Just open `index.html` in a browser, or serve the folder:
+
+```bash
+python -m http.server 8080   # then visit http://localhost:8080
+```
+
+## Status
+
+Early-stage prototype. The current build demonstrates the **product experience and identity model**. "Micro-VM isolation," "egress firewall," and "immutable ledger" describe the target architecture (see the design doc) — the hardened backend is the next build.
+
+---
+
+© 2026 — all rights reserved. Enclave is an independent concept and is not affiliated with or endorsed by Anthropic. "Claude" and "Claude Code" are products of Anthropic.
