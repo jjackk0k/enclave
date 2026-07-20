@@ -59,6 +59,14 @@ Or run each on its own:
 | [`poc/persona-work`](poc/persona-work) | `npm run demo` — the AI produces a role- and clearance-appropriate deliverable per persona (offline, or `--live` with a key). |
 | [`poc/full-stack`](poc/full-stack) | `npm run demo` *(Docker)* — an isolated sandbox with no internet whose only egress is the key-injecting broker: no data leaves, the key never enters. |
 
+## Run the console (live AI)
+
+```bash
+ANTHROPIC_API_KEY=sk-ant-…  npm run console     # then open http://localhost:8977
+```
+
+`server.mjs` serves the console on localhost **and** acts as the egress broker for the chat: the browser sends messages with **no key**; the server injects the Anthropic key and calls Claude, so the key never reaches the browser (the same pattern as [`poc/egress-broker`](poc/egress-broker), wired to the real UI). The AI is given the operator's read-only persona context, so it tailors replies to their role and clearance. Without a key set, the console loads in its scripted demo mode.
+
 ## Status
 
 Early-stage prototype. The current build demonstrates the **product experience and identity model**. "Micro-VM isolation," "egress firewall," and "immutable ledger" describe the target architecture (see the design doc) — the hardened backend is the next build.

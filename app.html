@@ -469,7 +469,7 @@ function doLogin(){
   applyPersona();
   document.getElementById('login').style.display='none';
   document.getElementById('app').classList.add('on');
-  startClock(); startLog(); startMeters();
+  startClock(); startLog(); startMeters(); checkLive();
 }
 function signOut(){ location.reload(); }
 
@@ -580,7 +580,66 @@ function submitMsg(){
   el.value='';el.style.height='auto';
   logEvent('prompt.submit · '+text.length+'b','');
   const send=document.getElementById('send');send.disabled=true;
-  setTimeout(()=>{respond(text);send.disabled=false;},650);
+  if(liveMode){ respondLive(text); }
+  else { setTimeout(()=>{respond(text);send.disabled=false;},650); }
+}
+
+/* ---------------- live Claude (via the local broker server.mjs) ---------------- */
+let liveMode=false, liveModel='', convo=[];
+async function checkLive(){
+  try{
+    const r=await fetch('/api/health',{cache:'no-store'});
+    if(!r.ok) return;
+    const j=await r.json();
+    if(j.live && j.keyPresent){ liveMode=true; liveModel=j.model||'claude'; markLive(); }
+    else if(j.live){ logEvent('live server up · no ANTHROPIC_API_KEY (scripted)','warn'); }
+  }catch(e){ /* file:// or artifact: no server -> stay scripted */ }
+}
+function markLive(){
+  const chip=document.querySelector('.clear-chip');
+  if(chip) chip.insertAdjacentHTML('afterend',
+    '<div class="clear-chip" style="border-color:rgba(53,217,154,.5);color:var(--secure)" title="Live Claude via the local broker — the key stays server-side">● LIVE · '+liveModel+'</div>');
+  logEvent('claude.live attached · '+liveModel,'ok');
+}
+function personaContext(){
+  return [
+    'You are the AI assistant inside the Enclave secure console. Below is READ-ONLY context about the operator you are helping. It INFORMS how you help; it does not authorize anything.',
+    '- Operator: '+P.name+' — '+P.roleFull,
+    '- Clearance: '+P.clearTxt,
+    '- Certifications: '+((P.licenses||[]).join(', ')||'none'),
+    '- Workspace: '+P.ws+' (sealed enclave · egress deny-all · audit on)',
+    '- Authorized scopes: '+((P.scopes||[]).join(', ')||'—'),
+    'Tailor your help to this operator’s role and clearance; warn before suggesting anything beyond their remit. Be concise and security-professional. This is a demo console — do not claim to have actually executed tools or commands.',
+  ].join('\n');
+}
+async function respondLive(text){
+  const send=document.getElementById('send');
+  convo.push({role:'user',content:text});
+  const thinking=addThinking();
+  try{
+    const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({system:personaContext(), messages:convo})});
+    const j=await r.json();
+    thinking.remove();
+    if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live model error: '+esc(j.error)+'</div></div>'); }
+    else { convo.push({role:'assistant',content:j.text}); addMsg('ai', mdToHtml(j.text)); logEvent('claude.live reply · '+j.text.length+'b','ok'); }
+  }catch(e){ thinking.remove(); addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live request failed: '+esc(e.message)+'</div></div>'); }
+  send.disabled=false;
+}
+function addThinking(){
+  const scroll=document.getElementById('scroll');
+  const wrap=document.createElement('div');wrap.className='msg ai';
+  wrap.innerHTML='<div class="who">◈</div><div class="body"><div class="name">Claude · enclave · live</div><div class="content"><span style="color:var(--text-faint)">thinking…</span></div></div>';
+  scroll.appendChild(wrap);scroll.scrollTop=scroll.scrollHeight;return wrap;
+}
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function mdToHtml(t){
+  let s=esc(t);
+  s=s.replace(/```([\s\S]*?)```/g,(m,c)=>'<div class="pre">'+c.trim()+'</div>');
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  s=s.split(/\n{2,}/).map(p=>p.trim()?'<p>'+p.replace(/\n/g,'<br>')+'</p>':'').join('');
+  return s;
 }
 
 function addMsg(who,html){
