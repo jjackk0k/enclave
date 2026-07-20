@@ -56,6 +56,7 @@ Or run each on its own:
 | [`poc/isolation`](poc/isolation) | `npm run demo` — provision → PEP-gated exec → isolated run → teardown → audit, across process / Docker / Firecracker tiers. |
 | [`poc/egress-broker`](poc/egress-broker) | `npm run demo` — deny-all egress + the Anthropic key injected *outside* the sandbox (BYO-key that never enters it). |
 | [`presets`](presets) | `node scaffold.mjs --list` — scaffold a governed, pre-filled workspace from a preset. |
+| [`poc/persona-work`](poc/persona-work) | `npm run demo` — the AI produces a role- and clearance-appropriate deliverable per persona (offline, or `--live` with a key). |
 
 ## Status
 
