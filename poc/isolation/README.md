@@ -15,10 +15,15 @@ Real Firecracker isolation needs a **KVM host** (bare-metal / nested-virt Linux)
 | Tier | Isolation | Egress denied (kernel) | Runs where |
 |---|---|---|---|
 | `firecracker` | hardware microVM (KVM) + jailer | ✅ (no NIC, vsock only) | **production** Linux/KVM hosts |
-| `docker` | namespaces + seccomp (`--network none`, read-only, cap-drop) | ✅ | anywhere Docker runs |
-| `local-process` | ephemeral dir + scrubbed env | ❌ (dev only) | **anywhere, incl. Windows** |
+| `hyperv` | hardware VM (Hyper-V), per session | ✅ | Windows **Pro/Enterprise** hosts |
+| `docker` | namespaces + seccomp (`--network none`, read-only, cap-drop) | ✅ | anywhere Docker runs (incl. Windows, via its Linux VM) |
+| `local-process` | ephemeral dir + scrubbed env | ❌ (dev only) | **anywhere, incl. Windows Home** |
 
-The Firecracker provider ships its real config (jailer args, microVM config, vsock egress) in [`providers/firecracker.mjs`](providers/firecracker.mjs); it's guarded to KVM hosts and the manager falls back automatically.
+Each provider ships its real config and is guarded to hosts that support it; the manager falls back automatically (VM → container → process).
+
+### "Can Firecracker run on Windows?"
+
+No — Firecracker is built on **KVM**, a Linux-kernel feature, so it's Linux-only by design and there's no Windows port. The Windows-native equivalent is **Hyper-V** (see [`providers/hyperv.mjs`](providers/hyperv.mjs)), which needs Windows **Pro/Enterprise**. The practical point on a Windows dev box: the **`docker` tier already runs containers inside a real Linux VM** (Docker Desktop's WSL2 backend), so you get genuine Linux-kernel isolation — `--network none`, namespaces, seccomp — on Windows today. **Production hosts are Linux + Firecracker regardless.**
 
 ## Run it
 

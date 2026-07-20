@@ -10,12 +10,13 @@ import { appendAudit } from '../enforcement-seam/util.mjs';
 import local from './providers/local-process.mjs';
 import docker from './providers/docker.mjs';
 import firecracker from './providers/firecracker.mjs';
+import hyperv from './providers/hyperv.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PEP_HOOK = join(HERE, '..', 'enforcement-seam', 'hook', 'pretooluse-hook.mjs');
 export const LEDGER = join(HERE, 'isolation-ledger.jsonl');
 
-const PROVIDERS = [firecracker, docker, local]; // strongest first
+const PROVIDERS = [firecracker, hyperv, docker, local]; // strongest available first (VM > container > process)
 export function selectProvider() {
   for (const p of PROVIDERS) { try { if (p.available()) return p; } catch { /* unavailable */ } }
   return local;
