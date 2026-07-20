@@ -8,13 +8,26 @@
   },
 
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./print-context.mjs --hook",
+            "_note": "INFORM: injects the read-only environment + operator authorization so the AI knows its context. Grants nothing."
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "node ./hook/pretooluse-hook.mjs"
+            "command": "node ./hook/pretooluse-hook.mjs",
+            "_note": "ENFORCE: decides every tool call against the signed identity via Cedar. The actual gate."
           }
         ]
       }

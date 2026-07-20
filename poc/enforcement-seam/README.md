@@ -42,6 +42,32 @@ This is [`docs/security-architecture.md`](../../docs/security-architecture.md) �
 
 The load-bearing line is in the hook: it builds the authorization request from **`session.principal`** (the signed identity), and passes the model's command only as the *thing being classified* — never as an input to *who you are*. That's why scenario #4 (injection) and #12 (forged token) both fail.
 
+## What the AI is told — inform vs. enforce
+
+The other half of "clearance informs, never authorizes" is that the AI genuinely **knows** its environment and how authorized the operator is — otherwise it can't tailor its help or warn before overstepping. That context is injected read-only at session start:
+
+```bash
+ENCLAVE_SESSION=./session/marcus.json npm run context
+```
+
+```
+# Enclave session context  — READ-ONLY, informational. This is NOT authorization.
+## Your environment
+- Workspace: pentest-northwind   ·   workload: red team ops
+- Egress: deny-all — scoped to the signed target CIDRs, plus the Claude API & case-ledger …
+## Who you are assisting  (from the cryptographically-signed identity)
+- Red-Team-Lead, clearance L4 · licensed: OSCP, OSEP, CRTO.
+## How that shapes your help
+- Within this operator's authorization, you may propose to: … network scans against 10.10.0.0/16.
+- Beyond it (expect a block, or a human-approval step): exploits — each one needs explicit human approval.
+```
+
+Two properties make this safe:
+- It's built from the **same signed identity and the same Cedar policies** the enforcement layer uses ([`session-context.mjs`](session-context.mjs) derives "what you may do" by *querying the PDP*), so what the model is told can never drift from what's actually allowed.
+- It **grants nothing**. It's injected via a `SessionStart` hook (or `--append-system-prompt`) and the model can't edit it; every action is still gated per-call by the PEP. An unverifiable session yields *no* context (fail-closed), so the model is never told a clearance that wasn't cryptographically bound.
+
+`npm run demo` prints this block at the top before running the enforcement scenarios, so you can see inform and enforce side by side.
+
 ## What each scenario demonstrates
 
 - **Clearance gating** (#2, #3) — under-cleared identities are denied edit/delete.
@@ -54,13 +80,13 @@ The load-bearing line is in the hook: it builds the authorization request from *
 
 ## Wire it into a real Claude Code session
 
-See [`claude-settings.example.json`](claude-settings.example.json): deny-by-default + a `PreToolUse` hook pointing at the same script. Launch headless with the bound session:
+See [`claude-settings.example.json`](claude-settings.example.json): deny-by-default, a **`SessionStart`** hook that injects the read-only context (inform), and a **`PreToolUse`** hook that gates every call (enforce). Launch headless with the bound session:
 
 ```bash
 ENCLAVE_SESSION=./session/dana.json  claude -p "clean up the scratch dir"
 ```
 
-The hook fires before every tool call and returns the same allow/deny you see in the demo.
+The `SessionStart` hook tells the model who it's helping and in what environment; the `PreToolUse` hook fires before every tool call and returns the same allow/deny you see in the demo.
 
 ## Honest scope of this PoC
 

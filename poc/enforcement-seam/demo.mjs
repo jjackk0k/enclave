@@ -5,9 +5,10 @@
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { existsSync, unlinkSync } from 'node:fs';
+import { existsSync, unlinkSync, readFileSync } from 'node:fs';
 import { DIRECTORY, cedarVersion } from './policy-engine.mjs';
 import { verifyLedger } from './util.mjs';
+import { buildContext } from './session-context.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const HOOK = join(HERE, 'hook', 'pretooluse-hook.mjs');
@@ -83,6 +84,12 @@ function runHook(sessionFile, payload, approval) {
 
   console.log('\n' + C.b('  ENCLAVE — enforcement seam') + C.dim(`   (real Cedar ${cedarVersion}, out-of-model PDP/PEP)`));
   console.log(C.dim('  Every tool call is decided against the SIGNED session identity, never the model.\n'));
+
+  // ── the INFORM half: what the AI is told (read-only) before any enforcement ──
+  console.log(C.b('  ┌─ read-only context injected into the AI  ') + C.dim('(derived from the signed identity + the same policies)'));
+  const previewSession = JSON.parse(readFileSync(join(SESS, 'marcus.json'), 'utf8'));
+  for (const line of buildContext(previewSession).split('\n')) console.log(C.dim('  │ ') + line);
+  console.log(C.b('  └─ the AI now KNOWS its environment + how authorized the operator is — but this grants nothing.\n'));
 
   let pass = 0;
   for (let i = 0; i < SCENARIOS.length; i++) {
