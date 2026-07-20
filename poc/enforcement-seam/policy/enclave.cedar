@@ -46,15 +46,19 @@ when {
   resource.name == principal.workspace
 };
 
-// P5 — Offensive network scan: clearance L4+ AND the target address is inside
-//      the signed engagement scope (the hook computes `context.inScope` from the
-//      session's Rules-of-Engagement CIDRs; the model cannot set it).
+// P5 — Offensive network scan: clearance L4+ AND the target is inside the signed
+//      engagement scope AND the operator holds an OFFENSIVE certification. A high
+//      clearance alone does not authorize offensive tooling — the qualification does.
 permit (
   principal,
   action == Action::"networkScan",
   resource
 )
-when { principal.clearance >= 4 && context.inScope == true };
+when {
+  principal.clearance >= 4 &&
+  context.inScope == true &&
+  principal.licenses.containsAny(["OSCP", "OSEP", "CRTO", "GPEN", "GXPN"])
+};
 
 // P6 — Exploit / high-risk offensive action: everything P5 requires, PLUS an
 //      explicit human approval. With no approval the request falls through to
@@ -67,5 +71,20 @@ permit (
 when {
   principal.clearance >= 4 &&
   context.inScope == true &&
-  context.approved == true
+  context.approved == true &&
+  principal.licenses.containsAny(["OSCP", "OSEP", "CRTO", "GPEN", "GXPN"])
+};
+
+// P7 — Provision / deploy infrastructure ("build a platform"): high blast radius.
+//      Needs clearance L4+ AND a platform/cloud qualification. A red-team cert does
+//      NOT satisfy this, and a platform cert does NOT unlock offensive actions —
+//      clearance is necessary but never sufficient; the QUALIFICATION picks the door.
+permit (
+  principal,
+  action == Action::"provisionInfra",
+  resource
+)
+when {
+  principal.clearance >= 4 &&
+  principal.licenses.containsAny(["CKA", "CKAD", "AWS-SA-Pro", "Terraform-Assoc"])
 };

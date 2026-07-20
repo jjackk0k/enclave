@@ -7,6 +7,7 @@
 const OFFENSIVE_SCAN  = /\b(nmap|masscan|zmap|rustscan|unicornscan)\b/;
 const OFFENSIVE_EXPL  = /\b(msfconsole|metasploit|sqlmap|hydra|responder|mimikatz|crackmapexec|impacket)\b/;
 const CRED_OPS        = /\b(vault\s|passwd|secretsmanager|az\s+keyvault|aws\s+iam|rotate-?(key|cred|secret))\b/;
+const PROVISION       = /\b(terraform\s+(apply|destroy|plan)|kubectl\s+(apply|create|delete|scale|rollout)|helm\s+(install|upgrade|uninstall)|pulumi\s+up|cloudformation\s+(deploy|create-stack|update-stack)|docker\s+(compose\s+up|stack\s+deploy)|ansible-playbook|serverless\s+deploy|provision|deploy)\b/;
 const DESTRUCTIVE     = /(\brm\s+-|\brmdir\b|\bdel\s+\/|\bformat\b|\bmkfs\b|\bdd\s+if=|drop\s+table|--force\b|-f\b.*\bpush\b|:\s*>\s*\/)/;
 const READONLY_SHELL  = /^\s*(git\s+(status|log|diff|show|blame)|ls|ll|cat|less|head|tail|grep|rg|find|pwd|whoami|id|ps|env)\b/;
 
@@ -23,6 +24,7 @@ export function classify(toolName, toolInput = {}) {
 
   if (OFFENSIVE_EXPL.test(c)) return { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (raw.match(IPV4) || [])[1] };
   if (OFFENSIVE_SCAN.test(c)) return { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (raw.match(IPV4) || [])[1] };
+  if (PROVISION.test(c))      return { action: 'provisionInfra',    kind: 'workspace', label: 'provision / deploy infrastructure' };
   if (CRED_OPS.test(c))       return { action: 'rotateCredentials', kind: 'workspace', label: 'credential rotation' };
   if (DESTRUCTIVE.test(c))    return { action: 'deleteFiles', kind: 'workspace', label: 'destructive filesystem op' };
 

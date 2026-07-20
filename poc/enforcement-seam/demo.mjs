@@ -61,6 +61,18 @@ const SCENARIOS = [
     s: 'marcus.json',...bash("msfconsole -q -x 'use exploit/multi/handler; run' 10.10.5.20"),
     cwd: '/work/pentest-northwind', expect: 'deny' },
 
+  { t: 'Red-team lead tries to BUILD/DEPLOY a platform (right clearance, wrong qualification)',
+    s: 'marcus.json', ...bash('terraform apply -auto-approve'), cwd: '/work/pentest-northwind', expect: 'deny' },
+
+  { t: 'Platform engineer deploys infrastructure (right qualification)',
+    s: 'ravi.json',   ...bash('terraform apply -auto-approve'), cwd: '/work/infra-prod', expect: 'allow' },
+
+  { t: 'Platform engineer tries an offensive scan (L4, but wrong qualification)',
+    s: 'ravi.json',   ...bash('nmap -sS 10.10.5.20'), cwd: '/work/infra-prod', expect: 'deny' },
+
+  { t: 'Junior tries to deploy a platform (under-cleared)',
+    s: 'sam.json',    ...bash('kubectl apply -f prod.yaml'), cwd: '/work/triage-queue', expect: 'deny' },
+
   { t: 'FORGED SESSION — token edited to claim another workspace',
     s: 'sam-forged.json', ...bash('cat /cases/incident-2231/notes.md'), cwd: '/work/incident-2231', expect: 'deny' },
 ];

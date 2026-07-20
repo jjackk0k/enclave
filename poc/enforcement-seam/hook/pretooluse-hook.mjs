@@ -35,9 +35,17 @@ const REQUIREMENT = {
   editCode:          'clearance ≥ L2',
   deleteFiles:       'clearance ≥ L3',
   rotateCredentials: 'clearance ≥ L3 and an IR role',
-  networkScan:       'clearance ≥ L4 and a target inside the signed engagement scope',
-  exploit:           'clearance ≥ L4, an in-scope target, and human approval (HITL)',
+  provisionInfra:    'clearance ≥ L4 and a platform/cloud certification (CKA, Terraform-Assoc, …)',
+  networkScan:       'clearance ≥ L4, an in-scope target, and an offensive certification (OSCP, OSEP, CRTO, …)',
+  exploit:           'clearance ≥ L4, an in-scope target, an offensive certification, and human approval',
 };
+
+// Qualification gates — CLEARANCE says how trusted; QUALIFICATION says what you're
+// certified to do. They are different axes; a powerful action needs the right cert,
+// not just a high number. (In production these arrive as verifiable credentials.)
+const OFFENSIVE_CERTS = ['OSCP', 'OSEP', 'CRTO', 'GPEN', 'GXPN'];
+const PLATFORM_CERTS  = ['CKA', 'CKAD', 'AWS-SA-Pro', 'Terraform-Assoc'];
+const holds = (lic, set) => (lic || []).some(l => set.includes(l));
 
 function principalAttrs(id) {
   const e = DIRECTORY.find(x => x.uid.type === 'User' && x.uid.id === id);
@@ -102,14 +110,28 @@ async function readStdin() {
 
   // 6. Human-readable reason.
   let reason;
+  const lic = `[${(who.licenses || []).join(', ') || 'none'}]`;
+  const idTag = `${session.principal} (L${who.clearance}, ${who.role}, ${lic})`;
+
   if (allowed) {
-    reason = `authorized: ${cls.label} — session identity ${session.principal} (L${who.clearance}, ${who.role}) satisfies ${REQUIREMENT[cls.action]}.`;
-  } else if (cls.kind === 'target' && !context.inScope) {
-    reason = `blocked: ${cls.label} target ${cls.targetIp} is OUTSIDE the signed engagement scope (${session.engagementScope || 'none'}). Enforced server-side; the model cannot widen scope.`;
-  } else if (cls.action === 'exploit' && context.inScope && !context.approved) {
-    reason = `held for approval: ${cls.label} needs human-in-the-loop sign-off. Escalating an approval request; not executed.`;
+    reason = `authorized: ${cls.label} — ${idTag} satisfies ${REQUIREMENT[cls.action]}.`;
+  } else if (cls.action === 'networkScan' || cls.action === 'exploit') {
+    // Report the FIRST failing gate: clearance -> qualification -> scope -> approval.
+    if (who.clearance < 4)
+      reason = `blocked: ${cls.label} requires clearance ≥ L4. ${idTag} — decided against the bound identity.`;
+    else if (!holds(who.licenses, OFFENSIVE_CERTS))
+      reason = `blocked: ${cls.label} needs an OFFENSIVE certification (${OFFENSIVE_CERTS.slice(0, 3).join(', ')}, …). ${session.principal} is L${who.clearance} but holds ${lic} — clearance is high enough; the QUALIFICATION is missing. A high clearance never substitutes for the cert.`;
+    else if (!context.inScope)
+      reason = `blocked: ${cls.label} target ${cls.targetIp} is OUTSIDE the signed engagement scope (${session.engagementScope || 'none'}). Enforced server-side; the model cannot widen scope.`;
+    else
+      reason = `held for approval: ${cls.label} needs human-in-the-loop sign-off. Escalating an approval request; not executed.`;
+  } else if (cls.action === 'provisionInfra') {
+    if (who.clearance < 4)
+      reason = `blocked: ${cls.label} requires clearance ≥ L4. ${idTag}.`;
+    else
+      reason = `blocked: ${cls.label} needs a PLATFORM/cloud certification (${PLATFORM_CERTS.slice(0, 2).join(', ')}, …). ${session.principal} is L${who.clearance} but holds ${lic} — a red-team/IR cert does not unlock infrastructure.`;
   } else {
-    reason = `blocked: ${cls.label} requires ${REQUIREMENT[cls.action]}. Session identity ${session.principal} is L${who.clearance}/${who.role} in "${who.workspace}" — decided against the BOUND identity, so nothing in the prompt or command text can change it.`;
+    reason = `blocked: ${cls.label} requires ${REQUIREMENT[cls.action]}. ${idTag} in "${who.workspace}" — decided against the BOUND identity, so nothing in the prompt or command text can change it.`;
   }
 
   // 7. Audit (hash-chained).

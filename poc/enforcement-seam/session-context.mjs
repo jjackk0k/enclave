@@ -11,11 +11,16 @@
 
 import { authorize, DIRECTORY } from './policy-engine.mjs';
 
-const WORKSPACE_ACTIONS = [
-  ['readCode', 'read source & evidence'],
-  ['editCode', 'edit source'],
-  ['deleteFiles', 'run destructive file operations'],
-  ['rotateCredentials', 'rotate credentials'],
+// Each capability is probed against the live PDP with a best-case context, so the
+// summary reflects BOTH clearance and qualification gates exactly as enforced.
+const CHECKS = [
+  { action: 'readCode',          label: 'read source & evidence',                              res: 'ws',     ctx: {} },
+  { action: 'editCode',          label: 'edit source',                                         res: 'ws',     ctx: {} },
+  { action: 'deleteFiles',       label: 'run destructive file operations',                     res: 'ws',     ctx: {} },
+  { action: 'rotateCredentials', label: 'rotate credentials',                                  res: 'ws',     ctx: {} },
+  { action: 'provisionInfra',    label: 'provision / deploy infrastructure ("build a platform")', res: 'ws',  ctx: {} },
+  { action: 'networkScan',       label: 'run offensive network scans (in signed scope)',       res: 'target', ctx: { inScope: true } },
+  { action: 'exploit',           label: 'run exploits (with approval)',                        res: 'target', ctx: { inScope: true, approved: true } },
 ];
 
 function principalAttrs(id) {
@@ -26,15 +31,12 @@ function principalAttrs(id) {
 /** Returns { permitted:string[], escalate:string[] } derived from live policy. */
 export function capabilities(session) {
   const permitted = [], escalate = [];
-  for (const [action, label] of WORKSPACE_ACTIONS) {
-    const v = authorize({ principalId: session.principal, action, resource: { type: 'Workspace', id: session.workspace }, context: {} });
-    (v.decision === 'allow' ? permitted : escalate).push(label);
-  }
-  if (session.engagementScope) {
-    permitted.push(`network scans against the signed engagement scope (${session.engagementScope})`);
-    escalate.push('exploits — each one needs explicit human approval');
-  } else {
-    escalate.push('any offensive network action (not in scope for this workspace)');
+  for (const chk of CHECKS) {
+    const resource = chk.res === 'target'
+      ? { type: 'Target', id: '10.10.5.20' }
+      : { type: 'Workspace', id: session.workspace };
+    const v = authorize({ principalId: session.principal, action: chk.action, resource, context: chk.ctx });
+    (v.decision === 'allow' ? permitted : escalate).push(chk.label);
   }
   return { permitted, escalate };
 }
