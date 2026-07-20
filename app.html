@@ -203,6 +203,14 @@
   .enf-note{margin-top:10px;border-radius:10px;border:1px solid var(--border-soft);
     padding:13px 15px;font-size:12.5px;color:var(--text-dim);line-height:1.6}
   .enf-note b{color:var(--secure)}
+  .np-h{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);font-weight:700;margin:2px 0 9px}
+  .preset-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+  .preset-card{text-align:left;border:1px solid var(--border);border-radius:10px;padding:12px;background:var(--panel);cursor:pointer;transition:.14s}
+  .preset-card:hover{border-color:#2c3650}
+  .preset-card.sel{border-color:var(--accent);box-shadow:0 0 0 1px rgba(91,140,255,.3)}
+  .preset-card .pc-ic{font-size:17px;margin-bottom:6px}
+  .preset-card .pc-t{font-weight:600;font-size:13.5px}
+  .preset-card .pc-g{font-size:11px;color:var(--text-faint);font-family:var(--mono);margin-top:4px}
 
   @media(max-width:1080px){#app{grid-template-columns:230px 1fr}.sandbox{display:none}}
   @media(max-width:720px){#app{grid-template-columns:1fr}.side{display:none}}
@@ -265,11 +273,13 @@
   <!-- sidebar -->
   <aside class="side">
     <div class="side-scroll">
-      <button class="newws" onclick="toast('New enclave provisioning…')">+ New enclave</button>
+      <button class="newws" onclick="openNewEnclave()">+ New enclave</button>
       <h4>Active enclaves</h4>
-      <div class="ws active"><div class="wi">🛡️</div><div class="meta"><div class="nm">incident-2231</div><div class="sm">IR · egress deny-all</div></div></div>
-      <div class="ws"><div class="wi">🔎</div><div class="meta"><div class="nm">malware-triage</div><div class="sm">isolated · 2 tools</div></div></div>
-      <div class="ws"><div class="wi">🧪</div><div class="meta"><div class="nm">pentest-northwind</div><div class="sm">red-team · scoped</div></div></div>
+      <div id="activeEnclaves">
+        <div class="ws active"><div class="wi">🛡️</div><div class="meta"><div class="nm">incident-2231</div><div class="sm">IR · egress deny-all</div></div></div>
+        <div class="ws"><div class="wi">🔎</div><div class="meta"><div class="nm">malware-triage</div><div class="sm">isolated · 2 tools</div></div></div>
+        <div class="ws"><div class="wi">🧪</div><div class="meta"><div class="nm">pentest-northwind</div><div class="sm">red-team · scoped</div></div></div>
+      </div>
       <h4>Recent</h4>
       <div class="ws"><div class="wi">📄</div><div class="meta"><div class="nm">soc2-evidence-q3</div><div class="sm">read-only</div></div></div>
       <div class="ws"><div class="wi">🔐</div><div class="meta"><div class="nm">secrets-rotation</div><div class="sm">archived</div></div></div>
@@ -399,6 +409,33 @@
   </div>
 </div>
 
+<!-- ===================== NEW ENCLAVE (PRESET) MODAL ===================== -->
+<div class="modal-bg" id="newModal" onclick="if(event.target===this)closeNewEnclave()">
+  <div class="modal">
+    <div class="modal-h">
+      <div class="avatar">＋</div>
+      <div>
+        <div class="nm">New enclave</div>
+        <div class="rl">Scaffold a governed, pre-filled workspace</div>
+      </div>
+      <button class="x" onclick="closeNewEnclave()">✕</button>
+    </div>
+    <div class="modal-b">
+      <div class="np-h">1 · Choose a preset</div>
+      <div class="preset-grid" id="npCards"></div>
+      <div id="npParams"></div>
+      <div id="npResult"></div>
+      <div style="display:flex;gap:10px;margin-top:14px">
+        <button class="sso" id="npProvision" onclick="provisionEnclave()" style="margin-top:0;flex:1" disabled>Provision enclave</button>
+      </div>
+      <div class="enf-note" style="margin-top:14px">
+        <b>Provisioning is gated too.</b> If your clearance or qualification doesn't meet the preset,
+        the platform blocks it — the same rule as every other action, enforced against your signed identity.
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="toast" style="position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(30px);
   opacity:0;transition:.25s;background:#141b2b;border:1px solid var(--border);color:var(--text);
   padding:11px 18px;border-radius:10px;font-size:13.5px;z-index:120;box-shadow:0 20px 50px -20px #000"></div>
@@ -450,6 +487,79 @@ function applyPersona(){
 /* ---------------- profile modal ---------------- */
 function openProfile(){document.getElementById('modal').classList.add('on');logEvent('profile.view','ok');}
 function closeProfile(){document.getElementById('modal').classList.remove('on');}
+
+/* ---------------- new enclave (presets) ---------------- */
+const PRESETS = [
+  { id:'code-review', title:'Secure Code Review', icon:'◧', workload:'secure-code-review',
+    requires:{clearance:2, anyCert:null}, egress:['api.anthropic.com','case-ledger.internal'],
+    params:[{k:'project',label:'Project / repository',req:true},{k:'reviewer',label:'Lead reviewer',req:true},{k:'language',label:'Primary stack',def:'polyglot'}],
+    docs:['REVIEW-SCOPE.md','THREAT-MODEL.md','REVIEW-CHECKLIST.md','FINDINGS.md'] },
+  { id:'incident-response', title:'Incident Response', icon:'🛡️', workload:'incident-response',
+    requires:{clearance:3, anyCert:['GCIH','GCFA','GCFE','ECIH']}, egress:['api.anthropic.com','case-ledger.internal'],
+    params:[{k:'case',label:'Case ID',req:true},{k:'analyst',label:'Lead analyst',req:true},{k:'severity',label:'Severity',def:'SEV2'}],
+    docs:['INCIDENT-TIMELINE.md','CASE-NOTES.md','CHAIN-OF-CUSTODY.md'] },
+  { id:'red-team', title:'Red Team Engagement', icon:'🧪', workload:'red-team-ops',
+    requires:{clearance:4, anyCert:['OSCP','OSEP','CRTO','GPEN','GXPN']}, egress:['api.anthropic.com','case-ledger.internal'], scoped:true,
+    params:[{k:'client',label:'Client / target org',req:true},{k:'scope',label:'Authorised scope (CIDRs)',req:true},{k:'lead',label:'Engagement lead',req:true}],
+    docs:['RULES-OF-ENGAGEMENT.md','ENGAGEMENT-SCOPE.json','FINDINGS-REGISTER.md'] },
+  { id:'grc-audit', title:'GRC / Compliance Audit', icon:'📄', workload:'grc-audit',
+    requires:{clearance:2, anyCert:['CISA','CISSP','CRISC']}, egress:['api.anthropic.com','case-ledger.internal'],
+    params:[{k:'framework',label:'Framework',def:'SOC 2'},{k:'period',label:'Audit period',req:true},{k:'auditor',label:'Lead auditor',req:true}],
+    docs:['EVIDENCE-REGISTER.md','CONTROL-MAPPING.md'] },
+];
+let npSel = null;
+function clearanceNum(c){ return parseInt(String(c).replace(/\D/g,''),10)||0; }
+function openNewEnclave(){ npSel=null; renderPresetCards();
+  document.getElementById('npParams').innerHTML=''; document.getElementById('npResult').innerHTML='';
+  document.getElementById('npProvision').disabled=true; document.getElementById('newModal').classList.add('on'); }
+function closeNewEnclave(){ document.getElementById('newModal').classList.remove('on'); }
+function renderPresetCards(){
+  document.getElementById('npCards').innerHTML = PRESETS.map(p=>{
+    const gate = 'L'+p.requires.clearance + (p.requires.anyCert?(' · '+p.requires.anyCert.slice(0,2).join('/')+'…'):'');
+    return `<button class="preset-card${npSel===p.id?' sel':''}" onclick="pickPreset('${p.id}')"><div class="pc-ic">${p.icon}</div><div class="pc-t">${p.title}</div><div class="pc-g">needs ${gate}</div></button>`;
+  }).join(''); }
+function pickPreset(id){ npSel=id; renderPresetCards();
+  const p=PRESETS.find(x=>x.id===id);
+  document.getElementById('npParams').innerHTML = '<div class="np-h">2 · Project details</div>' + p.params.map(pr=>
+    `<div class="field"><label>${pr.label}${pr.req?' *':''}</label><input id="np_${pr.k}" value="${pr.def||''}" placeholder="${pr.def?'':'…'}"></div>`).join('');
+  document.getElementById('npResult').innerHTML=''; document.getElementById('npProvision').disabled=false; }
+function meetsRequires(persona, req){
+  if(clearanceNum(persona.clear) < req.clearance) return {ok:false, why:`this preset needs clearance ≥ L${req.clearance}, but you are ${persona.clear}`};
+  if(req.anyCert && !(persona.licenses||[]).some(l=>req.anyCert.includes(l))) return {ok:false, why:`this preset needs a qualifying certification (${req.anyCert.slice(0,3).join(' / ')}, …), but you hold ${(persona.licenses||[]).join(', ')||'none'}`};
+  return {ok:true}; }
+function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,22); }
+function provisionEnclave(){
+  const p=PRESETS.find(x=>x.id===npSel); if(!p) return;
+  const vals={}; const missing=[];
+  for(const pr of p.params){ const el=document.getElementById('np_'+pr.k); const v=(el?el.value:'').trim(); if(!v && pr.req) missing.push(pr.label); vals[pr.k]=v||pr.def||''; }
+  if(missing.length){ document.getElementById('npResult').innerHTML=`<div class="notice block"><span class="ni">⚠</span><div>Fill required field(s): ${missing.join(', ')}.</div></div>`; return; }
+  const m=meetsRequires(P, p.requires);
+  if(!m.ok){ document.getElementById('npResult').innerHTML=`<div class="notice block"><span class="ni">⛔</span><div><b>Provisioning blocked.</b> ${m.why}. Your profile <i>informs</i> the AI, but the platform <i>enforces</i> — decided server-side against your signed identity, so nothing here can override it.</div></div>`; logEvent('enclave.provision BLOCKED · '+p.id,'dan'); return; }
+  const name = slug(vals.client||vals.project||vals.case||vals.framework||p.id);
+  addEnclaveToSidebar(p, name);
+  closeNewEnclave();
+  document.getElementById('topWs').textContent=name;
+  document.getElementById('input').placeholder='Message Claude in the '+name+' enclave…';
+  logEvent('enclave.provision · '+p.id+' · '+name,'ok');
+  if(!started){ const w=document.getElementById('welcome'); if(w) w.remove(); started=true; }
+  const egressLine = 'deny-all → '+p.egress.join(', ') + (p.scoped&&vals.scope?(' + scope '+vals.scope):'');
+  const docs = p.docs.map(d=>'<code>'+d+'</code>').join(' ');
+  const certLine = p.requires.anyCert ? (' + cert ('+p.requires.anyCert.slice(0,3).join('/')+'…)') : '';
+  addMsg('ai',
+    `<p>✓ Provisioned <b>${name}</b> from the <b>${p.title}</b> preset — sealed micro-VM, egress deny-all, audit on.</p>`+
+    `<div class="pre">workload : ${p.workload}\nrequires : L${p.requires.clearance}${certLine}\negress   : ${egressLine}\noperator : ${P.name} · ${P.clear} ✓ (meets the gate)</div>`+
+    `<p>Pre-filled and ready to edit — no blank pages: ${docs}.</p>`+
+    `<div class="notice allow"><span class="ni">✓</span><div>The <code>workspace.json</code> is what the platform enforces; the docs were scaffolded from your project info. Start work now.</div></div>`+
+    `<div class="cite">preset ${p.id} · scaffolded (front-end demo) · see /presets for the real generator</div>`);
+}
+function addEnclaveToSidebar(p, name){
+  const list=document.getElementById('activeEnclaves'); if(!list) return;
+  document.querySelectorAll('.side .ws.active').forEach(w=>w.classList.remove('active'));
+  const div=document.createElement('div'); div.className='ws active';
+  const sm = p.scoped ? (p.id+' · scoped') : (p.id+' · deny-all');
+  div.innerHTML=`<div class="wi">${p.icon}</div><div class="meta"><div class="nm">${name}</div><div class="sm">${sm}</div></div>`;
+  list.prepend(div);
+}
 
 /* ---------------- chat engine ---------------- */
 let started=false;
