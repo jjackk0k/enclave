@@ -40,6 +40,23 @@ No build step — the pages are self-contained (inline CSS/JS). Just open `index
 python -m http.server 8080   # then visit http://localhost:8080
 ```
 
+## Run the proofs
+
+The backend isn't just a diagram — the core mechanisms run today. From the repo root:
+
+```bash
+npm test        # runs every self-checking proof and reports green/red
+```
+
+Or run each on its own:
+
+| Proof | What it verifies |
+|---|---|
+| [`poc/enforcement-seam`](poc/enforcement-seam) | `npm install && npm run demo` — 20 scenarios: clearance **and** qualification enforced by real [Cedar](https://www.cedarpolicy.com/), outside the model, against a signed identity (incl. prompt-injection, confused-deputy, forged-token, and an all-access lead). |
+| [`poc/isolation`](poc/isolation) | `npm run demo` — provision → PEP-gated exec → isolated run → teardown → audit, across process / Docker / Firecracker tiers. |
+| [`poc/egress-broker`](poc/egress-broker) | `npm run demo` — deny-all egress + the Anthropic key injected *outside* the sandbox (BYO-key that never enters it). |
+| [`presets`](presets) | `node scaffold.mjs --list` — scaffold a governed, pre-filled workspace from a preset. |
+
 ## Status
 
 Early-stage prototype. The current build demonstrates the **product experience and identity model**. "Micro-VM isolation," "egress firewall," and "immutable ledger" describe the target architecture (see the design doc) — the hardened backend is the next build.

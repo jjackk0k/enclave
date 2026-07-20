@@ -11,7 +11,7 @@ npm install
 npm run demo
 ```
 
-You'll see 16 scenarios across five Enclave personas, each decided by real Cedar policies and self-checked against the expected outcome:
+You'll see 20 scenarios across six Enclave personas, each decided by real Cedar policies and self-checked against the expected outcome:
 
 ```
  4. PROMPT INJECTION — command text claims admin override
@@ -77,7 +77,8 @@ Two properties make this safe:
 - **Engagement-scope gating** (#9 vs #10) — a red-team scan is allowed only against the target CIDR in the *signed* Rules-of-Engagement; off-scope is denied.
 - **Human-in-the-loop** (#11) — an exploit is held for approval, not executed.
 - **Clearance × qualification** (#12–#15) — powerful actions need the *right certification*, not just a high clearance: an L4 red-teamer can't deploy infrastructure (no platform cert), an L4 platform engineer can't run offensive scans (no offensive cert), and a junior can't deploy at all (clearance). **Clearance is necessary, never sufficient — the qualification picks the door.**
-- **Identity tamper-evidence** (#16) — a session token edited to claim more is rejected (signature no longer matches).
+- **All-access lead** (#16–#19) — a top-tier Security Lead (L5, holding every certification) clears *every* gate: offensive scan, infra provisioning, credential rotation, and an exploit (with approval). Full access is still a normal signed identity that satisfies each policy — not a magic bypass.
+- **Identity tamper-evidence** (#20) — a session token edited to claim more is rejected (signature no longer matches).
 
 ### Clearance × qualification
 
@@ -88,6 +89,7 @@ Two independent axes decide a powerful action — *how trusted* (clearance) and 
 | Marcus (Red-Team Lead) | L4 | OSCP, OSEP, CRTO | ✅ (in scope) | ⛔ no platform cert |
 | Ravi (Platform Eng) | L4 | CKA, Terraform-Assoc | ⛔ no offensive cert | ✅ |
 | Sam (SOC, junior) | L1 | Security+ | ⛔ clearance | ⛔ clearance |
+| Alex (Security Lead) | L5 | all of the above | ✅ | ✅ |
 
 Offensive tooling requires an offensive cert (`OSCP`/`OSEP`/`CRTO`/…); infrastructure requires a platform cert (`CKA`/`Terraform-Assoc`/…). Neither cert unlocks the other, and clearance alone unlocks neither. In production these certs arrive as **verifiable credentials** (SD-JWT) from an issuing authority — not self-asserted — per [architecture §4](../../docs/security-architecture.md).
 

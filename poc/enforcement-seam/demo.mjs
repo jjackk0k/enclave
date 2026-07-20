@@ -73,6 +73,18 @@ const SCENARIOS = [
   { t: 'Junior tries to deploy a platform (under-cleared)',
     s: 'sam.json',    ...bash('kubectl apply -f prod.yaml'), cwd: '/work/triage-queue', expect: 'deny' },
 
+  { t: 'ALL-ACCESS lead runs an offensive scan (L5, holds every cert)',
+    s: 'alex.json',   ...bash('nmap -sS 10.10.5.20'), cwd: '/work/command-deck', expect: 'allow' },
+
+  { t: 'ALL-ACCESS lead provisions infrastructure',
+    s: 'alex.json',   ...bash('terraform apply -auto-approve'), cwd: '/work/command-deck', expect: 'allow' },
+
+  { t: 'ALL-ACCESS lead rotates credentials',
+    s: 'alex.json',   ...bash('vault write auth/rotate-key role=lead'), cwd: '/work/command-deck', expect: 'allow' },
+
+  { t: 'ALL-ACCESS lead launches an exploit WITH human approval',
+    s: 'alex.json', approval: true, ...bash("msfconsole -q -x 'run' 10.10.5.20"), cwd: '/work/command-deck', expect: 'allow' },
+
   { t: 'FORGED SESSION — token edited to claim another workspace',
     s: 'sam-forged.json', ...bash('cat /cases/incident-2231/notes.md'), cwd: '/work/incident-2231', expect: 'deny' },
 ];

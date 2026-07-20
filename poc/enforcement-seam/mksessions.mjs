@@ -15,6 +15,7 @@ issue({ session_id: 'sess-1002', principal: 'priya',  workspace: 'soc2-evidence-
 issue({ session_id: 'sess-1003', principal: 'dana',   workspace: 'incident-2231' });
 issue({ session_id: 'sess-1004', principal: 'marcus', workspace: 'pentest-northwind', engagementScope: '10.10.0.0/16' });
 issue({ session_id: 'sess-1005', principal: 'ravi',   workspace: 'infra-prod' });
+issue({ session_id: 'sess-1006', principal: 'alex',   workspace: 'command-deck', engagementScope: '0.0.0.0/0' });
 
 // A FORGED session: Sam's token edited to claim a higher-value workspace, WITHOUT
 // re-signing. The hook must reject it (signature no longer matches) — you cannot

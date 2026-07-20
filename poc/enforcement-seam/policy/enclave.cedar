@@ -42,7 +42,7 @@ permit (
 )
 when {
   principal.clearance >= 3 &&
-  principal.role == "IR-Analyst" &&
+  (principal.role == "IR-Analyst" || principal.role == "Security-Lead") &&
   resource.name == principal.workspace
 };
 

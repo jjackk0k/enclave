@@ -238,6 +238,7 @@
         <option value="red">Marcus Vale · Red Team Lead · Clearance L4</option>
         <option value="grc">Priya Nair · GRC Auditor · Clearance L2</option>
         <option value="jr">Sam Reeve · SOC Analyst (Junior) · Clearance L1</option>
+        <option value="lead">Alex Chen · Security Lead · Clearance L5 (all-access)</option>
       </select>
     </div>
     <div class="field">
@@ -454,7 +455,11 @@ const PERSONAS = {
         licenses:['CISA','CISSP'], scopes:['read:evidence','read:policy','write:audit-notes'], ws:'soc2-evidence-q3'},
   jr:  {init:'SR', name:'Sam Reeve', role:'SOC Analyst (Jr) · Acme', roleFull:'SOC Analyst — Tier 1',
         team:'Security Operations', clear:'L1', clearTxt:'L1 — General',
-        licenses:['Security+'], scopes:['read:alerts','write:tickets'], ws:'triage-queue'}
+        licenses:['Security+'], scopes:['read:alerts','write:tickets'], ws:'triage-queue'},
+  lead:{init:'AC', name:'Alex Chen', role:'Security Lead · Acme', roleFull:'Principal Security Lead',
+        team:'Platform Security', clear:'L5', clearTxt:'L5 — Top Secret',
+        licenses:['OSCP','OSEP','CRTO','CKA','Terraform-Assoc','GCIH','GCFA','CISSP','CISA'],
+        scopes:['read:evidence','run:offensive-tools','run:forensics','provision:infra','write:findings','rotate:credentials','scope:engagement'], ws:'command-deck'}
 };
 let P = PERSONAS.ir;
 
