@@ -1,0 +1,6 @@
+# Files executed inside Linux containers must stay LF regardless of host OS,
+# or a CRLF checkout on Windows breaks `sh` / the shebang inside the container.
+*.sh        text eol=lf
+build.sh    text eol=lf
+Dockerfile  text eol=lf
+*.go        text eol=lf
