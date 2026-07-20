@@ -36,7 +36,7 @@ const checks = [
   { name: 'enforcement seam · identity + clearance + qualification', cwd: SEAM, cmd: NODE, args: ['demo.mjs'],
     want: [/scenarios behaved exactly as policy requires ✓/, /integrity verified ✓/], needZeroExit: true },
   { name: 'isolation layer · provision → PEP gate → isolated run → teardown', cwd: 'poc/isolation', cmd: NODE, args: ['demo.mjs'],
-    want: [/state wiped: yes/, /integrity verified ✓/, /scrubbed ✓/] },
+    want: [/state wiped: yes/, /integrity verified ✓/, /scrubbed ✓/], signal: /active tier: [^\n]+/ },
   { name: 'egress broker · deny-all + BYO-key injection', cwd: 'poc/egress-broker', cmd: NODE, args: ['demo.mjs'],
     want: [/key ever inside the sandbox: no ✓/, /audit log: none ✓/, /integrity verified ✓/] },
   { name: 'presets · scaffold a governed, pre-filled workspace', cwd: 'presets', cmd: NODE,
@@ -45,7 +45,7 @@ const checks = [
   { name: 'persona-work · the AI makes something befitting the persona', cwd: 'poc/persona-work', cmd: NODE, args: ['demo.mjs'],
     want: [/Alert Triage Note/, /Engagement Recon Plan/, /that needs L3/] },
   { name: 'full-stack · isolated sandbox + broker (no data leaves, key never enters)', cwd: 'poc/full-stack', cmd: NODE, args: ['demo.mjs'],
-    want: [/FULL-STACK: (PASS|SKIP)/] }, // SKIPs cleanly when Docker is off
+    want: [/FULL-STACK: (PASS|SKIP)/], signal: /FULL-STACK: \w+/ }, // SKIPs cleanly when Docker is off
 ];
 
 let failed = 0;
@@ -56,7 +56,8 @@ for (const c of checks) {
   const exitOk = c.needZeroExit ? r.code === 0 : true;
   const ok = missing.length === 0 && bad.length === 0 && exitOk;
   if (!ok) failed++;
-  console.log(`  ${ok ? C.g('PASS') : C.r('FAIL')}  ${c.name}`);
+  const sig = c.signal ? (r.out.match(c.signal) || [])[0] : '';
+  console.log(`  ${ok ? C.g('PASS') : C.r('FAIL')}  ${c.name}${sig ? C.dim('   [' + sig.trim() + ']') : ''}`);
   if (!ok) {
     if (!exitOk) console.log(C.dim(`         non-zero exit (${r.code})`));
     for (const m of missing) console.log(C.dim(`         missing marker: ${m}`));
