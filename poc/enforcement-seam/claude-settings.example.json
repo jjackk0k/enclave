@@ -1,0 +1,26 @@
+{
+  "_comment": "Illustrative: how the Enclave PEP wires into a headless Claude Code session. Exact field names track the current Claude Code docs; the mechanism (deny-by-default + a PreToolUse hook that gates every call) is the stable part.",
+
+  "permissions": {
+    "defaultMode": "deny",
+    "deny": ["Bash", "Edit", "Write", "WebFetch"],
+    "_note": "In production these live in *managed* settings so neither the user nor the model can widen them."
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./hook/pretooluse-hook.mjs"
+          }
+        ]
+      }
+    ]
+  },
+
+  "_run": "Set ENCLAVE_SESSION to the signed session file before launching, e.g.:  ENCLAVE_SESSION=./session/dana.json claude -p \"...\"  — the hook fires before every tool call and returns allow/deny.",
+  "_production": "In production the hook does not evaluate Cedar in-process; it forwards (bound-identity, action, resource, context) to the PDP service over mTLS and enforces the verdict. See ../../docs/security-architecture.md §5 and §10."
+}
