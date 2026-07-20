@@ -30,6 +30,22 @@ import { verifySession, ipInAnyScope, appendAudit } from '../util.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const LEDGER = join(HERE, '..', 'audit-ledger.jsonl');
 
+// The PDP call. Default: evaluate Cedar in-process (self-contained demo). If
+// ENCLAVE_PDP_URL is set, call the networked Cedar PDP service instead (production
+// shape) — and fail CLOSED if it's unreachable, so a PDP outage can never fail-open.
+async function decide(q) {
+  const url = process.env.ENCLAVE_PDP_URL;
+  if (!url) return authorize(q);
+  try {
+    const r = await fetch(url.replace(/\/$/, '') + '/authorize',
+      { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(q) });
+    if (!r.ok) throw new Error('PDP HTTP ' + r.status);
+    return await r.json();
+  } catch (e) {
+    return { decision: 'deny', determiningPolicies: [], errors: ['PDP unreachable (fail-closed): ' + e.message] };
+  }
+}
+
 const REQUIREMENT = {
   readCode:          'read access to your own workspace',
   editCode:          'clearance ≥ L2',
@@ -105,7 +121,7 @@ async function readStdin() {
   }
 
   // 5. Authorize against Cedar.
-  const verdict = authorize({ principalId: session.principal, action: cls.action, resource, context });
+  const verdict = await decide({ principalId: session.principal, action: cls.action, resource, context });
   const allowed = verdict.decision === 'allow';
 
   // 6. Human-readable reason.

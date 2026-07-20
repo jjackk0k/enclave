@@ -107,7 +107,7 @@ The `SessionStart` hook tells the model who it's helping and in what environment
 
 It proves the **seam and the semantics**, not the production plumbing. Simplified for a self-contained demo:
 
-- **In-process Cedar**, not a networked PDP service. Production forwards `(bound-identity, action, resource, context)` to a Cedar PDP over mTLS (architecture §5). The *policies and decisions are identical*.
+- **Networked PDP — included.** By default Cedar runs in-process (self-contained). Set `ENCLAVE_PDP_URL` and the PEP instead calls the Cedar PDP *service* ([`pdp-server.mjs`](pdp-server.mjs)) — the production shape (mTLS in prod), and **fail-closed** if it's unreachable so an outage can't fail-open. Decisions are identical (verified 20/20 either way): `node pdp-server.mjs &` then `ENCLAVE_PDP_URL=http://127.0.0.1:8990 node demo.mjs`.
 - **HMAC-signed sessions**, not IdP-issued asymmetric signatures. Production uses OIDC + short-lived, DPoP-bound tokens and SD-JWT clearances (architecture §4). The verify-then-trust step is the same.
 - **Command → action classification** is a compact ruleset here; production hardens it and pairs it with the OS-level sandbox and egress controls (architecture §6–§7) so classification is defense-in-depth, not the only wall.
 - The audit ledger is hash-chained but **not yet externally anchored** (architecture §9 adds WORM + Merkle anchoring).

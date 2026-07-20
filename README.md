@@ -1,5 +1,7 @@
 # Enclave
 
+[![CI](https://github.com/jjackk0k/enclave/actions/workflows/ci.yml/badge.svg)](https://github.com/jjackk0k/enclave/actions/workflows/ci.yml)
+
 **The secure workspace where security teams put AI to work.**
 
 Enclave is a hardened sandbox and professional console where security professionals — red teams, AppSec, IR, SOC, GRC — collaborate with Claude on real, sensitive systems inside per-session isolation, with every action scoped to their role, clearance, and license, and written to an immutable audit trail.
