@@ -58,10 +58,17 @@ export function classify(toolName, toolInput = {}) {
   // SHELL commands: classify by what actually RUNS (the command text only — not a file path).
   const cmd = (toolInput.command ?? '').toString();
   const c = cmd.toLowerCase();
+  const cc = cmd.replace(/^\s*enclave-shell\s+/i, '');  // unwrap so we see the real tool invocation
+
+  // Capability checks are benign READS, not offensive ops: `which nmap`, `nmap --version`,
+  // `hydra -h`, `type msfconsole` don't scan or exploit any target, so they must NOT require
+  // an engagement scope. Only an actual invocation (a real target/args) is gated below.
+  if (/^\s*(which|type|command\s+-v)\b/i.test(cc)) return { action: 'readCode', kind: 'workspace', label: 'capability check' };
+  const versionOnly = /(^|\s)(--version|-V|--help|-h|version)(\s|$)/.test(cc) && !IPV4.test(cc);
 
   if (isEgressCommand(cmd))   return { action: 'webResearch', kind: 'egress', host: extractHost(cmd), url: cmd, label: 'shell egress' };
-  if (OFFENSIVE_EXPL.test(c)) return { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (cmd.match(IPV4) || [])[1] };
-  if (OFFENSIVE_SCAN.test(c)) return { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (cmd.match(IPV4) || [])[1] };
+  if (OFFENSIVE_EXPL.test(c)) return versionOnly ? { action: 'readCode', kind: 'workspace', label: 'tool version check' } : { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (cmd.match(IPV4) || [])[1] };
+  if (OFFENSIVE_SCAN.test(c)) return versionOnly ? { action: 'readCode', kind: 'workspace', label: 'tool version check' } : { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (cmd.match(IPV4) || [])[1] };
   if (PROVISION.test(c))      return { action: 'provisionInfra',    kind: 'workspace', label: 'provision / deploy infrastructure' };
   if (CRED_OPS.test(c))       return { action: 'rotateCredentials', kind: 'workspace', label: 'credential rotation' };
   if (DESTRUCTIVE.test(c))    return { action: 'deleteFiles', kind: 'workspace', label: 'destructive filesystem op' };
