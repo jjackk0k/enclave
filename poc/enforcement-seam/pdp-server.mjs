@@ -28,6 +28,7 @@ const server = http.createServer((req, res) => {
       try { q = JSON.parse(b || '{}'); }
       catch { res.writeHead(400, { 'content-type': 'application/json' }); return res.end(JSON.stringify({ decision: 'deny', errors: ['bad request'] })); }
       const verdict = authorize(q); // real Cedar, decided out-of-process from the sandbox
+      console.log(`[authorize] ${q.principalId} · ${q.action} · ${(q.resource || {}).id || '-'} → ${verdict.decision}`);
       res.writeHead(200, { 'content-type': 'application/json' });
       res.end(JSON.stringify(verdict));
     });
