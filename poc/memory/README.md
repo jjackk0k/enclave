@@ -11,11 +11,10 @@
 
 The sandbox is destroyed on teardown by design, so anything meant to *outlive* the session can't live there — it needs a governed store.
 
-## Run it
+## Try it
 
-```bash
-npm run demo
-```
+- **Interactive playground:** open [`playground.html`](playground.html) in a browser — switch operators and watch scope, DLP, tamper-evidence, and poison-can't-escalate live.
+- **CLI proof:** `npm run demo`
 
 ```
   1) persistence   ✓ dana recalls her IR hypothesis in a new session
