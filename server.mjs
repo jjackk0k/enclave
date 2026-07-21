@@ -18,6 +18,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, basename } from 'node:path';
+import { homedir } from 'node:os';
 
 const ROOT   = process.env.ENCLAVE_ROOT || dirname(fileURLToPath(import.meta.url));
 const PORT   = Number(process.env.PORT) || 8977;
@@ -25,7 +26,9 @@ const MODEL  = process.env.ENCLAVE_MODEL || 'sonnet';
 const SEAM   = join(ROOT, 'poc', 'enforcement-seam');
 const HOOK   = join(SEAM, 'hook', 'pretooluse-hook.mjs');
 const LEDGER = join(SEAM, 'audit-ledger.jsonl');
-const LIVE   = join(ROOT, '.enclave-live');
+// Sealed workspaces live OUTSIDE the product tree — never nested in this repo, or the
+// AI's `git`/`cat` would walk up into Enclave's own source. Each gets its own git init.
+const LIVE   = process.env.ENCLAVE_WORKSPACES || join(homedir(), '.enclave-workspaces');
 const WIN    = process.platform === 'win32';
 const fwd    = p => p.replace(/\\/g, '/');   // forward-slash path (JSON-safe + claude.exe-safe)
 
@@ -79,13 +82,18 @@ const SEAL_DISALLOW = [
 const MODEL_ALIAS = { opus: 'opus', sonnet: 'sonnet', haiku: 'haiku' };
 
 // a sealed per-operator workspace whose settings.json wires in the PreToolUse hook
+function settingsPath(ws) { return join(LIVE, '.settings', ws + '.json'); }
 async function ensureWorkspace(ws) {
-  await mkdir(LIVE, { recursive: true });
+  await mkdir(join(LIVE, '.settings'), { recursive: true });
   await writeFile(join(LIVE, 'no-mcp.json'), '{"mcpServers":{}}');   // strict-mcp baseline: zero servers
   const dir = join(LIVE, ws);
   await mkdir(dir, { recursive: true });
+  // give the workspace its OWN empty git repo so `git status` stays local and can never
+  // walk up into a host repo (belt-and-braces with the out-of-tree location above)
+  if (!existsSync(join(dir, '.git'))) { try { spawnSync('git', ['init', '-q'], { cwd: dir, stdio: 'ignore' }); } catch {} }
+  // hook settings live OUTSIDE the workspace — the operator's AI never sees the host path to the hook
   const settings = { hooks: { PreToolUse: [ { matcher: '*', hooks: [ { type: 'command', command: `node --no-warnings ${fwd(HOOK)}` } ] } ] } };
-  await writeFile(join(dir, 'settings.json'), JSON.stringify(settings));
+  await writeFile(settingsPath(ws), JSON.stringify(settings));
   if (!existsSync(join(dir, 'README.enclave.md'))) await writeFile(join(dir, 'README.enclave.md'), `# ${ws}\nSealed Enclave workspace. Tool calls here are governed by your clearance.\n`);
   return dir;
 }
@@ -99,7 +107,7 @@ function callClaudeCLI({ message, persona, resumeId, system, model }) {
     const dir = await ensureWorkspace(P.ws);
     const useModel = MODEL_ALIAS[model] || MODEL;
     const args = ['-p', message,
-      '--settings', join(dir, 'settings.json'),
+      '--settings', settingsPath(P.ws),
       '--output-format', 'json',
       '--model', useModel,
       '--strict-mcp-config', '--mcp-config', join(LIVE, 'no-mcp.json'),  // seal: no inherited MCP servers

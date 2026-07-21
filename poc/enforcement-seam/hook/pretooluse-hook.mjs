@@ -22,7 +22,7 @@
 import { readFileSync } from 'node:fs';
 import { basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative, isAbsolute } from 'node:path';
 import { authorize, DIRECTORY } from '../policy-engine.mjs';
 import { classify } from '../classify.mjs';
 import { verifySession, ipInAnyScope, appendAudit } from '../util.mjs';
@@ -127,6 +127,21 @@ async function readStdin() {
   } else {
     const ws = input.cwd ? basename(String(input.cwd)) : session.workspace;
     resource = { type: 'Workspace', id: ws };
+  }
+
+  // 4b. Workspace confinement: a file op whose path escapes the sealed workspace is
+  // denied outright — even at L5. (Bash-level filesystem confinement is provided by the
+  // container/Firecracker tier; this guards the file tools in every tier, incl. local.)
+  const fpath = input.tool_input && input.tool_input.file_path;
+  if (fpath && input.cwd) {
+    const abs = isAbsolute(String(fpath)) ? String(fpath) : join(String(input.cwd), String(fpath));
+    const rel = relative(String(input.cwd), abs);
+    if (rel.split(/[\\/]/)[0] === '..' || isAbsolute(rel)) {
+      appendAudit(LEDGER, { ts: new Date().toISOString(), event: 'pretooluse.decision', session_id: session.session_id,
+        principal: session.principal, clearance: who.clearance, tool: input.tool_name, mapped_action: 'workspaceEscape',
+        resource: `Path::${abs}`, context: {}, decision: 'deny', cedar_policies: [] });
+      return emit('deny', `blocked: path "${fpath}" is OUTSIDE the sealed workspace. File access is confined to this enclave's directory and cannot escape it — enforced regardless of clearance.`, { mappedAction: 'workspaceEscape' });
+    }
   }
 
   // 5. Authorize against Cedar.
