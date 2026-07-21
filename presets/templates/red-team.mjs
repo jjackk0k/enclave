@@ -5,7 +5,8 @@ export default {
   workload: 'red-team-ops',
   requires: { clearance: 4, anyCert: ['OSCP', 'OSEP', 'CRTO', 'GPEN', 'GXPN'] },
   egress: { default: 'deny', allow: ['api.anthropic.com', 'case-ledger.internal'], scoped: true },
-  tools: ['nmap', 'metasploit', 'burpsuite', 'sqlmap', 'responder'],
+  // Curated best-in-class shelf (see /tool-shelf.mjs for gate tiers T0/T1/T2).
+  tools: ['projectdiscovery (subfinder/httpx/naabu)', 'nmap', 'nuclei', 'burpsuite', 'metasploit', 'sliver', 'netexec', 'impacket', 'bloodhound-ce', 'responder', 'hashcat'],
   params: [
     { key: 'client', prompt: 'Client / target organisation', required: true },
     { key: 'scope',  prompt: 'Authorised target scope — CIDRs, comma-separated', required: true },

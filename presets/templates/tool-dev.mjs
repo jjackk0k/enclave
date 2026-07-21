@@ -11,7 +11,8 @@ export default {
     'proxy.golang.org', 'sum.golang.org', 'registry.npmjs.org',
     'pypi.org', 'files.pythonhosted.org', 'static.crates.io', 'github.com',
   ] },
-  tools: ['go', 'rust', 'gcc', 'clang', 'mingw-w64', 'python3', 'make', 'git', 'gdb', 'nmap'],
+  // Curated best-in-class toolchain (see /tool-shelf.mjs for the full gated shelf).
+  tools: ['clang+gcc (ASan/UBSan)', 'mingw-w64', 'zig', 'rust+cross', 'go', 'dotnet', 'qemu', 'gdb+pwndbg', 'ghidra', 'afl++', 'pwntools'],
   params: [
     { key: 'tool',     prompt: 'Tool name', required: true },
     { key: 'platform', prompt: 'Target platform (linux / windows / both)', default: 'both' },
