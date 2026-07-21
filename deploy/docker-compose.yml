@@ -1,0 +1,25 @@
+# Enclave — deployable control-plane services. Turns the PoCs into real networked
+# services (the production PEP → PDP-over-network shape).
+#   docker compose up -d --build     # bring up
+#   node smoke.mjs                    # verify it answers
+#   docker compose down              # tear down
+
+services:
+  pdp:
+    build:
+      context: ..
+      dockerfile: deploy/pdp.Dockerfile
+    image: enclave-pdp
+    container_name: enclave-pdp
+    ports:
+      - "8990:8990"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8990/health').then(r=>{process.exit(r.ok?0:1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]

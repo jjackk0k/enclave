@@ -36,4 +36,5 @@ const server = http.createServer((req, res) => {
   res.writeHead(404); res.end('not found');
 });
 
-server.listen(PORT, '127.0.0.1', () => console.log(`Cedar PDP (v${cedarVersion}) on http://127.0.0.1:${PORT}  ·  POST /authorize`));
+const HOST = process.env.PDP_HOST || '127.0.0.1'; // 0.0.0.0 in a container; localhost by default
+server.listen(PORT, HOST, () => console.log(`Cedar PDP (v${cedarVersion}) on http://${HOST}:${PORT}  ·  POST /authorize`));
