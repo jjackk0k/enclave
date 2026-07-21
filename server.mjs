@@ -115,7 +115,7 @@ function callClaudeCLI({ message, persona, resumeId, system, model }) {
     if (system)   args.push('--append-system-prompt', system);
     if (resumeId) args.push('--resume', resumeId);
     const child = spawn(CLAUDE, args, { cwd: dir, windowsHide: true,
-      env: { ...process.env, ENCLAVE_SESSION: sessionFile, NODE_NO_WARNINGS: '1' } });
+      env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: dir, NODE_NO_WARNINGS: '1' } });
     let out = '', err = '';
     const killer = setTimeout(() => { child.kill(); reject(new Error('claude timed out (180s)')); }, 180000);
     child.stdout.on('data', d => (out += d));

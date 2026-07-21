@@ -23,6 +23,7 @@ import { readFileSync } from 'node:fs';
 import { basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, isAbsolute } from 'node:path';
+import { tmpdir } from 'node:os';
 import { authorize, DIRECTORY } from '../policy-engine.mjs';
 import { classify } from '../classify.mjs';
 import { verifySession, ipInAnyScope, appendAudit } from '../util.mjs';
@@ -111,6 +112,7 @@ async function readStdin() {
   const cls = classify(input.tool_name, input.tool_input || {});
 
   // 4. Resolve resource + context — the model cannot set any of this.
+  const wsRoot = process.env.ENCLAVE_WORKSPACE_DIR;   // abs path of the operator's OWN workspace (set by the server)
   let resource, context = {};
   if (cls.kind === 'target') {
     resource = { type: 'Target', id: cls.targetIp || '0.0.0.0' };
@@ -125,22 +127,38 @@ async function readStdin() {
     resource = { type: 'Endpoint', id: cls.host || 'unknown' };
     context = { hostAllowed: isSearch || hostAllowed(cls.host), urlClean: urlClean(cls.url) };
   } else {
-    const ws = input.cwd ? basename(String(input.cwd)) : session.workspace;
-    resource = { type: 'Workspace', id: ws };
+    // Workspace identity: if the model is working INSIDE the operator's own workspace tree
+    // (including any subdirectory), the resource is their SIGNED workspace — so a subfolder
+    // doesn't spuriously look like a different workspace. If cwd is OUTSIDE that tree, it's a
+    // confused-deputy reach into another workspace: resolve to that foreign name so it fails
+    // the `resource.name == principal.workspace` check. (No wsRoot set → legacy basename.)
+    let wsId;
+    if (wsRoot && input.cwd) {
+      const r = relative(wsRoot, String(input.cwd));
+      const insideOwn = !(r.split(/[\\/]/)[0] === '..' || isAbsolute(r));
+      wsId = insideOwn ? session.workspace : basename(String(input.cwd));
+    } else {
+      wsId = input.cwd ? basename(String(input.cwd)) : session.workspace;
+    }
+    resource = { type: 'Workspace', id: wsId };
   }
 
-  // 4b. Workspace confinement: a file op whose path escapes the sealed workspace is
-  // denied outright — even at L5. (Bash-level filesystem confinement is provided by the
-  // container/Firecracker tier; this guards the file tools in every tier, incl. local.)
+  // 4b. Workspace confinement: a file op whose path escapes the sealed workspace TREE is
+  // denied outright — even at L5. Subdirectories of the workspace are fine, and so is the
+  // model's own ephemeral session scratchpad. (Bash-level fs confinement is the container
+  // tier; this guards the file tools in every tier, incl. local.)
   const fpath = input.tool_input && input.tool_input.file_path;
-  if (fpath && input.cwd) {
-    const abs = isAbsolute(String(fpath)) ? String(fpath) : join(String(input.cwd), String(fpath));
-    const rel = relative(String(input.cwd), abs);
-    if (rel.split(/[\\/]/)[0] === '..' || isAbsolute(rel)) {
+  if (fpath && wsRoot) {
+    const cwd = input.cwd || wsRoot;
+    const abs = isAbsolute(String(fpath)) ? String(fpath) : join(String(cwd), String(fpath));
+    const within = (root) => { const r = relative(root, abs); return r === '' || (r.split(/[\\/]/)[0] !== '..' && !isAbsolute(r)); };
+    const t = tmpdir();
+    const inScratch = abs.toLowerCase().startsWith(t.toLowerCase()) && /[\\/]claude[\\/]/i.test(abs); // the model's own session scratch
+    if (!within(wsRoot) && !inScratch) {
       appendAudit(LEDGER, { ts: new Date().toISOString(), event: 'pretooluse.decision', session_id: session.session_id,
         principal: session.principal, clearance: who.clearance, tool: input.tool_name, mapped_action: 'workspaceEscape',
         resource: `Path::${abs}`, context: {}, decision: 'deny', cedar_policies: [] });
-      return emit('deny', `blocked: path "${fpath}" is OUTSIDE the sealed workspace. File access is confined to this enclave's directory and cannot escape it — enforced regardless of clearance.`, { mappedAction: 'workspaceEscape' });
+      return emit('deny', `blocked: path "${fpath}" is OUTSIDE the sealed workspace. File access is confined to this enclave's directory tree (subfolders are fine) and cannot escape it — enforced regardless of clearance.`, { mappedAction: 'workspaceEscape' });
     }
   }
 
