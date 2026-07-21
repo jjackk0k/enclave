@@ -103,7 +103,9 @@ async function ensureBin() {
     '# Enclave — run a command inside this enclave\'s sealed workload container (workspace at /work).\n' +
     'export MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL=\'*\'\n' +
     'if [ -z "$ENCLAVE_CONTAINER" ]; then echo "enclave-shell: no sealed container for this workload (host tier)" >&2; exit 3; fi\n' +
-    'exec docker exec -i -w /work "$ENCLAVE_CONTAINER" bash -c "$*"\n',
+    '# exec the tool + args DIRECTLY (no intermediate shell) so quoting is preserved and a\n' +
+    '# tool argument cannot inject into the local shell. For pipes/redirects: enclave-shell bash -lc "..."\n' +
+    'exec docker exec -i -w /work "$ENCLAVE_CONTAINER" "$@"\n',
     { mode: 0o755 });
 }
 
@@ -129,6 +131,31 @@ function ensureBrokerNet() {
   return true;
 }
 
+// ---- the RANGE: an isolated, disposable, deliberately-vulnerable practice target ----
+// so operators can safely fire what they build at something INSIDE the sealed range
+// instead of a real system. It sits on a lab network at a fixed IP that falls inside
+// the offensive workloads' signed engagement scope, so scanning/exploiting IT (and
+// only it) is permitted. Nothing else on that net; no internet.
+const LAB_NET = 'enclave-lab', LAB_TARGET = 'enclave-range-target', LAB_IMAGE = 'enclave-range-target:latest';
+const LAB_SUBNET = '10.10.0.0/16', LAB_IP = '10.10.5.20';
+const LAB_WORKLOADS = new Set(['red-team', 'tool-dev']);
+let labReady = null;
+function ensureLab() {
+  if (!DOCKER_OK) return null;
+  if (labReady !== null) return labReady;
+  if (spawnSync('docker', ['image', 'inspect', LAB_IMAGE], { stdio: 'ignore' }).status !== 0) { labReady = false; return null; }
+  spawnSync('docker', ['network', 'create', '--subnet', LAB_SUBNET, LAB_NET], { stdio: 'ignore' }); // idempotent
+  const up = spawnSync('docker', ['ps', '-q', '-f', 'name=^' + LAB_TARGET + '$'], { encoding: 'utf8' });
+  if (!(up.status === 0 && up.stdout.trim())) {
+    spawnSync('docker', ['rm', '-f', LAB_TARGET], { stdio: 'ignore' });
+    const r = spawnSync('docker', ['run', '-d', '--name', LAB_TARGET, '--network', LAB_NET, '--ip', LAB_IP, LAB_IMAGE], { encoding: 'utf8' });
+    if (r.status !== 0) { console.log('[range] target failed:', (r.stderr || '').slice(0, 160)); labReady = false; return null; }
+    console.log(`[range] lab target up at ${LAB_IP} (${LAB_NET}) — vulnerable practice box, in-scope for offensive workloads`);
+  }
+  labReady = LAB_IP;
+  return LAB_IP;
+}
+
 // ensure a persistent, sealed per-enclave container is running for this workload
 function ensureContainer(ws, workload, wsDir) {
   if (!DOCKER_OK) return null;
@@ -143,14 +170,18 @@ function ensureContainer(ws, workload, wsDir) {
   spawnSync('docker', ['rm', '-f', name], { stdio: 'ignore' });// clear any stopped leftover
   const broker = ensureBrokerNet();
   const netArgs = broker ? ['--network', NET_INTERNAL] : ['--network', 'none'];
+  const noProxy = 'localhost,127.0.0.1,' + LAB_IP + ',' + LAB_SUBNET;  // lab traffic bypasses the research broker
   const proxyEnv = broker ? ['-e', 'HTTP_PROXY=http://enclave-broker:8888', '-e', 'HTTPS_PROXY=http://enclave-broker:8888',
     '-e', 'http_proxy=http://enclave-broker:8888', '-e', 'https_proxy=http://enclave-broker:8888',
-    '-e', 'NO_PROXY=localhost,127.0.0.1', '-e', 'no_proxy=localhost,127.0.0.1'] : [];
+    '-e', 'NO_PROXY=' + noProxy, '-e', 'no_proxy=' + noProxy] : [];
   const run = spawnSync('docker', ['run', '-d', '--name', name, ...netArgs, ...proxyEnv,
     '-v', wsDir.replace(/\\/g, '/') + ':/work', '-w', '/work', image, 'tail', '-f', '/dev/null'],
     { encoding: 'utf8' });
   if (run.status !== 0) { console.log('[container] start failed:', (run.stderr || '').slice(0, 200)); return null; }
-  console.log(`[container] ${name} up (${image}) · /work mounted · egress: ${broker ? 'allowlist-broker' : 'sealed (--network none)'}`);
+  // offensive workloads get a line into the sealed lab range (the practice target)
+  let labIp = null;
+  if (LAB_WORKLOADS.has(workload)) { labIp = ensureLab(); if (labIp) spawnSync('docker', ['network', 'connect', LAB_NET, name], { stdio: 'ignore' }); }
+  console.log(`[container] ${name} up (${image}) · /work mounted · egress: ${broker ? 'allowlist-broker' : 'sealed'}${labIp ? ' · range target ' + labIp : ''}`);
   return name;
 }
 
@@ -240,6 +271,8 @@ function callClaudeCLI({ message, persona, resumeId, system, model, workload, se
     const container = ensureContainer(wsName, wl, dir);  // sealed per-session container (null → host tier)
     let sysAug = system || '';
     if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", non-root, your workspace mounted at /work) is live. Its network egress is restricted to an allowlist broker — approved research sources (CVE/NVD, MITRE ATT&CK, GitHub, package registries, docs) reach out; everything else is refused. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell nuclei -u https://target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
+    const labIp = (container && LAB_WORKLOADS.has(wl)) ? ensureLab() : null;
+    if (labIp) sysAug += `\n\nRANGE — SAFE PRACTICE TARGET: a disposable, deliberately-vulnerable lab box is live at ${labIp} on your engagement network, INSIDE your signed scope — so you may freely scan and exploit IT (and only it) to test what you build. It serves a web app on :8080 with a command-injection bug at GET /ping?host=. Try:  enclave-shell nmap -sV ${labIp}  ·  enclave-shell curl "http://${labIp}:8080/ping?host=127.0.0.1;id"  (that ;id is the injection → runs on the target). Nothing else on the range is reachable; this is where you test offensive tooling instead of a real system.`;
     const useModel = MODEL_ALIAS[model] || MODEL;
     const args = ['-p', message,
       '--settings', settingsPath(wsName),
@@ -290,6 +323,8 @@ async function callKimi({ message, persona, system, workload, session, effort, m
   const container = ensureContainer(wsName, wl, dir);
   let sysAug = (system || '') + '\n\nYou have function-calling tools: Read, Write, Edit, Bash, Grep, Glob. EVERY call is intercepted by the Enclave policy hook and allowed/denied by this operator’s signed clearance + certifications — you cannot override it. If a call is denied, state what it needs and take the in-policy path. Operate only inside the workspace.';
   if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container is live (egress via allowlist broker, workspace at /work). Run the workload toolchain INSIDE it through Bash:  enclave-shell <command>  (e.g. enclave-shell nmap -sV <in-scope-target>, enclave-shell vol -f /work/mem.raw windows.pslist).`;
+  const labIp = (container && LAB_WORKLOADS.has(wl)) ? ensureLab() : null;
+  if (labIp) sysAug += `\n\nRANGE — SAFE PRACTICE TARGET at ${labIp} (in your signed scope): a disposable, deliberately-vulnerable lab box to test tooling against instead of a real system. Web app on :8080 with a command-injection bug at GET /ping?host=. e.g. enclave-shell nmap -sV ${labIp} · enclave-shell curl "http://${labIp}:8080/ping?host=127.0.0.1;id". Only it is reachable.`;
   const hist = (Array.isArray(messages) && messages.length) ? messages : [{ role: 'user', content: message }];
   const norm = hist.map(m => ({ role: m.role === 'assistant' ? 'assistant' : (m.role === 'system' ? 'system' : 'user'), content: typeof m.content === 'string' ? m.content : JSON.stringify(m.content) }));
   const r = await runGovernedAgent({

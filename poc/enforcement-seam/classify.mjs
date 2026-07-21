@@ -66,7 +66,14 @@ export function classify(toolName, toolInput = {}) {
   if (/^\s*(which|type|command\s+-v)\b/i.test(cc)) return { action: 'readCode', kind: 'workspace', label: 'capability check' };
   const versionOnly = /(^|\s)(--version|-V|--help|-h|version)(\s|$)/.test(cc) && !IPV4.test(cc);
 
-  if (isEgressCommand(cmd))   return { action: 'webResearch', kind: 'egress', host: extractHost(cmd), url: cmd, label: 'shell egress' };
+  if (isEgressCommand(cmd)) {
+    const host = extractHost(cmd);
+    // tool traffic to a PRIVATE-range host (an engagement/lab target) is an offensive
+    // action gated by the engagement scope — NOT web research to be allowlist-checked.
+    if (host && /^(10\.|127\.|172\.(1[6-9]|2\d|3[01])\.|192\.168\.)/.test(host))
+      return { action: 'networkScan', kind: 'target', label: 'tool traffic to an in-scope target', targetIp: host };
+    return { action: 'webResearch', kind: 'egress', host, url: cmd, label: 'shell egress' };
+  }
   if (OFFENSIVE_EXPL.test(c)) return versionOnly ? { action: 'readCode', kind: 'workspace', label: 'tool version check' } : { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (cmd.match(IPV4) || [])[1] };
   if (OFFENSIVE_SCAN.test(c)) return versionOnly ? { action: 'readCode', kind: 'workspace', label: 'tool version check' } : { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (cmd.match(IPV4) || [])[1] };
   if (PROVISION.test(c))      return { action: 'provisionInfra',    kind: 'workspace', label: 'provision / deploy infrastructure' };
