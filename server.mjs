@@ -61,6 +61,8 @@ const WORKLOAD_IMAGE = {
   'incident-response': 'enclave-forensics:latest',
   'red-team':          'enclave-redteam:latest',
   'tool-dev':          'enclave-tooldev:latest',
+  'code-review':       'enclave-codereview:latest',
+  'grc-audit':         'enclave-grcaudit:latest',
 };
 const DOCKER_OK = (() => { try { return spawnSync('docker', ['version', '--format', '{{.Server.Version}}'], { encoding: 'utf8' }).status === 0; } catch { return false; } })();
 const BIN = join(LIVE, 'bin');
@@ -77,6 +79,28 @@ async function ensureBin() {
     { mode: 0o755 });
 }
 
+// the egress broker: enclaves sit on an --internal net (no direct route out); their ONLY
+// path to the internet is a broker that permits allowlisted hosts and refuses the rest.
+const NET_INTERNAL = 'enclave-internal', NET_EGRESS = 'enclave-egress', BROKER = 'enclave-broker';
+let brokerReady = null;
+function ensureBrokerNet() {
+  if (!DOCKER_OK) return false;
+  if (brokerReady !== null) return brokerReady;
+  spawnSync('docker', ['network', 'create', '--internal', NET_INTERNAL], { stdio: 'ignore' }); // idempotent
+  spawnSync('docker', ['network', 'create', NET_EGRESS], { stdio: 'ignore' });
+  const up = spawnSync('docker', ['ps', '-q', '-f', 'name=^' + BROKER + '$'], { encoding: 'utf8' });
+  if (!(up.status === 0 && up.stdout.trim())) {
+    spawnSync('docker', ['rm', '-f', BROKER], { stdio: 'ignore' });
+    const r = spawnSync('docker', ['run', '-d', '--name', BROKER, '--network', NET_INTERNAL,
+      '-v', fwd(SEAM) + ':/seam:ro', 'node:22-alpine', 'node', '/seam/broker-proxy.mjs'], { encoding: 'utf8' });
+    if (r.status !== 0) { console.log('[broker] start failed:', (r.stderr || '').slice(0, 200)); brokerReady = false; return false; }
+    spawnSync('docker', ['network', 'connect', NET_EGRESS, BROKER], { stdio: 'ignore' }); // dual-home: the broker (only) gets internet
+    console.log('[broker] enclave-broker up — allowlist-enforced egress for the container tier');
+  }
+  brokerReady = true;
+  return true;
+}
+
 // ensure a persistent, sealed per-enclave container is running for this workload
 function ensureContainer(ws, workload, wsDir) {
   if (!DOCKER_OK) return null;
@@ -87,11 +111,16 @@ function ensureContainer(ws, workload, wsDir) {
   const ps = spawnSync('docker', ['ps', '-q', '-f', 'name=^' + name + '$'], { encoding: 'utf8' });
   if (ps.status === 0 && ps.stdout.trim()) return name;        // already running
   spawnSync('docker', ['rm', '-f', name], { stdio: 'ignore' });// clear any stopped leftover
-  const run = spawnSync('docker', ['run', '-d', '--name', name, '--network', 'none',
+  const broker = ensureBrokerNet();
+  const netArgs = broker ? ['--network', NET_INTERNAL] : ['--network', 'none'];
+  const proxyEnv = broker ? ['-e', 'HTTP_PROXY=http://enclave-broker:8888', '-e', 'HTTPS_PROXY=http://enclave-broker:8888',
+    '-e', 'http_proxy=http://enclave-broker:8888', '-e', 'https_proxy=http://enclave-broker:8888',
+    '-e', 'NO_PROXY=localhost,127.0.0.1', '-e', 'no_proxy=localhost,127.0.0.1'] : [];
+  const run = spawnSync('docker', ['run', '-d', '--name', name, ...netArgs, ...proxyEnv,
     '-v', wsDir.replace(/\\/g, '/') + ':/work', '-w', '/work', image, 'tail', '-f', '/dev/null'],
     { encoding: 'utf8' });
   if (run.status !== 0) { console.log('[container] start failed:', (run.stderr || '').slice(0, 200)); return null; }
-  console.log(`[container] ${name} up (${image}) · workspace mounted at /work · --network none`);
+  console.log(`[container] ${name} up (${image}) · /work mounted · egress: ${broker ? 'allowlist-broker' : 'sealed (--network none)'}`);
   return name;
 }
 
@@ -176,7 +205,7 @@ function callClaudeCLI({ message, persona, resumeId, system, model, workload, se
     const wl = workload || P.workload;
     const container = ensureContainer(wsName, wl, dir);  // sealed per-session container (null → host tier)
     let sysAug = system || '';
-    if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", --network none, your workspace mounted at /work, non-root) is live. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell gdb ./target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
+    if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", non-root, your workspace mounted at /work) is live. Its network egress is restricted to an allowlist broker — approved research sources (CVE/NVD, MITRE ATT&CK, GitHub, package registries, docs) reach out; everything else is refused. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell nuclei -u https://target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
     const useModel = MODEL_ALIAS[model] || MODEL;
     const args = ['-p', message,
       '--settings', settingsPath(wsName),
