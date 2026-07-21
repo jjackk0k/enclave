@@ -1,0 +1,52 @@
+{
+  "name": "enclave-desktop",
+  "version": "0.1.0",
+  "description": "Enclave — secure AI console for security professionals",
+  "author": "Enclave",
+  "license": "UNLICENSED",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "dev.enclave.console",
+    "productName": "Enclave",
+    "asar": true,
+    "files": [
+      "main.cjs"
+    ],
+    "extraResources": [
+      {
+        "from": "..",
+        "to": "enclave",
+        "filter": [
+          "**/*",
+          "!.git/**",
+          "!.github/**",
+          "!desktop/**",
+          "!.enclave-live/**",
+          "!**/*.md",
+          "!**/audit-ledger.jsonl",
+          "!**/workspaces/**"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "Enclave.exe"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}

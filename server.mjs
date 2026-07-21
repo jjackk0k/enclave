@@ -19,7 +19,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, basename } from 'node:path';
 
-const ROOT   = dirname(fileURLToPath(import.meta.url));
+const ROOT   = process.env.ENCLAVE_ROOT || dirname(fileURLToPath(import.meta.url));
 const PORT   = Number(process.env.PORT) || 8977;
 const MODEL  = process.env.ENCLAVE_MODEL || 'sonnet';
 const SEAM   = join(ROOT, 'poc', 'enforcement-seam');
