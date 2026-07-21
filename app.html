@@ -309,6 +309,13 @@
       Enclave <small>console</small>
     </div>
     <div class="ws-pill"><span class="dot"></span> <span id="topWs">incident-2231</span></div>
+    <select id="toolchainPick" class="model-pick" onchange="pickToolchain(this.value)" title="Active toolchain — the sealed image whose tools run in this engagement. Switch freely: your workspace is SHARED across toolchains (build in one, test in another), and every action stays gated by your clearance + certifications.">
+      <option value="incident-response">🛡 IR / forensics</option>
+      <option value="red-team">🧪 red-team</option>
+      <option value="tool-dev">🔧 tool-dev</option>
+      <option value="code-review">◧ code-review</option>
+      <option value="grc-audit">📄 grc-audit</option>
+    </select>
     <div class="top-right">
       <div class="clear-chip">◈ <span id="topClear">L3</span> · ISOLATED</div>
       <button class="icon-btn" title="Audit ledger" onclick="openAudit()">📜</button>
@@ -595,7 +602,7 @@ function doLogin(){
   applyPersona();
   document.getElementById('login').style.display='none';
   document.getElementById('app').classList.add('on');
-  startClock(); startLog(); startMeters(); checkLive(); initDrop();
+  startClock(); startLog(); startMeters(); checkLive(); initDrop(); syncToolchain();
 }
 function signOut(){ location.reload(); }
 
@@ -696,7 +703,7 @@ function provisionEnclave(){
   if(!m.ok){ document.getElementById('npResult').innerHTML=`<div class="notice block"><span class="ni">⛔</span><div><b>Provisioning blocked.</b> ${m.why}. Your profile <i>informs</i> the AI, but the platform <i>enforces</i> — decided server-side against your signed identity, so nothing here can override it.</div></div>`; logEvent('enclave.provision BLOCKED · '+p.id,'dan'); return; }
   const name = slug(vals.client||vals.project||vals.case||vals.framework||p.id);
   currentWorkload = TOOL_SHELF[p.id] ? p.id : 'incident-response';
-  attachedFiles = []; renderAttached();
+  attachedFiles = []; renderAttached(); syncToolchain();
   liveSession = null; convo = []; sessionToken = newToken();
   addEnclaveToSidebar(p, name);
   closeNewEnclave();
@@ -721,7 +728,7 @@ function addEnclaveToSidebar(p, name){
   const sm = p.scoped ? (p.id+' · scoped') : (p.id+' · deny-all');
   div.innerHTML=`<div class="wi">${p.icon}</div><div class="meta"><div class="nm">${name}</div><div class="sm">${sm}</div></div>`;
   div.onclick=()=>{ document.querySelectorAll('.side .ws').forEach(w=>w.classList.remove('active')); div.classList.add('active');
-    setWorkload(p.id); liveSession=null; convo=[]; sessionToken=newToken(); document.getElementById('topWs').textContent=name;
+    setWorkload(p.id); syncToolchain(); liveSession=null; convo=[]; sessionToken=newToken(); document.getElementById('topWs').textContent=name;
     document.getElementById('input').placeholder='Message Claude in the '+name+' enclave…'; };
   list.prepend(div);
 }
@@ -749,6 +756,15 @@ function newToken(){ return Math.random().toString(36).slice(2,10)+Date.now().to
 let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir', liveModelChoice='sonnet', liveEffort='medium', liveCostTotal=0, sessionToken=newToken();
 function pickModel(v){ liveModelChoice=v; logEvent('model.switch · '+v,''); if(liveMode2==='api') toast('Model switch takes effect in CLI mode (you’re on the API broker).'); }
 function pickEffort(v){ liveEffort=v; logEvent('effort.set · '+v,''); }
+function syncToolchain(){ const tp=document.getElementById('toolchainPick'); if(tp) tp.value=currentWorkload; }
+function pickToolchain(v){
+  // switch the ACTIVE toolchain WITHOUT resetting the session — same engagement workspace,
+  // different sealed image's tools. Actions stay gated per-action by clearance/certs.
+  currentWorkload=v;
+  const inp=document.getElementById('input'); if(inp) inp.placeholder='Message Claude — '+v+' toolchain · shared engagement workspace…';
+  logEvent('toolchain → '+v,'');
+  toast('Toolchain: '+v+' — same workspace (your artifacts carry over), tools switch. Every action stays gated by your clearance + certs.');
+}
 function fmtTok(n){ return n>=1000 ? (n/1000).toFixed(n>=100000?0:1)+'k' : String(n||0); }
 function updateCtx(u, model, cost){
   liveCostTotal += (cost||0);

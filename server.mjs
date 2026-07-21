@@ -107,7 +107,9 @@ function ensureContainer(ws, workload, wsDir) {
   const image = WORKLOAD_IMAGE[workload];
   if (!image) return null;                                     // no image → host tier
   if (spawnSync('docker', ['image', 'inspect', image], { stdio: 'ignore' }).status !== 0) return null; // image not built → host tier
-  const name = 'enclave-' + String(ws).replace(/[^\w.-]/g, '_');
+  // container keyed by (session workspace + workload) so MULTIPLE toolchains can attach to
+  // the SAME engagement workspace — build a tool in tool-dev, test it in red-team, all on /work.
+  const name = 'enclave-' + sane(ws) + '-' + sane(workload);
   const ps = spawnSync('docker', ['ps', '-q', '-f', 'name=^' + name + '$'], { encoding: 'utf8' });
   if (ps.status === 0 && ps.stdout.trim()) return name;        // already running
   spawnSync('docker', ['rm', '-f', name], { stdio: 'ignore' });// clear any stopped leftover
@@ -132,9 +134,13 @@ const sessions = new Map();                                    // base workspace
 const sane = s => String(s || '').replace(/[^\w.-]/g, '_');
 const wsNameFor = (baseWs, token) => token ? sane(baseWs) + '__' + sane(token).slice(0, 24) : sane(baseWs);
 function teardownSession(wsName) {
-  try { spawnSync('docker', ['rm', '-f', 'enclave-' + sane(wsName)], { stdio: 'ignore' }); } catch {}
+  try {                                                        // all toolchain containers for this session
+    const ps = spawnSync('docker', ['ps', '-aq', '-f', 'name=^enclave-' + sane(wsName) + '-'], { encoding: 'utf8' });
+    const ids = (ps.stdout || '').split(/\s+/).filter(Boolean);
+    if (ids.length) spawnSync('docker', ['rm', '-f', ...ids], { stdio: 'ignore' });
+  } catch {}
   try { rmSync(join(LIVE, wsName), { recursive: true, force: true }); } catch {}
-  console.log('[teardown] session ' + wsName + ' — container + workspace wiped');
+  console.log('[teardown] session ' + wsName + ' — toolchains + workspace wiped');
 }
 function cleanupAllContainers() {
   if (!DOCKER_OK) return;
