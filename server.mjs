@@ -14,7 +14,7 @@
 import http from 'node:http';
 import https from 'node:https';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, rmSync } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, basename, delimiter } from 'node:path';
@@ -95,6 +95,27 @@ function ensureContainer(ws, workload, wsDir) {
   return name;
 }
 
+// ---- session lifecycle: ONE ephemeral workspace + container per browser session ----
+// A fresh page load / new AI session gets a fresh workspace (last session's files are
+// gone) and a fresh container; the previous one is torn down. Sandboxes are ephemeral.
+const EFFORTS = ['low', 'medium', 'high'];
+const sessions = new Map();                                    // base workspace -> current physical wsName
+const sane = s => String(s || '').replace(/[^\w.-]/g, '_');
+const wsNameFor = (baseWs, token) => token ? sane(baseWs) + '__' + sane(token).slice(0, 24) : sane(baseWs);
+function teardownSession(wsName) {
+  try { spawnSync('docker', ['rm', '-f', 'enclave-' + sane(wsName)], { stdio: 'ignore' }); } catch {}
+  try { rmSync(join(LIVE, wsName), { recursive: true, force: true }); } catch {}
+  console.log('[teardown] session ' + wsName + ' — container + workspace wiped');
+}
+function cleanupAllContainers() {
+  if (!DOCKER_OK) return;
+  try {
+    const ps = spawnSync('docker', ['ps', '-aq', '-f', 'name=^enclave-'], { encoding: 'utf8' });
+    const ids = (ps.stdout || '').split(/\s+/).filter(Boolean);
+    if (ids.length) { spawnSync('docker', ['rm', '-f', ...ids], { stdio: 'ignore' }); console.log(`[cleanup] removed ${ids.length} enclave container(s)`); }
+  } catch {}
+}
+
 // the hook needs its Cedar policy engine — install once, on first boot
 function ensureDeps() {
   if (MODE !== 'cli') return;
@@ -141,22 +162,27 @@ async function ensureWorkspace(ws) {
 }
 
 // CLI mode: spawn real `claude -p`, governed by the hook, in the sealed workspace
-function callClaudeCLI({ message, persona, resumeId, system, model, workload }) {
+function callClaudeCLI({ message, persona, resumeId, system, model, workload, session, effort }) {
   return new Promise(async (resolve, reject) => {
     const P = PERSONA[persona] || PERSONA.lead;
     const sessionFile = join(SEAM, 'session', P.session);
     if (!existsSync(sessionFile)) return reject(new Error('no signed identity for persona ' + persona));
-    const dir = await ensureWorkspace(P.ws);
+    const wsName = wsNameFor(P.ws, session);            // ephemeral per-browser-session workspace
+    const prev = sessions.get(P.ws);
+    if (prev && prev !== wsName) teardownSession(prev); // fresh page/AI session → wipe the previous one
+    sessions.set(P.ws, wsName);
+    const dir = await ensureWorkspace(wsName);
     await ensureBin();
     const wl = workload || P.workload;
-    const container = ensureContainer(P.ws, wl, dir);   // sealed per-enclave container (null → host tier)
+    const container = ensureContainer(wsName, wl, dir);  // sealed per-session container (null → host tier)
     let sysAug = system || '';
     if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", --network none, your workspace mounted at /work, non-root) is live. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell gdb ./target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
     const useModel = MODEL_ALIAS[model] || MODEL;
     const args = ['-p', message,
-      '--settings', settingsPath(P.ws),
+      '--settings', settingsPath(wsName),
       '--output-format', 'json',
       '--model', useModel,
+      ...(EFFORTS.includes(effort) ? ['--effort', effort] : []),
       '--strict-mcp-config', '--mcp-config', join(LIVE, 'no-mcp.json'),  // seal: no inherited MCP servers
       '--disallowedTools', ...SEAL_DISALLOW];                            // seal: no web / no subagents
     if (sysAug)   args.push('--append-system-prompt', sysAug);
@@ -223,10 +249,10 @@ const server = http.createServer(async (req, res) => {
     req.on('data', c => (body += c));
     req.on('end', async () => {
       try {
-        const { message, persona, resumeId, system, messages, model, workload } = JSON.parse(body || '{}');
+        const { message, persona, resumeId, system, messages, model, workload, session, effort } = JSON.parse(body || '{}');
         if (MODE === 'cli') {
           if (!message) return send(res, 400, JSON.stringify({ error: 'no message' }));
-          const r = await callClaudeCLI({ message, persona, resumeId, system, model, workload });
+          const r = await callClaudeCLI({ message, persona, resumeId, system, model, workload, session, effort });
           console.log(`[cli] ${persona} · ${model || MODEL} · ${(message || '').slice(0, 36)}… → ${r.text.length}b · denials=${r.denials.length} · $${(r.cost || 0).toFixed(4)}`);
           return send(res, 200, JSON.stringify({ ...r, mode: 'cli' }));
         }
@@ -245,9 +271,9 @@ const server = http.createServer(async (req, res) => {
     req.on('end', async () => {
       if (tooBig) return;
       try {
-        const { persona, files } = JSON.parse(body || '{}');
+        const { persona, files, session } = JSON.parse(body || '{}');
         const P = PERSONA[persona] || PERSONA.lead;
-        const dir = await ensureWorkspace(P.ws);
+        const dir = await ensureWorkspace(wsNameFor(P.ws, session));
         const written = [];
         for (const f of (files || [])) {
           const name = basename(String(f.name || 'file')).replace(/[^\w.\- ]/g, '_').slice(0, 120);
@@ -272,10 +298,14 @@ const server = http.createServer(async (req, res) => {
 });
 
 ensureDeps();
+cleanupAllContainers();                                        // wipe any enclave containers left by a prior run
+for (const sig of ['SIGINT', 'SIGTERM']) process.on(sig, () => { cleanupAllContainers(); process.exit(0); });
+process.on('exit', () => cleanupAllContainers());              // best-effort teardown when the server stops
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`\n  ◈ Enclave console — live at  http://localhost:${PORT}/app.html\n`);
   if (MODE === 'cli')      console.log(`  attached to your Claude CLI (${basename(CLAUDE)}) · model ${MODEL} · every tool call gated by clearance`);
   else if (MODE === 'api') console.log(`  Claude CLI not found — using API broker (ANTHROPIC_API_KEY) · governance hook not applied`);
   else                     console.log(`  no Claude CLI and no ANTHROPIC_API_KEY — console runs in scripted demo mode`);
+  console.log(DOCKER_OK ? '  container tier: on (sealed per-session containers) · sessions are ephemeral' : '  container tier: off (Docker not detected) — host tier');
   console.log('');
 });

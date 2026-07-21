@@ -383,6 +383,11 @@
               <option value="opus">Opus 4.8 · deep</option>
               <option value="haiku">Haiku 4.5 · cheap</option>
             </select>
+            <select id="effortPick" class="model-pick" onchange="pickEffort(this.value)" title="Reasoning effort — how hard the model thinks (higher = deeper but slower/costlier)">
+              <option value="low">effort: low</option>
+              <option value="medium" selected>effort: med</option>
+              <option value="high">effort: high</option>
+            </select>
             <button class="send" id="send" onclick="submitMsg()">↑</button>
           </div>
         </div>
@@ -586,7 +591,7 @@ function doLogin(){
   P = PERSONAS[k];
   currentPersonaKey = k;
   currentWorkload = PERSONA_WORKLOAD[k] || 'incident-response';
-  liveSession = null; convo = [];
+  liveSession = null; convo = []; sessionToken = newToken();
   applyPersona();
   document.getElementById('login').style.display='none';
   document.getElementById('app').classList.add('on');
@@ -692,7 +697,7 @@ function provisionEnclave(){
   const name = slug(vals.client||vals.project||vals.case||vals.framework||p.id);
   currentWorkload = TOOL_SHELF[p.id] ? p.id : 'incident-response';
   attachedFiles = []; renderAttached();
-  liveSession = null; convo = [];
+  liveSession = null; convo = []; sessionToken = newToken();
   addEnclaveToSidebar(p, name);
   closeNewEnclave();
   document.getElementById('topWs').textContent=name;
@@ -716,7 +721,7 @@ function addEnclaveToSidebar(p, name){
   const sm = p.scoped ? (p.id+' · scoped') : (p.id+' · deny-all');
   div.innerHTML=`<div class="wi">${p.icon}</div><div class="meta"><div class="nm">${name}</div><div class="sm">${sm}</div></div>`;
   div.onclick=()=>{ document.querySelectorAll('.side .ws').forEach(w=>w.classList.remove('active')); div.classList.add('active');
-    setWorkload(p.id); liveSession=null; convo=[]; document.getElementById('topWs').textContent=name;
+    setWorkload(p.id); liveSession=null; convo=[]; sessionToken=newToken(); document.getElementById('topWs').textContent=name;
     document.getElementById('input').placeholder='Message Claude in the '+name+' enclave…'; };
   list.prepend(div);
 }
@@ -740,8 +745,10 @@ function submitMsg(){
 }
 
 /* ---------------- live Claude (via the local broker server.mjs) ---------------- */
-let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir', liveModelChoice='sonnet', liveCostTotal=0;
+function newToken(){ return Math.random().toString(36).slice(2,10)+Date.now().toString(36); }
+let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir', liveModelChoice='sonnet', liveEffort='medium', liveCostTotal=0, sessionToken=newToken();
 function pickModel(v){ liveModelChoice=v; logEvent('model.switch · '+v,''); if(liveMode2==='api') toast('Model switch takes effect in CLI mode (you’re on the API broker).'); }
+function pickEffort(v){ liveEffort=v; logEvent('effort.set · '+v,''); }
 function fmtTok(n){ return n>=1000 ? (n/1000).toFixed(n>=100000?0:1)+'k' : String(n||0); }
 function updateCtx(u, model, cost){
   liveCostTotal += (cost||0);
@@ -799,7 +806,7 @@ async function respondLive(text){
   const thinking=addThinking();
   try{
     const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, model:liveModelChoice, workload:currentWorkload, system:personaContext(), messages:convo })});
+      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, model:liveModelChoice, effort:liveEffort, workload:currentWorkload, session:sessionToken, system:personaContext(), messages:convo })});
     const j=await r.json();
     thinking.remove();
     if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live error: '+esc(j.error)+'</div></div>'); logEvent('claude.live error','dan'); }
@@ -997,7 +1004,7 @@ async function handleFiles(list){
   }
   renderAttached();
   if(payload.length){ try{ await fetch('/api/ingest',{method:'POST',headers:{'content-type':'application/json'},
-    body:JSON.stringify({persona:currentPersonaKey, files:payload})}); }catch(e){} }
+    body:JSON.stringify({persona:currentPersonaKey, files:payload, session:sessionToken})}); }catch(e){} }
   if(files.length) toast(files.length+' file'+(files.length>1?'s':'')+' ingested into the sealed enclave — stays inside'+(payload.length?' (Claude can read them now)':''));
 }
 function fileB64(f){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]||''); r.onerror=rej; r.readAsDataURL(f); }); }
