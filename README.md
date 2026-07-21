@@ -58,6 +58,7 @@ Or run each on its own:
 | [`poc/isolation`](poc/isolation) | `npm run demo` — provision → PEP-gated exec → isolated run → teardown → audit, across process / Docker / Firecracker tiers. |
 | [`poc/egress-broker`](poc/egress-broker) | `npm run demo` — deny-all egress + the Anthropic key injected *outside* the sandbox (BYO-key that never enters it). |
 | [`poc/audit-anchor`](poc/audit-anchor) | `npm run demo` — Merkle root over the ledger, signed by an external authority: tamper-evidence a third party can verify without trusting Enclave. |
+| [`poc/identity`](poc/identity) | `npm run demo` — SD-JWT selective-disclosure clearances (RFC 9901) + DPoP-bound tokens (RFC 9449) + SPIFFE workload identity. |
 | [`presets`](presets) | `node scaffold.mjs --list` — scaffold a governed, pre-filled workspace from a preset. |
 | [`poc/persona-work`](poc/persona-work) | `npm run demo` — the AI produces a role- and clearance-appropriate deliverable per persona (offline, or `--live` with a key). |
 | [`poc/full-stack`](poc/full-stack) | `npm run demo` *(Docker)* — an isolated sandbox with no internet whose only egress is the key-injecting broker: no data leaves, the key never enters. |

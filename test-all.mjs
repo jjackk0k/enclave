@@ -41,6 +41,8 @@ const checks = [
     want: [/key ever inside the sandbox: no ✓/, /audit log: none ✓/, /integrity verified ✓/] },
   { name: 'audit anchoring · externally-verifiable tamper-evidence', cwd: 'poc/audit-anchor', cmd: NODE, args: ['demo.mjs'],
     want: [/AUDIT-ANCHOR: PASS/], needZeroExit: true },
+  { name: 'identity · SD-JWT clearances + DPoP + SPIFFE', cwd: 'poc/identity', cmd: NODE, args: ['demo.mjs'],
+    want: [/IDENTITY: PASS/], needZeroExit: true },
   { name: 'presets · scaffold a governed, pre-filled workspace', cwd: 'presets', cmd: NODE,
     args: ['scaffold.mjs', '--preset', 'red-team', '--name', '_selftest', '--client', 'Acme', '--scope', '10.0.0.0/8', '--lead', 'QA', '--force'],
     want: [/Scaffolded "_selftest"/, /clearance ≥ L4/], notWant: [/«FILL/] },
