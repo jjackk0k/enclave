@@ -45,27 +45,26 @@ export function classify(toolName, toolInput = {}) {
   if (toolName === 'WebFetch')
     return { action: 'webResearch', kind: 'egress', host: extractHost(toolInput.url), url: (toolInput.url || '').toString(), label: 'web fetch' };
 
-  const raw = (toolInput.command ?? toolInput.file_path ?? toolInput.url ?? '').toString();
-  const c = raw.toLowerCase();
+  // FILE tools are classified by the OPERATION (read vs write), NEVER by the file's name.
+  // A file called "Hydra.Modules.Credentials.xml" or "nmap-notes.txt" is inert data —
+  // opening it is a read, editing it is an edit. The offensive/destructive classifiers
+  // below apply only to COMMANDS you execute, not to paths you open. (Confinement of the
+  // path to the workspace is enforced separately in the hook.)
+  if (toolName === 'Read' || toolName === 'Glob' || toolName === 'Grep')
+    return { action: 'readCode', kind: 'workspace', label: 'read source' };
+  if (toolName === 'Edit' || toolName === 'Write' || toolName === 'NotebookEdit')
+    return { action: 'editCode', kind: 'workspace', label: 'edit source' };
 
-  // a shell command that reaches the network is gated by the same allowlist
-  if (toolName === 'Bash' && isEgressCommand(raw))
-    return { action: 'webResearch', kind: 'egress', host: extractHost(raw), url: raw, label: 'shell egress' };
+  // SHELL commands: classify by what actually RUNS (the command text only — not a file path).
+  const cmd = (toolInput.command ?? '').toString();
+  const c = cmd.toLowerCase();
 
-  if (OFFENSIVE_EXPL.test(c)) return { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (raw.match(IPV4) || [])[1] };
-  if (OFFENSIVE_SCAN.test(c)) return { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (raw.match(IPV4) || [])[1] };
+  if (isEgressCommand(cmd))   return { action: 'webResearch', kind: 'egress', host: extractHost(cmd), url: cmd, label: 'shell egress' };
+  if (OFFENSIVE_EXPL.test(c)) return { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (cmd.match(IPV4) || [])[1] };
+  if (OFFENSIVE_SCAN.test(c)) return { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (cmd.match(IPV4) || [])[1] };
   if (PROVISION.test(c))      return { action: 'provisionInfra',    kind: 'workspace', label: 'provision / deploy infrastructure' };
   if (CRED_OPS.test(c))       return { action: 'rotateCredentials', kind: 'workspace', label: 'credential rotation' };
   if (DESTRUCTIVE.test(c))    return { action: 'deleteFiles', kind: 'workspace', label: 'destructive filesystem op' };
-
-  if (toolName === 'Edit' || toolName === 'Write' || toolName === 'NotebookEdit')
-    return { action: 'editCode', kind: 'workspace', label: 'edit source' };
-  if (toolName === 'Read' || toolName === 'Glob' || toolName === 'Grep')
-    return { action: 'readCode', kind: 'workspace', label: 'read source' };
-
-  if (toolName === 'Bash') {
-    if (READONLY_SHELL.test(c)) return { action: 'readCode', kind: 'workspace', label: 'read (shell)' };
-    return { action: 'editCode', kind: 'workspace', label: 'run command' }; // default: moderate
-  }
-  return { action: 'editCode', kind: 'workspace', label: 'other' };
+  if (READONLY_SHELL.test(c)) return { action: 'readCode', kind: 'workspace', label: 'read (shell)' };
+  return { action: 'editCode', kind: 'workspace', label: 'run command' }; // default: moderate
 }
