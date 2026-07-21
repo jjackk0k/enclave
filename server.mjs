@@ -64,7 +64,13 @@ function readKimiConfig() {
 }
 const KIMI = readKimiConfig();
 const KIMI_OK = !!KIMI.apiKey;
-const BACKEND = (process.env.ENCLAVE_BACKEND || (KIMI_OK ? 'kimi' : (CLAUDE ? 'cli' : (process.env.ANTHROPIC_API_KEY ? 'api' : 'scripted')))).toLowerCase();
+// Auto-attach, but land on a WORKING model: prefer Kimi when it's the paid K3
+// subscription (reliable + filter-free) or explicitly requested; the free OpenRouter
+// tier churns (routes vanish), so default to Claude there. Falls through to whatever's
+// actually present. Force any backend with ENCLAVE_BACKEND=kimi|cli|api.
+const FORCED = (process.env.ENCLAVE_BACKEND || '').toLowerCase();
+const kimiPreferred = KIMI_OK && (KIMI.source === 'kimi-subscription' || FORCED === 'kimi');
+const BACKEND = FORCED || (kimiPreferred ? 'kimi' : (CLAUDE ? 'cli' : (KIMI_OK ? 'kimi' : (process.env.ANTHROPIC_API_KEY ? 'api' : 'scripted'))));
 
 // console persona key  →  SIGNED identity file  +  sealed workspace  +  default workload
 const PERSONA = {
@@ -400,7 +406,8 @@ server.listen(PORT, '127.0.0.1', () => {
   else if (BACKEND === 'api') console.log(`  Claude API broker (ANTHROPIC_API_KEY) · governance hook not applied`);
   else                        console.log(`  no model backend — scripted demo mode.`);
   if (BACKEND !== 'kimi' && !KIMI_OK) console.log(`  → to attach Kimi via k3 (no cyber filters, same governance): configure k3 (~/.kimicode/config.json) and restart`);
-  if (BACKEND !== 'kimi' && KIMI_OK)  console.log(`  (Kimi available via k3, but ENCLAVE_BACKEND=${process.env.ENCLAVE_BACKEND} is forcing ${BACKEND})`);
+  if (BACKEND !== 'kimi' && KIMI_OK && FORCED) console.log(`  (Kimi available via k3, but ENCLAVE_BACKEND=${FORCED} is forcing ${BACKEND})`);
+  if (BACKEND !== 'kimi' && KIMI_OK && !FORCED) console.log(`  (Kimi detected via k3 [${KIMI.source}] — defaulting to Claude; subscribe to K3, or set ENCLAVE_BACKEND=kimi, to use Kimi)`);
   console.log(DOCKER_OK ? '  container tier: on (sealed per-session containers) · sessions ephemeral' : '  container tier: off (Docker not detected) — host tier');
   console.log('');
 });

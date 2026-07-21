@@ -8,28 +8,26 @@ echo   ============================================================
 echo(
 
 where node >nul 2>nul || (
-  echo   ERROR: Node.js was not found on your PATH.
-  echo   Install Node 18+ from https://nodejs.org and run this again.
+  echo   ERROR: Node.js 18+ is required.  Install it from https://nodejs.org and retry.
   echo(
   pause
   exit /b 1
 )
 
-where claude >nul 2>nul && (
-  echo   Attaching to your Claude CLI.  Every tool call the AI makes will be
-  echo   gated by the signed clearance of whoever you log in as.
-) || (
-  echo   NOTE: the 'claude' CLI was not found on PATH -- the console will run
-  echo   in scripted demo mode.  Install Claude Code to test it live.
-)
+echo   Detecting model backends (the server auto-attaches to the best one)...
+where claude >nul 2>nul && (echo     [+] Claude CLI detected) || (echo     [-] Claude CLI not found)
+if exist "%USERPROFILE%\.kimicode\config.json" (echo     [+] Kimi / k3 login detected  ^(used automatically once you're on the K3 subscription^)) else (echo     [-] Kimi / k3 not configured)
 echo(
-echo   A browser tab opens in a few seconds.  Keep THIS window open while you
-echo   work; close it to stop the server.
+echo   The exact model that attached is shown in the banner just below.
+echo   A browser tab opens in a few seconds.
 echo(
+echo   TO STOP:  close this window, or double-click  STOP-ENCLAVE.bat
+echo(
+echo   ------------------------------------------------------------
 
 start "" powershell -NoProfile -Command "Start-Sleep 3; Start-Process 'http://localhost:8977/app.html'"
 node server.mjs
 
 echo(
-echo   Enclave server stopped.
+echo   Enclave server stopped.  (Run STOP-ENCLAVE.bat if any sealed containers remain.)
 pause
