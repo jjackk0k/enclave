@@ -74,6 +74,15 @@ RUN curl -fsSL https://github.com/NationalSecurityAgency/ghidra/releases/downloa
     && unzip -q /tmp/ghidra.zip -d /opt && rm /tmp/ghidra.zip \
     && mv /opt/ghidra_* /opt/ghidra
 
+# --- dynamic analysis / debugging for malware RE (gcc + binutils are already present) ---
+RUN set -eu; \
+    apt_install() { for i in 1 2 3 4 5 6; do if apt-get update -o Acquire::Retries=6 && apt-get install -y --no-install-recommends -o Acquire::Retries=6 "$@"; then return 0; fi; echo "retry $i"; dpkg --configure -a || true; apt-get -f install -y || true; apt-get clean; sleep 8; done; return 1; }; \
+    apt_install gdb gdbserver ltrace strace binwalk xxd; \
+    rm -rf /var/lib/apt/lists/*; \
+    /opt/venv/bin/pip install --no-cache-dir capstone ropgadget 2>/dev/null || true; \
+    mkdir -p /etc/gdb && curl -fsSL https://raw.githubusercontent.com/hugsy/gef/main/gef.py -o /opt/gef.py 2>/dev/null \
+      && echo 'source /opt/gef.py' > /etc/gdb/gdbinit || true
+
 # --- non-root analyst; evidence mounts at /case ---
 ENV PATH=/opt/venv/bin:/opt/ghidra/support:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 RUN userdel -r ubuntu 2>/dev/null || true; \

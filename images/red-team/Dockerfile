@@ -25,7 +25,6 @@ RUN set -eu; \
         echo "apt attempt $i failed — recovering + retrying"; dpkg --configure -a || true; apt-get -f install -y || true; apt-get clean; sleep 8; \
       done; return 1; \
     }; \
-    export -f apt_install 2>/dev/null || true; \
     sed -i 's|http://http.kali.org|https://http.kali.org|g' /etc/apt/sources.list 2>/dev/null || true; \
     ( apt-get update -o Acquire::Retries=6 || ( wget -qO /usr/share/keyrings/kali-archive-keyring.gpg https://archive.kali.org/archive-keyring.gpg && apt-get update ) ); \
     echo "wireshark-common wireshark-common/install-setuid boolean false" | debconf-set-selections; \
@@ -47,21 +46,27 @@ RUN set -eu; \
     rm -rf /var/lib/apt/lists/*
 
 # --- Recon: ProjectDiscovery suite + friends (Go -> /usr/local/bin via GOBIN) ---
+# retry each go install: the module proxy occasionally EOFs mid-download
 RUN set -eu; \
-    go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest; \
-    go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest; \
-    go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest; \
-    go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest; \
-    go install -v github.com/projectdiscovery/katana/cmd/katana@latest; \
-    go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest; \
-    go install -v github.com/ffuf/ffuf/v2@latest; \
-    go install -v github.com/sensepost/gowitness@latest; \
-    go install -v github.com/bloodhoundad/azurehound/v2@latest; \
+    goi() { for i in 1 2 3 4 5; do if go install -v "$1"; then return 0; fi; echo "go retry $i for $1"; sleep 6; done; return 1; }; \
+    goi github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest; \
+    goi github.com/projectdiscovery/httpx/cmd/httpx@latest; \
+    goi github.com/projectdiscovery/naabu/v2/cmd/naabu@latest; \
+    goi github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest; \
+    goi github.com/projectdiscovery/katana/cmd/katana@latest; \
+    goi github.com/projectdiscovery/dnsx/cmd/dnsx@latest; \
+    goi github.com/ffuf/ffuf/v2@latest; \
+    goi github.com/sensepost/gowitness@latest; \
+    goi github.com/bloodhoundad/azurehound/v2@latest; \
     rm -rf /root/go/pkg /root/.cache/go-build; \
     nuclei -update-templates || true
 
 # --- AD / cred / C2 via pipx (isolated venvs; entry-points -> /usr/local/bin) ---
+# some deps (NetExec's crypto stack) build Rust wheels -> need rustc/cargo + headers
 RUN set -eu; \
+    apt_install() { for i in 1 2 3 4 5 6; do if apt-get update -o Acquire::Retries=6 && apt-get install -y --no-install-recommends -o Acquire::Retries=6 "$@"; then return 0; fi; echo "retry $i"; dpkg --configure -a||true; apt-get -f install -y||true; apt-get clean; sleep 8; done; return 1; }; \
+    apt_install rustc cargo pkg-config libssl-dev python3-dev; \
+    rm -rf /var/lib/apt/lists/*; \
     pipx install git+https://github.com/Pennyw0rth/NetExec.git; \
     pipx install impacket; \
     pipx install certipy-ad; \
@@ -86,9 +91,10 @@ RUN set -eu; mkdir -p /opt/collectors; \
     curl -fsSL -o /opt/collectors/SharpHound_v2.13.0.zip https://github.com/SpecterOps/SharpHound/releases/download/v2.13.0/SharpHound_v2.13.0_windows_x86.zip || true
 
 # --- non-root operator; engagement workspace at /assessment ---
+# ('operator' is a reserved Debian system account, so use 'pentester')
 RUN userdel -r ubuntu 2>/dev/null || true; \
-    useradd -m -u 1000 -s /bin/bash operator && mkdir -p /assessment && chown operator:operator /assessment
-USER operator
+    useradd -m -u 1000 -s /bin/bash pentester && mkdir -p /assessment && chown pentester:pentester /assessment
+USER pentester
 WORKDIR /assessment
 
 LABEL org.enclave.workload="red-team" \
