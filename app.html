@@ -799,7 +799,7 @@ async function respondLive(text){
   const thinking=addThinking();
   try{
     const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, model:liveModelChoice, system:personaContext(), messages:convo })});
+      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, model:liveModelChoice, workload:currentWorkload, system:personaContext(), messages:convo })});
     const j=await r.json();
     thinking.remove();
     if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live error: '+esc(j.error)+'</div></div>'); logEvent('claude.live error','dan'); }

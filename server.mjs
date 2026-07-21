@@ -17,7 +17,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, join, extname, normalize, basename } from 'node:path';
+import { dirname, join, extname, normalize, basename, delimiter } from 'node:path';
 import { homedir } from 'node:os';
 
 const ROOT   = process.env.ENCLAVE_ROOT || dirname(fileURLToPath(import.meta.url));
@@ -44,14 +44,56 @@ function findClaude() {
 const CLAUDE = findClaude();
 const MODE = CLAUDE ? 'cli' : (process.env.ANTHROPIC_API_KEY ? 'api' : 'scripted');
 
-// console persona key  →  SIGNED identity file  +  sealed workspace name
+// console persona key  →  SIGNED identity file  +  sealed workspace  +  default workload
 const PERSONA = {
-  jr:   { session: 'sam.json',    ws: 'triage-queue'     },
-  grc:  { session: 'priya.json',  ws: 'soc2-evidence-q3' },
-  ir:   { session: 'dana.json',   ws: 'incident-2231'    },
-  red:  { session: 'marcus.json', ws: 'pentest-northwind'},
-  lead: { session: 'alex.json',   ws: 'command-deck'     },
+  jr:   { session: 'sam.json',    ws: 'triage-queue',      workload: 'incident-response' },
+  grc:  { session: 'priya.json',  ws: 'soc2-evidence-q3',  workload: 'grc-audit' },
+  ir:   { session: 'dana.json',   ws: 'incident-2231',     workload: 'incident-response' },
+  red:  { session: 'marcus.json', ws: 'pentest-northwind', workload: 'red-team' },
+  lead: { session: 'alex.json',   ws: 'command-deck',      workload: 'incident-response' },
 };
+
+// Stage 2 — the container tier. A workload with a provisioned image runs its tools
+// INSIDE a sealed per-enclave container (--network none, workspace mounted at /work,
+// non-root); the model reaches them via `enclave-shell`. Workloads without an image
+// fall back to the host tier (governance still applies, but no baked-in toolchain).
+const WORKLOAD_IMAGE = {
+  'incident-response': 'enclave-forensics:latest',
+  'red-team':          'enclave-redteam:latest',
+  'tool-dev':          'enclave-tooldev:latest',
+};
+const DOCKER_OK = (() => { try { return spawnSync('docker', ['version', '--format', '{{.Server.Version}}'], { encoding: 'utf8' }).status === 0; } catch { return false; } })();
+const BIN = join(LIVE, 'bin');
+
+// the enclave-shell wrapper the model uses to run tools in its sealed container
+async function ensureBin() {
+  await mkdir(BIN, { recursive: true });
+  await writeFile(join(BIN, 'enclave-shell'),
+    '#!/usr/bin/env bash\n' +
+    '# Enclave — run a command inside this enclave\'s sealed workload container (workspace at /work).\n' +
+    'export MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL=\'*\'\n' +
+    'if [ -z "$ENCLAVE_CONTAINER" ]; then echo "enclave-shell: no sealed container for this workload (host tier)" >&2; exit 3; fi\n' +
+    'exec docker exec -i -w /work "$ENCLAVE_CONTAINER" bash -c "$*"\n',
+    { mode: 0o755 });
+}
+
+// ensure a persistent, sealed per-enclave container is running for this workload
+function ensureContainer(ws, workload, wsDir) {
+  if (!DOCKER_OK) return null;
+  const image = WORKLOAD_IMAGE[workload];
+  if (!image) return null;                                     // no image → host tier
+  if (spawnSync('docker', ['image', 'inspect', image], { stdio: 'ignore' }).status !== 0) return null; // image not built → host tier
+  const name = 'enclave-' + String(ws).replace(/[^\w.-]/g, '_');
+  const ps = spawnSync('docker', ['ps', '-q', '-f', 'name=^' + name + '$'], { encoding: 'utf8' });
+  if (ps.status === 0 && ps.stdout.trim()) return name;        // already running
+  spawnSync('docker', ['rm', '-f', name], { stdio: 'ignore' });// clear any stopped leftover
+  const run = spawnSync('docker', ['run', '-d', '--name', name, '--network', 'none',
+    '-v', wsDir.replace(/\\/g, '/') + ':/work', '-w', '/work', image, 'tail', '-f', '/dev/null'],
+    { encoding: 'utf8' });
+  if (run.status !== 0) { console.log('[container] start failed:', (run.stderr || '').slice(0, 200)); return null; }
+  console.log(`[container] ${name} up (${image}) · workspace mounted at /work · --network none`);
+  return name;
+}
 
 // the hook needs its Cedar policy engine — install once, on first boot
 function ensureDeps() {
@@ -99,12 +141,17 @@ async function ensureWorkspace(ws) {
 }
 
 // CLI mode: spawn real `claude -p`, governed by the hook, in the sealed workspace
-function callClaudeCLI({ message, persona, resumeId, system, model }) {
+function callClaudeCLI({ message, persona, resumeId, system, model, workload }) {
   return new Promise(async (resolve, reject) => {
     const P = PERSONA[persona] || PERSONA.lead;
     const sessionFile = join(SEAM, 'session', P.session);
     if (!existsSync(sessionFile)) return reject(new Error('no signed identity for persona ' + persona));
     const dir = await ensureWorkspace(P.ws);
+    await ensureBin();
+    const wl = workload || P.workload;
+    const container = ensureContainer(P.ws, wl, dir);   // sealed per-enclave container (null → host tier)
+    let sysAug = system || '';
+    if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", --network none, your workspace mounted at /work, non-root) is live. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell gdb ./target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
     const useModel = MODEL_ALIAS[model] || MODEL;
     const args = ['-p', message,
       '--settings', settingsPath(P.ws),
@@ -112,10 +159,11 @@ function callClaudeCLI({ message, persona, resumeId, system, model }) {
       '--model', useModel,
       '--strict-mcp-config', '--mcp-config', join(LIVE, 'no-mcp.json'),  // seal: no inherited MCP servers
       '--disallowedTools', ...SEAL_DISALLOW];                            // seal: no web / no subagents
-    if (system)   args.push('--append-system-prompt', system);
+    if (sysAug)   args.push('--append-system-prompt', sysAug);
     if (resumeId) args.push('--resume', resumeId);
     const child = spawn(CLAUDE, args, { cwd: dir, windowsHide: true,
-      env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: dir, NODE_NO_WARNINGS: '1' } });
+      env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: dir,
+             ENCLAVE_CONTAINER: container || '', PATH: BIN + delimiter + (process.env.PATH || ''), NODE_NO_WARNINGS: '1' } });
     let out = '', err = '';
     const killer = setTimeout(() => { child.kill(); reject(new Error('claude timed out (180s)')); }, 180000);
     child.stdout.on('data', d => (out += d));
@@ -175,10 +223,10 @@ const server = http.createServer(async (req, res) => {
     req.on('data', c => (body += c));
     req.on('end', async () => {
       try {
-        const { message, persona, resumeId, system, messages, model } = JSON.parse(body || '{}');
+        const { message, persona, resumeId, system, messages, model, workload } = JSON.parse(body || '{}');
         if (MODE === 'cli') {
           if (!message) return send(res, 400, JSON.stringify({ error: 'no message' }));
-          const r = await callClaudeCLI({ message, persona, resumeId, system, model });
+          const r = await callClaudeCLI({ message, persona, resumeId, system, model, workload });
           console.log(`[cli] ${persona} · ${model || MODEL} · ${(message || '').slice(0, 36)}… → ${r.text.length}b · denials=${r.denials.length} · $${(r.cost || 0).toFixed(4)}`);
           return send(res, 200, JSON.stringify({ ...r, mode: 'cli' }));
         }
