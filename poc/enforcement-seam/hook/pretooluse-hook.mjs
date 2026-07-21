@@ -26,6 +26,7 @@ import { dirname, join } from 'node:path';
 import { authorize, DIRECTORY } from '../policy-engine.mjs';
 import { classify } from '../classify.mjs';
 import { verifySession, ipInAnyScope, appendAudit } from '../util.mjs';
+import { hostAllowed, urlClean } from '../egress-allowlist.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const LEDGER = join(HERE, '..', 'audit-ledger.jsonl');
@@ -55,6 +56,7 @@ const REQUIREMENT = {
   networkScan:       'clearance ≥ L4, an in-scope target, and an offensive certification (OSCP, OSEP, CRTO, …)',
   exploit:           'clearance ≥ L4, an in-scope target, an offensive certification, and human approval',
   sealedToolBlocked: 'a tool that is not available inside a sealed enclave (egress / orchestration / external MCP are removed)',
+  webResearch:       'a read-only fetch/search to an allowlisted research source (DLP-clean)',
 };
 
 // Qualification gates — CLEARANCE says how trusted; QUALIFICATION says what you're
@@ -116,6 +118,12 @@ async function readStdin() {
       inScope: ipInAnyScope(cls.targetIp, session.engagementScope),
       approved: process.env.ENCLAVE_APPROVAL === 'granted',
     };
+  } else if (cls.kind === 'egress') {
+    // Governed research egress: allowlisted host + DLP-clean request. WebSearch is a
+    // read-only query (no host to exfil to), so it is treated as allowlisted.
+    const isSearch = cls.host === 'search';
+    resource = { type: 'Endpoint', id: cls.host || 'unknown' };
+    context = { hostAllowed: isSearch || hostAllowed(cls.host), urlClean: urlClean(cls.url) };
   } else {
     const ws = input.cwd ? basename(String(input.cwd)) : session.workspace;
     resource = { type: 'Workspace', id: ws };
@@ -131,7 +139,15 @@ async function readStdin() {
   const idTag = `${session.principal} (L${who.clearance}, ${who.role}, ${lic})`;
 
   if (allowed) {
-    reason = `authorized: ${cls.label} — ${idTag} satisfies ${REQUIREMENT[cls.action]}.`;
+    if (cls.action === 'webResearch')
+      reason = `authorized: ${cls.label}${cls.host && cls.host !== 'search' ? ` to "${cls.host}"` : ''} — allowlisted read-only research source, request is DLP-clean, logged. Egress stays deny-all otherwise.`;
+    else
+      reason = `authorized: ${cls.label} — ${idTag} satisfies ${REQUIREMENT[cls.action]}.`;
+  } else if (cls.action === 'webResearch') {
+    if (!context.urlClean)
+      reason = `blocked: ${cls.label} — the request looks like it is carrying data OUT (failed egress DLP). Research egress is read-only: pull from approved sources, don't push data to them.`;
+    else
+      reason = `blocked: ${cls.label} to "${cls.host || 'unknown host'}" — not on this enclave's research allowlist. Egress is deny-all except a curated read-only set (CVE/NVD, ATT&CK, ExploitDB, GitHub, package registries, language docs, …). Use an approved source.`;
   } else if (cls.action === 'networkScan' || cls.action === 'exploit') {
     // Report the FIRST failing gate: clearance -> qualification -> scope -> approval.
     if (who.clearance < 4)

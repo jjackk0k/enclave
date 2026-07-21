@@ -88,3 +88,20 @@ when {
   principal.clearance >= 4 &&
   principal.licenses.containsAny(["CKA", "CKAD", "AWS-SA-Pro", "Terraform-Assoc"])
 };
+
+// P8 — Governed research egress: a READ-ONLY fetch/search to a host on the enclave's
+//      research allowlist, with the request DLP-clean (no data being pushed out).
+//      This is how the AI pulls current CVEs, advisories, ATT&CK, PoC code and docs
+//      WITHOUT being able to exfiltrate — it can pull from approved sources, never
+//      push your data to arbitrary hosts. The allowlist + DLP are resolved by the PEP
+//      (egress-allowlist.mjs); anything off-allowlist falls through to the default DENY.
+//      Any authenticated operator may research; the allowlist, not clearance, is the gate.
+permit (
+  principal,
+  action == Action::"webResearch",
+  resource
+)
+when {
+  context.hostAllowed == true &&
+  context.urlClean == true
+};

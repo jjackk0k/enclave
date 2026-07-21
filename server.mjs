@@ -63,8 +63,12 @@ function ensureDeps() {
 // (subagents/skills/tool-search), persistence/automation, external comms, and fs
 // escape. --strict-mcp-config additionally removes ALL the operator's MCP servers
 // (pccheck, github, …). Defense-in-depth: classify.mjs also fail-closes these names.
+// NOTE: WebFetch/WebSearch are deliberately NOT here — they are a GOVERNED research
+// channel (the PreToolUse hook allows only allowlisted, DLP-clean, read-only fetches;
+// see poc/enforcement-seam/egress-allowlist.mjs). Artifact stays blocked: it publishes
+// off-box (claude.ai) and is a pure exfil vector, not research.
 const SEAL_DISALLOW = [
-  'WebFetch', 'WebSearch', 'Artifact',                                   // egress / exfil
+  'Artifact',                                                            // publish / exfil to claude.ai
   'Task', 'Agent', 'Workflow', 'Skill', 'ToolSearch',                    // orchestration / surface expansion
   'CronCreate', 'CronList', 'CronDelete', 'ScheduleWakeup',              // persistence / automation
   'RemoteTrigger', 'PushNotification', 'SendMessage', 'DesignSync',      // external comms / notify

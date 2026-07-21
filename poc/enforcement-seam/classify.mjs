@@ -4,6 +4,8 @@
 // enforcement layer, not the model: the model just emits "run this command",
 // the PEP decides what class of action that actually is.
 
+import { extractHost, isEgressCommand } from './egress-allowlist.mjs';
+
 const OFFENSIVE_SCAN  = /\b(nmap|masscan|zmap|rustscan|unicornscan)\b/;
 const OFFENSIVE_EXPL  = /\b(msfconsole|metasploit|sqlmap|hydra|responder|mimikatz|crackmapexec|impacket)\b/;
 const CRED_OPS        = /\b(vault\s|passwd|secretsmanager|az\s+keyvault|aws\s+iam|rotate-?(key|cred|secret))\b/;
@@ -25,7 +27,7 @@ const IPV4 = /\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b/;
 // EVERY operator regardless of clearance. (The console also strips them from the
 // CLI surface via --disallowedTools; this is the enforcement-layer backstop.)
 const SEALED_TOOLS = new Set([
-  'Artifact', 'WebFetch', 'WebSearch', 'Task', 'Agent', 'Workflow', 'Skill', 'ToolSearch',
+  'Artifact', 'Task', 'Agent', 'Workflow', 'Skill', 'ToolSearch',
   'CronCreate', 'CronList', 'CronDelete', 'ScheduleWakeup', 'RemoteTrigger', 'PushNotification',
   'SendMessage', 'DesignSync', 'EnterWorktree', 'ExitWorktree', 'Monitor',
   'ListMcpResourcesTool', 'ReadMcpResourceTool', 'ReadMcpResourceDirTool',
@@ -34,8 +36,21 @@ const SEALED_TOOLS = new Set([
 export function classify(toolName, toolInput = {}) {
   if (SEALED_TOOLS.has(toolName) || /^mcp__/.test(toolName))
     return { action: 'sealedToolBlocked', kind: 'workspace', label: 'tool not permitted in a sealed enclave' };
+
+  // Web research is a GOVERNED egress channel, not a blocked one: the PEP gates it
+  // against the allowlist + DLP (see egress-allowlist.mjs), so the model can pull
+  // current CVEs / advisories / docs / PoC code but cannot exfiltrate.
+  if (toolName === 'WebSearch')
+    return { action: 'webResearch', kind: 'egress', host: 'search', url: (toolInput.query || '').toString(), label: 'web search' };
+  if (toolName === 'WebFetch')
+    return { action: 'webResearch', kind: 'egress', host: extractHost(toolInput.url), url: (toolInput.url || '').toString(), label: 'web fetch' };
+
   const raw = (toolInput.command ?? toolInput.file_path ?? toolInput.url ?? '').toString();
   const c = raw.toLowerCase();
+
+  // a shell command that reaches the network is gated by the same allowlist
+  if (toolName === 'Bash' && isEgressCommand(raw))
+    return { action: 'webResearch', kind: 'egress', host: extractHost(raw), url: raw, label: 'shell egress' };
 
   if (OFFENSIVE_EXPL.test(c)) return { action: 'exploit',     kind: 'target', label: 'exploit / offensive tooling', targetIp: (raw.match(IPV4) || [])[1] };
   if (OFFENSIVE_SCAN.test(c)) return { action: 'networkScan', kind: 'target', label: 'network scan',                targetIp: (raw.match(IPV4) || [])[1] };
