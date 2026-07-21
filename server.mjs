@@ -58,8 +58,26 @@ function ensureDeps() {
     spawnSync('npm', ['install', '--no-audit', '--no-fund'], { cwd: SEAM, stdio: 'ignore', shell: WIN });
   }
 }
+// the sealed enclave toolset: local work tools only (Read/Write/Edit/Bash/Grep/Glob).
+// Everything below is stripped from the box: egress (web/publish), orchestration
+// (subagents/skills/tool-search), persistence/automation, external comms, and fs
+// escape. --strict-mcp-config additionally removes ALL the operator's MCP servers
+// (pccheck, github, …). Defense-in-depth: classify.mjs also fail-closes these names.
+const SEAL_DISALLOW = [
+  'WebFetch', 'WebSearch', 'Artifact',                                   // egress / exfil
+  'Task', 'Agent', 'Workflow', 'Skill', 'ToolSearch',                    // orchestration / surface expansion
+  'CronCreate', 'CronList', 'CronDelete', 'ScheduleWakeup',              // persistence / automation
+  'RemoteTrigger', 'PushNotification', 'SendMessage', 'DesignSync',      // external comms / notify
+  'EnterWorktree', 'ExitWorktree', 'Monitor',                           // fs / process escape
+  'TaskCreate', 'TaskList', 'TaskGet', 'TaskUpdate', 'TaskStop', 'TaskOutput',
+  'ListMcpResourcesTool', 'ReadMcpResourceTool', 'ReadMcpResourceDirTool',
+];
+const MODEL_ALIAS = { opus: 'opus', sonnet: 'sonnet', haiku: 'haiku' };
+
 // a sealed per-operator workspace whose settings.json wires in the PreToolUse hook
 async function ensureWorkspace(ws) {
+  await mkdir(LIVE, { recursive: true });
+  await writeFile(join(LIVE, 'no-mcp.json'), '{"mcpServers":{}}');   // strict-mcp baseline: zero servers
   const dir = join(LIVE, ws);
   await mkdir(dir, { recursive: true });
   const settings = { hooks: { PreToolUse: [ { matcher: '*', hooks: [ { type: 'command', command: `node --no-warnings ${fwd(HOOK)}` } ] } ] } };
@@ -69,13 +87,19 @@ async function ensureWorkspace(ws) {
 }
 
 // CLI mode: spawn real `claude -p`, governed by the hook, in the sealed workspace
-function callClaudeCLI({ message, persona, resumeId, system }) {
+function callClaudeCLI({ message, persona, resumeId, system, model }) {
   return new Promise(async (resolve, reject) => {
     const P = PERSONA[persona] || PERSONA.lead;
     const sessionFile = join(SEAM, 'session', P.session);
     if (!existsSync(sessionFile)) return reject(new Error('no signed identity for persona ' + persona));
     const dir = await ensureWorkspace(P.ws);
-    const args = ['-p', message, '--settings', join(dir, 'settings.json'), '--output-format', 'json', '--model', MODEL];
+    const useModel = MODEL_ALIAS[model] || MODEL;
+    const args = ['-p', message,
+      '--settings', join(dir, 'settings.json'),
+      '--output-format', 'json',
+      '--model', useModel,
+      '--strict-mcp-config', '--mcp-config', join(LIVE, 'no-mcp.json'),  // seal: no inherited MCP servers
+      '--disallowedTools', ...SEAL_DISALLOW];                            // seal: no web / no subagents
     if (system)   args.push('--append-system-prompt', system);
     if (resumeId) args.push('--resume', resumeId);
     const child = spawn(CLAUDE, args, { cwd: dir, windowsHide: true,
@@ -88,9 +112,13 @@ function callClaudeCLI({ message, persona, resumeId, system }) {
     child.on('close', () => { clearTimeout(killer);
       try {
         const j = JSON.parse(out);
+        // the "real" model = the top-tier one actually used (modelUsage also lists a small helper model)
+        const models = Object.keys(j.modelUsage || {});
+        const primary = models.filter(m => !/haiku/i.test(m)).sort((a, b) => (j.modelUsage[b].inputTokens || 0) - (j.modelUsage[a].inputTokens || 0))[0] || models[0] || useModel;
         resolve({ text: j.result || j.subtype || '(no output)', sessionId: j.session_id,
           denials: (j.permission_denials || []).map(d => d.tool_name || d.tool || 'tool'),
-          cost: j.total_cost_usd, numTurns: j.num_turns, isError: !!j.is_error });
+          cost: j.total_cost_usd, numTurns: j.num_turns, isError: !!j.is_error,
+          usage: j.usage || null, model: primary, models });
       } catch (e) { reject(new Error('could not parse claude output: ' + (err || out || e.message).slice(0, 300))); }
     });
     child.stdin.end();
@@ -135,11 +163,11 @@ const server = http.createServer(async (req, res) => {
     req.on('data', c => (body += c));
     req.on('end', async () => {
       try {
-        const { message, persona, resumeId, system, messages } = JSON.parse(body || '{}');
+        const { message, persona, resumeId, system, messages, model } = JSON.parse(body || '{}');
         if (MODE === 'cli') {
           if (!message) return send(res, 400, JSON.stringify({ error: 'no message' }));
-          const r = await callClaudeCLI({ message, persona, resumeId, system });
-          console.log(`[cli] ${persona} · ${(message || '').slice(0, 40)}… → ${r.text.length}b · denials=${r.denials.length} · $${(r.cost || 0).toFixed(4)}`);
+          const r = await callClaudeCLI({ message, persona, resumeId, system, model });
+          console.log(`[cli] ${persona} · ${model || MODEL} · ${(message || '').slice(0, 36)}… → ${r.text.length}b · denials=${r.denials.length} · $${(r.cost || 0).toFixed(4)}`);
           return send(res, 200, JSON.stringify({ ...r, mode: 'cli' }));
         }
         if (!Array.isArray(messages) || !messages.length) return send(res, 400, JSON.stringify({ error: 'no messages' }));
@@ -147,6 +175,29 @@ const server = http.createServer(async (req, res) => {
         console.log(`[api] ${messages.length} msgs → ${r.text.length}b`);
         return send(res, 200, JSON.stringify({ ...r, mode: 'api' }));
       } catch (e) { send(res, e.code === 'NO_KEY' ? 400 : 502, JSON.stringify({ error: e.message, code: e.code || 'ERR' })); }
+    });
+    return;
+  }
+
+  if (url.pathname === '/api/ingest' && req.method === 'POST') {
+    let body = ''; let tooBig = false;
+    req.on('data', c => { body += c; if (body.length > 30e6) { tooBig = true; req.destroy(); } });
+    req.on('end', async () => {
+      if (tooBig) return;
+      try {
+        const { persona, files } = JSON.parse(body || '{}');
+        const P = PERSONA[persona] || PERSONA.lead;
+        const dir = await ensureWorkspace(P.ws);
+        const written = [];
+        for (const f of (files || [])) {
+          const name = basename(String(f.name || 'file')).replace(/[^\w.\- ]/g, '_').slice(0, 120);
+          if (!name) continue;
+          await writeFile(join(dir, name), Buffer.from(f.b64 || '', 'base64'));
+          written.push(name);
+        }
+        console.log(`[ingest] ${persona} · ${written.length} file(s) → ${P.ws}`);
+        send(res, 200, JSON.stringify({ ok: true, written }));
+      } catch (e) { send(res, 502, JSON.stringify({ error: e.message })); }
     });
     return;
   }

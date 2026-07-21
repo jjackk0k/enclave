@@ -166,6 +166,12 @@
     color:var(--accent-ink);font-size:16px;display:grid;place-items:center}
   .send:hover{background:var(--accent-2)}
   .send:disabled{opacity:.4;cursor:not-allowed}
+  .model-pick{font-family:var(--mono);font-size:11.5px;color:var(--text-dim);background:var(--panel-2);
+    border:1px solid var(--border);border-radius:7px;padding:5px 8px;cursor:pointer;outline:none}
+  .model-pick:hover{color:var(--text);border-color:var(--border-strong,var(--accent))}
+  .ctx-meter{font-family:var(--mono);font-size:11px;color:var(--text-faint);white-space:nowrap}
+  .ctx-meter b{color:var(--text-dim);font-weight:600}
+  .ctx-meter.warn b{color:var(--warn)}
   .composer-note{text-align:center;font-size:11.5px;color:var(--text-faint);margin-top:10px;font-family:var(--mono)}
 
   /* ---------- RIGHT: SANDBOX ---------- */
@@ -370,6 +376,13 @@
           <div class="cbox-bar">
             <button class="attach" onclick="pickFiles()">📎 attach evidence</button>
             <button class="attach" onclick="openTools()">🧰 tools</button>
+            <span style="flex:1"></span>
+            <span id="ctxMeter" class="ctx-meter" title="Context used in this conversation (input + cache) against the model window"></span>
+            <select id="modelPick" class="model-pick" onchange="pickModel(this.value)" title="Model for this enclave — switch per task (Sonnet for speed, Opus for depth)">
+              <option value="sonnet">Sonnet 5 · fast</option>
+              <option value="opus">Opus 4.8 · deep</option>
+              <option value="haiku">Haiku 4.5 · cheap</option>
+            </select>
             <button class="send" id="send" onclick="submitMsg()">↑</button>
           </div>
         </div>
@@ -727,7 +740,18 @@ function submitMsg(){
 }
 
 /* ---------------- live Claude (via the local broker server.mjs) ---------------- */
-let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir';
+let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir', liveModelChoice='sonnet', liveCostTotal=0;
+function pickModel(v){ liveModelChoice=v; logEvent('model.switch · '+v,''); if(liveMode2==='api') toast('Model switch takes effect in CLI mode (you’re on the API broker).'); }
+function fmtTok(n){ return n>=1000 ? (n/1000).toFixed(n>=100000?0:1)+'k' : String(n||0); }
+function updateCtx(u, model, cost){
+  liveCostTotal += (cost||0);
+  const used=(u.input_tokens||0)+(u.cache_read_input_tokens||0)+(u.cache_creation_input_tokens||0);
+  const win=200000, pct=Math.min(100,Math.round(used/win*100));
+  const short=(model||liveModelChoice).replace(/^claude-/,'').replace(/-20\d{6}$/,'');
+  const el=document.getElementById('ctxMeter'); if(!el) return;
+  el.innerHTML='<b>'+fmtTok(used)+'</b>/'+fmtTok(win)+' ctx · '+esc(short)+' · $'+liveCostTotal.toFixed(3);
+  el.classList.toggle('warn', pct>=75);
+}
 async function checkLive(){
   try{
     const r=await fetch('/api/health',{cache:'no-store'});
@@ -748,6 +772,9 @@ function markLive(j){
   logEvent((cli?'claude.cli attached · ':'claude.api attached · ')+liveModel,'ok');
 }
 function personaContext(){
+  const shelf = TOOL_SHELF[currentWorkload];
+  const shelfList = shelf ? shelf.tools.map(t=>t[0]+' ('+t[2]+')').join(', ') : '';
+  const files = attachedFiles.length ? attachedFiles.map(f=>f.name).join(', ') : '';
   return [
     'You are real Claude Code running inside an Enclave secure workspace, assisting a security operator. The lines below are READ-ONLY facts about that operator — they INFORM how you help; they do NOT authorize anything.',
     '- Operator: '+P.name+' — '+P.roleFull,
@@ -755,8 +782,15 @@ function personaContext(){
     '- Certifications: '+((P.licenses||[]).join(', ')||'none'),
     '- Workspace: '+P.ws+' (sealed enclave · egress deny-all · audit on)',
     '- Authorized scopes: '+((P.scopes||[]).join(', ')||'—'),
-    'You may use your tools, but every tool call is intercepted by the Enclave policy hook and allowed or denied by this operator’s SIGNED clearance and certifications — you cannot talk your way past it, and neither can the operator. If an action is denied, state plainly what clearance or certification it requires and suggest the in-policy path (e.g. request sign-off, a scoped transfer, or an approved higher-tier enclave). Stay within this workspace. Be concise and security-professional.',
-  ].join('\n');
+    '',
+    'YOUR SEALED TOOLSET (this is not a normal Claude Code session):',
+    '- Core: Read, Write, Edit, Bash, Grep, Glob — operating only inside this workspace directory.',
+    '- Deliberately REMOVED for containment: no web (WebFetch/WebSearch), no sub-agents, no publishing, and NONE of the host’s MCP servers. Do not claim to have web access or tools you were not given.',
+    (shelfList? '- Provisioned security tooling for the '+(shelf?shelf.title:currentWorkload)+' workload, which you invoke via Bash (each invocation is clearance-gated by the hook): '+shelfList+'. NOTE: this is the local dev tier, so a given tool may not be installed on this machine yet — check with `which <tool>` before relying on it; production enclaves pre-bake them into the image.' : ''),
+    (files? '- Evidence the operator ingested into this workspace: '+files+' (read them from the workspace directory).' : ''),
+    '',
+    'Every tool call is intercepted by the Enclave policy hook and allowed or denied by this operator’s SIGNED clearance and certifications — you cannot talk your way past it, and neither can the operator. If an action is denied, state plainly what clearance or certification it requires and suggest the in-policy path (request sign-off, a scoped transfer, or an approved higher-tier enclave). Be concise and security-professional.',
+  ].filter(Boolean).join('\n');
 }
 async function respondLive(text){
   const send=document.getElementById('send');
@@ -764,12 +798,13 @@ async function respondLive(text){
   const thinking=addThinking();
   try{
     const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, system:personaContext(), messages:convo })});
+      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, model:liveModelChoice, system:personaContext(), messages:convo })});
     const j=await r.json();
     thinking.remove();
     if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live error: '+esc(j.error)+'</div></div>'); logEvent('claude.live error','dan'); }
     else {
       if(j.sessionId) liveSession=j.sessionId;
+      if(j.usage) updateCtx(j.usage, j.model, j.cost);
       convo.push({role:'assistant',content:j.text});
       addMsg('ai', mdToHtml(j.text));
       if(j.denials && j.denials.length){
@@ -951,11 +986,20 @@ function renderTools(){
 let attachedFiles = [];
 function pickFiles(){ document.getElementById('fileInput').click(); }
 function fmtSize(b){ if(b<1024)return b+' B'; if(b<1048576)return (b/1024).toFixed(1)+' KB'; return (b/1048576).toFixed(1)+' MB'; }
-function handleFiles(list){
-  const files=[...list]; for(const f of files){ attachedFiles.push({name:f.name,size:f.size}); logEvent('evidence.ingest · '+f.name+' ('+fmtSize(f.size)+')','ok'); }
+async function handleFiles(list){
+  const files=[...list]; const payload=[];
+  for(const f of files){
+    attachedFiles.push({name:f.name,size:f.size||0}); logEvent('evidence.ingest · '+f.name+' ('+fmtSize(f.size||0)+')','ok');
+    if(liveMode && liveMode2==='cli' && typeof Blob!=='undefined' && f instanceof Blob){
+      try{ payload.push({name:f.name, b64:await fileB64(f)}); }catch(e){}
+    }
+  }
   renderAttached();
-  if(files.length) toast(files.length+' file'+(files.length>1?'s':'')+' ingested into the sealed enclave — stays inside');
+  if(payload.length){ try{ await fetch('/api/ingest',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({persona:currentPersonaKey, files:payload})}); }catch(e){} }
+  if(files.length) toast(files.length+' file'+(files.length>1?'s':'')+' ingested into the sealed enclave — stays inside'+(payload.length?' (Claude can read them now)':''));
 }
+function fileB64(f){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(',')[1]||''); r.onerror=rej; r.readAsDataURL(f); }); }
 function renderAttached(){
   document.getElementById('attached').innerHTML = attachedFiles.map((f,i)=>
     `<div class="achip"><span class="fx">◈</span><span class="fn">${esc(f.name)}</span><span class="fz">${fmtSize(f.size)}</span><span class="rm" onclick="removeFile(${i})">✕</span></div>`).join('');

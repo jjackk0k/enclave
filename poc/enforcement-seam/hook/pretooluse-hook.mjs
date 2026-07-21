@@ -54,6 +54,7 @@ const REQUIREMENT = {
   provisionInfra:    'clearance ≥ L4 and a platform/cloud certification (CKA, Terraform-Assoc, …)',
   networkScan:       'clearance ≥ L4, an in-scope target, and an offensive certification (OSCP, OSEP, CRTO, …)',
   exploit:           'clearance ≥ L4, an in-scope target, an offensive certification, and human approval',
+  sealedToolBlocked: 'a tool that is not available inside a sealed enclave (egress / orchestration / external MCP are removed)',
 };
 
 // Qualification gates — CLEARANCE says how trusted; QUALIFICATION says what you're

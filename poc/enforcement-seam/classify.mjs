@@ -18,7 +18,22 @@ const IPV4 = /\b(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\b/;
  * @param {object} toolInput   e.g. { command } | { file_path } | { url }
  * @returns {{action:string, kind:'workspace'|'target', label:string, targetIp?:string}}
  */
+// Tools that have no business inside a sealed enclave: egress/exfil (web, publish),
+// orchestration (subagents, skills, tool discovery), persistence/automation,
+// external comms, and filesystem/process escape. These map to an action that NO
+// Cedar policy permits, so — because Cedar is default-deny — they are refused for
+// EVERY operator regardless of clearance. (The console also strips them from the
+// CLI surface via --disallowedTools; this is the enforcement-layer backstop.)
+const SEALED_TOOLS = new Set([
+  'Artifact', 'WebFetch', 'WebSearch', 'Task', 'Agent', 'Workflow', 'Skill', 'ToolSearch',
+  'CronCreate', 'CronList', 'CronDelete', 'ScheduleWakeup', 'RemoteTrigger', 'PushNotification',
+  'SendMessage', 'DesignSync', 'EnterWorktree', 'ExitWorktree', 'Monitor',
+  'ListMcpResourcesTool', 'ReadMcpResourceTool', 'ReadMcpResourceDirTool',
+]);
+
 export function classify(toolName, toolInput = {}) {
+  if (SEALED_TOOLS.has(toolName) || /^mcp__/.test(toolName))
+    return { action: 'sealedToolBlocked', kind: 'workspace', label: 'tool not permitted in a sealed enclave' };
   const raw = (toolInput.command ?? toolInput.file_path ?? toolInput.url ?? '').toString();
   const c = raw.toLowerCase();
 
