@@ -43,6 +43,8 @@ const checks = [
     want: [/AUDIT-ANCHOR: PASS/], needZeroExit: true },
   { name: 'identity · SD-JWT clearances + DPoP + SPIFFE', cwd: 'poc/identity', cmd: NODE, args: ['demo.mjs'],
     want: [/IDENTITY: PASS/], needZeroExit: true },
+  { name: 'governed memory · scoped, DLP\'d, audited, inert', cwd: 'poc/memory', cmd: NODE, args: ['demo.mjs'],
+    want: [/MEMORY-GOVERNANCE: PASS/], needZeroExit: true },
   { name: 'presets · scaffold a governed, pre-filled workspace', cwd: 'presets', cmd: NODE,
     args: ['scaffold.mjs', '--preset', 'red-team', '--name', '_selftest', '--client', 'Acme', '--scope', '10.0.0.0/8', '--lead', 'QA', '--force'],
     want: [/Scaffolded "_selftest"/, /clearance ≥ L4/], notWant: [/«FILL/] },
