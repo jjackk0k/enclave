@@ -19,6 +19,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, basename, delimiter } from 'node:path';
 import { homedir } from 'node:os';
+import { runGovernedAgent } from './agent-backend.mjs';
 
 const ROOT   = process.env.ENCLAVE_ROOT || dirname(fileURLToPath(import.meta.url));
 const PORT   = Number(process.env.PORT) || 8977;
@@ -43,6 +44,17 @@ function findClaude() {
 }
 const CLAUDE = findClaude();
 const MODE = CLAUDE ? 'cli' : (process.env.ANTHROPIC_API_KEY ? 'api' : 'scripted');
+
+// Kimi K3 (or any OpenAI-compatible model) — AUTO-ATTACH when its key is present.
+// Once you subscribe and set the key, the console uses Kimi automatically (no cyber-
+// content classifier), governed by the SAME hook via the agent loop. Set one of:
+// MOONSHOT_API_KEY / KIMI_API_KEY / ENCLAVE_KIMI_KEY.  Override model/base with
+// KIMI_MODEL / KIMI_BASE_URL.  Force a backend with ENCLAVE_BACKEND=kimi|cli|api.
+const KIMI_KEY   = process.env.MOONSHOT_API_KEY || process.env.KIMI_API_KEY || process.env.ENCLAVE_KIMI_KEY || '';
+const KIMI_BASE  = process.env.KIMI_BASE_URL || 'https://api.moonshot.ai/v1';
+const KIMI_MODEL = process.env.KIMI_MODEL || 'kimi-k2-0711-preview';
+const KIMI_OK    = !!KIMI_KEY;
+const BACKEND    = (process.env.ENCLAVE_BACKEND || (KIMI_OK ? 'kimi' : (CLAUDE ? 'cli' : (process.env.ANTHROPIC_API_KEY ? 'api' : 'scripted')))).toLowerCase();
 
 // console persona key  →  SIGNED identity file  +  sealed workspace  +  default workload
 const PERSONA = {
@@ -246,6 +258,32 @@ function callClaudeCLI({ message, persona, resumeId, system, model, workload, se
   });
 }
 
+// Kimi (or any OpenAI-compatible model) turn — same sealed workspace + container +
+// governance as the Claude path; only the reasoning engine changes.
+async function callKimi({ message, persona, system, workload, session, effort, messages }) {
+  const P = PERSONA[persona] || PERSONA.lead;
+  const sessionFile = join(SEAM, 'session', P.session);
+  if (!existsSync(sessionFile)) throw new Error('no signed identity for persona ' + persona);
+  const wsName = wsNameFor(P.ws, session);
+  const prev = sessions.get(P.ws);
+  if (prev && prev !== wsName) teardownSession(prev);
+  sessions.set(P.ws, wsName);
+  const dir = await ensureWorkspace(wsName);
+  await ensureBin();
+  const wl = workload || P.workload;
+  const container = ensureContainer(wsName, wl, dir);
+  let sysAug = (system || '') + '\n\nYou have function-calling tools: Read, Write, Edit, Bash, Grep, Glob. EVERY call is intercepted by the Enclave policy hook and allowed/denied by this operator’s signed clearance + certifications — you cannot override it. If a call is denied, state what it needs and take the in-policy path. Operate only inside the workspace.';
+  if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container is live (egress via allowlist broker, workspace at /work). Run the workload toolchain INSIDE it through Bash:  enclave-shell <command>  (e.g. enclave-shell nmap -sV <in-scope-target>, enclave-shell vol -f /work/mem.raw windows.pslist).`;
+  const hist = (Array.isArray(messages) && messages.length) ? messages : [{ role: 'user', content: message }];
+  const norm = hist.map(m => ({ role: m.role === 'assistant' ? 'assistant' : (m.role === 'system' ? 'system' : 'user'), content: typeof m.content === 'string' ? m.content : JSON.stringify(m.content) }));
+  const r = await runGovernedAgent({
+    apiBase: KIMI_BASE, apiKey: KIMI_KEY, model: KIMI_MODEL, system: sysAug, messages: norm,
+    hookPath: HOOK, sessionFile, wsDir: dir, container, binPath: BIN,
+    effort: EFFORTS.includes(effort) ? effort : undefined,
+  });
+  return { text: r.text, denials: r.denials, sessionId: session || wsName, mode: 'kimi', model: KIMI_MODEL, usage: null };
+}
+
 // API fallback: inject the key server-side, forward to Claude (key never reaches the browser)
 function callClaudeAPI({ system, messages }) {
   return new Promise((resolve, reject) => {
@@ -273,8 +311,11 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
 
   if (url.pathname === '/api/health') {
-    return send(res, 200, JSON.stringify({ live: MODE !== 'scripted', mode: MODE, model: MODEL,
-      claude: CLAUDE ? basename(CLAUDE) : null, keyPresent: !!process.env.ANTHROPIC_API_KEY }));
+    return send(res, 200, JSON.stringify({ live: BACKEND !== 'scripted', mode: BACKEND, backend: BACKEND,
+      model: BACKEND === 'kimi' ? KIMI_MODEL : MODEL,
+      kimi: KIMI_OK, claude: CLAUDE ? basename(CLAUDE) : null,
+      available: { kimi: KIMI_OK, claude: !!CLAUDE, api: !!process.env.ANTHROPIC_API_KEY },
+      keyPresent: !!process.env.ANTHROPIC_API_KEY }));
   }
   if (url.pathname === '/api/audit') {
     return send(res, 200, JSON.stringify({ decisions: recentAudit(Number(url.searchParams.get('n')) || 25) }));
@@ -285,7 +326,13 @@ const server = http.createServer(async (req, res) => {
     req.on('end', async () => {
       try {
         const { message, persona, resumeId, system, messages, model, workload, session, effort } = JSON.parse(body || '{}');
-        if (MODE === 'cli') {
+        if (BACKEND === 'kimi') {
+          if (!message && !(Array.isArray(messages) && messages.length)) return send(res, 400, JSON.stringify({ error: 'no message' }));
+          const r = await callKimi({ message, persona, system, workload, session, effort, messages });
+          console.log(`[kimi] ${persona} · ${KIMI_MODEL} · → ${r.text.length}b · denials=${r.denials.length}`);
+          return send(res, 200, JSON.stringify({ ...r }));
+        }
+        if (BACKEND === 'cli') {
           if (!message) return send(res, 400, JSON.stringify({ error: 'no message' }));
           const r = await callClaudeCLI({ message, persona, resumeId, system, model, workload, session, effort });
           console.log(`[cli] ${persona} · ${model || MODEL} · ${(message || '').slice(0, 36)}… → ${r.text.length}b · denials=${r.denials.length} · $${(r.cost || 0).toFixed(4)}`);
@@ -338,9 +385,12 @@ for (const sig of ['SIGINT', 'SIGTERM']) process.on(sig, () => { cleanupAllConta
 process.on('exit', () => cleanupAllContainers());              // best-effort teardown when the server stops
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`\n  ◈ Enclave console — live at  http://localhost:${PORT}/app.html\n`);
-  if (MODE === 'cli')      console.log(`  attached to your Claude CLI (${basename(CLAUDE)}) · model ${MODEL} · every tool call gated by clearance`);
-  else if (MODE === 'api') console.log(`  Claude CLI not found — using API broker (ANTHROPIC_API_KEY) · governance hook not applied`);
-  else                     console.log(`  no Claude CLI and no ANTHROPIC_API_KEY — console runs in scripted demo mode`);
-  console.log(DOCKER_OK ? '  container tier: on (sealed per-session containers) · sessions are ephemeral' : '  container tier: off (Docker not detected) — host tier');
+  if (BACKEND === 'kimi')     console.log(`  ATTACHED TO KIMI · ${KIMI_MODEL} @ ${KIMI_BASE} · governed by the Enclave hook · no cyber-content classifier`);
+  else if (BACKEND === 'cli') console.log(`  attached to your Claude CLI (${basename(CLAUDE)}) · model ${MODEL} · every tool call gated by clearance`);
+  else if (BACKEND === 'api') console.log(`  Claude API broker (ANTHROPIC_API_KEY) · governance hook not applied`);
+  else                        console.log(`  no model backend — scripted demo mode.`);
+  if (BACKEND !== 'kimi' && !KIMI_OK) console.log(`  → to AUTO-ATTACH Kimi K3 (no cyber filters, same governance): set MOONSHOT_API_KEY (or KIMI_API_KEY) and restart`);
+  if (BACKEND !== 'kimi' && KIMI_OK)  console.log(`  (Kimi key detected, but ENCLAVE_BACKEND=${process.env.ENCLAVE_BACKEND} is forcing ${BACKEND})`);
+  console.log(DOCKER_OK ? '  container tier: on (sealed per-session containers) · sessions ephemeral' : '  container tier: off (Docker not detected) — host tier');
   console.log('');
 });

@@ -785,14 +785,15 @@ async function checkLive(){
   }catch(e){ /* file:// or Pages/artifact: no local server -> stay scripted */ }
 }
 function markLive(j){
-  const cli = j.mode==='cli';
-  const label = cli ? ('your Claude CLI · '+liveModel) : (liveModel+' · API');
-  const title = cli ? ('Attached to your local Claude CLI ('+(j.claude||'claude')+'). Every tool call is gated by your clearance — the audit view shows real hook decisions.')
-                    : 'Live Claude via the local API broker — the key stays server-side.';
+  const b = j.mode;
+  let label, title;
+  if(b==='kimi'){ label='Kimi · '+(j.model||'k3'); title='Attached to Kimi ('+(j.model||'')+') — no cyber-content classifier. Every tool call is still gated by the Enclave hook (same clearance/cert/scope governance as Claude).'; }
+  else if(b==='cli'){ label='your Claude CLI · '+liveModel; title='Attached to your local Claude CLI ('+(j.claude||'claude')+'). Every tool call is gated by your clearance — the audit view shows real hook decisions.'; }
+  else { label=liveModel+' · API'; title='Live Claude via the local API broker — the key stays server-side.'; }
   const chip=document.querySelector('.clear-chip');
   if(chip) chip.insertAdjacentHTML('afterend',
     '<div class="clear-chip" style="border-color:rgba(53,217,154,.5);color:var(--secure)" title="'+esc(title)+'">● LIVE · '+esc(label)+'</div>');
-  logEvent((cli?'claude.cli attached · ':'claude.api attached · ')+liveModel,'ok');
+  logEvent('backend attached · '+b+' · '+(j.model||liveModel),'ok');
 }
 function personaContext(){
   const shelf = TOOL_SHELF[currentWorkload];
