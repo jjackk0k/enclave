@@ -32,7 +32,7 @@ The pretty UI is *just the door*. Real security lives in the backend, in layers,
 - Every privileged action is checked **server-side** against a signed identity, so no prompt (including prompt injection) can escalate its own permissions.
 - Per-session disposable isolation · deny-all egress firewall · hashed, immutable audit ledger.
 
-The full backend design lives in [`docs/security-architecture.md`](docs/security-architecture.md).
+Docs: [security architecture](docs/security-architecture.md) · [threat model](docs/threat-model.md) · [SOC 2 mapping](docs/soc2-mapping.md) · [tool shelf](docs/tool-shelf.md) · [project plan](docs/project-plan.md) · [deploy](deploy/).
 
 ## Run locally
 
