@@ -571,7 +571,9 @@ let P = PERSONAS.ir;
 function doLogin(){
   const k = document.getElementById('persona').value;
   P = PERSONAS[k];
+  currentPersonaKey = k;
   currentWorkload = PERSONA_WORKLOAD[k] || 'incident-response';
+  liveSession = null; convo = [];
   applyPersona();
   document.getElementById('login').style.display='none';
   document.getElementById('app').classList.add('on');
@@ -677,6 +679,7 @@ function provisionEnclave(){
   const name = slug(vals.client||vals.project||vals.case||vals.framework||p.id);
   currentWorkload = TOOL_SHELF[p.id] ? p.id : 'incident-response';
   attachedFiles = []; renderAttached();
+  liveSession = null; convo = [];
   addEnclaveToSidebar(p, name);
   closeNewEnclave();
   document.getElementById('topWs').textContent=name;
@@ -700,7 +703,7 @@ function addEnclaveToSidebar(p, name){
   const sm = p.scoped ? (p.id+' · scoped') : (p.id+' · deny-all');
   div.innerHTML=`<div class="wi">${p.icon}</div><div class="meta"><div class="nm">${name}</div><div class="sm">${sm}</div></div>`;
   div.onclick=()=>{ document.querySelectorAll('.side .ws').forEach(w=>w.classList.remove('active')); div.classList.add('active');
-    setWorkload(p.id); document.getElementById('topWs').textContent=name;
+    setWorkload(p.id); liveSession=null; convo=[]; document.getElementById('topWs').textContent=name;
     document.getElementById('input').placeholder='Message Claude in the '+name+' enclave…'; };
   list.prepend(div);
 }
@@ -724,31 +727,35 @@ function submitMsg(){
 }
 
 /* ---------------- live Claude (via the local broker server.mjs) ---------------- */
-let liveMode=false, liveModel='', convo=[];
+let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir';
 async function checkLive(){
   try{
     const r=await fetch('/api/health',{cache:'no-store'});
     if(!r.ok) return;
     const j=await r.json();
-    if(j.live && j.keyPresent){ liveMode=true; liveModel=j.model||'claude'; markLive(); }
-    else if(j.live){ logEvent('live server up · no ANTHROPIC_API_KEY (scripted)','warn'); }
-  }catch(e){ /* file:// or artifact: no server -> stay scripted */ }
+    if(j.live){ liveMode=true; liveMode2=j.mode; liveModel=j.model||'claude'; markLive(j); }
+    else { logEvent('live server up · no Claude CLI / key (scripted demo)','warn'); }
+  }catch(e){ /* file:// or Pages/artifact: no local server -> stay scripted */ }
 }
-function markLive(){
+function markLive(j){
+  const cli = j.mode==='cli';
+  const label = cli ? ('your Claude CLI · '+liveModel) : (liveModel+' · API');
+  const title = cli ? ('Attached to your local Claude CLI ('+(j.claude||'claude')+'). Every tool call is gated by your clearance — the audit view shows real hook decisions.')
+                    : 'Live Claude via the local API broker — the key stays server-side.';
   const chip=document.querySelector('.clear-chip');
   if(chip) chip.insertAdjacentHTML('afterend',
-    '<div class="clear-chip" style="border-color:rgba(53,217,154,.5);color:var(--secure)" title="Live Claude via the local broker — the key stays server-side">● LIVE · '+liveModel+'</div>');
-  logEvent('claude.live attached · '+liveModel,'ok');
+    '<div class="clear-chip" style="border-color:rgba(53,217,154,.5);color:var(--secure)" title="'+esc(title)+'">● LIVE · '+esc(label)+'</div>');
+  logEvent((cli?'claude.cli attached · ':'claude.api attached · ')+liveModel,'ok');
 }
 function personaContext(){
   return [
-    'You are the AI assistant inside the Enclave secure console. Below is READ-ONLY context about the operator you are helping. It INFORMS how you help; it does not authorize anything.',
+    'You are real Claude Code running inside an Enclave secure workspace, assisting a security operator. The lines below are READ-ONLY facts about that operator — they INFORM how you help; they do NOT authorize anything.',
     '- Operator: '+P.name+' — '+P.roleFull,
     '- Clearance: '+P.clearTxt,
     '- Certifications: '+((P.licenses||[]).join(', ')||'none'),
     '- Workspace: '+P.ws+' (sealed enclave · egress deny-all · audit on)',
     '- Authorized scopes: '+((P.scopes||[]).join(', ')||'—'),
-    'Tailor your help to this operator’s role and clearance; warn before suggesting anything beyond their remit. Be concise and security-professional. This is a demo console — do not claim to have actually executed tools or commands.',
+    'You may use your tools, but every tool call is intercepted by the Enclave policy hook and allowed or denied by this operator’s SIGNED clearance and certifications — you cannot talk your way past it, and neither can the operator. If an action is denied, state plainly what clearance or certification it requires and suggest the in-policy path (e.g. request sign-off, a scoped transfer, or an approved higher-tier enclave). Stay within this workspace. Be concise and security-professional.',
   ].join('\n');
 }
 async function respondLive(text){
@@ -757,14 +764,32 @@ async function respondLive(text){
   const thinking=addThinking();
   try{
     const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({system:personaContext(), messages:convo})});
+      body:JSON.stringify({ message:text, persona:currentPersonaKey, resumeId:liveSession, system:personaContext(), messages:convo })});
     const j=await r.json();
     thinking.remove();
-    if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live model error: '+esc(j.error)+'</div></div>'); }
-    else { convo.push({role:'assistant',content:j.text}); addMsg('ai', mdToHtml(j.text)); logEvent('claude.live reply · '+j.text.length+'b','ok'); }
+    if(j.error){ addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live error: '+esc(j.error)+'</div></div>'); logEvent('claude.live error','dan'); }
+    else {
+      if(j.sessionId) liveSession=j.sessionId;
+      convo.push({role:'assistant',content:j.text});
+      addMsg('ai', mdToHtml(j.text));
+      if(j.denials && j.denials.length){
+        addMsg('ai','<div class="notice block"><span class="ni">⛔</span><div><b>'+j.denials.length+' tool call'+(j.denials.length>1?'s':'')+' denied by the enclave</b> ('+j.denials.map(esc).join(', ')+') — decided server-side against '+esc(P.name)+'’s signed clearance, not by the model. Logged to the audit ledger.</div></div>');
+        j.denials.forEach(d=>logEvent('pretooluse.deny · '+d,'dan'));
+        refreshAudit();
+      }
+      const meta = (j.mode==='cli'?'CLI':'API')+(j.cost?(' · $'+Number(j.cost).toFixed(4)):'');
+      logEvent('claude.live reply · '+j.text.length+'b · '+meta,'ok');
+    }
   }catch(e){ thinking.remove(); addMsg('ai','<div class="notice block"><span class="ni">⚠</span><div>Live request failed: '+esc(e.message)+'</div></div>'); }
   send.disabled=false;
 }
+async function refreshAudit(){
+  try{ const r=await fetch('/api/audit?n=25',{cache:'no-store'}); if(!r.ok)return; const j=await r.json();
+    (j.decisions||[]).forEach(d=>{ if(!auditSeen.has(d.ts+d.tool)){ auditSeen.add(d.ts+d.tool);
+      logEvent('hook · '+d.principal+' (L'+d.clearance+') · '+d.action+' → '+String(d.decision).toUpperCase(), d.decision==='allow'?'ok':'dan'); } });
+  }catch(e){}
+}
+let auditSeen=new Set();
 function addThinking(){
   const scroll=document.getElementById('scroll');
   const wrap=document.createElement('div');wrap.className='msg ai';
