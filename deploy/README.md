@@ -1,23 +1,33 @@
 # deploy — the control plane as real services
 
-Turns the PoCs into **deployable networked services**. The first is the **Cedar PDP**: the enforcement seam's Policy Decision Point, containerized so the PEP (the PreToolUse hook) calls it over the network — the production shape (`ENCLAVE_PDP_URL`), instead of in-process.
+Turns the PoCs into a **deployable, networked control plane** (three hardened services):
+
+| Service | Role |
+|---|---|
+| **pdp** | Cedar authorization decisions — the PEP calls it over the network (`ENCLAVE_PDP_URL`) |
+| **broker** | deny-all egress + API-key injection — sandboxes reach the network only through it |
+| **upstream** | a stand-in for `api.anthropic.com` (the broker forwards here, key injected) |
 
 ## Run it *(requires Docker)*
 
 ```bash
-docker compose up -d --build      # build + start the PDP service (hardened: read-only, cap-drop, non-root)
-node smoke.mjs                    # verify it makes the right decisions over HTTP
+docker compose up -d --build      # build + start (all hardened: read-only, cap-drop ALL, non-root, healthchecks)
+node smoke.mjs                    # verify PDP + broker over HTTP
 docker compose down              # tear down
 ```
 
 Expected:
 
 ```
-deployed PDP: {"ok":true,"cedar":"4.11.2"}
-  sam · deleteFiles (under-cleared)  → deny   (expect deny)
-  dana · deleteFiles (own workspace) → allow  (expect allow)
-  marcus · networkScan (off-scope)   → deny   (expect deny)
-DEPLOY-SMOKE: PASS ✓
+  Cedar PDP (authorization):
+  ✓ health → {"ok":true,"cedar":"4.11.2"}
+  ✓ sam · deleteFiles (under-cleared)  = deny
+  ✓ dana · deleteFiles (own workspace) = allow
+  ✓ marcus · networkScan (off-scope)   = deny
+  Egress broker (deny-all + key injection):
+  ✓ api.anthropic.com: broker injects key, upstream receives it → 200 · upstreamSawKey=true
+  ✓ pastebin.com: exfil denied → 403
+  DEPLOY-SMOKE: PASS ✓
 ```
 
 ## Point the enforcement seam at the deployed PDP

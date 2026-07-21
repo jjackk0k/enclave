@@ -1,18 +1,18 @@
-# Enclave — deployable control-plane services. Turns the PoCs into real networked
-# services (the production PEP → PDP-over-network shape).
+# Enclave — the control plane as real networked services (the production shape):
+#   pdp       Cedar authorization decisions   (PEP → PDP over the network)
+#   broker    deny-all egress + key injection (sandbox → broker → upstream)
+#   upstream  a stand-in for api.anthropic.com (broker forwards here, key injected)
+#
 #   docker compose up -d --build     # bring up
-#   node smoke.mjs                    # verify it answers
+#   node smoke.mjs                    # verify PDP + broker
 #   docker compose down              # tear down
 
 services:
   pdp:
-    build:
-      context: ..
-      dockerfile: deploy/pdp.Dockerfile
+    build: { context: .., dockerfile: deploy/pdp.Dockerfile }
     image: enclave-pdp
     container_name: enclave-pdp
-    ports:
-      - "8990:8990"
+    ports: ["8990:8990"]
     healthcheck:
       test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8990/health').then(r=>{process.exit(r.ok?0:1)}).catch(()=>process.exit(1))"]
       interval: 10s
@@ -22,4 +22,33 @@ services:
     restart: unless-stopped
     read_only: true
     cap_drop: [ALL]
-    security_opt: [no-new-privileges:true]
+    security_opt: ["no-new-privileges:true"]
+
+  upstream:
+    build: { context: .., dockerfile: deploy/controlplane.Dockerfile }
+    image: enclave-controlplane
+    container_name: enclave-upstream
+    command: ["node", "upstream-mock.mjs"]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+
+  broker:
+    image: enclave-controlplane
+    container_name: enclave-broker
+    depends_on: [upstream]
+    command: ["node", "broker-server.mjs"]
+    environment:
+      ENCLAVE_KEY: "sk-ant-BROKER-HELD-never-in-sandbox"
+      UPSTREAM_URL: "http://upstream:9090"
+    ports: ["8080:8080"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/',{method:'POST',headers:{'x-egress-host':'healthcheck.invalid','content-type':'application/json'},body:'{}'}).then(r=>process.exit(r.status<500?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
