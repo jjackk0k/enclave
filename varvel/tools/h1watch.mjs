@@ -70,7 +70,7 @@ export const H1_API = {
   DIRECTORY: '/hackers/programs',
   PROGRAM: (handle) => `/hackers/programs/${encodeURIComponent(handle)}`,
   SCOPES: (handle) => `/hackers/programs/${encodeURIComponent(handle)}/structured_scopes`,
-  PAGE_SIZE: 100,
+  PAGE_SIZE: Number(process.env.VARVEL_H1_PAGE_SIZE || 100),
   MAX_PAGES: 50, // pagination safety cap — a runaway links.next loop is cut loudly
 };
 export const TOKEN_ENV = 'VARVEL_H1_TOKEN';
@@ -330,7 +330,7 @@ function defaultWire({ env }) {
 // in env/settings routes ALL external H1 traffic through it (FAIL CLOSED); none armed
 // = plain fetch, named in gaps. `signal` threads the caller's abort (the hunt loop's
 // stage watchdog) into every GET.
-export function liveSource({ base = H1_API.BASE, env = process.env, fetchImpl, timeoutMs = 20000, signal } = {}) {
+export function liveSource({ base = H1_API.BASE, env = process.env, fetchImpl, timeoutMs = Number(process.env.VARVEL_H1_TIMEOUT_MS || 20000), signal } = {}) {
   const token = env[TOKEN_ENV];
   if (!token) {
     return { ok: false, error: 'h1-token-missing', reason: `the live scan needs an API credential in the env var ${TOKEN_ENV} (the NAME only — its value is never stored or logged); offline/test runs use --fixture <file> with the same code path` };
