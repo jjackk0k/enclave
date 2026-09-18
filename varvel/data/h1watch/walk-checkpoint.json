@@ -25458,4 +25458,397 @@
         }
       ]
     },
-    "
+    "skale_network": {
+      "handle": "skale_network",
+      "name": "SKALE Network",
+      "url": "https://hackerone.com/skale_network",
+      "policy": "# SKALE Network's HackerOne Program Scope\r\n\r\nThe SKALE Network Bug Bounty Program is intended for discovering potential technical vulnerabilities in the SKALE Network with the help of SKALE Network community members, especially those who specialize in global network security and Solidity smart contract security. The SKALE Network community takes the security of the network very seriously and offers this bounty program to reward those who help strengthen the network and technologies. \r\n\r\n## Program Scope\r\n\r\nSKALE Network is a fully asynchronous binary Byzantine Fault Tolerant consensus that incorporates BLS threshold cryptography and a Trusted Execution Environment (SGX) to provide performant sidechains that are 100% Ethereum compatible. The SKALE Network is orchestrated by a set of smart contracts called SKALE Manager, deployed on Ethereum network. For general documentation, [see here](https://skale.network/docs/).\r\n\r\n**At present, the `skale-consensus`, `libBLS`,`skale-manager`, and `sgxwallet` repositories are the only assets in-scope.** There are three scopes: \r\n\r\n1. **SKALE Manager smart contracts.**\r\n2. **Infrastructure: skale-consensus and libBLS.**\r\n3. **Hardware secure crypto wallet: sgxwallet.**\r\n\r\n### SKALE Manager smart contracts\r\n\r\nFor `skale-manager`, bugs must:\r\n* be valid attacks to allow a user to steal SKL tokens from the system.\r\n* be an attack through a Network attack vector that is more than just theoretical.\r\n* must include a POC implementation with reproducible steps. This can be a Solidity, JavaScript or Python test or list of actions that clearly shows how the bug occurs.\r\n\r\nExamples of `skale-manager` vulnerabilities the SKALE Network is interested in, include:\r\n* see [SWC Registry](https://swcregistry.io/) for some examples.\r\n\r\n#### SKALE Manager Testnet Releases\r\n\r\nThe SKALE Network will continue with as-needed deployments of the latest versions of the smart contracts to the Rinkeby testnet.\r\n\r\nThe bug bounty program will be applicable to only one release at a time as specified in this policy. Submissions MUST indicate to which release they relate.\r\n\r\nThe current release eligible for vulnerability reports is 1.8.1. Only vulnerabilities found in this deployment can currently be submitted for a reward. See [https://github.com/skalenetwork/skale-network/tree/master/releases#test-releases](https://github.com/skalenetwork/skale-network/tree/master/releases#test-releases) for testnet contract addresses and ABIs.\r\n\r\nFor testnet tokens, please reach out to [SKALE Discord HackerOne Support](https://discord.gg/2K8ARv6).\r\n\r\n### Infrastructure\r\n\r\nTo qualify for a bounty, bugs must be:\r\n* Valid on the `develop` branch of the corresponding repository.\r\n\r\nFor `skale-consensus` and `libBLS`, the following bugs must be:\r\n* Valid for 64-bit Ubuntu machines with at least 2GB RAM.\r\n* Valid on SKALE Consensus clusters where less than 1/3 of the nodes are faulty or malicious.\r\n* Network based attack vectors (local or physical attacks only will be closed as informative or low priority)\r\n* for libBLS, excluding threshold encryption and aggregated signatures. **Only threshold signatures and DKG are in scope.**\r\n\r\nSKALE Network is interested in a full range of bugs with demonstrable security risk: from those that can be proven with a simple unit test, to those that require a full cluster and complex sequence of transactions.\r\n\r\nExamples of `libBLS` vulnerabilities the SKALE Network is interested in include:\r\n* insecure cryptographic functions\r\n* incomplete implementation of cryptographic algorithms\r\n\r\nExamples of `skale-consensus` vulnerabilities the SKALE Network is interested in include:\r\n\r\n* memory allocation bugs\r\n* race conditions\r\n* timing attacks\r\n* information leaks\r\n* authentication bypasses\r\n* incorrect block validation\r\n* Denial of Service\r\n* lost write bugs\r\n* payloads/transactions that cause panics.\r\n\r\nPlease see the [SKALE Consensus README](https://github.com/skalenetwork/skale-consensus/blob/develop/README.md) and [libBLS README](https://github.com/skalenetwork/libBLS/blob/develop/README.md) for a quick-start guide to getting SKALE Consensus or libBLS running so you can start hunting for bugs.  Please also see  the `test` directory in each repository for examples of tests.\r\n\r\n### SGXWallet\r\n\r\nTo qualify for a bounty, bugs must be:\r\n* Valid for the `develop` branch of the corresponding repository.\r\n* Not related to any Intel SGX specific vulnerability (please review exclusions, ineligible bugs and out-of-scope carefully).\r\n* Network based attack vectors (local or physical attacks only will be closed as informative or low priority)\r\n\r\nFor `sgxwallet` bug submissions must satisfy following:\r\n* Valid for SGX-enabled Intel processor\r\n\r\nParticular areas SKALE Network is interested in are:\r\n\r\n* attacks that allow 3rd party to steal funds from SGXWallet\r\n* memory consumption and memory leaks inside/outside of secure enclave\r\n* DDoS attacks \r\n* SGXWallet performance and stability\r\n\r\n\r\nPlease refer to [SGX Wallet README](https://github.com/skalenetwork/sgxwallet/blob/develop/README.md) as your starting point for deep dive in the component and your bug bounty kick off.\r\n\r\n## Program Rules\r\n\r\n* You must provide detailed reports with reproducible steps. If the report is not detailed sufficiently to reproduce the issue, the issue will not be eligible for a reward.\r\n* When duplicates occur, the program will only reward the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing), clickjacking and issues are prohibited.\r\n* Scanner-generated reports and \"Advisory\" or \"Informational\" reports that do not include any SKALE Network-specific testing or context are ineligible for rewards.\r\n* Website-related issues are ineligible for rewards.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n## Ineligible and prohibited methods\r\n\r\nVulnerabilities contingent on any of the following activities do not qualify for a reward in this program, and are prohibited:\r\n\r\n* Social engineering (including phishing) of SKALE Network staff or contractors.\r\n* Spamming.\r\n* Denial of service attacks on testnet, mainnet or any other live assets such as websites.\r\n* Any physical attacks against SKALE Network property, data centers, or employees.\r\n* Automated tools.\r\n* Compromising or misusing third party systems or services.\r\n\r\n## Exclusions, ineligible bugs, and out-of-scope\r\n\r\n* Vulnerabilities that assume different security assumptions from SKALE Network.\r\n* Vulnerabilities that assume different setups of various components. \r\n* Mentions of secrets, access tokens, API keys, private keys, etc. in Github, will be considered out of scope without EXPLICIT proof that they are in-use in production.\r\n* SGX-related issues and/or vulnerabilities\r\n* Game Theory and incentive mechanisms attacks.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Security issues in third-party software.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Vulnerabilities already known to the public or to the SKALE Network core team including previous findings from another participant in the bug bounty program.\r\n* Bugs that are not reproducible.\r\n* Bugs disclosed to other parties without consent from the SKALE Network core team.\r\n* skale.network, skale.space or any other SKALE Network websites, and any website related security practices such as:\r\n    * Content Security Policy (CSP) HTTP header\r\n    * HTTP Public Key Pinning (HPKP)\r\n    * Subresource integrity\r\n    * Referrer Policies\r\n    * SSL/TLS configuration\r\n    * Email or DNS configurations\r\n    * Site or domain configurations\r\n    * Cookies missing security flags\r\n\r\n## Disclosure Policy \r\n* Upon receipt of a potential security issue, SKALE Network will make every effort to quickly resolve the issue.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of SKALE Network service. Only interact with accounts you own or with explicit permission of the account holder. \r\n* Provide a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n## Legal\r\nAll rights of interpretation of the Bug Bounty are reserved to SKALE Network. SKALE Network decides whether to reward a bug disclosure and how much will be rewarded. Any individual or team participant should not violate any laws and regulations during testing.\r\n\r\n## Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep SKALE Network and our users safe!\r\n",
+      "safe_harbor": null,
+      "offers_bounties": true,
+      "structured_scopes": [
+        {
+          "asset_identifier": "https://github.com/skalenetwork/skale-consensus",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://github.com/skalenetwork/libBLS",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://github.com/skalenetwork/skale-node-cli",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "https://github.com/skalenetwork/validator-cli",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "https://github.com/skalenetwork/sgxwallet",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "*.skale.network",
+          "asset_type": "WILDCARD",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "https://github.com/skalenetwork/skale-manager/tree/develop/contracts",
+          "asset_type": "SOURCE_CODE",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "simple_poll": {
+      "handle": "simple_poll",
+      "name": "Simple Poll",
+      "url": "https://hackerone.com/simple_poll",
+      "policy": "No technology is perfect, and Simple Poll believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Program Rules\r\n* Automated testing is not permitted\r\n* Test only with your own accounts and Slack workspaces. Do not interact with other accounts or Slack workspaces\r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Automated testing\r\n* Denial of service \r\n* Spamming \r\n* Social engineering (including phishing) of Simple Poll staff or contractors \r\n* Any physical attempts against Simple Poll property or data centers \r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Simple Poll and our users safe!",
+      "safe_harbor": null,
+      "offers_bounties": false,
+      "structured_scopes": [
+        {
+          "asset_identifier": "simplepoll.rocks",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": false,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Simple Poll Slack app",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": false,
+          "instruction": "The app can be installed from the [Slack App directory](https://slack.com/apps/A0HFW7MR6-simple-poll) and then subsequently be used from within the Slack client.\n\nOf course the slack app directory website, or the Slack client itself are not within scope of this program. However, Slack does offer the",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "simplegoals.app",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": false,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Simple Goals slack app",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": false,
+          "instruction": "The Simple Goals app can be installed from the [Slack App directory](slack.com/apps/AU9M045ML-simple-goals) and then subsequently be used from within the Slack client.\n\nOf course the slack app directory website, or the Slack client itself are not within scope of this program. However, Slack does off",
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "standard_notes": {
+      "handle": "standard_notes",
+      "name": "Standard Notes",
+      "url": "https://hackerone.com/standard_notes",
+      "policy": "Thank you for your work in helping keep Standard Notes safe and secure. If you believe you've found a security issue in our product, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\nWe are mostly interested in vulnerabilities related to our client application and syncing server.\r\n\r\nOur client application can be downloaded from our website, or accessed via app.standardnotes.org. Its [source code](https://github.com/standardnotes/web) is also available. Our [syncing server](https://github.com/standardnotes/syncing-server) can be accessed via sync.standardnotes.org. It is the server the clients interact with for authentication and user data.\r\n\r\nIssues related to our website (standardnotes.org) are welcome but not as interesting as issues related to the above.\r\n\r\n# Disclosure Policy\r\n\r\n- Let us know as soon as possible upon discovery of a potential security issue, and we'll make every\r\n  effort to quickly resolve the issue.\r\n- Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a\r\n  third-party. We may publicly disclose the issue before resolving it, if appropriate. \r\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or\r\n  degradation of our service. Only interact with accounts you own or with explicit permission of the\r\n  account holder.\r\n\r\n# In-scope\r\n\r\n- Security issues in any current release of Standard Notes. Our product downloads are available on our homepage at https://standardnotes.com, and our source code is available at https://github.com/standardnotes.\r\n- Account enumeration issues, such as the ability to determine whether an account exists for a given email. This excludes information gained from attempting to register the account.\r\n\r\n# Exclusions\r\n\r\nThe following bug classes are out-of scope:\r\n\r\n- Bugs that are already reported on any of Standard Notes' issue trackers (https://github.com/standardnotes), or that we already know of.\r\n- Issues in an upstream software dependency (ex: Electron, React Native) which are already reported to the upstream maintainer.\r\n- Attacks requiring physical access to a user's device.\r\n- Self-XSS\r\n- Issues related to software or protocols not under SN's control\r\n- Vulnerabilities in outdated versions of Standard Notes\r\n- Missing security best practices that do not directly lead to a vulnerability\r\n- Issues that do not have any impact on the general public\r\n\r\nWhile researching, we'd like to ask you to refrain from:\r\n\r\n- Denial of service\r\n- Spamming\r\n- Social engineering (including phishing) of Standard Notes' staff or contractors\r\n- Any physical attempts against Standard Notes' property or data centers\r\n\r\nThank you for helping keep Standard Notes secure!",
+      "safe_harbor": null,
+      "offers_bounties": false,
+      "structured_scopes": []
+    },
+    "hostinger": {
+      "handle": "hostinger",
+      "name": "hostinger ",
+      "url": "https://hackerone.com/hostinger",
+      "policy": "#HOSTINGER BUG BOUNTY REWARD PROGRAM\n\nPLEASE READ THIS AGREEMENT CAREFULLY, AS IT CONTAINS IMPORTANT INFORMATION REGARDING YOUR LEGAL RIGHTS AND REMEDIES.\nLast Revised: 2024-01-24\n\n#RESPONSIBLE DISCLOSURE POLICY\nHostinger encourages the responsible disclosure of security vulnerabilities in our services or on our website. In order to facilitate the responsible disclosure of security vulnerabilities, we agree that if, in our sole discretion, we conclude that a disclosure meets all of the guidelines of the Hostinger Bug Bounty Reward Program, Hostinger will not bring any private or criminal legal action against the disclosing party.\n\n#BUG BOUNTY REWARD PROGRAM POLICY AND TERMS\nOur team of dedicated security professionals works vigilantly to help keep customer information secure. We recognize the important role that security researchers and our user community play in helping to keep Hostinger and our customers secure. If you discover a site’s or product’s vulnerability, please notify us using the guidelines below.\n\n#PROGRAM TERMS\nPlease note that your participation in the Bug Bounty Reward Program (“Bug Bounty Program”) is voluntary and subject to the terms and conditions set forth on this page (“Program Terms”). By submitting a site or product vulnerability to Hostinger, you acknowledge that you have read and agreed to these Program Terms.\nThese Program Terms supplement the Terms of Service and Privacy Policy and any other agreement you have entered with Hostinger. The terms of those Hostinger agreements will apply to your use of and participation in the Bug Bounty Program as if fully set forth herein. If any inconsistency exists between the Terms of Service, Privacy Policy and these Program Terms, these Program Terms will prevail, but only with regard to the Bug Bounty Program.\nTo encourage responsible disclosures, Hostinger commits that if we conclude, in our sole discretion, that a disclosure respects and meets all the guidelines of these Program Terms, Privacy Policy and Terms of Service, Hostinger will not bring a private action against you or refer a matter for public inquiry.\nAs part of your research, you shall not modify any files or data, including permissions, and shall not intentionally view or access any data beyond what is needed to prove the vulnerability.\n\nHostinger will make its best effort to adhere to the following response targets:\nType of Response         -   Business days\nFirst Response              -   2 working days\nTime to Triage                -   5 working days\nTime to Bounty             -  14 working days\nTime to Resolution     -  depends on severity and complexity\n\n#TESTING CREDENTIALS\n\nTo prevent abuse of shared credentials, we do not provide access to shared testing accounts. Instead, Bug Bounty Program participants must register a new account at hostinger.com. Participants can receive a coupon covering one month of our Premium Shared Hosting plan.\nTo claim your coupon, please contact our Security team at security@hostinger.com and include the following details in your message:\n- Your HackerOne username\n- The email address used to register your Hostinger account\n- A short notice that you are participating in a Bug Bounty Program through HackerOne\n\nOnce verified, our team will provide you with a coupon code that covers all expenses for one month of Premium Shared Hosting. \n\n#THE FOLLOWING HOSTINGER DOMAINS ARE IN SCOPE:\n\n- hostinger.com\n- hpanel.hostinger.com\n- cpanel.hostinger.com*\n- payments.hostinger.com\n- builder.hostinger.com\n- niagahoster.co.id\n- horizons.hostinger.com\n\nDomains not listed above are out of scope.\n\n\\*Note: we only reward vulnerabilities caused by our systems. Issues related to the cPanel platform itself are not eligible for rewards.\n\n# New Hosting plan - Agency\n\nWe have launched new Agency hosting plans that are built entirely on our H5G infrastructure, which is designed specifically for WordPress hosting. These plans provide complete site isolation to boost security and performance. They also facilitate access sharing for each site, supporting smooth collaboration among team members. \n\nSince the Agency plan is fully powered by H5G, its security testing scope (including Bounty Payments) falls under our existing H5G Infrastructure scope. We invite researchers to help identify potential vulnerabilities.\n\nTo participate in testing our new hosting plans, please email security@hostinger.com and ask for a coupon for the Agency plan testing. Include the email address you used to register for Hpanel in your email.\n\n\n#ELIGIBILITY REQUIREMENTS\nTo be eligible for the Bug Bounty Program, you must not:\n- Be in violation of any national, state, or local law or regulation;\n- Be employed by Hostinger or its subsidiaries;\n- Be an immediate family member of a person employed by Hostinger or its subsidiaries or affiliates; or\n- Be less than 16 years of age. If you are at least 16 years old but are considered a minor in your place of residence, you must get your parents’ or legal guardian’s permission prior to participating in the program.\n- If Hostinger discovers that you meet any of the criteria above, Hostinger will remove you from the Bug Bounty Program and disqualify you from receiving any Bounty Payments.\n\n#DISCLOSURE GUIDELINES\nBy providing a submission through HackerOne or agreeing to the Program Terms, you agree that you shall not publicly disclose your findings or the contents of your Submission to any third parties in any way without Hostinger's prior written approval.\nFailure to comply with the Program Terms will result in immediate disqualification from the Bug Bounty Program and ineligibility for receiving any Bounty Payments.\n\n\n#QUALIFYING VULNERABILITIES:\nHostinger will accept a report of any vulnerability that substantially affects the confidentiality or integrity of any eligible Hostinger service. Eligible vulnerabilities include, but are not limited to:\n- Authentication or authorization flaws, including insecure direct object references and authentication bypass\n- Server-side or remote code execution (RCE)\n- Injection vulnerabilities, including SQL and XML injection\n- Directory Traversal\n- Privilege Escalation\n- Disclosure of sensitive or personally identifiable information\n- Significant security misconfiguration with a verifiable vulnerability\n- Exposed system credentials, disclosed by Hostinger or its employees, that pose a valid risk to an in-scope asset\n\n#NON-QUALIFYING VULNERABILITIES:\nAny domain not listed in the policy scope is out of scope for the purposes of the Bug Bounty Program, as is all hosted customer content and third-party programs and plug-ins.\nThe following actions do not qualify for the Bug Bounty Program and should not be tested by researchers participating in the Bug Bounty Program:\n- Reports that involve a secondary user account where an existing business relationship is being leveraged and the impact is limited solely to the parent account\n- Username enumeration on customer-facing systems (i.e., using server responses to determine whether a given account exists)\n- Scanner output or scanner-generated reports, including any automated or active exploit tool\n- Man-in-the-Middle attacks\n- Any physical attacks against Hostinger's property or data centers\n- Cross-Site Scripting (XSS) - Currently, all XSS vulnerabilities will be counted as OOS.\n- Cross-Site Request Forgery (CSRF)\n- Click-jacking\n- Vulnerabilities involving stolen credentials or physical access to a device\n- Phishing attacks\n- Social engineering attacks, including those targeting or impersonating internal employees by any means (e.g., customer service chat features, social media, personal domains, etc.)\n- Open redirection, except in the following circumstances:\n   - Clicking a Hostinger-owned URL immediately results in an unexpected redirection and loss of sensitive data (e.g., session tokens, PII, etc)\n- CRIME/BEAST attacks\n- Logout CSRF\n- Banner or version disclosures\n- Missing or misconfigured SPF records\n- Directory listing (unless sensitive data can be found)\n- DoS, brute force, user enumeration, or DDoS attacks\n- Blackhat SEO techniques\n- Any other submission determined to be low risk, based on unlikely or theoretical attack vectors, requiring significant user interaction, or resulting in minimal impact\n- Vulnerabilities on third-party libraries without showing specific impact on the target application (e.g., a CVE with no exploit)\n- Exposed credentials that are either no longer valid or do not pose a risk to an in-scope asset\n- Any bug that relies upon an outdated browser\n- Infrastructure vulnerabilities, including:\n    - Issues related to SSL certificates\n    - DNS configuration issues\n    - Server configuration issues (e.g., open ports, TLS versions, etc.)\n- Bugs requiring exceedingly unlikely user interaction.\n- Password complexity requirements \n- Email verification/validation issues\n- Quality and business logic bugs that do not pose a real risk and do not impact business and customers in a way that could lead to unauthorized access to data or systems, also when there is no possibility to take advantage of the bug to cause some sort of damage to company systems or data.\n- Vulnerabilities on individual clients' infrastructure or virtual private servers (VPS), including websites, databases, etc. \n- Hacking discount coupons\n- Broken links\n\n#BUG SUBMISSIONS REQUIREMENTS\nRequired information\nFor all submissions, please include:\n- Full description of the vulnerability being reported, including the exploitability and impact\n- Evidence and explanation of all steps required to reproduce the submission, which may include:\n- Videos or step-by-step screenshots \n- Exploit code\n- Traffic logs\n- Web/API requests and responses\n- Email address or user ID of any test accounts\n- IP address used during testing\n- For RCE submissions, see below\nFailure to include any of the above items may delay or jeopardize the Bounty Payment\n\n#REMOTE CODE EXECUTION (RCE) SUBMISSIONS GUIDELINES:\nFailure to meet the below conditions and requirements could result in a forfeiture of any potential Bounty Payment.\n- Source IP address\n- Timestamp, including time zone\n- Full server requests and responses\n- Filenames of any uploaded files, which must include “bugbounty” and the timestamp\n- Callback IP and port, if applicable\n- Any data that was accessed, either deliberately or inadvertently\n- Allowed Actions:\n - Directly injecting benign commands via the web application or interface (e.g., whoami, hostname, ifconfig)\n - Uploading a file that outputs the result of a hard-coded benign command\n- Prohibited Actions:\n - Uploading files that allow arbitrary commands (i.e., a webshell)\n - Modifying any files or data, including permissions\n - Deleting any files or data\n - Interrupting normal operations (e.g., triggering a reboot)\n - Creating and maintaining a persistent connection to the server\n - Intentionally viewing any files or data beyond what is needed to prove the vulnerability\n - Failing to disclose any actions taken or applicable required information\n\n\n#BOUNTY PAYMENTS\nYou may be eligible to receive a monetary reward (“Bounty Payment”) if: (i) you are the first person to submit a site or product vulnerability; (ii) that vulnerability is determined to be a valid security issue by Hostinger's security team at their sole discretion; and (iii) you have complied with all Program Terms.\nBounty Payments, if any, will be determined by Hostinger in Hostinger's sole discretion. In no event shall Hostinger be obligated to pay you a bounty for any Submission. All Bounty Payments shall be considered gratuitous.\nAll Bounty Payments will be made in United States dollars (USD). You will be responsible for any tax implications related to Bounty Payments you receive, as determined by the laws of your jurisdiction of residence or citizenship.\nHostinger will determine all Bounty Payments based on the risk and impact of the vulnerability. The minimum bounty amount for a validated bug submission is $100 USD, and the maximum bounty for a validated bug submission is $25000 USD.\nHostinger security team retains the right to determine if the bug submitted to the Bug Bounty Program is eligible. All determinations as to the amount of a bounty made by the Hostinger Bug Bounty Team are final. Bounty Payment ranges are based on the classification and sensitivity of the data impacted, ease of exploit, and overall risk to Hostinger customers and the Hostinger brand and determined to be a valid security issue by Hostinger's security team.\n\n\n#RETESTING\n\nPlease note that we reserve the right to request or decline retesting of reported issues at our discretion, based on our internal assessment and priorities. Our decision will take into account factors such as the severity of the issue, the quality of the initial report, and our current resource availability. \n\nTo recognize the additional effort involved in retesting, we offer retest bounties as follows:\n- Low and Medium Severity Issues: $50 USD\n- High and Critical-Severity Issues: $100 USD\n\n\n#OWNERSHIP OF SUBMISSIONS\nAs a condition of participation in the Bug Bounty Program, you hereby grant Hostinger, its and affiliates a perpetual, irrevocable, worldwide, royalty-free, transferrable, sublicensable (through multiple tiers) and non-exclusive license to use, reproduce, adapt, modify, publish, distribute, publicly perform, create derivative work from, make, use, sell, offer for sale and import the Submission, as well as any materials submitted to Hostinger in connection therewith, for any purpose. You should not send us any Submission that you do not wish to license to us.\nYou hereby represent and warrant that the Submission is original to you, and you own all rights, titles, and interests in and to the Submission. Further, you hereby waive all other claims of any nature, including express contract, implied-in-fact contract, or quasi-contract, arising out of any disclosure of the Submission to Hostinger. In no event shall Hostinger be precluded from discussing, reviewing, developing for itself, having developed, or developing for third parties, materials that are competitive with those set forth in the Submission irrespective of their similarity to the information in the Submission, so long as Hostinger complies with the terms of participation stated herein.\n\n\n#TERMINATION\nIn the event (i) you breach any of these Program Terms or the Terms of Service of the Hostinger; or (ii) Hostinger determines, in its sole discretion that your continued participation in the Bug Bounty Program could adversely impact Hostinger (including, but not limited to, presenting any threat to Hostinger's systems, security, finances and/or reputation) Hostinger may immediately terminate your participation in the Bug Bounty Program and disqualify you from receiving any Bounty Payments. Please follow these Program Terms. \n\n\n#CONFIDENTIALITY\nAny information you receive or collect about Hostinger, Hostinger employees, or any Hostinger customer through the Bug Bounty Program (“Confidential Information”) must be kept confidential and only used in connection with the Bug Bounty Program. You shall not use, disclose, or distribute any such Confidential Information, including, but not limited to, any information regarding your Submission and information you obtain when researching the Hostinger sites, without Hostinger's prior written consent. Any disclosure of Confidential Information outside of this requirement will result in immediate removal from the Bug Bounty Program.\n\n#INDEMNIFICATION\nIn addition to any indemnification obligations you may have under the Terms of Service, you agree to defend, indemnify and hold Hostinger, its affiliates, and the officers, directors, agents, employees, and suppliers of Hostinger, harmless from any claim or demand (including attorneys’ fees) made or incurred by any third party due to or arising out of your Submissions, your breach of these Program Terms and/or your improper use of the Bug Bounty Program.\n\n#CHANGES TO PROGRAM TERMS\nThe Bug Bounty Program, including its policies, is subject to change or cancellation by Hostinger at any time without notice. As such, Hostinger may amend these Program Terms and/or its policies at any time by posting a revised version on our website. By continuing to participate in the Bug Bounty Program after Hostinger posts any such changes, you accept the Program Terms, as modified.\n\n",
+      "safe_harbor": null,
+      "offers_bounties": true,
+      "structured_scopes": [
+        {
+          "asset_identifier": "hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "This is Hostinger's main web application meant for service presentation and client account registration. No confidential information or client data is stored on these systems. However, gaining access to these assets might help attacker to access confidential information on other servers.",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "cpanel.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "This is Hostinger's customers management panel, area meant for managing all services: hosting, vps, domains, ssl, cpanel hosting, windows_vps, logibox email, gsuite, cloudflare, marketgoo, flockmail. Servers and databases under this domain contain confidential and client data.",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "hpanel.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "This is Hostinger's customers management panel, area meant for managing all services: hosting, vps, domains, ssl, cpanel hosting, windows_vps, logibox email, gsuite, cloudflare, marketgoo, flockmail. Servers and databases under this domain contain confidential and client data.",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "builder.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "H5G/Agency",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "We are introducing a new testing scope for our Hosting Infrastructure tailored for WordPress websites.",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "horizons.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "reach.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "mail.hostinger.com",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "agents.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "http://payments.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Managed OpenClaw",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "ecommerce.hostinger.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        }
+      ]
+    },
+    "aiven_ltd": {
+      "handle": "aiven_ltd",
+      "name": "Aiven Ltd",
+      "url": "https://hackerone.com/aiven_ltd",
+      "policy": "# Aiven Bug Bounty Program Policy\r\n\r\nAiven look forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\nPlease read through the **entire** policy and take special care regarding the following:\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. **Do not** use any other email addresses such as `@gmail.com` for security testing.\r\n- If you need help, please reach out via this program or HackerOne support.  Do not use the site's support functionality, file tickets, or contact our account management team.\r\n\r\n## About Aiven\r\n\r\nAiven is a next-generation managed cloud database platform as a service. Its focus is in ease of adoption, high fault resilience, customer's peace of mind and advanced features at competitive price points. See https://aiven.io/ for more information.\r\n\r\n## Services and Products in Scope\r\n\r\nPlease sign up for a free trial account and launch any service from the below list. We are most interested in vulnerabilities in the services and our APIs.\r\n\r\nList of Aiven services eligible for bounty and available for testing:\r\n\r\n- Aiven for Apache Cassandra\r\n- Aiven for Apache Flink (beta)\r\n- Aiven for Clickhouse (beta)\r\n- Aiven for Grafana\r\n- Aiven for InfluxDB\r\n- Aiven for Apache Kafka\r\n- Aiven for Apache Kafka Connect\r\n- Aiven for Apache Kafka Mirrormaker\r\n- Aiven for M3\r\n- Aiven for M3 Aggregator\r\n- Aiven for MySQL\r\n- Aiven for OpenSearch\r\n- Aiven for PostgreSQL\r\n- Aiven for Redis\r\n\r\n## Out-of-Scope Assets\r\n\r\n- Only services you create by yourself - for example, PostgreSQL, Kafka and Grafana - are in-scope. Other services in `aivencloud.com` domain not created by you are explicitly out of scope, as those are our customers' services.\r\n- Support chat functionality provided by Qualified (or any other provider) on our web site is out of scope.\r\n- The contact us form (https://aiven.io/contact) and embedded versions of this contact us form on other pages are out of scope.  You can identify and ignore them based on the src of the iframe (https://go.aiven.io/l/890043/2022-02-15/7dc33?referrer=contact or similar).\r\n\r\n## Program Rules\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. **Do not** use any other email addresses such as `@gmail.com` for security testing. \r\n- Only interact with accounts and services you own or with explicit permission of the account holder. Specifically, take note of rules on `aivencloud.com` domain.\r\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\r\n- Out of scope: Support chat functionality provided by Intercom on our web site is out of scope for any kind of testing. Please **do not** contact us using the support chat.\r\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n- If you suspect you are disrupting our service with reasonable activity (for example, sending in gigabits/s of traffic is not allowed; sending in reasonable rate of API requests is ok), please stop, and open a report describing what you did and how you observed the disruption. \r\n\r\n## Report guidelines\r\n\r\n- We are interested in real-world vulnerabilities that have material security impact. Theoretical vulnerabilities without a proof of concept are not eligible for reward.  The proof of concept has to be specific to (and work on) the Aiven domain or resource your report is about.\r\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, there will be unnecessary delays in processing the issue. Report quality is taken into account when making decisions about reward and disclosure.\r\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n- Do not submit any attachments unless requested by our team. Screenshots are accepted, but videos, binaries and so on are not okay.\r\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n- Reports of software versions with known vulnerabilities (e.g. CVE) found on our domains **must** have a working proof of concept, or they will be marked **spam**.  Vulnerabilities that are not exploitable as deployed on an in-scope domain or service are out of scope.\r\n- **Do not submit scanner output.** In general, automated tools and scanners won't provide you much help, because we run them ourselves already. If your report consists only of pasted scanner output, we will mark it **spam**.\r\n\r\n## Test Plan\r\n\r\nAiven offers 30 day free trial on sign-up with reasonable amount of credits.\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. Do not use any other email addresses such as `@gmail.com` for security testing. \r\n- If you need multiple accounts, you may do so by using `username+foobar@wearehackerone.com` syntax.\r\n- To request additional credits please reach out to [HackerOne Support](https://www.hackerone.com/contact) clearly stating the need.\r\n\r\nPlease do note, that if you assign other payment method such as your personal credit card to your account, you're liable for all cost of resources and services consumed. The premium plans might incur significant cost for you. Contact us (through Hackerone support) before researching anything where the charges would exceed trial credits.\r\n\r\n### Resources:\r\n\r\n- [How to deploy an open source database in 10 minutes](https://www.youtube.com/watch?v=t95IQ0kpbFY)\r\n- [Devops tooling](https://aiven.io/devops/)\r\n- [API documentation](https://api.aiven.io/doc/)\r\n- [aiven-client](https://github.com/aiven/aiven-client): easiest way to use our API\r\n- [Service documentation and help](https://developer.aiven.io/)\r\n\r\n## Response Targets\r\n\r\nAiven will make a best effort to meet the following SLAs for hackers participating in our program.\r\n\r\n| **Type of Response** | **SLA in business days** |\r\n| --- | --- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Bounty | 14 days |\r\n| Time to Resolution | 30 days |\r\n\r\nWe’ll keep you informed about our progress throughout the process.\r\n\r\n## Disclosure Policy\r\n\r\nOur disclosure policy is open but responsible. Thank you for joining us in supporting ethical disclosure.\r\n\r\n- [Mutual disclosure policy](https://docs.hackerone.com/programs/disclosure.html): you can request disclosure for any closed report in the program. Our security team will contact you and agree if the contents of the report can be made public. We are committed to protect safety of our customers as well as the anonymity of the reporter and methods and tools used.\r\n- Responsible disclosure: we only disclose vulnerabilities that are original, meaningful for the security community and safe to disclose, taking our customers and other users of the open source software components into account. We will redact any confidential, personal or not appropriate information from the report before making it public.\r\n- Please do not discuss any vulnerabilities (even resolved ones) publicly or privately in any details with any party outside of the program without express consent from the Aiven security team.\r\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n## Legal Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorised conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n## In Scope Vulnerabilities\r\n\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. In general we require a demonstrated security vulnerability - a simple usability issues (for example, entering specific, valid data causes server to respond with `500 Internal Server Error`, but no other impact is demonstrated) can be reported, but may not result in a bounty even if we end up fixing the issue.\r\n\r\n| **Vulnerability** | **Severity Range** |\r\n| --- | --- |\r\n| Remote Code Execution | Critical |\r\n| SQL Injection | High-Critical |\r\n| XXE | High-Critical |\r\n| XSS | Medium-High |\r\n| Server-Side Request Forgery SSRF | Low-Critical |\r\n| Directory Traversal - Local File Inclusion | Medium-High |\r\n| Authentication/Authorization Bypass (Broken Access Control) | Medium-High |\r\n| Privilege Escalation | Medium-High |\r\n| Insecure Direct Object Reference IDOR | Medium-Critical |\r\n| Misconfiguration | Low-High |\r\n| Web Cache Deception | Low-Medium |\r\n| CORS Misconfiguration | Low-Medium |\r\n| CRLF Injection | Low-High |\r\n| Cross Site Request Forgery CSRF | Medium |\r\n| Information Disclosure | Medium (requires POC) |\r\n| Request smuggling | Low-Medium |\r\n| Mixed Content | Low |\r\n\r\n## Out of Scope Vulnerabilities\r\n\r\n| **Vulnerability** | **Description** |\r\n| --- | --- |\r\n| Customer assets | APIs, services that you have set up by yourself in `aivencloud.com` domain are in scope, but other customers'; services in `aivencloud.com` are explicitly out of scope. |\r\n| Support chat | Any vulnerability that is related to support chat function at our web page |\r\n| Denial of Service | Any activity that could lead to the disruption of our service (DoS).  |\r\n| Public Zero-day | Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis. |\r\n| Rate-limiting | Rate limiting or bruteforce issues of any kind. |\r\n| Brute force | Bruteforcing long, generated tokens over the network. User Enumeration. Password complexity. |\r\n| Clickjacking | Clickjacking on pages with no sensitive actions, or clickjacking that would be prevented if a Content-Security-Policy-Report-Only header on a page were changed to Content-Security-Policy. |\r\n| Security Best Practices | Missing security headers, cookie flags, etc.  |\r\n| Email security best practices | Invalid, incomplete or missing email SPF/DKIM/DMARC records.  |\r\n| SSL/TLS Best Practices | Missing best practices in SSL/TLS configuration. |\r\n| Information disclosure | Software version disclosure, Banner identification, Descriptive error messages or headers, Stack traces, application or server errors. _Errors containing confidential or secret information that can be used to escalate access are in-scope._  |\r\n| CSRF | Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions or minimal impact. |\r\n| Content Spoofing | Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS |\r\n| MITM | Attacks requiring man-in-the-middle or physical access to a user's device. |\r\n| Unlikely user interaction | Issues that require unlikely user interaction. For example, requiring user to manually enter crafted content. |\r\n| Outdated browsers | Vulnerabilities only affecting users of outdated or unpatched browsers (less than 2 stable versions behind the latest released stable version). |\r\n| Open redirect | Open redirect - unless an additional security impact can be demonstrated |\r\n| Header Injection | Host header Injection with no impact |\r\n| Social engineering | Social engineering (e.g. phishing, vishing, smishing, tabnabbing) is prohibited. |\r\n| Physical attacks |  |\r\n\r\nThank you for helping keep Aiven Oy and our users safe!",
+      "safe_harbor": null,
+      "offers_bounties": true,
+      "structured_scopes": [
+        {
+          "asset_identifier": "www.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "console.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "api.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "aivencloud.com",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "Aivencloud.com is used for Aiven customer service deployments. Assets under aivencloud.com are thus only eligible for bounty if they are assets are linked and owned to your own test accounts and services. Specifically, assets under that domain that are linked to customer systems are off-limits and n",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "help.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "github.com/aiven",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "Bugs that are not security issues in available source code may not be eligible for a bounty. Accessing confidential Aiven source code or other resources, or finding valid credentials or similar secrets from publicly available source code may be eligible for bounty.\n\n**Do note this is not a permissio",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Apache Kafka managed and hosted service ",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/kafka for details about the service. Also in scope Aiven for Apache Kafka Connect https://aiven.io/kafka-connect and Aiven for Apache Kafka MirrorMaker 2 https://aiven.io/mirrormaker\n\nAiven for Apache Kafka® is a fully managed streaming platform, deployable in the cloud of your ",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for M3 managed and hosted service ",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/m3 for details about the service. Also in scope: Aiven for\nM3 Aggregator: https://aiven.io/m3-aggregator\n\nAiven for M3 is a fully managed distributable time series database, deployable in the cloud of your choice. Bring unlimited scalability and high-availability to your Prometh",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for PostgreSQL managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/postgresql for details about the service.\n\nAiven for PostgreSQL is a fully managed SQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nOnly ",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for MySQL managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/mysql for details about the service.\n\nAiven for MySQL is a fully managed SQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nOnly assets in ",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for OpenSearch managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/opensearch for details about the service.\n\nAiven for OpenSearch is a fully managed search and analytics suite forked from Elasticsearch, and deployable in the cloud of your choice. Our maintenance-free solution helps you make the most of your data – and focus on building your bu",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Apache Cassandra managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/cassandra for details about the service.\n\nAiven for Apache Cassandra® is a fully managed NoSQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Redis managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/redis for details about the service.\n\nAiven for Redis™* is a fully managed in-memory NoSQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nO",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for InfluxDB managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/influxdb for details about the service.\n\nAiven for InfluxDB is a fully managed time series database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nO",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Grafana managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/grafana for details about the service.\n\nAiven for Grafana is a fully managed analytics and monitoring solution, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your co",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Apache Flink (beta) managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See https://aiven.io/flink for details about the service.\n\nApache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. It is a perfect companion to Apache Kafka event streaming platform, to perform reliable and scalable real-time f",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "Aiven for Clickhouse (beta) managed and hosted service",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "See [Developer documentation](https://developer.aiven.io/docs/products/clickhouse/index.html) for details about the service.\n\nThe services can be launched via console.aiven.io or using our API at api.aiven.io.\nAiven for ClickHouse beta is powered by ClickHouse, a highly scalable, open source databas",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "https://aiven.io/contact",
+          "asset_type": "URL",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "instruction": "The contact us form is managed by a third party.",
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "https://www.aiven.io/contact",
+          "asset_type": "URL",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "uptime.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "video.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        },
+        {
+          "asset_identifier": "CTF challenge: ed25519 SSH host key of falcon-bug-bounty-flag-pgsql-dev-sandbox.aivencloud.com",
+          "asset_type": "OTHER",
+          "eligible_for_submission": true,
+          "eligible_for_bounty": true,
+          "instruction": "Include in your report the following items:\n\n1. The complete contents of `/etc/ssh/ssh_host_ed25519_key` corresponding to the host key available on the host at the time of exploitation\n2. The current external IP address of the host\n3. An explanation of how you got the key",
+          "max_severity": "critical"
+        },
+        {
+          "asset_identifier": "aquarium.aiven.io",
+          "asset_type": "URL",
+          "eligible_for_submission": false,
+          "eligible_for_bounty": false,
+          "max_severity": "none"
+        }
+      ]
+    }
+  }
+}
