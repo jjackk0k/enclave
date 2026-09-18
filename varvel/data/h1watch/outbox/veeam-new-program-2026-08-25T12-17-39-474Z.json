@@ -1,0 +1,100 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "veeam",
+      "name": "Veeam",
+      "offersBounties": false,
+      "assets": [
+        "*.kasten.io",
+        "*.securiti.ai",
+        "*.veeam.com",
+        "*.veeamgov.com",
+        "Corporate Infrastructure",
+        "Product Vulnerabilities"
+      ],
+      "exclusions": [
+        "Customer Support Request Forms",
+        "Virtual Chat Assistants"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\veeam-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "veeam",
+  "name": "Veeam",
+  "url": "https://hackerone.com/veeam",
+  "policy": "# Responsible Disclosure Program\nVeeam is the leader in backup, recovery and data management solutions that deliver Modern Data Protection. We provide a single platform for cloud, virtual, physical, SaaS and Kubernetes environments. Our customers are confident their apps and data are protected and always available with the most simple, flexible, reliable and powerful platform in the industry. \n\nWe value the critical role that the security community plays in helping us protect the confidentiality, integrity, and availability of Veeam's software, services, and information. If you have information about security vulnerabilities within the scope of this program, please use this form to submit a report.\n\n# Disclosure Policy\n*  Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Do not test the physical security of Veeam property.\n* Do not include any information in vulnerability reports, including in any attachments, that may identify an individual (such as a name, contact information, IP address or other similar information).\n* The preferred language for submissions is English, if a submission is made in a different language the submission may be discarded and/or delayed.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Directory Browsing Vulnerability on repository.veeam.com. The system is designed this way to provide files to customers.\n* Virtual Chat Assistants / Chatbots found on our web domains are specifically out of scope.\n* Customer support request forms (i.e. - Veeam Customer Portal Cases and Case Escalation Forms) are out of scope.\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing\n* Issues that require unlikely user interaction\n* Compromised Credentials: Reports that rely on or involve compromised, leaked, stolen, or otherwise unauthorized credentials are out of scope. This includes findings based on credential stuffing, use of breached password dumps, or accessing accounts/systems using credentials not owned by the tester or explicitly provided for testing.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n# Legal Notice\n* Please note that both HackerOne's disclosure guidelines and this Policy are subject to changes or termination at any time. Please check the current version of document before the submission of your report. \n* To protect our customers, Veeam reserves a right not to disclose or confirm publicly any security vulnerability until Veeam has conducted a full analysis of such vulnerability and issued any necessary fixes or mitigations.\n* By submitting your report, you grant Veeam, its subsidiaries, affiliates and contractors a perpetual, worldwide, exclusive, irrevocable, no charge license to sublicense, copy, distribute, display, perform, transmit, publish or otherwise use the report or any part thereof.\n* So that Veeam may utilize your report you also shall notify Veeam is any of the material in your report is your own work or is covered by the intellectual property rights of third parties. Not notifying Veeam means that you've represented that no third-party intellectual property rights are involved.\n* You understand that nothing in Policy shall be deemed to constitute the grant to you of any license or other right to or in respect of any Veeam or third-party product, service, patent, trademark, trade secret, or other intellectual property.\n* By submitting your report, you provide Veeam with your consent to process personal data contained in the report (if any) in accordance with [Veeam Privacy Policy](https://www.veeam.com/privacy-notice.html).  \n\nThank you for helping keep Veeam and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.veeam.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.kasten.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.veeamgov.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Product Vulnerabilities",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Security vulnerabilities that are identified in currently supported Veeam products.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Corporate Infrastructure",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Vulnerabilities in any Veeam owned/managed corporate infrastructure.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Virtual Chat Assistants",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Virtual chat assistants on our websites are provided by an out of scope 3rd party and are not in scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Customer Support Request Forms",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Customer support request forms (i.e. - Veeam Customer Portal Cases and Case Escalation Forms) are not in scope for this program.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.securiti.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "***The following are IN scope for this asset:***\n\nCross-Site Scripting (XSS)\nOpen redirect\nCross-site Request Forgery (CSRF)\nCommand/File/URL inclusion\nAuthentication issues\nCode execution\nCode or database injections\n\n\n***The following are OUT of scope for this asset:***\n\nAccount/email enumerations\n",
+      "max_severity": "critical"
+    }
+  ]
+}

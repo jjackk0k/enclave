@@ -1,0 +1,81 @@
+{
+ "at": "2026-09-16T18:44:40.943Z",
+ "opportunity": "wellhive",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "analytics.wellhive.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to analytics.wellhive.com:443 refused: host unreachable"
+  },
+  {
+   "host": "app.wellhive.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "login.wellhive.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=315360000; includeSubDomains",
+    "content-security-policy": "default-src 'self' wellhiveapphigh.okta-gov.com login.wellhive.com *.oktacdn.com; connect-src 'self' wellhiveapphigh.okt",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "corporate-okta.wellhive.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=315360000; includeSubDomains",
+    "content-security-policy": "default-src 'self' wellhivecorporatehigh.okta-gov.com corporate-okta.wellhive.com *.oktacdn.com; connect-src 'self' well",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

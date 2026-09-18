@@ -1,0 +1,108 @@
+{
+ "at": "2026-09-12T13:51:21.684Z",
+ "opportunity": "nuri",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.bitwala.com",
+   "kind": "domain",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Framer/bea9510",
+    "strict-transport-security": "max-age=31536000",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.bitwala.app",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.bitwala.app:443 refused: host unreachable"
+  },
+  {
+   "host": "app.bitwala.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-powered-by": "Next.js"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.app.bitwala.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'none'",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.nuri.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f6314bf382b0b-LHR",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

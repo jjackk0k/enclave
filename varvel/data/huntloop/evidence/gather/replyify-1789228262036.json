@@ -1,0 +1,147 @@
+{
+ "at": "2026-09-12T15:50:53.173Z",
+ "opportunity": "replyify",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.replyify.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "server": "Heroku",
+    "via": "1.1 heroku-router",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "object-src 'none'; img-src 'self' * data: d2zlo16hjuw2ww.cloudfront.net dvt9dmns0z8u2.cloudfront.net; default-src 'self'",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.replyify.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "Heroku",
+    "via": "1.1 heroku-router",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "replyify.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 95b532bd8a007661626bc1cd64bf9960.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "blog.replyify.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": "6.3.10",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 6.3.10\""
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache"
+   },
+   "endpoints": [
+    {
+     "path": "/wp-admin/",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/wp-admin/admin-ajax.php",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "track.replyify.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": "1.20.2",
+     "evidence": "server: nginx/1.20.2"
+    }
+   ],
+   "headers": {
+    "server": "nginx/1.20.2"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

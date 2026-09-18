@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "syfe_bbp",
+      "name": "Syfe",
+      "offersBounties": true,
+      "assets": [
+        "alfred-uat-31.nonprod.syfe.com",
+        "alfred.syfe.com",
+        "api-uat-bugbounty.nonprod.syfe.com",
+        "api.syfe.com",
+        "com.syfe",
+        "https://apps.apple.com/sg/app/syfe-stay-invested/id1497156434",
+        "mark8.syfe.com",
+        "uat-bugbounty.nonprod.syfe.com",
+        "www.syfe.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\syfe_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "syfe_bbp",
+  "name": "Syfe",
+  "url": "https://hackerone.com/syfe_bbp",
+  "policy": "# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report received (provided it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test Plan\n\n* Access the primary test environment using the provided test credentials. New researchers on the platform may not be able to claim credentials as per Hackerone guidelines and we will not be able to provide the same via email.  \n* Test environment : https://uat-bugbounty.nonprod.syfe.com/\n* Note: Findings on the test environment need to be reproducible on the production environment for the finding to be eligible.\n\n# Non-Qualifying Bugs/Known Issues\n\nTypically, the following types of bugs and activities are not eligible for a bounty :\n* Security vulnerabilities on sites hosted by third parties (e.g. help.syfe.com) unless they lead to a vulnerability on a Syfe main app\n* Denial of service (DoS) on Syfe infrastructure\n* Spamming\n* Social Engineering\n* Missing best practices in SSL/TLS configuration\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Bugs affecting outdated or unpatched browsers\n* Rate-limit issues (unless reproducible on production)\n* Information disclosure on UAT environment\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Open redirect - unless an additional security impact can be demonstrated\n* DOM XSS via redirect-url (widespread issue for which fix is already in progress)\n* Promo code URLs on web archive, Promo code enumeration.\n* Root detection/Jailbreak detection/SSL Pinning bypass\n* Credential leakage reports are considered informational if two-factor authentication (2FA) is in place\n* Rate limiting or brute force issues unless they can be abused for account takeover or financial damages\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Self XSS/File Upload XSS\n* Edit own account details for non-KYC verified accounts.\n* Response manipulation that only affects the UI and no actual access to any accounts/features.\n* CORS related issues unless you can exfiltrate data.\n* Debug View/login into any account on UAT.\n* Exposed API keys without a proof of concept.\n* Pasting authorization token from another account to access their details. \n\n# Disqualifiers\n\n* Any modification or destruction of user data\n* Overwhelming our support team with messages.\n* Taking any steps that intentionally violate the privacy of our users\n* Denial of service, either against company infrastructure or user accounts\n* Social engineering of any kind against our users or employees\n* Any type of brute-forcing or automated attack techniques on production.\n\n\n# Session Layer: HTTP Headers\n\nFor production environments, researchers should add headers to requests such as:\n* “X-HackerOne-Research: [H1 username]”\n\n**If you signup on production, use only @wearehackerone.com email address to be eligible for bounty and avoid any blocks.**\n\nThank you for helping keep Syfe and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "uat-bugbounty.nonprod.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The primary test environment for the research is provided. The credentials are only valid for this environment.\nNote: Findings on this environment should be applicable on production.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-uat-bugbounty.nonprod.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "API domain for the test environment.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Main domain for Syfe. \nPlease self sign-up for the accounts only using your ==@wearehackerone.com== address at [https://www.syfe.com/create-account?utm_source=bug_bounty&medium=bug_bounty](https://www.syfe.com/create-account?utm_source=bug_bounty&medium=bug_bounty) to perform any testing on producti",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "API domain for the user services.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alfred.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Trading service APIs.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mark8.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Market data API service.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.syfe",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Syfe android application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/sg/app/syfe-stay-invested/id1497156434",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Syfe IOS application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alfred-uat-31.nonprod.syfe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The APK provided below is intended solely to support dynamic testing against our trading endpoint alfred-uat-31.nonprod.syfe.com Please claim the test credentials for assessment. \n\nAPK : https://drive.google.com/file/d/1YK6s6P7n8AKioli0FHdTiLYV5ebWgbL7/view?usp=drive_link  \n\nNote: Static-analysis fi",
+      "max_severity": "critical"
+    }
+  ]
+}

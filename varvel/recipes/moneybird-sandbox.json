@@ -1,0 +1,33 @@
+{
+  "program": "moneybird",
+  "inbox": "mailtm",
+  "autoHandoff": true,
+  "steps": [
+    { "goto": "https://www.moneybird.nl/aanmelden/" },
+    { "sleep": 4000 },
+    { "click": { "text": ["Accepteren", "Alles accepteren", "Accept all", "Accept cookies", "Toestaan", "OK"], "optional": true } },
+    { "sleep": 1500 },
+    { "fill": { "hints": ["name", "bedrijfsnaam", "company", "naam"], "from": "literal", "value": "Varvel Security Research", "optional": true } },
+    { "fill": { "hints": ["email", "mail", "@"], "from": "email" } },
+    { "fill": { "hints": ["password", "wachtwoord"], "from": "password" } },
+    { "click": { "text": ["Volgende", "Verder", "Next", "Doorgaan", "Continue"], "optional": true } },
+    { "sleep": 2000 },
+    { "fill": { "hints": ["email", "mail", "@"], "from": "email", "optional": true } },
+    { "fill": { "hints": ["password", "wachtwoord"], "from": "password", "optional": true } },
+    { "click": { "text": ["Account aanmaken", "Maak account aan", "Aanmaken", "Aanmelden", "Registreren", "Create account", "Sign up", "Start gratis", "Probeer gratis", "Beginnen", "Get started"], "optional": true } },
+    { "captcha": "handoff" },
+    { "waitMail": { "pattern": "(https://[^\\s)\\\"'<]+(?:confirm|verify|activate|validatie|bevestig|welkom)[^\\s)\\\"'<]*)", "maxMs": 180000, "gotoOnMatch": true } },
+    { "sleep": 5000 },
+    { "verify": { "url": "https://moneybird.com/administrations/sandboxes/new", "urlDenyRe": "login|sign_in|aanmelden" } }
+  ],
+  "sessionCapture": { "cookieDomains": ["moneybird.com", "moneybird.nl"] },
+  "canary": {
+    "method": "GET",
+    "url": "https://moneybird.com/administrations/sandboxes/new",
+    "auth": "cookie",
+    "expectStatus": [200],
+    "denyStatus": [401, 403],
+    "denyBodyRe": "login|aanmelden|sign in",
+    "note": "sandbox creation page is auth-gated (302 to /login when anonymous, verified 2026-09-17); 200 without login redirect = live session"
+  }
+}

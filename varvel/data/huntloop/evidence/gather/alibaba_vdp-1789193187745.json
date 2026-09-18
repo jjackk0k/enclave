@@ -1,0 +1,73 @@
+{
+ "at": "2026-09-12T06:05:59.305Z",
+ "opportunity": "alibaba_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "1688.com",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Tengine"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "alibaba-inc.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to alibaba-inc.com:443 refused: TTL expired"
+  },
+  {
+   "host": "alibaba.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Tengine",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "alibabagroup.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Tengine",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "alibabapictures.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to alibabapictures.com:443 refused: host unreachable"
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+  "program": "Trip.com Group",
+  "handle": "trip_com",
+  "url": "https://hackerone.com/trip_com",
+  "policy": "Trip.com Group BBP (hackerone.com/trip_com), policy+scope snapshotted 2026-08-29 via h1sync. Gold Standard Safe Harbor. SLA: first response 2 business days (avg 6h), triage 2 days, bounty 14 days. Max bounty $5,500. HIGH-PRIORITY asset = <locale>.trip.com (Crit $2,000-5,500 / High $1,000-2,000); all other wildcard rows are standard tier (Crit $1,000-1,500 / High $500-1,000). RULES (law): detailed reproducible reports required; multiple vulns from one underlying issue = one bounty; no disclosure without express consent; testing against partners (Skyscanner, Google Flights, Kayak etc.) OUT; account brute force without a valid login = no reward; unauth/low-impact CSRF, session-not-invalidated-after-logout, missing security headers, SSRF that cannot obtain relevant server data = no reward. EXCLUDED ASSETS: third-party-service sites (e.g. jobs.careers.trip.com), testing environments that cannot affect production (staging/stg/dev/development.travix.com et al), ordinary user credential leaks. No X-Hackerone header requirement found. Public account registration exists on the brands — own-account testing feasible.",
+  "rewards": [
+    {
+      "severity": "critical",
+      "bounty": "$2,000-$5,500 (<locale>.trip.com) / $1,000-$1,500 (other wildcards)"
+    },
+    {
+      "severity": "high",
+      "bounty": "$1,000-$2,000 (<locale>.trip.com) / $500-$1,000 (other wildcards)"
+    },
+    {
+      "severity": "medium",
+      "bounty": "$200-$500 (<locale>.trip.com) / $100-$300 (other wildcards)"
+    },
+    {
+      "severity": "low",
+      "bounty": "$50-$200 (<locale>.trip.com) / $50-$100 (other wildcards)"
+    }
+  ],
+  "in_scope": [
+    "*.trip.com",
+    "*.trip.biz",
+    "*.travix.com",
+    "*.mytrainpal.com",
+    "*.trainpal.com",
+    "trip.com",
+    "92.123.128.139/32",
+    "92.123.128.147/32",
+    "92.123.128.145/32",
+    "92.123.128.142/32",
+    "92.123.128.138/32",
+    "92.123.128.137/32",
+    "92.123.128.136/32",
+    "92.123.128.146/32",
+    "92.123.128.135/32",
+    "47.84.182.52/32",
+    "8.222.216.245/32",
+    "47.236.227.188/32",
+    "185.95.24.163/32",
+    "92.123.128.151/32",
+    "92.123.128.186/32"
+  ],
+  "out_of_scope": [
+    "jobs.careers.trip.com",
+    "staging.travix.com",
+    "stg.travix.com",
+    "dev.travix.com",
+    "development.travix.com",
+    "playground.travix.com",
+    "*.cheaptickets.nl",
+    "*.travix.io",
+    "*.traivx.io",
+    "*.traivx.com",
+    "learninghub.travix.com"
+  ]
+}

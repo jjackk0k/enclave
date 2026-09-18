@@ -1,0 +1,131 @@
+{
+ "at": "2026-09-12T04:58:13.301Z",
+ "opportunity": "syfe_bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "uat-bugbounty.nonprod.syfe.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "cf-ray": "a39c5600efc53e2e-BOM",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 9dba3ae645587c3cf23f9d232c9cb4e8.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self' *.syfe.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.optibase.io https://cdn.pendo",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api-uat-bugbounty.nonprod.syfe.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 6f348d610065e2c8eb4f3a0d2f7caa8e.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.syfe.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c5614ee15aff9-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.optibase.io https://cdn.pendo.io https:/",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.syfe.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c561c7b8e438f-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-a2kEx7jkT7cDFNAwWdHYMg' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "alfred.syfe.com",
+   "kind": "domain",
+   "status": 401,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c5623abca79b8-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

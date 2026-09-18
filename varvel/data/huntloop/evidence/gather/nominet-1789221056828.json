@@ -1,0 +1,84 @@
+{
+ "at": "2026-09-12T13:50:53.267Z",
+ "opportunity": "nominet",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "nominet.uk",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f6243aed3dff7-LHR",
+    "strict-transport-security": "max-age=63072000;",
+    "content-security-policy": "default-src 'self'; script-src 'report-sample' 'self' 'unsafe-inline' 'unsafe-eval' flourish.studio *.flourish.studio vi",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "nominet.org.uk",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f624b9a62f547-LHR",
+    "strict-transport-security": "max-age=63072000;",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "nic.uk",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to nic.uk:443 refused: host unreachable"
+  }
+ ]
+}

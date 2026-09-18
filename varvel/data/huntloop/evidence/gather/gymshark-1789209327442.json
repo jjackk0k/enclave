@@ -1,0 +1,81 @@
+{
+ "at": "2026-09-12T10:34:51.849Z",
+ "opportunity": "gymshark",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.gymshark.fitness",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.gymshark.fitness:443 refused: host unreachable"
+  },
+  {
+   "host": "com.gymshark.store",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: SOCKS5 dial 10.64.0.1:1080 -> com.gymshark.store:443 aborted"
+  },
+  {
+   "host": "gymshark.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e43896fcd651e-LHR",
+    "strict-transport-security": "max-age=7889238",
+    "content-security-policy": "block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "gymshark.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: TLS handshake gymshark.io:443 via the chain aborted"
+  },
+  {
+   "host": "gymsharkapps.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to gymsharkapps.io:443 refused: host unreachable"
+  }
+ ]
+}

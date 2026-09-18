@@ -1,0 +1,243 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "slack",
+      "name": "Slack",
+      "offersBounties": true,
+      "assets": [
+        "*.quip.com",
+        "Slack Desktop Application",
+        "api.slack.com",
+        "app.slack.com",
+        "com.Slack",
+        "com.slack.slackmdm",
+        "com.tinyspeck.chatlyio",
+        "edgeapi.slack.com",
+        "https://apps.apple.com/us/app/quip-docs-chat-sheets/id647922896",
+        "https://github.com/slackhq/nebula",
+        "https://salesforce.quip.com/blog/desktop",
+        "slack-imgs.com",
+        "slack-redir.net",
+        "slack-status.com",
+        "slack.com",
+        "slackatwork.com",
+        "slackb.com",
+        "spaces.pm",
+        "www.quip.com"
+      ],
+      "exclusions": [
+        "*.glitchthegame.com",
+        "3rd Party Quip Apps",
+        "com.Slack.intune",
+        "com.slack.slackintune",
+        "slackhq.com",
+        "status.slack.com"
+      ],
+      "automation": {
+        "policy": "full",
+        "basis": "policy-text",
+        "evidence": "automated testing is allowed"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\slack-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "slack",
+  "name": "Slack",
+  "url": "https://hackerone.com/slack",
+  "policy": "## Slack Technologies, LLC, a Salesforce company\n\nOver _$12M_ in bounties awarded across all our H1 Bug Bounty programs since 2015!\n\nAt Slack, a Salesforce company, Trust is our #1 value and we take the protection of our customers' data very seriously. We encourage responsible reporting and disclosure of any vulnerabilities found in Slack services outlined in our Scope section.\n\nSlack is committed to working with security researchers to verify and address any potential vulnerabilities that are reported to us. Please review these terms before you test and/or report a vulnerability. Slack pledges not to initiate legal action against researchers for penetrating or attempting to penetrate our systems as long as they adhere to this policy.\n\n##Eligibility for the Bug Bounty Program\n\nWe are happy to thank every individual researcher who submits a vulnerability report helping us improve our overall security posture at Slack. However, only those researchers that meet the following criteria may be eligible to receive a reward. Some of the requirements to participate in the Bug Bounty Program include:\n\n\n* You must be the first reporter of a vulnerability associated with a participating service (we will also not reward for a known vulnerability which we are actively fixing)\n* You must have personally discovered the vulnerability and you may not report a vulnerability that was discovered by another person (including, and especially, someone who does not qualify to participate in the Bug Bounty Program)\n* You must not be employed by Slack, Salesforce, its subsidiaries, or any related entities, currently or in the last 12 months.\n* You must comply with this Policy when discovering the vulnerability and submitting the vulnerability report\n* Slack or HackerOne can’t be legally prohibited from rewarding you for any reason\n* Non-automated testing is allowed on production Slack infrastructure, preferably using dedicated test teams. Any testing for cross-team vulnerabilities should be conducted using dedicated teams created and owned by the researcher.\n\n##Conduct Guidelines\n\n\nWhile we encourage you to discover and report any vulnerabilities you find in a responsible manner, the following conduct is expressly prohibited and will result in disqualification from the Bug Bounty Program. By submitting a report to this program you agree to adhere to these guidelines. \n\n\n* Disclosing any vulnerabilities or suspected vulnerabilities you discover to any other person without explicit Salesforce authorization\n* Disclosing the contents of any submission to this program without explicit Slack authorization\n* Accessing private information of any person stored on a Slack product or service – You must use test accounts\n* Accessing sensitive information (e.g. credentials)\n* Performing actions that may negatively affect Salesforce system performance or its users (e.g. Spam, Phishing, Brute force, Distributed Denial of Service (DDoS))\n* Conducting any kind of physical attack on Slack personnel, property or data centers\n* Social engineering any Slack employee or contractor\n* Conducting vulnerability testing of participating services using anything other than test accounts (e.g. Developer or Trial Edition instances)\n* Exfiltrating data. Please test only the minimum necessary to validate a vulnerability (we can verify if data exfiltration would be possible from a vulnerability, and will reward with the impact in mind)\n* Violating any laws or breaching any agreements in order to discover vulnerabilities\n\nIf you are testing a publicly viewable area of Slack, please remove any test posts or accounts when you are done and refrain from engaging with actual users.\n\n##Disclosure Guidelines\n \nAs of August 15th, 2025, all Disclosure via HackerOne is paused for Slack. Researchers should expect all open and future requests for Mutual Disclosure to be closed until further notice. We will be taking this opportunity to align with our Salesforce bug bounty partners and provide a better experience for our researchers. There are no changes to the requirements for external disclosure outside of HackerOne.\n\nPublic disclosure of any submission to this program outside of the HackerOne platform (e.g. blogs, conference talks, research papers) requires explicit Slack approval regardless of the report status. Any form of public disclosure without explicit approval is considered a violation of our Conduct Guidelines. Please use the request disclosure option and specify that you are requesting to disclose externally. \n\n\n##Our Commitment to Researchers\n\n\nIf you submit a vulnerability report, the Slack security team and associated development organizations will use reasonable efforts to:\n\n\n* Respond in a timely manner, acknowledging receipt of your vulnerability report.\n* Investigate and consider your vulnerability report for eligibility under our Bug Bounty Program within 30 days of submission or less.\n* Notify you when the remediation or other action regarding the vulnerability has been implemented. \n\n##Slack Products/Services In Scope for HackerOne Security Researchers\n\nThe Bug Bounty Program is limited to Slack products as specified within the *scope* section in HackerOne. Please note that some areas - including Quip and Nebula - are restricted to Critical severity reports only.\n\n\n\n##Qualifying Vulnerabilities & Bounties (In Scope)\n\n\nThe decision to grant a reward for a vulnerability report, and the value of a reward (if any), is entirely within Salesforce’s discretion. If we decide to offer a reward for a vulnerability report, the value of the reward will usually be based on the *impact and severity* of the reported vulnerability. Keep in mind that while a report may identify a valid security concern, it must be a qualifying vulnerability as outlined below for acceptance under this program.\n\n\n* You will qualify for consideration for a reward only if you are the first person to responsibly disclose an unknown vulnerability to us in accordance with these policies. The determination of whether you are the first person is solely within our responsibility. Vulnerabilities must also be relevant, exploitable, and well-documented in the vulnerability report. We are more likely to grant a reward if the vulnerability is specific, fixable and not currently exploited against us or our customers. \n\n##Vulnerability Severity Definitions\n\nThe following vulnerability severity definitions are based on internal Salesforce documentation. These definitions are a work in progress. The goal of adding these definitions to our policy is to: \n\n* Allow more efficient report triage\n* Align directly with internal Salesforce vulnerability ranking definitions\n* Remove ambiguity and subjective assignment of severity\n* Promote fair bounty payments\n* Promote researcher satisfaction\n\nIf you have feedback and/or suggestions to help us make these more clear and useful, please email your ideas to bugbountymanager@salesforce.com\n\n###Critical\n\n* Indicators of a ‘Critical’ severity level include but are not limited to vulnerabilities that:\n    * can affect a customer-facing or Slack production asset, or a non-production environment containing production customer data. Such an impact could be the compromise of the confidentiality, integrity of availability of such an asset or data.\n    * can result in compromise of sensitive systems or customer data without user interaction.\n    * can be exploited externally / via an untrusted network.\n    * can be remotely exploited with minimal knowledge, skill, or complexity.\n    * results in a root-level compromise of servers or infrastructure devices when exploited.\n    * have a CVSS or VPR score of 9.0 or greater.\n* Examples include, but are not limited to:\n    * External Remote Code Execution (RCE): Executing potentially harmful code on a server from outside the network that may result in system compromise and possible data exfiltration, depending on the specific implementation and context.\n    * Critical Data Exposure (Single/Cross-Tenant): Potential unauthorized disclosure of sensitive data that could affect one or multiple customers, with impact varying based on data sensitivity and scope of exposure.\n    * Arbitrary Account Takeover: Potentially gaining significant control of user accounts without proper authorization, where the impact depends on the account type and associated permissions.\n    * Privilege Escalation to Root/Admin: Possible elevation of privileges to higher levels on a system that could lead to varying degrees of control over the affected system or infrastructure.\n    * Exploitation of Publicly Known and Actively Exploited Vulnerabilities: Potentially leveraging known flaws that may be under active attack, where impact varies based on the vulnerability context. The Public Disclosure must be older than 30 days if the risk is Critical.\n    * External Logic Flaws Causing Significant Service Disruption: Possible abuse of application logic accessible externally that might cause service disruptions, with impact varying based on affected business functions and duration.\n\n\n###High\n\n* Indicators of a ‘High’ severity level include but are not limited to vulnerabilities that:\n    * can affect production or customer-facing assets, or non-production environments with sensitive data.\n    * allow unauthorized access or modification of sensitive data or elevated privileges, but require more skill or context than Critical vulnerabilities.\n    * allow local users to gain increased privileges.\n    * result in susceptibility to an external, simply executed, single actor, logic-based attacks resulting in significant performance degradation of one or more critical systems/products.\n    * Can be exploited with moderate technical knowledge or skill, and is likely to result in system compromise or denial of service. Example: A publicly available exploit without evidence of active exploitation, or a proof-of-concept exploit.\n    * Have a CVSS or VPR score between 7.0 and 8.9\n* Examples include, but are not limited to:\n    * Privilege Escalation (Limited Scope): Gaining higher access within the application allowing unauthorized access to sensitive data and functionalities.\n    * External Persistent/Stored Cross-Site Scripting (XSS): Permanently injecting malicious scripts into a website, affecting other users potentially leading to session hijacking or defacement.\n    * External Cross-Site Request Forgery (CSRF) on Sensitive Functions: Forcing a user to perform unwanted actions on a web application leading to unauthorized state changes or data manipulation.\n    * External Exposure of Sensitive Information via Stack Traces: Revealing internal application details in error messages potentially leading to sensitive information leakage.\n    * Internal Use of Weak Cryptography (Practically Exploitable): Using breakable encryption within the internal network potentially leading to confidential data disclosure.\n    * Internal Remote Arbitrary Code Execution (Without Mitigating Circumstances): Executing code on an internal server potentially leading to system compromise or partial service disruption.\n    * Internal Command or SQL Injection (Without Mitigating Circumstances): Injecting malicious commands into an internal system or database allowing unauthorized data access/modification/deletion.\n    * Internal Exposure of Sensitive Information: Unauthorized access to data by internal users potentially leading to data breach or privacy violations.\n    * Internal Use of Default or Weak Credentials: Using easily guessed passwords for internal systems allowing unauthorized system access.\n    * Susceptibility to Publicly Disclosed Vulnerabilities (High Impact): Using software with known, dangerous flaws potentially leading to system compromise or data loss.\n    * External Path Traversal: Accessing restricted files or directories on the server from the outside potentially leading to access to sensitive files or code execution.\n    * Server-Side Request Forgery (SSRF): Forcing the server to make requests to unintended locations potentially leading to access to internal services or data exfiltration.\n    * Unrestricted File Upload (High Risk): Uploading files without proper security checks potentially leading to remote code execution or defacement.\n    * XML External Entity (XXE) Injection: Exploiting vulnerabilities in XML processing potentially leading to confidential data disclosure or remote code execution.\n\n\n###Medium\n\n* Indicators of a ‘Medium’ severity level include but are not limited to vulnerabilities that:\n    * may be more difficult to exploit but could still lead to some compromise of the confidentiality, integrity, or availability of resources, under certain circumstances.  Such a difficulty could require significant knowledge or skill to exploit, or there may be controls in place to prevent exploitation.\n    * could have had a critical or high impact but are less easily exploited based on a technical evaluation of the flaw, or affect unlikely configurations.\n    * require significant user interaction or chaining with other bugs to escalate impact.\n    * result in susceptibility to external, simply executed, single actor, logic-based attacks resulting in some measurable performance degradation of one or more critical systems/products.\n    * may involve low-sensitivity data or present a limited attack surface.\n    * have a CVSS or VPR score between 4.0 and 6.9.\n* Examples include, but are not limited to:\n    * External Unintended Internal Information Disclosure: Revealing internal details to external users potentially aiding further attacks.\n    * Internal Network/Application Cross-Site Scripting (XSS): Injecting malicious scripts into an internal web application potentially allowing attackers to hijack user sessions or deface internal applications.\n    * Internal Network/Application Cross-Site Request Forgery (CSRF): Forcing an authenticated internal user to perform unwanted actions potentially leading to unauthorized actions on internal applications.\n    * Internal Use of Weak Cryptography (Practically Exploitable by Sophisticated Actors): Using breakable encryption within the internal network potentially allowing sensitive internal data decryption.\n    * Usage of End-of-Life (EoL) Operating Systems or Software (Internal): Running unsupported software on internal systems increasing susceptibility to known vulnerabilities.\n    * External Facing Content Spoofing: Manipulating content to deceive users potentially leading to phishing or reputational damage.\n    * Cleartext Transmission of Sensitive Internal Data: Sending unencrypted sensitive data within the internal network potentially allowing interception of confidential internal data.\n    * Predictable Session Identifiers (Internal): Using easily guessable session tokens within the internal network potentially allowing attackers to hijack legitimate user sessions.\n    * Denial-of-Service (DoS) via Logic Flaws (Single Actor, Simple Execution, Measurable Performance Degradation): Causing a noticeable slowdown or temporary unavailability of a service with minimal effort.\n    * Path Traversal on Internal Resources: Accessing restricted files or directories within the internal network potentially allowing unauthorized access to sensitive internal configuration files or data.\n    * Missing or Ineffective Rate Limiting on Non-Critical Internal Endpoints: Failing to limit requests to certain internal features potentially leading to resource exhaustion. While researchers should always feel free to report discoveries to our program, we will only accept and pay for valid Medium severity issues related to CVEs 6 months past publish date.\n\n###Low\n\n* Indicators of a ‘Low’ severity level includes but is not limited to vulnerabilities that:\n    * do not expose sensitive data or infrastructure.\n    * represent best practice gaps, low-impact misconfigurations, or non-exploitable flaws.\n    * may be more difficult to exploit but could lead to minimal compromise of the confidentiality, integrity, or availability of resources under unlikely circumstances.\n    * require unlikely circumstances to be able to be exploited, or where a successful exploit would have minimal consequences.\n    * require complex prerequisites or attacker access to internal environments.\n    * results in susceptibility to external, simply executed, single actor, logic-based attacks resulting in minor performance degradation of one or more critical systems/products.\n    * have a CVSS or VPR score less than 4.0.\n* Examples include, but are not limited to:\n    * Cross-Site Scripting (XSS) from an Authenticated Customer Admin: Injecting malicious scripts through an admin account potentially leading to minor data theft or defacement within admin scope.\n    * Exposure of Internal Default Pages (e.g., Apache server-status): Revealing server information through standard configuration pages potentially aiding reconnaissance.\n    * Exposure of Server Configuration Information: Leaking details about the server setup slightly increasing attack surface knowledge.\n    * Use of Weak Cryptography Not Practically Exploitable: Using breakable encryption with mitigating factors presenting negligible real-world risk.\n    * External Cross-Site Request Forgery (CSRF) on Non-Sensitive Functions: Forcing a user to perform unimportant actions on a website potentially leading to unwanted minor actions.\n    * Documentation Bugs Revealing Sensitive but Outdated Information: Documentation inaccuracies that, from a security perspective, misrepresent product behavior, including instances where outdated information could reveal sensitive configurations and cause confusion.\n    * HTTP Public Key Pinning (HPKP) Configuration Errors with Fallback: Misconfiguration of certificate pinning with a working backup indicating a configuration issue.\n    * Verbose Error Messages Revealing Non-Sensitive Information: Detailed error outputs exposing internal application structure or non-critical data. The data exposed must be, at some point, important from a security perspective.\n    * Absence of Rate Limiting on Non-Authentication Related, Low-Impact Features: Lack of request limits on unimportant features potentially leading to minor resource exhaustion.\n    * Information Disclosure Through Non-Standard HTTP Headers: Revealing minor information in HTTP headers slightly increasing knowledge for attackers.\n\n\n##Qualifying Vulnerability Descriptions\n\n\n| Category | Description |\n| --- | --- |\n| Remote Code Execution | CWE-94: AKA \"Arbitrary Code Execution\".  Describes a security bug that allows an attacker to execute arbitrary commands or code on a target machine or in a target process. The exploit PoC may include many other vulnerability types, but ultimately the result is p0wnage of the server(s) and/or environment.  [src: https://en.wikipedia.org/wiki/SQL_injection] |\n| Disclosure of Credit Card data | CWE-359:  This is self-explanatory. Any security bug which allows disclosure of credit card information to an unauthorized user or system qualifies as Disclosure of Credit Card Data |\n| SQL Injection | CWE-1027:  SQL injection is a code injection technique in which nefarious SQL statements are inserted into an entry field for execution (e.g. to dump the database contents to the attacker). SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed. SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database.SQL injection attacks allow attackers to spoof identity, tamper with existing data, cause repudiation issues such as voiding transactions or changing balances, allow the complete disclosure of all data on the system, destroy the data or make it otherwise unavailable, and become administrators of the database server. [src: https://en.wikipedia.org/wiki/SQL_injection] |\n| Unrestricted XXE / File System Access | CWE-611:  External XML Entity Injection (XXE) is a specific type of Server Side Request Forgery(SSRF) which affects an XML processing engine server-side on a target. Specifically, blind XXE is when the results are either error-based or cause 3rd party interaction with services such as HTTP, FTP & DNS. An XXE attack typically occurs when XML input containing a reference to an external entity is processed by a weakly configured parser. An attacker can leverage an XXE attack to access sensitive data and read local or remote files. In a similar manner to SSRF, an attacker could introduce malicious code through Remote Code Execution (RCE).  [scr: https://blog.zsec.uk/out-of-band-xxe-2/]  [src: https://chris-young.net/2018/04/13/xxe-xml-external-entity/] |\n| Significant Authentication Bypass | CWE-305:  Authentication bypass is a vulnerability that allows an attacker access to credential protected resources without first acquiring valid credentials. Examples of this vulnerability include:* SQL injection during login to bypasses credential authentication* Direct access to resources normally beyond an authentication mechanism, such as a login screen, which do not independently validate the users authenticated session.* Failure to enumerate and enforce the systems' access policy. * A weak authentication system that allows a valid identity to be forged. | \n| Significant Authorization Bypass | CWE-285:  Authorization is the concept of allowing access to resources only to those permitted to use them. Vulnerabilities that bypass authorization checks may allow access to protected resources beyond what was intended by the system. Examples of authorization bypass include Insecure Direct Object Reference and Session Token Alteration. In each of these examples, the system trusts the users' requests because of improper or insecure implementation. |\n| Cross Instance Privilege Escalation | Salesforce is a multi-tenant platform in which \"instances\" are created for each Org. A cross-instance privilege escalation involves some user in instance A having access to data in instance B without proper authorization. |\n| Denial of Service | Susceptibility to an external, simply executed, single actor, logic-based attack resulting in a service outage or significant performance degradation of one or more critical systems/products  |\n| Disclosure of Personal Identifiable Information | CWE-200:  Personally identifiable information, or PII, is any data that could potentially be used to identify a particular person. As it relates to Salesforce, PII Disclosure bugs involve PII data stored within any in-scope platforms, excluding Salesforce Employee data such as Name and Contact information.  [src: https://www.lifelock.com/learn-identity-theft-resources-what-is-personally-identifiable-information.html] |\n| Salesforce Platform Misconfiguration and/or Custom APEX Vulnerabilities (Salesforce Owned/Controlled) | The Salesforce Platform is highly configurable, customizable, and supports custom code in the form of APEX code, Visualforce pages, etc. It is therefore capable of being misconfigured in such a way as to leak information or to otherwise be insecure. This category of vulnerability is specific to Salesforce owned and operated sites, NOT Salesforce customer-owned and operated Salesforce instances. If you identify a configuration vulnerability in a customer site please report it to that company via their Bug Bounty program or their security@<some company dot com> email address. There is no guarantee that the customer will respond to your email or bug submission, and it is out of Salesforce control. Please do not expect Salesforce to handle reports of customer misconfiguration.|\n| Privilege Escalation / Improper Access Control | Privilege escalation is the act of exploiting a bug, design flaw or configuration oversight in a software application to gain elevated access to resources that are normally protected from an application or user. The result is that a user with more privileges than intended by the application developer or system administrator can perform unauthorized actions. Note that Privilege Escalation is different from Permission Model Circumvention in that PE involves accessing functionality beyond that assigned to a given role, or somehow adding resource permissions to a given role without authorization, while PMC involves a complete bypass of security controls meant to enforce permissions. Ultimately, PE involves a user within the system increasing their access somehow, while PMC involves an anonymous user gaining access.  [src: https://en.wikipedia.org/wiki/Privilege_escalation] |\n| Non-XXE SSRF | In a Server-Side Request Forgery (SSRF) attack, the attacker can abuse functionality on the server to read or update internal resources. The attacker can supply or modify a URL which the code running on the server will read or submit data to, and by carefully selecting the URLs, the attacker may be able to read server configuration such as AWS metadata, connect to internal services like HTTP enabled databases or perform post requests towards internal services which are not intended to be exposed.[src:https://www.owasp.org/index.php/Server_Side_Request_Forgery] |\n| Insecure Direct Object Reference | IDOR occurs when unvalidated user-supplied input is submitted and direct access to the object requested is provided. Vulnerability reports for IDOR are valid when the result is unauthorized information disclosure, modification or destruction of data, or performing a function outside of the limits of the current user. |\n| CRLF injection/HTTP response splitting  | HTTP response splitting occurs when data enters a web application through an untrusted source, most frequently an HTTP request. The data is included in an HTTP response header sent to a web user without being validated for malicious characters. HTTP response splitting is a means to an end, not an end in itself. At its root, the attack is straightforward: an attacker passes malicious data to a vulnerable application, and the application includes the data in an HTTP response header. [src: https://www.owasp.org/index.php/HTTP_Response_Splitting] |\n| Circumvention of our Platform’s Permission Model | Permission Model Circumvention involves a complete bypass of security controls meant to enforce permissions. An example of PMC involves an insecurely configured system in which an API gateway fronts for several servers and implements authentication/authorization. The configuration is such that the URI to the backend servers can be identified and they are directly accessible without any additional authentication or authorization checks..While there is an authX model in place, it was trivially circumventable. Ultimately, PE involves a user within the system increasing their access somehow, while PMC involves an anonymous user gaining access. |\n| Cross-Site Scripting (excluding self-XSS) | CWE-80:  Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users. A cross-site scripting vulnerability may be used by attackers to bypass access controls such as the same-origin policy. [src:https://en.wikipedia.org/wiki/Cross-site_scripting] |\n| Cross-Site Request Forgery (CSRF) on critical actions | CWE-352:  Cross-site request forgery, also known as one-click attack or session riding and abbreviated as CSRF (sometimes pronounced sea-surf[1]) or XSRF, is a type of malicious exploit of a website where unauthorized commands are transmitted from a user that the web application trusts.[2] There are many ways in which a malicious website can transmit such commands; specially-crafted image tags, hidden forms, and JavaScript XMLHttpRequests, for example, can all work without the user's interaction or even knowledge. Unlike cross-site scripting (XSS), which exploits the trust a user has for a particular site, CSRF exploits the trust that a site has in a user's browser.  [src: https://en.wikipedia.org/wiki/Cross-site_request_forgery] |\n| Insufficiently Protected Credentials / Credential Exposure | CWE-522:  CWE-522: Within the context of the Salesforce/HackerOne Bug Bounty program, credential exposure involves finding, or gaining access to a user or system credentials which are not meant to be public. An example of IPC would be finding a Github or other repo containing configuration files that contain usernames, passwords, API keys, private keys, etc. Another example is an exposure of a single user's credentials on the querystring, in cookies, or in other HTTP headers. |\n| Insecure/Open Redirect | CWE-601:  An HTTP parameter may contain a URL value and could cause the web application to redirect the request to the specified URL. By modifying the URL value to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts have a more trustworthy appearance. |\n| DNS Hijacking / Subdomain Takeover | DNS hijacking or DNS redirection is the practice of subverting the resolution of Domain Name System (DNS) queries.The basic premise of a subdomain takeover is a host that points to a particular service not currently in use, which an adversary can use to serve content on the vulnerable subdomain by setting up an account on the third-party service.  [src: https://en.wikipedia.org/wiki/DNS_hijacking] [src: https://www.hackerone.com/blog/Guide-Subdomain-Takeovers] |\n| Configuration/Stats//Log File Exposure | CWE-532 Information Exposure Through Log Files. CWE-200: Information Exposure. Any instance in which log files or server/application configuration files are accessible when they are not meant to be. |\n| Documentation Bug | Any instance in which, from a strictly security-based perspective, the published documentation is incorrect with regard to the behavior of the product. | \n\n\n##Non-Qualifying Vulnerabilities (Out of Scope)\n\nThe following types of issues are *specifically excluded* from our Bug Bounty Program:\n\n* Attacks requiring physical access to a user's unlocked device\n* Reports of spam, phishing or security best practices\n* Clickjacking and issues only exploitable through clickjacking\n* CSRF-able actions that do not require authentication (or a session) to exploit or CSRF issues which have no security impact to Slack.\n* HTML and Link injections\n* Non-Critical reports that are theoretical and do not demonstrate a working proof of concept\n* Nebula-related attacks requiring code changes on the victim (server) side\n* Attacks that require modifying the Nebula config file to take malicious actions\n* Nebula-related attacks that involve modifying the SSH server to take malicious action\n* Nebula-related DoS issues that require authentication or misconfigured firewall rules\n* Nebula-related attacks requiring a MiTM network position\n* Reports of exposed customer tokens, webhooks, etc. via Wayback Machine or other third-party sites\n* Issues related to \"Editable Github Wiki Pages\"\n* Issues related to Salesforce *Partner* User Credential Disclosure in public code repositories such as GitHub. *Please note that this type of activity is explicitly excluded by the Conduct Guidelines in this policy.*\n* TOCTOU bugs involving platform permission changes. For example; User A has an active session, Admin reduces or increases permissions for User A, User A permissions do not change until User A logs out and back in. This is currently WAD on Salesforce platforms.\n* Invalid links from any Slack site to any social media site in which a claim of \"account takeover\" or \"possible phishing attacks\" are the basis for the report.\n* Bugs in content/services that are not owned/operated by Slack (Salesforce)\n* Vulnerabilities affecting users of outdated or unsupported browsers or platforms\n* Vulnerabilities that have already been addressed in a product update regardless of whether the update has been applied to the publicly available research machines\n* Subdomain takeovers for out of scope domains\n* Self-XSS or XSS bugs requiring an unlikely amount of user interaction\n- XSS under \\.sitepreview.(na\\/gus).force.com (http://force.com/)\n- XSS under \\.livepreview.(na\\/gus).force.com (http://force.com/)\n- Descriptive error messages (e.g. Stack Traces, application or server errors)\n- HTTP 404 codes/pages or other HTTP non-200 codes/pages.\n- Fingerprinting / banner disclosure on common/public services.\n- Disclosure of known public files or directories, (e.g. robots.txt)\n- Scripting or other automation and brute-forcing of intended functionality\n- Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality.\n- Lack of Secure and HTTPOnly cookie flags\n- Content spoofing (text injection) or IDN homograph attacks\n- Tabnabbing \n- Email configuration issues (SPF, DKIM, DMARC)\n- Weak Captcha / Captcha Bypass\n- Forced Login / Logout CSRF\n- Account lockout, Login or Forgot Password page brute force\n- Password complexity or account recovery policies\n- Username / email enumeration (brute force)\n- HTTPS Mixed Content\n- Missing HTTP security headers, specifically: Strict-Transport-Security, X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Content-Security-Policy.\n- OPTIONS HTTP method enabled\n- Known SSL issues (e.g. attacks such as BEAST, BREACH, POODLE, TLS Renegotiation)\n- SSL Forward Secrecy or HSTS not enabled\n- Weak SSL/TLS Cipher Suites\n- CSV Excel Formula injection\n- Issues related to networking protocols or industry standards not controlled by Salesforce\n- Sending vulnerability reports using automated tools without validation\n- Use of a known-vulnerable library without evidence of exploitability\n- Reflected XSS involving Adobe Flash files (.swf)\n\n*If you are unsure whether a bug or issue that you discover in a participating service is a non-qualifying vulnerability, please email us at <bugbountymanager@salesforce.com>*\n\n\n_Intellectual Property_\n\n\nParticipating in the Bug Bounty Program does not grant to you or any other third party any rights to any Slack or Salesforce intellectual property, product or service. All rights not otherwise granted herein are expressly reserved. Whether or not we grant you a reward, you hereby assign to Salesforce all right, title and interest (including all intellectual property rights), in the contents of all vulnerability reports that you submit to Salesforce. \n\nBy participating in the Bug Bounty Program, you represent that you have the right to assign all such right, title and interest to us and that your participation in the Bug Bounty Program and assignment of such right, title and interest will not breach any agreement you may have with a third party (e.g. your employer).\n\n\n_Other Terms and Conditions_\n\n\nSalesforce pledges not to pursue a civil action or initiate a complaint to law enforcement against researchers for security research and vulnerability disclosure activities conducted in accordance with this Policy. We consider security research and vulnerability disclosure activities conducted in accordance with this Policy “authorized” conduct under the Computer Fraud and Abuse Act, the DMCA and applicable anti-hacking laws such as Cal. Penal Code 502(c). We waive any DMCA claim against you for circumventing the technological measures we have used to protect the applications in scope. If legal action is initiated by a third party against you and you have complied with this Policy, we will take steps to make it known that your actions were conducted in compliance with this Policy.\n\nBy participating in the Bug Bounty Program, you agree to be bound by these rules. These policies will apply to you in addition to, and will not replace, any other terms and conditions that are imposed by HackerOne.\n\n- Your participation in the Bug Bounty Program does not create any kind of employment relationship or partnership between you and Salesforce. You must not hold yourself out as a Salesforce employee or as someone in any way affiliated with Salesforce.\n- You must comply with all applicable laws in connection with your participation in this program. \n- You are responsible for any applicable taxes associated with any reward you receive. \n- Vulnerability reports received prior to the Bug Bounty Program launch are not eligible for rewards and may not be re-submitted for a reward.\n- You will not use any of our trademarks, service marks and logos.\n- We may modify this Policy at any time by posting an updated version of this document.\n- We may terminate this Bug Bounty Program at any time without notice. ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The slack.com site and application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Slack API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "status.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Slack status site",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "slackb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/slackhq/nebula",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Accepting Critical severity ONLY as of 2026-05-27. Refer to Out of Scope section for detailed guidance",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "edgeapi.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "slackatwork.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "slack-redir.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "slack-imgs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "spaces.pm",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "slackhq.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Includes any subdomains (e.g.*.slackhq.com)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.Slack",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.Slack.intune",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.tinyspeck.chatlyio",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The main Slack app is included: [Slack iOS App](https://apps.apple.com/us/app/slack/id618783545)\n\nOther versions of the app, such as the EMM and Intune versions, are not included.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.slack.slackmdm",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reports are accepted for vulnerabilities specific to the [Slack EMM/MDM version of the app](https://apps.apple.com/us/app/slack-for-emm/id1254292716).\n\nEMM client vulnerabilities in the absence of a valid MDM configuration via a supported MDM provider, (such as MobileIron), on an EMM-enabled Slack t",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.slack.slackintune",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.glitchthegame.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain was part of a prior company. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.quip.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only accepting Critical reports as of 2023-12-01",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.quip.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only accepting Critical reports as of 2023-12-01",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://salesforce.quip.com/blog/desktop",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "3rd Party Quip Apps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd Party Quip App are not eligible for bug bounty program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "slack-status.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Slack Desktop Application",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/quip-docs-chat-sheets/id647922896",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only accepting Critical reports as of 2023-12-01",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "moonpay",
+      "name": "MoonPay ",
+      "offersBounties": true,
+      "assets": [
+        "*.hypermint.com",
+        "*.moonpay.com",
+        "*.moonpaycloud.com",
+        "app.moonpay.com",
+        "auth.moonpay.com",
+        "buy.moonpay.com",
+        "https://apps.apple.com/app/id1635031432",
+        "https://github.com/moonpay",
+        "https://play.google.com/store/apps/details?id=com.moonpay",
+        "hypermint.com",
+        "moonpay.com",
+        "sell.moonpay.com",
+        "web3.moonpay.com"
+      ],
+      "exclusions": [
+        "*.plexlabs.io",
+        "clicks.moonpay.com",
+        "docs.hypermint.com",
+        "docs.moonpay.com",
+        "help.moonpay.com",
+        "page.moonpay.com",
+        "plexlabs.io",
+        "qr.moonpay.com",
+        "request-headers-no-proxy.moonpay.com",
+        "request-headers.moonpay.com",
+        "storefront.hypermint.com",
+        "support.moonpay.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\moonpay-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "moonpay",
+  "name": "MoonPay ",
+  "url": "https://hackerone.com/moonpay",
+  "policy": "#MoonPay Bug Bounty Program\n\nAt MoonPay, we are committed to maintaining the security and privacy of our products and customers. We believe that working with the security research community through our bug bounty program is a crucial part of our overall security strategy. We are grateful for the contributions of the security community, and we look forward to working together to keep MoonPay secure.\n\nIf you have any questions about the scope of our bug bounty program or if you are unable to properly access or test the assets in scope, please contact us at security@moonpay.com.\n\n#Response Targets\n\nMoonPay will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 30 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe will do our best to keep you informed about our progress throughout the process.\n\n\n#Disclosure Policy\n\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the MoonPay Security team.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n#Program Rules\n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to\nreproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can\nbe fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or\ndegradation of our service. Only interact with accounts you own or with explicit permission of the\naccount holder.\n\n\n#Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n\n* Reporting on general security best practices, such as password strength guidelines, password policies.\n* Identifying missing security features or controls that are not specific to the application or service.\n* Clickjacking \n* Email or Nonces sent to third party domains\n* Unconfirmed reports from automated vulnerability scanners\n* Security weaknesses with no evidence of the ability to target a remote victim. For example: HTTP Host header attack, missing rate limits, bruteforcing without demonstrating impact, etc.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring a MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Arbitrary file upload\n* Email flooding\n* User enumeration\n* Any activity that could contribute to the disruption of our service (DoS).\n* Content spoofing and text injection issues \n* Theoretical subdomain takeovers with no supporting evidences\n* Missing Content Security Policy\n* Missing HttpOnly or Secure flags on cookies\n* Missing email security best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors)\n* Tabnabbing\n* Self XSS\n* Broken links\n* Open redirect - unless an additional security impact can be demonstrated\n* Rate limit bypass through IP rotation techniques\n* Session invalidation issues (logout not expiring sessions)\n* Issues that require unlikely user interaction by the victim\n* Vulnerabilities on subdomains that point to third party services.\n* Disclosure of API keys with the prefix `pk_*`. These are publishable keys and are not sensitive.\n* Invalid or stale employee credential dumps - we already monitor haveibeenpwned.com and other sources for dumps of this nature.\n\n### Out of scope bugs for iOS and Android apps:\n\n* Root / Jailbreak detection bypass\n* Lack of Root / Jailbreak detection\n* Bypass of certificate pinning\n* Lack of binary protection (anti-debugging, PIE, ARC, or Stack Canaries) controls\n* Lack of obfuscation\n* Snapshot/Pasteboard leakage\n* Crashes in general\n* Runtime hacking exploits (exploits only possible in a rooted/jailbroken environment)\n* Hardcoded keys or values, if they do not provide functionality beyond the normal application functionality (eg ability to escalate privileges beyond normal application access)\n* Any kind of sensitive data stored in app private directory\n\n#Rewards\n\n* Rewards are based on severity per CVSS (the [Common Vulnerability Scoring Standard](https://docs.hackerone.com/hackers/severity.html?)).\n* Reports submitted using methods that violate policy rules will not be eligible for a reward.\nTo be eligible for a reward, the report must be for bounty eligible assets as defined in the scope section of our policy.\n* Multiple reports describing the same vulnerability against multiple assets or endpoints where the root cause is the same will be treated as one report. Do not submit duplicate reports for the same issue across multiple sites as the duplicates will be closed, and the issue will be treated as one report.\n* While we aim for consistency, previous reports and prior bounty amounts will not set a precedent for future report eligibility or severity.\n* Understand that there could be submissions for which we accept the risk, have other compensating controls, or will not address in the manner expected. When this happens, we will act as transparently as we can to provide you with the necessary context as to how the decision was made.\n\n#Program Eligibility\n\n* You agree and adhere to the Program Rules and Legal terms as stated in this policy.\n* You are the first researcher to submit a sufficiently reproducible report for a vulnerability in order to be eligible for the report to be accepted and Triaged.\nYou are available to supply additional information, as needed by our team, to reproduce and triage the issue.\n* Publicly-known zero-day vulnerabilities will not be considered for eligibility until more than 30 days have passed since patch availability.\n* Eligibility of reports about assets that are not explicitly listed as in-scope will be reviewed on a case-by-case basis.\n* MoonPay employees, contractors and other personnel are not eligible for participation in this program.\n\n#Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\nThank you for helping keep MoonPay and our users safe!\n\n#Legal\n\nMoonPay reserves the right to modify the terms and conditions of this program, and your participation in the Program constitutes acceptance of all terms. Please check this site regularly as we routinely update our program terms and eligibility, which are effective upon posting. You can [subscribe](https://docs.hackerone.com/hackers/manage-notifications.html#program-notifications) to receive email notifications when this policy is updated.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.moonpaycloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hypermint.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hypermint.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.moonpay.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/moonpay",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Archived repositories are excluded and considered out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "clicks.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "qr.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "page.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.moonpay",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/app/id1635031432",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.plexlabs.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "plexlabs.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "request-headers-no-proxy.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "request-headers.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.hypermint.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "storefront.hypermint.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "web3.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sell.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "buy.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.moonpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+ "at": "2026-09-12T05:26:40.911Z",
+ "opportunity": "wallet_on_telegram",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "walletbot.me",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c7fac6e669880-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'self'; connect-src 'self' https: wss://omni-ws.ston.fi wss://omni-ws-sandbox.ston.fi; script-src 'self' 'un",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "pay.wallet.tg",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-0HB45G1V78",
+     "evidence": "googletagmanager.com/gtag/js?id=G-0HB45G1V78"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c7fb5cfbc5e45-LHR",
+    "strict-transport-security": "max-age=2592000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "wallet.tg",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "Next.js",
+    "cf-ray": "a39c7fbddc840339-LHR",
+    "strict-transport-security": "max-age=2592000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self';  connect-src 'self' https://sentry.walletbot.me;  script-src 'self' 'unsafe-eval' 'unsafe-inline';  ",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "wallettg.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to wallettg.com:443 refused: host unreachable"
+  },
+  {
+   "host": "wallettg.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c7fcd2caf3771-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'self'; connect-src 'self' https: wss://omni-ws.ston.fi wss://omni-ws-sandbox.ston.fi; script-src 'self' 'un",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

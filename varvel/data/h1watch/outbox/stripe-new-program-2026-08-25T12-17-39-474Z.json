@@ -1,0 +1,249 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "stripe",
+      "name": "Stripe",
+      "offersBounties": true,
+      "assets": [
+        "*.link.co",
+        "*.recko.io",
+        "*.reckoproduction.com",
+        "*.reckostaging.com",
+        "*.stripe.com",
+        "978516833",
+        "Stripe Atlas",
+        "Stripe Billing",
+        "Stripe Checkout",
+        "Stripe Connect",
+        "Stripe Dashboard",
+        "Stripe Elements",
+        "Stripe Issuing",
+        "Stripe Open Source",
+        "Stripe Payments",
+        "Stripe Radar",
+        "Stripe SDKs",
+        "Stripe Sigma",
+        "Stripe Terminal",
+        "api.stripe.com",
+        "api.taxjar.com",
+        "app.taxjar.com",
+        "com.stripe.android.dashboard",
+        "js.stripe.com"
+      ],
+      "exclusions": [
+        "*.getbouncer.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\stripe-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "stripe",
+  "name": "Stripe",
+  "url": "https://hackerone.com/stripe",
+  "policy": "The Stripe Bug Bounty Program Terms and Conditions (\"Terms'') governs your participation in the Stripe Bug Bounty Program (\"Program\"). These Terms are between you and Stripe (\"Stripe,\" \"us,\" or \"we\"). By performing vulnerability research against Stripe’s infrastructure, submitting any vulnerabilities to Stripe, or otherwise participating in the Program in any manner, you accept these Terms.\n\n##Program Eligibility\n- Participants must be at least 18 years old.  \n- Stripe employees and contractors, as well as their family members, are strictly prohibited from participating in the Program, or sharing information with an external security researcher to bypass this prohibition.\n- You are prohibited from participating in the program if you are a resident of any U.S. embargoed jurisdiction, including, but not limited to, Iran, North Korea, Cuba, the Crimea region, and Syria; or if you are in the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Persons List or Entity List. By participating in the program, you represent and warrant that you are not located in any such country or on any such list. \n \n##Rules of Engagement\nYour participation in our program is voluntary and subject to the following:\n- Your submission must include a working Proof of Concept to be considered for a reward.\n- Avoid harm to others’ data and privacy. Specifically: \n  - If you encounter any personal data or sensitive information in the course of your research, **stop and notify our team immediately so we can investigate**. Please report to us what data was accessed and delete the data. Do not save, copy, download, transfer, disclose, or otherwise use this data. Continuing to access others’ data or otherwise failing to adhere to this requirement will disqualify you from participating in the Program.\n  - If your research is designed to identify and demonstrate a vulnerability that could allow unauthorized access to personal data or sensitive information, make sure to take measures to minimize your access to or usage of such data to what is **absolutely necessary** to achieve those purposes (i.e., identification and demonstration of a vulnerability that could allow unauthorized access to personal data or sensitive information). For example, if you are injecting code into Stripe’s environment to test whether you could exfiltrate data from a Stripe database, limit the potential exfiltration to the first three rows and five columns of the table rather than the entire database. \n  - If, even after taking measures to minimize access to personal data or sensitive information, you ultimately end up encountering such data in the course of your research, follow the mitigation measures described above.        \n- Do not leverage the existence of a vulnerability or access to personal data or sensitive information to make threats or extortionate demands.\nDo not not degrade, interrupt, or deny services to our users or take any actions that can affect the availability or integrity of Stripe’s systems and data (e.g., modifying or deleting data). If you notice service degradation or interruption, stop your research and notify us immediately. \n- Do not incur loss of funds that are not your own.\n- If you are performing research, use your own accounts to do so. Do not interact with other Stripe users’ accounts. See the “Creating Accounts for Vulnerability Research” section below for more detail.\n- By reporting a vulnerability, you grant Stripe and its affiliates a perpetual, irrevocable, worldwide, royalty-free license to use, copy, adapt, develop, and create derivative work from, or share your submission for any purpose. You waive all claims, including breach of contract or implied-in-fact contract, arising out of your submission.\n- By reporting a vulnerability, you also agree to allow HackerOne to share with Stripe information relating to your tax forms so that Stripe can perform compliance checks.\n- You will be responsible for any tax implications related to any bounty payment you receive, as determined by the laws of your jurisdiction.\n- Whether to provide a reward for your submission, the amount of the reward, and your eligibility to participate in the Program are entirely at our discretion.\n- We consider only the earliest, responsibly-disclosed submission of a vulnerability instance with enough actionable information to identify the issue for a reward. All other reports for a given issue will not be eligible for a reward under our Program.\n- Your research must not violate any applicable laws or regulations.\n\n##Submission Review Process\nAfter a submission is sent to Stripe in accordance with the Rules of Engagement described above, Stripe engineers will review the submission and validate its eligibility for a reward. The review time could vary depending on the complexity and completeness of your submission, as well as on the number of submissions we receive. \n\nSubmission severity is evaluated based on Stripe specific threat models, which factors in Stripe's internal usage of the application or domain in question.\n\nAs explained in the Rules of Engagement, Stripe retains sole discretion in determining which submissions are qualified for a reward. If we receive multiple bug reports for the same issue from different parties, the bounty will be granted to the first eligible submission. If a duplicate report provides new information that was previously unknown to Stripe, we may award a differential to the person submitting the duplicate report. Stripe will also reopen and reward any report mistakenly closed as invalid if we later receive and reward the same bug reported by someone else. In these situations, we pay both researchers.\n\n##Other Notes on Submission Eligibility\n- We **accept and reward** submissions for valid cross-site scripting vulnerabilities even if they are not accompanied by a bypass of our content security policy. Cross-site scripting vulnerabilities without a content security bypass will be assessed at a lower severity level than those with a bypass.\n  - If submitting an XSS vulnerability without a CSP bypass, please demonstrate impact by manually disabling the CSP in your web browser. This can be done via browser extensions or Burp/proxy match-and-replace rules.\n\nAs a reminder,  you must use your own accounts to conduct any research and not interact with other Stripe users’ accounts. For further information, please refer to the “Rules of Engagement” section of our policy.\n\n##Creating Accounts for Vulnerability Research\nYou must create your own account using a [HackerOne email address](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias) (username@wearehackerone.com) to help us track security research activity. When opening your own merchant account, please add “bug-bounty” to the end of the merchant name. In addition, inject an ‘X-Bug-Bounty: username’ header, where possible.\n \n##Disclosure\nBy participating in this program, you agree not to publicly or privately disclose the contents of your submission, your findings, your communications with Stripe related to your participation in the Program, or any facts you have learned about Stripe in the course of your participation in the Program to any third party without Stripe’s prior written approval. There are no exceptions.\n\n##Researcher Privacy\nTo protect your privacy, we will not, unless served with legal process or to address a violation of this policy:\n- Share your personally identifiable information with third parties\n- Share your research without your permission\n- Share your participation without your permission\n\n##Accountability \nStripe reserves the right to disqualify you from participating in the Program if you violate the Rules of Engagement or other rules specified in this program policy, including the rules about disclosure.   \n\n##Changes to the Terms\nWe may change the Terms at any time. Participating in the Program after the changes become effective means you agree to the new Terms. If you don't agree to the Terms, you must not participate in the Program.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.stripe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://stripe.com/docs/api",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.stripe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.stripe.android.dashboard",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Google Play Store URL: https://play.google.com/store/apps/details?id=com.stripe.android.dashboard&hl=en_US&pli=1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "978516833",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Stripe iOS Dashboard App\nApp Store URL: https://apps.apple.com/us/app/stripe-dashboard/id978516833",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "js.stripe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://stripe.com/docs/js\n\nSample Stripe.js application: https://github.com/stripe-samples/accept-a-card-payment",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Payments",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Online payments\n\nDocs: https://stripe.com/docs/payments\n\nSample Payments application: [stripe-samples/accept-a-card-payment](https://github.com/stripe-samples/accept-a-card-payment): Learn how to accept a basic card payment on web, iOS, Android,\n\nStripe Payments also enables Agentic Commerce. Sell t",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Checkout",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Prebuilt, Stripe hosted checkout page\n\nURL: https://checkout.stripe.com/\nDocs: https://stripe.com/docs/payments/checkout\n\nSample Checkout applications:\n* [stripe-samples/checkout-subscription-and-add-on](https://github.com/stripe-samples/checkout-subscription-and-add-on): Uses Stripe Checkout to cre",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Connect",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Payments for platforms and marketplaces\n\nDocs: https://stripe.com/docs/connect\n\nSample Connect applications:\n* [stripe/stripe-demo-connect-kavholm-marketplace](https://github.com/stripe/stripe-demo-connect-kavholm-marketplace): Demo app for Global Marketplace using Stripe Connect\n* [stripe/stripe-co",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Terminal",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "In-person and omnichannel payments\n\nDocs: https://stripe.com/docs/terminal\n\nSample Terminal application: [stripe/stripe-terminal-js-demo](https://github.com/stripe/stripe-terminal-js-demo): Demo app for the Stripe Terminal JS SDK",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Billing",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Create and manage subscriptions, track usage, and issue invoices.\n\nSee Metronome for Stripe's usage-based billing solution. https://docs.stripe.com/billing/usage-based\n\nDocumentation:\n* https://stripe.com/docs/billing\n* https://docs.stripe.com/subscriptions\n* https://docs.stripe.com/invoicing\n\nSampl",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Elements",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Secure frontend UI component\n\nDocs: https://stripe.com/docs/stripe-js\n\nSample Stripe Elements application: [stripe/elements-examples](https://github.com/stripe/elements-examples): Stripe Elements examples",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Dashboard",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "A user interface to operate and configure your Stripe account.\n\nURL: https://dashboard.stripe.com\nDocs: https://stripe.com/docs/dashboard",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Issuing",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Card creation\n\nDocs: https://stripe.com/docs/issuing",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Radar",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Fraud and risk management\n\nDocs: https://stripe.com/docs/radar",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Sigma",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Custom reports\n\nDocs: https://stripe.com/docs/sigma",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Atlas",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Startup incorporation\n\nDocs: https://stripe.com/docs/atlas",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe SDKs",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Libraries and tools for interacting with your Stripe integration. Includes the Stripe Agent Toolkit.\n\nStripe Agent Toolkit Documentation: https://docs.stripe.com/agents/quickstart\nStripe Agent Toolkit Sourcecode: https://github.com/stripe/ai\nSDK Documentation : https://stripe.com/docs/sdks\nTerminal ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Stripe Open Source",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Open source projects authored or maintained by Stripe. Only non-archived and non-demo/non-sample projects are in scope. Projects forked from upstream sources are not in scope unless the reported functionality is used by Stripe.\n\nBounty eligibility is restricted to supported main branches, active mar",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.taxjar.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.taxjar.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.getbouncer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.recko.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.reckoproduction.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.reckostaging.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.link.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Link is a simple and secure way to pay in one click on tens of thousands of sites. Save your payment information with Link the first time you check out. Link will autofill your saved card details and shipping addresses for all future purchases on Link-supported sites. Users can manage their saved in",
+      "max_severity": "critical"
+    }
+  ]
+}

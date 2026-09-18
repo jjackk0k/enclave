@@ -1,0 +1,133 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": {
+    "name": "Visa",
+    "handle": "visa",
+    "url": "https://hackerone.com/visa"
+  },
+  "policy": "# Visa Bug Bounty Program Rules \n\nVisa is a global payments technology company that connects consumers, businesses, financial institutions and governments in more than 200 countries and territories to fast, secure and reliable digital currency.  \n\nWe have established this Bug Bounty Program to facilitate our exchange of information about potential vulnerabilities, establish rules for vulnerability testing, and provide a safe harbor for individuals who follow these rules.  \n\nWe look forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe. Visa will make a best effort to respond to incoming reports within 2 business days and make a bounty determination after validating a legitimate security issue within 15 business days. We’ll try to keep you informed about our progress throughout the process.  \n\n \n\n# Eligibility\nTo be eligible to receive rewards, you must:\n* Be at least the age of majority in the country where you reside.\n* Not be a current Visa employee or a relative of a current Visa employee, and you and/or your relatives cannot have worked at Visa within the past 6 months.\n* Be acting in your individual capacity and not on behalf of another company with whom you are employed or have otherwise been retained.\n* Not be a resident of a jurisdiction  against which the United States has issued comprehensive sanctions or other trade restrictions (e.g., Iran, North Korea, Syria, Cuba, and the Crimea Donetsk, and Luhansk regions of Ukraine,) or a person against whom the United States has issued blocking sanctions (e.g., a Specially Designated National or Blocked Person).\n* Conduct all testing and research in accordance with applicable law.\n\nYou must also follow the HackerOne rules at all times and have cleared HackerOne’s sanctions screenings and other applicable procedures. Determinations as to whether a submission is eligible for a bounty and otherwise consistent with these rules are within Visa’s sole discretion. \nIf you have discovered a vulnerability on an asset that is not listed in scope as part of Visa’s incentivized bug bounty program and it is a Visa owned asset, please submit it to Visa’s Vulnerability Disclosure program here: \n* [https://usa.visa.com/about-visa/vulnerability-disclosure.html](https://usa.visa.com/about-visa/vulnerability-disclosure.html) \n\n \n\n# Program Terms \n\nBy accepting the invitation and participating in Visa's bug bounty program, you agree with the following terms: \n\n* If you believe you have discovered a potential security issue or other vulnerability, you must let us know as soon as possible and we’ll make every effort to quickly resolve the issue.  \n\n* Keep your discovery and any proposed vulnerabilities strictly confidential. No public disclosure is allowed in our bug bounty program. \n\n* Submit only original vulnerability reports identified by you as a HackerOne user and do not copy or otherwise reproduce works to which others may have a claim.  \n\n* A valid vulnerability report must include: (1) the specific affected URL or endpoint, (2) the HTTP request and response demonstrating the issue, (3) step-by-step reproduction, (4) observed behavior and the security impact, and (5) evidence of successful exploitation such as a screenshot or HTTP response body. Reports missing these elements will be returned to the reporter for completion. \n\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced). \n\n* Some in-scope assets share the same code base, the security controls or configurations. Multiple vulnerabilities caused by the same underlying issue will be awarded one bounty for the first report only, regardless of the number of affected domains, URLs or endpoints submitted.  \n\n* Submit one vulnerability per report, unless chaining is required to demonstrate impact. Where vulnerabilities are chained, the full chain must be submitted as a single report. Once a vulnerability has been reported to the program in any form, it is considered disclosed and cannot anchor or contribute to a new bounty claim. \n\n* If you discover that a previously resolved vulnerability can be bypassed or has been re-introduced through incomplete remediation, submit a new report. Validated bypasses are eligible for the differential award up to 50% based on the severity of the original report. The differential reflects the novelty of the bypass technique, the impact demonstrated, and the scope of affected endpoints. \n\n* If a vulnerability provides unintended access to data: cease testing and submit a report immediately (e.g., if you encounter any user data during testing, such as Personal Information, credit card data, or proprietary information) – you are not authorized to access any Visa data \n\n* Not initiate any unauthorized financial transactions \n\n* Not violate any national, state, or local laws or regulations, and in particular will not violate any data privacy or security laws or regulations \n\n* Not upload proof of concept artifacts (screenshots, videos, exploits, etc) on third party hosting/cloud providers. Upload these artifacts directly to HackerOne portal. \n\n* Not conduct social engineering attacks (e.g. phishing, vishing, smishing) against Visa employees, partners, or customers. \n\n* Not test the physical security of Visa offices. \n\n* Only interact with accounts you own. Use test accounts where possible.  \n\n* Notify HackerOne or Visa immediately if you become ineligible for the program. \n\n* Make a good faith effort to avoid modification or destruction of data, and interruption or degradation of our service, and will notify Visa or HackerOne immediately if you believe you inadvertently cause any of these issues.  \n\n* Not perform any testing that could harm our services such as denial of service (DoS) attacks or destructive injection attacks. Do not spam or brute force any registration or contact functionality. \n\n \n\n## Checking In (Required) \n\nResearcher activity can set off alarms or trigger an incident response process at Visa. We've implemented a mandatory check-in process to identify which IP addresses are being used to test our assets. Not following check-in process may result in bounty ineligibility, even if the report is accepted and fixed. Checking in may prevent human-directed IP blocks by our SOC team, however all traffic is subject to layers of defensive architecture which may automatically block anything that appears to be attack traffic. \n\nBefore you begin testing, add your HackereOne username after researcher= to the URL below and visit it from all IPs being used (i.e. if using a VPS or VPN): \n\nhttps://usa.visa.com/about-visa/vulnerability-disclosure.html?token=ae720d7ec-3c33-4ecd-a037-24cdf85ed64d&researcher= \n\nYou must check in via your unique URL daily prior to testing Visa assets. Feel free to bookmark the URL or integrate it into your scripts.  \n\n \n\n## Creating Testing Accounts \n\nUsing or accessing accounts that belong to other users is absolutely prohibited. For testing applications that require authentication, you may only test using accounts you self-register. If self-registration is not possible, you may only conduct unauthenticated testing.  \n\nWhen creating test accounts, you must follow these conventions:  \n\n* Use prefix “visa_bb” + your HackerOne username  \n\n* Use your @wearehackerone.com email address \n\n \n\n## Automated Scanning and AI-assisted testing \n\nWe don’t need help running automated vulnerability scanners. We’ve got those covered. We need your brainpower, not your processing power.  \n\nVulnerabilities reported by automated tools without additional analysis won't be accepted. This includes reports produced or assisted by AI agents and large language model (LLM) tools. Submitting unvalidated AI-generated output as a report is not permitted. All reports must reflect manual confirmation that vulnerability is reproducible. Reports that show signs of unvalidated AI output will be closed as Not Applicable. Repeated low-quality submissions may result in removal from the program. \n\nAll testing activity, whether conducted manually or with AI-assisted or automated tools, must be actively supervised by the registered researcher. Fully autonomous testing agents operating without real-time human oversight are prohibited. The researcher whose HackerOne account submitted the report is accountable for all activity generated by their testing infrastructure, including AI-generated traffic. \n\nFurthermore, please be respectful of our applications. Do not spam application forms and rate limit any automated or manual testing to 1 request per second or longer. Failure to do so may be considered a DoS attack and will result in disqualification from the program.  \n\nTo help us identify test traffic, please include a custom HTTP header with your HackereOne username in all your traffic: X-Hackerone: . Even so, all traffic is subject to layers of defensive architecture which may automatically block anything that appears to be attack traffic.  \n\n \n\n# Scope \n\nOnly assets listed in the Scopes table as \"In Scope\" are valid targets for this program. Do not test assets listed as \"Out of Scope\". Vulnerability reports for assets not listed in the Scope table are not eligible for bounty, even if they are accepted to be fixed. Reports involving exposed secrets, or sensitive Visa data found in publicly accessible locations — such as public code repositories — may be considered for a discretionary award at Visa's sole determination. \n\n \n\n## Wildcard entries  \n\nWildcard entries (e.g *.visa.com) in the scope table cover publicly accessible production subdomains only. Testing, development, staging, and non-production environments discovered under a wildcard are out of scope regardless of how the subdomain is named. Indicators of a non-production environment include but are not limited to subdomain prefixes such as test., dev., stage., staging., uat., qa., sandbox., preview. \nVulnerabilities found on non-production subdomains are not eligible for bounty unless the researcher demonstrates the issue is reproducible on a production asset explicitly listed in the scope table. \n\n \n\n# Out of scope vulnerabilities \n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope: \n\n* Clickjacking on pages with no sensitive actions. \n\n* Unauthenticated/logout/login CSRF. \n\n* Attacks requiring MITM or physical access to a user's device. \n\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability. \n\n* Missing best practices in SSL/TLS configuration. \n\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS \n\n* Banner grabbing and fingerprinting (figuring out what web server or technology is in use, etc.). \n\n* Any finding related to frameable content will be considered only on its merit based on a working proof-of-concept (PoC). \n\n* Findings on SaaS applications where is no clear impact or risk to Visa. \n\n* There are some services where the ability to query for a username or email is a product feature. User enumeration will only be rewarded or fixed in cases where it is a deemed a security vulnerability as opposed to a feature. \n\n* Any activity that could lead to system disruption or Denial of Service (DoS). \n* Rate limiting or bruteforce issues on non-authentication endpoints.\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Descriptive error messages or headers\n\n* Zero-days and known N-day vulnerabilities (where N<31) that are found in third-party software, including libraries, frameworks, network devices, COTS and CMS platforms, are not eligible for a bounty even if they contain a valid PoC.  \n\n \n\n \n\n# Retest Policy \n\nRetest Invitation: Once a fix has been deployed, Visa may invite the researcher to retest and confirm that the issue is fully fixed.  Retest SLA:  To maintain our remediation SLAs, researchers are required to complete the retest within 48 hours. If you cannot complete the retest with the SLA, please decline the request. Retests submitted after the 48 hour window will be considered void and ineligible for retest reward.  \n\nRetest Award: Researchers who confirm the fix is complete and effective will be awarded based on the severity as triaged and documented by Visa at time of resolution:  \n\n* $400 for Critical   \n\n* $250 for High   \n\n* $100 for Medium  \n\n* $50 for Low \n\n \n\n \n\n# General Terms \n\n \n\n## Relationship of the Parties \n\nNothing in these Terms will be construed as creating a joint venture, partnership, employment or agency relationship between you and Visa, and you do not have any authority to create any obligation or make any representation on Visa's behalf.  \n\n \n\n## Proprietary Rights \n\nAll ownership rights in the Visa branded-sites listed as in Scope for this program are retained by Visa, its Affiliates and their licensors, and protected under applicable copyrights, trademarks and other proprietary (including intellectual property) rights and international treaties. All rights not expressly granted to you through these Terms are retained by Visa, its Affiliates and their licensors. Nothing in these Terms grants to you any right to use any of Visa's, its Affiliates' or any other third party's trademarks, service marks, logos or other indicia of origin. An “Affiliate” is an entity that is controlled by, controls or is under common control with Visa. Visa grants no rights to an intellectual property on any of the sites listed below and you are not permitted to create derivative works of any such websites. \n\n \n\n## Finder Representations \n\nYou acknowledge that Visa is reliant on the representations you made to HackerOne and that all representations made to HackerOne are true and accurate.  \n\n \n\n## Safe harbor \n\nTesting activities conducted in accordance with this Program are protected by a Safe Harbor, meaning that we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted in accordance with our Rules, we will take steps to make it known that your actions were conducted in compliance with Visa’s Bug Bounty Program. \n\nIn operating this Program, Visa does not waive any rights that it may have by not exercising (or delaying the exercise of) such rights. Additionally, should you violate the Rules, Visa retains all rights and other remedies available to it at law or in equity, including the rights to seek injunctive, specific performance or other equitable relief. \n\n\n # Changes to the Rules\nVisa may change these Rules or cancel the Bug Bounty program at any time without prior notice. Any changes to the program or these Rules will be posted on Visa’s HackerOne site. If you continue to participate in the program after any such changes are posted, you must follow the Rules as modified. \n\n\nThank you for helping keep Visa and our users safe!",
+  "safeHarbor": null,
+  "rewards": null,
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "bd.visa.com",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.br",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.mx",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.tw",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "visa.com.ru",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "visa.com.au",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.az",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.cy",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.ge",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.hk",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.hr",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "visa.com.jm",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.kh",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.kz",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.lk",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.my",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.ng",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.ph",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.sg",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.tr",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.com.vn",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.co.id",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.co.il",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.co.in",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "www.visa.co.jp",
+        "maxSeverity": "critical"
+      }
+    ],
+    "wildcards": [],
+    "other": []
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [],
+    "wildcards": [],
+    "other": []
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [],
+  "gaps": [
+    "HackerOne adapter: modeled on the documented structured-scope export — entries in structured_scopes[] with eligible_for_submission:false treated as OUT-of-scope; a top-level out_of_scope[] list, when present, is honored verbatim",
+    "no bounty_table/rewards in the export — HackerOne reward ranges live on the program page; carry them by hand if the export omits them",
+    "25 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact"
+  ]
+}

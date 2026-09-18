@@ -1,0 +1,134 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "notion",
+      "name": "Notion Labs, Inc.",
+      "offersBounties": true,
+      "assets": [
+        "Github Repositories or other public artifacts owned by makenotion",
+        "Notion AI",
+        "Notion Authentication",
+        "Notion Desktop App",
+        "Notion Frontend",
+        "Notion Integrations",
+        "Privilege Escalation",
+        "Product API",
+        "Public API",
+        "calendar.notion.so",
+        "mail.notion.so",
+        "notion.id"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\notion-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "notion",
+  "name": "Notion Labs, Inc.",
+  "url": "https://hackerone.com/notion",
+  "policy": "Notion Labs, Inc. looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nNotion Labs, Inc. will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 3 business days\n* Time to triage (from report submit) - 10 business days\n* Time to resolution (from report submit) - Varies depending on severity\n\nWe’ll try to keep you informed about our progress throughout the process. Feel comfortable reaching out with any questions. \n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Reports that cover more than one asset in scope will be paid out once at the highest paying in scope asset category.\n\n# Test Plan\nOur application is self-sign up through Notion.so. \nOur Mobile apps are available through Apple and Android stores. \n\nWe strongly recommend using your HackerOne username and email as the account you're testing with.\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\nNotion does not accept vulnerabilities in third-party services, unless specific mitigations from Notion are required to remediate the issue.\n\nNote - Please use HackerOne mediation for any closed reports that you want to escalate. We do not accept requests to review closed reports at security@makenotion.com or via Notion support under any circumstances.\n\n\nThe following potential issues are not considered in scope:\n\n* Social engineering or phishing of Notion employees or contractors\n* Any attacks against Notion's physical property or data centers\n* Any attacks against Notion's users\n* Use of automated scanning tools\n* Lack of rate limiting on any resources\n* Password policy issues, including lack of upper limit on passwords\n* HTTP 404 or other error codes and pages\n* Banner or version disclosure of any kind\n* Presence of common public files, such as robots.txt or files in the .well-known directory\n* Self-XSS issues\n* Spamming\n* Clickjacking on pages with no sensitive actions\n* Clickjacking issues, unless an exploit showing account takeover or disclosure of sensitive resources is provided\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing security headers which don’t directly lead to a vulnerability or account compromise\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Notion hosting malware / Spam / Phishing websites\n* Issues that require unlikely user interaction\n* Obtaining access to a paid feature of a higher level plan\n* Revealing identity information on published *.notion.site pages\n* Expected behaviors as described in the [Notion Documentation](https://www.notion.so/help)\n* Javascript execution on [file.notion.so](http://file.notion.so) and [notion-static.com](http://notion-static.com) is expected. To be considered in scope, you will need to demonstrate how it harms users on in-scope assets.\n* For Notion’s AI, engineered prompts to evoke inappropriate responses from the AI is out of scope. The usage of obfuscated or invisible characters to alter AI responses is in scope if security impact can be demonstrated. Reports regarding prompt injection must demonstrate security impact, e.g. data leaked outside of the workspace. \n* Bypasses of lock features on page and database views\n* The In-App Contact Us form is out of scope\n* Denial of Service, stress tests, and other assessment that may be disruptive to Notion as a product or its operations\n* Providing source code or debugging access\n* Testing on any accounts containing production data. Testing on accounts not controlled by the party conducting or directing the testing. Accounts should be created specifically for the purpose of the engagement. Testing on accounts outside of those created for the purpose of the assessment is expressly prohibited. If cross org or cross workspace testing is performed, testers must use workspaces created for the purpose of the engagement.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Notion Labs, Inc. and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "notion.id",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes the Android app available for download at https://play.google.com/store/apps/details?id=notion.id. We only reward for the most recent version of the app.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Notion Desktop App",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any desktop app available for download at www.notion.so/desktop\n\nWe only reward for the most recent version of the app.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Notion Frontend",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes any resources served to or affects a user from notion.so/ or our marketing site on notion.so.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Product API",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes resources at notion.so/api/v3.\n\nAttacks we are most interested in receiving reports about include: injection attacks, remote code execution, server-side request forgery, IDOR, and privilege escalation. This list is not exhaustive; please submit anything related to the API here.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Public API",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes resources at [api.notion.com](https://api.notion.com/).\n\nWe are particularly interested in the ability to escalate your privileges beyond the scope of our API tokens.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Notion AI",
+      "asset_type": "AI_MODEL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are particularly interested in the ability to access data the user lacks permission to view. Prompt engineering for inappropriate AI responses is out of scope. The usage of obfuscated or invisible characters to alter AI responses is in scope if security impact can be demonstrated.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Notion Integrations",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are most interested in any CSRF in third-party integrations.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Privilege Escalation",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are particularly interested in the ability to access pages a given user should lack the ability to access. \n\nAdditionally, if a page is available through “Anyone with a link at…” (permission grant), we are interested in cases where another user could access that page without explicitly receiving ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Notion Authentication",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mail.notion.so",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "calendar.notion.so",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Github Repositories or other public artifacts owned by makenotion",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

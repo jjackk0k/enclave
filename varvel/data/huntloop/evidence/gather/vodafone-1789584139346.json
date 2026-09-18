@@ -1,0 +1,88 @@
+{
+ "at": "2026-09-16T18:42:06.151Z",
+ "opportunity": "vodafone",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "vodafoneinnovus.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "vodafone.co.uk",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c2025bdaac38a1-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "voxi.co.uk",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c20263db95b78a-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "vcol.co.uk",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ERR_SSL_TLSV1_UNRECOGNIZED_NAME: 8C6A0000:error:0A000458:SSL routines:ssl3_read_bytes:tlsv1 unrecognized name:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 112\n"
+  },
+  {
+   "host": "vodafoneaws.co.uk",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to vodafoneaws.co.uk:443 refused: TTL expired"
+  }
+ ]
+}

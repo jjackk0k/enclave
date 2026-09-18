@@ -1,0 +1,46 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "discourse",
+      "name": "Discourse",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/discourse/discourse",
+        "try.discourse.org"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\discourse-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "discourse",
+  "name": "Discourse",
+  "url": "https://hackerone.com/discourse",
+  "policy": "We welcome review of [our 100% open source code](https://github.com/discourse/discourse), and our public instance at https://try.discourse.org, to ensure the safety and security of Discourse forums across the world.\n\n## Bounty Suspension\nAs of February 9, 2026, in the wake of Codex 5.3 and Opus 4.6, and more recent releases like Fable, Discourse has suspended bounties while we process our backlog. We do not have a timeline for resumption at this time. We encourage reports to be submitted during this pause.\n\n## Code of Conduct\n\nOnly test against https://try.discourse.org. Reports of issues against other URLs are likely to be closed as ineligible.\n\nThroughout your research, you must make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\nWe also ask that you refrain from:\n* Denial of service attacks\n* Spamming\n* Social engineering (including phishing) of Discourse staff or contractors\n* Any physical attempts against Discourse property or data centers\n\n## Disclosure\n\nAs an Open Source project, we will make security fixes public as soon as reasonably possible, and aim to publish advisories and/or CVEs for severe issues. We are generally happy to credit researchers in these announcements.\n\nYou must wait 90 days after the fix is released before publicly disclosing any information about the vulnerability, your research methods, or how it may be exploited.\n\n## Severity\n\nWe use a number of factors to determine the severity of an issue. These include:\n- The number of sites/users that are likely to be vulnerable\n- The impact to the affected system's confidentiality, integrity, and availability\n- The conditions required for the exploit to be successful\n- The access level required in order to exploit\n\nThe severity will be decided at the sole discretion of the Discourse team. As a guide, here are some examples of vulnerabilities which may fall into each category:\n\n**Low ($256)**\n- Perform a trivial action which should not be permitted\n\n**Medium ($512)**\n- CSRF which causes a user to perform an operation they didn't explicitly consent to\n- Stored XSS which is mitigated by Discourse's default CSP\n- Access to metadata about private topic/post content\n- Partial denial-of-service via a trivial request (e.g. cache poisoning)\n\n**High ($1024)**\n- Stored XSS which is not mitigated by Discourse's default CSP\n- SSRF to an **internal** IP address\n- Access to private topic/post content\n- Full denial-of-service via a trivial request (e.g. cache poisoning)\n\n**Critical ($2048+)**\n- Privilege escalation to admin\n- Unrestricted access to the database (e.g. via backups)\n- Remote code execution\n- Accessing data relating to another site in a multi-tenant environment\n\n## Ineligible vulnerability types\n\nSee scope exclusions.\n\nThank you for helping keep Discourse and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "try.discourse.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/discourse/discourse",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "crowdstrike",
+      "name": "Crowdstrike",
+      "offersBounties": true,
+      "assets": [
+        "*.adaptive-shield.com",
+        "*.bionic.ai",
+        "*.crowdstrike.com",
+        "*.flowsecurity.app",
+        "*.humio.com",
+        "*.preempt.com",
+        "*.preemptsecurity.com",
+        "*.reposify.com",
+        "*.securecircle.com",
+        "CrowdStrike public infrastructure",
+        "apps.apple.com/us/app/crowdstrike-falcon/id1458815656",
+        "falcon-sandbox.com",
+        "hybrid-analysis.com",
+        "onum-labs.com",
+        "onum.com",
+        "play.google.com/store/apps/details?id=com.crowdstrike.falconmobile",
+        "sgnl.ai",
+        "sgnl.cloud",
+        "sgnl.team",
+        "sgnlapis.cloud",
+        "www.crowdstrike.com",
+        "www.crowdstrike.org"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\crowdstrike-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "crowdstrike",
+  "name": "Crowdstrike",
+  "url": "https://hackerone.com/crowdstrike",
+  "policy": "CrowdStrike encourages researchers to follow responsible disclosure procedures when reporting security issues in our products, services, websites, or infrastructure. CrowdStrike is committed to engaging with the research community in a positive, professional, mutually beneficial manner that protects our customers.  \n\n# Program Rules & Eligibility\nTo qualify for a reward under this program, you must\n* Be the first to discover a specific, currently-existing vulnerability.\n* Provide verifiable proof the vulnerability exists and submit a vulnerability report to us. Send a screenshot and a clear text description of the report along with steps to reproduce the vulnerability. Include attachments such as proof of concept code as necessary.\n* Treat the vulnerability report and any vulnerability as confidential information and not divulge to any third person (except disclosure to CrowdStrike through the HackerOne platform) any such information until disclosure is approved in writing by CrowdStrike. \n* Disclosure to any third parties before such approval forfeits the reward.\n* Demonstrate care in reproducing the vulnerability.\n* CrowdStrike employees are ineligible for this program.\n\n# Rewards\n* The CrowdStrike Security Rewards program recognizes the contributions of security researchers who invest their time and effort in helping us make CrowdStrike more secure. Through this program we provide monetary rewards and recognition for vulnerabilities disclosed to the CrowdStrike Security Team.\n\n* The reward level is based on the vulnerability impact and increases for higher quality reports that include reproduction code, test cases, and patches. Rewards are not additive and are subject to change as we see fit. CrowdStrike will determine the impact for a given security vulnerability based on existing and compensating controls. Prior bounty amounts awarded are not precedent for future payments. Our program's scope and policy is subject to change at any time and individuals are encouraged to refer to this policy often.\n\n* Our rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and that reward decisions are up to the discretion of CrowdStrike. While exceptional reports may qualify for higher bounties, there should be no expectation of a payout above the range baselines.\n\n# Scope of program\n* The scope of our program focuses on exploiting specific externally facing infrastructure owned by CrowdStrike. This program covers security vulnerabilities discovered within the CrowdStrike public infrastructure including websites and DNS configurations.\n* Opportunities to expand Falcon's detection capabilities (i.e. purported detection gaps) as well as enhance its resilience against administrator actions affecting sensor functionality are treated as valued improvement suggestions and not vulnerabilities. We encourage submitting such suggestions through our Support Portal for CrowdStrike customers or via HackerOne for independent researchers.\n* Our goal is to provide a way to responsibly disclose security vulnerabilities in our assets, and so we welcome all security findings that are not explicitly listed as out of scope below. However, while we strive to reward any reports that result in a change on our end, reward eligibility for findings in targets that are not specifically in scope is established on a case by case basis.\n\n# Duplicate Reports\nCrowdStrike reserves the right to select a report as a duplicate submission, and specifically which report is a duplicate. This is not based solely on time of submission but also completeness of the submission, attentiveness in steps to verify, and proposed mitigation. CrowdStrike reserves the right to close any submission as a duplicate if a better submission is received.\n\n# Vulnerability Chaining\n* If multiple issues are reported and used in a vulnerability chain, one bounty may be issued based on the combined severity of the issues.\n* If multiple vulnerability chains of similar class are reported reusing the same chained components, the reports may be considered duplicates.\n\n# Out of Scope Vulnerabilities and Exclusions\n* Social engineering attempts on CrowdStrike personnel or our customers including e-mail phishing attacks and pre-text phone calls.\n* Any other vulnerabilities that involve directly sending email to CrowdStrike email addresses.\n* Physical attacks against CrowdStrike property and infrastructure, not limited to offices or Data Centers.\n* Vulnerabilities in a vendor we integrate with.\n* Use of automated tools that could generate significant traffic and possibly impair the functionality of products, including denial of service attacks.\n* Vulnerabilities in obsolete or end of life versions of our products.\n* Missing additional security controls, common HTTP headers (e.g. HSTS, CSP).\n* Login/Logout CSRF.\n* Breaking of SSL/TLS trust (unless you can provide working PoC).\n* Cookie's missing security flags (for non-sensitive cookies).\n* Brute-force / Rate-limiting / Velocity throttling.\n* Vulnerabilities only affecting users of outdated or un-patched browsers and platforms.\n* Presence of autocomplete attribute on web forms.\n* ClickJacking / TabNabbing attacks\n* E-Mail spoofing.\n* Web content in our robots.txt file.\n* Banner Exposure / Version Disclosure.\n* Additional missing security controls often considered “Best practice”, such as certificate pinning or mitigating information disclosures.\n\n# Legal\n* CrowdStrike reserves the right to cancel or modify this program at any time. All engagements will be honored to the conditions in existence at the time of verification of the issue.\n* In connection with your participation in this program you agree to comply with all applicable laws.\n* Please refrain from accessing sensitive information in connection with the program. \n* Please avoid unauthorized access to another person's accounts or data, destruction of data, and interruption or degradation of our infrastructure and services. If you do encounter personally identifiable information, customer data or other sensitive information, contact us immediately, do not proceed with access, and do not retain any copies of such information.\n* This submission and all information therein as well as any confidential data accessed pursuant to it shall be CrowdStrike confidential information and you shall (i) protect that information using at least a reasonable degree of care, (ii) not use such information other than to provide such information to CrowdStrike in connection with the program, and (iii) not divulge to any third person any such information until disclosure is approved in writing by CrowdStrike.\n* If you’re a minor, on a sanctions list, or live in a country that’s on a sanctions list, we cannot provide a reward.\n* Citizenship and residency is likely to affect whether you owe taxes on any reward you receive, and you alone are responsible for paying any tax liability incurred through this program.\n* Decision making is ultimately up to CrowdStrike's discretion.\n\nThank you for helping keep CrowdStrike and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.crowdstrike.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.crowdstrike.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**CrowdStrike Foundation Website**\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "CrowdStrike public infrastructure",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "falcon-sandbox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hybrid-analysis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.crowdstrike.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Including all localized sites: crowdstrike.de, crowdstrike.com.au, crowdstrike.co.uk, crowdstrike.fr, crowdstrike.jp, crowdstrike.com.br**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.humio.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.securecircle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.preempt.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.preemptsecurity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.reposify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Excluding 3rd party maintained targets**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "apps.apple.com/us/app/crowdstrike-falcon/id1458815656",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "play.google.com/store/apps/details?id=com.crowdstrike.falconmobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bionic.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Excluding 3rd party maintained targets",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.flowsecurity.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Excluding 3rd party maintained targets ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.adaptive-shield.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Excluding 3rd party maintained targets",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onum.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Excluding 3rd party maintained targets",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onum-labs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Excluding 3rd party maintained targets",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sgnl.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Including all public SGNL infrastructure",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sgnl.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Including all public SGNL infrastructure",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sgnl.team",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Including all public SGNL infrastructure",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sgnlapis.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Including all public SGNL infrastructure",
+      "max_severity": "critical"
+    }
+  ]
+}

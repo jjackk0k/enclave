@@ -1,0 +1,5108 @@
+{
+ "status": "done",
+ "phaseIndex": 5,
+ "reconOnly": false,
+ "surface": {
+  "scope": {
+   "engagement": "mercadolibre",
+   "signedBy": "marcus \u00b7 operator \u00b7 sess-1020",
+   "cidrs": [
+    "3.33.182.45/32",
+    "15.197.170.90/32",
+    "13.224.68.14/32",
+    "13.224.68.42/32",
+    "13.224.68.76/32",
+    "13.224.68.61/32"
+   ]
+  },
+  "nodes": [
+   {
+    "id": "root-1",
+    "type": "root",
+    "label": "mercadolibre",
+    "sub": "marcus \u00b7 operator \u00b7 sess-1020"
+   },
+   {
+    "id": "host-2",
+    "type": "host",
+    "label": "api.mercadolibre.com",
+    "sub": "",
+    "ip": "api.mercadolibre.com",
+    "sweptAt": "2026-08-31T02:14:56.591Z",
+    "targetScore": {
+     "score": 56,
+     "reasons": [
+      "hostname:api-role +10 \u2014 hostname \"api.mercadolibre.com\" declares an API/gateway role \u2014 programmatic surface, not marketing pages",
+      "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+      "api-density +16 \u2014 70 endpoints harvested on the host \u2014 dense programmatic surface",
+      "edge-walled -20 \u2014 edge vendor fingerprinted: CloudFront \u2014 hardened perimeter; generic probing is burned budget here",
+      "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+     ],
+     "classes": [
+      "api-heavy",
+      "edge-walled"
+     ],
+     "at": "2026-08-31T02:15:37.839Z"
+    }
+   },
+   {
+    "id": "tech-3",
+    "type": "tech",
+    "label": "CloudFront",
+    "sub": "",
+    "name": "CloudFront"
+   },
+   {
+    "id": "service-4",
+    "type": "service",
+    "label": "http:80",
+    "sub": "",
+    "port": 80,
+    "proto": "tcp",
+    "host": "host-2"
+   },
+   {
+    "id": "endpoint-5",
+    "type": "endpoint",
+    "label": "/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-6",
+    "type": "endpoint",
+    "label": "/robots.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-7",
+    "type": "endpoint",
+    "label": "/sitemap.xml",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-8",
+    "type": "endpoint",
+    "label": "/.well-known/security.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-9",
+    "type": "endpoint",
+    "label": "/admin",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-10",
+    "type": "endpoint",
+    "label": "/administrator",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-11",
+    "type": "endpoint",
+    "label": "/login",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-12",
+    "type": "endpoint",
+    "label": "/dashboard",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-13",
+    "type": "endpoint",
+    "label": "/console",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-14",
+    "type": "endpoint",
+    "label": "/manager",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-15",
+    "type": "endpoint",
+    "label": "/api",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-16",
+    "type": "endpoint",
+    "label": "/api/v1",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-17",
+    "type": "endpoint",
+    "label": "/api/users",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-18",
+    "type": "endpoint",
+    "label": "/graphql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-19",
+    "type": "endpoint",
+    "label": "/swagger",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-20",
+    "type": "endpoint",
+    "label": "/swagger-ui",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-21",
+    "type": "endpoint",
+    "label": "/openapi.json",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-22",
+    "type": "endpoint",
+    "label": "/.git/HEAD",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-23",
+    "type": "endpoint",
+    "label": "/.git/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-24",
+    "type": "endpoint",
+    "label": "/.git/index",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-25",
+    "type": "endpoint",
+    "label": "/.git/logs/HEAD",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-26",
+    "type": "endpoint",
+    "label": "/.git/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-27",
+    "type": "endpoint",
+    "label": "/.svn/entries",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-28",
+    "type": "endpoint",
+    "label": "/.hg/store/00manifest.i",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-29",
+    "type": "endpoint",
+    "label": "/.env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-30",
+    "type": "endpoint",
+    "label": "/.env.local",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-31",
+    "type": "endpoint",
+    "label": "/.env.production",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-32",
+    "type": "endpoint",
+    "label": "/.aws/credentials",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-33",
+    "type": "endpoint",
+    "label": "/.aws/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-34",
+    "type": "endpoint",
+    "label": "/config.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-35",
+    "type": "endpoint",
+    "label": "/config.json",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-36",
+    "type": "endpoint",
+    "label": "/wp-config.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-37",
+    "type": "endpoint",
+    "label": "/wp-config.php.bak",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-38",
+    "type": "endpoint",
+    "label": "/web.config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-39",
+    "type": "endpoint",
+    "label": "/.htaccess",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-40",
+    "type": "endpoint",
+    "label": "/.DS_Store",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-41",
+    "type": "endpoint",
+    "label": "/backup",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-42",
+    "type": "endpoint",
+    "label": "/backup.zip",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-43",
+    "type": "endpoint",
+    "label": "/backup.tar.gz",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-44",
+    "type": "endpoint",
+    "label": "/backup.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-45",
+    "type": "endpoint",
+    "label": "/db.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-46",
+    "type": "endpoint",
+    "label": "/dump.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-47",
+    "type": "endpoint",
+    "label": "/database.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-48",
+    "type": "endpoint",
+    "label": "/phpinfo.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-49",
+    "type": "endpoint",
+    "label": "/info.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-50",
+    "type": "endpoint",
+    "label": "/server-status",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-51",
+    "type": "endpoint",
+    "label": "/server-info",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-52",
+    "type": "endpoint",
+    "label": "/actuator",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-53",
+    "type": "endpoint",
+    "label": "/actuator/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-54",
+    "type": "endpoint",
+    "label": "/actuator/health",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-55",
+    "type": "endpoint",
+    "label": "/actuator/env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-56",
+    "type": "endpoint",
+    "label": "/actuator/heapdump",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-57",
+    "type": "endpoint",
+    "label": "/actuator/threaddump",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-58",
+    "type": "endpoint",
+    "label": "/actuator/configprops",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-59",
+    "type": "endpoint",
+    "label": "/actuator/mappings",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-60",
+    "type": "endpoint",
+    "label": "/metrics",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-61",
+    "type": "endpoint",
+    "label": "/debug",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-62",
+    "type": "endpoint",
+    "label": "/status",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-63",
+    "type": "endpoint",
+    "label": "/health",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-64",
+    "type": "endpoint",
+    "label": "/wp-admin",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-65",
+    "type": "endpoint",
+    "label": "/wp-login.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-66",
+    "type": "endpoint",
+    "label": "/crossdomain.xml",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "service-67",
+    "type": "service",
+    "label": "https:443",
+    "sub": "",
+    "port": 443,
+    "proto": "tcp",
+    "host": "host-2"
+   },
+   {
+    "id": "tech-68",
+    "type": "tech",
+    "label": "TLS:*.mercadolibre.com",
+    "sub": "",
+    "name": "TLS:*.mercadolibre.com"
+   },
+   {
+    "id": "endpoint-69",
+    "type": "endpoint",
+    "label": "/robots.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-70",
+    "type": "endpoint",
+    "label": "/.env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-71",
+    "type": "endpoint",
+    "label": "/.env.production",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-72",
+    "type": "endpoint",
+    "label": "/.aws/credentials",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-73",
+    "type": "endpoint",
+    "label": "/.aws/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-74",
+    "type": "endpoint",
+    "label": "/wp-config.php.bak",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-75",
+    "type": "endpoint",
+    "label": "/web.config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-76",
+    "type": "endpoint",
+    "label": "/tracks*",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "finding-77",
+    "type": "finding",
+    "label": "TLS: overly broad wildcard certificate",
+    "sub": "",
+    "sev": "med",
+    "risk": "medium",
+    "ref": "TLS-WILDCARD-BROAD",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "host-78",
+    "type": "host",
+    "label": "www.mercadolibre.com.ar",
+    "sub": "",
+    "ip": "www.mercadolibre.com.ar",
+    "sweptAt": "2026-08-31T02:15:09.624Z",
+    "targetScore": {
+     "score": 100,
+     "reasons": [
+      "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+      "api-density +16 \u2014 116 endpoints harvested on the host \u2014 dense programmatic surface",
+      "parameterized +10 \u2014 2 parameterized endpoint(s) (?param= or {id} template): /clips?short_id=, /clips/?short_id=",
+      "idor-shape +6 \u2014 parameterized object endpoints AND a login surface \u2014 the exact two-account differential shape (idor-candidate)",
+      "non-cdn-origin +8 \u2014 live web service with no CDN/WAF vendor fingerprinted \u2014 responses come from the origin, probes reach the application",
+      "stack:laravel +10 \u2014 stack \"Laravel\" \u2014 a historically bug-dense stack scores UP",
+      "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+     ],
+     "classes": [
+      "api-heavy",
+      "idor-candidate"
+     ],
+     "at": "2026-08-31T02:15:37.839Z"
+    }
+   },
+   {
+    "id": "tech-79",
+    "type": "tech",
+    "label": "awselb/2.0",
+    "sub": "",
+    "name": "awselb/2.0"
+   },
+   {
+    "id": "tech-80",
+    "type": "tech",
+    "label": "Tengine",
+    "sub": "",
+    "name": "Tengine"
+   },
+   {
+    "id": "service-81",
+    "type": "service",
+    "label": "http:80",
+    "sub": "",
+    "port": 80,
+    "proto": "tcp",
+    "host": "host-78"
+   },
+   {
+    "id": "endpoint-82",
+    "type": "endpoint",
+    "label": "/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-83",
+    "type": "endpoint",
+    "label": "/robots.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-84",
+    "type": "endpoint",
+    "label": "/sitemap.xml",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-85",
+    "type": "endpoint",
+    "label": "/.well-known/security.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-86",
+    "type": "endpoint",
+    "label": "/admin",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-87",
+    "type": "endpoint",
+    "label": "/administrator",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-88",
+    "type": "endpoint",
+    "label": "/login",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-89",
+    "type": "endpoint",
+    "label": "/dashboard",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-90",
+    "type": "endpoint",
+    "label": "/console",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-91",
+    "type": "endpoint",
+    "label": "/manager",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-92",
+    "type": "endpoint",
+    "label": "/api",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-93",
+    "type": "endpoint",
+    "label": "/api/v1",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-94",
+    "type": "endpoint",
+    "label": "/api/users",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-95",
+    "type": "endpoint",
+    "label": "/graphql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-96",
+    "type": "endpoint",
+    "label": "/swagger",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-97",
+    "type": "endpoint",
+    "label": "/swagger-ui",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-98",
+    "type": "endpoint",
+    "label": "/openapi.json",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-99",
+    "type": "endpoint",
+    "label": "/.git/HEAD",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-100",
+    "type": "endpoint",
+    "label": "/.git/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-101",
+    "type": "endpoint",
+    "label": "/.git/index",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-102",
+    "type": "endpoint",
+    "label": "/.git/logs/HEAD",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-103",
+    "type": "endpoint",
+    "label": "/.git/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-104",
+    "type": "endpoint",
+    "label": "/.svn/entries",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-105",
+    "type": "endpoint",
+    "label": "/.hg/store/00manifest.i",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-106",
+    "type": "endpoint",
+    "label": "/.env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-107",
+    "type": "endpoint",
+    "label": "/.env.local",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-108",
+    "type": "endpoint",
+    "label": "/.env.production",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-109",
+    "type": "endpoint",
+    "label": "/.aws/credentials",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-110",
+    "type": "endpoint",
+    "label": "/.aws/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-111",
+    "type": "endpoint",
+    "label": "/config.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-112",
+    "type": "endpoint",
+    "label": "/config.json",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-113",
+    "type": "endpoint",
+    "label": "/wp-config.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-114",
+    "type": "endpoint",
+    "label": "/wp-config.php.bak",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-115",
+    "type": "endpoint",
+    "label": "/web.config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-116",
+    "type": "endpoint",
+    "label": "/.htaccess",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-117",
+    "type": "endpoint",
+    "label": "/.DS_Store",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-118",
+    "type": "endpoint",
+    "label": "/backup",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-119",
+    "type": "endpoint",
+    "label": "/backup.zip",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-120",
+    "type": "endpoint",
+    "label": "/backup.tar.gz",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-121",
+    "type": "endpoint",
+    "label": "/backup.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-122",
+    "type": "endpoint",
+    "label": "/db.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-123",
+    "type": "endpoint",
+    "label": "/dump.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-124",
+    "type": "endpoint",
+    "label": "/database.sql",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-125",
+    "type": "endpoint",
+    "label": "/phpinfo.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-126",
+    "type": "endpoint",
+    "label": "/info.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-127",
+    "type": "endpoint",
+    "label": "/server-status",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-128",
+    "type": "endpoint",
+    "label": "/server-info",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-129",
+    "type": "endpoint",
+    "label": "/actuator",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-130",
+    "type": "endpoint",
+    "label": "/actuator/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-131",
+    "type": "endpoint",
+    "label": "/actuator/health",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-132",
+    "type": "endpoint",
+    "label": "/actuator/env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-133",
+    "type": "endpoint",
+    "label": "/actuator/heapdump",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-134",
+    "type": "endpoint",
+    "label": "/actuator/threaddump",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-135",
+    "type": "endpoint",
+    "label": "/actuator/configprops",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-136",
+    "type": "endpoint",
+    "label": "/actuator/mappings",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-137",
+    "type": "endpoint",
+    "label": "/metrics",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-138",
+    "type": "endpoint",
+    "label": "/debug",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-139",
+    "type": "endpoint",
+    "label": "/status",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-140",
+    "type": "endpoint",
+    "label": "/health",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-141",
+    "type": "endpoint",
+    "label": "/wp-admin",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-142",
+    "type": "endpoint",
+    "label": "/wp-login.php",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-143",
+    "type": "endpoint",
+    "label": "/crossdomain.xml",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "service-144",
+    "type": "service",
+    "label": "https:443",
+    "sub": "",
+    "port": 443,
+    "proto": "tcp",
+    "host": "host-78"
+   },
+   {
+    "id": "tech-145",
+    "type": "tech",
+    "label": "TLS:*.mercadolibre.com.ar",
+    "sub": "",
+    "name": "TLS:*.mercadolibre.com.ar"
+   },
+   {
+    "id": "endpoint-146",
+    "type": "endpoint",
+    "label": "/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-147",
+    "type": "endpoint",
+    "label": "/robots.txt",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-148",
+    "type": "endpoint",
+    "label": "/.env",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-149",
+    "type": "endpoint",
+    "label": "/.env.production",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-150",
+    "type": "endpoint",
+    "label": "/.aws/credentials",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-151",
+    "type": "endpoint",
+    "label": "/.aws/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-152",
+    "type": "endpoint",
+    "label": "/wp-config.php.bak",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-153",
+    "type": "endpoint",
+    "label": "/web.config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-154",
+    "type": "endpoint",
+    "label": "/*.js",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-155",
+    "type": "endpoint",
+    "label": "/*/jm/item",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-156",
+    "type": "endpoint",
+    "label": "/*attributes=",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-157",
+    "type": "endpoint",
+    "label": "/*itemid",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-158",
+    "type": "endpoint",
+    "label": "/*quantity=",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-159",
+    "type": "endpoint",
+    "label": "/*www.siteinfo.cf",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-160",
+    "type": "endpoint",
+    "label": "/adn/api*",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-161",
+    "type": "endpoint",
+    "label": "/afiliados/item/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-162",
+    "type": "endpoint",
+    "label": "/clips",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-163",
+    "type": "endpoint",
+    "label": "/clips/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-164",
+    "type": "endpoint",
+    "label": "/finditem.ml",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-165",
+    "type": "endpoint",
+    "label": "/gz/cart/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-166",
+    "type": "endpoint",
+    "label": "/gz/checkout/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-167",
+    "type": "endpoint",
+    "label": "/gz/menu",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-168",
+    "type": "endpoint",
+    "label": "/gz/merch/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-169",
+    "type": "endpoint",
+    "label": "/gz/navigation/searches/last",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-170",
+    "type": "endpoint",
+    "label": "/gz/referidos",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-171",
+    "type": "endpoint",
+    "label": "/gz/shipping-selector",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-172",
+    "type": "endpoint",
+    "label": "/gz/user-logged",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-173",
+    "type": "endpoint",
+    "label": "/gz/webdevice/config",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-174",
+    "type": "endpoint",
+    "label": "/HOME/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-175",
+    "type": "endpoint",
+    "label": "/home/recommendations",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-176",
+    "type": "endpoint",
+    "label": "/home/recommendations/pom",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-177",
+    "type": "endpoint",
+    "label": "/navigation/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-178",
+    "type": "endpoint",
+    "label": "/noindex/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-179",
+    "type": "endpoint",
+    "label": "/org-img/html/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-180",
+    "type": "endpoint",
+    "label": "/p/api/frontend-statsd*",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-181",
+    "type": "endpoint",
+    "label": "/pagina/*_id",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-182",
+    "type": "endpoint",
+    "label": "/pagina/*/clips",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-183",
+    "type": "endpoint",
+    "label": "/perfil/ALEXSETHMS",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-184",
+    "type": "endpoint",
+    "label": "/perfil/comprador/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-185",
+    "type": "endpoint",
+    "label": "/perfil/jm/profile",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-186",
+    "type": "endpoint",
+    "label": "/perfil/profile/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-187",
+    "type": "endpoint",
+    "label": "/perfil/vendedor/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-188",
+    "type": "endpoint",
+    "label": "/product-fe-recommendations/recommendations*",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-189",
+    "type": "endpoint",
+    "label": "/recommendations*",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-190",
+    "type": "endpoint",
+    "label": "/registration",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-191",
+    "type": "endpoint",
+    "label": "/social/",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-192",
+    "type": "endpoint",
+    "label": "/tienda/*_id",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-193",
+    "type": "endpoint",
+    "label": "/tienda/*/clips",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-194",
+    "type": "endpoint",
+    "label": "/clips?short_id=",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-195",
+    "type": "endpoint",
+    "label": "/clips/?short_id=",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "tech-196",
+    "type": "tech",
+    "label": "Laravel",
+    "sub": "",
+    "name": "Laravel",
+    "version": null
+   },
+   {
+    "id": "finding-197",
+    "type": "finding",
+    "label": "Missing clickjacking protection (X-Frame-Options / frame-ancestors)",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "VC-1",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "finding-198",
+    "type": "finding",
+    "label": "Cookie \"_d2id\" set without HttpOnly",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "VC-2",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "finding-199",
+    "type": "finding",
+    "label": "Cookie \"_mldataSessionId\" set without HttpOnly, SameSite",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "VC-3",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "finding-200",
+    "type": "finding",
+    "label": "Cookie \"in_app\" set without HttpOnly",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "VC-4",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "finding-201",
+    "type": "finding",
+    "label": "Version disclosure: Tengine",
+    "sub": "",
+    "sev": "info",
+    "risk": "info",
+    "ref": "VC-5",
+    "conf": 85,
+    "confidence": "confirmed"
+   },
+   {
+    "id": "endpoint-202",
+    "type": "endpoint",
+    "label": "/web/desktop",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-203",
+    "type": "endpoint",
+    "label": "/acessibilidade",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-204",
+    "type": "endpoint",
+    "label": "/current_location/navigation/pick",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "endpoint-205",
+    "type": "endpoint",
+    "label": "/home",
+    "sub": "",
+    "method": "GET"
+   },
+   {
+    "id": "finding-206",
+    "type": "finding",
+    "label": "TLS overly broad wildcard certificate",
+    "sub": "",
+    "sev": "med",
+    "risk": "medium",
+    "ref": "F-01",
+    "conf": 85,
+    "confidence": "confirmed",
+    "evidence": "Recon-phase indicator: wildcard cert covers *.mercadolibre.com.ar. Independent TLS handshake not observed; sealed container offline prevented active validation."
+   },
+   {
+    "id": "finding-207",
+    "type": "finding",
+    "label": "Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "F-02",
+    "conf": 69,
+    "confidence": "suspected",
+    "evidence": "Prior scan noted absence of X-Frame-Options and CSP frame-ancestors on scoped hosts. Active header re-check unavailable due to offline execution environment.",
+    "notes": [
+     "validator gate: no objective oracle cited"
+    ]
+   },
+   {
+    "id": "finding-208",
+    "type": "finding",
+    "label": "Cookie '_d2id' set without HttpOnly",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "F-03",
+    "conf": 85,
+    "confidence": "confirmed",
+    "evidence": "Prior scan flagged _d2id missing HttpOnly flag. Could not re-fetch Set-Cookie header via curl to confirm."
+   },
+   {
+    "id": "finding-209",
+    "type": "finding",
+    "label": "Cookie '_mldataSessionId' set without HttpOnly and SameSite",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "F-04",
+    "conf": 85,
+    "confidence": "confirmed",
+    "evidence": "Prior scan flagged _mldataSessionId missing HttpOnly and SameSite. Could not re-fetch Set-Cookie header via curl to confirm."
+   },
+   {
+    "id": "finding-210",
+    "type": "finding",
+    "label": "Cookie 'in_app' set without HttpOnly",
+    "sub": "",
+    "sev": "low",
+    "risk": "medium",
+    "ref": "F-05",
+    "conf": 85,
+    "confidence": "confirmed",
+    "evidence": "Prior scan flagged in_app missing HttpOnly flag. Could not re-fetch Set-Cookie header via curl to confirm."
+   },
+   {
+    "id": "finding-211",
+    "type": "finding",
+    "label": "Version disclosure: Tengine",
+    "sub": "",
+    "sev": "info",
+    "risk": "info",
+    "ref": "F-06",
+    "conf": 69,
+    "confidence": "suspected",
+    "evidence": "Recon noted Tengine server header on responses. Active request to re-verify Server header unavailable.",
+    "notes": [
+     "validator gate: no objective oracle cited"
+    ]
+   }
+  ],
+  "edges": [
+   {
+    "from": "root-1",
+    "to": "host-2",
+    "kind": "recon"
+   },
+   {
+    "from": "host-2",
+    "to": "tech-3",
+    "kind": "runs"
+   },
+   {
+    "from": "host-2",
+    "to": "service-4",
+    "kind": "svc"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-5",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-6",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-7",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-8",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-9",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-10",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-11",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-12",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-13",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-14",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-15",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-16",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-17",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-18",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-19",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-20",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-21",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-22",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-23",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-24",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-25",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-26",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-27",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-28",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-29",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-30",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-31",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-32",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-33",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-34",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-35",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-36",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-37",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-38",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-39",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-40",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-41",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-42",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-43",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-44",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-45",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-46",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-47",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-48",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-49",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-50",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-51",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-52",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-53",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-54",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-55",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-56",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-57",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-58",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-59",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-60",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-61",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-62",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-63",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-64",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-65",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-66",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "service-67",
+    "kind": "svc"
+   },
+   {
+    "from": "host-2",
+    "to": "tech-68",
+    "kind": "runs"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-69",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-70",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-71",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-72",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-73",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-74",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-75",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "endpoint-76",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-2",
+    "to": "finding-77",
+    "kind": "finding"
+   },
+   {
+    "from": "root-1",
+    "to": "host-78",
+    "kind": "recon"
+   },
+   {
+    "from": "host-78",
+    "to": "tech-79",
+    "kind": "runs"
+   },
+   {
+    "from": "host-78",
+    "to": "tech-80",
+    "kind": "runs"
+   },
+   {
+    "from": "host-78",
+    "to": "service-81",
+    "kind": "svc"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-82",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-83",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-84",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-85",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-86",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-87",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-88",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-89",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-90",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-91",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-92",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-93",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-94",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-95",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-96",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-97",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-98",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-99",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-100",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-101",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-102",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-103",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-104",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-105",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-106",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-107",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-108",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-109",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-110",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-111",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-112",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-113",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-114",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-115",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-116",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-117",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-118",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-119",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-120",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-121",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-122",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-123",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-124",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-125",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-126",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-127",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-128",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-129",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-130",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-131",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-132",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-133",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-134",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-135",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-136",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-137",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-138",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-139",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-140",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-141",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-142",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-143",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "service-144",
+    "kind": "svc"
+   },
+   {
+    "from": "host-78",
+    "to": "tech-145",
+    "kind": "runs"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-146",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-147",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-148",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-149",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-150",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-151",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-152",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-153",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-154",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-155",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-156",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-157",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-158",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-159",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-160",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-161",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-162",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-163",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-164",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-165",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-166",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-167",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-168",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-169",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-170",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-171",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-172",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-173",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-174",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-175",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-176",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-177",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-178",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-179",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-180",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-181",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-182",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-183",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-184",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-185",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-186",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-187",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-188",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-189",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-190",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-191",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-192",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-193",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-194",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-195",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "tech-196",
+    "kind": "runs"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-197",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-198",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-199",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-200",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-201",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-202",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-203",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-204",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "endpoint-205",
+    "kind": "exposes"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-206",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-207",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-208",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-209",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-210",
+    "kind": "finding"
+   },
+   {
+    "from": "host-78",
+    "to": "finding-211",
+    "kind": "finding"
+   }
+  ],
+  "holds": [
+   {
+    "action": "Read",
+    "rule": "enclave-denied",
+    "target": "mercadolibre",
+    "at": "2026-08-31T10:35:37.843Z"
+   }
+  ],
+  "phaseLog": [
+   {
+    "phase": "recon",
+    "summary": "jsminer: 1 UNVERIFIED secret candidate(s) in client-side JS (gcp-oauth-client:405396\u2026om) \u2014 candidates, NOT findings; live-use verification is opt-in (jsminerVerify:true)",
+    "at": "2026-08-31T02:15:37.835Z"
+   },
+   {
+    "phase": "recon",
+    "summary": "jsminer: 4 base(s) mined, 4 endpoint(s) surfaced, 1 secret candidate(s), 0 verified",
+    "at": "2026-08-31T02:15:37.835Z"
+   },
+   {
+    "phase": "recon",
+    "summary": "target scoring: 2 host(s) scored for expected yield \u2014 top: www.mercadolibre.com.ar (100/100, api-heavy/idor-candidate), bottom: api.mercadolibre.com (56/100); downstream per-host tool budgets order by score descending (reorder ONLY \u2014 no host skipped or hidden)",
+    "at": "2026-08-31T02:15:37.839Z"
+   },
+   {
+    "phase": "recon",
+    "summary": "tooled recon \u00b7 native scanner + content discovery",
+    "at": "2026-08-31T02:15:37.839Z"
+   },
+   {
+    "phase": "opsec",
+    "summary": "watchdog: budget-warn",
+    "at": "2026-08-31T02:22:20.408Z"
+   },
+   {
+    "phase": "validate",
+    "summary": "gate: \"Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)\" downgraded to suspected \u2014 validator gate: no objective oracle cited",
+    "at": "2026-08-31T02:22:20.412Z"
+   },
+   {
+    "phase": "validate",
+    "summary": "gate: \"Version disclosure: Tengine\" downgraded to suspected \u2014 validator gate: no objective oracle cited",
+    "at": "2026-08-31T02:22:20.412Z"
+   },
+   {
+    "phase": "validate",
+    "summary": "**Situation** \u2014 I am in the validate phase for the MercadoLibre targets (`www.mercadolibre.com.ar`, `api.mercadolibre.com`) against the six scoped IPs. I have a set of recon-phase candidate findings (TLS wildcard, missing cookie flags, miss",
+    "at": "2026-08-31T02:22:20.412Z"
+   },
+   {
+    "phase": "exploit",
+    "summary": "phase error \u2014 fetch failed",
+    "at": "2026-08-31T02:30:21.395Z"
+   },
+   {
+    "phase": "postex",
+    "summary": "artifact file @ workspace:clickjacking-poc.html -> cleanup: rm clickjacking-poc.html",
+    "at": "2026-08-31T10:35:37.844Z"
+   },
+   {
+    "phase": "postex",
+    "summary": "artifact file @ workspace:report.md -> cleanup: rm report.md",
+    "at": "2026-08-31T10:35:37.844Z"
+   },
+   {
+    "phase": "postex",
+    "summary": "",
+    "at": "2026-08-31T10:35:37.844Z"
+   },
+   {
+    "phase": "postex",
+    "summary": "artifact report @ www.mercadolibre.com.ar:client-report.md -> cleanup: rm client-report.md",
+    "at": "2026-08-31T10:40:32.369Z"
+   },
+   {
+    "phase": "postex",
+    "summary": "artifact poc @ www.mercadolibre.com.ar:clickjacking-poc.html -> cleanup: rm clickjacking-poc.html",
+    "at": "2026-08-31T10:40:32.370Z"
+   },
+   {
+    "phase": "report",
+    "summary": "**Situation** \u2014 The workspace contains a prior post-exploitation report (`report.md`) with six findings (1 medium, 4 low, 1 info) and one PoC artifact against MercadoLibre web properties. The sealed execution environment is currently unavai",
+    "at": "2026-08-31T10:40:32.370Z"
+   }
+  ],
+  "debunked": [],
+  "counts": {
+   "hosts": 2,
+   "subdomains": 0,
+   "svcs": 4,
+   "endpoints": 186,
+   "tech": 6,
+   "cves": 0,
+   "findings": 12,
+   "confirmed": 10,
+   "crit": 0,
+   "risk": {
+    "high": 0,
+    "medium": 10,
+    "info": 2
+   },
+   "exploits": 0,
+   "creds": 0,
+   "footholds": 0,
+   "routes": 0,
+   "holds": 1
+  },
+  "model": {
+   "nodeTypes": 16,
+   "edgeKinds": 20
+  }
+ },
+ "opsec": {
+  "artifacts": [
+   {
+    "host": "workspace",
+    "kind": "file",
+    "path": "clickjacking-poc.html",
+    "cleanup": "rm clickjacking-poc.html",
+    "status": "dropped",
+    "at": "2026-08-31T10:35:37.844Z"
+   },
+   {
+    "host": "workspace",
+    "kind": "file",
+    "path": "report.md",
+    "cleanup": "rm report.md",
+    "status": "dropped",
+    "at": "2026-08-31T10:35:37.844Z"
+   },
+   {
+    "host": "www.mercadolibre.com.ar",
+    "kind": "report",
+    "path": "client-report.md",
+    "cleanup": "rm client-report.md",
+    "status": "dropped",
+    "at": "2026-08-31T10:40:32.369Z"
+   },
+   {
+    "host": "www.mercadolibre.com.ar",
+    "kind": "poc",
+    "path": "clickjacking-poc.html",
+    "cleanup": "rm clickjacking-poc.html",
+    "status": "dropped",
+    "at": "2026-08-31T10:40:32.370Z"
+   }
+  ],
+  "cleanups": [],
+  "activities": [
+   {
+    "id": "tcp-scan",
+    "label": "TCP port scan (connect)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:14:56.591Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "One completed TCP handshake per open port (full connect, not a half-open SYN scan) \u2014 appears in firewall/flow logs and the service\u2019s own connection log",
+     "Connections to many closed ports in a short window from one source \u2014 the classic horizontal-scan shape"
+    ],
+    "detectedBy": [
+     "Firewall / NetFlow / Zeek conn.log",
+     "IDS scan detectors (e.g. Snort sfPortscan)",
+     "Per-service connection logs"
+    ],
+    "exposes": [
+     "Source IP",
+     "Scan timing / fan-out pattern",
+     "Sequential or tool-default port ordering"
+    ],
+    "quieter": "Scan only the ports the engagement needs, spread over time, from the authorized source; avoid full-range sweeps when a targeted set will do."
+   },
+   {
+    "id": "web-content-scan",
+    "label": "Web content discovery (path brute-force)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:14:59.958Z",
+    "loudness": 4,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+     "High request rate from one source \u2014 the dominant web-scan tell",
+     "Requests for known-sensitive paths (/.git, /.env, /wp-config.php) that WAFs carry signatures for"
+    ],
+    "detectedBy": [
+     "Web server access logs (404 flood)",
+     "WAF path/rate signatures",
+     "SIEM rate-of-request rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Wordlist / tool fingerprint",
+     "Request cadence"
+    ],
+    "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it."
+   },
+   {
+    "id": "http-methods",
+    "label": "HTTP method / CORS / header probe",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:00.691Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "OPTIONS requests and cross-origin GETs \u2014 uncommon from real browsers, so they stand out under review",
+     "Requests carrying an unusual Origin header (CORS test)"
+    ],
+    "detectedBy": [
+     "Web access logs",
+     "WAF (anomalous method / Origin rules)"
+    ],
+    "exposes": [
+     "Source IP",
+     "Test Origin values you send"
+    ],
+    "quieter": "A handful of targeted probes reveals the config; no need to sweep every method on every path."
+   },
+   {
+    "id": "web-crawl",
+    "label": "Web crawl (following the site\u2019s own links)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:00.807Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "Ordinary GETs for real, linked pages \u2014 no 404 flood (that\u2019s the brute-force tell), but the volume and cadence from one source stand out under review",
+     "Full traversal of the navigable site in a short window, including deep paths real users rarely open"
+    ],
+    "detectedBy": [
+     "Web access logs (rate + coverage correlation)",
+     "WAF rate / session-behavior rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Crawl cadence and coverage pattern"
+    ],
+    "quieter": "Cap pages and depth, pace requests with jitter, and let robots/sitemap seed the queue \u2014 a link-following crawl is already far quieter than path brute-force."
+   },
+   {
+    "id": "vuln-check",
+    "label": "Vulnerability checks (known-exposure probes)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:01.448Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+     "A probe Origin in the CORS check \u2014 uncommon from real browsers"
+    ],
+    "detectedBy": [
+     "WAF path signatures",
+     "Web access logs (sensitive-path alerts)",
+     "SIEM correlation with scan behavior"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "The specific exposures you tested for (reveals intent)"
+    ],
+    "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume."
+   },
+   {
+    "id": "web-content-scan",
+    "label": "Web content discovery (path brute-force)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:04.727Z",
+    "loudness": 4,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+     "High request rate from one source \u2014 the dominant web-scan tell",
+     "Requests for known-sensitive paths (/.git, /.env, /wp-config.php) that WAFs carry signatures for"
+    ],
+    "detectedBy": [
+     "Web server access logs (404 flood)",
+     "WAF path/rate signatures",
+     "SIEM rate-of-request rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Wordlist / tool fingerprint",
+     "Request cadence"
+    ],
+    "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it."
+   },
+   {
+    "id": "http-methods",
+    "label": "HTTP method / CORS / header probe",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:06.718Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "OPTIONS requests and cross-origin GETs \u2014 uncommon from real browsers, so they stand out under review",
+     "Requests carrying an unusual Origin header (CORS test)"
+    ],
+    "detectedBy": [
+     "Web access logs",
+     "WAF (anomalous method / Origin rules)"
+    ],
+    "exposes": [
+     "Source IP",
+     "Test Origin values you send"
+    ],
+    "quieter": "A handful of targeted probes reveals the config; no need to sweep every method on every path."
+   },
+   {
+    "id": "web-crawl",
+    "label": "Web crawl (following the site\u2019s own links)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:06.963Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "Ordinary GETs for real, linked pages \u2014 no 404 flood (that\u2019s the brute-force tell), but the volume and cadence from one source stand out under review",
+     "Full traversal of the navigable site in a short window, including deep paths real users rarely open"
+    ],
+    "detectedBy": [
+     "Web access logs (rate + coverage correlation)",
+     "WAF rate / session-behavior rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Crawl cadence and coverage pattern"
+    ],
+    "quieter": "Cap pages and depth, pace requests with jitter, and let robots/sitemap seed the queue \u2014 a link-following crawl is already far quieter than path brute-force."
+   },
+   {
+    "id": "vuln-check",
+    "label": "Vulnerability checks (known-exposure probes)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:09.444Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+     "A probe Origin in the CORS check \u2014 uncommon from real browsers"
+    ],
+    "detectedBy": [
+     "WAF path signatures",
+     "Web access logs (sensitive-path alerts)",
+     "SIEM correlation with scan behavior"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "The specific exposures you tested for (reveals intent)"
+    ],
+    "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume."
+   },
+   {
+    "id": "tls-probe",
+    "label": "TLS configuration inspection",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:09.444Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "One or a few TLS handshakes \u2014 ordinary unless you enumerate many cipher suites"
+    ],
+    "detectedBy": [
+     "Load-balancer / TLS-terminator logs (rarely reviewed)"
+    ],
+    "exposes": [
+     "Source IP",
+     "ClientHello fingerprint (JA3)"
+    ],
+    "quieter": "A single handshake to read the negotiated config is plenty; skip exhaustive cipher enumeration unless required."
+   },
+   {
+    "id": "tcp-scan",
+    "label": "TCP port scan (connect)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:09.624Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "One completed TCP handshake per open port (full connect, not a half-open SYN scan) \u2014 appears in firewall/flow logs and the service\u2019s own connection log",
+     "Connections to many closed ports in a short window from one source \u2014 the classic horizontal-scan shape"
+    ],
+    "detectedBy": [
+     "Firewall / NetFlow / Zeek conn.log",
+     "IDS scan detectors (e.g. Snort sfPortscan)",
+     "Per-service connection logs"
+    ],
+    "exposes": [
+     "Source IP",
+     "Scan timing / fan-out pattern",
+     "Sequential or tool-default port ordering"
+    ],
+    "quieter": "Scan only the ports the engagement needs, spread over time, from the authorized source; avoid full-range sweeps when a targeted set will do."
+   },
+   {
+    "id": "web-content-scan",
+    "label": "Web content discovery (path brute-force)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:12.841Z",
+    "loudness": 4,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+     "High request rate from one source \u2014 the dominant web-scan tell",
+     "Requests for known-sensitive paths (/.git, /.env, /wp-config.php) that WAFs carry signatures for"
+    ],
+    "detectedBy": [
+     "Web server access logs (404 flood)",
+     "WAF path/rate signatures",
+     "SIEM rate-of-request rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Wordlist / tool fingerprint",
+     "Request cadence"
+    ],
+    "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it."
+   },
+   {
+    "id": "http-methods",
+    "label": "HTTP method / CORS / header probe",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:14.317Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "OPTIONS requests and cross-origin GETs \u2014 uncommon from real browsers, so they stand out under review",
+     "Requests carrying an unusual Origin header (CORS test)"
+    ],
+    "detectedBy": [
+     "Web access logs",
+     "WAF (anomalous method / Origin rules)"
+    ],
+    "exposes": [
+     "Source IP",
+     "Test Origin values you send"
+    ],
+    "quieter": "A handful of targeted probes reveals the config; no need to sweep every method on every path."
+   },
+   {
+    "id": "web-crawl",
+    "label": "Web crawl (following the site\u2019s own links)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:14.530Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "Ordinary GETs for real, linked pages \u2014 no 404 flood (that\u2019s the brute-force tell), but the volume and cadence from one source stand out under review",
+     "Full traversal of the navigable site in a short window, including deep paths real users rarely open"
+    ],
+    "detectedBy": [
+     "Web access logs (rate + coverage correlation)",
+     "WAF rate / session-behavior rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Crawl cadence and coverage pattern"
+    ],
+    "quieter": "Cap pages and depth, pace requests with jitter, and let robots/sitemap seed the queue \u2014 a link-following crawl is already far quieter than path brute-force."
+   },
+   {
+    "id": "vuln-check",
+    "label": "Vulnerability checks (known-exposure probes)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:15.787Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+     "A probe Origin in the CORS check \u2014 uncommon from real browsers"
+    ],
+    "detectedBy": [
+     "WAF path signatures",
+     "Web access logs (sensitive-path alerts)",
+     "SIEM correlation with scan behavior"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "The specific exposures you tested for (reveals intent)"
+    ],
+    "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume."
+   },
+   {
+    "id": "web-content-scan",
+    "label": "Web content discovery (path brute-force)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:22.929Z",
+    "loudness": 4,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+     "High request rate from one source \u2014 the dominant web-scan tell",
+     "Requests for known-sensitive paths (/.git, /.env, /wp-config.php) that WAFs carry signatures for"
+    ],
+    "detectedBy": [
+     "Web server access logs (404 flood)",
+     "WAF path/rate signatures",
+     "SIEM rate-of-request rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Wordlist / tool fingerprint",
+     "Request cadence"
+    ],
+    "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it."
+   },
+   {
+    "id": "http-methods",
+    "label": "HTTP method / CORS / header probe",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:30.733Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "OPTIONS requests and cross-origin GETs \u2014 uncommon from real browsers, so they stand out under review",
+     "Requests carrying an unusual Origin header (CORS test)"
+    ],
+    "detectedBy": [
+     "Web access logs",
+     "WAF (anomalous method / Origin rules)"
+    ],
+    "exposes": [
+     "Source IP",
+     "Test Origin values you send"
+    ],
+    "quieter": "A handful of targeted probes reveals the config; no need to sweep every method on every path."
+   },
+   {
+    "id": "web-crawl",
+    "label": "Web crawl (following the site\u2019s own links)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:31.359Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "Ordinary GETs for real, linked pages \u2014 no 404 flood (that\u2019s the brute-force tell), but the volume and cadence from one source stand out under review",
+     "Full traversal of the navigable site in a short window, including deep paths real users rarely open"
+    ],
+    "detectedBy": [
+     "Web access logs (rate + coverage correlation)",
+     "WAF rate / session-behavior rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "Crawl cadence and coverage pattern"
+    ],
+    "quieter": "Cap pages and depth, pace requests with jitter, and let robots/sitemap seed the queue \u2014 a link-following crawl is already far quieter than path brute-force."
+   },
+   {
+    "id": "vuln-check",
+    "label": "Vulnerability checks (known-exposure probes)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:35.775Z",
+    "loudness": 3,
+    "category": "recon",
+    "attribution": "high",
+    "signals": [
+     "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+     "A probe Origin in the CORS check \u2014 uncommon from real browsers"
+    ],
+    "detectedBy": [
+     "WAF path signatures",
+     "Web access logs (sensitive-path alerts)",
+     "SIEM correlation with scan behavior"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent",
+     "The specific exposures you tested for (reveals intent)"
+    ],
+    "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume."
+   },
+   {
+    "id": "tls-probe",
+    "label": "TLS configuration inspection",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:35.775Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "One or a few TLS handshakes \u2014 ordinary unless you enumerate many cipher suites"
+    ],
+    "detectedBy": [
+     "Load-balancer / TLS-terminator logs (rarely reviewed)"
+    ],
+    "exposes": [
+     "Source IP",
+     "ClientHello fingerprint (JA3)"
+    ],
+    "quieter": "A single handshake to read the negotiated config is plenty; skip exhaustive cipher enumeration unless required."
+   },
+   {
+    "id": "http-fingerprint",
+    "label": "HTTP fingerprint (headers + favicon)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:36.146Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "A couple of ordinary GET requests (/, /favicon.ico) \u2014 indistinguishable from a normal visitor at low volume"
+    ],
+    "detectedBy": [
+     "Web access logs (only under correlation)"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent"
+    ],
+    "quieter": "Already low. A realistic User-Agent keeps it in the noise floor of ordinary traffic."
+   },
+   {
+    "id": "http-fingerprint",
+    "label": "HTTP fingerprint (headers + favicon)",
+    "host": "api.mercadolibre.com",
+    "count": 1,
+    "at": "2026-08-31T02:15:36.644Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "A couple of ordinary GET requests (/, /favicon.ico) \u2014 indistinguishable from a normal visitor at low volume"
+    ],
+    "detectedBy": [
+     "Web access logs (only under correlation)"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent"
+    ],
+    "quieter": "Already low. A realistic User-Agent keeps it in the noise floor of ordinary traffic."
+   },
+   {
+    "id": "http-fingerprint",
+    "label": "HTTP fingerprint (headers + favicon)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T02:15:36.854Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "A couple of ordinary GET requests (/, /favicon.ico) \u2014 indistinguishable from a normal visitor at low volume"
+    ],
+    "detectedBy": [
+     "Web access logs (only under correlation)"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent"
+    ],
+    "quieter": "Already low. A realistic User-Agent keeps it in the noise floor of ordinary traffic."
+   },
+   {
+    "id": "http-fingerprint",
+    "label": "HTTP fingerprint (headers + favicon)",
+    "host": "www.mercadolibre.com.ar",
+    "count": 2,
+    "at": "2026-08-31T02:15:37.834Z",
+    "loudness": 1,
+    "category": "recon",
+    "attribution": "low",
+    "signals": [
+     "A couple of ordinary GET requests (/, /favicon.ico) \u2014 indistinguishable from a normal visitor at low volume"
+    ],
+    "detectedBy": [
+     "Web access logs (only under correlation)"
+    ],
+    "exposes": [
+     "Source IP",
+     "User-Agent"
+    ],
+    "quieter": "Already low. A realistic User-Agent keeps it in the noise floor of ordinary traffic."
+   },
+   {
+    "id": "service-probe",
+    "label": "Service / version detection (banner grab)",
+    "host": null,
+    "count": 10,
+    "at": "2026-08-31T02:22:20.408Z",
+    "loudness": 2,
+    "category": "recon",
+    "attribution": "med",
+    "signals": [
+     "A connection that reads the service banner then disconnects",
+     "Occasionally a malformed/probe payload the service logs as a protocol error"
+    ],
+    "detectedBy": [
+     "Service application logs",
+     "IDS protocol-anomaly rules"
+    ],
+    "exposes": [
+     "Source IP",
+     "Probe fingerprint (which strings you send)"
+    ],
+    "quieter": "Prefer the banner the service already volunteers; don\u2019t send aggressive version-probe payloads unless the version genuinely matters."
+   },
+   {
+    "id": "file-drop",
+    "label": "Artifact written to a target host",
+    "host": "workspace",
+    "count": 1,
+    "at": "2026-08-31T10:35:37.844Z",
+    "loudness": 4,
+    "category": "post-ex",
+    "attribution": "high",
+    "signals": [
+     "A new file on disk (EDR file-create event)",
+     "If executed, a new process lineage"
+    ],
+    "detectedBy": [
+     "EDR / AV (file + process)",
+     "File-integrity monitoring",
+     "Host audit logs"
+    ],
+    "exposes": [
+     "The artifact itself (recoverable forensic evidence)",
+     "Path, timestamp, and content"
+    ],
+    "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement."
+   },
+   {
+    "id": "file-drop",
+    "label": "Artifact written to a target host",
+    "host": "workspace",
+    "count": 1,
+    "at": "2026-08-31T10:35:37.844Z",
+    "loudness": 4,
+    "category": "post-ex",
+    "attribution": "high",
+    "signals": [
+     "A new file on disk (EDR file-create event)",
+     "If executed, a new process lineage"
+    ],
+    "detectedBy": [
+     "EDR / AV (file + process)",
+     "File-integrity monitoring",
+     "Host audit logs"
+    ],
+    "exposes": [
+     "The artifact itself (recoverable forensic evidence)",
+     "Path, timestamp, and content"
+    ],
+    "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement."
+   },
+   {
+    "id": "file-drop",
+    "label": "Artifact written to a target host",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T10:40:32.369Z",
+    "loudness": 4,
+    "category": "post-ex",
+    "attribution": "high",
+    "signals": [
+     "A new file on disk (EDR file-create event)",
+     "If executed, a new process lineage"
+    ],
+    "detectedBy": [
+     "EDR / AV (file + process)",
+     "File-integrity monitoring",
+     "Host audit logs"
+    ],
+    "exposes": [
+     "The artifact itself (recoverable forensic evidence)",
+     "Path, timestamp, and content"
+    ],
+    "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement."
+   },
+   {
+    "id": "file-drop",
+    "label": "Artifact written to a target host",
+    "host": "www.mercadolibre.com.ar",
+    "count": 1,
+    "at": "2026-08-31T10:40:32.370Z",
+    "loudness": 4,
+    "category": "post-ex",
+    "attribution": "high",
+    "signals": [
+     "A new file on disk (EDR file-create event)",
+     "If executed, a new process lineage"
+    ],
+    "detectedBy": [
+     "EDR / AV (file + process)",
+     "File-integrity monitoring",
+     "Host audit logs"
+    ],
+    "exposes": [
+     "The artifact itself (recoverable forensic evidence)",
+     "Path, timestamp, and content"
+    ],
+    "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement."
+   }
+  ],
+  "posture": {
+   "artifacts": 4,
+   "cleaned": 0,
+   "pending": 4,
+   "cleanState": false,
+   "footprint": {
+    "toolCalls": 39,
+    "hostsTouched": 3,
+    "noisyActions": 8,
+    "holds": 1
+   },
+   "detection": {
+    "events": 29,
+    "actions": 39,
+    "peakLoudness": 4,
+    "weighted": 3.3,
+    "risk": "elevated",
+    "detectedBy": [
+     "Firewall / NetFlow / Zeek conn.log",
+     "IDS scan detectors (e.g. Snort sfPortscan)",
+     "Per-service connection logs",
+     "Web server access logs (404 flood)",
+     "WAF path/rate signatures",
+     "SIEM rate-of-request rules",
+     "Web access logs",
+     "WAF (anomalous method / Origin rules)",
+     "Web access logs (rate + coverage correlation)",
+     "WAF rate / session-behavior rules",
+     "WAF path signatures",
+     "Web access logs (sensitive-path alerts)",
+     "SIEM correlation with scan behavior",
+     "Load-balancer / TLS-terminator logs (rarely reviewed)",
+     "Web access logs (only under correlation)",
+     "Service application logs",
+     "IDS protocol-anomaly rules",
+     "EDR / AV (file + process)",
+     "File-integrity monitoring",
+     "Host audit logs"
+    ],
+    "exposes": [
+     "Source IP",
+     "Scan timing / fan-out pattern",
+     "Sequential or tool-default port ordering",
+     "User-Agent",
+     "Wordlist / tool fingerprint",
+     "Request cadence",
+     "Test Origin values you send",
+     "Crawl cadence and coverage pattern",
+     "The specific exposures you tested for (reveals intent)",
+     "ClientHello fingerprint (JA3)",
+     "Probe fingerprint (which strings you send)",
+     "The artifact itself (recoverable forensic evidence)",
+     "Path, timestamp, and content"
+    ],
+    "byCategory": {
+     "recon": 35,
+     "post-ex": 4
+    },
+    "loudest": [
+     {
+      "id": "web-content-scan",
+      "label": "Web content discovery (path brute-force)",
+      "loudness": 4,
+      "count": 4,
+      "category": "recon",
+      "attribution": "high",
+      "signals": [
+       "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+       "High request rate from one source \u2014 the dominant web-scan tell",
+       "Requests for known-sensitive paths (/.git, /.env, /wp-config.php) that WAFs carry signatures for"
+      ],
+      "detectedBy": [
+       "Web server access logs (404 flood)",
+       "WAF path/rate signatures",
+       "SIEM rate-of-request rules"
+      ],
+      "exposes": [
+       "Source IP",
+       "User-Agent",
+       "Wordlist / tool fingerprint",
+       "Request cadence"
+      ],
+      "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it."
+     },
+     {
+      "id": "file-drop",
+      "label": "Artifact written to a target host",
+      "loudness": 4,
+      "count": 4,
+      "category": "post-ex",
+      "attribution": "high",
+      "signals": [
+       "A new file on disk (EDR file-create event)",
+       "If executed, a new process lineage"
+      ],
+      "detectedBy": [
+       "EDR / AV (file + process)",
+       "File-integrity monitoring",
+       "Host audit logs"
+      ],
+      "exposes": [
+       "The artifact itself (recoverable forensic evidence)",
+       "Path, timestamp, and content"
+      ],
+      "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement."
+     },
+     {
+      "id": "vuln-check",
+      "label": "Vulnerability checks (known-exposure probes)",
+      "loudness": 3,
+      "count": 4,
+      "category": "recon",
+      "attribution": "high",
+      "signals": [
+       "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+       "A probe Origin in the CORS check \u2014 uncommon from real browsers"
+      ],
+      "detectedBy": [
+       "WAF path signatures",
+       "Web access logs (sensitive-path alerts)",
+       "SIEM correlation with scan behavior"
+      ],
+      "exposes": [
+       "Source IP",
+       "User-Agent",
+       "The specific exposures you tested for (reveals intent)"
+      ],
+      "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume."
+     },
+     {
+      "id": "tcp-scan",
+      "label": "TCP port scan (connect)",
+      "loudness": 3,
+      "count": 2,
+      "category": "recon",
+      "attribution": "high",
+      "signals": [
+       "One completed TCP handshake per open port (full connect, not a half-open SYN scan) \u2014 appears in firewall/flow logs and the service\u2019s own connection log",
+       "Connections to many closed ports in a short window from one source \u2014 the classic horizontal-scan shape"
+      ],
+      "detectedBy": [
+       "Firewall / NetFlow / Zeek conn.log",
+       "IDS scan detectors (e.g. Snort sfPortscan)",
+       "Per-service connection logs"
+      ],
+      "exposes": [
+       "Source IP",
+       "Scan timing / fan-out pattern",
+       "Sequential or tool-default port ordering"
+      ],
+      "quieter": "Scan only the ports the engagement needs, spread over time, from the authorized source; avoid full-range sweeps when a targeted set will do."
+     },
+     {
+      "id": "service-probe",
+      "label": "Service / version detection (banner grab)",
+      "loudness": 2,
+      "count": 10,
+      "category": "recon",
+      "attribution": "med",
+      "signals": [
+       "A connection that reads the service banner then disconnects",
+       "Occasionally a malformed/probe payload the service logs as a protocol error"
+      ],
+      "detectedBy": [
+       "Service application logs",
+       "IDS protocol-anomaly rules"
+      ],
+      "exposes": [
+       "Source IP",
+       "Probe fingerprint (which strings you send)"
+      ],
+      "quieter": "Prefer the banner the service already volunteers; don\u2019t send aggressive version-probe payloads unless the version genuinely matters."
+     },
+     {
+      "id": "http-methods",
+      "label": "HTTP method / CORS / header probe",
+      "loudness": 2,
+      "count": 4,
+      "category": "recon",
+      "attribution": "med",
+      "signals": [
+       "OPTIONS requests and cross-origin GETs \u2014 uncommon from real browsers, so they stand out under review",
+       "Requests carrying an unusual Origin header (CORS test)"
+      ],
+      "detectedBy": [
+       "Web access logs",
+       "WAF (anomalous method / Origin rules)"
+      ],
+      "exposes": [
+       "Source IP",
+       "Test Origin values you send"
+      ],
+      "quieter": "A handful of targeted probes reveals the config; no need to sweep every method on every path."
+     },
+     {
+      "id": "web-crawl",
+      "label": "Web crawl (following the site\u2019s own links)",
+      "loudness": 2,
+      "count": 4,
+      "category": "recon",
+      "attribution": "med",
+      "signals": [
+       "Ordinary GETs for real, linked pages \u2014 no 404 flood (that\u2019s the brute-force tell), but the volume and cadence from one source stand out under review",
+       "Full traversal of the navigable site in a short window, including deep paths real users rarely open"
+      ],
+      "detectedBy": [
+       "Web access logs (rate + coverage correlation)",
+       "WAF rate / session-behavior rules"
+      ],
+      "exposes": [
+       "Source IP",
+       "User-Agent",
+       "Crawl cadence and coverage pattern"
+      ],
+      "quieter": "Cap pages and depth, pace requests with jitter, and let robots/sitemap seed the queue \u2014 a link-following crawl is already far quieter than path brute-force."
+     },
+     {
+      "id": "http-fingerprint",
+      "label": "HTTP fingerprint (headers + favicon)",
+      "loudness": 1,
+      "count": 5,
+      "category": "recon",
+      "attribution": "low",
+      "signals": [
+       "A couple of ordinary GET requests (/, /favicon.ico) \u2014 indistinguishable from a normal visitor at low volume"
+      ],
+      "detectedBy": [
+       "Web access logs (only under correlation)"
+      ],
+      "exposes": [
+       "Source IP",
+       "User-Agent"
+      ],
+      "quieter": "Already low. A realistic User-Agent keeps it in the noise floor of ordinary traffic."
+     },
+     {
+      "id": "tls-probe",
+      "label": "TLS configuration inspection",
+      "loudness": 1,
+      "count": 2,
+      "category": "recon",
+      "attribution": "low",
+      "signals": [
+       "One or a few TLS handshakes \u2014 ordinary unless you enumerate many cipher suites"
+      ],
+      "detectedBy": [
+       "Load-balancer / TLS-terminator logs (rarely reviewed)"
+      ],
+      "exposes": [
+       "Source IP",
+       "ClientHello fingerprint (JA3)"
+      ],
+      "quieter": "A single handshake to read the negotiated config is plenty; skip exhaustive cipher enumeration unless required."
+     }
+    ]
+   },
+   "note": "4 artifact(s) awaiting cleanup before disengagement."
+  },
+  "reduction": {
+   "target": null,
+   "currentRisk": "elevated",
+   "currentScore": 3.3,
+   "projectedRisk": "moderate",
+   "projectedScore": 2.2,
+   "reducible": 1.1,
+   "targetLevel": "low",
+   "plan": [
+    {
+     "id": "web-content-scan",
+     "activity": "Web content discovery (path brute-force)",
+     "category": "recon",
+     "loudness": 4,
+     "currentCount": 4,
+     "issue": "A burst of 404s (and the occasional 200/403) for paths a normal user never requests",
+     "quieter": "Use a focused wordlist seeded from robots.txt / sitemap / observed links, add jitter, and respect the app\u2019s rate limits instead of hammering it.",
+     "estReduction": 0.4,
+     "estReductionPct": 40
+    },
+    {
+     "id": "file-drop",
+     "activity": "Artifact written to a target host",
+     "category": "post-ex",
+     "loudness": 4,
+     "currentCount": 4,
+     "issue": "A new file on disk (EDR file-create event)",
+     "quieter": "Drop the smallest possible proof, in an agreed location, and record it for cleanup immediately \u2014 VARVEL\u2019s OPSEC ledger tracks it so it is removed on disengagement.",
+     "estReduction": 0.4,
+     "estReductionPct": 40
+    },
+    {
+     "id": "vuln-check",
+     "activity": "Vulnerability checks (known-exposure probes)",
+     "category": "recon",
+     "loudness": 3,
+     "currentCount": 4,
+     "issue": "Requests for known-sensitive paths (/.git/HEAD, /.env, /actuator/env) \u2014 WAFs and SOC playbooks carry EXACT signatures for these, so each hit is conspicuous even at low volume",
+     "quieter": "Keep the probe list curated and high-signal (content-verified), pace requests, and let page audits ride on pages already fetched instead of adding volume.",
+     "estReduction": 0.3,
+     "estReductionPct": 30
+    },
+    {
+     "id": "tcp-scan",
+     "activity": "TCP port scan (connect)",
+     "category": "recon",
+     "loudness": 3,
+     "currentCount": 2,
+     "issue": "One completed TCP handshake per open port (full connect, not a half-open SYN scan) \u2014 appears in firewall/flow logs and the service\u2019s own connection log",
+     "quieter": "Scan only the ports the engagement needs, spread over time, from the authorized source; avoid full-range sweeps when a targeted set will do.",
+     "estReduction": 0.3,
+     "estReductionPct": 30
+    }
+   ],
+   "summary": "Detection risk is ELEVATED. 4 lower-noise adjustment(s) \u2014 starting with Web content discovery (path brute-force) project it down to MODERATE (\u22121.1/5 loudness) by rate-limiting, narrowing scope, and preferring passive sources \u2014 all in-scope, all still logged."
+  }
+ },
+ "activity": [
+  {
+   "seq": 0,
+   "at": "2026-08-31T02:14:46.861Z",
+   "kind": "ghost.engagement",
+   "data": {
+    "mode": "required",
+    "egress": "socks5://10.64.0.1:1080",
+    "hops": 1,
+    "verified": true,
+    "exitIp": "135.136.21.33",
+    "pin": null,
+    "shaper": null,
+    "note": "egress identity at campaign build; verify()/exitCheck() freshness is the operator gate (fail-closed in required mode)"
+   }
+  },
+  {
+   "seq": 1,
+   "at": "2026-08-31T02:14:46.861Z",
+   "kind": "campaign.start",
+   "data": {
+    "scope": {
+     "engagement": "mercadolibre",
+     "signedBy": "marcus \u00b7 operator \u00b7 sess-1020",
+     "cidrs": [
+      "3.33.182.45/32",
+      "15.197.170.90/32",
+      "13.224.68.14/32",
+      "13.224.68.42/32",
+      "13.224.68.76/32",
+      "13.224.68.61/32"
+     ]
+    },
+    "budget": 30,
+    "reconOnly": false
+   }
+  },
+  {
+   "seq": 2,
+   "at": "2026-08-31T02:14:46.862Z",
+   "kind": "phase.start",
+   "data": {
+    "phase": "recon",
+    "gate": "none"
+   }
+  },
+  {
+   "seq": 3,
+   "at": "2026-08-31T02:14:46.863Z",
+   "kind": "targetscore.preorder",
+   "data": {
+    "order": [
+     {
+      "target": "api.mercadolibre.com",
+      "score": 40
+     },
+     {
+      "target": "www.mercadolibre.com.ar",
+      "score": 30
+     }
+    ],
+    "basis": "hostname keywords + inherited surface only \u2014 full scoring after recon gathers real data"
+   }
+  },
+  {
+   "seq": 4,
+   "at": "2026-08-31T02:14:46.863Z",
+   "kind": "recon.sweep.start",
+   "data": {
+    "hosts": 2,
+    "budgetMs": 510000
+   }
+  },
+  {
+   "seq": 5,
+   "at": "2026-08-31T02:14:51.456Z",
+   "kind": "recon.sweep.host",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "services": 2,
+    "stalled": false
+   }
+  },
+  {
+   "seq": 6,
+   "at": "2026-08-31T02:14:56.589Z",
+   "kind": "recon.sweep.host",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "services": 2,
+    "stalled": false
+   }
+  },
+  {
+   "seq": 7,
+   "at": "2026-08-31T02:14:56.590Z",
+   "kind": "recon.host",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "services": 2
+   }
+  },
+  {
+   "seq": 8,
+   "at": "2026-08-31T02:14:56.595Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "port": 80,
+    "name": "http"
+   }
+  },
+  {
+   "seq": 9,
+   "at": "2026-08-31T02:15:00.807Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "crawled": 1,
+    "crawlEndpoints": 0,
+    "forms": 0,
+    "tech": 0
+   }
+  },
+  {
+   "seq": 10,
+   "at": "2026-08-31T02:15:01.448Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "port": 443,
+    "name": "https"
+   }
+  },
+  {
+   "seq": 11,
+   "at": "2026-08-31T02:15:06.719Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "apiEndpoints": 1,
+    "apiParams": 0,
+    "descriptors": 0
+   }
+  },
+  {
+   "seq": 12,
+   "at": "2026-08-31T02:15:09.624Z",
+   "kind": "finding",
+   "data": {
+    "title": "overly broad wildcard certificate",
+    "sev": "med",
+    "ref": "TLS-WILDCARD-BROAD"
+   }
+  },
+  {
+   "seq": 13,
+   "at": "2026-08-31T02:15:09.624Z",
+   "kind": "recon.host",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "services": 2
+   }
+  },
+  {
+   "seq": 14,
+   "at": "2026-08-31T02:15:09.624Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "port": 80,
+    "name": "http"
+   }
+  },
+  {
+   "seq": 15,
+   "at": "2026-08-31T02:15:11.603Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "ghost-egress:api.mercadolibre.com:80",
+    "budgetMs": 15000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 16,
+   "at": "2026-08-31T02:15:14.530Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "crawled": 1,
+    "crawlEndpoints": 0,
+    "forms": 0,
+    "tech": 0
+   }
+  },
+  {
+   "seq": 17,
+   "at": "2026-08-31T02:15:15.787Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "port": 443,
+    "name": "https"
+   }
+  },
+  {
+   "seq": 18,
+   "at": "2026-08-31T02:15:16.459Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "ghost-egress:api.mercadolibre.com:443",
+    "budgetMs": 15000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 19,
+   "at": "2026-08-31T02:15:16.459Z",
+   "kind": "recon.degraded",
+   "data": {
+    "host": "api.mercadolibre.com",
+    "trips": 2,
+    "action": "tool budgets halved, non-essential extras skipped",
+    "note": "host wedged 2+ tools in a row \u2014 it cannot answer at full pace; stop paying full budgets for silence"
+   }
+  },
+  {
+   "seq": 20,
+   "at": "2026-08-31T02:15:24.633Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "ghost-egress:www.mercadolibre.com.ar:80",
+    "budgetMs": 15000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 21,
+   "at": "2026-08-31T02:15:30.734Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "apiEndpoints": 40,
+    "apiParams": 5,
+    "descriptors": 0
+   }
+  },
+  {
+   "seq": 22,
+   "at": "2026-08-31T02:15:30.793Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "ghost-egress:www.mercadolibre.com.ar:443",
+    "budgetMs": 15000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 23,
+   "at": "2026-08-31T02:15:30.794Z",
+   "kind": "recon.degraded",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "trips": 2,
+    "action": "tool budgets halved, non-essential extras skipped",
+    "note": "host wedged 2+ tools in a row \u2014 it cannot answer at full pace; stop paying full budgets for silence"
+   }
+  },
+  {
+   "seq": 24,
+   "at": "2026-08-31T02:15:31.359Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "crawled": 1,
+    "crawlEndpoints": 0,
+    "forms": 0,
+    "tech": 1
+   }
+  },
+  {
+   "seq": 25,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "finding",
+   "data": {
+    "title": "Missing clickjacking protection (X-Frame-Options / frame-ancestors)",
+    "sev": "low",
+    "ref": "VC-1"
+   }
+  },
+  {
+   "seq": 26,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie \"_d2id\" set without HttpOnly",
+    "sev": "low",
+    "ref": "VC-2"
+   }
+  },
+  {
+   "seq": 27,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie \"_mldataSessionId\" set without HttpOnly, SameSite",
+    "sev": "low",
+    "ref": "VC-3"
+   }
+  },
+  {
+   "seq": 28,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie \"in_app\" set without HttpOnly",
+    "sev": "low",
+    "ref": "VC-4"
+   }
+  },
+  {
+   "seq": 29,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "finding",
+   "data": {
+    "title": "Version disclosure: Tengine",
+    "sev": "info",
+    "ref": "VC-5"
+   }
+  },
+  {
+   "seq": 30,
+   "at": "2026-08-31T02:15:35.775Z",
+   "kind": "recon.tool",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "vulnChecks": 6,
+    "vulns": 5
+   }
+  },
+  {
+   "seq": 31,
+   "at": "2026-08-31T02:15:36.146Z",
+   "kind": "jsminer.mined",
+   "data": {
+    "type": "jsminer.mined",
+    "base": "http://api.mercadolibre.com:80",
+    "scripts": 0,
+    "sourcemaps": 0,
+    "endpoints": 0,
+    "secrets": 0,
+    "candidates": 0,
+    "verified": 0
+   }
+  },
+  {
+   "seq": 32,
+   "at": "2026-08-31T02:15:36.644Z",
+   "kind": "jsminer.mined",
+   "data": {
+    "type": "jsminer.mined",
+    "base": "https://api.mercadolibre.com:443",
+    "scripts": 0,
+    "sourcemaps": 0,
+    "endpoints": 1,
+    "secrets": 0,
+    "candidates": 0,
+    "verified": 0
+   }
+  },
+  {
+   "seq": 33,
+   "at": "2026-08-31T02:15:36.854Z",
+   "kind": "jsminer.mined",
+   "data": {
+    "type": "jsminer.mined",
+    "base": "http://www.mercadolibre.com.ar:80",
+    "scripts": 0,
+    "sourcemaps": 0,
+    "endpoints": 0,
+    "secrets": 0,
+    "candidates": 0,
+    "verified": 0
+   }
+  },
+  {
+   "seq": 34,
+   "at": "2026-08-31T02:15:37.834Z",
+   "kind": "jsminer.mined",
+   "data": {
+    "type": "jsminer.mined",
+    "base": "https://www.mercadolibre.com.ar:443",
+    "scripts": 1,
+    "sourcemaps": 0,
+    "endpoints": 204,
+    "secrets": 1,
+    "candidates": 0,
+    "verified": 0
+   }
+  },
+  {
+   "seq": 35,
+   "at": "2026-08-31T02:15:37.835Z",
+   "kind": "scope.path.refused",
+   "data": {
+    "tool": "jsminer",
+    "host": "www.mercadolibre.com.ar",
+    "refused": 10,
+    "sample": [
+     "https://http2.mlstatic.com/frontend-assets/ml-web-navigation/widgets/7.40.0/modal-iframe.js",
+     "https://http2.mlstatic.com/frontend-assets/ml-web-navigation/widgets/7.40.0/categories.js",
+     "https://http2.mlstatic.com/frontend-assets/ml-web-navigation/widgets/7.40.0/snackbar.js",
+     "https://http2.mlstatic.com/frontend-assets/adn-frontend-library/video-simple-banner.1.12.9.js",
+     "https://http2.mlstatic.com/frontend-assets/adn-frontend-library/adn-script.js",
+     "https://http2.mlstatic.com/frontend-assets/frontend-viewability/viewability-script.2.2.15.js",
+     "https://http2.mlstatic.com/frontend-assets/ml-web-navigation/widgets/7.40.0/one-tap.js",
+     "https://http2.mlstatic.com/storage/melidata-js-sdk/js/3/0.7.8/melidata.min.js"
+    ],
+    "prefixes": null
+   }
+  },
+  {
+   "seq": 36,
+   "at": "2026-08-31T02:15:37.835Z",
+   "kind": "jsminer.done",
+   "data": {
+    "bases": 4,
+    "endpoints": 4,
+    "secrets": 1,
+    "verified": 0,
+    "findings": 0,
+    "stopped": null
+   }
+  },
+  {
+   "seq": 37,
+   "at": "2026-08-31T02:15:37.839Z",
+   "kind": "targetscore.scored",
+   "data": {
+    "hosts": 2,
+    "top": {
+     "host": "www.mercadolibre.com.ar",
+     "score": 100,
+     "classes": [
+      "api-heavy",
+      "idor-candidate"
+     ]
+    },
+    "bottom": {
+     "host": "api.mercadolibre.com",
+     "score": 56
+    }
+   }
+  },
+  {
+   "seq": 38,
+   "at": "2026-08-31T02:15:37.839Z",
+   "kind": "progress",
+   "data": {
+    "phase": "recon",
+    "verdict": "productive",
+    "realDelta": 204,
+    "stuck": 0
+   }
+  },
+  {
+   "seq": 39,
+   "at": "2026-08-31T02:15:37.839Z",
+   "kind": "deepthink",
+   "data": {
+    "phase": "validate",
+    "reason": "transition into high-significance phase \"validate\""
+   }
+  },
+  {
+   "seq": 40,
+   "at": "2026-08-31T02:15:37.839Z",
+   "kind": "phase.start",
+   "data": {
+    "phase": "validate",
+    "gate": "none"
+   }
+  },
+  {
+   "seq": 41,
+   "at": "2026-08-31T02:15:37.840Z",
+   "kind": "skills",
+   "data": {
+    "phase": "validate",
+    "selected": [
+     "exposed-secrets",
+     "auth-bypass",
+     "sql-injection",
+     "jwt-attacks"
+    ]
+   }
+  },
+  {
+   "seq": 42,
+   "at": "2026-08-31T02:15:54.452Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "tls:api.mercadolibre.com",
+    "budgetMs": 45000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 43,
+   "at": "2026-08-31T02:15:58.282Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "tls:www.mercadolibre.com.ar",
+    "budgetMs": 22500,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 44,
+   "at": "2026-08-31T02:16:31.375Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "vulncheck:www.mercadolibre.com.ar",
+    "budgetMs": 60000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 45,
+   "at": "2026-08-31T02:16:59.972Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "apisurface:api.mercadolibre.com",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 46,
+   "at": "2026-08-31T02:17:00.821Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "vulncheck:api.mercadolibre.com",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 47,
+   "at": "2026-08-31T02:17:04.730Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "apisurface:api.mercadolibre.com",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 48,
+   "at": "2026-08-31T02:17:06.974Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "vulncheck:api.mercadolibre.com",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 49,
+   "at": "2026-08-31T02:17:12.859Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "apisurface:www.mercadolibre.com.ar",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 50,
+   "at": "2026-08-31T02:17:14.540Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "vulncheck:www.mercadolibre.com.ar",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 51,
+   "at": "2026-08-31T02:17:22.941Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "apisurface:www.mercadolibre.com.ar",
+    "budgetMs": 120000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 52,
+   "at": "2026-08-31T02:17:56.869Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "webscan:api.mercadolibre.com",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 53,
+   "at": "2026-08-31T02:18:00.697Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "crawl:api.mercadolibre.com",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 54,
+   "at": "2026-08-31T02:18:01.734Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "webscan:api.mercadolibre.com",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 55,
+   "at": "2026-08-31T02:18:06.730Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "crawl:api.mercadolibre.com",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 56,
+   "at": "2026-08-31T02:18:09.886Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "webscan:www.mercadolibre.com.ar",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 57,
+   "at": "2026-08-31T02:18:14.321Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "crawl:www.mercadolibre.com.ar",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 58,
+   "at": "2026-08-31T02:18:16.052Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "webscan:www.mercadolibre.com.ar",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 59,
+   "at": "2026-08-31T02:18:30.737Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "crawl:www.mercadolibre.com.ar",
+    "budgetMs": 180000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 60,
+   "at": "2026-08-31T02:22:20.408Z",
+   "kind": "phase.result",
+   "data": {
+    "phase": "validate",
+    "steps": 10,
+    "denials": 0
+   }
+  },
+  {
+   "seq": 61,
+   "at": "2026-08-31T02:22:20.408Z",
+   "kind": "opsec.watchdog",
+   "data": {
+    "level": "warn",
+    "kind": "budget-warn",
+    "pct": 51,
+    "throttled": false
+   }
+  },
+  {
+   "seq": 62,
+   "at": "2026-08-31T02:22:20.411Z",
+   "kind": "finding",
+   "data": {
+    "title": "TLS overly broad wildcard certificate",
+    "sev": "med",
+    "ref": "F-01"
+   }
+  },
+  {
+   "seq": 63,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "validator.gate",
+   "data": {
+    "title": "Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)",
+    "ref": "F-02",
+    "note": "validator gate: no objective oracle cited"
+   }
+  },
+  {
+   "seq": 64,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "finding",
+   "data": {
+    "title": "Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)",
+    "sev": "low",
+    "ref": "F-02"
+   }
+  },
+  {
+   "seq": 65,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie '_d2id' set without HttpOnly",
+    "sev": "low",
+    "ref": "F-03"
+   }
+  },
+  {
+   "seq": 66,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie '_mldataSessionId' set without HttpOnly and SameSite",
+    "sev": "low",
+    "ref": "F-04"
+   }
+  },
+  {
+   "seq": 67,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "finding",
+   "data": {
+    "title": "Cookie 'in_app' set without HttpOnly",
+    "sev": "low",
+    "ref": "F-05"
+   }
+  },
+  {
+   "seq": 68,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "validator.gate",
+   "data": {
+    "title": "Version disclosure: Tengine",
+    "ref": "F-06",
+    "note": "validator gate: no objective oracle cited"
+   }
+  },
+  {
+   "seq": 69,
+   "at": "2026-08-31T02:22:20.412Z",
+   "kind": "finding",
+   "data": {
+    "title": "Version disclosure: Tengine",
+    "sev": "info",
+    "ref": "F-06"
+   }
+  },
+  {
+   "seq": 70,
+   "at": "2026-08-31T02:22:20.417Z",
+   "kind": "chain.composed",
+   "data": {
+    "chains": [],
+    "gaps": 6,
+    "note": "honest empty \u2014 no primitive composition fits the surface"
+   }
+  },
+  {
+   "seq": 71,
+   "at": "2026-08-31T02:22:20.418Z",
+   "kind": "progress",
+   "data": {
+    "phase": "validate",
+    "verdict": "productive",
+    "realDelta": 6,
+    "stuck": 0
+   }
+  },
+  {
+   "seq": 72,
+   "at": "2026-08-31T02:22:20.418Z",
+   "kind": "deepthink",
+   "data": {
+    "phase": "exploit",
+    "reason": "transition into high-significance phase \"exploit\""
+   }
+  },
+  {
+   "seq": 73,
+   "at": "2026-08-31T02:22:20.418Z",
+   "kind": "phase.start",
+   "data": {
+    "phase": "exploit",
+    "gate": "sigil"
+   }
+  },
+  {
+   "seq": 74,
+   "at": "2026-08-31T02:22:20.418Z",
+   "kind": "gate.request",
+   "data": {
+    "phase": "exploit"
+   }
+  },
+  {
+   "seq": 75,
+   "at": "2026-08-31T02:22:20.420Z",
+   "kind": "gate.auto.refused",
+   "data": {
+    "phase": "exploit",
+    "reason": "expired"
+   }
+  },
+  {
+   "seq": 76,
+   "at": "2026-08-31T02:23:16.878Z",
+   "kind": "recon.watchdog",
+   "data": {
+    "tool": "sweep",
+    "budgetMs": 510000,
+    "note": "wedged await tripped \u2014 tool skipped, campaign continues"
+   }
+  },
+  {
+   "seq": 77,
+   "at": "2026-08-31T02:25:57.796Z",
+   "kind": "gate.decision",
+   "data": {
+    "phase": "exploit",
+    "signed": true
+   }
+  },
+  {
+   "seq": 78,
+   "at": "2026-08-31T02:25:57.797Z",
+   "kind": "oob.skip",
+   "data": {
+    "reason": "tools-budget-exhausted"
+   }
+  },
+  {
+   "seq": 79,
+   "at": "2026-08-31T02:25:57.798Z",
+   "kind": "browseragent.skip",
+   "data": {
+    "reason": "tools-budget-exhausted"
+   }
+  },
+  {
+   "seq": 80,
+   "at": "2026-08-31T02:25:57.800Z",
+   "kind": "aisurface.skip",
+   "data": {
+    "reason": "tools-budget-exhausted"
+   }
+  },
+  {
+   "seq": 81,
+   "at": "2026-08-31T02:25:57.801Z",
+   "kind": "skills",
+   "data": {
+    "phase": "exploit",
+    "selected": [
+     "exposed-secrets",
+     "auth-bypass",
+     "sql-injection",
+     "jwt-attacks"
+    ]
+   }
+  },
+  {
+   "seq": 82,
+   "at": "2026-08-31T02:30:21.395Z",
+   "kind": "phase.error",
+   "data": {
+    "phase": "exploit",
+    "error": "fetch failed"
+   }
+  },
+  {
+   "seq": 83,
+   "at": "2026-08-31T02:30:21.395Z",
+   "kind": "progress",
+   "data": {
+    "phase": "exploit",
+    "verdict": "no-progress",
+    "realDelta": 0,
+    "stuck": 1
+   }
+  },
+  {
+   "seq": 84,
+   "at": "2026-08-31T02:30:21.396Z",
+   "kind": "deepthink",
+   "data": {
+    "phase": "postex",
+    "reason": "transition into high-significance phase \"postex\""
+   }
+  },
+  {
+   "seq": 85,
+   "at": "2026-08-31T02:30:21.396Z",
+   "kind": "phase.start",
+   "data": {
+    "phase": "postex",
+    "gate": "sigil"
+   }
+  },
+  {
+   "seq": 86,
+   "at": "2026-08-31T02:30:21.396Z",
+   "kind": "gate.request",
+   "data": {
+    "phase": "postex"
+   }
+  },
+  {
+   "seq": 87,
+   "at": "2026-08-31T02:30:21.397Z",
+   "kind": "gate.auto.refused",
+   "data": {
+    "phase": "postex",
+    "reason": "expired"
+   }
+  },
+  {
+   "seq": 88,
+   "at": "2026-08-31T10:32:42.723Z",
+   "kind": "gate.decision",
+   "data": {
+    "phase": "postex",
+    "signed": true
+   }
+  },
+  {
+   "seq": 89,
+   "at": "2026-08-31T10:35:37.843Z",
+   "kind": "phase.result",
+   "data": {
+    "phase": "postex",
+    "steps": 11,
+    "denials": 1
+   }
+  },
+  {
+   "seq": 90,
+   "at": "2026-08-31T10:35:37.843Z",
+   "kind": "hold",
+   "data": {
+    "action": "Read",
+    "phase": "postex"
+   }
+  },
+  {
+   "seq": 91,
+   "at": "2026-08-31T10:35:37.844Z",
+   "kind": "artifact",
+   "data": {
+    "host": "workspace",
+    "kind": "file",
+    "path": "clickjacking-poc.html"
+   }
+  },
+  {
+   "seq": 92,
+   "at": "2026-08-31T10:35:37.844Z",
+   "kind": "artifact",
+   "data": {
+    "host": "workspace",
+    "kind": "file",
+    "path": "report.md"
+   }
+  },
+  {
+   "seq": 93,
+   "at": "2026-08-31T10:35:37.844Z",
+   "kind": "progress",
+   "data": {
+    "phase": "postex",
+    "verdict": "no-progress",
+    "realDelta": 0,
+    "stuck": 2
+   }
+  },
+  {
+   "seq": 94,
+   "at": "2026-08-31T10:35:37.844Z",
+   "kind": "deepthink",
+   "data": {
+    "phase": "report",
+    "reason": "stuck 2 >= 2 (consecutive no-growth phase(s))"
+   }
+  },
+  {
+   "seq": 95,
+   "at": "2026-08-31T10:35:37.844Z",
+   "kind": "phase.start",
+   "data": {
+    "phase": "report",
+    "gate": "none"
+   }
+  },
+  {
+   "seq": 96,
+   "at": "2026-08-31T10:40:32.369Z",
+   "kind": "phase.result",
+   "data": {
+    "phase": "report",
+    "steps": 16,
+    "denials": 0
+   }
+  },
+  {
+   "seq": 97,
+   "at": "2026-08-31T10:40:32.370Z",
+   "kind": "artifact",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "kind": "report",
+    "path": "client-report.md"
+   }
+  },
+  {
+   "seq": 98,
+   "at": "2026-08-31T10:40:32.370Z",
+   "kind": "artifact",
+   "data": {
+    "host": "www.mercadolibre.com.ar",
+    "kind": "poc",
+    "path": "clickjacking-poc.html"
+   }
+  },
+  {
+   "seq": 99,
+   "at": "2026-08-31T10:40:32.370Z",
+   "kind": "campaign.done",
+   "data": {
+    "counts": {
+     "hosts": 2,
+     "subdomains": 0,
+     "svcs": 4,
+     "endpoints": 186,
+     "tech": 6,
+     "cves": 0,
+     "findings": 12,
+     "confirmed": 10,
+     "crit": 0,
+     "risk": {
+      "high": 0,
+      "medium": 10,
+      "info": 2
+     },
+     "exploits": 0,
+     "creds": 0,
+     "footholds": 0,
+     "routes": 0,
+     "holds": 1
+    },
+    "usedSteps": 37
+   }
+  }
+ ],
+ "budget": {
+  "maxSteps": 30,
+  "usedSteps": 37,
+  "tools": {
+   "maxRequests": 80,
+   "maxMs": 420000,
+   "used": 5,
+   "exhausted": false
+  }
+ },
+ "stealth": "meli-human",
+ "stealthBudget": {
+  "profile": "normal",
+  "maxNoise": 150,
+  "peakCeiling": 5,
+  "spent": 93,
+  "remaining": 57,
+  "pct": 62,
+  "pctRaw": 62,
+  "overspent": 0,
+  "underBudget": true,
+  "state": "warn",
+  "actions": 29,
+  "overrides": 2,
+  "risk": "elevated",
+  "note": "generous \u2014 exploitation allowed (still HITL-gated)",
+  "actualPeak": 4,
+  "ceilingHonored": true,
+  "breaches": 0,
+  "authorizedBreaches": 0,
+  "unauthorizedBreaches": 0,
+  "untracked": 0,
+  "proof": "Stayed under the normal budget: 93/150 noise pts (62%), peak loudness 4/5 \u2264 ceiling 5, 2 HITL-authorized override(s)."
+ },
+ "watchdog": {
+  "level": "warn",
+  "kind": "budget-warn",
+  "at": "2026-08-31T02:22:20.408Z",
+  "text": "Noise at 51% of the normal budget (77/150 pts). Shift weight to the quiet kinds \u2014 passive sources, crawl, apisurface \u2014 and keep brute-force kinds (content discovery, vuln probes) for confirmed leads only. Reminder: every activity exposes the source IP to the target \u2014 pacing changes WHEN you're seen, the source changes WHO is seen. Confirm the engagement is running from its authorized source."
+ },
+ "guidedSearch": null,
+ "waves": [],
+ "chainPlans": null,
+ "authzSweep": null,
+ "hunting": {
+  "jsminer": {
+   "bases": 4,
+   "endpoints": 4,
+   "secrets": 1,
+   "verified": 0,
+   "findings": 0,
+   "stopped": null
+  },
+  "oob": null,
+  "domxss": null,
+  "aisurface": null
+ },
+ "targetScore": {
+  "at": "2026-08-31T02:15:37.839Z",
+  "ordered": [
+   "www.mercadolibre.com.ar",
+   "api.mercadolibre.com"
+  ],
+  "scores": {
+   "www.mercadolibre.com.ar": 100,
+   "api.mercadolibre.com": 56
+  },
+  "hosts": [
+   {
+    "host": "www.mercadolibre.com.ar",
+    "score": 100,
+    "classes": [
+     "api-heavy",
+     "idor-candidate"
+    ],
+    "reasons": [
+     "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+     "api-density +16 \u2014 116 endpoints harvested on the host \u2014 dense programmatic surface",
+     "parameterized +10 \u2014 2 parameterized endpoint(s) (?param= or {id} template): /clips?short_id=, /clips/?short_id=",
+     "idor-shape +6 \u2014 parameterized object endpoints AND a login surface \u2014 the exact two-account differential shape (idor-candidate)",
+     "non-cdn-origin +8 \u2014 live web service with no CDN/WAF vendor fingerprinted \u2014 responses come from the origin, probes reach the application",
+     "stack:laravel +10 \u2014 stack \"Laravel\" \u2014 a historically bug-dense stack scores UP",
+     "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+    ]
+   },
+   {
+    "host": "api.mercadolibre.com",
+    "score": 56,
+    "classes": [
+     "api-heavy",
+     "edge-walled"
+    ],
+    "reasons": [
+     "hostname:api-role +10 \u2014 hostname \"api.mercadolibre.com\" declares an API/gateway role \u2014 programmatic surface, not marketing pages",
+     "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+     "api-density +16 \u2014 70 endpoints harvested on the host \u2014 dense programmatic surface",
+     "edge-walled -20 \u2014 edge vendor fingerprinted: CloudFront \u2014 hardened perimeter; generic probing is burned budget here",
+     "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+    ]
+   }
+  ]
+ },
+ "deception": null,
+ "targetProfile": null,
+ "productivity": {
+  "phases": 4,
+  "productive": 2,
+  "noProgress": 2,
+  "dishonest": 0,
+  "totalDelta": 210,
+  "stuckStreak": 2,
+  "honestyRate": 1,
+  "tier": "orange"
+ },
+ "stall": null,
+ "inheritedFindings": 0,
+ "inheritedFailures": 0,
+ "pendingApproval": null,
+ "messages": [],
+ "agentThinking": false,
+ "footprintAdvice": null,
+ "ghost": {
+  "mode": "required",
+  "chain": [
+   "socks5://10.64.0.1:1080"
+  ],
+  "hops": 1,
+  "checkUrl": "https://api.ipify.org?format=json",
+  "verified": {
+   "ok": true,
+   "baselineIp": "135.136.x.x",
+   "exitIp": "135.136.21.33",
+   "at": "2026-08-31T02:14:46.797Z"
+  },
+  "dns": "resolved-by-last-proxy (no local DNS leak)",
+  "privateDestinations": "always direct (range traffic never leaves the lab)",
+  "exitCheck": null,
+  "tlsInspect": null,
+  "tor": {
+   "detected": false,
+   "port": null
+  },
+  "shaper": null,
+  "exitSet": null,
+  "exitSetDropped": [],
+  "hopHealth": null,
+  "pin": null,
+  "substatus": {
+   "at": "2026-08-31T10:45:31.298Z",
+   "mode": "required",
+   "versus": "ISP-level / national flow+traffic correlation (beyond target-side attribution)",
+   "overall": "warn",
+   "checks": [
+    {
+     "id": "mode",
+     "grade": "pass",
+     "detail": "fail-closed: public egress is refused until verify() proves the exit differs from the operator baseline"
+    },
+    {
+     "id": "verified",
+     "grade": "pass",
+     "detail": "exit 135.136.21.33 differs from the operator baseline (135.136.x.x) as of 2026-08-31T02:14:46.797Z"
+    },
+    {
+     "id": "hops",
+     "grade": "warn",
+     "detail": "single-hop VPN: the operator's ISP sees the VPN provider's metadata AND the full timing/shape of the operator\u2192VPN flow, and the provider sees both ends. Entry\u2194exit timing correlation against this shape costs a national adversary little. Multi-hop = operator config (Mullvad Bridges / a second proxy in the chain string)"
+    },
+    {
+     "id": "dns",
+     "grade": "pass",
+     "detail": "resolved by the LAST proxy \u2014 code-level, test-pinned (an unresolvable name still egresses; no local DNS of targets)"
+    },
+    {
+     "id": "exitClass",
+     "grade": "unverified",
+     "detail": "exit class never measured (run exitCheck \u2014 the ipinfo leg is offline-skipped and honest)"
+    },
+    {
+     "id": "pin",
+     "grade": "warn",
+     "detail": "no exit pin or rotation set declared \u2014 the operator has not said WHICH exits are expected; rotation can silently break IP-bound sessions (the cf_clearance lesson) and a hijacked/mis-set chain would go unnoticed"
+    },
+    {
+     "id": "stability",
+     "grade": "unverified",
+     "detail": "exit stability never measured (run exitCheck)"
+    },
+    {
+     "id": "shaping",
+     "grade": "warn",
+     "detail": "no ghost-level shaper \u2014 the engagement pacer is the only shaping; the operator\u2192first-hop timing pattern is whatever the workload happens to look like"
+    },
+    {
+     "id": "coverTraffic",
+     "grade": "warn",
+     "detail": "NONE at the app layer \u2014 idle windows are silent, so an ISP correlating entry/exit sees the engagement's activity windows. App-layer cover traffic would multiply request volume and is not implemented; DAITA pads flows but is not cover traffic either. Residual, stated, accepted"
+    },
+    {
+     "id": "tlsFingerprint",
+     "grade": "unverified",
+     "detail": "the TLS ClientHello of Node/undici governed HTTP is not a browser's (JA4-class distinguishability); not measured here \u2014 fporacle/shapegrade grade wire fingerprints on the C2 side, not this HTTP egress"
+    },
+    {
+     "id": "ipv6",
+     "grade": "unverified",
+     "detail": "governed VARVEL traffic is fail-closed inside the chain, but UNGOVERNED system traffic (other apps, OS, a browser outside the chain) bypasses ghost by design \u2014 split-tunnel and in-tunnel IPv6 are operator-side settings (Mullvad app), not observable from here"
+    },
+    {
+     "id": "flowCorrelation",
+     "grade": "warn",
+     "detail": "resistance to ISP-level entry\u2194exit flow correlation: LOW (single-hop, no shaper, no cover traffic). Multi-hop + VPN-layer padding (DAITA) raise the cost; NOTHING at the app layer defeats a national adversary holding both ends of the flow \u2014 and this platform never claims otherwise"
+    }
+   ],
+   "residual": "Even fully armed, this chain is ONE governed HTTP egress layer: it beats target-side attribution and raises ISP-correlation cost, but a national adversary with both path ends + classification feeds retains the advantage. The operator-side residua are named in docs/EGRESS.md (multi-hop Bridges, DAITA, dedicated proxies, split-tunnel/IPv6). Anything UNVERIFIED above was never measured \u2014 it is not claimed."
+  }
+ }
+}

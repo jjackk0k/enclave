@@ -1,0 +1,78 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "trellix",
+      "name": "Trellix",
+      "offersBounties": false,
+      "assets": [
+        "*.skyhighsecurity.com",
+        "*.trellix.com",
+        "Other Skyhigh Security Websites",
+        "Other Trellix Websites",
+        "Skyhigh Security products",
+        "Trellix Products"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\trellix-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "trellix",
+  "name": "Trellix",
+  "url": "https://hackerone.com/trellix",
+  "policy": "Welcome to Trellix and Skyhigh Security(formerly McAfee Enterprise products and FireEye products).\n==============\nAt Trellix and Skyhigh Security, we look forward to working with you to keep our products and Customers safe and secure. If you believe you’ve found an issue with our web presence or products, we would like you to report them to us. Our security team reviews and acts upon all vulnerability reports per responsible disclosure and criticality. We aim to respond to all reports within five business days. As we work through the reports, we will keep you updated and aim to resolve the report as quickly as possible.\n\n\n\nIf you are a McAfee home user, please visit the McAfee support site at https://www.mcafee.com/en-us/consumer-corporate/mcafee-labs/product-security-bulletins.html.\n\nPlease read on if you wish to report a security vulnerability in a Trellix or Skyhigh Security product.\n\n\nEligibility and Disclosure Policy\n----------------------------------\nPlease do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n\nFollow HackerOne's disclosure guidelines with these Trellix-specific changes:\n\n**Vulnerability disclosure**\n* Our default target resolution is 90 days from the confirmation date of a valid report before the report may be made public without objection of either party. \n* some vulnerabilities may require longer than 90 days to remediate due to complexity and other factors.\n* We seek to avoid triggering the ‘Last resort’ clause in all cases.\n\n**Public recognition**\n* We will not publicly acknowledge the reporter if any part of the vulnerability report is made public before publication of our Security Bulletin or other Customer-facing documentation.\n* We do not usually issue CVE for product vulnerabilities rating below 4.0 using CVSS v3.\n\n**Bug Bounty**\n* We are not offering a bug bounty\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.  Please provide detailed reports with reproducible steps.\n\nProgram Rules\n----------------\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* When reporting vulnerabilities, please consider (1) the attack scenario/exploitability and (2) the security impact of the bug. \n\nWebsites - scope\n------------------------------------\n**The following are OUT OF SCOPE**\n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Use of automated tools that could generate significant traffic and possibly impair the functioning of our application\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Issues experienced in end-of-life and no longer supported Web Browsers\n Products - scope\n------------------------------------\n**Any products or tools that are end of life and no longer supported are OUT OF SCOPE.**\n* To see if our Products are supported - https://supportm.trellix.com/webcenter/portal/supportportal/pages_knowledgecenter?s=true&lang=en-us&sm=false&tab=SCtdl&facets=End+of+Life+Notices@ZFACET_SEARCH_CATEGORIES&sb=mostRecent&sbv=Date&scps=q \n    \n\nSafe Harbor\n-------------\nActivities consistent with this policy will be considered authorized conduct, and we will not initiate legal action against you. If a third party initiates legal action in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Trellix, Skyhigh Security, and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.trellix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Trellix Products",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Trellix Websites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skyhighsecurity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Skyhigh Security Websites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Skyhigh Security products",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

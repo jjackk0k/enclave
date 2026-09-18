@@ -1,0 +1,198 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "abn_amro_vdp",
+      "name": "ABN AMRO Bank VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.abnamro.be",
+        "*.abnamro.com",
+        "*.abnamro.nl",
+        "*.abnamro.org",
+        "*.abnamrocomfin.com",
+        "*.abnamroinvestmentsolutions.com",
+        "*.abnamrolease.com",
+        "*.alfam.nl",
+        "*.bethmannbank.de",
+        "*.buut.com",
+        "*.bux.com",
+        "*.bux2b.com",
+        "*.getbux.com",
+        "*.new10.com",
+        "*.tikkie.me",
+        "*abnamroprivatebanking.be",
+        "*neuflizeobc.fr",
+        "6698897106",
+        "aa-ob.com",
+        "com.abnamro.nl.buut",
+        "www.buut.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\abn_amro_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "abn_amro_vdp",
+  "name": "ABN AMRO Bank VDP",
+  "url": "https://hackerone.com/abn_amro_vdp",
+  "policy": "# Reporting weaknesses in our IT systems\nABN AMRO is committed to provide security for all of its customers, subsidiaries and employees. As part of this commitment, we welcome security researchers across the globe to help protect ABN AMRO and its users by proactively identifying security vulnerabilities and report it to us via the following disclosure policy. We work hard every day to maintain and improve our systems and processes so that our customers can bank safely online at all times. However, we cannot do this alone and we require your help. As part of our mission to provide safety and security for our customers and subsidiaries, we strive to collaborate with the ethical hacking community in order to help us identify vulnerabilities within our systems and remediate them as soon as possible. We are very much excited to welcome you aboard and look forward to working with you. Please do not hesitate to reach out to us if you have any questions. Good luck and happy hunting!\n\n\n# Response Targets\nWe take security very seriously and strive to provide lightning fast response times to hunters.\nABN AMRO will make its best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 10 days | depends on severity and complexity |\n| Time to Resolution | depends on severity and complexity |\n\nWe will try to keep you informed about our progress throughout the process.\n\n# Testing Recommendation\nIn order to be able to provide a swift response to your disclosure, we kindly request you to allow us to identify the traffic. You can do so by applying the following:\n\n* Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n* Include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily. \n\n|Identifier|Format|Example|\n|:--|:--|:--|\n|Your Username|`X-HackerOne-Bugbounty: HackerOne-<username>`|`X-HackerOne-Bugbounty: HackerOne-KevinMitnick`|\n\n# Reporting\n\n## Report requirements\nWe request that the following requirements to be met in order to be eligible for a monetary reward:\n\n* ‘In scope’ vulnerabilities must be original, previously unreported, and not already discovered by internal procedures.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Clear description and evidence of the vulnerability (logs, screenshots, responses)\n* Detailed steps to reproduce the issue\n* Your assessment of the exploitability and impact of the issue\n* A proof-of-concept with every report clearly demonstrating the issue\n* We will not accept only automated scanners output\n\n## What Qualifies?\n* Submissions with demonstrated confidentiality, integrity, availability or general (security) impact.\n* Please refer to the scoping section of this page to review assets which are included in scope.\n\n## Out-of-Scope Vulnerabilities (without impact)\n\nThe following issues are ineligible for submission unless the submission has demonstrated impact. The impact is determined by the ABN AMRO team. \n\n* Any hypothetical flaw or best practices without exploitable PoC\n* Any report generated by automated scanners without manual testing and validation\n* Perceived security weaknesses without evidence of the ability to demonstrate impact (e.g. Missing best practices, functional bugs without security implications, etc.)\n* Account enumeration using brute-force attacks\n* Internal IP address or hostname disclosed\n* Disclosure of known public files, directories or non-sensitive information (e.g. robots.txt)\n* Obsolete files identified\n* Open redirects\n* Unnecessary HTTP methods supported\n* Unnecessary services accessible from the Internet\n* User enumeration via application functions\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Banner grabbing or low sensitive information disclosure\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Security Header (misconfigurations) which do not lead to a vulnerability\n* SSL/TLS (mis)configurations and use of insecure cipher suites\n* Missing any flags on cookies\n* Issues that require unlikely user interaction\n* CSRF without any security impact\n* \"Self\" XSS\n* Tabnabbing\n* Clickjacking/UI redressing on pages with no sensitive actions\n* Password leak/breaches/dumps\n* Subdomain takeovers\n\n## Known issues \nThe following issues are known and will be marked as a duplicate\n\n* Tikkie webhooks\n\n# Rules\n## Observe the rules  \n\nTake responsibility and act with extreme care and caution. When investigating the matter, only use methods or techniques that are necessary in order to find or demonstrate the weaknesses.\n\n* Secure your own systems as tightly as possible.   \n* Do not use weaknesses you discover for purposes other than your own investigation.   \n* Do not use social engineering to gain access to a system.   \n* Do not install any back doors – not even to demonstrate the vulnerability of a system. Back doors will weaken the system’s security.   \n* Do not alter or delete any information in the system. If you need to copy information for your investigation, never copy more than you need. If one record is sufficient, do not go any further.   \n* Do not alter the system in any way.   \n* Only infiltrate a system if absolutely necessary. If you do manage to infiltrate a system, do not share access with others.   \n* Do not use brute force techniques, such as repeatedly entering passwords, to gain access to systems.  \n\n# Frequently-asked questions\n## Will I receive a reward for my investigation?\n\nABN Amro highly appreciates your effort by assisting us in securing our systems and processes. You might receive a token of appreciation for your report if the submission is in scope and has demonstrated impact.\n\n## Am I allowed to publicise the weaknesses I find and my investigation?\n\nNever publicise weaknesses in our IT systems or your investigation without consulting us first. We can work together to prevent criminals from abusing your information. Consult with our security experts and give us time to solve the problem.\n\n# Your privacy\n\nWe will only use your personal details to take action based on your report. We will not share your personal details with others without your express permission.\n\n# Safe Harbor and Legal\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under his policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Keep in mind however, that we are not able to authorize security research (hosted) on third-party infrastructure, and a third party is not bound by this safe harbor statement.\n# Reporting weaknesses in our IT systems\nABN AMRO is committed to provide security for all of its customers, subsidiaries and employees. As part of this commitment, we welcome security researchers across the globe to help protect ABN AMRO and its users by proactively identifying security vulnerabilities and report it to us via the following disclosure policy. We work hard every day to maintain and improve our systems and processes so that our customers can bank safely online at all times. However, we cannot do this alone and we require your help. As part of our mission to provide safety and security for our customers and subsidiaries, we strive to collaborate with the ethical hacking community in order to help us identify vulnerabilities within our systems and remediate them as soon as possible. We are very much excited to welcome you aboard and look forward to working with you. Please do not hesitate to reach out to us if you have any questions. Good luck and happy hunting!\n\n\n# Response Targets\nWe take security very seriously and strive to provide lightning fast response times to hunters.\nABN AMRO will make its best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 10 days | depends on severity and complexity |\n| Time to Resolution | depends on severity and complexity |\n\nWe will try to keep you informed about our progress throughout the process.\n\n# Testing Recommendation\nIn order to be able to provide a swift response to your disclosure, we kindly request you to allow us to identify the traffic. You can do so by applying the following:\n\n* Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n* Include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily. \n\n|Identifier|Format|Example|\n|:--|:--|:--|\n|Your Username|`X-HackerOne-Bugbounty: HackerOne-<username>`|`X-HackerOne-Bugbounty: HackerOne-KevinMitnick`|\n\n# Reporting\n\n## Report requirements\nWe request that the following requirements to be met in order to be eligible for a monetary reward:\n\n* ‘In scope’ vulnerabilities must be original, previously unreported, and not already discovered by internal procedures.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Clear description and evidence of the vulnerability (logs, screenshots, responses)\n* Detailed steps to reproduce the issue\n* Your assessment of the exploitability and impact of the issue\n* A proof-of-concept with every report clearly demonstrating the issue\n* We will not accept only automated scanners output\n\n## What Qualifies?\n* Submissions with demonstrated confidentiality, integrity, availability or general (security) impact.\n* Please refer to the scoping section of this page to review assets which are included in scope.\n\n## Out-of-Scope Vulnerabilities (without impact)\n\nThe following issues are ineligible for submission unless the submission has demonstrated impact.\n\n* Any hypothetical flaw or best practices without exploitable PoC\n* Any report generated by automated scanners without manual testing and validation\n* Perceived security weaknesses without evidence of the ability to demonstrate impact (e.g. Missing best practices, functional bugs without security implications, etc.)\n* Account enumeration using brute-force attacks\n* Internal IP address or hostname disclosed\n* Disclosure of known public files, directories or non-sensitive information (e.g. robots.txt)\n* Obsolete files identified\n* Open redirects\n* Unnecessary HTTP methods supported\n* Unnecessary services accessible from the Internet\n* User enumeration via application functions\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Banner grabbing or low sensitive information disclosure\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Security Header (misconfigurations) which do not lead to a vulnerability\n* SSL/TLS (mis)configurations and use of insecure cipher suites\n* Missing any flags on cookies\n* Issues that require unlikely user interaction\n* CSRF without any security impact\n* \"Self\" XSS\n* Tabnabbing\n* Clickjacking/UI redressing on pages with no sensitive actions\n\n# Rules\n## Observe the rules  \n\nTake responsibility and act with extreme care and caution. When investigating the matter, only use methods or techniques that are necessary in order to find or demonstrate the weaknesses.\n\n* Secure your own systems as tightly as possible.   \n* Do not use weaknesses you discover for purposes other than your own investigation.   \n* Do not use social engineering to gain access to a system.   \n* Do not install any back doors – not even to demonstrate the vulnerability of a system. Back doors will weaken the system’s security.   \n* Do not alter or delete any information in the system. If you need to copy information for your investigation, never copy more than you need. If one record is sufficient, do not go any further.   \n* Do not alter the system in any way.   \n* Only infiltrate a system if absolutely necessary. If you do manage to infiltrate a system, do not share access with others.   \n* Do not use brute force techniques, such as repeatedly entering passwords, to gain access to systems.  \n\n# Frequently-asked questions\n## Will I receive a reward for my investigation?\n\nABN Amro highly appreciates your effort by assisting us in securing our systems and processes. You might receive a token of appreciation for your report (high and critical) if the submission is in scope and has demonstrated impact. The bonus will be decided by us, and we will communicate the amount via the report.\n\n## Am I allowed to publicise the weaknesses I find and my investigation?\n\nNever publicise weaknesses in our IT systems or your investigation without consulting us first. We can work together to prevent criminals from abusing your information. Consult with our security experts and give us time to solve the problem.\n\n# Your privacy\n\nWe will only use your personal details to take action based on your report. We will not share your personal details with others without your express permission.\n\n# Safe Harbor and Legal\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under his policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Keep in mind however, that we are not able to authorize security research (hosted) on third-party infrastructure, and a third party is not bound by this safe harbor statement.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.abnamro.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamro.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tikkie.me",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamrocomfin.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamro.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alfam.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bethmannbank.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*neuflizeobc.fr",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*abnamroprivatebanking.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamro.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamrolease.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abnamroinvestmentsolutions.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.new10.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6698897106",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.buut.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.buut.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.abnamro.nl.buut",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bux.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.getbux.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bux2b.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aa-ob.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

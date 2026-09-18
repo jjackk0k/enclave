@@ -1,0 +1,101 @@
+{
+ "at": "2026-09-12T05:35:51.455Z",
+ "opportunity": "whoop_bug_bounty",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.whoop.iphone",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.whoop.iphone:443 refused: host unreachable"
+  },
+  {
+   "host": "com.whoop.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.whoop.android:443 refused: host unreachable"
+  },
+  {
+   "host": "api.prod.whoop.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c8d2ad8b349c9-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.whoop.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c8d38fc8aef03-LHR",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-QV3QpdeOWrs9UBmQVG5ZGx' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "join.whoop.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c8d404ea963bf-LHR",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-T8tXC6duWoAVmgSKYEVWHJ' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

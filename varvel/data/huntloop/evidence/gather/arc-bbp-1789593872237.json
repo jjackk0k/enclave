@@ -1,0 +1,98 @@
+{
+ "at": "2026-09-16T21:24:26.735Z",
+ "opportunity": "arc-bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "github.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "github.com",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ ",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/.git/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "rpc.testnet.arc.network",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c2f02bbdad148c-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "rpc.drpc.testnet.arc.network",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c2f033ef2a911c-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "arc.io",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c2f03c6ad80016-LHR",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

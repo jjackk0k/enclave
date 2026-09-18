@@ -1,0 +1,113 @@
+{
+ "at": "2026-09-12T00:51:03.401Z",
+ "opportunity": "eufy_security",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "us.eufy.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "shopify",
+     "label": "Shopify",
+     "version": null,
+     "evidence": "cdn.shopify.com"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "g-recaptcha"
+    },
+    {
+     "id": "hcaptcha",
+     "label": "hCaptcha",
+     "version": null,
+     "evidence": "h-captcha"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39aebec28e9df34-LHR",
+    "strict-transport-security": "max-age=7889238",
+    "content-security-policy": "block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/admin",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "com.security.batterycam",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.security.batterycam:443 refused: host unreachable"
+  },
+  {
+   "host": "com.oceanwing.battery.cam",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "openresty",
+    "via": "1.1 google"
+   },
+   "endpoints": [],
+   "requests": 1,
+   "error": "ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR: BC160100:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:openssl\\ssl\\record\\rec_layer_s3.c:918:SS"
+  },
+  {
+   "host": "com.anker.ankermake",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.anker.ankermake:443 refused: host unreachable"
+  },
+  {
+   "host": "com.oceanwing.fdmprint",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.oceanwing.fdmprint:443 refused: host unreachable"
+  }
+ ]
+}

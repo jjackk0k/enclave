@@ -1,0 +1,162 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "unico_idtech",
+      "name": "Unico IDtech",
+      "offersBounties": true,
+      "assets": [
+        "*.uat.unico.app",
+        "[Unico] Liveness Bypass",
+        "accountshomolog.acesso.io",
+        "backend-sdk.uat.private.unico.run",
+        "blog.unico.io",
+        "devcenter.unico.io",
+        "https://sdk-h1.unico.io/createprocess",
+        "idcash-uat.unico.io",
+        "identityhomolog.acesso.io",
+        "idpay-uat.unico.io",
+        "issuer.idpay-uat.unico.io",
+        "openfinance.unico.io",
+        "secure.unico.io",
+        "unico.io"
+      ],
+      "exclusions": [
+        "*.cadastro.uat.unico.app",
+        "uconf.uat.unico.app"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\unico_idtech-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "unico_idtech",
+  "name": "Unico IDtech",
+  "url": "https://hackerone.com/unico_idtech",
+  "policy": "# Unico IDTech Bug Bounty Program\n\nUnico IDTech is pioneering the future of biometric authentication through our advanced liveness detection engine. We're inviting security researchers to help protect millions of digital identities by finding novel ways to bypass our state-of-the-art biometric controls.\n\n## Applicability\n\nThe Bug Bounty program is now public and open to all security researchers. The following groups are not eligible:\n\n- Employees and former employees of Unico IdTech or its subsidiary companies;\n- First-degree relatives of employees of Unico IdTech or its subsidiaries or affiliates;\n- Third parties who have access to the Organization's confidential information;\n\n## Disclosure Policy\n\n* Please do not publicly disclose vulnerabilities until they have been resolved and we have provided explicit consent for disclosure.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n## Program Rules\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n## Structure and Focus of the program\n\nOur Bug Bounty program is divided into two distinct scopes: Liveness and Web. Each scope targets specific areas of our systems, with a ==primary focus on testing the security controls associated with the Liveness scope==.\n\n## Primary scope - Liveness\n\n**Report only if** you were able to bypass liveness detection and obtained a **live:true** status at the end of the transaction.\n\nFor more details, please refer to [IDCloud - DevCenter](https://devcenter.unico.io/idcloud/en/integrations/sdk/overview).\n\n### Presentation Attack Detection Matrix\n\n| Test Type | Success Criteria | Failure Criteria | When to Report |\n| ------------- | ------------- | ------------- | ------------- |\n| Photo Attack  | Engine accepts static image as live | Engine correctly rejects static image | Report if bypass rate >1% over 100 attempts |\n| Video Replay | Engine accepts pre-recorded video | Engine detects temporal inconsistency | Report if bypass successful on 3+ different samples |\n| 3D Mask/Model | Engine accepts non-human presentation | Engine detects artificial surface | Report if any high-quality mask achieves >5% success rate |\n| Deepfake | Engine accepts syntethic video stream | Engine detects manipulation artifacts | Report if real-time bypass achieved with <500ms latency |\n\n### Processing Integrity Matrix\n\n| Test Type | Success Criteria | Failure Criteria | When to Report |\n| ------------- | ------------- | ------------- | ------------- |\n| Memory Manipulation  | Modified engine parameters accepted | Tampering detected and rejected | Report if persistence across engine restarts |\n| Template Injection | Artificial template processed as valid | Invalid template detected | Report if bypass work on multiple formats |\n| Timing Attacks | Processing bypass through race condition | Proper sequence validation | Report if reproducible >50% of attempts |\n\n### Data Flow Integrity Matrix\n\n| Test Type | Success Criteria | Failure Criteria | When to Report |\n| ------------- | ------------- | ------------- | ------------- |\n| Capture Relay  | Reused biometric data accepted | Replay detected and blocked | Report if bypass works across sessions |\n| Stream Manipulation | Modified data stream processed as valid | Data integrity check failure | Report if manipulation undetected by engine |\n| Session Hijacking | Authentication state transferred | Session binding enforced | Report if state can be copied between instances |\n\n### Reporting Liveness Bypasses\n\nReport when the SDK returns a positive liveness result for a presentation attack, following the criteria in the matrices above. Include Transaction ID and Process ID. Our team will validate the full bypass chain including backend verification.\n\n**The testing will focus on the biometric SDK, not the wrapper applications. The test applications serve solely to facilitate SDK testing and are out of scope. Vulnerabilities related to the biometric capture and processing engine are in scope, while issues related to the wrapper interface or presentation layer are out of scope.**\n\n### Report Requirements\n\n* When reporting a vulnerability, it is essential to include the **Transaction ID** and the **Process ID** of capture.\n\n### Useful Links for Testing Liveness\n\n* https://sdk-h1.unico.io/\n* https://sdk-h1.unico.io/mobile-sdks\n* https://sdk-h1.unico.io/docs\n\n**System Requirements:**\n- Web: Modern browser (Chrome, Firefox, Safari, or Edge) with camera access\n- Android: Physical device with Android 6.0 (API 23) or higher\n- iOS: Physical device with iOS 14.0 or higher\n\n**Web Testing:** Web testing can be performed in any modern browser.\n\n**Physical Devices Required for Mobile Testing:** The mobile applications (Android Native, iOS Native, Android Flutter, and iOS Flutter) DO NOT work on emulators or simulators. You must use physical devices for mobile testing.\n\n**Application Expiration (TTL):** The mobile applications have a 30-day Time-To-Live (TTL). If the app stops working or shows expiration errors, download and install the latest version from the links above. Web application does not expire.\n\n**Recommended Testing Approach:** We strongly recommend using the native apps (Android Native and iOS Native) for mobile testing. The native apps offer smoother performance and more direct SDK integration. Flutter apps are provided for convenience but use the native SDKs as a bridge layer.\n\n### Changelog\n\n* [Web](https://devcenter.unico.io/unico-idcloud/by-client-integration/sdk/available-sdks/web-sdk/release-notes)\n* [Android](https://devcenter.unico.io/unico-idcloud/by-client-integration/sdk/available-sdks/android-sdk/release-notes)\n* [iOS](https://devcenter.unico.io/unico-idcloud/by-client-integration/sdk/available-sdks/ios-sdk/release-notes)\n* [Flutter](https://devcenter.unico.io/unico-idcloud/by-client-integration/sdk/available-sdks/flutter-sdk/release-notes)\n\n## Secondary scope - Web\n\n| Vulnerability Type | When to report a problem |\n| ------------- | ------------- |\n| XSS  | A simple alert(document.domain) is enough. |\n| RCE | Please only run harmless code. Simply printing something or evaluating an expression should be enough to demonstrate the problem. |\n| SQLi | Please report it as soon as you experience a SQL error that indicates SQL injection or you are able to disclose the SQL server version number. |\n| SSRF | Do not play on any internal networks. Let us know as soon as you believe you have a possible SSRF issue and we will look into it for you. |\n| JWT Tokens Vulnerabilities | Injecting self-signed tokens or breaking authorization controls. |\n| IDOR | Access confidential information from another user/organization or users with greater privileges. |\n| Unrestricted File Upload | Upload a simple shell, a file with an extension or content-type different from those requested. |\n\n### Using the OWASP Risk Rating calculator will be greatly appreciated.\n\n## Session Layer: HTTP Headers\n\nResearchers should add headers to requests such as:\n* \"X-HackerOne-Research: [H1 username]\"\n* \"User-Agent: [H1 username]\"\n\n## Out of scope vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Clickjacking on pages with no sensitive actions\n* Attacks on authentication tokens without impact (e.g., expiration time).\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms without confidential actions.\n* Attacks requiring Man-in-the-Middle (MITM) or physical access to a user's device.\n* Vulnerable libraries previously known without a functional Proof of Concept.\n* File uploads without impact or execution of malicious code.\n* Injection of comma-separated values (CSV) without demonstrating a vulnerability.\n* Lack of best practices in SSL/TLS configuration.\n* Any activity that could lead to disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/unable to modify HTML/CSS.\n* Rate limiting or brute force issues on endpoints without authentication.\n* Lack of best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies.\n* Missing controls (invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.).\n* Vulnerabilities affecting only users of outdated or unpatched browsers.\n* Disclosure of software version/Issues with banner identification/Descriptive error messages or headers (e.g., stack traces, application or server errors).\n* Open redirection - unless an additional security impact can be demonstrated.\n* Issues requiring unlikely user interaction.\n* Self-XSS or DOM XSS without clear impact.\n* Service banner and/or version.\n* Any bug depending on an outdated browser.\n* Exposed credentials that are either no longer valid or do not represent a risk to an asset in scope.\n* Domain/Subdomain takeover.\n* Discrepancies between content stated in privacy policies, terms of use, or institutional pages and the actual application behavior (transparency or compliance concerns should be reported through Unico's privacy/DPO channels).\n* Broken links, typos, or content issues on static, institutional, or marketing pages.\n\n---\n\nThank you for helping keep Unico IDtech and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "[Unico] Liveness Bypass",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Test environment for identifying weaknesses in the Liveness verification system and exploring potential bypass methods.\n\nCurrently available as:\n1. APK (Android)\n2. IPA (iOS)\n3. Web Page\n\nPlease refer to the program policy for detailed test criteria and artifact links.\n\nDetailed Info: https://sdk-h1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cadastro.uat.unico.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "\nScope related to the By Unico API.\n\nThe API reference for the By Unico API is available at https://devcenter.unico.io/unico-idcloud/by-unico-integration/by-unico-api/api-reference.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "accountshomolog.acesso.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "identityhomolog.acesso.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.uat.unico.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "backend-sdk.uat.private.unico.run",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://sdk-h1.unico.io/createprocess",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Scope related to Unico Liveness Testing. This endpoint is used for the final liveness validation.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "idpay-uat.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "issuer.idpay-uat.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "idcash-uat.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "openfinance.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "devcenter.unico.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "uconf.uat.unico.app",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

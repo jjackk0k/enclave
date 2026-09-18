@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "aon",
+      "name": "Aon",
+      "offersBounties": false,
+      "assets": [
+        "All internet-facing Aon assets are in scope",
+        "abs.uat.affinity.kentico.aon.com",
+        "altasybajas-qc.aon.com",
+        "altasybajas.aon.com",
+        "analyticshub.aon.com",
+        "aondatacentre-admin.aon.com",
+        "aonedge.aon.com",
+        "aonline.aon.com",
+        "aontmgr.aon.com",
+        "aonwebbr.aon.com",
+        "aonwebbr.egslb.cmp.aon.com",
+        "aonwebco.aon.com",
+        "aonwebmx.aon.com",
+        "aonwebmx.egslb.cmp.aon.com",
+        "aonwebpe.aon.com",
+        "aonwebpe.egslb.cmp.aon.com",
+        "api-cache.radnet-staging.aon.com",
+        "apidocs.prod.ip.aon.com",
+        "assets.aon.com",
+        "benefitindexpreprod2.aon.com",
+        "bite-lt.staging.pms-ou.aon.com",
+        "clientview.aon.com",
+        "cpai.qa.affinity.kentico.aon.com",
+        "dev.ce.itps.aon.com",
+        "https://www.aon.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\aon-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "aon",
+  "name": "Aon",
+  "url": "https://hackerone.com/aon",
+  "policy": "At Aon, we welcome contributions from security researchers. If you believe you’ve discovered a vulnerability, please submit a report. Our team will investigate and do our best to respond in a timely manner. To ensure all parties' expectations are met, please review the entirety of this policy before submitting a report. By making a submission or otherwise participating in this program, you acknowledge your agreement to the terms set forth below. We thank you in advance for your contributions to our vulnerability disclosure program.\n\n# Response Targets\nAon will make reasonable efforts to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA  |\n| ------------- | ------------- |\n| First Response | 2 business days |\n| Time to Triage | 10 business days |\n| Time to Resolution | Depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n*\tSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n*\tWhen duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n*\tMultiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n*\tSocial engineering (e.g. phishing, vishing, smishing) is prohibited.\n*\tAutomated scanning or testing is prohibited.\n*\tMake a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Scope\nAll internet facing Aon assets\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact. The following issues are considered out of scope:\n\n*\tClickjacking on pages with no sensitive actions\n*\tCross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n*\tAttacks requiring MITM or physical access to a user's device\n*\tPreviously known vulnerable libraries without a working Proof of Concept\n*\tComma Separated Values (CSV) injection without demonstrating a vulnerability\n*\tMissing best practices in SSL/TLS configuration\n*\tAny activity that could lead to the disruption of our service (DoS)\n*\tContent spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n*\tBruteforce issues on non-authentication endpoints\n*\tIssues relating to rate limiting issues\n*\tMissing best practices in Content Security Policy\n*\tMissing HttpOnly or Secure flags on cookies\n*\tMissing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n*\tVulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n*\tSoftware version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n*\tTabnabbing\n*\tOpen redirect - unless an additional security impact can be demonstrated\n*\tIssues that require unlikely user interaction\n*\tIssues relating to password strength or complexity\n*\tVulnerabilities or weaknesses in third party applications that integrate with Aon\n\n# Testing\nWhen testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. Please do the following when participating in Aon’s VDP Program:\n*\tWhere possible, register accounts using your <HackerOne-username>+x@wearehackerone.com addresses. (see https://docs.hackerone.com/hackers/hacker-email-alias.html )\n*\tProvide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n*\t**Include a custom HTTP header in all your traffic.** Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily.\n    *\tIdentifier: Your HackerOne Username\n    *\tFormat: X-Aon-VDP: HackerOne-<HackerOne-username>\n    *\tExample: X-Aon-VDP: HackerOne-H4x0r\n\nWhen testing for a bug, please also keep in mind:\n*\tOnly use authorized accounts so as not to inadvertently compromise the privacy of our users.\n*\tWhen attempting to demonstrate root permissions with the following primitives in a vulnerable process please use the following commands:\n    *\tRead: cat /proc/1/maps\n    *\tWrite: touch /root/<HackerOne-username>\n    *\tExecute: id, hostname, pwd (though, technically cat and touch also prove execution)\n*\t**Do not use automated scanners/tools.** Such tools include payloads that could trigger state changes or damage production systems or data (e.g., do not execute Burp active scans). Any traffic causing latency to our services has the potential to blacklisted.\n*\tBefore causing damage or potential damage: stop, report what you've found, and request additional testing permission.\n\n# Coordinated Disclosure Requirements\nComplying with our safe harbor policy requires researchers to adhere to a coordinated disclosure process. Coordinated disclosure requires that researchers abide by the following requirements:\n*\tShare a detailed report that includes all information as it relates to the vulnerability\n*\tProvide the Aon team with a reasonable amount of time to respond to details outlined in the report before providing any information to anyone other than Aon\n*\tDo not access or modify our data or our users’ data without explicit permission. Only interact with your own accounts or test accounts for security research purposes\n*\tDo not profit from or allow another party to profit from a vulnerability\n*\tDo not defraud Aon or its customers in the process of participating in our program\n*\tAct in good faith to avoid privacy violations, destruction of data, and interruption or degradation of our services (including denial of service)\n*\tIf you inadvertently cause a privacy violation, or access, modify or destroy any user data, you must disclose this in your report\n*\tOtherwise comply with all applicable laws\n\n# Legal Notice\nYou agree that by participating in this program and submitting information to Aon, you grant Aon and its affiliates and subsidiaries a perpetual, irrevocable, no charge license to all intellectual property rights licensable by you in or related to the use of this material.\nAny activity which involves the intentional compromise of the privacy of our clients, customers or employees or the intentional disruption of the operation of our products, services, or information technology infrastructure may result in Aon taking action, including but not limited to bringing legal claims, against you.\nWe may collect information that could reasonably be used to identify you (e.g., IP address). Aon may use this information for several purposes, including to evaluate a reported vulnerability and protect Aon products, services, or information technology infrastructure.\nAon reserves the right to modify or terminate the program in its sole discretion, at any time and without prior notice.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "All internet-facing Aon assets are in scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "abs.uat.affinity.kentico.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "altasybajas-qc.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "altasybajas.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "analyticshub.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aondatacentre-admin.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonedge.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonline.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aontmgr.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebbr.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebbr.egslb.cmp.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebco.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebmx.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebmx.egslb.cmp.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebpe.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aonwebpe.egslb.cmp.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-cache.radnet-staging.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "apidocs.prod.ip.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "assets.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "benefitindexpreprod2.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bite-lt.staging.pms-ou.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "clientview.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cpai.qa.affinity.kentico.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dev.ce.itps.aon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

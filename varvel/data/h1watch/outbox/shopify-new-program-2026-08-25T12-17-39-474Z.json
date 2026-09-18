@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "shopify",
+      "name": "Shopify",
+      "offersBounties": true,
+      "assets": [
+        "*.shopify.com",
+        "*.shopify.io",
+        "*.shopifycloud.com",
+        "*.shopifycs.com",
+        "*.shopifykloud.com",
+        "Shopify Developed Apps",
+        "Shopify Mobile Applications",
+        "Shopify Third Party Apps",
+        "Shopify Third Party Store",
+        "accounts.shopify.com",
+        "admin.shopify.com",
+        "arrive-server.shopifycloud.com",
+        "https://github.com/Shopify/*",
+        "linkpop.com",
+        "partners.shopify.com",
+        "shop.app",
+        "shopify.plus",
+        "shopifyinbox.com",
+        "your-store.myshopify.com"
+      ],
+      "exclusions": [
+        "*.email.shopify.com",
+        "Other",
+        "cdn.shopify.com",
+        "community.shopify.com",
+        "investors.shopify.com",
+        "livechat.shopify.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\shopify-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "shopify",
+  "name": "Shopify",
+  "url": "https://hackerone.com/shopify",
+  "policy": "# Shopify's Bug Bounty Program\n\nWe reward security researchers for finding and reporting vulnerabilities that help keep our platform secure. Our bug bounty program offers rewards up to $200,000 and bonuses for outstanding contributions.\n\nHere’s what you can expect:\n- Quick review and triage of reports with high-quality evaluations.\n- Full transparency on report decisions.\n- Prompt bounty awards after triage, except in rare cases.\n\nWe value all contributions, from minor issues to critical vulnerabilities, as they help enhance Shopify’s security.\n\n## Early Access Program\n\nA special invite-only program where select researchers get early access to Shopify features before they're widely released. This exclusive opportunity lets you discover vulnerabilities in our newest innovations while earning bounties.\n\nCriteria for invitation:\n\n- Submitted 4 or more reports over the past 2 years.\n- 50% or higher rate of success on those reports\n\nPlease note, invitations are extended at Shopify's discretion based on quality contributions to our security ecosystem.\n\n\n## Getting started\n1. Review and understand the [participation rules](https://bugbounty.shopify.com/criteria?q=rules), the list of [assets in scope](https://bugbounty.shopify.com/criteria?q=scope), and the list of [ineligible issues](https://bugbounty.shopify.com/criteria?q=ineligible-issues).\n1. Familiarize yourself with the `@wearehackerone.com` email address which must be used when creating a Shopify account. This alias is provided by HackerOne and you can learn more about it in their [documentation](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias).\n1. Create a Shopify account using [this link](https://partners.shopify.com/signup/bugbounty) and follow the registration process.\n1. You must test only against stores you have created. Testing against live merchants is prohibited and can result in reports being closed as `Not Applicable` and/or your disqualification from the Shopify bug bounty program.\n1. Consult [Shopify Help Center](https://help.shopify.com/) for further information on how to build a store and to discover platform features. For newest product updates, keep an eye on our [Core Change Log](https://changelog.shopify.com/) and [Partners Blog](https://www.shopify.ca/partners/blog/topics/shopify-news).\n\nIf you need further clarification of the rules or scope of our bug bounty program, please don't hesitate to contact us at bugbounty@shopify.com.\n\n## Eligibility\nThe scope of the bug bounty program is limited to the assets listed on the scope page for this program. Valid vulnerabilities on any asset not explicitly listed in scope may be accepted but are ineligible for a reward. As a general rule:\n- Reports which do not demonstrate relevant security impact to Shopify or our Merchants by providing a functional proof of concept will be closed as N/A.\n- We reward researchers based on the scenario that yields the highest overall severity score , provided that the scenario is plausible and directly linked to the root issue. In cases where multiple reports share the same root cause, these will be closed as Duplicate.\n- We will only award and triage reports when the root cause is under our control.\n- IDOR eligibility will be evaluated considering the identifier predictability, the data accessed and overall impact on the service.\n- Reports of a vulnerability disclosing sensitive PII will be evaluated on a case by case basis, considering the overall impact on Shopify's merchant data.\n\n## Typical Bounty Amounts\nBounty amounts will be determined using [Shopify's Bug Bounty Calculator](https://bugbounty.shopify.com/calculator). In most cases, we will only triage and reward vulnerabilities with a score greater than 0. A score under 3 will result in a $500 bounty. Scores greater than or equal to 3 will be determined by the calculator. In rare cases, we may choose to accept and award a bonus for an issue with a score of  0 when we see a high potential for future security impact and make a change as a result of the report. Bonuses are determined as a percentage (10% of what the bounty is estimated at for an exploitable issue), with a minimum of $500 and a maximum of $5,000.\n\nWhile our bounty table states the minimum bounty per severity, scores for non-core properties listed in scope will be determined with Environment Score modifiers set to Low for Confidentiality, Integrity, and Availability Requirements.\n\n## Leaked Credentials\nIn alignment with HackerOne’s guidance and terms, Shopify accepts reports of leaked credentials, including Authentication material for Shopify APIs and/or Shopify infrastructure. Hackers should submit the leaked credentials to the program and should not test their validity beyond authenticating and then immediately deauthenticating - without exercising any functionality. Likewise, Hackers should not share these credentials beyond their report to the program.\n\n## Rules for participation\nThe following rules must be followed in order for any rewards to be paid:\n- **Eligibility for Rewards**\n  - Only test against stores you created using your HackerOne `YOURHANDLE @ wearehackerone.com` registered email.\n  - Do not attempt to gain access to, or interact with stores you didn’t create.\n  - Follow all reporting rules.\n  - Do not disclose issues publicly before resolution or without permission.\n- **Program Modifications**\n  - Shopify reserves the right to modify rules or invalidate submissions at any time.\n  - Shopify may cancel the bug bounty program without notice at any time.\n- **Contact Restrictions**\n  - Do not contact Shopify Support as part of your testing or to ask about the bounty program, to pre-validate reports nor to ask for updates. Violating this will disqualify you from receiving a reward and may result in a program ban.\n- **Employment Status**\n  - You are not an employee of Shopify\n  - Shopify employees must report bugs to the internal bug bounty program.\n- **Vulnerability Reporting**\n  - You must report any discovered vulnerability to Shopify as soon as you have validated the vulnerability.\n\nFailure to follow any of the foregoing rules will disqualify you from participating in this program.\n- **General Rules**\n  - Reports must demonstrate relevant CVSS impact to Shopify, Shop users, our partners or our merchants with a functional proof of concept. Reports without this will be closed as N/A.\n  - Rewards are based on the highest CVSS score scenario that is plausible and linked to the root issue. Multiple reports with the same root cause will be closed as Duplicate.\n  - You hereby represent, warrant and covenant that any content you submit to Shopify is an original work of authorship and that you are legally entitled to grant the rights and privileges conveyed by these terms. You further represent, warrant and covenant that the consent of no other person or entity is or will be necessary for Shopify to use the submitted content.\n  - By submitting content to Shopify, you irrevocably waive all moral rights which you may have in the content.\n  - All content submitted by you to Shopify under this program is licensed under the MIT License.\n- **Notes**\n  - This program is not open to individuals who are on sanctions lists, or who are in countries on sanctions lists.\n  - You are responsible for any tax implications resulting from payouts depending on your country of residency and citizenship.\n  - Shopify reserves the right to cancel this program at any time and the decision to pay a bounty is entirely at our discretion. Your testing and submission must not violate any law, or disrupt or compromise any data that is not your own.\n  - There may be additional restrictions on your ability to submit content or receive a bounty depending on your local laws.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "your-store.myshopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core\n\nYour development store hosted at `*.myshopify.com`. Create a development store by signing up at https://partners.shopify.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partners.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "investors.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nOperated by a third party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.email.shopify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nOperated by a third party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Shopify Third Party Apps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nVulnerabilities found in Shopify third party apps should be reported to the responsible developer. You should only report vulnerabilities in Shopify third party apps to Shopify under this program if you do not receive a satisfactory response from the responsible developer.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Shopify Third Party Store",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nYou may only test against shops you have created.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.shopify.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\n*.shopify.io may include developer test or third party applications. If you are unsure about a domain and it looks like a test or third party application, please email us at bugbounty@shopify.com before spending time on it.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.shopify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nReports involving *.shopify.com are reviewed on a per case basis for bounty eligibility, this includes shopifycompass.com. Any services operated by a third party without a proof of concept demonstrating impact on *.myshopify.com users will likely be ineligible for a bounty. ",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Other",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cdn.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nShopify allows merchants to upload any file they want on our content delivery network. Being able to upload a file is not a vulnerability, this is the intended functionality.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "livechat.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\nContacting Shopify Support over chat, email or phone about your HackerOne report is not allowed.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Environment: Non-core\n\ncommunity.shopify.com is a third party service and not in scope of our bug bounty program. Please do not test this subdomain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Shopify Developed Apps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nShopify apps and sales channels means everything installed via the following link https://apps.shopify.com/collections/made-by-shopify ",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Shopify Mobile Applications",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nAndroid: https://play.google.com/store/apps/dev?id=8929232438554100687\niOS: https://itunes.apple.com/ca/developer/shopify-inc/id371294475\n\nNote: any services operated by a third party without a proof of concept demonstrating impact on Shopify users will likely be ineligible fo",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.shopifykloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nShopify Kloud includes all *.shopifykloud.com applications. Please note, there may be developer test or third party applications launched on the domain which may have low security implications for Shopify. If you are unsure about a subdomain on *.shopifykloud.com and it looks ",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.shopifycloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\n*.shopifycloud.com may include developer test or third party applications. For example,  devdegree*.shopifycloud.com, vendorvoice.shopifycloud.com, nsolid-test-console.shopifycloud.com. These types of domains are not considered in scope and reports pertaining to them will be c",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "linkpop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "shopifyinbox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "shop.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shopify.plus",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "arrive-server.shopifycloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin.shopify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Shopify/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nPublic repositories available under the Shopify organization in Github.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.shopifycs.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Environment: Non-core\n\nShopify's service for handling credit card data in a PCI compliant way.",
+      "max_severity": "critical"
+    }
+  ]
+}

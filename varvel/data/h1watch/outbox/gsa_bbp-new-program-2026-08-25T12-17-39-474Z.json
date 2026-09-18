@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gsa_bbp",
+      "name": "GSA Bounty",
+      "offersBounties": true,
+      "assets": [
+        "account.fr.cloud.gov",
+        "admin-catalog-bsp.data.gov",
+        "admin.fr.cloud.gov",
+        "alertmanager.fr.cloud.gov",
+        "api.data.gov",
+        "api.fr.cloud.gov",
+        "catalog.data.gov",
+        "ci.fr.cloud.gov",
+        "dashboard.fr.cloud.gov",
+        "diagrams.fr.cloud.gov",
+        "federalist-proxy.app.cloud.gov",
+        "federation.data.gov",
+        "grafana.fr.cloud.gov",
+        "idp.fr.cloud.gov",
+        "inventory.data.gov",
+        "labs.data.gov",
+        "login.fr.cloud.gov",
+        "logs-platform.fr.cloud.gov",
+        "logs.fr.cloud.gov",
+        "nessus.fr.cloud.gov",
+        "opslogin.fr.cloud.gov",
+        "prometheus.fr.cloud.gov",
+        "sdg.data.gov",
+        "ssh.fr.cloud.gov",
+        "www.data.gov"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gsa_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gsa_bbp",
+  "name": "GSA Bounty",
+  "url": "https://hackerone.com/gsa_bbp",
+  "policy": "General Services Administration Bug Bounty Program\n=====================\n\nAs a U.S. government agency, the General Services Administration (GSA) takes seriously our responsibility to protect the public's information, including financial and personal information, from unwarranted disclosure.\n\nSecurity researchers should feel comfortable reporting vulnerabilities discovered, as defined in this policy, to afford GSA the opportunity to remediate the findings for the purpose of ensuring confidentiality, so we can fix them and keep our information safe.\n\nThe GSA looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n\n# Philosophy \nThe GSA expects to evolve its structure over time and welcome feedback on areas for improvement. The following criteria guide our thinking:\n+ Common Practices: Wherever it makes sense, the GSA desires to learn from and follow industry common practices in bounty programs. We will deviate only when there is a clear and specific need.\n+ Competitive: We seek to provide competitive bounty amounts. Leveraging HackerOne platform data, new services will be introduced with median or higher reward levels and typically increase over time.\n+ Open: Our intent is for each service to be open to public participation. We will start with private programs only as a stepping stone toward a publicly available program.\n+ Responsive: The GSA is composed of many autonomous technical teams. Only teams that commit to and maintain positive levels of responsiveness to researchers will be included.\n\n#Vulnerability Disclosure Policy\nParticipation in this program is governed by the [Vulnerability Disclosure Policy](https://www.gsa.gov/vulnerability-disclosure-policy) of the General Services Administration. Please fully review the linked policy prior to your participation.\n\n# Response Targets\nGSA will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | Depends on severity & complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Rewards\nThe bug bounty program of the General Services Administration is special in that it aims to cover numerous individual services that have been developed to address a diverse range of public use cases. Our strategy is to rotate services into scope at regular intervals. Our rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of GSA.\n\n# Exclusions and known issues\nOur goal with this program is to fix issues with meaningful impact. Thus, we exclude certain types of issues because they have low (or no) security impact to us, and/or are known issues that we're comfortable with. These issues are unlikely to be eligible for an award, and will usually be considered invalid for the purposes of our program:\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. \nThe following issues are considered out of scope:\n* Violations of secure design principles that are not part of exploitable vulnerabilities.\n* Clickjacking on pages with no sensitive actions.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Logout CSRF\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* HTTP OPTIONS/TRACE methods enabled.\n* Missing best practices in Content Security Policy.\n* HTTP/TLS configuration issues without demonstrable impact, such as:\n    * TLS configuration issues such as BEAST, BREACH, renegotiation attacks, insecure cipher suites, etc.\n    * Missing HTTP security headers\n    * Lack of Secure or HTTPOnly cookie flag.\n    * Missing best practices in SSL/TLS configuration.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Reports about missing rate limiting where other mitigations exist (for example, brute force attacks against login pages already protected by MFA).\n* Username enumeration on login or forgot password pages.\n* Overly broad permissions on editing wikis (or other non-software non-production areas) associated with our source code repositories.\n* Use of a known-vulnerable library without evidence of exploitability\nPresence (or absence) of application/browser autocomplete or save-password flags.\n* Lack of \"security speedbumps\" when leaving sites/applications.\n* Non-sensitive information disclosure (i.e., server versions, software stack, etc) on error message pages, 404 pages, and so forth.\n\n\n### Scope\n\nThe General Services Administration is comprised of many autonomous technical teams operating multiple services. While the services below offer bounties, all others do _not offer bounties_. Please review this scope section carefully before proceeding. If you wish to be notified when additional services are introduced to scope, please click \"Notify me of changes\" at the bottom of this page.\n\n1. cloud.gov Platform\n   -  Description: The core of cloud.gov is a Platform as a Service built specifically for government work. We are highly interested in vulnerabilities with an impact on the underlying platform or that lead to privilege escalation between customer environments. To get started, we recommend reviewing the cloud.gov overview, documentation, diagrams, and code repositories\n   - Assets: `cloud.gov`, `account.fr.cloud.gov`, `admin.fr.cloud.gov`, `alertmanager.fr.cloud.gov`, `api.fr.cloud.gov`, `ci.fr.cloud.gov`, `dashboard.fr.cloud.gov`, `diagrams.fr.cloud.gov`, `grafana.fr.cloud.gov`, `idp.fr.cloud.gov`, `login.fr.cloud.gov`, `logs.fr.cloud.gov`, `logs-platform.fr.cloud.gov`, `nessus.fr.cloud.gov`, `opslogin.fr.cloud.gov`, `prometheus.fr.cloud.gov`, `ssh.fr.cloud.gov`, `dashboard-beta.fr.cloud.gov`\n1. code.gov\n   - Description: The Federal Source Code Policy is designed to support reuse and public access to custom-developed Federal source code. It requires new custom-developed source code developed specifically by or for the Federal Government to be made available for sharing and re-use across all Federal agencies. It also includes an Open Source Pilot Program that requires agencies to release at least 20% of new custom-developed Federal source code to the public.\n   - Assets: `*.code.gov`\n1. data.gov\n   - Description: Data.gov is a rich resource for civic hackers, tech entrepreneurs, data scientists, and developers of all stripes. We are highly interested in vulnerabilities that may impact the integrity of any data, such as any issues with our [Data Harvesting](https://www.data.gov/developers/harvesting) processes. As an open data platform, there is negligible confidential information hosted on data.gov.\n   - Assets: `www.data.gov`, `federation.data.gov`, `sdg.data.gov`, `labs.data.gov`, `catalog.data.gov`, `inventory.data.gov`, `static.data.gov`, `admin-catalog-bsp.data.gov`, [GSA/data.gov](https://github.com/GSA/data.gov), [GSA/datagov-deploy](https://github.com/GSA/datagov-deploy)\n1. api.data.gov\n   - Description: api.data.gov is a free API management service for federal agencies. Our aim is to make it easier for agencies to release and manage APIs.\n   - Assets: `api.data.gov`\n1. cloud.gov Pages (formerly Federalist)\n   - Description: cloud.gov Pages is an open source static site web publishing service for the United States federal government. We are highly interested in vulnerabilities that impact the integrity of production content or enable a malicious user to impact sites outside of their granted permissions. To get started, we recommend reading the main Pages document  and the instructions on Running Federalist Locally. The site at https://cloud.gov itself is a sample deployment of Pages.\n   - Assets: `federalist.18f.gov`, `federalist-proxy.app.cloud.gov`, `cloud-gov/pages-core`, `cloud-gov/pages-builder`,`cloud-gov/pages-proxy`,`cloud-gov/pages-build-container`\n1. fedramp.gov\n   - Description: The Federal Risk and Authorization Management Program (FedRAMP) is a government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. FedRAMP enables Agencies to rapidly adapt from old, insecure legacy IT to mission-enabling, secure, and cost effective cloud-based IT.\n   - Assets: `www.fedramp.gov`, `marketplace.fedramp.gov`\n1. login.gov\n   - Description: login.gov is a single sign-on service offering the public secure and private access to participating government programs. We welcome external review of our privacy-protection measures. Our main application code is available for public inspection in an [open-source repository](https://github.com/18F/identity-idp). Our goal: make sure that at every step users know their privacy is being protected by design. Our [developer documentation](https://developers.login.gov/) is a great place to get started. **NOTE: If you encounter Personally Identifiable Information (PII) during your testing, please STOP and notify us immediately.**\n   - Assets: `*.login.gov`, `https://github.com/18F/identity-idp`,`https://github.com/18F/identity-saml-sinatra`, `https://github.com/18F/identity-saml-rails`\n1. search.gov\n   - Description: Powering over 2,000 search boxes on Federal websites. Check out the [Help Manual](https://search.gov/manual/index.html) to get started learning about this service.\n   - Assets: `*.search.gov` `*.search.usa.gov`\n1. Vulnerability Disclosure\n   - Description: While only the assets listed above are eligible for bounties, we welcome disclosures of vulnerabilities in wider set of assets through our Vulnerability Disclosure Policy. The full set of assets in scope for disclosure are listed below, and in our [Vulnerability Disclosure Policy](https://github.com/18F/vulnerability-disclosure-policy/blob/master/vulnerability-disclosure-policy.md).\n   - Bounty Tier: Not Eligible\n   - Assets: Please see our [Vulnerability Disclosure Policy](https://github.com/18F/vulnerability-disclosure-policy/blob/master/vulnerability-disclosure-policy.md) for the full list of assets covered by this policy.\n\nNote: \"subdomain hijacking\" (taking control of a subdomain that was otherwise unused, such as by taking advantage of a dangling CNAME to a third party service provider) is in-scope for bounty awards, when the affected hostnames are within the second-level domains that appear in our in-scope list. These reports will always be considered low-severity unless there is further demonstrated impact.\n\n**Any out of scope submissions may be re-routed to the GSA Vulnerability Disclosure Program.**\n\n\n\n### Eligibility\n\nIf you submit a qualifying, validated vulnerability, you may be eligible to receive a bounty award subject to the terms below:\n\n- While we welcome the submission of any vulnerability that impacts in-scope services, we may not be able to award a bounty for submissions where the root-cause vulnerability was introduced by an upstream library or a third party SaaS / PaaS / IaaS system.\n- You are not currently nor have been an employee or contractor of the U.S. General Services Administration (GSA) within 12 months prior to submission\n- You are not a family or household member of an employee or contractor of the U.S. General Services Administration (GSA) as described above\n- You must meet all HackerOne Bug Bounty eligibility requirements, such as not being subject to trade restrictions or export sanctions as determined by the U.S. Office of Foreign Assets Control (OFAC).\n- If you are a federal employee, you are reminded that you may be required to seek approval from your supervisor and/or ethics office for any outside positions or compensation.  \n- If you are a current federal employee or the spouse or dependent child of a federal employee, you are reminded that Federal Employees are covered by the Standards of Ethical Conduct for Employees of the Executive Branch. 5 CFR Section 2635.  Included in these restrictions is the prohibition against use of nonpublic information for personal gain.\n- If you are an employee of a federal contractor or subcontractor, you are reminded that information you receive in your employment is for your use in your employment.  You may be prohibited from disclosing that information by a Non-Disclosure Agreement. \n\nThank you for helping keep GSA and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "federalist-proxy.app.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "account.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ci.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "login.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "logs.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "federation.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sdg.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "labs.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "catalog.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "From the data.gov Catalog, you will find many external references. These external sites and the data hosted there is **not in scope** for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "inventory.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin-catalog-bsp.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "idp.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alertmanager.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "diagrams.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "grafana.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "logs-platform.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nessus.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "opslogin.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "prometheus.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ssh.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.fr.cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.data.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

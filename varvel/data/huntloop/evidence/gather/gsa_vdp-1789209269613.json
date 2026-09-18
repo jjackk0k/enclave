@@ -1,0 +1,96 @@
+{
+ "at": "2026-09-12T10:34:22.592Z",
+ "opportunity": "gsa_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "sam.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "drupal",
+     "label": "Drupal",
+     "version": null,
+     "evidence": "/sites/default/files"
+    }
+   ],
+   "headers": {
+    "server": "istio-envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 d80f7c2eab06a6f2e4a0b5899597d81e.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/admin/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "18f.gov",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to 18f.gov:443 refused: host unreachable"
+  },
+  {
+   "host": "accessibility.gov",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to accessibility.gov:443 refused: host unreachable"
+  },
+  {
+   "host": "acquisition.gov",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "businessusa.gov",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to businessusa.gov:443 refused: host unreachable"
+  }
+ ]
+}

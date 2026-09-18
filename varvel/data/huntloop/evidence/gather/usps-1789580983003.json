@@ -1,0 +1,112 @@
+{
+ "at": "2026-09-16T17:49:27.701Z",
+ "opportunity": "usps",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "iv.usps.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": "3.5.1",
+     "evidence": "jquery-3.5.1.min.js"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "content-security-policy": "default-src 'self' https:;                                                 connect-src 'self' https:;                   ",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "id.usps.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "gateway.usps.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "content-security-policy": "default-src 'self' https:;                                                 connect-src 'self' https:;                   ",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "reg.usps.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN, DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "pi.usps.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

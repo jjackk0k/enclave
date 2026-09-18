@@ -30,6 +30,44 @@ SSH_BASE = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=8",
             config.SSH_TARGET]
 
 
+# --- windowless spawning (the console-window-flash fix) -------------------------
+# Under a WINDOWED parent (pythonw / the frozen spark-menu.exe) every console
+# child (ssh.exe, tasklist.exe, powershell.exe, taskkill.exe, node.exe) would
+# otherwise allocate a brand-new visible console window on each spawn — that
+# was the flash Jack saw every refresh tick. ONE helper owns the posture so no
+# future poll loop can reintroduce it: CREATE_NO_WINDOW plus detached stdio,
+# so nothing ever attaches to (or allocates) a console.
+def _hidden_kwargs(kwargs: dict) -> dict:
+    kw = dict(kwargs)
+    kw["creationflags"] = kw.get("creationflags", 0) | _CREATE_NO_WINDOW
+    return kw
+
+
+def run_hidden(cmd, **kwargs):
+    """subprocess.run, windowless. capture_output callers keep their pipes;
+    anything else is silenced to DEVNULL so no console is inherited."""
+    kw = _hidden_kwargs(kwargs)
+    if not (kw.get("capture_output") or kw.get("stdout") is not None):
+        kw["stdout"] = subprocess.DEVNULL
+    if kw.get("stderr") is None and not kw.get("capture_output"):
+        kw["stderr"] = subprocess.DEVNULL
+    if kw.get("stdin") is None:
+        kw["stdin"] = subprocess.DEVNULL
+    return subprocess.run(cmd, **kw)
+
+
+def popen_hidden(cmd, **kwargs):
+    """subprocess.Popen, windowless (same doctrine; long-lived children too)."""
+    kw = _hidden_kwargs(kwargs)
+    if kw.get("stdin") is None:
+        kw["stdin"] = subprocess.DEVNULL
+    if kw.get("stdout") is None:
+        kw["stdout"] = subprocess.DEVNULL
+    if kw.get("stderr") is None:
+        kw["stderr"] = subprocess.DEVNULL
+    return subprocess.Popen(cmd, **kw)
+
+
 def health(timeout: float = 3.0) -> Tuple[bool, str]:
     """GET the lane's /health through the local tunnel."""
     url = config.BASE_URL.rstrip("/") + "/health"
@@ -55,11 +93,13 @@ def current_model(timeout: float = 3.0) -> Optional[str]:
 
 def lane_ssh(args: List[str], timeout: float = 300.0) -> Tuple[bool, str]:
     """Run a lane-models.sh verb on the Spark. Returns (ok, combined output).
-    Never raises; a dead ssh path is an honest (False, error)."""
+    Never raises; a dead ssh path is an honest (False, error). Windowless —
+    this fires on the menu's refresh tick, and a console flash per tick was
+    the reported bug."""
     cmd = SSH_BASE + [" ".join([LANE_SCRIPT] + args)]
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True,
-                              errors="replace", timeout=timeout)
+        proc = run_hidden(cmd, capture_output=True, text=True,
+                          errors="replace", timeout=timeout)
     except Exception as exc:
         return False, f"ssh failed: {type(exc).__name__}: {exc}"
     out = (proc.stdout + proc.stderr).strip()
@@ -107,7 +147,9 @@ def launch_repl_cmd(resume_last: bool = False) -> List[str]:
 
 
 def spawn_repl(cwd: str, resume_last: bool = False) -> Tuple[bool, str]:
-    """Open the REPL in its own console window, working directory = cwd."""
+    """Open the REPL in its own console window, working directory = cwd.
+    Deliberately VISIBLE (CREATE_NEW_CONSOLE) — the REPL is a console app the
+    user interacts with; this is the one spawn the flash fix must NOT hide."""
     try:
         subprocess.Popen(launch_repl_cmd(resume_last), cwd=cwd,
                          creationflags=_NEW_CONSOLE | _NEW_GROUP)
@@ -124,9 +166,7 @@ def spawn_menu_detached() -> Tuple[bool, str]:
     else:
         cmd = [python_for_window(), "-m", "spark_code.menu"]
     try:
-        subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
-                         stderr=subprocess.DEVNULL,
-                         creationflags=_DETACHED | _NEW_GROUP | _CREATE_NO_WINDOW)
+        popen_hidden(cmd, creationflags=_DETACHED | _NEW_GROUP)
     except Exception as exc:
         return False, f"could not open the menu: {type(exc).__name__}: {exc}"
     return True, "menu opened"

@@ -1,0 +1,147 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "plaid",
+      "name": "Plaid",
+      "offersBounties": true,
+      "assets": [
+        "cdn.plaid.com",
+        "dashboard.plaid.com",
+        "demo.plaid.com",
+        "https://github.com/plaid/plaid-link-android",
+        "https://github.com/plaid/plaid-link-ios",
+        "https://github.com/plaid/plaid-ruby",
+        "https://github.com/plaid/react-native-plaid-link-sdk",
+        "https://github.com/plaid/react-plaid-link",
+        "my.plaid.com",
+        "plaid.com",
+        "production.plaid.com",
+        "secure.plaid.com"
+      ],
+      "exclusions": [
+        "https://my.plaid.com/data-subject-request-form"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\plaid-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "plaid",
+  "name": "Plaid",
+  "url": "https://hackerone.com/plaid",
+  "policy": "Plaid looks forward to working with the security community to find security vulnerabilities in order to keep our business and customers safe.\n\n# Program Scope\nAny domain/property of Plaid not listed in the Scope, including data repos such as GitHub, PasteBin, etc. may be accepted at Plaid's discretion but is not guaranteed.\n\n# SLA\nPlaid will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 48 hours\n* Time to triage (from report submit) - 5 business days\n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Non-Disclosure and Confidentiality Policy\n* We require that you refrain from disclosing any vulnerabilities to the public or third party.  Any disclosure will result in a disqualification from the bug bounty program.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple qualifying vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Do not engage in activity that will result in privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Automated scanning (through commercial or open-source scanners like Burp Active Scan or Zap Active Scan) against Plaid properties is not permitted.\n* Violation of any of the program rules, including guidelines around bounty submission formats, are grounds for removal from the bug bounty program.\n* Please use your username@WeAreHackerOne.com email when testing.\n\n# Rewards\nPlaid provides rewards to vulnerability reporters at its discretion. Reward amounts may vary depending upon the severity of the vulnerability reported and quality of the report.\n\n| Severity | Bounty* | Example Issues |\n|---|---|---|\n| Critical | $10,000 - $15,000 | Remote Code Execution on servers, SQL Injection |\n| High | $2,500 - $5,000 | Significant Authentication or Authorization Bypass / Logic Flaw, Cross-site Scripting, SSRF |\n| Medium | $500 - $1,000 | Unrestricted File System Access, Directory Traversal |\n| Low | $150 | Information Leakage, Incorrect API access controls, Sub-domain takeover |\n\n\\* These amounts are indicative and we may reward lower amounts for vulnerabilities that require significant user interaction or that have no significant impact, as we determine at our discretion. We also might pay higher amounts for creative or severe vulnerabilities as we determine at our discretion. Additionally, you only get paid for the first 2 bugs you find if you discover a pattern of vulnerability.\n\n# Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Managing Dashboard Users / Dashboard Team Management\n* Clickjacking on pages with no sensitive actions\n* Unauthenticated/logout/login CSRF\n* Attacks requiring MITM\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* User account enumeration\n* Vulnerabilities that require attackers to obtain another user's authenticated session, tokens, or physical access to their devices\n* Reports that a webhook URL was accepted or that Plaid sent a request to a customer-configured webhook, including internal or cloud-metadata addresses, unless you show that Plaid retrieved data from internal infrastructure\n* Issues that depend on unpatched or outdated browsers or mobile platforms\n* Version disclosure, detailed error messages, and any other findings whose only security impact is ‘attacker reconnaissance’\n* SPF and email antispam 'hygiene' issues\n* Application 'hygiene' issues like cookie subdomain settings or security flags or missing security headers\n* Vulnerabilities as reported by automated tools without additional analysis as to how they're an issue.\n* Reports from automated scanners that have not been validated\n* Rate limit bypasses on sign-in and forgot/reset password endpoints will be considered at discretion of the Plaid security team\n* Homoglyph phishing attacks / domain registration\n* Dependency scan issues\n* Best practices concerns\n\n# Getting Setup\nYou can view our API’s postman docs here:\n* https://github.com/plaid/plaid-openapi\n* https://github.com/plaid/plaid-postman\n\nTo start with a full Plaid demo environment, you can view our Pattern project on Github:\n* https://github.com/plaid/pattern\n\nOnce your Dashboard account is setup, you will have access to Plaid’s sandbox environment. You can then create sample users and data.\n\n* https://plaid.com/docs/sandbox/institutions/\n* https://plaid.com/docs/sandbox/test-credentials/\n\n# Staying Up to Date\nTo see what’s new at Plaid, you can check out the [Changelog](https://plaid.com/blog/tag/changelog) section of the [Plaid blog](https://plaid.com/blog/).\n\nThank you for helping keep Plaid and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "production.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid's developer API. Docs: https://plaid.com/docs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid's developer dashboard",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "demo.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Demo Plaid developer integration",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "cdn.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is on Amazon CloudFront, so the scope here is limited to our content and configuration issues.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/plaid/plaid-link-ios",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid's drop-in client-side module for authentication. Available for web, mobile web and iOS.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Portal for customers to access their information as seen by Plaid apps they have permissioned. https://my.plaid.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/plaid/plaid-link-android",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid's drop-in client-side module for authentication. Available for web, mobile web and iOS.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is an alias for cdn.plaid.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "plaid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid's marketing website, not full *.plaid.com",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/plaid/plaid-ruby",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The official Ruby bindings for the Plaid API. It's generated from our OpenAPI schema",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/plaid/react-native-plaid-link-sdk",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Plaid Link for React Native",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/plaid/react-plaid-link",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "React hooks and components for integrating with the Plaid Link drop module",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://my.plaid.com/data-subject-request-form",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-31T17:14:12.289Z",
+      "type": "policy-changed",
+      "handle": "mozilla",
+      "automation": {
+        "from": {
+          "policy": "prohibited",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+        },
+        "to": {
+          "policy": "human-cadence",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — operator rule 2026-08-29: gated, scoped, human-paced AI is human-equivalent, so silence maps to the conservative human-cadence ceilings (never exclusion)"
+        }
+      }
+    },
+    "scannedAt": "2026-08-31T17:14:12.289Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mozilla-policy-changed-2026-08-31T17-14-12-289Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mozilla",
+  "name": "Mozilla",
+  "url": "https://hackerone.com/mozilla",
+  "policy": "# Table of Contents\n\n1. Program Scope  \n2. Bounty Table  \n3. Severity Definitions and Examples  \n4. Test Plan  \n5. Submission Guidelines  \n6. Program Rules  \n7. Appeal Process  \n8. Response Targets  \n9. Disclosure Policy  \n10. Safe Harbor  \n11. Miscellaneous Notes\n\n# Program Scope\n\nTesting should focus on sites listed in the Scope section. Other sites and services are out of scope unless the bug is critical (see Severity Definitions and Examples).\n\nFor out of scope vulnerabilities, we follow HackerOne's standard for [Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings), in addition to the [custom scope exclusions](https://hackerone.com/mozilla?type=team#scope_exclusions) listed on our policy page.\n\n# Bounty Table\n\nOur rewards are based on the severity of the issue and the criticality of the service or application. The below bounty table lists the range of bounties we pay for vulnerabilities in our applications and does not apply to out of scope reports.\n\n| Asset Category | High | Critical |\n| :---- | :---- | :---- |\n| Critical Sites | $3,000 – $6,000 | $6,000 – $15,000 |\n| Core Sites | $1,000 – $3,000 | $3,000 – $5,000 |\n\n**Note that Critical vulnerabilities found in out of scope assets are awarded in the range of $500-$1000.**\n\nDomain takeovers supported by a proof of concept for `*.mozilla.org`, `*.mozilla.com`, `*.mozilla.net`, `*.firefox.com`, `*.mozgcp.net` and `*.mozaws.net` will be eligible for a bounty of $100.\n\n# Severity Definitions and Examples\n\nWe do not rely on the CVSS scoring method to calculate severity. Instead, we rely on analyzing the impact and likelihood of the issue.\n\n**Impact** measures the potential damage if the vulnerability is successfully exploited.\n\n**Likelihood** considers how feasible it is for a researcher or attacker to discover and successfully exploit the vulnerability, taking into account factors such as required privileges, complexity, exploitability, and environmental constraints.\n\nThe intersection of **Impact** and **Likelihood** determines the final **Severity**, which is used for bug bounty prioritization and reward decisions. Below is the matrix which shows the calculated severity based on impact and likelihood.\n\n| Impact ↓ / Likelihood → | High | Medium | Low |\n| :---- | :---- | :---- | :---- |\n| Critical | Critical | High | Medium |\n| High | Critical | High | Medium |\n| Medium | High | Medium | Low |\n| Low | Medium | Low | Informative |\n\nLow and medium severity reports are not eligible for bounty. Mozilla might choose to fix the issues but the reports would still not be eligible for bounty.\n\nBelow are the definitions of each impact and likelihood level and some examples. Note that these lists are not extensive and the final severity decision is up to the discretion of Mozilla.\n\n## Impact\n\n### Critical\n\nCritical vulnerabilities are urgent security issues that present an ongoing or immediate danger to a large number of users of our services and our infrastructure. Examples include:\n\n* Remote Code Execution from an unauthenticated public internet position  \n* Authentication and Session Management Flaws (which lead to account compromise and takeover)  \n* Disclosure of secrets in publicly accessible assets  \n* Hardcoded credentials for a privileged user\n\n### High\n\nTypically, high severity issues are exploitable web vulnerabilities that can lead to the targeted compromise of a small number of users. Examples include:\n\n* Account takeover through Oauth misconfiguration  \n* IDORs that bypass authentication or authorization for significant actions  \n* CSRF on significant actions, such as changing email/passwords, deleting accounts, etc.  \n* XSS resulting in conducting significant action (i.e., not defacement, phishing, cookie injection, etc.)  \n* XML External Entity (XXE) attack  \n* Hardcoded credentials for a non-privileged user\n\n### Medium\n\nVulnerabilities which can provide an attacker additional information or positioning that could be used in combination with other vulnerabilities. In addition to issues resulting from the lack of standard defense in depth techniques and security controls.\n\n* XSS (minor)  \n* Domain takeovers supported by a proof of concept for `*.mozilla.org`, `*.mozilla.com`, `*.mozilla.net`, `*.firefox.com`, `*.mozgcp.net` and `*.mozaws.net` in addition to the list of sites in scope (excluding staging instances). If the domain is pointing to a claimed instance by another company, then the report will not be eligible for bounty.  \n* SSRF which leads to reaching **internal** network hosts  \n* Disclosure of sensitive information which does not expose the user or organization to immediate risk  \n* CSRF for minor actions.\n\n### Low\n\nMinor security vulnerabilities which could lead to leaks or spoofs of non-sensitive information. Missing best practice security controls\n\n* XSS (blocked by CSP)  \n* Clickjacking with demonstrated impact (Lack of clickjacking protection (XFO, CSP) is insufficient to claim a bounty)  \n* External SSRF  \n* Injection attacks which require privileged access to modify content\n\n## Likelihood\n\nBelow are **some** of the factors we take into consideration when determining the likelihood:\n\n* Public internet access vs access from the internal network  \n* Authenticated vs unauthenticated access  \n* Required permissions and access level  \n* Required user interactions  \n* Attack complexity  \n* Mitigating security controls\n\n### High\n\n* The vulnerability can be exploited using unauthenticated public internet access  \n* The vulnerability can be exploited using an authenticated regular user without any special privileges  \n* The vulnerability can be exploited without any user interaction  \n* Hardcoded credentials in a publicly accessible resource\n\n### Medium\n\n* The vulnerability requires one user interaction to be exploited  \n* The vulnerability requires low level permissions which are provided to regular users to be exploited\n\n### Low\n\n* The vulnerability requires admin access or high level permissions which are only given to specific users in order to be exploited  \n* The vulnerability requires local device access to be exploited  \n* The vulnerability requires multiple user interactions to be exploited  \n* The vulnerability is mitigated by WAF, CSP or other security controls\n\n# Test Plan\n\n* We ask that hackers test the application on the staging environment instead of the production environment. This will help ensure that any potential vulnerabilities are identified and addressed before they can be exploited in the production environment. Additionally, testing on the staging environment will help minimize any potential disruption to the production environment.  \n* When reporting reflected XSS vulnerabilities, the affected URL along with a working payload is usually sufficient. For stored XSS attacks, please describe the step-by-step exploit process. Please use `alert(document.domain)` and not `alert(1)` in your proof-of-concept, and do not use malicious payloads.  \n* Make sure that you are not using harmful and malicious payloads in your proof-of-concept, which could impact other users, especially when reporting npm or pip packages takeover.\n\n# Submission Guidelines\n\n* Review our program policy and scope before submitting to our program.  \n* Submissions must be in the required template to be accepted. The template includes: summary of the issue, clear steps to reproduce, supporting proof of concept and the impact statement.  \n* Supporting evidence for the bug is required, including screenshots and video PoC to clearly show the steps to reproduce it.  \n* Excessively verbose and long reports will not be accepted.  \n* Follow up comments and answers to our questions should also be to the point and not include extraneous information.  \n* AI-assisted submissions must follow the above guidelines and Hackerone's [code of conduct](https://www.hackerone.com/policies/code-of-conduct), otherwise the report will be closed as Not Applicable.  \n* Our program policy lists an extensive list of out of scope vulnerabilities, including [invalid reports which are frequently reported](https://bugzilla.mozilla.org/show_bug.cgi?id=1830029). Verify the issue is not already listed in our out of scope vulnerabilities before submitting.  \n* When reporting information disclosure vulnerabilities, note that most Mozilla projects and code are open source and content on most sites is intentionally public.  \n* Reports on Firefox and Mozilla VPN clients are out of scope of our web bug bounty program and they should be submitted using the form: https://bugzilla.mozilla.org/form.client.bounty\n\n# Program Rules\n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\nTo be eligible for a reward under this program:\n\n* The security bug must be original and previously unreported.  External submissions that have already been reported internally are not eligible for a bounty.\n* The security bug must be a part of Mozilla's code, not the code of a third party. We will pay bounties for vulnerabilities in third-party libraries incorporated into shipped client code or third-party websites utilized by Mozilla.  \n* You must not have written the buggy code or otherwise been involved in contributing the buggy code to the Mozilla project.  \n* You must be old enough to be eligible to participate in and receive payment from this program in your jurisdiction, or otherwise qualify to receive payment, whether through consent from your parent or guardian or some other way.  \n* You must not be an employee, contractor, or otherwise have a business relationship with the Mozilla Foundation or any of its subsidiaries.  \n* You should use your best effort not to access, modify, delete, or store user data or Mozilla's data. Instead, use your own accounts or test accounts for security research purposes.  \n* If you inadvertently access, modify, delete, or store user data, we ask that you notify Mozilla immediately at [security@mozilla.org](mailto:security@mozilla.org) and delete any stored data after notifying us.  \n* You should also use your best effort not to harm the availability or stability of our services, for example, by running aggressive scanning of those services. Instead, use a local development instance of the service that you want to test.  \n* Whenever it is explicitly stated in our program scope, you are expected to test on the provided instances (e.g. staging) instead of production.  \n* You must not be on a US sanctions list or in a country (e.g. Cuba, Iran, North Korea, Crimea region of Ukraine, Sudan, and Syria) on the US sanctions list.  \n* You must not exploit the security vulnerability for your own gain.  \n* Before sharing any part of the security issue with a third party, you must give us a reasonable amount of time to address the security issue.  \n* All submissions will be covered under [Mozilla's Website & Communications Terms of Use](https://www.mozilla.org/en-US/about/legal/terms/mozilla/), granting us permission to make use of all submissions.  \n* All submissions must also abide by [HackerOne Code of Conduct](https://www.hackerone.com/policies/code-of-conduct) and [Mozilla Community Participation Guidelines](https://www.mozilla.org/en-US/about/governance/policies/participation/).  \n* Bounties can be donated to charity. Please follow the [HackerOne process](https://docs.hackerone.com/hackers/payments.html#donating-bounties-to-charity) if you would like to donate your bounty money.  \n* Do not threaten or attempt to extort Mozilla. We will not award a bounty if you threaten to withhold the security issue from us or if you threaten to release the vulnerability or any exposed data to the public.  \n* In certain situations such as increased report volume, we might resort to [pausing our Hackerone program](https://docs.hackerone.com/en/articles/8499776-pausing-report-submissions). In this case, the program will no longer accept new submissions. We will make sure to send out communication when we pause and re-enable report submissions.\n\n# Appeal Process\n\nHackers may appeal the decision made regarding the status of reports only once by commenting on the report and providing additional information to the report which demonstrates the impact of the reported issue on the asset. If no additional information is provided then the report status will be final.\n\nValid reasons for appeal:\n\n* The report is closed as informative or duplicate and the hacker provides additional information which proves otherwise.  \n* The hacker was able to prove higher impact for the issue or a different method of exploiting it.\n\nReporters can also use mediation requests on Hackerone for appealing decisions if they do not get a response from us within a week.\n\nNote: while report status decisions can be appealed once with new evidence, bounty amount decisions are final.\n\n# Response Targets\n\nMozilla will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| :---- | :---- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 30 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe'll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n\n* Our program discloses security reports when they are fixed and rewarded. We make exceptions in case reporters have a valid reason for not using full disclosure or when they need more time in the research before the report is disclosed. We can consider partial disclosure in those cases, we can discuss and agree on the type of disclosure.  \n* Disclosure will be limited to impactful reports that provide meaningful value to the security community.  \n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Safe Harbor\n\nMozilla strongly supports security research into our products and wants to encourage that research. Therefore, we have enabled the [Gold Standard Safe Harbor policy](https://hackerone.com/mozilla_core_services/safe_harbor) in our program.\n\nIf you're not sure whether your conduct complies with this policy, please contact us first at [security@mozilla.org](mailto:security@mozilla.org) and we will do our best to clarify.\n\n# Miscellaneous Notes\n\nAll bounties paid will be at the discretion of the bug bounty panel. The panel will evaluate the severity of reported issues with the help of engineers who work on the affected code. The panel meets on a weekly basis, except for holidays and vacations, to discuss bounty decisions.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "addons.allizom.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the staging server for Firefox Addons. Testing should be restricted to this instance without any testing on production.\n\nAdditional domains for Addons:\n - services.addons.allizom.org\n  - versioncheck-bg.addons.allizom.org\n   - versioncheck.addons.allizom.org\n\nSource Code: https://github.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use the staging instance for intrusive tests or for tests which change the content: https://developer.allizom.org\n\nSource Code: \nMain application: https://github.com/mdn/mdn\nRepos under https://github.com/mdn",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.firefox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mozilla Accounts (previously known as Firefox Accounts)\n\nAdditional domains in scope for Firefox Accounts:\n* api.accounts.firefox.com\n* oauth.accounts.firefox.com\n* profile.accounts.firefox.com\n* verifier.accounts.firefox.com\n* graphql.accounts.firefox.com\n* subscriptions.firefox.com\n\nSource Code: h",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vpn.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The backend server behind Mozilla VPN.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "relay.firefox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Testing to be done on the staging instance only: https://relay.allizom.org/\n\nPlease set the HTTP header \"X-HackerOne-Research\" when sending requests to the Relay servers, so that the traffic can be identified as resulting from bug bounty testing.\n\nThe team would like testing to be focused on the API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mozilla Marketing Website aka Bedrock.\n\n Please use our staging instance, www.allizom.org, for testing to avoid site disruption.\n\nSource Code:  https://github.com/mozilla/bedrock",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Support platform for all of Mozilla Products.\n\n**Testing to be done on staging instance only to avoid disrupting users: support.allizom.org**\n\nSource Code: https://github.com/mozilla/kitsune",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hg.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The website used for source code and version control hosting for Firefox.\n\nWeb vulnerabilities that affect the website itself and not the source code will be considered as vulnerabilities in a **Core Site**.\n\nVulnerabilities that affect the source code itself will be considered as vulnerabilities in",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "monitor.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mozilla Monitor\n\nSource Code: https://github.com/mozilla/blurts-server",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Product Delivery",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Do not run automated scans on those domains**\n\nFirefox Downloads which include the below sites:\n- archive.mozilla.org\n- download.mozilla.org\n- download-installer.cdn.mozilla.net\n- treeherder.mozilla.org\n\nNote that content on these assets is intentionally public.\n\nSource Code: https://github.com/mo",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aus5.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Backend update system for Mozilla products.\n\nNo disruptive testing or scanning tools to be run on production.\n\nSource Code: https://github.com/mozilla-releng/balrog ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bugzilla.mozilla.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mozilla owned Bugzilla instance.\n\nPlease do not use automated scanners, create, or modify bugs when testing Bugzilla. Instead, testing should be only done on the development instance, bugzilla-dev.allizom.org.\n\nSource Code: https://github.com/mozilla-bteam/bmo",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "crash-reports.allizom.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Endpoint for sending Firefox crash reports.\n\nTesting to be done on staging instance: https://crash-reports.allizom.org/\n\nSource Code: https://github.com/mozilla-services/socorro",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "crash-stats.allizom.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Analytics site for Firefox crash reports data.\n\nTesting to be done on staging instance only: https://crash-stats.allizom.org/\n\nSource Code: https://github.com/mozilla-services/socorro",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "firefox-ci-tc.services.mozilla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TaskCluster CI/CD tool instance used for Firefox builds.\n\nSource Code: https://github.com/taskcluster/taskcluster",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "firefox.settings.services.mozilla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Service which manages configuration in Firefox.\n\nAdditional domains for Remote Settings:\n- firefox-settings-attachments.cdn.mozilla.net\n\nTesting to be performed on staging instance only: https://firefox.settings.services.allizom.org/v1/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lando.services.mozilla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tool used to land Firefox code into Mercurial.\n\nAdditional Domains:  \n- api.lando.services.mozilla.com\n- lando.moz.tools\n\nTesting to be done on staging or development instances only:\n- ui.dev.lando.nonprod.cloudops.mozgcp.net\n- ui.stage.lando.nonprod.cloudops.mozgcp.net\n- api.dev.lando.nonprod.cloud",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "merino.services.mozilla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Firefox Suggest\n\nTesting to be performed on the staging instance only: https://merino.services.allizom.org\n\nSource Code: https://github.com/mozilla-services/merino-py",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "phabricator.allizom.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Testing to be done **only** on the development instance (phabricator-dev.allizom.org) or the staging instance (phabricator.allizom.org)\n\nSource Code: https://github.com/mozilla-conduit/phabricator",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sync.services.mozilla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Firefox Sync Domains:\n- *.sync.services.mozilla.com\n- token.services.mozilla.com\n\nSource Code: \n- https://github.com/mozilla-services/syncstorage-rs\n- https://github.com/mozilla-services/tokenlib/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mozilla Ad Routing Service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mozilla Ad Routing Service (MARS) under the below domains:\n- ads.mozilla.org (mars.prod.ads.prod.webservices.mozgcp.net)\n- ads.allizom.org (mars.stage.ads.nonprod.webservices.mozgcp.net)\n- mars.qa.ads.nonprod.webservices.mozgcp.net\n- ads-img.mozilla.org\n- ads-img.allizom.org\n- contile.services.mozil",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.firefox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Firefox Marketing Website aka Springfield. Only the website is included in the scope, not the Firefox client.\n\n Please use our staging instance, www.springfield.moz.works, for testing to avoid site disruption.\n\nSource Code:  https://github.com/mozmeao/springfield",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pontoon.allizom.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Staging instance for Mozilla Localization Service.\n\nTesting is to be done on this instance only, testing on production is not acceptable.\n\nSource Code: https://github.com/mozilla/pontoon",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Firefox Homepage Newtab",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Collection of APIs which power placing recommended stories on new Firefox tabs.\n\nIt uses the below domains:\n- client-api.getpocket.com\n- admin-api.getpocket.com\n- curation-admin-tools.readitlater.com\n\nWhile testing, do not add or modify any data on production, instead, testing should be done on a lo",
+      "max_severity": "critical"
+    }
+  ]
+}

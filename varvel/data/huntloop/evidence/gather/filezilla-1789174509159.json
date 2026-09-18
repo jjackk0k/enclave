@@ -1,0 +1,40 @@
+{
+ "at": "2026-09-12T00:55:07.883Z",
+ "opportunity": "filezilla",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "filezilla-project.org",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "strict-transport-security": "max-age=315360000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self' *.filezilla-project.org; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-in",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

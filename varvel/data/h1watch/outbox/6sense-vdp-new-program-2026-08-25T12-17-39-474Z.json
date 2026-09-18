@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "6sense-vdp",
+      "name": "6sense VDP",
+      "offersBounties": false,
+      "assets": [
+        "Security vulnerabilities that are identified in 6sense products or in website domains owned, operated, or controlled by 6sense are in scope",
+        "https://api.6sense.com/docs/#introduction",
+        "https://chromewebstore.google.com/detail/6sense-si-extension-for-c/mkpoonlmiaknmcdcmdhbnehhglndcolf?hl=en"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use vulnerability scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\6sense-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "6sense-vdp",
+  "name": "6sense VDP",
+  "url": "https://hackerone.com/6sense-vdp",
+  "policy": "6sense processes Personal Information in accordance with its Privacy Policy, which is located at https://6sense.com/privacy-policy/.  \n\nPlease read the rules and guidelines of this policy (the “Policy”) carefully before submitting a report. By participating in our Vulnerability Disclosure Program (“Program”) and submitting your findings, you confirm that you meet our Program Eligibility terms and accept and agree to be bound by this Policy. \n\n# Table of Contents \n## I. Program Terms \n* Program Eligibility \n* Program Rules \n\n## II. Testing & Submission Process \n* In-scope vulnerabilities \n* Out of scope vulnerabilities  \n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from 6sense.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Ensure that your report contains at least the following: \n    * The URL and any affected parameters; \n    * The browser, OS, and/or app version; and  \n    * The perceived impact of the vulnerability being exploited.  \n\n# Program Eligibility \n* You are at least 18 years of age. \n* You are not a resident of, or located in, any country against which the United States has issued sanctions or other trade restrictions and are not a person (or affiliated with a company or organization) designated in the U.S. Department of the Treasury’s Specially Designated Nationals List. \n* You may not engage in any security research or vulnerability disclosure activity that is inconsistent with the terms and conditions of the Policy or applicable law. \n* 6sense employees are not eligible for participation. \n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged. \n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact. \n* When duplicates occur, we will accept the first submission that meets the criteria of complete required information submitted and is reproducible at our end. \n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report. \n* Social engineering (e.g., phishing, vishing, smishing) is prohibited. \n* Only interact with accounts you own or with explicit permission of the account holder. \n* When investigating vulnerabilities, avoid altering existing files, file permissions, reading sensitive information or disrupting services. Do not utilize an identified vulnerability to pivot to other hosts or services. * If sensitive information or personal information is encountered, immediately cease activities and report via the HackerOne portal  \n* As part of your research, do not modify any files or data, including permissions, and do not intentionally view or access any data beyond what is needed to prove the vulnerability. \n* Exercise caution when testing to avoid negative impact to us and our customers and the services we and both depend on. \n* Do not use vulnerability scanners! For custom tooling an acceptable request rate is no more than 3 requests per second \n* Do not attempt to access any customer tenant/instance or data\n* Do not try to further pivot into the network by using a vulnerability.  \n* Do not try to exploit service providers we use (hosting, domain registrar, email, marketing, etc.). 6sense does not authorize you to perform any actions against non-6sense owned property/system/service/data. If you are unsure if a system you discovered belongs to 6sense or not, ask first before testing further \n* Publicly known Zero-day vulnerabilities will not be considered until more than 30 days have passed since patch availability. \n* If you encounter Personally Identifiable Information (PII) contact us at vdp@6sense.com immediately. Do not proceed with access, do not upload PII, and immediately purge any such local information on your device(s), if applicable. \n\n# Session Layer: HTTP Headers \n#### Researchers should add headers to requests such as: \n* “X-HackerOne-Research: [H1 username]” \n\n# The 6sense security team is interested in the following vulnerabilities\n* Cross-Site Scripting (XSS) \n* Cross-Site Request Forgery (CSRF) \n* Unauthorized Cross-Tenant Data Tampering or Access (for multi-tenant services) \n* Insecure Direct Object References \n* Injection Vulnerabilities \n* Authentication/Authorization Vulnerabilities \n* Server-Side Code Execution \n* Privilege Escalation \n* Significant Security Misconfiguration (when not caused by user) \n* Directory Traversal \n* Information Disclosure \n* Open Redirects \n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n* Clickjacking on pages with no sensitive actions \n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions \n* Attacks requiring MITM or physical access to a user's device. \n* Previously known vulnerable libraries without a working Proof of Concept. \n* Comma Separated Values (CSV) injection without demonstrating a vulnerability. \n* Missing best practices in SSL/TLS configuration. \n* Any activity that could lead to the disruption of our service (DoS). \n* Rate limiting or brute force issues on non-authentication endpoints \n* Missing best practices in Content Security Policy. \n* Missing HttpOnly or Secure flags on cookies \n* Configuration of or missing security headers. \n* Missing email best practices (Invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.) \n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors). \n* Tabnabbing \n* Issues that require unlikely user interaction \n* Improper logout functionality and improper session timeout. \n* CORS misconfiguration without an exploitation scenario \n* Broken link hijacking \n* GraphQL introspection \n* Vulnerabilities found in third party vendor systems and integrations that 6sense or its affiliates use, which should be reported directly to the vendor according to their disclosure policy (if any). Only vulnerabilities found in 6sense’s, or its affiliate’s client-side implementation of a third-party vendor’s product or service will be eligible for submission. \n* Any vulnerability obtained through the compromise of an account of a customer user or employee of 6sense or any of its affiliates. \n* Vulnerabilities only affecting users of outdated or unpatched browsers  \n* Descriptive Error Messages \n* CMS Application updates (e.g., WordPress security releases) \n* Subdomain takeovers without a complete proof of concept \n* Missing security best practices and controls (rate-limiting/throttling, lack of CSRF protection, lack of security headers, missing flags on cookies, descriptive errors, server/technology disclosure - without clear and working exploit) \n* Username and organization name enumeration on customer facing systems (i.e. using server responses to determine whether a given account or organization exists) \n* Scanner output or scanner-generated reports, including any automated or active exploit tool. \n* Misconfigurations in implementation of 6sense features on a 6sense customer's sites \n\n\nThank you for helping keep 6sense and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Security vulnerabilities that are identified in 6sense products or in website domains owned, operated, or controlled by 6sense are in scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://chromewebstore.google.com/detail/6sense-si-extension-for-c/mkpoonlmiaknmcdcmdhbnehhglndcolf?hl=en",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "6sense SI Chrome extension\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://api.6sense.com/docs/#introduction",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "6sense API Docs",
+      "max_severity": "critical"
+    }
+  ]
+}

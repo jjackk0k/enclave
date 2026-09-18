@@ -1,0 +1,240 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "upserve",
+      "name": "Upserve ",
+      "offersBounties": true,
+      "assets": [
+        "api.breadcrumb.com",
+        "app.upserve.com",
+        "cards.swipely.com",
+        "hq.breadcrumb.com",
+        "https://645892349820.vulnerbug.com",
+        "mossy.breadcrumb.com",
+        "payments.breadcrumb.com",
+        "teamhelp.upserve.com"
+      ],
+      "exclusions": [
+        "Any 3rd party services linked to or used by Upserve",
+        "Any Upserve hardware",
+        "careers.upserve.com",
+        "click.upserve.com",
+        "ecslb.upserve.com",
+        "feeds.upserve.com",
+        "get.upserve.com",
+        "go.breadcrumb.com",
+        "go.upserve.com",
+        "help.upserve.com",
+        "join.upserve.com",
+        "resources.upserve.com",
+        "status.breadcrumb.com",
+        "store.upserve.com",
+        "support.upserve.com",
+        "swipelycommunity.force.com",
+        "www.upserve.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not run automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\upserve-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "upserve",
+  "name": "Upserve ",
+  "url": "https://hackerone.com/upserve",
+  "policy": "Upserve is committed to protecting the privacy and security of our users. We recognize the valuable role security researchers play in making our services more secure and are committed to working with you to verify and resolve legitimate security vulnerabilities.  We ask that you carefully review this policy and scope to ensure the best experience for all involved.\r\n \r\n# Important Notes\r\n### Do not test with the live upserve.com site. Please review the scope for details on the test site URL specific for security research\r\n\r\n# Public Disclosure Policy\r\nUpserve supports public disclosure of most vulnerabilities following resolution. We ask that you not share vulnerability details with anyone other than Upserve or HackerOne prior to approved public disclosure through the HackerOne platform.\r\n* In most cases, Upserve will allow public disclosure of vulnerabilities within 30 days of resolution. \r\n* In some cases, Upserve will request that public disclosure is delayed. (for example, if we need to conduct private notifications first)\r\n* In limited cases, Upserve may request that a report remain private. In these cases, we will maintain open communication with the researcher about why we feel this is important.\r\n* Follow HackerOne's disclosure guidelines.\r\n\r\n# Program Rules\r\n* Please check the list of out-of-scope vulnerabilities and known issues before submitting a report.\r\n* **Do not run automated scans without checking with us first. They are often very noisy and disruptive.**\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make every effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \r\n* Only interact with accounts you own or with the explicit permission of the account holder.\r\n* If we receive several reports for the same issue, we offer the bounty to the earliest report for which we had enough actionable information to identify the issue.\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Our rewards are based on the impact of a vulnerability and we use CVSS v3 to guide our decisions on vulnerability impact. \r\n* Public Zero-day vulnerabilities that have had an official patch for less than 30 days will be awarded on a case by case basis.\r\n* Zero-day vulnerabilities found on third-party libraries/services used by Upserve will be awarded on a case by case basis. These vulnerabilities should be reported directly to the library or service maintainer. \r\n\r\n# A Note on Similar Submissions\r\nWe ask that researchers who are able to identify the same or similar types of issues in multiple locations across one of our applications combine those findings into a single submission that includes a description as well as the various locations where vulnerabilities have been identified. This greatly assists us in our triage process and allows us to process your submissions faster. The combined submissions will be evaluated holistically and will receive rewards corresponding to the collective findings. For example, if an application is discovered to have broken access control on a number of API endpoints, please submit a single submission that includes a list of those API endpoints. If separate submissions are made, they may be inadvertently closed as duplicates.\r\n\r\n# Test References and Documentation\r\n**Read carefully** for instructions and tips on testing: \r\n \r\n* Upserve Loyalty (https://app.upserve.com/b/upserve-hacker-cafe/) is a React application with a Ruby on Rails backend. REST API calls are made to app.upserve.com/c/ and cards.swipely.com. The application allows a consumer to register an account and enroll one or more credit cards into a restaurant's loyalty program. Purchases made by the consumer at the restaurant are tracked in the loyalty program and a reward is given when the consumer's account reaches a specified level. It is not currently possible for researchers to generate sales that apply to the loyalty program. We are interested in vulnerabilities that would allow a consumer to fraudulently add points to their own account or steal points from other accounts. Use the provided test restaurant Upserve Hacker Cafe only. **Testing on any other restaurant is prohibited without approval from Upserve.** \r\n    * To create a customer account, navigate to https://app.upserve.com/b/upserve-hacker-cafe/, enter in your email address, enter in a credit card number (either your own or you can use a credit card generator to create a fake one). The application will reject duplicate card numbers.\r\n    * cards.swipely.com provides an endpoint for adding payment cards to the vault. The endpoint returns a token which should not be reversible. This API should not be able to provide back full payment card numbers. \r\n\r\n* Upserve Online Ordering (OLO) (https://app.upserve.com/s/upserve-hacker-cafe) is a React application with a Ruby on Rails backend. REST API calls are made to orders.upserve.com and payments.upserve.com. Orders can be submitted to the test restaurant linked in this plan using any valid credit card number. Credit cards will not be charged or authorized with this restaurant. **Testing on any other restaurant is prohibited without approval from Upserve.**\r\n    * You may create an account or you can place orders without an account\r\n    * You may use any validly formatted credit card number - either your own, or you can use a credit card generator to create a fake one.\r\n    * Orders placed are submitted to the Upserve POS service and will most likely be rejected after 20 minutes unless someone at Upserve is actively working with this test restaurant\r\n    * payments.upserve.com provides an endpoint for adding payment cards to the vault. The endpoint returns a payment method token which is used by the OLO API. The token should not be reversible and should only be usable to the restaurant it was generated for. **The payments sandbox in use for testing is very lenient and will allow invalid card numbers to be used. If you think you've found a bug here we are happy to validate against a live gateway.**\r\n\r\n* Upserve.com (https://645892349820.vulnerbug.com) is a Wordpress application. **Do not test upserve.com directly.** Please only test https://645892349820.vulnerbug.com/. Our primary concern here would be defacement or attacks that can be leveraged against other Upserve assets.\r\n\r\n* teamhelp.upserve.com is a Wordpress application for internal use by team members. Users are required to sign-in with their Upserve Google account to access the information. There is non-public information on this site.  Our primary concern here would be access to non-public information, defacement, or vulnerabilities that would make social engineering more effective.  \r\n\r\n* Upserve HQ (https://app.upserve.com/partners/) is a Ruby on Rails application used by restaurants to view operational, sales, marketing, and finance information. \r\n    * Credentials are provided by invite only at this time (please don't ask).\r\n    * You are welcome to recon this asset, attempt authentication bypass, and search for anything else of impact.\r\n\r\n* Upserve POS HQ (https://hq.breadcrumb.com/) is a Ruby on Rails application used by restaurants to manage their point of sale tablets and view sales reports. \r\n    * Credentials are provided by invite only at this time (please don't ask).\r\n    * You are welcome to recon this asset, attempt authentication bypass, and search for anything else of impact.\r\n   \r\n* Upserve Inventory (https://inventory.upserve.com) is a PHP application used by restaurants to track and order inventory.\r\n    * Credentials are provided by invite only at this time (please don't ask).\r\n    * You are welcome to recon this asset, attempt authentication bypass, and search for anything else of impact.\r\n\r\n* Upserve HQ3 (https://hq.upserve.com) is a React application which wraps our other applications (Upserve HQ, Upserve POS HQ, Upserve Inventory, etc.) in to a single interface.\r\n    * Credentials are provided by invite only at this time (please don't ask).\r\n    * You are welcome to recon this asset, attempt authentication bypass, and search for anything else of impact.\r\n \r\n\r\n# Out of scope vulnerabilities \r\nThe following issues are considered out of scope:\r\n \r\n* Clickjacking on pages with no sensitive actions.\r\n* Unauthenticated/logout/login CSRF.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries or software without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* User enumeration or Account oracles -- the ability to submit a phone number, email, UUID and receive back a message indicating an Upserve account exists.\r\n* Vulnerabilities as reported by automated tools without additional analysis as to how they're an issue.\r\n* Reports from automated web vulnerability scanners (Acunetix, Vega, etc.) that have not been validated.\r\n* Banner grabbing issues \r\n* Rate limiting issues\r\n* Missing best practices in email configuration (DMARC, SPF, DKIM, etc)\r\n* DNS issues \r\n\r\n# Known Issues\r\nThe following issues are already known to our team - please do not submit new reports related to them, as they will be considered duplicates.\r\n* Sessions do not expire after password change/reset\r\n* Attacker can enroll credit cards in another user's loyalty accounts\r\n* XML-RPC available on Wordpress sites (and associated DoS issues)\r\n* Subdomain Takeover \r\n\r\n# Safe Harbor\r\nWe will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act. To the extent your activities are inconsistent with certain restrictions in our [Terms & Conditions](https://upserve.com/terms/), we waive those restrictions for the limited purpose of permitting security research under this policy. We will not bring a DMCA claim against you for circumventing the technological measures we have used to protect the applications in scope.\r\n\r\nIf legal action is initiated by a third party against you and you have complied with Upserve's bug bounty policy, Upserve will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nPlease understand that if your security research involves the networks, systems, information, applications, products, or services of another party (which is not us), that third party may determine whether to pursue legal action. We cannot and do not authorize security research in the name of other entities.\r\n\r\nWe will not share your report with a third-party without your permission and/or gaining their commitment they will not pursue legal action against you. Please note again that we can’t authorize out-of-scope testing in the name of third parties and such testing is beyond the scope of the program.\r\n\r\nPlease contact us at bugbounty@upserve.com before engaging in conduct that may be inconsistent with or unaddressed by this policy.\r\n\r\nThank you for helping keep Upserve and our users safe! If you have a question that is not answered on this page, please contact bugbounty@upserve.com\r\n\r\nIn order to encourage the adoption of bug bounty programs and promote uniform security best practices across the industry, Upserve reserves no rights in this bug bounty policy and so you are free to copy and modify it for your own purposes.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This production site is **out of scope**.  Direct all tests at the test version of the site: 645892349820.vulnerbug.com.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "hq.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a portal for merchants. Feel free to test against this, but we are not creating merchant test accounts at this time.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://645892349820.vulnerbug.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our test version of our marketing and community website. It is running on Wordpress on third party infrastructure. This is a medium security impact site without sensitive data or critical functions. Generally the only reports which will be bounty eligible will be vulnerabilities which can be",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "teamhelp.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our internal employee information/help desk site. It is running on Wordpress on third party infrastructure. There is non-public information on this site. Our primary concern here would be access to non-public information, defacement, or vulnerabilities which can be leveraged to attack other ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "careers.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "click.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "feeds.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "get.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "go.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is related to a service hosted externally by Marketo. Any security issues found should be reported to the [Marketo security team](https://documents.marketo.com/legal/notices/responsible-disclosure-policy.pdf).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "join.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is related to a service hosted externally by Unbounce. Any security issues found should be reported to the [Unbounce security team.](https://unbounce.com/security/)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "resources.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is related to a service hosted externally by Marketo. Any security issues found should be reported to the [Marketo security team](https://documents.marketo.com/legal/notices/responsible-disclosure-policy.pdf).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ecslb.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cards.swipely.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "swipelycommunity.force.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "store.upserve.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our store is hosted by Shopify. Any security issues should be reported to the [Shopify security team.](https://hackerone.com/shopify)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any 3rd party services linked to or used by Upserve",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any Upserve hardware",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "go.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is related to a service hosted externally by Marketo. Any security issues found should be reported to the [Marketo security team](https://documents.marketo.com/legal/notices/responsible-disclosure-policy.pdf).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mossy.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "payments.breadcrumb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

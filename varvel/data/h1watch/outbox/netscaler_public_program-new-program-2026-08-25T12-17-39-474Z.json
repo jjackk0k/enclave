@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "netscaler_public_program",
+      "name": "NetScaler Public Program",
+      "offersBounties": true,
+      "assets": [
+        "NetScaler AAA",
+        "NetScaler ADC",
+        "NetScaler Gateway"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\netscaler_public_program-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "netscaler_public_program",
+  "name": "NetScaler Public Program",
+  "url": "https://hackerone.com/netscaler_public_program",
+  "policy": "# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report received (provided it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test Plan\n==**[Insert unique plan if applicable, example language below]**==\n* Users can sign up for a free account through our website\n* Please use your **hacker email alias** when testing (h1username@wearehackerone.com)\n* Claim credentials (when applicable) for additional testing\n\n# Session Layer: HTTP Headers\n==**#### [Include if you’d like to better identify incoming hacker traffic]**==\nResearchers should add headers to requests such as:\n* “X-HackerOne-Research: [H1 username]”\n\nThank you for helping keep CSG and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "NetScaler Gateway",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Critical\n\nRemote code execution, e.g., code execution on CC production, remote code execution with root level access on host machine or multi-tenant key compromise\nService key compromise, e.g., taking over a multi-tenant key\n\nHigh\n\nService key compromise, e.g., taking over a single tenant key\nSQL in",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NetScaler ADC",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Critical\n\nRemote code execution, e.g., code execution on CC production, remote code execution with root level access on host machine or multi-tenant key compromise\nService key compromise, e.g., taking over a multi-tenant key\n\nHigh\n\nService key compromise, e.g., taking over a single tenant key\nSQL in",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NetScaler AAA",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Critical\n\nRemote code execution, e.g., code execution on CC production, remote code execution with root level access on host machine or multi-tenant key compromise\nService key compromise, e.g., taking over a multi-tenant key\n\nHigh\n\nService key compromise, e.g., taking over a single tenant key\nSQL in",
+      "max_severity": "critical"
+    }
+  ]
+}

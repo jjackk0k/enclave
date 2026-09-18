@@ -178,6 +178,9 @@ class ToolStreamFilter:
     _FUNC_UNCLOSED_RE = re.compile(r"<function=([^>]+)>(.*)", re.DOTALL)
     _PARAM_RE = re.compile(r"<parameter=([^>]+)>(.*?)</parameter>", re.DOTALL)
 
+    _NESTED_FENCE_RE = re.compile(
+        r"```(?:tool|tool_call)\s*\n(.*?)```", re.DOTALL)
+
     def _parse_xml_block(self, inner: str) -> None:
         """Normalize the model's native <function=NAME><parameter=K>V</parameter>
         form into the same {"tool":..., "args":{...}} shape and hand it to
@@ -189,6 +192,21 @@ class ToolStreamFilter:
             return
         m = self._FUNC_RE.search(inner) or self._FUNC_UNCLOSED_RE.search(inner)
         if not m:
+            # The model sometimes abandons the XML wrapper mid-thought
+            # (observed live 2026-09-05: a bare, unmatched '</function>'
+            # immediately followed by a fully-formed ```tool fence for the
+            # SAME call) and correctly writes the fenced JSON form right
+            # after it, all still inside the outer <tool_call>...</tool_call>
+            # span. That valid call shouldn't be thrown away just because
+            # it's wrapped in leftover XML debris - recover it directly.
+            nested = self._NESTED_FENCE_RE.search(inner)
+            if nested:
+                self.salvaged.append(ParseFailure(
+                    raw=inner,
+                    error="recovered a ```tool fence nested inside an "
+                          "abandoned/malformed <tool_call> XML wrapper"))
+                self._parse_block(nested.group(1).strip())
+                return
             self.failures.append(ParseFailure(
                 raw=inner,
                 error="<tool_call> block missing <function=NAME>...</function>"))
@@ -214,7 +232,11 @@ class ToolStreamFilter:
         try:
             obj = json.loads(raw)
         except json.JSONDecodeError as exc:
-            obj = self._salvage(raw, exc)
+            obj = None
+            if "Invalid \\escape" in str(exc):
+                obj = self._salvage_invalid_escapes(raw, exc)
+            if obj is None:
+                obj = self._salvage(raw, exc)
             if obj is None:
                 recovered = self._salvage_unterminated(raw, exc)
                 if recovered is None:
@@ -292,6 +314,33 @@ class ToolStreamFilter:
             error="repaired common tool-call mistake "
                   "('task'->'tool' and/or missing 'args')"))
         return obj, obj.get("args", {})
+
+    _BAD_ESCAPE_RE = re.compile(r'\\(?!["\\/bfnrtu])')
+
+    def _salvage_invalid_escapes(self, raw: str, exc: json.JSONDecodeError) -> Optional[dict]:
+        """The model wrote real content containing a literal backslash - a
+        Windows path, a regex, a markdown escape - without doubling it for
+        JSON (observed live 2026-09-05: 'C:\\Users\\Jack' where JSON needs
+        'C:\\\\Users\\\\Jack'). json.loads rejects any backslash not
+        followed by one of the 8 valid JSON escape characters
+        (" \\ / b f n r t u). Doubling every invalid backslash recovers the
+        model's almost-certainly-intended literal text without touching any
+        backslash that was already a legitimate escape.
+
+        Only tried when json.loads' own error explicitly names this cause
+        (the "Invalid \\escape" caller check), so a differently-broken
+        block still fails honestly instead of getting force-fed through a
+        repair aimed at something else."""
+        fixed = self._BAD_ESCAPE_RE.sub(r"\\\\", raw)
+        try:
+            obj = json.loads(fixed)
+        except json.JSONDecodeError:
+            return None  # not just an unescaped backslash - stays an honest failure
+        self.salvaged.append(ParseFailure(
+            raw=raw,
+            error="repaired unescaped backslash(es) in the JSON string "
+                  "(a literal path/regex the model didn't double for JSON)"))
+        return obj
 
     def _salvage(self, raw: str, exc: json.JSONDecodeError) -> Optional[dict]:
         """Recover a leading valid JSON object when the ONLY trailing junk is

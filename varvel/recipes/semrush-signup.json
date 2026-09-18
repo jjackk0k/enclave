@@ -1,0 +1,28 @@
+{
+  "program": "semrush",
+  "inbox": "mailtm",
+  "autoHandoff": true,
+  "steps": [
+    { "goto": "https://www.semrush.com/signup/" },
+    { "sleep": 4000 },
+    { "click": { "text": ["Allow all cookies", "Accept all"], "optional": true } },
+    { "sleep": 1800 },
+    { "fill": { "hints": ["email", "mail", "@"], "from": "email" } },
+    { "fill": { "hints": ["password"], "from": "password" } },
+    { "click": { "text": ["Create account", "Sign up", "Get started", "Start"] } },
+    { "captcha": "handoff" },
+    { "waitMail": { "pattern": "(https://[^\\s)\"'<]+(?:confirm|verify|activate|validation)[^\\s)\"'<]*)", "maxMs": 180000, "gotoOnMatch": true } },
+    { "sleep": 5000 },
+    { "verify": { "url": "https://www.semrush.com/accounts/profile/", "bodyIncludes": "$email", "urlDenyRe": "login|signup" } }
+  ],
+  "sessionCapture": { "cookieDomains": ["semrush.com"] },
+  "canary": {
+    "method": "GET",
+    "url": "https://www.semrush.com/accounts/profile/",
+    "auth": "cookie",
+    "expectStatus": [200],
+    "denyStatus": [401, 403],
+    "denyBodyRe": "login|signup",
+    "note": "profile page is the harvested auth oracle from .tmp/semrush-signup.mjs (2026-08-26 run): an authenticated session survives /accounts/profile/ without a login redirect and the page knows the account email; anonymous sessions redirect"
+  }
+}

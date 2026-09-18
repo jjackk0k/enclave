@@ -1,0 +1,49 @@
+{
+  "id": "mercadolibre",
+  "handle": "mercadolibre",
+  "name": "MercadoLibre",
+  "platform": "generic",
+  "url": "https://hackerone.com/mercadolibre",
+  "engagement": "mercadolibre",
+  "intakePath": "data/bountyline/mercadolibre-program.json",
+  "signedScopePath": "../poc/enforcement-seam/session/marcus-mercadolibre.json",
+  "scopeVerification": "seam-verified",
+  "automation": {
+    "policy": "human-cadence",
+    "basis": "operator-override",
+    "evidence": "operator set --automation human-cadence (policy text said: prohibited, policy-text)"
+  },
+  "state": "hunted",
+  "createdAt": "2026-08-31T10:49:36.311Z",
+  "updatedAt": "2026-08-31T10:50:07.647Z",
+  "history": [
+    {
+      "at": "2026-08-31T10:49:36.312Z",
+      "from": null,
+      "to": "imported",
+      "note": "intake record data/bountyline/mercadolibre-program.json"
+    },
+    {
+      "at": "2026-08-31T10:49:36.313Z",
+      "from": "imported",
+      "to": "scoped",
+      "note": "signed scope recorded at add time (seam-verified)"
+    },
+    {
+      "at": "2026-08-31T10:50:07.648Z",
+      "from": "scoped",
+      "to": "hunted",
+      "note": "campaign artifact data/exports/mercadolibre-surface-2026-08-31.json"
+    }
+  ],
+  "hunt": {
+    "campaignArtifact": "data/exports/mercadolibre-surface-2026-08-31.json",
+    "reportArtifact": "data/exports/mercadolibre-report-2026-08-31.md",
+    "at": "2026-08-31T10:50:07.648Z",
+    "cadence": "human-cadence"
+  },
+  "triage": null,
+  "reports": [],
+  "queue": null,
+  "rounds": []
+}

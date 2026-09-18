@@ -1,0 +1,85 @@
+{
+ "at": "2026-09-12T17:21:54.588Z",
+ "opportunity": "tbs-sct",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "design-system.alpha.canada.ca",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 54342e89962b6c8be584d45b90f85b10.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "articles.alpha.canada.ca",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 9833c27eb8177011f6f13ef73c1475d6.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "forms-formulaires.alpha.canada.ca",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-M2FiMWIyNDUtZDcwYi00M2MzLWJlMDctZWYzZGI1NzJlMWQ1' 'wasm-unsafe-eval' 'stric",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "issue-verify.alpha.canada.ca",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to issue-verify.alpha.canada.ca:443 refused: host unreachable"
+  },
+  {
+   "host": "delivrance-verification.alpha.canada.ca",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to delivrance-verification.alpha.canada.ca:443 refused: host unreachable"
+  }
+ ]
+}

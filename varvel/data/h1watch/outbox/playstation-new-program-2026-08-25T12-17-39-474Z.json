@@ -1,0 +1,227 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "playstation",
+      "name": "PlayStation",
+      "offersBounties": true,
+      "assets": [
+        "*.api.playstation.com",
+        "*.playstation.com",
+        "*.playstation.net",
+        "*.sonyentertainmentnetwork.com",
+        "Android Playstation App",
+        "PlayStation 4",
+        "PlayStation 5",
+        "api.direct.playstation.com",
+        "ca.account.sony.com",
+        "checkout.playstation.com",
+        "compete.playstation.com",
+        "direct.playstation.com",
+        "iOS Playstation App",
+        "my.account.sony.com",
+        "my.playstation.com",
+        "profile.playstation.com",
+        "ps5.np.playstation.net",
+        "session-share.playstation.com",
+        "social.playstation.com",
+        "store.playstation.com",
+        "transact.playstation.com",
+        "wallets.api.playstation.com",
+        "web.np.playstation.com",
+        "www.playstation.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\playstation-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "playstation",
+  "name": "PlayStation",
+  "url": "https://hackerone.com/playstation",
+  "policy": "## Program Overview\n\nAt PlayStation, we strive to be the best place to play, and believe that the security of our environment is fundamental to that goal. We believe that through close partnerships with the security research community we can deliver a safer place to play.\n\n*If you find a vulnerability on PlayStation or Sony asset that is not covered by the PlayStation program, please report it through [Sony’s public Vulnerability Disclosure Program](https://hackerone.com/sony).*  \n\n\n## Scope\n\nWe are interested in reports on the PlayStation 5 and PlayStation 4 consoles, operating systems, and platform. Bounty-eligible PlayStation domains are listed in the scope tab.\n\nFor the PlayStation 5 and PlayStation 4 systems, accessories and operating systems, we will accept submissions on the current released or beta version of system software. PlayStation may at its discretion accept submissions on earlier versions of system software on a case by case basis.\n\n\n## Out-of-Scope\n\n* PlayStation 1, PlayStation 2, PlayStation 3, PS Vita, PSP, and any other hardware not explicitly listed in our scope, including accessories and peripherals\n* Any domains not explicitly listed in the scope section\n     * Out of scope issues submitted may be reviewed and accepted without bounty based on demonstrated impact\n* Corporate IT infrastructure\n* Open source software vulnerabilities which have been public for less than 7 days\n     * Issues targeting open source libraries or distributions may be redirected to their appropriate supporter\n* Software published by third party entities, including games, applications, etc\n* Vulnerabilities in third-party services where remediation is outside of PlayStation's control (e.g, SaaS tools on in-scope domains that we cannot patch)\n* Social engineering attacks, including those targeting internal employees\n* Physical attacks against our infrastructure, facilities and offices\n* Scanner output or scanner-generated reports, including any automated or active exploit tool\n* Any vulnerability obtained through the compromise of employee account\n* Multiple instances of the same vulnerability across related assets (e.g, hosts sharing a common root cause) are treated as a single finding\n* Vulnerabilities out of scope by default:\n\t* Brute forcing\n\t* Lack of rate limiting without tangible security impact (e.g, no rate limiting on a public API or login)\n\t* Usage of stolen credentials\n\t* Spam\n\t* Clickjacking, Login/logout CSRF\n\t* Fingerprinting, error message disclosure\n\t* Protocol level attacks (e.g BEAST/BREACH)\n\t* Lack of security headers (httponly flags, etc)\n\t* Cache poisoning without controlling content or cache poisoning denying access to non-critical files (e.g, images)\n\t* Content spoofing and text injection issues without being able to modify HTML/CSS\n\t* Best practices without security impact (e.g, RFC recommendations without security impact)\n\t* Denial of Service in Web / Network Assets\n    * Vulnerabilities under H1's Core Ineligible Findings\n\t* Route53 NS hijack\n    * All subdomain takeovers will be considered medium severity until further impact shown\n\n\n## Responsible Disclosure\n\nPlayStation firmly believes in responsible disclosure and we ask that you:\n* Act in good faith, by conducting your activities under this policy, and reporting the vulnerability with us:\n     * Promptly\n     * In sufficient detail for us to determine the validity of the vulnerability\n     * Without coercion, dishonesty, or fraudulent intent\n* Give us reasonable time to remediate vulnerabilities before talking about them publicly and notify us of your disclosure plans in advance\n     * If you would like to disclose a resolved vulnerability, make the request [directly in your report](https://www.hackerone.com/terms/disclosure-guidelines). We look forward to disclosing issues that positively contribute to the security community \n\n\n## Rules of Engagement\n\n* Not use, alter, transfer, or access any data (personal or otherwise) within our environment beyond what is required to demonstrate the vulnerability\n* To immediately notify us of any inadvertent access, viewing, use, alteration, transfer, or storage of data\n* To comply with our instructions for mitigating the consequences of inadvertent access, viewing, alteration, transfer of storage of data\n* To facilitate clean up by detailing all data used as part of testing, your actions done as part of testing, including potentially disclosing source IP\n* Not intentionally disrupt, and avoid and minimize the impact, degradation or harm to performance and operations of our networks, systems, information, applications, products, or services (no DDoS, form spamming, etc.)\n* Not to target or impersonate PlayStation's public presence (social media, gaming profiles, etc) as part of your testing (no defacement)\n* Otherwise comply with all applicable laws\n* Violation of these requirements may result in permanent disqualification from the program, and Sony reserves the right to withhold a bounty from researchers who violate or have violated these requirements in the past \n\nIn return you can expect:\n* We will respond within a timely manner\n* We authorize good faith activities that conform to this policy, under the Computer Fraud and Abuse Act, and the DMCA, or similar computer access or use laws\n* We will not initiate legal action or a complaint against you for accidental, good faith violations of this policy\n* If there is any inconsistency between this policy and any other applicable Sony Interactive Entertainment terms, the terms of this policy will prevail\n* While we cannot and do not authorize activities under this policy in the name of other parties, to the extent your activities under this policy identify vulnerabilities based on our use or implementation of the networks, systems, information, applications, products, or services of others, we:\n     * Authorize your good faith activities that conform to this policy, to the extent we have the authority to do so.\n     * Will not disclose your identity to the third party without your permission\n     * We will notify the third party of our authorization of your activities under this policy, as necessary.\n    \nPlease note reports closed as Spam, Not Applicable, or Informative may **not** be approved for disclosure.\nSony reserves the right to modify or terminate this program at any time.\n\n\n## Legal\n\nSony is unable to award a bounty to researchers who reside in a country that is subject to United States export sanctions or trade restrictions.  Sony Interactive Entertainment employees, contractors, service providers, and their family members are not eligible for bounties.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.playstation.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sonyentertainmentnetwork.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.api.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "store.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "social.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "transact.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wallets.api.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "PlayStation 4",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Console system and operating system",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "direct.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.direct.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "PlayStation 5",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Console system and operating system",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ca.account.sony.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.account.sony.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ps5.np.playstation.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iOS Playstation App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "iOS PlayStation App\nhttps://apps.apple.com/app/apple-store/id410896080?pt=104940801&ct=pdcexploreapp&mt=8",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Android Playstation App",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Android PlayStation App\nhttps://play.google.com/store/apps/details?id=com.scee.psxandroid&utm_source=pdcexploreapp",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "checkout.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "profile.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "session-share.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "compete.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "web.np.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.playstation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.playstation.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Issues targeting open source libraries or distributions may be redirected to their appropriate supporter depending on issue scope and impact analysis",
+      "max_severity": "critical"
+    }
+  ]
+}

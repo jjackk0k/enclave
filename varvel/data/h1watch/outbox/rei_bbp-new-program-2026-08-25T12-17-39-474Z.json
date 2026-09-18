@@ -1,0 +1,235 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rei_bbp",
+      "name": "REI BBP",
+      "offersBounties": true,
+      "assets": [
+        "Android & iOS App for REI Customers",
+        "Any public cloud resource or infrastructure operated and managed by REI.",
+        "http://collaboration.rei.com",
+        "http://www.rei.com/learn/expert-advice",
+        "login.rei.com",
+        "rei.com"
+      ],
+      "exclusions": [
+        "*.rentals.rei.com",
+        "desktop.rei.com",
+        "destinations.rei.com",
+        "engineering.rei.com",
+        "foryourbenefit-rei.com/",
+        "greenvestrentals.rei.com",
+        "http://rei.com/blog",
+        "http://rei.com/lists",
+        "http://rei.com/rei-garage",
+        "http://rei.com/rentals",
+        "http://rei.com/used",
+        "partners2.rei.com",
+        "rei.gladly.com",
+        "rei.jobs",
+        "reicasting.com",
+        "reifund.org",
+        "test-login.rei.com",
+        "vpn.rei.com",
+        "wpvip.rei.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rei_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rei_bbp",
+  "name": "REI BBP",
+  "url": "https://hackerone.com/rei_bbp",
+  "policy": "# Purpose\n\nAt REI, protecting the security and privacy of our members is just as important as helping them enjoy life outdoors. We believe that a strong security foundation is essential to earning and maintaining the trust of our community.\n\nThis bug bounty program is our way of partnering with the global security research community to help protect the systems and data that serve our members. We invite ethical hackers to responsibly disclose vulnerabilities in REI's digital assets, and we're committed to recognizing and rewarding those efforts.\n\n# Eligibility to Participate\n* Must utilize the HackerOne platform for all submissions to receive any payout, thereby abiding by HackerOne’s terms of service and privacy policy.\n* REI employees, contractors who are currently working with REI, or have worked with REI in the past 12 months, or immediate family members of either are not eligible for bug bounties.\n\n# Make your submission count\n* Acceptance or rejection of all vulnerability report submissions is subject to REI's sole discretion.\n* Detailed reports must be provided. Reports without a working proof of concept and steps to reproduce the finding will have the disposition status changed to \"Needs more information.\"\n* Proof of concepts are required to obtain the full bounty payment. If a proof of concept cannot be provided, justification by the researcher must be included.\n* When duplicates occur, only the first received report will be awarded provided it can be fully reproduced in a form acceptable to REI.\n* Exposed or compromised credentials will be evaluated on a case-by-case basis and paid out according to risk and impact to REI.\n* Vulnerabilities will be consolidated into a single report and bounty payout if internal review determines that separate fixes are not warranted. This includes multiple reports submitted by a researcher for the same vulnerability found on various endpoints of the same host application or its components impacting multiple hosts.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Third Party Managed Websites\nPlease note that there is a multitude of third-party managed sites under the REI name and brand. If a bug you have submitted affects a site managed by a third party, we will not award a bounty but instead we will close the report as informational.\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n*  ** Proof of concepts are required to obtain the full bounty payment.** When hunting for bugs and when providing evidence, please only use your own accounts. Do not use or access other people’s data or accounts at any time. If a proof of concept cannot be provided, justification by the researcher must be included.\n* **The underlying issue must be unique**, ie. multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* **Your report must be in scope.** Please look over the scope table at the end of this policy before submitting a report. We want to help reduce your risk of submitting an out-of-scope report that could hurt your Signal, as well as reduce noise in our inbox.\n* All authenticated testing must be performed using @wearehackerone aliases\n* Include the IP address(es) used during testing when submitting vulnerability reports\n* Acceptance or rejection of all vulnerability report submissions is subject to REI's sole discretion\n\n## There are some things we explicitly ask you not to do:\n* When experimenting, please only target accounts belonging to you. Do not use leaked or compromised accounts belonging to other users. Vulnerabilities that were discovered using leaked or compromised accounts will be disqualified\n* Do not test the physical security of REI offices or stores.\n* Do not test using social engineering techniques (phishing, vishing, etc.)\n* Do not perform DoS or DDoS attacks\n* In any way attack our end users, or engage in trade of stolen user credentials.\n\n# Scope # \nResearchers are strictly prohibited from any security testing on applications that are not in-scope. Security testing on out-of-scope assets, vulnerabilities, and/or any actions that are otherwise in violation of the requirements stated are not eligible for bounty reward. All security researchers participating in the program must adhere to the scope requirements.\n\n# Out of scope vulnerabilities\n\n### DO NOT DDoS or otherwise attack us in a way that would disrupt service for our customers.\n\n* Do not spam any submission forms on rei.com (i.e Feedback form, Gladly chat, etc.)\n* Vulnerabilities on out-of-scope assets\n* 3rd party sites used by REI (check our scope for more details)\n* Reports that contain leaked or harvested credentials\n* Physical attacks against REI employees, offices, stores, or warehouses\n* Exploits that require the attacker to have access to the user's device or external account (phone, laptop, email)\n* Attacks requiring MITM or physical access to a user's device\n* Social engineering attacks\n* Tabnabbing\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Previously known libraries without a working Proof of Concept\n* Cache poisoning\n* Open redirect - unless an additional security impact can be demonstrated\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute force issues on non-authentication endpoints.\n* Missing best practices in Content Security Policy\n* Missing email best practices (Invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis\n* Any activity that could lead to the disruption of our service (DoS)\n* Issues without a clearly defined security impact\n* Issues that require unlikely user interaction\n\n# Severity Scoring\nWe will consider numerous factors when determining the severity of a finding, including but not limited to the potential business impact of the finding, the volume of sensitive data at risk, and/or the potential financial impact that could result from the compromise of data or a system.\n\n# Safe Harbor\nREI provides this Safe Harbor Statement to encourage and facilitate researching using HackerOne’s vulnerability disclosure program to help us identify bugs and vulnerabilities. We authorize access to our owned-and-operated systems, services, and applications for the purpose of conducting research consistent with HackerOne’s current policies.  However, please be aware that this policy exclusively covers vulnerabilities in our systems and services. We cannot extend these protections to third-party entities. While we support good-faith disclosure, any actions involving non-REI entities may lead to legal action at their discretion.\n\nTo the extent that our applicable online terms of service are inconsistent with this Safe Harbor Statement, then this Safe Harbor Statement shall control.\n\nParticipants must act responsibly and in compliance with the law, respecting all parties' privacy and security.\n\nThank you for helping keep REI and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://rei.com/used",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://rei.com/blog",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://rei.com/rentals",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://rei.com/rei-garage",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any public cloud resource or infrastructure operated and managed by REI.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* Public cloud storage accounts. (e.g. AWS S3 buckets)\n* Public cloud computer server. (e.g. AWS EC2 instances)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Android & iOS App for REI Customers",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "To download the app, please visit https://www.rei.com/mobile\n\nWhat it does?\nREI customers can place orders through the app on their smartphone",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rei.jobs",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reifund.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "destinations.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners2.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "greenvestrentals.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reicasting.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "engineering.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "test-login.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.rentals.rei.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is an out of scope asset since it is owned and managed by a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wpvip.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vpn.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "desktop.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "login.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "foryourbenefit-rei.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.rei.com/learn/expert-advice",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://collaboration.rei.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rei.gladly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Spamming the Gladly chat bot widget is considered out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://rei.com/lists",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

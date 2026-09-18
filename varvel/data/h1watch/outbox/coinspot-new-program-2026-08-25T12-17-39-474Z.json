@@ -1,0 +1,62 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "coinspot",
+      "name": "CoinSpot",
+      "offersBounties": true,
+      "assets": [
+        "1541949985",
+        "com.coinspot.app",
+        "https://www.coinspot.com.au/v2/api",
+        "www.coinspot.com.au"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\coinspot-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "coinspot",
+  "name": "CoinSpot",
+  "url": "https://hackerone.com/coinspot",
+  "policy": "# Response Targets\n\nCoinSpot will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 days\n* Time to triage (from report submit) - 10 days\n* Time to bounty (from triage) - 14 days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without consent from the CoinSpot Team.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) and Attacks against our customer accounts are prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* All Hackers must follow the rules outlined in the HackerOne [Code of Conduct](https://www.hackerone.com/policies/code-of-conduct)\n\n# Test Plan\n\n* You may register for up to two free accounts on https://www.coinspot.com.au\n* Please note that one test account should be registered with your Hacker Email Alias in order to be granted full access for testing - [username]@wearehackerone.com\n* API Documentation: https://www.coinspot.com.au/v2/api\n\n# Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope and/or ineligible for bounties:\n* Closure of accounts with no transaction history\n* Enablement of 2FA without email confirmation\n* Reports of publicly leaked account credentials\n* Attacks requiring MITM or physical access to a user's device.\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Upload of malicious files via s3 pre-signed URLs where impact cannot be demonstrated.\n* Known vulnerable versions of libraries or components without a working Proof of Concept.\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n\n# Safe Harbor\nCoinSpot has adopted HackerOne Gold Standard Safe Harbour!\n\n# Severity Assessment Guidelines:\n\nThe following section provides a guide on how CoinSpot determines the criticality of reported issues. \n\n| Severity | Assessment Guidelines |\n| --- | --- |\n| `Critical` | Issues with a Critical severity rating are practically exploitable by an attacker with the impact of significant loss of funds or significant impacts to the confidentiality and integrity of CoinSpot customer data. For example: Remote command execution on a CoinSpot managed system, Access to funds (digital or fiat) outside of the context of a given user, Mass unauthorised access/modification of sensitive data |\n| `High` | Examples of High severity reports include but are not limited to: Issues that result in the compromise of a targeted account/s that are impractical at scale (excluding distributed brute force against accounts password/TOTP), Stored or reflected XSS that can be exploited without user interaction, False top-up vulnerabilities identified in crypto deposit processes, Manipulation of a single users account balances |\n| `Medium` |  Examples of reports eligible for a Medium bounty include but are not limited to: Disclosure of current user account/wallet balances, XSS issues that cannot be exploited without user interaction |\n| `Low` | Examples of reports eligible for a Low bounty include but are not limited to: Valid/Theoretical vulnerabilities that require unlikely circumstances, Issues that result in inconvenience to CoinSpot Staff or Customers with limited security impact (i.e. locking a valid user out of their account) |\n\nThe payouts listed by tier are the minimum bounties for valid, reproducible reports of each severity. Please be aware that during triage and investigation into reports, existing mitigations will be evaluated to determine the residual risk for the reported issue. These mitigations, along with limitations will be evaluated to determine the report severity and therefore resulting bounty.\n\nSpecial bounties of $350,000 will, at CoinSpots discretion, be awarded for exceptional reports and the identification of new, high impact weaknesses affecting our platform or underlying technology. Researchers increase their chances of being awarded special bounties by submitting clear, high quality reports with step-by-step instructions on how to reproduce the identified issue. Additionally detailed descriptions of possible impacts of the weakness, along with timely responses to the CoinSpot staff and HackerOne Triage team will be viewed favourably.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.coinspot.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.coinspot.app",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "1541949985",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://www.coinspot.com.au/v2/api",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

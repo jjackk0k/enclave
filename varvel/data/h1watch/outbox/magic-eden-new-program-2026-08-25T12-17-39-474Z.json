@@ -1,0 +1,173 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "magic-eden",
+      "name": "Magic Eden",
+      "offersBounties": true,
+      "assets": [
+        "api.dicey.com",
+        "dicey.com"
+      ],
+      "exclusions": [
+        "*.magiceden.dev",
+        "*.magiceden.io",
+        "*.magiceden.workers.dev",
+        "blog.magiceden.io",
+        "cdn.magiceden.dev",
+        "docs.magiceden.io",
+        "eng.magiceden.dev",
+        "eng.magiceden.io",
+        "help.dicey.com",
+        "http://auth.magiceden.io",
+        "http://ord-mirror.magiceden.dev",
+        "img-cdn.magiceden.dev",
+        "magiceden.io",
+        "mainframe.magiceden.io",
+        "staging.dicey.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\magic-eden-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "magic-eden",
+  "name": "Magic Eden",
+  "url": "https://hackerone.com/magic-eden",
+  "policy": "Magic Eden looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n## Reporting your vulnerability\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. \n* For vulnerabilities involving personally identifiable information, please explain the kind of PII you believe is exposed and limit the amount of PII data included in your submissions.\n* Reference [HackerOne’s guidance on writing quality reports](https://docs.hackerone.com/hackers/quality-reports.html)\n\n## Performing your research\n* Do not impact production systems in a negative way for any testing\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* We recommend adding your HackerOne @wearehackerone.com email address to any Dicey account that you use to perform security research and testing. Clearly identifying accounts that are associated with bug bounty research helps our team to differentiate between possibly malicious activity and that of researchers involved in our bug bounty program\n\n## dicey.com Program Scope\n* Original games\n* Bonus points\n* High-severity technical vulnerabilities\n* RNG vulnerabilities\n* Payout vulnerabilities\n \n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Any activity that could lead to the disruption of our service (DoS, DDoS)\n* Attacks requiring MITM or physical access to a user's device.\n* Broken external links\n* Clickjacking on pages with no sensitive actions\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Duplicate reported vulnerabilities from other reports or submissions that have yet to be resolved\n* Issues that depend on third-party services or out of scope assets\n* Issues that require unlikely user interaction\n* Missing best practices in Content Security Policy\n* Missing best practices in SSL/TLS configuration\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Missing HttpOnly or Secure flags on cookies\n* Open redirect - unless an additional security impact can be demonstrated\n* Previously known vulnerable libraries without a working Proof of Concept\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Tabnabbing\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n\n## dicey.com | Out of Scope\n* Third-party games: Any vulnerabilities residing within games provided by external vendors.\n* Third-party wallets: Issues related to external wallet providers that do not directly impact user balances or transaction integrity on our platform.\n* General exclusions: All vulnerabilities listed in our [General Out-of-Scope Policy].\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Magic Eden and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Program Focus:\nWe are only accepting High and Critical severity reports.\nReports must be specifically related to Solana protocols or NFT-integrated functionality",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.magiceden.io",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Only reports detailing High or Critical severity issues will be reviewed for potential rewards",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.magiceden.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Cryptocurrency = Solana.\nOnly reports detailing High or Critical severity issues will be reviewed for potential rewards",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This service is done through substack and they are unwilling to fix reported bugs",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.magiceden.workers.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "eng.magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "eng.magiceden.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://ord-mirror.magiceden.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mainframe.magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "img-cdn.magiceden.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cdn.magiceden.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://auth.magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dicey.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Focus: High-severity technical vulnerabilities (e.g., SQLi, RCE, Broken Auth, Double Spending) and original games.\nStrictly Out of Scope:\nNo Social Engineering.\nNo Non-Production Assets: Testing is limited to production only; ignore test/dev environments.\nNo DoS/DDoS: Do not attempt to disrupt our s",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "staging.dicey.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.dicey.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.magiceden.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.dicey.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Focus: High-severity technical vulnerabilities (e.g., SQLi, RCE, Broken Auth, Double Spending) and original games.\nStrictly Out of Scope:\nNo Social Engineering.\nNo Non-Production Assets: Testing is limited to production only; ignore test/dev environments.\nNo DoS/DDoS: Do not attempt to disrupt our s",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tucows_vdp",
+      "name": "Tucows (VDP)",
+      "offersBounties": false,
+      "assets": [
+        "*.ascio.com",
+        "*.enom.com",
+        "*.exacthosting.com",
+        "*.hover.com",
+        "*.opensrs.com",
+        "*.simplybits.com",
+        "*.ting.com",
+        "*.tingmobile.com",
+        "*.tucowsdomains.com",
+        "*.wavelo.com",
+        "https://www.tucows.com"
+      ],
+      "exclusions": [
+        "*.partners.wavelo.com",
+        "*.tucows.com",
+        "Third Party Credential Listing",
+        "Third Party Support Sites",
+        "partners.wavelo.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tucows_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tucows_vdp",
+  "name": "Tucows (VDP)",
+  "url": "https://hackerone.com/tucows_vdp",
+  "policy": "# Introduction\n\nWelcome to the Tucows Vulnerability Disclosure Program!\n\nAt Tucows we take security seriously. If you believe that you have found a security vulnerability in any of the systems in scope, please report it to us using the \"Submit Report\" button on this page.\n\nTucows appreciates your participation in this program and looks forward to your findings.\n\n# Disclosure Policy\n\nPlease follow HackerOne's [Vulnerability Disclosure Guidelines](https://www.hackerone.com/terms/disclosure-guidelines)\n\n# Unqualified Issues\n\nPlease refer to the  [Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings) for a list of reports we do not accept.\n\n## Subdomains under tucows.com (*.tucows.com)\n \nAt this point we do not accept reports for subdomains under tucows.com (*.tucows.com). This includes but is not limited to subdomain takeovers, directory listings, wordpress installs, publicly accessible software archives.\n\n## Support websites\n\nWe do not take reports for our support sites. These websites are hosted by a third party:\n\n* support.ascio.com\n* support.hover.com\n* support.opensrs.com\n* support.enom.com\n* support.exacthosting.com\n\nPlease redirect reports for these sites to the H1 program for the vendor at https://hackerone.com/freshworks\n\n## InfoStealer, Third-party breaches, Malware Stealer Credentials \nReports involving credentials harvested via malware, phishing, or third-party breaches are out of scope and not eligible for reward.\nWhile these findings are not in scope for this program, we take credential leaks and data exposure seriously. If you do discover such information, please share it with us as informational— it helps inform our internal monitoring and remediation processes.\n\n# Safe Harbour\n\nTucows supports a transparent, respectful, and collaborative approach to vulnerability disclosure. If you follow this policy in good faith, we consider your security research authorized and will not take legal action.\n\n\nThank you for helping keep Tucows and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.opensrs.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hover.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.exacthosting.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ting.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tingmobile.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.enom.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ascio.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tucowsdomains.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tucows.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Due to the history and background into the Tucows business, and it's past as a shareware downloads site and mirror listing, we have many legacy subdomains pointed at third parties. Our program exclusions therefore list that we do not accept reports related to subdomains due to the historical nature ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.wavelo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Third Party Support Sites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.tucows.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.simplybits.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Third Party Credential Listing",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners.wavelo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is provided by a third-party SaaS and therefore not in scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.partners.wavelo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is provided by a third-party SaaS and therefore not in scope.",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "netlify",
+      "name": "Netlify",
+      "offersBounties": true,
+      "assets": [
+        "*.infra-prod.nsvcs.net",
+        "*.onegraph.com",
+        "*.ops.netlify.com",
+        "*.services-prod.nsvcs.net",
+        "*.services.netlify.com",
+        "api.netlify.com",
+        "app.netlify.com",
+        "internal-docs.netlify.com",
+        "internal.netlify.com",
+        "list-v2--netlify-plugins.netlify.app",
+        "netlify-cdp-loader.netlify.app",
+        "netlify-rum.netlify.app",
+        "screenshot-proxy.netlify.app",
+        "supportal.netlify.app"
+      ],
+      "exclusions": [
+        "*.netlify.app",
+        "*.netlify.com",
+        "*.netlifycms.org",
+        "answers.netlify.com",
+        "docs.netlify.com",
+        "https://github.com/netlify/",
+        "webpop.com",
+        "www.netlify.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\netlify-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "netlify",
+  "name": "Netlify",
+  "url": "https://hackerone.com/netlify",
+  "policy": "# About Netlify\n\nNetlify is the fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web.\n\n# Attack surface\n\nNetlify provides a UI (app.netlify.com), an API (api.netlify.com), a build system triggered by pushes to customer Git repos, a CDN for hosted static and dynamic content, and a host of related features (environment variables, third-party API federation with GraphQL, third-party build integrations, DNS management, analytics, log drains, site auth, forms, etc).\n\n# Endpoint map\n\nUse this map to get a sense for how things interconnect: https://hackerone-endpoint-map.netlify.app/endpoint-map.png. Note that the Program Scope is broader than what's shown in this map, and that this map lists specific subdomains that you may find of interest.\n\n# Response Targets\nNetlify will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days \n* Time to bounty (from triage) - 5 business days \n\nWe will do our best to keep you informed about our progress throughout the process. Please refrain from contacting Netlify's team out of band and allow us to review your submissions according to the timelines above.   \n\n# Program Rules\n* Please provide detailed reports with reproducible steps.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder. Please promptly report any retrieval of customer PII or PHI data.\n* Bounty payouts require that 1) you are the first person to file a report for a particular vulnerability, 2) the vulnerability is confirmed to be a valid security issue, and 3) you have complied with Netlify’s program guidelines.  \n\n# Testing Scope\n* You may test only against Netlify account(s) for which you are the account owner.\n* _You must create an account with your HackerOne email alias to be eligible for bounty._ \n\nAll researchers on HackerOne have an email alias in the format username@wearehackerone.com, which automatically forwards to your real email address. \n \nIf you would like to create additional test accounts, add a plus (“+”) sign and any combination of words or numbers after your username. For example: username+netlify@wearehackerone.com. This enables you to test different attack vectors / account levels without targeting other users or creating multiple HackerOne profiles.\n\n#Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n \n* Any attacks targeted at a customer account for which you are not the owner of and have not received permission to test are expressly forbidden.\n* Websites utilizing Netlify are considered out of scope.\n* Opening Pull Requests against our public GitHub repositories.\n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS), including but not limited to, domain/subdomain hijacking.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Missing rate limiting on password reset endpoint.\n* Missing forced login after password reset.\n* Avatar file upload (do not report unless you are very sure you can concretely demonstrate impact and have verified the impact end-to-end after reading the program scope - e.g. for XSS, malicious content would need to be successfully served by visiting app.netlify.com or api.netlify.com).\n* Reverse shells and general remote-code-execution in your site builds. Exceptions here are escalating privilege to root, obtaining sensitive secrets not already accessible to your user, escape from the container, and access to the orchestration control plane.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the Netlify organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Netlify and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://docs.netlify.com/get-started/. Also `netlify init` after installing the CLI: https://docs.netlify.com/cli/get-started/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "`netlify api --list` after installing the CLI: https://docs.netlify.com/cli/get-started/. See also https://open-api.netlify.com/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is Netlify's marketing website. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "webpop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is an old asset and will be deprecated in the near future. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.netlify.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Except for the in scope subdomains listed as in scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.onegraph.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "As of December 28, 2022 this feature is no longer available for Netlify users who have not yet enabled it. See https://docs.netlify.com/netlify-labs/experimental-features/netlify-graph/get-started/.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.services.netlify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.services-prod.nsvcs.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "internal.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.infra-prod.nsvcs.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ops.netlify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "netlify-cdp-loader.netlify.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Powers this feature: https://docs.netlify.com/site-deploys/deploy-previews/#collaborative-deploy-previews.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "screenshot-proxy.netlify.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "netlify-rum.netlify.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "list-v2--netlify-plugins.netlify.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Powers templates offered by app.netlify.com. See: https://www.netlify.com/integrations/templates/.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "internal-docs.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "docs.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "answers.netlify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.netlify.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Except for the in scope subdomains listed as in scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "supportal.netlify.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/netlify/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.netlifycms.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "aiven_ltd",
+      "name": "Aiven Ltd",
+      "offersBounties": true,
+      "assets": [
+        "Aiven for Apache Cassandra managed and hosted service",
+        "Aiven for Apache Flink (beta) managed and hosted service",
+        "Aiven for Apache Kafka managed and hosted service ",
+        "Aiven for Clickhouse (beta) managed and hosted service",
+        "Aiven for Grafana managed and hosted service",
+        "Aiven for InfluxDB managed and hosted service",
+        "Aiven for M3 managed and hosted service ",
+        "Aiven for MySQL managed and hosted service",
+        "Aiven for OpenSearch managed and hosted service",
+        "Aiven for PostgreSQL managed and hosted service",
+        "Aiven for Redis managed and hosted service",
+        "CTF challenge: ed25519 SSH host key of falcon-bug-bounty-flag-pgsql-dev-sandbox.aivencloud.com",
+        "aivencloud.com",
+        "api.aiven.io",
+        "console.aiven.io",
+        "github.com/aiven",
+        "help.aiven.io",
+        "www.aiven.io"
+      ],
+      "exclusions": [
+        "aquarium.aiven.io",
+        "https://aiven.io/contact",
+        "https://www.aiven.io/contact",
+        "uptime.aiven.io",
+        "video.aiven.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\aiven_ltd-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "aiven_ltd",
+  "name": "Aiven Ltd",
+  "url": "https://hackerone.com/aiven_ltd",
+  "policy": "# Aiven Bug Bounty Program Policy\r\n\r\nAiven look forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\nPlease read through the **entire** policy and take special care regarding the following:\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. **Do not** use any other email addresses such as `@gmail.com` for security testing.\r\n- If you need help, please reach out via this program or HackerOne support.  Do not use the site's support functionality, file tickets, or contact our account management team.\r\n\r\n## About Aiven\r\n\r\nAiven is a next-generation managed cloud database platform as a service. Its focus is in ease of adoption, high fault resilience, customer's peace of mind and advanced features at competitive price points. See https://aiven.io/ for more information.\r\n\r\n## Services and Products in Scope\r\n\r\nPlease sign up for a free trial account and launch any service from the below list. We are most interested in vulnerabilities in the services and our APIs.\r\n\r\nList of Aiven services eligible for bounty and available for testing:\r\n\r\n- Aiven for Apache Cassandra\r\n- Aiven for Apache Flink (beta)\r\n- Aiven for Clickhouse (beta)\r\n- Aiven for Grafana\r\n- Aiven for InfluxDB\r\n- Aiven for Apache Kafka\r\n- Aiven for Apache Kafka Connect\r\n- Aiven for Apache Kafka Mirrormaker\r\n- Aiven for M3\r\n- Aiven for M3 Aggregator\r\n- Aiven for MySQL\r\n- Aiven for OpenSearch\r\n- Aiven for PostgreSQL\r\n- Aiven for Redis\r\n\r\n## Out-of-Scope Assets\r\n\r\n- Only services you create by yourself - for example, PostgreSQL, Kafka and Grafana - are in-scope. Other services in `aivencloud.com` domain not created by you are explicitly out of scope, as those are our customers' services.\r\n- Support chat functionality provided by Qualified (or any other provider) on our web site is out of scope.\r\n- The contact us form (https://aiven.io/contact) and embedded versions of this contact us form on other pages are out of scope.  You can identify and ignore them based on the src of the iframe (https://go.aiven.io/l/890043/2022-02-15/7dc33?referrer=contact or similar).\r\n\r\n## Program Rules\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. **Do not** use any other email addresses such as `@gmail.com` for security testing. \r\n- Only interact with accounts and services you own or with explicit permission of the account holder. Specifically, take note of rules on `aivencloud.com` domain.\r\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\r\n- Out of scope: Support chat functionality provided by Intercom on our web site is out of scope for any kind of testing. Please **do not** contact us using the support chat.\r\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n- If you suspect you are disrupting our service with reasonable activity (for example, sending in gigabits/s of traffic is not allowed; sending in reasonable rate of API requests is ok), please stop, and open a report describing what you did and how you observed the disruption. \r\n\r\n## Report guidelines\r\n\r\n- We are interested in real-world vulnerabilities that have material security impact. Theoretical vulnerabilities without a proof of concept are not eligible for reward.  The proof of concept has to be specific to (and work on) the Aiven domain or resource your report is about.\r\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, there will be unnecessary delays in processing the issue. Report quality is taken into account when making decisions about reward and disclosure.\r\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n- Do not submit any attachments unless requested by our team. Screenshots are accepted, but videos, binaries and so on are not okay.\r\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n- Reports of software versions with known vulnerabilities (e.g. CVE) found on our domains **must** have a working proof of concept, or they will be marked **spam**.  Vulnerabilities that are not exploitable as deployed on an in-scope domain or service are out of scope.\r\n- **Do not submit scanner output.** In general, automated tools and scanners won't provide you much help, because we run them ourselves already. If your report consists only of pasted scanner output, we will mark it **spam**.\r\n\r\n## Test Plan\r\n\r\nAiven offers 30 day free trial on sign-up with reasonable amount of credits.\r\n\r\n- Use only your **`@wearehackerone.com`** email address for registering testing accounts. Do not use any other email addresses such as `@gmail.com` for security testing. \r\n- If you need multiple accounts, you may do so by using `username+foobar@wearehackerone.com` syntax.\r\n- To request additional credits please reach out to [HackerOne Support](https://www.hackerone.com/contact) clearly stating the need.\r\n\r\nPlease do note, that if you assign other payment method such as your personal credit card to your account, you're liable for all cost of resources and services consumed. The premium plans might incur significant cost for you. Contact us (through Hackerone support) before researching anything where the charges would exceed trial credits.\r\n\r\n### Resources:\r\n\r\n- [How to deploy an open source database in 10 minutes](https://www.youtube.com/watch?v=t95IQ0kpbFY)\r\n- [Devops tooling](https://aiven.io/devops/)\r\n- [API documentation](https://api.aiven.io/doc/)\r\n- [aiven-client](https://github.com/aiven/aiven-client): easiest way to use our API\r\n- [Service documentation and help](https://developer.aiven.io/)\r\n\r\n## Response Targets\r\n\r\nAiven will make a best effort to meet the following SLAs for hackers participating in our program.\r\n\r\n| **Type of Response** | **SLA in business days** |\r\n| --- | --- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Bounty | 14 days |\r\n| Time to Resolution | 30 days |\r\n\r\nWe’ll keep you informed about our progress throughout the process.\r\n\r\n## Disclosure Policy\r\n\r\nOur disclosure policy is open but responsible. Thank you for joining us in supporting ethical disclosure.\r\n\r\n- [Mutual disclosure policy](https://docs.hackerone.com/programs/disclosure.html): you can request disclosure for any closed report in the program. Our security team will contact you and agree if the contents of the report can be made public. We are committed to protect safety of our customers as well as the anonymity of the reporter and methods and tools used.\r\n- Responsible disclosure: we only disclose vulnerabilities that are original, meaningful for the security community and safe to disclose, taking our customers and other users of the open source software components into account. We will redact any confidential, personal or not appropriate information from the report before making it public.\r\n- Please do not discuss any vulnerabilities (even resolved ones) publicly or privately in any details with any party outside of the program without express consent from the Aiven security team.\r\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n## Legal Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorised conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n## In Scope Vulnerabilities\r\n\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. In general we require a demonstrated security vulnerability - a simple usability issues (for example, entering specific, valid data causes server to respond with `500 Internal Server Error`, but no other impact is demonstrated) can be reported, but may not result in a bounty even if we end up fixing the issue.\r\n\r\n| **Vulnerability** | **Severity Range** |\r\n| --- | --- |\r\n| Remote Code Execution | Critical |\r\n| SQL Injection | High-Critical |\r\n| XXE | High-Critical |\r\n| XSS | Medium-High |\r\n| Server-Side Request Forgery SSRF | Low-Critical |\r\n| Directory Traversal - Local File Inclusion | Medium-High |\r\n| Authentication/Authorization Bypass (Broken Access Control) | Medium-High |\r\n| Privilege Escalation | Medium-High |\r\n| Insecure Direct Object Reference IDOR | Medium-Critical |\r\n| Misconfiguration | Low-High |\r\n| Web Cache Deception | Low-Medium |\r\n| CORS Misconfiguration | Low-Medium |\r\n| CRLF Injection | Low-High |\r\n| Cross Site Request Forgery CSRF | Medium |\r\n| Information Disclosure | Medium (requires POC) |\r\n| Request smuggling | Low-Medium |\r\n| Mixed Content | Low |\r\n\r\n## Out of Scope Vulnerabilities\r\n\r\n| **Vulnerability** | **Description** |\r\n| --- | --- |\r\n| Customer assets | APIs, services that you have set up by yourself in `aivencloud.com` domain are in scope, but other customers'; services in `aivencloud.com` are explicitly out of scope. |\r\n| Support chat | Any vulnerability that is related to support chat function at our web page |\r\n| Denial of Service | Any activity that could lead to the disruption of our service (DoS).  |\r\n| Public Zero-day | Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis. |\r\n| Rate-limiting | Rate limiting or bruteforce issues of any kind. |\r\n| Brute force | Bruteforcing long, generated tokens over the network. User Enumeration. Password complexity. |\r\n| Clickjacking | Clickjacking on pages with no sensitive actions, or clickjacking that would be prevented if a Content-Security-Policy-Report-Only header on a page were changed to Content-Security-Policy. |\r\n| Security Best Practices | Missing security headers, cookie flags, etc.  |\r\n| Email security best practices | Invalid, incomplete or missing email SPF/DKIM/DMARC records.  |\r\n| SSL/TLS Best Practices | Missing best practices in SSL/TLS configuration. |\r\n| Information disclosure | Software version disclosure, Banner identification, Descriptive error messages or headers, Stack traces, application or server errors. _Errors containing confidential or secret information that can be used to escalate access are in-scope._  |\r\n| CSRF | Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions or minimal impact. |\r\n| Content Spoofing | Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS |\r\n| MITM | Attacks requiring man-in-the-middle or physical access to a user's device. |\r\n| Unlikely user interaction | Issues that require unlikely user interaction. For example, requiring user to manually enter crafted content. |\r\n| Outdated browsers | Vulnerabilities only affecting users of outdated or unpatched browsers (less than 2 stable versions behind the latest released stable version). |\r\n| Open redirect | Open redirect - unless an additional security impact can be demonstrated |\r\n| Header Injection | Host header Injection with no impact |\r\n| Social engineering | Social engineering (e.g. phishing, vishing, smishing, tabnabbing) is prohibited. |\r\n| Physical attacks |  |\r\n\r\nThank you for helping keep Aiven Oy and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aivencloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Aivencloud.com is used for Aiven customer service deployments. Assets under aivencloud.com are thus only eligible for bounty if they are assets are linked and owned to your own test accounts and services. Specifically, assets under that domain that are linked to customer systems are off-limits and n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "github.com/aiven",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Bugs that are not security issues in available source code may not be eligible for a bounty. Accessing confidential Aiven source code or other resources, or finding valid credentials or similar secrets from publicly available source code may be eligible for bounty.\n\n**Do note this is not a permissio",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Apache Kafka managed and hosted service ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/kafka for details about the service. Also in scope Aiven for Apache Kafka Connect https://aiven.io/kafka-connect and Aiven for Apache Kafka MirrorMaker 2 https://aiven.io/mirrormaker\n\nAiven for Apache Kafka® is a fully managed streaming platform, deployable in the cloud of your ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for M3 managed and hosted service ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/m3 for details about the service. Also in scope: Aiven for\nM3 Aggregator: https://aiven.io/m3-aggregator\n\nAiven for M3 is a fully managed distributable time series database, deployable in the cloud of your choice. Bring unlimited scalability and high-availability to your Prometh",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for PostgreSQL managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/postgresql for details about the service.\n\nAiven for PostgreSQL is a fully managed SQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nOnly ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for MySQL managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/mysql for details about the service.\n\nAiven for MySQL is a fully managed SQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nOnly assets in ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for OpenSearch managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/opensearch for details about the service.\n\nAiven for OpenSearch is a fully managed search and analytics suite forked from Elasticsearch, and deployable in the cloud of your choice. Our maintenance-free solution helps you make the most of your data – and focus on building your bu",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Apache Cassandra managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/cassandra for details about the service.\n\nAiven for Apache Cassandra® is a fully managed NoSQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Redis managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/redis for details about the service.\n\nAiven for Redis™* is a fully managed in-memory NoSQL database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nO",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for InfluxDB managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/influxdb for details about the service.\n\nAiven for InfluxDB is a fully managed time series database, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your core apps.\n\nO",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Grafana managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/grafana for details about the service.\n\nAiven for Grafana is a fully managed analytics and monitoring solution, deployable in the cloud of your choice. Snap it into your existing workflows with the click of a button, automate away the mundane tasks, and focus on building your co",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Apache Flink (beta) managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See https://aiven.io/flink for details about the service.\n\nApache Flink is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. It is a perfect companion to Apache Kafka event streaming platform, to perform reliable and scalable real-time f",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aiven for Clickhouse (beta) managed and hosted service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See [Developer documentation](https://developer.aiven.io/docs/products/clickhouse/index.html) for details about the service.\n\nThe services can be launched via console.aiven.io or using our API at api.aiven.io.\nAiven for ClickHouse beta is powered by ClickHouse, a highly scalable, open source databas",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://aiven.io/contact",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The contact us form is managed by a third party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.aiven.io/contact",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "uptime.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "video.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "CTF challenge: ed25519 SSH host key of falcon-bug-bounty-flag-pgsql-dev-sandbox.aivencloud.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Include in your report the following items:\n\n1. The complete contents of `/etc/ssh/ssh_host_ed25519_key` corresponding to the host key available on the host at the time of exploitation\n2. The current external IP address of the host\n3. An explanation of how you got the key",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aquarium.aiven.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

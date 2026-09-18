@@ -1,0 +1,155 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "matomo",
+      "name": "Matomo",
+      "offersBounties": true,
+      "assets": [
+        "737216887",
+        "https://github.com/innocraft/",
+        "https://github.com/matomo-org",
+        "https://github.com/matomo-org/docker",
+        "https://github.com/matomo-org/matomo",
+        "https://plugins.matomo.org/developer/innocraft",
+        "https://plugins.matomo.org/developer/matomo-org",
+        "matomo.cloud",
+        "org.piwik.mobile2"
+      ],
+      "exclusions": [
+        "api.matomo.org",
+        "forum.matomo.org",
+        "matomo.org",
+        "plugins.matomo.org",
+        "shop.matomo.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "don't run automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\matomo-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "matomo",
+  "name": "Matomo",
+  "url": "https://hackerone.com/matomo",
+  "policy": "## Disclosure Policy\n\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n* Reported security issues must be original and previously unreported.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Please **don't run automated tools** against live servers without contacting us first. If you want to test out Matomo you can easily [set up your own instance](https://matomo.org/docs/installation/)\n* Please don't test contact forms and similar actions that send out emails.\n* Please don't sign up for more than one free trial on InnoCraft cloud.\n\n \n## Reporting Requirements\n\nTo help us efficiently validate and resolve issues, reports must include:\n\n* A clear description of the vulnerability\n* The **affected asset, component, or plugin**\n* The **required authentication level** (e.g. unauthenticated, user, write, admin, superuser)\n* **Step-by-step reproduction instructions**\n* A working **Proof of Concept (PoC)** (e.g. payload, request, script, or screenshot/video demonstrating the issue)\n* A clear explanation of the **real-world impact**\n\nReports that are missing sufficient detail or cannot be reproduced may be closed as Not Applicable.\n\n### Important\n\n* Findings must be **validated in a real, running Matomo instance**.\n* Reports based solely on **code analysis, automated tools, or AI-generated output** without demonstrated exploitability will not be accepted.\n* The reporter is responsible for verifying that the issue is **actually exploitable in practice**, not just theoretically possible.\n* Security vulnerabilities that have already been fixed in code, do not qualify, even if the fix did not yet land in a release.\n\n \n## Out-of-Scope Vulnerabilities\n\nThe following issues are outside the scope of our rewards program. This list is not exhaustive:\n\n* Code vulnerabilities that are not exploitable in a real-world environment\n* Theoretical issues or issues based only on code patterns without a working exploit\n* Output from automated scans or AI-generated reports that have not been manually verified\n* Clickjacking\n* Cross-Window Forgery (CWF)\n* CSRF on login, logout, unauthenticated forms, or actions with no security-relevant effect\n* Information disclosure that stays inside your own authorization scope, including anything already public in our open-source code (including version or path disclosures)\n* The `token_auth` acts as the user's password and is used to authenticate in API requests ([see FAQ](https://matomo.org/faq/general/faq_114/))\n* Open Directory Listing\n* CORS related issues in any of our `*.matomo.org` websites\n* Application Errors on pages\n* CRIME/BEAST attack and lack of HTTP security headers (CSP, X-XSS, etc.)\n* Security issues as a result of running a Matomo instance without HTTPS\n* Brute force, DoS, DDoS, phishing, text injection, or social engineering attacks\n* Vulnerabilities requiring Man-in-the-middle and on-path attacks; intercepting, modifying or downgrading traffic; control of DNS or the local network; user-installed root certificates\n* Vulnerabilities requiring access to the victim's device, browser profile, extensions or clipboard\n* Host and forwarded-header injection, including password-reset link poisoning, where it depends on proxy header settings without a header-overwriting proxy, or on trusted hosts not being configured\n* Vulnerabilities requiring  control of a dangling subdomain beneath a configured trusted host\n* Missing cookie flags on non-sensitive cookies\n* Users with super user privileges can post arbitrary JavaScript\n* Vulnerabilities affecting users of outdated browsers or platforms\n* Issues related to world writable files in a shared hosting environment\n* Race conditions to bypass limits/quotas\n* Server-Side Request Forgery (SSRF), blind and where result reaches you only as a boolean, a detection signature, an error, a timing or a length difference without further impact\n* HSTS or CSP headers\n* SPF or DMARC records missing; DKIM and mail server configuration\n* Issues around open ports on our servers and software running behind those\n* Vulnerabilities due to outdated infrastructure (PHP, MySQL/MariaDB, web server, OS)\n* Vulnerabilities caused by not applying [Matomo security best practices](https://matomo.org/docs/security-how-to/)\n* Vulnerabilities in third-party plugins (not authored by Matomo or InnoCraft)\n* Vulnerabilities in code not included in final releases (e.g. tests) unless they affect shipped builds\n* CLI is out of scope (including Matomo console commands)\n\n\n### Known issues and accepted limitations\n\n- Email address ownership is never verified, for invitations or for email changes\n- Possession of an unexpired invitation link is itself the authorization to claim that pending account, as is the ability to issue or re-issue one\n- In Tag Manager, the capability to publish a container live is treated as equivalent trust to authoring custom templates\n- Login and password-reset responses differ for accounts that exist, including in timing\n- The default password policy accepts weak passwords; strength requirements are configurable\n- Matomo requires write access to its own directories for updates and plugin installation, which is not the same as an attacker holding that access\n- Password-reset links follow forwarded host headers when proxy host headers are configured\n\n \n## Additional Notes\n\n* We may request additional information if a report is unclear or incomplete.\n* Reports that require extensive clarification or cannot be reproduced may be closed.\n* Repeated submission of low-quality or non-reproducible reports may negatively impact eligibility for rewards.\n\n \n## Responsible Disclosure Reminder\n\nPlease submit any open source security issues directly to us via HackerOne. **Do not** open security-related issues on public GitHub repositories.\n\nThank you for helping keep Matomo and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/matomo-org/matomo",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "this repository contains the source code of Matomo Analytics",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "plugins.matomo.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Matomo Marketplace Platform is excluded from this bug bounty",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://plugins.matomo.org/developer/matomo-org",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Official plugins by the Matomo team",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://plugins.matomo.org/developer/innocraft",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Official plugins by Innocraft",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/matomo-org",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All other software on the matomo-org GitHub organisation. Archived or forked repositories are explicitly out of scope.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://github.com/innocraft/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All other software on the innocraft GitHub organisation. Archived or forked repositories are explicitly out of scope.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "matomo.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Matomo Analytics Cloud\n*$username.matomo.cloud* is also in scope, but please limit tests to ones that don't affect the live instance. (no automated tools) You can easily set up your own Matomo instance for extensive testing (see https://matomo.org/docs/installation/) ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "org.piwik.mobile2",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Matomo Mobile 2 Android App\nOnly critical issues compromising the token are in scope.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "737216887",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Matomo Mobile 2 iOS App\nOnly critical issues compromising the token are in scope.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "api.matomo.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "matomo.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Project website",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "forum.matomo.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please don't post test posts on the forum.\nThe forum is using discourse, so please report any security issues [on their bug bounty](https://hackerone.com/discourse)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "shop.matomo.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/matomo-org/docker",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " Official Docker project for Matomo Analytics ",
+      "max_severity": "critical"
+    }
+  ]
+}

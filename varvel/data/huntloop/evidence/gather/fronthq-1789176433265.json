@@ -1,0 +1,51 @@
+{
+ "at": "2026-09-12T01:27:09.428Z",
+ "opportunity": "fronthq",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.frontapp.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 5869d8337913ed7453262c3cf9c9a9e6.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "sameorigin"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api2.frontapp.com",
+   "kind": "domain",
+   "status": 401,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.frontapp.mobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.frontapp.mobile:443 refused: host unreachable"
+  }
+ ]
+}

@@ -1,0 +1,123 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "trendyol",
+      "name": "Trendyol",
+      "offersBounties": true,
+      "assets": [
+        "1127881507",
+        "524362642",
+        "6467634418",
+        "com.dolap.android",
+        "com.trendyol.go",
+        "com.trendyol.milla.android",
+        "trendyol.com",
+        "www.dolap.com",
+        "www.tgoyemek.com",
+        "www.trendyol-milla.com",
+        "www.trendyol.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\trendyol-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "trendyol",
+  "name": "Trendyol",
+  "url": "https://hackerone.com/trendyol",
+  "policy": "As DSM GRUP DANIŞMANLIK İLETİŞİM VE TİCARET A.Ş. (“DSM”), we highly value security and privacy and look forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe. Off the back of a successful HackerOne Challenge, we are excited to continue leveraging Hacker Powered Security with HackerOne's diverse talent pool.\n\n# Response Targets\nDSM will make its best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| --- | --- |\n| **First Response** | 2 days |\n| **Time to Triage** | 2 days |\n| **Time to Bounty** | 14 days |\n| **Time to Resolution** | Depends on severity and complexity |\n\nWe will make every effort to keep you informed of our progress throughout the remediation process.\n\n# Scope\nOur core target assets are listed in the table below. \n\n> **Note:** For all Web / API targets, API calls initiated from both web and mobile applications are explicitly accepted in scope.\n\n| Asset / Application        | Platform             | Identifier / URL                                                                                       |\n| ------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------- |\n| Trendyol                   | Web / API            | www.trendyol.com                                                                                       |\n| Dolap                      | Web / API            | www.dolap.com                                                                                          |\n| Trendyol Milla             | Web / API            | www.trendyol-milla.com                                                                                 |\n| Trendyol Go Yemek          | Web / API            | www.tgoyemek.com                                                                                       |\n| Trendyol Application       | Android (Play Store) | [trendyol.com](https://play.google.com/store/apps/details?id=trendyol.com)                             |\n| Trendyol Milla Application | Android (Play Store) | [com.trendyol.milla.android](https://play.google.com/store/apps/details?id=com.trendyol.milla.android) |\n| Trendyol Go Application    | Android (Play Store) | [com.trendyol.go](https://play.google.com/store/apps/details?id=com.trendyol.go)                       |\n| Dolap Application          | Android (Play Store) | [com.dolap.android](https://play.google.com/store/apps/details?id=com.dolap.android)                   |\n| Trendyol Milla Application | iOS (App Store)      | [6467634418](https://apps.apple.com/us/app/trendyolmilla/id6467634418)                                 |\n| Trendyol Application       | iOS (App Store)      | [524362642](https://apps.apple.com/tr/app/trendyol-online-al%C4%B1%C5%9Fveri%C5%9F/id524362642)        |\n| Dolap Application          | iOS (App Store)      | [1127881507](https://apps.apple.com/us/app/dolap-i-kinci-el-al%C4%B1%C5%9Fveri%C5%9F/id1127881507)     |\n\n# Test Plan\nWeb traffic to and from DSM properties produces petabytes of data every day. To ensure your testing is identified correctly and our SOC team does not block your research activity, please follow these instructions:\n\n- **Accounts:** Please create accounts using your `username@wearehackerone.com` email address. Some of our properties will require this to be eligible for a bounty.\n- **Custom Header:** You must include the following custom HTTP header in all your traffic:\n  `X-Bug-Bounty: hackerone-{username}`\n\n# Program Rules\nWe expect researchers to adhere to the \"Do No Harm\" principle. In the event of a violation, you may face exclusion from the program:\n\n- **Focus on Impact:** We evaluate reports based on the highest plausible business impact. Show us the worst-case scenario, but do not cross the line into data destruction.\n- **Chaining & Post-Exploitation:** Chaining vulnerabilities is encouraged to demonstrate impact. However, if you compromise a server or internal system, **stop immediately**. Do not attempt to pivot, port scan internal networks, or escalate privileges further.\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- Submit one vulnerability per report, unless chaining is required.\n- Do not compromise or test DSM accounts that are not your own.\n- Do not threaten DSM, engage in extortion, or demand ransom. \n- Do not perform brute force, DoS attacks, or any actions that degrade DSM services.\n- Social engineering (e.g., phishing, vishing) and physical attacks against DSM facilities are strictly prohibited.\n- Employees, contractors, and their immediate families are prohibited from participating.\n\n# Out-of-Scope Vulnerabilities & Exclusions\nWhen reporting vulnerabilities, please consider the realistic attack scenario/exploitability, and the technical security impact of the bug. The following issues and testing methods are explicitly excluded from this program:\n\n**1. Excluded Assets & Features**\n* Any non-DSM applications, third-party integrations, or external hostings.\n* Submitting domain takeovers. We accept notifications of domain takeover for security purposes, but they are not eligible for financial rewards. *Please note that performing the actual takeover of the asset is strictly prohibited.*\n* 0-day vulnerabilities: 0-day and other CVE vulnerabilities may be reported 45 days after initial publication.\n\n**2. Prohibited Testing Methods**\n* **Denial of Service:** Any activity that could lead to the disruption of our service (DoS/DDoS).\n* **Automated Testing:** Running high-frequency automated scans, scanner outputs, and bugs found purely via generic automated tools without manual verification.\n* **Brute Force:** Any form of credential, token, or identifier brute forcing.\n* **Social Engineering:** Any form of social engineering attacks (e.g., phishing, vishing, smishing) targeted at DSM personnel, customer support, or customers.\n* **Physical Attacks:** Conducting any kind of physical attack on DSM’s personnel, office properties, logistics infrastructure, or data centers.\n* **Data Exfiltration:** Exfiltrating production or customer data. Please test only the absolute minimum necessary to validate a proof of concept.\n\n**3. Web Application Exclusions**\n* Clickjacking on pages with no sensitive actions or state-changing functions.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms, forms with no sensitive actions, or forms with non-impactful business consequences.\n* CORS configurations without a demonstrable, exploitable data-leak scenario.\n* Content spoofing, text injection, or host header injection issues without a significant, proven attack vector (e.g., without being able to modify HTML/CSS dynamically).\n* Open redirects, unless a distinct, secondary security impact can be demonstrated.\n* \"Self\" exploitation vulnerabilities (e.g., Self-XSS, HTML injection affecting only the local session).\n* Flash-based vulnerabilities or legacy Flash-related bugs.\n* Comma Separated Values (CSV) injection without demonstrating a downstream server-side exploit.\n* Form issues regarding missing autocomplete attributes.\n\n**4. Configuration and Defensive Best Practices**\n* Missing security-related HTTP headers (e.g., `X-XSS-Protection`, missing CSP policies) which do not lead directly to a practical vulnerability.\n* Missing `HttpOnly` or `Secure` flags on non-sensitive cookies.\n* Missing email best practices (e.g., invalid, incomplete, or missing SPF/DKIM/DMARC records).\n* Missing best practices in standard SSL/TLS protocol configurations.\n* Software version disclosures, banner grabbing, banner identification issues, descriptive error messages, path disclosures, directory listings, or verbose stack traces without active proof of exploitability.\n* Password complexity guidelines or user enumeration findings.\n* Exposed API keys (e.g., Google Maps API keys) without a demonstrable, high-impact security risk (such as unauthorized write access or sensitive data exposure). Public client-side API keys are not considered sensitive by default.\n\n**5. Environmental & Client-Side Exclusions**\n* Attacks requiring Man-in-the-Middle (MITM) or prolonged physical access to a user's unlocked device.\n* Vulnerabilities only affecting users of severely outdated or unpatched browsers (defined as being more than 2 stable versions behind the latest released stable browser version).\n* Vulnerabilities relating to root detection, jailbreak status, or certificate pinning on client applications.\n* Vulnerabilities relating to outdated versions of the Android or iOS operating systems.\n* Cloudflare public IP leaks.\n* Previously known vulnerable third-party libraries without a working, contextual Proof of Concept.\n\n# Reporting Requirements\nTo help our triage team validate your findings quickly, all submissions must meet the following baseline requirements. Reports that fail to provide sufficient documentation will be requested to update their report or may be closed as informative.\n\n1. **Clear Summary:** Provide a concise title detailing the vulnerability type and the affected asset/endpoint.\n2. **Detailed Description:** Explain the underlying flaw and how it can be abused.\n3. **Step-by-Step Reproduction Instructions:** Clearly outline the steps required to replicate the vulnerability. Write your steps assuming the reader has no contextual background on your approach.\n4. **Proof of Concept (PoC):** Include explicit PoC material. This can include raw HTTP requests/responses, screenshots, or short screen recordings (MP4 format).\n5. **Impact Evaluation:** Describe the realistic security risk and impact this vulnerability poses to DSM or its customers. Avoid speculative or theoretical harm.\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from DSM.\n* Thank you for joining us in supporting ethical and responsible disclosure. By participating in this program, you agree not to share publicly or privately any details or descriptions of your findings with any third party.\n* Follow HackerOne's standard [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Confidentiality and Protection of Personal Data\nThe “Confidential Information” shall include, any information provided by DSM to the Hacker (Bug Bounty Program Participants) but not be limited to any information, whether in written, oral, electronic, or other tangible forms including, without limitation, the forms currently available and those made available by new technologies in future, regarding the financial, commercial, technical, professional, market and product-related and all kinds of personal information to be disclosed.\n\nIn principle, DSM does not share personal data with Hacker, and only the Hacker can access personal data based on the legal reason that it is compulsory for the performance of the Articles of Association, limited to the performance of the services provided in the Articles of Association.\n\nIf the Hacker accesses personal data that is not necessary for the performance of the Agreement, it will immediately destroy that information and any copies.\n\nIf you encounter user information that is not your own in the course of your research, please stop and report this activity to our team so we can investigate. Please report to us what information was accessed and delete the data. Do not save, copy, transfer, or otherwise use this data. Continuing to access another person’s data may be regarded as evidence of a lack of good faith.\n\n\n# Safe Harbor\nPlease note that we can only consider your activities to be lawful if they are proportionate and the purpose of your actions is consistent with the purpose of this Policy. We explicitly do not exclude that any attempt to intentionally or grossly negligently attack our systems with the intent to harm us and/or compromise the confidentiality, integrity or availability of our data may be pursued with legal action.\n\n# Legal\nIf reports/notifications falling within the scope of this Policy are conveyed through a different channel, your report/notification will not be taken into consideration by our company. Instead, you will be directed to the BugBounty Program to submit your report. According to our company policies and procedures, reviews of reports and notifications are carried out by our technical teams only when they are transmitted within the scope of the BugBounty program. Therefore, it is necessary to submit your reports through this program.\n\nDSM reserves the right to modify the terms and conditions of this program and your participation in the program constitutes acceptance of all terms. Please check this website regularly as we update our program terms and conditions of participation periodically. We reserve the right to terminate this program at any time.\n\nThank you for keeping DSM and our users safe! ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.trendyol.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Feel free to use en.trendyol.com as the codebase is shared across all languages",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.dolap.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "524362642",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Trendyol IOS Application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1127881507",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Dolap IOS Application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trendyol.com",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.dolap.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.trendyol-milla.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6467634418",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Trendyol Milla IOS Application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.trendyol.milla.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Trendyol Milla Android Application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.tgoyemek.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.trendyol.go",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

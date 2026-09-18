@@ -1,0 +1,80 @@
+{
+ "at": "2026-09-12T08:35:26.907Z",
+ "opportunity": "daimler_truck",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "daimlertrucksgoldcoast.com.au",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 8e58507d28767baa9bc6994f10da4426.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "060.syncro-int.daimlertruck.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to 060.syncro-int.daimlertruck.com:443 refused: host unreachable"
+  },
+  {
+   "host": "3dprintdata.daimlertruck.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "3dviewer.daimlertruck.com",
+   "kind": "domain",
+   "status": 502,
+   "techs": [],
+   "headers": {
+    "server": "Microsoft-Azure-Application-Gateway/v2"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "access.platon.daimlertruck.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ERR_TLS_CERT_ALTNAME_INVALID: Hostname/IP does not match certificate's altnames: Host: access.platon.daimlertruck.com. is not in the cert's altnames: DNS:dev.platon.daimlertruck.com, DNS:san"
+  }
+ ]
+}

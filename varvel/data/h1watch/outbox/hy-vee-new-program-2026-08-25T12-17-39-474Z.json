@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hy-vee",
+      "name": "Hy-Vee",
+      "offersBounties": false,
+      "assets": [
+        "*.hy-vee.cloud",
+        "*.hy-vee.com",
+        "Other Hy-Vee owned asset"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hy-vee-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hy-vee",
+  "name": "Hy-Vee",
+  "url": "https://hackerone.com/hy-vee",
+  "policy": "Vulnerability Disclosure Program\n\nHy-Vee, Inc. (“Hy-Vee”) is a Midwestern grocery retailer with more than 275 stores across Illinois, Iowa, Kansas, Minnesota, Missouri, Nebraska, South Dakota, and Wisconsin.\n\nHy-Vee’s Security Team is committed to protecting our users and their personal information.\n\nWe encourage security researchers to work with us to identify and mitigate security vulnerabilities in order to keep our business and customers safe. If you believe you have discovered a vulnerability on our websites or within our mobile apps, we kindly ask that you disclose it to us promptly and responsibly. We will investigate your report and respond as quickly as possible. We look forward to collaborating with you to resolve any issues.\n\n\n#Our Ask\n\n* Report suspected vulnerabilities as soon as they are discovered.\n* Provide detailed reports including reproducible steps and supporting evidence.\n* Submit one vulnerability per report unless chaining issues is necessary to demonstrate impact.\n* Do not publicly disclose the vulnerability until it has been resolved and coordinated disclosure has been agreed with Hy-Vee.\n* Do not exploit vulnerabilities beyond what is necessary to confirm their existence.\n* Make a good-faith effort to avoid privacy violations, destruction of data, or service disruption. Only interact with accounts you own or have explicit permission to test.\n* Test only systems and assets within the defined program scope.\n\n\n#Our Commitment\n\n* We will acknowledge receipt of your report within 5 business days.\n* We will investigate and provide status updates as appropriate.\n* We will provide an estimated remediation timeline when possible.\n* We will notify you when the issue has been remediated.\n* With your consent, we will publicly acknowledge your responsible disclosure after resolution.\n\n# Out of Scope Vulnerabilities and Attacks\n\n* Social engineering attacks (e.g., phishing, vishing, smishing)\n* UI-based attacks without demonstrated sensitive impact, including clickjacking, tabnabbing, content spoofing, or open redirects\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring privileged network positioning (MITM) or physical access to a user’s device without a realistic attack scenario\n* Reports based solely on vulnerable library/version identification without demonstrating exploitability in our environment\n* CSV injection without demonstrated impact\n* Missing security best practices in SSL/TLS configuration\n* Denial-of-Service testing or traffic flooding\n* Rate-limiting or brute-force issues affecting non-authentication endpoints only\n* Missing security best practices in Content Security Policy\n* Missing HttpOnly or Secure flags on cookies without demonstrated impact\n* Missing or misconfigured SPF/DKIM/DMARC or other email best practices\n* Vulnerabilities affecting only outdated or unsupported browsers (more than two stable versions behind)\n* Software version disclosure, banner identification, verbose error messages, stack traces, or headers without sensitive exposure\n* Self-XSS or issues requiring unrealistic user interaction\n* Issues relying on highly improbable user behavior\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you.\n\n# Thank You\n\nWe appreciate the security community’s help in protecting Hy-Vee’s customers and systems. Responsible research helps us improve and keep our platform safe for everyone.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.hy-vee.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "1) In order to register, navigate to \nhttps://www.hy-vee.com/\n\n2) Click on the Log In button\n\n3) Click on \"Create an account\"\n\n4) Fill out the form\ncreate a test account using your @ wearehackerone.com email\n\n5) Click on \"Create Account\".",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Hy-Vee owned asset",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "If you believe you have found a vulnerability on an application owned by Hy-Vee other than *.hy-vee.com or  *.hy-vee.cloud, you may safely report it to us here on our Vulnerability Disclosure Program. Thank you!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hy-vee.cloud",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

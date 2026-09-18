@@ -1,0 +1,84 @@
+{
+ "at": "2026-09-12T04:33:49.857Z",
+ "opportunity": "roblox",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "blox.link",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c3241c9f7d856-LHR",
+    "strict-transport-security": "max-age=63072000",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "roblox.com",
+   "kind": "wildcard-apex",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "rbx.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 fcb7e2ea03344c5cbdb3ce71f1ffa1dc.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ra.roblox.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to ra.roblox.com:443 refused: host unreachable"
+  }
+ ]
+}

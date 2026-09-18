@@ -1,0 +1,100 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "abercrombie_fitch",
+      "name": "Abercrombie & Fitch Management Co.",
+      "offersBounties": false,
+      "assets": [
+        "339041767",
+        "383915209",
+        "abercrombie.com",
+        "anfcorp.com",
+        "com.abercrombie.abercrombie",
+        "com.abercrombie.hollister",
+        "corporate.abercrombie.com",
+        "hollisterco.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\abercrombie_fitch-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "abercrombie_fitch",
+  "name": "Abercrombie & Fitch Management Co.",
+  "url": "https://hackerone.com/abercrombie_fitch",
+  "policy": "Abercrombie & Fitch Management Co. (ANF) looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted consistently with this policy, we will take steps to make it known that your actions were authorized.\n\n# Disclosure Policy\n\n-   As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express written consent from Abercrombie & Fitch Management Co.\n-   Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n\nPlease provide detailed reports with reproducible steps.\n\n-   Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n-   Exfiltration and/or exposure of personally identifiable information is expressly prohibited. If you believe a vulnerability exists where PII may be exposed, please ensure you are using your own test accounts for POC.\n- If submitting a ticket regarding found system credentials, researchers must provide the source. Credentials must not be used to access underlying systems.\n-   Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n-   Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n-   A&F corporate employees, contractors (past and current), and connected entities are not eligible for participation in this program. If you are an associate that has found a vulnerability, please follow internal security reporting guidelines.\n- Abercrombie’s and Hollister Co.’s underlying architecture is the same. Often times, a finding for one is a finding for the other. The same rule can be applied to exposed non-prod environments if found. Refrain from submitting a duplicate report for the other domain or environment. \n\n# Test Plan\n\n-   We strongly recommend you use a user agent header in your HTTP(S) requests, and for non-HTTP requests we strongly recommend you add an identification to artifacts in POCs, and, or payloads so our teams can identify you as a verified hacker and not a malicious attacker: h1:`<vdp-hackeroneusername>`\n-   No credentials are required or provided for this program. If you self-register for any accounts, please register with your [@wearehackerone](https://hackerone.com/wearehackerone).com email address. You may not use exposed credentials to continue testing without explicit written approval of Abercrombie & Fitch Management Co.\n\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n-   Clickjacking on pages with no sensitive actions\n-   Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n-   Attacks requiring MITM or physical access to a user's device.\n-   Previously known vulnerable libraries without a working Proof of Concept.\n-   Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n-   Missing best practices in SSL/TLS configuration.\n-   Any activity that could lead to the disruption of our service (DoS).\n-   Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n-   Rate limiting or bruteforce issues on non-authentication endpoints\n-   Missing best practices in Content Security Policy.\n-   Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n-   Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n-   Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors) without PoC are considered informational.\n-   Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n-   Tabnabbing and typosquatting\n-   Open redirect - unless an additional security impact can be demonstrated\n-   Issues that require unlikely user interaction\n-   Promotional code abuse\n\n# Response Targets\n\nAbercrombie & Fitch Management Co. will make a best effort to meet the following SLAs for hackers participating in our program:\n\n**SLA in business days**\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\nThank you for helping keep Abercrombie & Fitch Management Co. and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "abercrombie.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hollisterco.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "339041767",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "383915209",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.abercrombie.abercrombie",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.abercrombie.hollister",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "No credentials are required or provided for this asset. If you self-register for any accounts, please register with your @wearehackerone.com email address. You may not use exposed credentials to continue testing without explicit approval of the company.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "corporate.abercrombie.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "anfcorp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

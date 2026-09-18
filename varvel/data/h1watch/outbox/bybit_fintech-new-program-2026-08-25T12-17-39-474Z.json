@@ -1,0 +1,102 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bybit_fintech",
+      "name": "Bybit Fintech Ltd",
+      "offersBounties": true,
+      "assets": [
+        "*.bybit.com",
+        "*.bybit.eu",
+        "*.bybit.tr",
+        "http://testnet.bybit.eu",
+        "http://www.bybit.com/en/alpha/overview/",
+        "http://www.bybit.com/trade/tradfi/",
+        "http://www.byreal.io",
+        "https://apps.apple.com/us/app/bybit-app/id1488296980",
+        "https://play.google.com/store/apps/details?id=com.bybit.app&hl=en"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bybit_fintech-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bybit_fintech",
+  "name": "Bybit Fintech Ltd",
+  "url": "https://hackerone.com/bybit_fintech",
+  "policy": "#Introduction\nBybit is a cryptocurrency exchange established in March 2018 to offer a professional platform where crypto traders can find an ultra-fast matching engine, excellent customer service and multilingual community support. The company provides innovative online spot and derivatives trading services, mining and staking products, as well as API support, to retail and institutional clients around the world, and strives to be the most reliable exchange for the emerging digital asset class.\n\nNo technology is perfect and Bybit believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. Bybit looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nBybit Fintech Ltd will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Avoid employing automated scanning tools, as submissions identified through such means cannot be accepted.\n* Avoid negatively impacting or disruptive actions that may affect the availability of our services (e.g. DoS/DDoS)\n\n# Test Plan\n* If you are interested in testing our asset-related features, but lack the necessary assets to conduct testing, you can register accounts and apply test tokens in the asset dashboard via https://testnet.bybit.com.\n(*Please note that Testnet utilizes test coins that hold no real value. To ensure our users enjoy an optimal experience with our products, we've opted not to impose stringent 2FA restrictions. Consequently, reports of bypassing 2FA on the Testnet will not be accepted).\n* Web3-related assets, please refer to https://www.bybit.com/en/web3/home. \n* Sign Up using your HackerOne email alias\n* Need to contact Bybit? Feel free to contact us at security@bybit.com\n\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Any activity that could lead to the disruption of our service (DoS, DDoS).\n* Social engineering of our employees or contractors, unless explicitly authorized.\n* Attacks against our physical facilities, unless explicitly authorized.\n* Attacks requiring physical access to a users’ device, unless the device is in-scope and explicitly hardened against physical access.\n* Attacks requiring disabling Man In The Middle (MITM) protections.\n* Attacks only affecting obsolete browsers or operating systems.\n* Missing best practices (SSL/TLS configuration, Content Security Policies, cookie flags, tabnabbing, autocomplete attribute, email SPF/DKIM/DMARC records), unless a significant impact can be demonstrated.\n* Clickjacking or Cross-Site Request Forgery (CSRF) on unauthenticated pages / forms with no sensitive actions.\n* Open redirects, unless a significant impact can be demonstrated.\n* Self-exploitation (self XSS, self denial-of-service, etc.), unless a method to attack a different user can be demonstrated.\n* Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.\n* Software version disclosure / Banner identification issues / Descriptive error messages or stack traces.\n* Issues that require unlikely user interaction by the victim.\n* Any attack that requires a user to interact with contract from an attacker controlled website\n* Chain specific vulnerabilities are excluded, (e.g. EVM or Solana runtime issues)\n* Integrated Dapp vulnerabilities are excluded (e.g. Uniswap、Curve、GMX、1inch)\n\n#Downgrade Scenarios\n* Vulnerabilities that cannot be reproduced stably.\n* Issues with very small scope of impact (e.g., systems with only a few users, old systems with minimal data).\n* Short-lived cache poisoning with limited scope (e.g., only regional CDN nodes) or easily overwritten.\n* High-difficulty brute-force scenarios (e.g., 6-digit+ verification codes, passwords, authentication info).\n* Capital loss or controllable risks within normal business expectations.\n\n# Safe Harbor\nGold Standard SAafe Harbor applies to this program\n\nThank you for helping keep Bybit Fintech Ltd and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/bybit-app/id1488296980",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bybit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.bybit.app&hl=en",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bybit.eu",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://testnet.bybit.eu",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bybit.tr",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.bybit.com/trade/tradfi/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.bybit.com/en/alpha/overview/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.byreal.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

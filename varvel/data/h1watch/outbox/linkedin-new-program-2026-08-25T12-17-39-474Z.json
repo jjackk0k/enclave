@@ -1,0 +1,70 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "linkedin",
+      "name": "LinkedIn",
+      "offersBounties": true,
+      "assets": [
+        "288429040",
+        "api.linkedin.com",
+        "business.linkedin.com",
+        "com.linkedin.android",
+        "www.linkedin.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\linkedin-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "linkedin",
+  "name": "LinkedIn",
+  "url": "https://hackerone.com/linkedin",
+  "policy": "#Introduction\n\nLinkedIn believes that close partnerships with security researchers makes us all more secure. Security researchers play an integral role in our ecosystem by discovering vulnerabilities that went undiscovered during the software development process. We partner with security researchers to better protect our millions of members worldwide.\n\nIf you are a security researcher that has found a vulnerability on LinkedIn, we want to hear from you. You can submit a report by clicking on “Submit Report” on this page. And if your report affects a product or service that is within the scope of our bounty program, you may receive a bounty award. \n\n##Guidelines\n* We want to award you for your research: Submissions that contain steps to reproduce your proof of concept along with a detailed analysis are eligible for quicker awards because they help us quickly assess the risk posed by a vulnerability.\n* We are looking for new and novel vulnerabilities: Your contributions help us address vulnerabilities we did not discover during the development process or do not already know about. If you are the first external researcher to identify a vulnerability we already know about and are working to fix, you may still be eligible for a bounty award if there is new information within your report that we were previously not aware of.\n* Avoid harm to member data, privacy, and service availability: Since security research may depend on services that our members use and depend on, avoid research that violates member privacy, destroys data, or interrupts service. If you discover confidential member data while researching, stop and contact us immediately so we can work with you to address the issue.\n* Follow the disclosure process: If you find a vulnerability, report it to us privately and give us the opportunity to correct it and protect our members. We work on reports diligently in order to address them quickly, and in recognition of your partnership we offer bounty awards and will acknowledge your contributions when the vulnerability is fixed.\n\n##Bug Bounty Program Rules\nPlease review the program rules carefully before you submit a bug report. By participating in LinkedIn’s Bug Bounty program, you agree to be bound by these rules.\nAs part of our security program at LinkedIn, we recognize and encourage responsible security research into our LinkedIn applications.\n\n##What Qualifies?\nImplementation and design issues that substantially impact LinkedIn members’ data or LinkedIn infrastructure are within scope. Examples of these would include:\n* Cross-site scripting\n* Cross-site request forgery\n* SQL injection\n* Authentication flaws (website, mobile, or API)\n* Access control issues that impact member-to-member communications or other data that is not shared with connections\n* Server-side code execution bugs\n\n##Bugs that do NOT qualify:\n* Issues with profile visibility (except access control issues mentioned above)\n* Open redirects involving usage of LinkedIn’s built-in redirectors\n* Bugs requiring unlikely user interaction or rely on social engineering\n* Issues that disclose information about our infrastructure such as version numbers or banners\n* Denial of Service\n* Clickjacking without demonstrable security impact\n* General best practices related to CSP policies, lack of specific security headers, etc.\n* Vulnerabilities affecting users of outdated browsers or platforms\n* Physical attempts against LinkedIn property or data centers\n* Accessing content directly from our CDN (Content Delivery Network)\n* Sending messages or invitations to anyone on LinkedIn\n* Content injection issues\n* HTML injection without demonstrable security impact\n* Password complexity issues for members\n* Logout cross-site request forgery\n* Social engineering of LinkedIn employees or contractors\n* Mobile security issues that require that the attacker has physical access to the device or that the phone is rooted or jailbroken\n* Reports containing any credentials, secrets, data, or dumps sourced from the Dark Web or leak monitoring services like intelx.io, darkatlas.io, and similar platforms\n* AI prompt injection attacks that do not have a security impact on users other than the attacker\n\n##Rules\n* All researchers over 16 years old who may otherwise legally participate in such programs, who are not rendered ineligible by their employer, and who were not previously excluded from the program are eligible.\n* The vulnerability must be described in a manner that allows LinkedIn to reproduce the problem. Submissions that contain steps to reproduce your proof of concept along with a detailed analysis or working exploit are eligible for quicker awards because they help us quickly assess the risk posed by a vulnerability.\n* Researchers must respect our services and our members’ privacy. They must not: (i) degrade, interrupt, or deny service to our users; (ii) modify, delete, or otherwise misuse LinkedIn member data, nor access non-public member information without authorization; (iii) make threats nor demand money/payments in exchange for disclosing vulnerabilities; (iv) publicly disclose vulnerabilities without responsibly disclosing and receiving written approval from LinkedIn first; or (v) otherwise violate LinkedIn’s [User Agreement](https://www.linkedin.com/legal/user-agreement). Any non-public member data inadvertently accessed must be promptly deleted, reported to LinkedIn, and may not be used for any purpose.\n* For every report, we will endeavor to: (i) acknowledge the vulnerability report within 48 hours of receipt; (ii) provide a time frame for fixing the issue; and (iii) provide notification that the issue has been fixed. Our  review time will vary depending on the complexity and completeness of your submission. Note that you may be paid before the issue is fixed, and payment is not notification of fix completion.\n\nIf you do not agree to these Terms, do not send us any submissions or otherwise participate in this program.\n\n##Disclosure Policy\nProtecting our members is critically important to us so we strive to address each report in a timely manner. While we are addressing the report, we require that all submissions remain confidential and are not disclosed to anyone else.\n\nAny information you receive or collect about us, our members, employees, or customers must be kept confidential and only used in connection with the Bug Bounty Program. Researchers must not sell the vulnerability or any of its details to other parties, and must not share, distribute, or discuss the vulnerability or any of its details with any other parties until the vulnerability fix has been released, verified, and confirmed by us.\n\nAny public disclosures should only occur after the vulnerability has been resolved and written approval has been provided by the LinkedIn team through the HackerOne platform. Only valid security vulnerabilities, as determined by LinkedIn, will be approved for disclosure. Failure to comply with the Disclosure Policy will result in immediate disqualification from the Bug Bounty Program and ineligibility from receiving any Bounty Payments.\n\n##Rewards & Recognition\nWe may choose to award a bounty for impactful vulnerabilities that are disclosed in accordance with these rules.\n\nOur minimum reward is $100. Clever, unusual, or severe vulnerabilities may qualify for higher award amounts. LinkedIn will decide, in its sole discretion, how much to award for any reported vulnerability and whether a reported vulnerability is the same or similar to one previously reported. LinkedIn’s decision is final.\n\nLinkedIn will typically pay for bounties based on the severity of the issue. Bugs of similar nature reported by the same person may be combined into one item, thus constituting only a single award.\n\nWe will publicly recognize contributors to the program who submitted qualified bugs, whether or not a bounty was paid.\n\n##Reservation of Rights\nLinkedIn reserves the right to change or cancel this program at any time. The decision to pay a reward is entirely at our discretion. This offer is void where prohibited by law, and the participant must not violate any law.\n\n##Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you.\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.linkedin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.linkedin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "288429040",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.linkedin.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "business.linkedin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    }
+  ]
+}

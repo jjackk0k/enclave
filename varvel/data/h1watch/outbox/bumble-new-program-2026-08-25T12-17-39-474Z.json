@@ -1,0 +1,238 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bumble",
+      "name": "Bumble",
+      "offersBounties": true,
+      "assets": [
+        "351331194",
+        "403684733",
+        "930441707",
+        "badoo.com",
+        "badoocdn.com",
+        "bma.badoo.com",
+        "bma.bumble.com",
+        "ccardseu1.badoo.com",
+        "ccardsus1.badoo.com",
+        "com.badoo.mobile",
+        "com.badoo.twa",
+        "com.bumble.app",
+        "corp.badoo.com",
+        "eu1.badoo.com",
+        "hotornot.com",
+        "m.badoo.com",
+        "meu1.badoo.com",
+        "mus1.badoo.com",
+        "translate.badoo.com",
+        "us1.badoo.com",
+        "www.bumble.com"
+      ],
+      "exclusions": [
+        "blog.bumble.com",
+        "honey.bumble.com",
+        "shop.bumble.com",
+        "thebeehive.bumble.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bumble-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bumble",
+  "name": "Bumble",
+  "url": "https://hackerone.com/bumble",
+  "policy": "# Bumble & Badoo Vulnerability Disclosure Program\n\nWe reward security researchers for reporting **impactful vulnerabilities** affecting Bumble, Badoo, BFF (including Geneva), and related products.\n\nVulnerabilities are ranked based on **real-world impact**. Final severity and rewards are determined by the Bumble security team. We do not rely on rigid scoring systems—the more damage a vulnerability can realistically cause, the higher its severity.\n\n> We value high-quality, well-researched reports with clear proof of impact.  Avoid duplicate submissions, copy-pasted reports, or reports without a working PoC.  Respecting each other’s time helps us respond faster and reward impactful findings.\n\n**High-interest assets**\n- Bumble mobile application (iOS & Android)\n- Bumble For Friends (BFF) mobile application (iOS & Android)\n- bumble.com (including mobile web)\n- www.bumble.com\n- bma.bumble.com  \n\nFor the full scope, please refer to the assets list.\n\n> Note: Geneva Web is a limited interface. Most impactful findings are in the **mobile applications**. If you cant access the staging applications listed in the programme due capacity being reached, please submit an informational ticket to the program asking for access to the latest APK. \n\nGeneva staging credentials (OTP `000000` for both):\n* Member: `+1 880 999 0001`\n* Owner: `+1 880 999 0009`\n\n## Out-of-scope / non-qualifying reports\n\n**Information disclosure & inference issues**\nWhen reporting inferred information (e.g. “Has this specific user liked me?”), consider:\n  - **Scalability**\n    - Can the technique be automated at scale?\n    - Does it rely on predictable identifiers?\n    - If it only works in isolated or manual cases, it is unlikely to qualify\n  - **Equivalent in-app behaviour**\n    - Could the same information be obtained through intended app functionality (e.g. swiping and matching)?\n    - If yes, the report likely duplicates expected behaviour rather than exposing sensitive data\n\nReports that do not demonstrate scalable access to information not otherwise obtainable via normal app use are typically closed as Informative or Not Applicable\n\n## How severity is assessed (examples)\nThese examples hopefully clarify some of the thinking when assigning risk.\n\n| Severity | Example impact |\n|---------|----------------|\n| Low | HTML injection or XSS that only affects page output with no meaningful user impact |\n| Low | Cosmetic UI manipulation without data access or state change |\n| Medium | SQL injection or logic flaw that alters application behaviour but does not expose user data |\n| Medium | Limited unauthorised actions affecting a single account without escalation |\n| High | Unauthorised access to sensitive user data |\n| High | Modification of sensitive profile or account data |\n| Critical | Account takeover |\n| Critical | Scalable abuse impacting multiple users or systems |\n\n\n## Personal data handling\nLimit access to personal data strictly to what is necessary; All applicable data protection laws must be followed.\n- Use personal data only for investigation purposes\n- Securely delete any personal data after testing\n- Confirm deletion when submitting your report  \n\n\n\n### Public disclosure\nPublic disclosure is generally not permitted; Exceptions may be granted on a case-by-case basis—please ask before publishing ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bma.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "shop.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "honey.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thebeehive.bumble.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "930441707",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/bumble-dating-meet-people/id930441707",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bumble.app",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.bumble.app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.badoo.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.badoo.mobile",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.badoo.twa",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Badoo Lite Android App\n\nhttps://play.google.com/store/apps/details?id=com.badoo.twa",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "351331194",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Badoo - iOS Application\n\nhttps://apps.apple.com/gb/app/badoo-dating-chat-friends/id351331194",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "403684733",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Badoo Premium - iOS\n\nhttps://apps.apple.com/gb/app/badoo-premium/id403684733",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "eu1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "us1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "corp.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "meu1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mus1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hotornot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bma.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "badoocdn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "translate.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ccardseu1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ccardsus1.badoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

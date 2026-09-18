@@ -1,0 +1,113 @@
+{
+ "at": "2026-09-12T11:34:46.694Z",
+ "opportunity": "intuit_rdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "intuit.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "turbotax.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mint.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "quickbooks.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mailchimp.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "server": "istio-envoy",
+    "strict-transport-security": "max-age=15552000",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

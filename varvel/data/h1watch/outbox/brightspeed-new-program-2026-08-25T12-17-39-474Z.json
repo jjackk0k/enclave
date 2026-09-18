@@ -1,0 +1,87 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "brightspeed",
+      "name": "Brightspeed",
+      "offersBounties": false,
+      "assets": [
+        "*.brightspeed.com",
+        "brightspeed.com",
+        "brightspeed.service-now.com",
+        "brightspeedtsm.service-now.com",
+        "gobrightspeed.net"
+      ],
+      "exclusions": [
+        "*dhcp*.gobrightspeed.net",
+        "dhcp.embarqhsd.net"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\brightspeed-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "brightspeed",
+  "name": "Brightspeed",
+  "url": "https://hackerone.com/brightspeed",
+  "policy": "BrightSpeed looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nBrightSpeed will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n| Type of Response | Target in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n#Guidelines\r\nThe Program applies to security vulnerabilities found within Brightspeed’s Environment, which includes, but is not limited to, Brightspeed’s websites, exposed APIs, mobile applications, and devices. A security vulnerability is generally an error, flaw, mistake, failure, or fault in a computer program or system that impacts the security of a device, system, network, or data.  Because Brightspeed is an ISP, it can be difficult to distinguish between Brightspeed owned addresses and our public IP addresses that we have allocated to customers. Though we develop and maintain other internet-accessible systems and services, we ask that active research and testing only be conducted on Brightspeed systems.\r\n\r\n# Disclosure Policy\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Configuration of or missing security headers.\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Tabnabbing\r\n* Issues that require unlikely user interaction\r\n* Improper logout functionality and improper session timeout.\r\n* CORS misconfiguration without an exploitation scenario\r\n* Broken link hijacking\r\n* Lack of jailbreak detection in mobile apps.\r\n* Lack of SSL Pinning\r\n*\tAttacks against Brightspeed infrastructure;\r\n*\tSocial engineering and physical attacks;\r\n*\tDistributed Denial of Service attacks that require large volumes of data;\r\n*\t0-day vulnerabilities less than 30/60/90 days from patch release are ineligible for bounty;\r\n*\tProvisioning and/or usability issues;\r\n*\tViolations of licenses or other restrictions applicable to any vendor's product;\r\n*\tSecurity vulnerabilities in third-party products or websites that are not under Brightspeed’s direct control\r\n*\tClickjacking reports against unauthenticated pages and/or static content resources;\r\n*\tReports of missing SPF records for domains with no MX record;\r\n*\tVulnerabilities that are a result of malware;\r\n*\tTheoretical security issues with no realistic exploit scenario(s) or attack surfaces, or issues that would require complex end user interactions to be exploited, or\r\n*\tIssues determined to be low impact.\r\n*\tVulnerabilities which require a social engineering component are excluded. i.e. presenting injected data to a user and expecting the user to click on an external link to complete the compromise\r\n*\tLogin/logout CSRF\r\n*\tContent spoofing which depends on a social engineering element to succeed (such as an error page suggesting that a user take an action) is excluded\r\n*\tAbandoned CNAME records require a social engineering component to successfully exploit, they are excluded unless there is an existing link from a company resource to the invalid CNAME\r\n*\tDuplicate reports of security issues, including security issues that have already been identified internally;\r\n*\tIssues determined to be low impact.\r\n*\tSecurity vulnerabilities in Brightspeed customer’s IP addresses and/or systems\r\n\r\nIn addition, the submitter:\r\n*\tMust not be the author of the code with the vulnerability or\r\n*\tMust not be employed by Brightspeed directly or indirectly.\r\n\r\nDo not engage in any of the following activities:\r\n*\tAccessing, downloading, or modifying data residing in any system or account that does not belong to you\r\n*\tExecuting or attempting to execute any “Denial of Service” attack\r\n*\tExecuting or attempting to execute any social engineering attacks\r\n*\tPosting, transmitting, uploading, linking to, sending, or storing any malicious software\r\n*\tTesting in a manner that would result in the sending unsolicited or unauthorized junk mail, spam, pyramid schemes, or other forms of unsolicited messages\r\n*\tTesting in a manner that would damage or degrade the operation of any Brightspeed systems\r\n*\tTesting third-party applications, websites, or services that integrate with or link to Brightspeed systems\r\n*\tTesting that may violate any applicable law or impact the security or integrity of any personal or confidential information\r\n\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Brightspeed and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "brightspeed.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brightspeed.service-now.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brightspeedtsm.service-now.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dhcp.embarqhsd.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*dhcp*.gobrightspeed.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gobrightspeed.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.brightspeed.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

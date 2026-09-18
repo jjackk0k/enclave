@@ -1,0 +1,254 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "metamask",
+      "name": "MetaMask",
+      "offersBounties": true,
+      "assets": [
+        "*.api.cx.metamask.io",
+        "MetaMask Browser Extension",
+        "MetaMask SDK",
+        "Snaps",
+        "Third Party Snaps",
+        "https://*.metamask.io",
+        "https://metamask.github.io/phishing-warning/<vX.Y.Z>",
+        "io.metamask",
+        "io.metamask.Metamask",
+        "metamask.io",
+        "snaps.metamask.io"
+      ],
+      "exclusions": [
+        "Core Tier Assets",
+        "Message signing snap",
+        "Metamask Flask Extension",
+        "Non-Core Tier Assets",
+        "Snaps Development Packages",
+        "Wallet Tier Assets",
+        "community.metamask.io",
+        "https://metamask.github.io/",
+        "https://mmi-support.metamask.io/",
+        "https://support.metamask.io/",
+        "https://user-storage.api.cx.metamask.io",
+        "https://www.npmjs.com/search?q=%40metamask",
+        "permissionless.snaps.metamask.io",
+        "portfolio.metamask.io (app.metamask.io)"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\metamask-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "metamask",
+  "name": "MetaMask",
+  "url": "https://hackerone.com/metamask",
+  "policy": "# Prioritized Focus Areas\n* Reports demonstrating how an attacker could extract the secret recovery phrase or a private key from a wallet. \n* Reports demonstrating how an attacker could make a users wallet behave in unexpected ways.\n\n# Response Targets\nMetaMask will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 5 day |\n| Time to Bounty | 14 days |\n| Time to Resolution | Depends on severity & complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization. \n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Demonstrating Impact\nAll reports must be accompanied with a working proof-of-concept or clear reproduction steps that demonstrates the impact described by the submission. If the asset is a product with a UI, such as the MM wallet, a video of the attack execution using that product is required. If a video is not possible, please provide screenshots of all the steps involved in the attack. This helps our triage team have the full context and better investigate your finding and ensures the full impact of your report is considered for a bounty. Reports which claim to have a specified impact that is later proven false (and does not result in action from the MetaMask security team) may be closed as `Not-Applicable`. \n\nReports which do not meet our severity threshold for a bounty, but still result in meaningful action amongst our security team, will no longer be marked as triaged. Instead they will be immediately closed as informative when the ticket is added to our backlog (e.g. reporting an issue which highlights a risk that our team commits to addressing in the future).\n\n# Funding Your Wallet\nTo experiment with MetaMask without using your own ETH, you will want to switch your default network from **Ethereum Mainnet** to **Sepolia test network**. This network is hidden by default, so you will need to go to your account settings and enable \"Show test networks\" to include it as a selectable option. \n\nOnce you are on the Sepolia test network, visit https://www.infura.io/faucet and enter your wallet address to get funds sent to your account. If you do not already have an infura account, you will be required to create on at this time. If you come across any vulnerabilities within infura, please report them to us at https://hackerone.com/consensys.\n\n# Report Evaluation Methodology\n\n## MetaMask Wallet CVSS Scoring\n\nAt MetaMask, we are deeply committed to ensuring a fair and objective assessment of report severities. While we rely on the CVSS framework for severity decisions, we recognize its potential limitations in fully capturing the impact, and can sometimes introduce ambiguity in its interpretation. To maintain consistency and address these challenges, our team uses an internal CVSS scoring guide tailored to MetaMask. In the spirit of transparency, we have provided a simplified version of this guide below, granting our hackers a clearer understanding of how we assess each metric.\n\nThis scoring framework applies to reports impacting the MetaMask wallet. Reports impacting other assets (e.g, our APIs), will be scored according to CVSS 3.1.\n\n| Metric                 | Options                                                                                                                                                                                                 |\n|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Attack Vector (AV)     | **Network (N)**: The attack can be executed over a network connection (e.g., a MetaMask user visits a page that triggers an XSS payload).                                                                  |\n|                        | **Local (L)**: The attack requires local execution by malicious software / user in order to be exploited.                                                                       |\n| Attack Complexity (AC) | **High (H)**: A successful exploit requires overcoming specific conditions beyond the attacker's control, necessitating significant preparatory or execution effort. (e.g., requiring the attacker to exploit a particular race condition) |\n|                        | **Low (L)**: No specialized access conditions or extenuating circumstances exist. The attack can be reliably and repeatedly executed.                                                                     |\n| Scope (S)              | **Changed (C)**: The vulnerability impacts resources beyond capabilities provided by its authorizing scope. (e.g., a dApp is able to change the users password by interacting with the ethereum provider API).  |\n|                        | **Unchanged (U)**: The vulnerability only impacts resources within its authorized scope (e.g., a dApp is able to change the origin of transaction it requests).                                          |\n| Privileges Required (PR)   | **High (H)**: The vulnerability requires a snap installed which has [sensitive permissions](https://metamask-consensys.notion.site/Public-Snaps-Permissions-Privileges-Required-4745314a10814a4a9cb7c1dbcf8720e9). |\n|                        | **Low (L)**: The vulnerability requires the webpage to be connected to the wallet, or to have a Snap installed without [sensitive permissions](https://metamask-consensys.notion.site/Public-Snaps-Permissions-Privileges-Required-4745314a10814a4a9cb7c1dbcf8720e9). |   \n|                        | **None (N)**: The vulnerability can be exploited without being connected to the wallet or a snap.                                                                                                                     |\n| User Interaction (UI)  | **Required (R)**: Exploitation of the vulnerability requires some form of user interaction.                                                                                                               |\n|                        | **None (N)**: Exploitation does not require any user interaction (e.g., a supply chain attack).                                                                                                          |\n| Confidentiality Impact (C) | **High (H)**: Attacker can disclose a cryptographic element in custody (Encrypted Vault, Password, Secret Recovery Phrase).                                                                              |\n|                        | **Low (L)**: Attacker can disclose non-critical user information. (e.g., user state logs, stored preferences)                                                                                            |\n| Integrity Impact (I)   | **High (H)**: A cryptographic asset or key security control loses its integrity (e.g., spoofing the origin of a transaction, tampering the wallets keys to an attacker controlled value)  / All of UI confirmation screen phishing security controls are bypassed/tampered with at the same time (User has no more warnings about a potential malicious origins)              |\n|                        | **Low (L)**: A user interface element meant to be a security control loses its integrity (e.g., making a signature request display in a non-human readable format rather than using one of the MetaMasks custom confirmation UI's) / One or more UI confirmation screen phishing security controls are bypassed/tampered with (User still have at least a warning for a potential malicious origin) |\n| Availability Impact (A) | **High (H)**: Due to MetaMask being a decentralized client and non-custodial wallet, availability impact is generally not as severe. `A:H` is awarded selectively on a case-by-case basis.                  |\n|                        | **Low (L)**: MetaMask stops working completely. The application becomes unusable, the issue persists even after rebooting the device, and the only recovery is by reinstalling MetaMask.  |\n\nPlease note that as this guide evolves, changes will only ever apply new reports. The MetaMask team will not be making adjustments retroactively to past bounties. \n\n## First-Submitted vs First-Actionable Reports\n\nWhen multiple reports are received for a vulnerability, the MetaMask team will prioritize the `First-Actionable` report over the `First-Submitted` report. This means that instead of using the submission timestamp to determine which report to triage, we will focus on the report that first provides adequate details, allowing our team to reproduce and confirm the vulnerability.\n\nIn most cases, the `First-Submitted` report will also be the `First-Actionable` report. However, this change ensures that researchers are not penalized for taking the time to submit a thorough and complete report, while another researcher may submit a quick but incomplete report, with un-reproducible instructions or missing key information that is only provided later.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "metamask.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The root https://metamask.io webpage and the metamask.io DNS configuration.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "io.metamask",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[MetaMask](https://metamask.io/download) is everything you need to manage your identity, digital assets and to explore web3.  Available as a mobile application on iOS and Android.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "io.metamask.Metamask",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[MetaMask](https://metamask.io/download) is everything you need to manage your identity, digital assets and to explore web3.  Available as a mobile application on iOS and Android.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MetaMask Browser Extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[MetaMask](https://metamask.io/download) is everything you need to manage your identity, digital assets and to explore web3.  Available as an extension on chromium-based and firefox browsers. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/search?q=%40metamask",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Vulnerabilities within npm packages in the @metamask namespace that do not pose a risk to MetaMask users",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Metamask Flask Extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Installation Link: https://chrome.google.com/webstore/detail/metamask-flask-developmen/ljfoeinjpaedjfecbmggjgodbgkmjkjk\n\nThis is an experimental playground for developers, where new or proposed features can be rolled out and tested before deploying them to the broader public.\n\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "MetaMask SDK",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The MetaMask SDK allows for third party developers to remotely connect with their user's MetaMask wallets after performing an authorization flow. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.metamask.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Vulnerability reports related to this domain should be directed to the Discourse bug bounty program: https://hackerone.com/discourse",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "portfolio.metamask.io (app.metamask.io)",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Portfolio dApp allows Metamask users to see an aggregated view across multiple different Metamask accounts. It also allows users to access popular on-chain primitives like Swaps, Bridging, Staking, and more.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://metamask.github.io/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is the root of various static GitHub pages applications which range from test sites, to development tools, to production security controls. Vulnerabilities which can be used to have impact on an in-scope asset will still be considered for a bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://metamask.github.io/phishing-warning/<vX.Y.Z>",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The phishing warning page is a security control that warns users when they attempt to visit a webpage found on one of our known phishing blocklists. Only vulnerabilities found on the latest version are eligible for a bounty. \n\nSupporting Documentation:\n* https://github.com/MetaMask/phishing-warning/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Snaps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Snaps is a feature that allows third party developers to add new functionality to MetaMask. A snap is a JavaScript program that runs in an isolated environment and customizes the wallet experience. Snaps have access to a limited set of capabilities, determined by the [permissions](https://docs.metam",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "snaps.metamask.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a directory that lists featured snaps available for installation on MetaMask.\n\n**Supporting Documentation**\n\n- https://github.com/MetaMask/snaps-directory",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Snaps Development Packages",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Snaps development tools consist of a series of unrelated packages that can assist in the development of a snap. These tools are eligible for a bounty in cases where a victim can be impacted by exploiting one of the following tools (ex: achieving remote code execution by having a developer build ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Third Party Snaps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Vulnerabilities found in third party snaps should always reported to the developer responsible for the snap. However, in cases where a developer is unable to be reached, please report the vulnerability here so that we may assist with getting in contact. These kinds of reports will be closed as infor",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Core Tier Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "MetaMask's Core Tier Assets are specific MetaMask assets which are paid out in accordance with our Core Tier bounty table. This table can be found on our program page, and includes the following assets:\n* MetaMask SDK\n* metamask.io\n* `https://metamask.github.io/phishing-warning/<vX.Y.Z>`\n* `https://",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Non-Core Tier Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "MetaMask's Non-Core Tier Assets are specific MetaMask assets which are paid out in accordance with our Non-Core Tier bounty table. This table can be found on our program page, and includes the following assets:\n\n* https://snaps.metamask.io\n* *.metamask.io (with exceptions)\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.metamask.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Please ensure you are not reporting a subdomain that is explicitly listed as being out of scope.** \n\nBounty eligibility is determined based on the impact that can be demonstrated by exploiting the affected asset.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.api.cx.metamask.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "APIs used by MetaMask wallet and Portfolio",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://mmi-support.metamask.io/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://support.metamask.io/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "permissionless.snaps.metamask.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "An experimental directory for permissionless snaps. Is currently under development, and may potentially be put in scope in the future. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Wallet Tier Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "MetaMask's Wallet Tier Assets are specific MetaMask assets which are paid out in accordance with our Wallet Tier bounty table. This table can be found on our program page, and includes the following assets:\n\n* MetaMask Extension\n* MetaMask Mobile (io.metamask.Metamask, io.metamask)\n* MetaMask Snaps",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://user-storage.api.cx.metamask.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The User Storage API helps developers synchronize data across multiple clients and devices in a privacy-preserving way. All data saved in the user storage database is encrypted client-side to preserve privacy.\nDocumentation can be found in this [Doc](https://docs.google.com/document/u/1/d/e/2PACX-1v",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Message signing snap",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This snap is pre-installed on MetaMask and can be tested via RPC calls.\n\n- **Main documentation**: https://github.com/MetaMask/message-signing-snap/blob/main/docs/testing.md\n- **Testing video tutorial**: https://www.loom.com/share/93ce2929c2584cf89af87d76f61be978",
+      "max_severity": "none"
+    }
+  ]
+}

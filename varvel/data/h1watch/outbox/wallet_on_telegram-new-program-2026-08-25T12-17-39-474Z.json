@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wallet_on_telegram",
+      "name": "Wallet on Telegram",
+      "offersBounties": true,
+      "assets": [
+        "Crypto infrastructure for cold and hot wallets",
+        "p2p.walletbot.me",
+        "pay.wallet.tg",
+        "wallet.tg",
+        "walletbot.me",
+        "wallettg.com",
+        "wallettg.net"
+      ],
+      "exclusions": [
+        "docs.wallet.tg",
+        "toncenter.walletbot.me",
+        "wallet.helpscoutdocs.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wallet_on_telegram-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wallet_on_telegram",
+  "name": "Wallet on Telegram",
+  "url": "https://hackerone.com/wallet_on_telegram",
+  "policy": "Wallet on Telegram looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Vulnerability Classification & Severity Levels\nWe assess and categorize reported vulnerabilities based on their potential impact.  This helps ensure that rewards are proportionate to the severity and real-world risk of each finding.\n\n### 🟣 Extreme\n**Reward: $30,000 to $100,000**  \n- Access to financial services with the ability to withdraw funds from blockchain wallets that have a significant impact on the business\n- A large-scale compromise of user wallets\n\n### 🔴 Critical\n**Reward: $3,000 to $29,999** \n- Remote Code Execution (RCE) with direct access to core infrastructure, servers, or sensitive user data  \n- Full system or infrastructure compromise  \n- Unrestricted access to highly sensitive user data (e.g.,  financial data)\n\n### 🟠 High\n**Reward: $500 to $3,000** \n- Privilege escalation across users, roles, or system boundaries  \n- Unauthorized access to sensitive or restricted data  \n- RCEs with limited impact due to containment, lack of access to valuable data, or other mitigating factors  \n- Bypassing major access controls or business logic\n\n### 🟡 Medium\n**Reward: $200 to $500** \n- Cross-Site Scripting (XSS)  \n- SQL injection with limited scope or controlled impact  \n- Vulnerabilities with moderate business or user impact  \n- Vulnerabilities requiring significant user interaction or affecting non-critical components\n\n### 🔵 Low\n**Reward: $100 to $200** \n- Exposure of non-sensitive information (e.g., user-agent logs, internal metadata)  \n- Low-impact misconfigurations (e.g., non-exploitable headers)\n\n> ⚠️ **Note:** Not all RCEs are considered critical.  \n> RCEs that are limited to low-privileged environments (e.g., sandboxed browser contexts or restricted environments without meaningful access or impact) may be rated High or Medium, depending on exploitability and potential harm.\n\n## Additional Evaluation Criteria\n\n**Risk Rating System:**\nFinal severity and bounty amounts are determined using our internal risk assessment model, which considers exploitability, potential business impact, and monetary risk\n\n**PII Exposure:**\nReports involving personally identifiable information (PII) are evaluated using an internal framework. Severity is based on the nature of the data, context of exposure, and risk to affected users.\n\n# Response Targets\nWallet on Telegram will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Scope Leniency\n* This program **will not** accept submissions for assets that are not listed as in scope\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test Plan\n* Users are able to sign up for a free account through our (Telegram webapp)[https://t.me/wallet]\n* After signing up with your Telegram account, please setup a recovery email inside the TON Space with your *hacker email alias** (h1username@wearehackerone.com)\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as: \n* “X-HackerOne-Research: [H1 username]”\n\n# Out of Scope Vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* UI/UX bugs with no security impact or minor security impact\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Missing, misconfigured, or overly permissive DNS CAA records (RFC 8659), without a demonstrated certificate issuance bypass or other direct security impact.\n* Public Sentry DSN exposure, unauthenticated submission of Sentry events, envelopes, or traces, or Sentry monitoring/log poisoning, without demonstrated impact to customer data, account security, or another in-scope asset.\n* Public access to events-gateway or unauthenticated submission of analytics, telemetry, metrics, or business events, including fake event injection, metrics poisoning, monitoring noise without demonstrated impact to customer data, account security, asset custody, or another in-scope asset.\n* JavaScript source map exposure or disclosure of publicly delivered client-side code, without demonstrated exposure of valid credentials, sensitive non-public data, unauthorized access, or another concrete security impact.\n\nWe prohibit any AI agents from searching for vulnerabilities as part of the Bug Bounty program.\n\nThank you for helping keep Wallet on Telegram and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "walletbot.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pay.wallet.tg",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "wallet.tg",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "wallet.helpscoutdocs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.wallet.tg",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Crypto infrastructure for cold and hot wallets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wallettg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wallettg.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "toncenter.walletbot.me",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "p2p.walletbot.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

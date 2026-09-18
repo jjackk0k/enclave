@@ -1,0 +1,177 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "vendasta",
+      "name": "Vendasta",
+      "offersBounties": false,
+      "assets": [
+        "*.apigateway.co",
+        "*.vendasta-internal.com",
+        "*.yesware.com",
+        "customervoice.biz",
+        "partners.vendasta.com",
+        "task-manager.biz",
+        "your-domain.pdqs.mobi",
+        "your-domain.smblogin.com",
+        "your-domain.snapshotreport.biz",
+        "your-domain.socialsmbs.com",
+        "your-domain.steprep.com"
+      ],
+      "exclusions": [
+        "Spamming of forms and APIs with automated vulnerability scanners are strictly out of scope",
+        "help.yesware.com",
+        "roadmap.vendasta.com",
+        "t.yesware.com",
+        "www.vendasta.com",
+        "www.yesware.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\vendasta-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "vendasta",
+  "name": "Vendasta",
+  "url": "https://hackerone.com/vendasta",
+  "policy": "# Introduction\nAt Vendasta, security and privacy is our top priority. We welcome any contributions from external security researchers to help us ensure that our customers can feel that their data is safe and secure with Vendasta. If you have found a security issue in one of our suite of products, we encourage you to submit a report through our program.\n\n# Response Targets\nVendasta will make a best effort to meet the following SLOs for hackers participating in our program:\n\n| Type of Response | SLO in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n\n**Update 02/10/2024**: We are finding the testing of web chat components and lead capture forms on our website to be overly disruptive to our sales team. **Any testing of the web chat component or any signup form as well as all testing on our marketing domain https://vendasta.com or https://www.vendasta.com is strictly out of scope**\n\n*  All research must be conducted using your own Vendasta instance which you can [sign up for here](https://signup.vendasta.com/?variant=hackerone). **You must use your \"wearehackerone.com\" email address** Researcher accounts are subject to deletion after a 60 day period of inactivity.\n* When signing up for an account on [yesware.com](https://www.yesware.com/sign-up), please include \"HackerOne\" in your username.\n* Include the **HackerOne-<username>** string within the User-Agent header of all network requests while testing.\n* Please provide detailed reports with reproducible steps. **If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.**\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* In no event are you permitted to access, download or modify data residing in any other Account, or one that is not registered to you. We will not honor any issues which result from testing our customers.\n\nAll accounts are created as free accounts, please limit your testing to the number of accounts that are provided for free by Vendasta. Vendasta will notify you ahead of time of any costs that might be incurred, and you will be responsible for these costs Do not send emails from our platform aside from a small number to test functionality. \n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* HTML injection in email messages or chat windows\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Issues related to software or protocols not under Vendasta control\n* Exposure of a login panel or service without any demonstrable attack scenario or exploitable vulnerability\n* Missing best practices unless real-world impact is adequately demonstrated\n* Issues identified by automated tools or scans\n* Social engineering (including phishing) of Vendasta staff or contractors\n* Static resources / public information \"exposed\" in storage buckets.\n* Knowingly posting, transmitting, uploading, linking to, sending or storing any Malicious Software.\n* Partner Registration APIs or forms.\n* User JWTs, we are in process of moving to opaque tokens\n* Debugging endpoints(domain.com/debug/pprof/), we use pprof for debugging go microservices and they come up and down.\n* Disclosure of Wordpress usernames or IDs\n\n# About our customers’ privacy and how we handle the GDPR\n\nCustomer data protection and privacy is of utmost importance at Vendasta and as such, whenever Personally Identifiable Information (PII) data is encountered during testing, we expect and require any and all persons involved to handle that data with utmost care. Showing or proving the existence of a flaw does likely not require any data dumps - so even if possible, no dumping of PII data is allowed. This is not negotiable.\n\nAny exfiltrated PII data must immediately be deleted and any testing that might result in further PII being revealed must be halted. Do not store PII data. PII data samples, if needed in the report, should be properly obfuscated before posting. This includes submitting reports that contain your own data. In the case where PII data is posted in a report, we will redact that information as soon as possible. If after the redaction the report is unintelligible, it will not be processed.\n\nPlease do note that email addresses, phone numbers as well as pictures of our staff which is available on our public websites does not count as a data leak.\n\n# The Lawyers Made Us Put This Here\n\nYou must comply with all applicable Federal, State/Provincial, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program.\nVendasta does not authorize, permit, or otherwise allow (expressly or impliedly) any person, including any individual, group of individuals, consortium, partnership, or any other business or legal entity to engage in any security research or vulnerability or threat disclosure activity that is inconsistent with this policy or the law. If you engage in any activities that are inconsistent with this policy or the law, you may be subject to criminal and/or civil liabilities.\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Vendasta and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.apigateway.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vendasta-internal.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "customervoice.biz",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "To access this domain, activate the free-tier version of \"Customer Voice\" for a test account. For more information on activating products, visit: https://support.vendasta.com/hc/en-us/articles/4406958134807-Activate-Products",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-domain.socialsmbs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "To access this domain, activate the free-tier version of \"Social Marketing\" for a test account. For more information on activating products, visit: https://support.vendasta.com/hc/en-us/articles/4406958134807-Activate-Products",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-domain.steprep.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "To access this domain, activate the free-tier version of \"Reputation Manager\" for a test account. For more information on activating products, visit: https://support.vendasta.com/hc/en-us/articles/4406958134807-Activate-Products",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-domain.smblogin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "To access this domain, create a test account in the Business > Accounts page within Partner Center. Select this test account and choose \"Business App\" from the \"Open In\" menu. See this support doc for more info: https://support.vendasta.com/hc/en-us/articles/4406958960023-Accessing-Business-App-as-a",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-domain.pdqs.mobi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "To access this domain, activate the free-tier version of \"Listing Builder\" for a test account. For more information on activating products, visit: https://support.vendasta.com/hc/en-us/articles/4406958134807-Activate-Products",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-domain.snapshotreport.biz",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "For activating and testing the Snapshot Report, see our support docs: https://support.vendasta.com/hc/en-us/articles/4406959860887-Create-Snapshot-Reports",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Spamming of forms and APIs with automated vulnerability scanners are strictly out of scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "task-manager.biz",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.yesware.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Sign up to the platform via https://www.yesware.com/sign-up using a Google or Microsoft account. Please note, Wordpress (www.yesware.com) and Zendesk (help.yesware.com) assets are out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.yesware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.yesware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "roadmap.vendasta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Uses a third-party content management system so it is ineligible for VDP.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.vendasta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners.vendasta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Sign up for access to our platform using: https://signup.vendasta.com/?variant=hackerone",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "t.yesware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is used for generated email tracking links. **We do not accept open-redirect issues for this subdomain**.",
+      "max_severity": "none"
+    }
+  ]
+}

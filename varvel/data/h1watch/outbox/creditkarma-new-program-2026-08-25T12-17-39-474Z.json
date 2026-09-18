@@ -1,0 +1,224 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "creditkarma",
+      "name": "Credit Karma",
+      "offersBounties": true,
+      "assets": [
+        "accounts.creditkarma.com",
+        "api.creditkarma.com",
+        "blog.creditkarma.com",
+        "com.creditkarma.mobile",
+        "com.creditkarma.mobile.international",
+        "https://*.creditkarma.ca",
+        "https://*.creditkarma.co.uk",
+        "https://*.creditkarma.com",
+        "https://www.creditkarma.com/reviews/",
+        "https://www.creditkarma.com/savings",
+        "support.creditkarma.ca",
+        "www.creditkarma.ca"
+      ],
+      "exclusions": [
+        "appsflyer.com",
+        "crashlytics.com",
+        "help.creditkarma.com",
+        "https://www.creditkarma.com/all/advice",
+        "https://www.creditkarma.com/article/*",
+        "socialverification.creditkarma.com",
+        "socialverification.stage.creditkarma.com",
+        "taplytics.com",
+        "tax.creditkarma.com",
+        "taxsupport.creditkarma.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\creditkarma-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "creditkarma",
+  "name": "Credit Karma",
+  "url": "https://hackerone.com/creditkarma",
+  "policy": "Credit Karma is a personal finance technology company with nearly 130 million members in the United States, Canada and UK. The company offers a suite of products for members to monitor and improve credit health and provides identity monitoring, among other things. Since 2007, we have been knocking down barriers that block the path to financial health, helping our members make informed choices and feel confident about their opportunities.\r\n\r\n#Response Targets\r\nCredit Karma will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n- Time to first response (from report submit) - 2 business days\r\n- Time to triage (from report submit) - 3 business days\r\n- Time to bounty (from triage) - 5 business days\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n- No reports will be disclosed under the Credit Karma public program. Please do not discuss any reports (even resolved ones) with anyone. \r\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Researcher Accounts\r\n- Please use the claim credentials feature in order to receive your test account. Please see \r\n- You will be provided with two sets of credentials, we cannot provide more at this time.\r\n- It is important that you do not change the email address associated with your test account.\r\n- Test accounts contain the full feature set which is available to consumers on our site.\r\n- **Please add the following User Agent during the course of your testing: UA-BugBounty**\r\n\r\n# Program Rules\r\n- **Any access to member data outside of test accounts must be deleted upon access**\r\n- **PII submission should avoid sending PII but reproduction steps to acquire said PII is necessary**\r\n- **Any screenshots with PII should be redacted**\r\n- Do not perform testing that involves Recurring and/or scheduled scans on our platform.\r\n- **Do not perform testing that involves enumerating and/or Brute Forcing Login and/or Registration/ Account recovery.**\r\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n- Avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n- Do not perform testing on any of our partners (banks, credit card companies, loan companies, etc). Any such activity may result in removal from our program.\r\n\r\n# Our Focus\r\nFocus on Auth, Session, Horizontal privilege escalation and Critically Sensitive data exposure. We consider these type of findings as Critical findings\r\n\r\n# Rewards\r\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and that reward decisions are up to the discretion of Credit Karma.\r\n\r\n#Out of scope vulnerabilities\r\nThe following issues are considered out of scope:\r\n\r\n- Login and Registration Enumeration\r\n- Miscalculation including  miscalculated Tax Returns, etc.\r\n- IRS or other external entities, including our partners.\r\n- Any vulnerabilities found on subdomains or properties not explicitly listed in scope.\r\n- DoS or DDoS attacks.\r\n\r\n## Web App OOS\r\n- Enumerating and/or Brute Forcing Login and/or Registration.\r\n- Clickjacking on pages with no sensitive actions.\r\n- Unauthenticated/logout/login CSRF.\r\n- Attacks requiring MITM or physical access to a user's device.\r\n- Previously known vulnerable libraries without a working Proof of Concept.\r\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n- Missing best practices in SSL/TLS configuration.\r\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\r\n- Issues that are a result of pivoting - the only proof of initial foothold is necessary.\r\n- Support tickets (zendesk.creditkarma.com and help.creditkarma.com).\r\n- Spam (including issues related to SPF/DKIM/DMARC).\r\n- HTTP 404 codes/pages or other HTTP non-200 codes/pages.\r\n- Fingerprinting/banner disclosure on common/public services.\r\n- Disclosure of known public files or directories, (e.g. robots.txt).\r\n- CSRF in forms that are available to anonymous users (e.g. the contact form).\r\n- Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality.\r\n- Reports About Weak Password Policy.\r\n- Lack of Secure/HTTPOnly flags on non-sensitive Cookies.\r\n- Lack of Security Speedbump when leaving the site.\r\n- Lack of Captcha/reCaptcha.\r\n- Lack of 2-factor authentication.\r\n- OPTIONS HTTP method enabled.\r\n- HTTPS Mixed Content Scripts.\r\n- SSL/TLS scan reports (this means output from sites such as SSL Labs).\r\n- Open ports without an accompanying proof-of-concept demonstrating vulnerability.\r\n- Self-XSS that cannot be used to exploit other users (this includes having a user paste JavaScript into the browser console).\r\n- XMLRPC related brute-force/enumeration/DDoS Attacks\r\n\r\n## Mobile App OOS\r\n- Enumerating and/or Brute Forcing Login and/or Registration.\r\n- Attacks requiring physical access to a user's device.\r\n- Lack of Exploit mitigations ie PIE, ARC, or Stack Canaries.\r\n- Path disclosure in the binary.\r\n- Lack of jailbreak detection.\r\n- Lack of binary protection (anti-debugging) controls.\r\n- Lack of root detection.\r\n- Lack of obfuscation\r\n- Lack of binary protection\r\n- OAuth \"app secret\" hard-coded/recoverable in apk.\r\n- Crashes due to malformed URL Schemes.\r\n- Snapshot/Pasteboard leakage.\r\n- Runtime hacking exploits (exploits only possible in a jailbroken environment).\r\n- User data stored unencrypted on the file system on rooted devices.\r\n- Reports from static analysis of the binary without an accompanying PoC that exploits some business logic or security control.\r\n- Bypass certificate pinning on rooted devices.\r\n- Sensitive information retained as plaintext in the device’s memory.\r\n- Shared links leaked through the system clipboard.\r\n- Any URIs leaked because a malicious app has permission to view URIs opened.\r\n- Crashes due to malformed Intents sent to exported Activity/Service/BroadcastReceiver (exploiting these for sensitive data leakage is commonly in scope).\r\n- Vulnerabilities found in a Credit Karma application that was not acquired from Credit Karma’s official Play store account.\r\n- OAuth \"app secret\" hard-coded/recoverable in apk.\r\n- Sensitive data retrieved as plaintext from disk on rooted devices.\r\n- Reports from static analysis of the binary without an accompanying PoC that exploits some business logic or security control.\r\n\r\nNote, we will accept reports on the following issues, but they are **not eligible for bounty** and will likely not be remediated in the short-term:\r\n- Open Redirect GET-Based\r\n- Broken social media link hijacking\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Credit Karma and our users safe!\r\n\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://*.creditkarma.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.creditkarma.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "tax.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our Native apps make use of our API to talk to our servers. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "SalesForce owned-endpoint. Manual Testing only. No Automated Scanning. \n•\tNo automated scanning on this endpoint.\n•\tOvernight hours only (10PM - 2AM PT)\n•\tPlease note during any cases and/or chat session , please indicate that you are performing a Bug Bounty test from HackerOne and that this case is",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.creditkarma.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.creditkarma.mobile",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.creditkarma.com/all/advice",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "appsflyer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "crashlytics.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "taplytics.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.creditkarma.com/article/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.creditkarma.com/reviews/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socialverification.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "socialverification.stage.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.creditkarma.com/savings",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.creditkarma.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "SalesForce owned Endpoint. Manual review only - No Automated Scans.\n•\tNo automated scanning on this endpoint.\n•\tOvernight hours only (10PM - 2AM PT)\n•\tPlease note during any cases and/or chat session , please indicate that you are performing a Bug Bounty test from Hacker One and that this case is a ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "taxsupport.creditkarma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.creditkarma.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.creditkarma.mobile.international",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.creditkarma.mobile.international",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.creditkarma.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "findings": [
+    {
+      "title": "Exposed .env file — likely credentials and secrets",
+      "sev": "high",
+      "ref": "https://api.example.com/.env",
+      "confidence": "confirmed",
+      "evidence": "GET /.env 200 OK\nDB_PASSWORD=s3cr3t-value\nAPI_KEY=abcdef123456\nAPP_ENV=production"
+    },
+    {
+      "title": "Missing Content-Security-Policy header",
+      "sev": "low",
+      "ref": "https://api.example.com/",
+      "confidence": "confirmed"
+    }
+  ]
+}

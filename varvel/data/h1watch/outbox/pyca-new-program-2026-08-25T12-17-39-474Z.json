@@ -1,0 +1,86 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "pyca",
+      "name": "Python Cryptographic Authority",
+      "offersBounties": false,
+      "assets": [
+        "*.cryptography.io",
+        "*.pyopenssl.org",
+        "https://github.com/pyca/bcrypt",
+        "https://github.com/pyca/cryptography",
+        "https://github.com/pyca/infra",
+        "https://github.com/pyca/pynacl",
+        "https://github.com/pyca/pyopenssl"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\pyca-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "pyca",
+  "name": "Python Cryptographic Authority",
+  "url": "https://hackerone.com/pyca",
+  "policy": "This page can be used for reporting security vulnerabilities in any of the Python Cryptographic Authority family of libraries.\r\n\r\nBecause we're building libraries for security, we take a very broad view of what constitutes a security vulnerability. Our definition for a vulnerability is:\r\n\r\n> Anytime it’s possible to write code using the library's public API which does not provide the guarantees that a reasonable developer would expect it to based on our documentation.\r\n\r\nFor our web properties we are interested in any typical web vulnerabilities. Please note that our websites are all (so far as we know) static.\r\n\r\n## Disclosure policy\r\n\r\n- Please report issues here, with enough information for us to reproduce (or analytically understand) and for us to resolve them.\r\n- We'll endeavor to respond as quickly as possible, and come up with a solution.\r\n- For issues in our open source libraries, we'll always credit reporters in our changelog and in CVEs.\r\n- For issues with no security impact, please file a bug in our public issue tracker.\r\n\r\n## Exclusions\r\n\r\nThe following findings do not qualify:\r\n\r\n- Web vulnerabilities that do not impact modern browsers (i.e. a vulnerability that only impacts IE9 would not qualify).\r\n- Clickjacking on domains that do not contain any state.\r\n- Lack of CAA records.\r\n- Mail spoofing issues.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/pyca/cryptography",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/pyca/pynacl",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/pyca/bcrypt",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/pyca/pyopenssl",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cryptography.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pyopenssl.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/pyca/infra",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

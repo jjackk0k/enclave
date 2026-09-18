@@ -1,0 +1,108 @@
+{
+ "at": "2026-09-12T02:22:45.781Z",
+ "opportunity": "lyst",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "cdna.lystit.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b7242683a947d-LHR",
+    "strict-transport-security": "max-age=15552000; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mobileapi.lystit.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b7249ca21438f-LHR",
+    "strict-transport-security": "max-age=15552000; preload",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.lyst.lystapp",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.lyst.lystapp:443 refused: host unreachable"
+  },
+  {
+   "host": "lyst.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=10886400; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "lystit.com",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,244 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "aig",
+      "name": "AIG",
+      "offersBounties": false,
+      "assets": [
+        "*.aig.co.jp",
+        "*.aig.com",
+        "aig.com.br",
+        "http://*.aig.ie",
+        "https://mall.aig.com.cn/efapiao/",
+        "services.aig.co.il",
+        "wwip.aig.com",
+        "www-1p.aig.com",
+        "www.aig.co.il",
+        "www.aig.com.br",
+        "www.aigportal.de",
+        "www.americanhome.co.jp",
+        "www.glatfelters.com",
+        "www.rapidcover.ie",
+        "www.vfis.com",
+        "www.vfisal.com",
+        "www.vfisu.com"
+      ],
+      "exclusions": [
+        "*.corebridgefinancial.com",
+        "*.travelguard.com",
+        "direct-carexcess.co.uk",
+        "travel.aig.co.jp",
+        "www-1008.aig.com",
+        "www-180.aig.com",
+        "www-280.aig.com",
+        "www.corebridgefinancial.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\aig-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "aig",
+  "name": "AIG",
+  "url": "https://hackerone.com/aig",
+  "policy": "# Responsible Security Disclosure Program\nAs a global insurance company with operations in more than 80 countries, American International Group, Inc. (AIG) recognizes that threats to our corporate environment and customer information are ever present.  We value the important role security researchers play in helping us protect our businesses’ and customers’ information. \n\nIf you have information about possible security concerns in any AIG product, service, or domain, please use this form to submit a report. **By submitting a report, you agree not to disclose vulnerability details to anyone other than AIG and HackerOne (e.g. including but not limited to through Hacktivity or any other channels).**\n\nWe may modify this policy or terminate this program at any time.\n\n# Program Eligibility\n- You represent you are not located in or a resident of a country under United States sanctions, nor a person on, or working on behalf of a party identified on, any restricted party list maintained by the United States government.\n- You acknowledge that a current or former employee, consultant, or agent of AIG may not qualify for our program.\n- You consent to your information being stored and transferred to the United States if you are outside of the United States and to HackerOne sharing your personal information with us.\n- You agree that any AIG information that you may encounter, view, acquire, or access, is owned by AIG or its customers, clients, or third-party providers. You agree you have no rights, title, or ownership in any such information.\n- You agree that your research will be conducted for testing and research purposes only, and that you will not attempt to gain access to customer or user accounts or confidential information (including sensitive personal information) and will only interact with accounts you own.\n- You understand that nothing in this policy, including submission of a report, shall be deemed to constitute the grant to you of any license or other right to or in respect of any AIG or third-party product, service, patent, trademark, trade secret, or other intellectual property.\n- You hereby grant AIG a perpetual, worldwide, exclusive, fully-paid-up license to sublicense, copy, distribute, display, perform, transmit, and publish the report.\n\n# Requirements\n- Your report must meet all of [HackerOne’s Vulnerability Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines), Code of Conduct, Finder Terms and Conditions and other referenced documentation.\n- Submit one vulnerability per underlying issue.\n- Provide detailed reports with reproducible steps.\n- Comply with applicable federal, state, local, and international laws in connection with your participation in this vulnerability disclosure program.\n- Avoid privacy violations, destruction of data, and interruption or degradation of our services.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Do not test the physical security of AIG property.\n \n==Creating Accounts for Vulnerability Research==\n---------------------\n**Please include a header X-Hackerone: <h1_username> when you test so we can identify your requests.**You can create match and replace the proxy rule in Burp by going to *Proxy >> Options >> Match and Replace* with the following options: \n```\nType: Request header \nMatch: ^User-Agent.*$ \nReplace: `User-Agent: aigrdpresearcheryourh1username` \n```\n\nScope\n---------------------\n** Domains owned by AIG are in scope.  These domains will identify the Registrant Organization, Admin Organization, or Tech Organization as “American International Group, Inc” or “American International Group Data Center, Inc. (AIGDC).” Domains owned by AIG but hosted by a third party are out of scope. Not sure what’s in scope? Send an email to support@hackerone.com.**\n\n- Submissions related to Travel Guard will no longer be accepted due to the recent divesture. Ref: [Press Release](https://aig.gcs-web.com/news-releases/news-release-details/aig-closes-sale-its-global-personal-travel-insurance-and). \nIf a submission is received related to Travel Guard, the AIG team will notify the researcher to self-close as appropriate\n\nWe reserve the right to determine whether to accept a report. For example, we may not accept:\n- A report on a vulnerability with little security impact or exploitability or resulting from a violation of the program guidelines\n- A vulnerability outside our control or discoverable through automated scans (e.g. Acunetix, Nessus, or Qualys) that have not been verified manually\n\nVulnerabilities typically in scope include items from the [OWASP Top 10](https://owasp.org/www-project-top-ten/) and vulnerabilities with a confirmed security impact.\n\n**Certain vulnerabilities are considered out of scope for our Responsible Disclosure Program. These include:**\n- Clickjacking on pages with no sensitive actions\n- Unauthenticated/logout/login CSRF\n- Attacks requiring MITM or physical access to a user's device\n- Previously known vulnerable libraries without a working Proof of Concept\n- Any activity that could lead to the disruption of our service (DoS)\n- Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\n\n#Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n**Thank you for helping keep AIG safe!**\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.aig.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.vfis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "travel.aig.co.jp",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.glatfelters.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aig.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.corebridgefinancial.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.corebridgefinancial.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.aig.co.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "services.aig.co.il",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.aig.co.il",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www-1008.aig.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.rapidcover.ie",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://*.aig.ie",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.vfisu.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.vfisal.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www-1p.aig.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.travelguard.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.aigportal.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://mall.aig.com.cn/efapiao/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.americanhome.co.jp",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wwip.aig.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "direct-carexcess.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www-180.aig.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www-280.aig.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "aig.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is intended to be a wildcard domain. Subdomains and external links maintained by third parties, other than AIG, are not in scope for this program.",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "toolsforhumanity",
+      "name": "Tools for Humanity",
+      "offersBounties": true,
+      "assets": [
+        "*.consumer.worldcoin.org",
+        "*.toolsforhumanity.com",
+        "*.worldcoin-distributors.com",
+        "*.worldcoin.dev",
+        "*.worldcoin.org",
+        "Primary Assets",
+        "Secondary Assets",
+        "developer.worldcoin.org",
+        "https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847",
+        "https://docs.world.org/world-chain/reference/address-book",
+        "https://github.com/worldcoin",
+        "https://github.com/worldcoin/orb-core",
+        "https://github.com/worldcoin/orb-firmware",
+        "https://github.com/worldcoin/orb-messages",
+        "https://github.com/worldcoin/orb-relay-messages",
+        "https://github.com/worldcoin/orb-rustzone",
+        "https://github.com/worldcoin/orb-secure-element",
+        "https://github.com/worldcoin/orb-software",
+        "https://play.google.com/store/apps/details?id=com.worldcoin",
+        "toolsforhumanity.com",
+        "world.org",
+        "worldcoin.org"
+      ],
+      "exclusions": [
+        "https://github.com/worldcoin/orb-hardware",
+        "support.world.org",
+        "support.worldcoin.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\toolsforhumanity-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "toolsforhumanity",
+  "name": "Tools for Humanity",
+  "url": "https://hackerone.com/toolsforhumanity",
+  "policy": "Tools For Humanity (TFH) is proud to collaborate with the vibrant community of independent security research to  secure our platform and our users. To recognize your efforts and the role you play in enhancing the security of TFH and the World ecosystem, we have established this bug bounty program in partnership with HackerOne. Please make sure you review and understand this Policy before submitting a report. If you have any questions or need clarification, please don't hesitate to reach out. By participating in this program, you agree to adhere to this Policy as well as [HackerOne’s policies](https://www.hackerone.com/policies), such as their [Code of Conduct](https://www.hackerone.com/policies/code-of-conduct).\n\n# Response Targets\nTFH will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 10 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nThe only appropriate place to inquire about a submitted report’s status is HackerOne. Please refrain from submitting your report or inquiring about its status through additional channels, as this unnecessarily binds our security team’s resources. We will try to keep you informed about our progress throughout the process.\n\n# Rules \nBy submitting reports or otherwise participating in this program, you agree that you have read, understand, and will follow the Rules and Legal Terms sections of this program Policy. Violation of any of these rules can result in ineligibility for a reward and/or removal from the program. \n\nAs a participant in our bug bounty program you must:\n* Respect the privacy of our users, avoid data destruction and avoid engaging in interruption or degradation of our service. This includes not targeting production fleet infrastructure, production user data, provisioning or update servers, or taking any action that would compromise real users or the live service without prior written permission from Tools For Humanity.     \n* Only engage with accounts you own or for which you have explicit permission from the account holder.\n* Submit report artifacts that contain sensitive data only via HackerOne private report attachments or PGP-encrypted email to security@worldcoin.org.\n\nThe following issues or actions are not allowed in our bug bounty program: \n* Social engineering (e.g., phishing, vishing, smishing) of TFH staff, Orb operators, contractors, or related personnel, as well as bribery or any other illegal activity.\n* Denial-of-service attacks.\n* Any activity that could lead to the disruption of our service (DoS) or the sites of our third-party software and services (marketing services, third-party mail services, developer/support installations etc.).\n* Any attempts to exploit or compromise the physical security of our infrastructure or facilities, or to tamper with production hardware deployed in the field. If you become aware of a vulnerability that affects the Orb, please report it directly to us through this platform.\n* Testing against any TFH or Worldcoin Foundation domains and subdomains pointing to services hosted by third-parties.\n* Testing against private or internal GitHub repositories owned by TFH or Worldcoin Foundation without written authorization from Tools For Humanity.\n\nBehave professionally. Failure to follow HackerOne's policies, such as the Code of Conduct, may result in the report being ineligible for a reward at TFH sole discretion, in addition to any enforcement action HackerOne may decide to take.\n \n# Ineligible vulnerability types\nWhen reporting potential vulnerabilities, please consider (1) realistic attack scenarios, (2) the security impact of the behavior, and (3) where relevant, the threat model of the affected device. Below, you will find the most common false positives we encounter. The following issues will be closed as invalid except in rare circumstances demonstrating clear security impact.\n\n* Findings that require prior compromise of the target as a precondition for exploitation\n* Clickjacking on pages with no sensitive actions\n* DoS and DDoS vulnerabilities except for those affecting World Chain which will be rewarded as Secondary Asset and Low if valid.\n* Unconfirmed reports from automated vulnerability scanners, or AI-assisted reports generated from reading our public source code, without a working proof of concept reproducible against the running production instance.\n* Broken link hijacking\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Vulnerabilities in third-party libraries, outdated software, or end-of-life software (including publicly disclosed CVEs and other publicly known issues) without a working proof of concept demonstrating direct security impact on our services or devices\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Content spoofing and text injection issues\n* Most issues related to rate limiting and brute force behaviors\n* Denial-of-service attacks\n* Missing best practices in security policies\n* Missing HTTPOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors)\n* Vulnerability reports that reference zero-day exploits or CVEs that are less than 3 months old will be awarded on a case-by-case basis\n* Tabnabbing\n* Open redirect (unless an additional security impact can be demonstrated)\n* Issues that require unlikely user interaction\n* Vulnerabilities reported in open-source repositories owned by TFH or Worldcoin Foundation that are based solely on source code review without a working proof of concept or video demonstrating the issue is reproducible against the running production instance.\n* Findings on non-production surfaces, including devnet or testnet smart contracts and deployments, offline or command-line tools, demonstration or component-showcase hosts, and internal-only services with no public ingress.\n\n## Automated and AI-assisted submissions\nAI-assisted reports produced from reading our public source are the most common false positive we receive. Before submitting, confirm the finding is not covered above and include a proof of concept reproducible against the running production instance. When assessing impact, note:\n\n* Our cloud backend is the trust anchor and re-validates data forwarded from the Orb, and clients. Findings that assume a compromised backend, Orb, or client, or that target non-authoritative fields the backend re-checks, are ineligible.\n* A value a caller supplies to an API that is not used for a trust or authorization decision is not a vulnerability when it is reflected back.\n* For our SDKs and libraries, controls the documented integration contract assigns to the integrator (for example domain or nullifier binding) are the integrator's responsibility.\n\n## Orb device-specific\nThe following categories apply specifically to Orb and other TFH hardware research, in addition to the general categories above.\n* Attempts to extract production signing keys, extract private keys from secure elements, or defeat tamper-detection on production devices, unless Tools For Humanity explicitly authorizes and supervises the test.\n    * Live tests should be performed under controlled environments.\n    * After discovery of a vulnerability, please develop a PoC and report it; the TFH team will evaluate it where applicable.\n    * If an exploit can only be performed on an actual device, and after careful consideration by the TFH team, a test environment can be supplied to the researcher for PoC development and execution.\n* For clarity, the general DoS rule also covers device-level Denial-of-Service, including: single-device reboots, hangs, crashes, watchdog resets, or freezes; temporary or permanent loss of availability of a device, including bricking, where the impact is availability only; device or component compromise that only results in device downtime or loss of functionality; slowdowns, degraded performance, or UI unresponsiveness; resource exhaustion only affecting availability; local or physical disruption requiring direct access (power removal, cable unplugging, battery removal, jamming, or hardware tampering); DoS requiring prior compromise, credentials, insider access, or non-production/debug interfaces; and DoS affecting only test, lab, development, or non-production systems.\n* Any vulnerability that assumes prior compromise. All vulnerabilities should be applicable to production devices and exploitable remotely, from any of the available remotely accessible interfaces\n\n\n# Disclosure Policy\nOur Rules prohibit the disclosure of any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\nYou must follow HackerOne's [Vulnerability Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Rewards \n\n* In most cases, only the first person to report an unknown issue, as determined solely by TFH, will be eligible for a reward. \n* Our rewards are primarily based on severity and impact, guided by the CVSS (the Common Vulnerability Scoring Standard).\n* Multiple vulnerabilities caused by the same underlying issue will be awarded one bounty. \n* Vulnerabilities that are due to an issue in an upstream dependency are out of scope and should instead be reported to the upstream maintainers. We may make exceptions for vulnerabilities that have a substantial impact to our production environment and customer data, however, issues should still be directed to the maintainers of the dependency upstream first.\n* While we try to be as consistent as possible, rewards may change as our program evolves.\n\nWhen submitting a report to our security team, submit one vulnerability per report, unless you need to chain vulnerabilities to demonstrate a higher impact.\n\n# Getting started\n\nThe assets in scope are organized into two categories: Primary Assets and Secondary Assets. This classification is determined by the maturity level of each asset and the risk it poses to TFH and the World ecosystem. Assets listed in the scope table will specify their assigned category, with any asset not designated as a Primary Asset automatically categorized as a Secondary Asset. For further clarity, Primary Assets are also outlined below:\n\n| Primary Assets   | URL                                                                                                                                                                        |\n| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Developer Portal | [developer.worldcoin.org](https://developer.worldcoin.org)                                                                                                                 |\n| Smart Contracts  | [Address Book](https://docs.world.org/world-chain/reference/address-book)                                                                                                  |\n| Orb Pearl        | Hardware Device                                                                                                                                                            |\n| Orb Diamond      | Hardware Device                                                                                                                                                            |\n| World App        | [iOS](https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847) and [Android](https://play.google.com/store/apps/details?id=com.worldcoin) applications \n\n\nThe TFH security team maintains a [**Treasure Map**](https://github.com/worldcoin/treasure-map) to provide researchers with additional insights into the assets included in the bug bounty program’s scope. This resource serves as a guide for researchers to better understand the scope and focus their testing efforts. As the program and its scope evolve, further details and assets will be added to the Treasure Map.\n\nWe encourage you to subscribe to the [Treasure Map repository](https://github.com/worldcoin/treasure-map) to receive updates on new additions. For a comprehensive overview of the World protocol, please refer to the [World white paper](https://whitepaper.world.org/).\n\n# Eligibility for Participation\nYou are responsible for complying with any applicable laws. You are not eligible to participate in this program if you:\n* are currently employed by TFH  or Worldcoin Foundation (reports from former employees, immediate family of current employees, or other associates of TFH that may present a conflict of interest of the goals of the program will be more thoroughly reviewed and may not qualify for the stated bounty rewards at TFH discretion.)\n* are the author of the code that is affected by the vulnerability being reported, or you were otherwise involved in its integration into TFH or created, or assisted in the creation of, the issue about which you are reporting.\n* are a resident or individual located within a country appearing on any U.S. sanctions lists (such as the lists administered by the US Department of the Treasury’s OFAC).\n\n# Safe Harbor\nTFH considers good faith security research to be authorized activity that may be protected from adversarial legal action by us. As such, we adhere to  HackerOne’s Gold Standard Safe Harbor which can be found [here](https://hackerone.com/toolsforhumanity/safe_harbor).\n\n#Legal Terms\nIn connection with your participation in this program you agree to comply with TFH’s [Terms of Service](https://worldcoin.pactsafe.io/#contract-qx3iz24-o), TFH’s [Privacy Policy](https://worldcoin.pactsafe.io/#contract-9l-r7n2jt), and all applicable laws and regulations, including any laws or regulations governing privacy or the lawful processing of data.\n\nTo be fully protected under HackerOne's 'Gold Standard Safe Harbor', you may use potentially sensitive data only to validate your finding, report it, and verify the effectiveness of a fix. Do not retain or misuse such data, and report all accesses to TFH immediately after discovery.\n\nTFH reserves the right to change or modify the terms of this program at any time. \n\nThank you for helping keep TFH and the World ecosystem safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.worldcoin.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.consumer.worldcoin.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorld App backend. TFH-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "toolsforhumanity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nTFH-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.worldcoin-distributors.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.worldcoin.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/no/app/world-app-worldcoin-wallet/id1560859847",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**\n\nTFH-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.worldcoin",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**\n\nWorld App for Android. TFH-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "worldcoin.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.toolsforhumanity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nTFH-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.worldcoin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Secondary Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Primary Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.worldcoin.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**\n\nWorldcoin Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://docs.world.org/world-chain/reference/address-book",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**\n\nWorldcoin Foundation-owned asset.\n\nSmart contracts listed in this page are within scope for our program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "world.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**\n\nWorld Foundation-owned asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.world.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-software",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-firmware",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-messages",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-secure-element",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-relay-messages",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Secondary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-rustzone",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Asset**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/worldcoin/orb-hardware",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

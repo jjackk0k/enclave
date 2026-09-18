@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "sorare",
+      "name": "Sorare",
+      "offersBounties": true,
+      "assets": [
+        "api.sorare.com",
+        "sorare.com",
+        "ws.sorare.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\sorare-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "sorare",
+  "name": "Sorare",
+  "url": "https://hackerone.com/sorare",
+  "policy": "# Introduction\nSorare recognizes the importance and value of security researchers’ efforts in helping keep our community safe. We encourage responsible disclosure of security vulnerabilities via our bug bounty program (“Bug Bounty Program”) described on this page.\n\nThe Bug Bounty Program scope covers all software vulnerabilities in services provided by Sorare through its https://www.sorare.com website.\n\nA valid report is any in-scope report that clearly demonstrates a software vulnerability that harms Sorare or Sorare customers. A report must be a valid, in scope report in order to qualify for a bounty. Sorare will determine in its sole discretion whether a report is eligible for a reward and the amount of the award.\n\n# Program Policy\n\n## Response Targets\nSorare will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n## Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n## Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n## Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Any issues related to GraphQL Introspection as the api.sorare.com/graphql is meant to be publicly discoverable\n* Public Source maps\n* API keys (e.g., Algolia, Giphy, Infura) if they do not permit harmful actions\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Sorare and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "sorare.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is Sorare's main application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.sorare.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is Sorare's GraphQL Open API. More documentation about the API can be found on GitHub: https://github.com/sorare/api",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ws.sorare.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is Sorare's WebSocket domain, providing GraphQL subscriptions capabilities as described in https://github.com/sorare/api#subscribing-to-graphql-events",
+      "max_severity": "critical"
+    }
+  ]
+}

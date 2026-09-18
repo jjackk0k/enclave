@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "r3",
+      "name": "R3",
+      "offersBounties": false,
+      "assets": [
+        "R3 - everything in scope"
+      ],
+      "exclusions": [
+        "www.corda.net",
+        "www.r3.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\r3-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "r3",
+  "name": "R3",
+  "url": "https://hackerone.com/r3",
+  "policy": "# Vulnerability Disclosure Policy\r\nR3, the company behind Corda, welcomes collaboration with the security community. We are committed to the continuous security improvement of our products and services, and we thank you in advance for your contributions to our Vulnerability Disclosure Program (VDP).\r\n\r\n# Scope\r\nWe welcome submissions related to any publicly accessible information system, web property, or data owned, operated, or controlled by R3, unless explicitly defined as out of scope.\r\n\r\nOut-of-scope assets are detailed in the program scope section in our HackerOne VDP program. Please refer to the scope section before commencing your research.\r\n\r\n# Expectations\r\nWe are committed to working in good faith with the security community. R3 requires that vulnerability submissions be conducted according to these guidelines:\r\n* Research is conducted in a manner that protects the data, property and privacy of our customers and partners.\r\n* Please be respectful of our systems and user data; avoid spamming forms, and the modification or deletion of our data.\r\n* Please do not use high-intensity invasive or destructive scanning tools to find vulnerabilities, and do not attempt or report any form of denial of service, e.g., overwhelming a service with a high volume of requests.\r\n* If creating accounts on our systems for testing purposes, please clearly identify yourself as a HackerOne researcher.\r\n* Report any suspected or confirmed vulnerability promptly and provide full details at the time of submission.\r\n* Give us reasonable time to work with our customers and partners to mitigate the issue, before making any information about it public.\r\n* Always comply with data protection rules and securely delete all data retrieved during your research as soon as it is no longer required, or within 1 month of the vulnerability being resolved, whichever occurs first (or as otherwise required by data protection law).\r\n\r\n# Submitting a vulnerability\r\nWhen submitting a vulnerability please include:\r\n* A description of the vulnerability and the environment in which it was discovered.\r\n* The name, version and configuration of the product or service that is affected.\r\n* Detailed steps that can reproduce the issue.\r\n* An image attachment (optional). Do not attach any video or executable files to your email.\r\n\r\nPlease do not include any identifiable information (name, contact information, or similar information) in your submission. \r\n\r\n# Response\r\nR3’s Security Team will make every effort to acknowledge your report and initiate an investigation as soon as possible, and we will do our best to keep you updated throughout the remediation process. Our target response times are as follows:\r\n\r\n* We will provide prompt acknowledgement of receipt of your vulnerability report (normally within 48 business hours of submission).\r\n* Conduct an internal assessment and respond with our view on severity and impact, typically within 2 weeks but may be longer for complex issues.\r\n\r\nAdvisory-class issues may require coordinated disclosure with our customers and partners before being made publicly available. Security vulnerabilities may be published on our website in the form of a security advisory after R3 has conducted an analysis.\r\n\r\n# Safe Harbour\r\nAny activities conducted in good faith, in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.corda.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.r3.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "R3 - everything in scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "We welcome submissions related to any publicly accessible information system, web property, or data owned, operated, or controlled by R3, unless explicitly defined as out of scope.\n\nR3's primary corporate domains are:\n* r3.com\n* corda.net\n* corda.network",
+      "max_severity": "critical"
+    }
+  ]
+}

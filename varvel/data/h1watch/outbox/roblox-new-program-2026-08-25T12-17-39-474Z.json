@@ -1,0 +1,98 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "roblox",
+      "name": "Roblox",
+      "offersBounties": true,
+      "assets": [
+        "*.ra.roblox.com",
+        "*.rbx.com",
+        "*.roblox.com",
+        "Roblox Client",
+        "Roblox Engine",
+        "Roblox Studio",
+        "blox.link"
+      ],
+      "exclusions": [
+        "*.guilded.gg"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\roblox-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "roblox",
+  "name": "Roblox",
+  "url": "https://hackerone.com/roblox",
+  "policy": "# **Our Mission**\n\nRoblox’s vision is to reimagine the way people come together, and our mission is to connect a billion people every day with optimism and civility in a shared 3D experience. Our platform empowers people of all ages to imagine, create, and play together in immersive, user-generated worlds.  \nWe recognize the important role that our user community and a community of security researchers play in helping to keep Roblox and our community safe. If you think you’ve found a security issue on any of the scopes we have listed, please inform us via our program on HackerOne using the guidelines below.  \nRoblox reserves the right to choose to address or not address any reported vulnerabilities. When reporting vulnerabilities, please consider:\n\n1. How easily/realistically exploitable the bug is (what’s the attack scenario?\n2. What is the security impact of the bug to our users and company?\n\nIf a bug is not easily exploitable or does not have a significant security impact to our platform and users, we may not accept it or we may decrease the overall severity and/or payout to how impactful it is. This often comes into play in differences in our in-scope assets and how impactful they may be to our overall user facing products and platform.\n\n# **Program Essentials**\n\n**🚨 STOP. READ THIS. DO NOT SKIM. 🚨**\n\n**What you must ALWAYS do:**\n\n* Test only on your own accounts, devices, and clearly marked private/test experiences.  \n* Include the string \"hackeronetest-\\<your-roblox-userid\\>\" at the end of your user agent so we can easily identify traffic that is coming from the bug bounty program.  \n* Test with the minimum necessary actions to validate a vulnerability.  \n* Report all findings exclusively through HackerOne.  \n* Follow HackerOne’s disclosure guidelines.\n\n**What you must NEVER do:**\n\n* Exfiltrate, share, publish, or modify the data of other Roblox users or employees.  \n* Attempt social engineering (phishing, vishing, smishing) or physical attacks.  \n* Perform volumetric Denial of Service (DoS), DDoS, or spam attacks.  \n* Develop or test fully weaponized RCE chains against production clients.  \n* Distribute exploit executors, cheats, or bypass frameworks.  \n* Violate any laws, regulations, or agreements during your testing.\n\n# **2\\. Core Rules (Applies to All Reports)**\n\n## **2.1 Participation & Eligibility**\n\n* Current & former Roblox employees and their family members are not eligible for bounties.  \n* Recently disclosed 0-day vulnerabilities are not eligible unless you have a working PoC exploit.\n\n## **2.2 Handling Data (Users & Employees)**\n\nYour participation generally prohibits you from collecting, accessing, viewing, storing, altering, or otherwise using the data of Roblox users.\n\n* Localize testing to your own test accounts wherever possible.  \n* If a bug requires touching other users’ data to verify, you must contact us first for guidance.  \n* If private user data is accidentally accessed, notify us immediately.  \n* In exceptional, necessary cases, restrict data use to the absolute minimum amount of users and scope.  \n* Take measures to prevent unauthorized access, alteration, or deletion of any accessed user data.  \n* Do not use accessed data to contact Roblox users for any reason.  \n* Delete any user data from your systems irrevocably after testing (we reserve the right to demand proof).  \n* Infringing data protection laws (including GDPR) can result in program exclusion, reclaimed bounties, substantial fines, and damages.\n\n## **2.3 Safe Testing Rules**\n\n* If you are aware that your attacks may harm the reliability or integrity of our services or data, stop immediately and contact us by submitting a report.  \n* Do NOT contact our customer support team or employees out-of-band to contest or escalate a report. All inquiries must happen on the HackerOne report itself. Repeat offenses will lead to removal from the program.\n\n## **2.4 General Out-of-Scope Vulnerabilities**\n\nThe following vulnerabilities typically will not qualify for a bounty, or may be downrated if the impact is lacking (e.g., low-impact bugs on WordPress sites like blog.roblox.com). Vulnerabilities that are an accepted risk are not eligible for paid bounties.\n\n* Vulnerabilities previously disclosed or known to Roblox/the public.  \n* User account hacks requiring user interaction.  \n* Chat filter bugs.  \n* Missing autocomplete attributes.  \n* Missing flags on cookies that do not house sensitive information.  \n* SSL/TLS scan reports (e.g., SSL Labs output) and version-related vulnerabilities.  \n* Missing security-related HTTP headers that do not lead directly to a vulnerability.  \n* Issues affecting a small user base (e.g., outdated browsers/software).  \n* Volumetric DDoS/DoS/Spam attacks (*Note: Data model vulnerabilities used by exploiters to crash game servers ARE in scope and encouraged*).  \n* CSRF with minimal security implications (Login/logout/unauthenticated).  \n* Version information disclosure without an actual exploitable vulnerability.  \n* Password complexity-related vulnerabilities.  \n* Unverified or incomplete scanner output.  \n* Vulnerabilities requiring physical access to an unlocked device.  \n* Bugs requiring exceedingly unlikely user interaction.  \n* Disclosure of public domain information or info lacking significant risk.  \n* Language used in emails and policy documents.  \n* SPF, DKIM, or DMARC issues on sub-domains of roblox.com.  \n* HTML injection vulnerabilities with no direct risk.  \n* Social engineering or link-following vulnerabilities.  \n* Self-XSS or similar vulnerabilities.  \n* Vulnerabilities on `*.ra.roblox.com` that do not affect release servers.  \n* Beta/early access vulnerabilities not in HackerOne bounty program (unless explicitly stated, beta feedback does not guarantee a bounty).\n\n# **3\\. Additional Guidance**\n\n## **Exploit Development & RCE**\n\n**Summary:** Rules for memory corruption, RCE chains, sandbox escapes, and exploit tooling. **Who should read this?** Researchers doing client exploitation, RCE, or deep exploit work.\n\n**What is Allowed (Public Bug Bounty):**\n\n* **Minimal PoCs:** Reliably reproduce the vulnerability (crash, assertion, benign object corruption). Demonstrate clear security impact (control over a pointer, predictable structure corruption).  \n* **Safe Execution:** Cause controlled memory corruption or use-after-free on a test object. Influence data writing without a full chain. Prove primitives (info leak, type confusion) work as described.  \n* **Limited Exploitation:** Demonstrate control over program state (influencing a return address, vtable) as long as you don’t execute OS commands, persist access, or alter user state.\n\n**What Is Prohibited (Without Explicit Written Authorization):**\n\n* **Fully Weaponized RCE:** Developing reliable chains against production clients that execute arbitrary code (shell commands, DLL injection), act as real-world attacks, or integrate into cheat frameworks.  \n* **Tooling:** Creating telemetry bypass frameworks. Automating exploit deployment (mass scripts).  \n* **Targeting Backends:** Testing exploits aimed at Roblox Compute Cloud (RCC) servers, control-plane, or management systems.  \n* **Impacting Economies/Users:** Stealing creator assets beyond documented APIs, manipulating live economies (mass duplication, currency fraud), or hiding exploit activity inside normal traffic.  \n* **Selling/Sharing:** Selling working exploit code to third parties or publicly releasing production-ready chains while unpatched.\n\n# **4\\. Reporting & Rewards**\n\nWe prioritize clear, technically sound writeups over \"live\" weaponization. When reviewing reports, we consider (1) how easily/realistically exploitable the bug is (the attack scenario) and (2) the security impact on our users and company.\n\n**Required Technical Details:**\n\n* **Version Numbers:** For Client or Studio reports, include the exact version. (In Studio: *File \\> About Roblox Studio*. For Client: Found in the properties of the `.exe` file, typically at `%APPDATA%\\..\\Local\\Roblox\\Versions\\<version>\\RobloxPlayerBeta.exe`).  \n* **Timestamps:** Report the approximate date, time, and timezone of your most recent test.\n\n**Reasoning-Based Impact (You do not need weaponized RCE for top rewards):**\n\n* You can receive high or maximum rewards for serious issues without a fully weaponized exploit.  \n* You are allowed to explain, in detail, how your primitives could escalate to arbitrary read/write, RCE, or sandbox escapes.  \n* You are allowed to provide call-graph analysis, object lifetime reasoning, mitigation bypass ideas, hypothetical ROP chains, or high-level exploit diagrams.\n\n**Response Targets & SLAs:** We will endeavor to keep you informed about our progress and meet the following targets:\n\n* Time to first response (from report submit): 3 business days  \n* Time to triage (from report submit): 2-10 business days  \n* Time to bounty (from triage): 20-40 business days\n\n# **5\\. Full Disclosure & Legal Terms**\n\nWhile we encourage responsible discovery and reporting, the following conduct is expressly prohibited. Violations will result in disqualification from the Bug Bounty Program and, if necessary, referral to law enforcement:\n\n* Disclosing vulnerabilities or suspected vulnerabilities to any other person without explicit Roblox authorization.  \n* Disclosing the contents of any submission to our program without explicit Roblox authorization.  \n* Accessing private information of any person stored on a Roblox product or service.  \n* Sharing or publishing Roblox user data.  \n* Accessing sensitive information (e.g., credentials).  \n* Exfiltrating data (Test only the minimum necessary to validate; we will reward with the impact in mind).  \n* Conducting any kind of physical attack on Roblox personnel, property, or data centers.  \n* Violating any laws or regulations or breaching any agreements in order to discover vulnerabilities.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Roblox Client",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Applies to Windows/Osx/Mobile Platform",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Roblox Studio",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Applies to Windows/Osx/Mobile Platform",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.roblox.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "App api's that are used within Roblox.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rbx.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ra.roblox.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.guilded.gg",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blox.link",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "Roblox Engine",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

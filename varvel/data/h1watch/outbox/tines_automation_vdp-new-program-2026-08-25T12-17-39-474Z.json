@@ -1,0 +1,48 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tines_automation_vdp",
+      "name": "Tines (VDP)",
+      "offersBounties": false,
+      "assets": [
+        "tines.com",
+        "tines.io"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tines_automation_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tines_automation_vdp",
+  "name": "Tines (VDP)",
+  "url": "https://hackerone.com/tines_automation_vdp",
+  "policy": "#We ask that you adhere to the following guidelines:\n\n**Please use the following paths for new account signup & login!** If you are using your HackerOne email alias or the `X-HackerOne-Research: [H1 username]` as outlined in the \"Test Plan\" & \"Session Layer\" sections of the program guidelines below, you will be redirected to the listed paths.\nhttps://login.tines.com/research/signup\nhttps://login.tines.com/research/login\n\nYou may also use the attached Burp Suite project setting config (F5313538), or add the provided ZAP replace config at the end of your \"replacer\" element within the XML config (F5313534) which can be found in ZAP (Help > Support Info... > Scroll to the bottom and find \"ZAP Home Directory\" > In the ZAP home directory open `config.xml` > search for \"replacer\" > add the rule at the end of the element). In either scenario, please modify the `[H1 username]` placeholder value to match your specific username.\n\n*Do not disclose the vulnerability outside of the VDP\n*Do not violate any laws\n*Do not disrupt services (DoS/DDoS)\n*Do not access, modify, or destroy any accounts or data that do not belong to you\n\nTines has extensive documentation of our features & API's, and their intended uses, available on our marketing site.\nhttps://www.tines.com/docs/quickstart/\nhttps://www.tines.com/api/welcome/\n\nWhen submitting reports on potential vulnerabilities, please consider the real-world implications of the potential vulnerability and if the report indicates a real-world impact, such as privilege escalation, sensitive information disclosure, or the ability to affect resources not owned by the tenant/team they are associated with. This includes recognizing that the Tines Intelligent Workflow platform is designed to allow Tenant Owners full control over resources within their specific tenant.\n\nRegarding the Tines run-script feature, before submitting a potential vulnerability report, please assess if the team/tenant isolation is able to be compromised or escaped from. For more information on the run-script feature please see our extensive documentation.\nhttps://www.tines.com/docs/actions/tools/run-script/\nhttps://www.tines.com/blog/python-tines-how-to-guide/\n\nYou can find more information regarding security at Tines here:\nhttps://www.tines.com/security/\n\n#Out of Scope  \n\n* HTTPS / TLS security headers suggestions\n* Direct testing of 3rd parties\n* SPF / DMARC / DKIM / DNSSEC suggestions\n* Banner/version disclosure\n* Social engineering / phishing / spam\n\n# Program Rules\n* Please see the Test Plan below for information on account creation.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test Plan\n* Users are able to sign up for a free account through our website\n* All researchers are **required to use their hacker email alias  or the `X-HackerOne-Research` header** when testing (h1username@wearehackerone.com)\n* Researchers using `@gmail.com` or any other domain other than their hacker email alias, without also using the provided headers, are subject to Tines account deletion and possible program exclusion\n\n## Session Layer: HTTP Headers\nResearchers **must add headers to requests if not using the `@wearehackerone.com` email alias**, such as: \n* “X-HackerOne-Research: [H1 username]”\n\nThank you for helping keep Tines and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "tines.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Welcome to the Tines VDP! \n\nAs this is an open VDP, there is no monetary bounty commitment associated with this program; any bounty rewards will be due to exceptional reports, both in the findings and in the quality of the report, and are solely at the discretion of Tines.\n\nFor public testing of our",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "tines.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Welcome to the Tines VDP! \n\nAs this is an open VDP, there is no monetary bounty commitment associated with this program; any bounty rewards will be due to exceptional reports, both in the findings and in the quality of the report, and are solely at the discretion of Tines.\n\nAs this is a marketing an",
+      "max_severity": "critical"
+    }
+  ]
+}

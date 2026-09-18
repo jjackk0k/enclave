@@ -1,0 +1,83 @@
+{
+ "at": "2026-09-12T01:37:21.360Z",
+ "opportunity": "gsa_bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "federalist-proxy.app.cloud.gov",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "account.fr.cloud.gov",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; script-src 'self'; connect-src 'self'; object-src 'self'; frame-ancestors 'self'; img-src 'self' *.c",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ci.fr.cloud.gov",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to ci.fr.cloud.gov:443 refused: TTL expired"
+  },
+  {
+   "host": "dashboard.fr.cloud.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' da",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "login.fr.cloud.gov",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "script-src 'self'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

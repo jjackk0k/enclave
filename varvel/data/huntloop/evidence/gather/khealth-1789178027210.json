@@ -1,0 +1,110 @@
+{
+ "at": "2026-09-12T01:53:41.448Z",
+ "opportunity": "khealth",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "apps.apple.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "daiquiri/5",
+    "x-cache": "HIT fsly",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "upgrade-insecure-requests; default-src 'none'; manifest-src 'self' https://*.apple.com; img-src 'self' https://*.apple.c",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "hhc247.org",
+   "kind": "wildcard-apex",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b47b3ad8b94e1-LHR",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "khealth-test.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to khealth-test.com:443 refused: host unreachable"
+  },
+  {
+   "host": "csconnect.org",
+   "kind": "wildcard-apex",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b47c16ee163c7-LHR",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mgbcareconnect.org",
+   "kind": "wildcard-apex",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b47c8c9bcf45c-LHR",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

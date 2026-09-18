@@ -1,0 +1,38 @@
+{
+ "at": "2026-09-12T16:08:37.760Z",
+ "opportunity": "solidus",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "github.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "github.com",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ ",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/.git/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "at": "2026-09-12T04:59:09.014Z",
+ "opportunity": "temu",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.temu.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c57580f740bac-LHR",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.einnovation.temu",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.einnovation.temu:443 refused: host unreachable"
+  },
+  {
+   "host": "seller.temu.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Server",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src temu: seller.temu.com seller-eu.temu.com pftka-us.temu.com partner-us.temu.com *.kwcdn.com *.temucdn.com *.f"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ads.temu.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Server",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'unsafe-inline' 'unsafe-eval' blob: data: *.temu.com *.kwcdn.com; frame-ancestors 'self'; report-uri /api/se"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

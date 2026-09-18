@@ -1,0 +1,240 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "superhuman",
+      "name": "Superhuman (formerly Grammarly)",
+      "offersBounties": true,
+      "assets": [
+        "*.grammarly.com",
+        "*.grammarly.io",
+        "*.grammarlyaws.com",
+        "*.superhuman.com",
+        "Capture the Flag",
+        "Coda Chrome Extension",
+        "Grammarly Browser Extensions",
+        "Grammarly Desktop for Windows",
+        "Grammarly Desktop for macOS",
+        "Superhuman Go",
+        "Superhuman Mail",
+        "coda.grammarly.com",
+        "coda.io",
+        "codacontent.io",
+        "codahosted.io",
+        "com.grammarly.android.keyboard",
+        "com.grammarly.keyboard",
+        "gateway.superhuman.com",
+        "id.superhuman.com",
+        "io.coda",
+        "io.coda.codaapp",
+        "settings.superhuman.com",
+        "superhuman.com"
+      ],
+      "exclusions": [
+        "Third party external services",
+        "status.coda.io"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\superhuman-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "superhuman",
+  "name": "Superhuman (formerly Grammarly)",
+  "url": "https://hackerone.com/superhuman",
+  "policy": "# 🛡️ Superhuman (formerly Grammarly) Bug Bounty Program\n\nWelcome, hackers 👋\n\nSuperhuman, formerly Grammarly, is an AI productivity platform bringing together four products: Grammarly, Superhuman Docs (formerly Coda), Superhuman Mail, and Superhuman Go.\n\nOur previously separate bug bounty programs have been consolidated into one unified Superhuman Bug Bounty Program, providing researchers with a central place to test eligible assets and report security vulnerabilities across the Superhuman product suite.\n\nWe’re excited to continue working with the security research community to help protect our users, their data, and the systems powering Superhuman.\n\n---\n\n## 🌍 Our Story\n\nSuperhuman builds AI-powered productivity tools that help people communicate, create, and collaborate more effectively across Grammarly, Superhuman Docs, Superhuman Mail, and Superhuman Go.\n\nSecurity and privacy are central to everything we build. We look forward to working with researchers worldwide to responsibly identify and resolve vulnerabilities across the Superhuman product suite.\n\n---\n\n## 🧭 Program Scope\n\n### In Scope\n\nThe Superhuman Bug Bounty Program covers eligible assets across **Grammarly, Superhuman Docs, Superhuman Mail, and Superhuman Go**, including:\n\n- `*.grammarly.com`\n- `*.coda.io`\n- `*.superhuman.com`\n- Browser extensions for Chrome, Safari, Firefox, and Edge\n- Desktop applications for macOS and Windows\n- Mobile applications and keyboards for Android and iOS\n\n---\n\n## ⏱️ Response Targets\n\n| Stage | Target Timeframe |\n|--------|------------------|\n| Time to first response | 2 business days |\n| Time to triage | 4 business days |\n| Time to bounty (after triage) | 7 business days |\n\nWe’ll keep you updated throughout the process.\n\n---\n\n## 🧩 Rules for Researchers\n\n- Be an **ethical hacker** and follow HackerOne’s [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).  \n- Respect privacy — **only interact with test accounts** that you own.  \n- Do **not** test or exploit bugs on real customer accounts. Doing so may reduce bounty awards by up to **50%**.  \n- **No DoS, spam, or abuse of customer support channels** to gain attention.  \n- Do **not** use leaked customer credentials.  \n- We **will** pay bounties for working *employee credential leaks* when properly demonstrated.  \n- If you encounter user data inadvertently, stop testing immediately, report it, and purge all local data.  \n- Submit one vulnerability per report (unless chaining is needed for impact).  \n- Only the **first valid report** of a vulnerability will be rewarded.  \n- Multiple issues stemming from the same root cause may be combined into one bounty.  \n- Social engineering (phishing, vishing, smishing, etc.) is strictly prohibited.  \n-  Do **not** contact us through customer support channels or email. Any attempts to establish out-of-band communication will result in the report being closed as N/A and report to HackerOne.\n\n---\n\n## 🧪 Test Accounts\n\nCreate your own test accounts to explore and validate findings.\n\n- For **Coda testing**:\n  - Create a free account at [https://coda.io/welcome](https://coda.io/welcome).\n  - Use a **Google** or **email+password** sign-up.\n  - Append `hackeronetester` to your email (e.g., `codahackeronetester@gmail.com`) if you’re not using a `@wearehackerone.com` domain.\n  - Do not create more than **5 test accounts**.\n  - Use only the free plan — do not use fake payment data.\n\n- For **Grammarly/Superhuman testing**:\n  - Use `@wearehackerone.com` to sign up.\n  - Append `hackeronetester` to your email (e.g., `grammarlyhackeronetester@gmail.com`) if you’re not using a `@wearehackerone.com` domain.\n\n- For **Superhuman Mail testing**:\nSuperhuman supports only Google-based workspaces (e.g., Gmail or custom Google Workspace inboxes) and Outlook workspaces. When creating your test account, include both hackeronetest and your HackerOne username in the email address — for example: hackeronetest_<h1username>@gmail.com\n\n\n ~~Need a specific subscription level? Contact us, and we’ll provide access as needed.~~\nWe are currently **not providing** free upgrades for testing. We will update when we plan to resume; please do not create support tickets requesting a subscription or related questions about bug bounties.\n\n---\n\n## 🚫 Out of Scope\n\n\nWhen reporting, please consider exploitability and impact. The following are **out of scope** or **non-qualifying** unless a clear, reproducible security impact is demonstrated:\n\n### Technical Exclusions\n- Apparent SSRF of `/api/oembedResolve` (uses Iframely)\n- Clickjacking on non-sensitive pages\n- Unauthenticated, logout, or login CSRF without security impact\n- MITM, physical access, or pre-compromised device attacks\n- Known vulnerable libraries without a working PoC\n- CSV injection without demonstrated execution or data exfiltration\n- Missing SSL/TLS, DNS, CSP, or security headers without a working exploit\n- Content spoofing, self-XSS, or text injection without cross-user impact\n- DoS, stress testing, or service disruption attempts\n- Overly large payloads or resource-exhaustion issues in docs\n- Rate-limit issues on non-sensitive endpoints without demonstrated impact\n- Automated scanner output without manual validation\n- Broken links, harmless redirects, or other UX-only issues\n- Non-production or demo environment findings without sensitive data or production impact\n- “Best practice,” theoretical, or informational issues without a realistic exploit path\n\n### Business Logic & Policy Exclusions\n- Credential reuse from public dumps or breach collections\n- Username or account enumeration without additional impact\n- Abuse of free trials, promo codes, referrals, invites, or credits\n- Account sharing or subscription misuse\n- Cosmetic paywall or feature-flag bypasses without material impact\n- Institutional or educational access-code issues\n- Email verification or password complexity complaints\n- AI model jailbreaks or safety-filter bypasses without an actual security impact\n- Duplicate or previously known issues\n\n---\n\n## 💰 Rewards\n\nWe reward based on the **impact and severity** of the vulnerability.  \nFinal bounty amounts are at the discretion of the Superhuman Security Team.  \n\nBounty tiers for different products:\n- Grammarly - Upto $30k\n- Superhuman - Upto $13k\n- Superhuman docs (Formerly Coda) - Upto $3k\n\nDuplicate reports (including known internal issues) will not be rewarded.  \nMultiple vulnerabilities from a single root cause may be combined into one payout.\n\n> ⚑ **CTF Challenge**  \n> The first hacker who reports the `$FLAG` saved in document ID `1198436185` under user `h1_ctf@grammarly.com` (user_id `1411519194`) in Grammarly (Classic doc only) will earn a **$100,000 bounty**.  \n> If it’s in scope, the challenge remains active — no need to ask for confirmation.\n\n---\n# Legal \n\n## 🛡️ Safe Harbor\n\nWe comply with **HackerOne’s Golden Safe Harbor Standard**.  \nActivities conducted in accordance with this policy will be considered authorized and exempt from legal action.  \n\n[Learn more → Safe Harbor FAQ](https://docs.hackerone.com/en/articles/8494502-safe-harbor-faq)\n\n\n## Ineligible Participants\n\nFormer employees and contractors of Superhuman are ineligible for bug-bounty payments for 6 months after their employment ends.\n\n---\n\n## ✉️ Questions or Access Requests\n\nNeed additional test environments or subscriptions?  \nReach us directly via your HackerOne submission or contact **security@superhuman.com**.\n\n---\n\nThank you for helping keep **Superhuman**, our users, and the broader community safe.  \nWe deeply appreciate your skill, curiosity, and professionalism — together, we’re building something truly secure 🚀",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.grammarly.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Grammarly Browser Extensions",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The extension is available in the extension/add-on store of the respective browser: \n* [Chrome](https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen?hl=en) \n* [Firefox](https://addons.mozilla.org/en-US/firefox/addon/grammarly-1/)\n* [Edge](https://microsofte",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.grammarlyaws.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.grammarly.keyboard",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Grammarly for iOS](https://www.grammarly.com/mobile/ios)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.grammarly.android.keyboard",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Grammarly for Android](https://www.grammarly.com/mobile/android).\n\nVulnerabilities with PoC may qualify for additional bounty via [Google Play Security Rewards Program](https://hackerone.com/googleplay). See [Vulnerability Criteria](https://hackerone.com/googleplay) for details.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Third party external services",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "- `send.grammarly.com`\n- `calendar.grammarly.com`\n- `support.grammarly.com`\n- `status.grammarly.com`\n- `brand.grammarly.com`\n- `partners.grammarly.com`\n- `events.grammarly.com`\n- `hello.superhuman.com`\n- `events.superhuman.com`\n- `engage.superhuman.com`\n\nAny submissions on these domains and their su",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Grammarly Desktop for Windows",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://download-windows.grammarly.com/GrammarlyInstaller.exe",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Grammarly Desktop for macOS",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://download-mac.grammarly.com/Grammarly.dmg",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.grammarly.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Capture the Flag",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The first hacker who reports the `$FLAG` saved in the document (`document_id: 1198436185`) of the user `h1_ctf@grammarly.com` (`user_id: 1411519194`) will be awarded a **$100K bounty**.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Superhuman Go",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Superhuman Go is a proactive AI assistant that integrates with 100+ apps to coordinate agents and provide context-aware help across your workflow. It works in every tab where you work.\n[Superhuman Go - AI Assistant](https://superhuman.com/products/go-ai-assistant)\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "superhuman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.superhuman.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All subdomains of Superhuman.com - third party saas domains are excluded.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gateway.superhuman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id.superhuman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "settings.superhuman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "status.coda.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Coda Chrome Extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "codacontent.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "codahosted.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "io.coda",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "io.coda.codaapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Superhuman Mail",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "coda.grammarly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "coda.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

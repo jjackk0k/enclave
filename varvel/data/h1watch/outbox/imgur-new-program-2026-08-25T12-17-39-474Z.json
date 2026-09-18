@@ -1,0 +1,28 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "imgur",
+      "name": "Imgur",
+      "offersBounties": true,
+      "assets": [],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\imgur-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "imgur",
+  "name": "Imgur",
+  "url": "https://hackerone.com/imgur",
+  "policy": "SIMPLE RULES\r\n-----------------------\r\n*   Do not make any information public until the issue has been resolved.\r\n*   Make a good faith effort to avoid interruption or degradation of our services .\r\n*   Do not access or modify data that does not belong to you - create a free account to test with.\r\n*   Making many substantially similar reports will only be eligible for one bounty award and marked as duplicate. For example, the same vulnerability reported across multiple subdomains. Please consolidate these issues into a single report.\r\n*   Please try to limit the number of times you follow up on a report. Making daily comments only adds to our workload and makes turnaround time longer for everyone.\r\n*   This bounty program is only concerned with security-related bugs, please e-mail support@imgur.com for all other bugs.\r\n* If your report is related to an advertiser on our site, please refer to https://help.imgur.com/hc/en-us/articles/205107685-Bad-Ads for further guidance.\r\n\r\nSCOPE\r\n-----------------------\r\nWe are interested in hearing about any security flaw. This could include, but is not limited to:\r\n\r\n*   Anything that leaks personal user data, e.g. emails, passwords,  content a user has set to private or deleted.\r\n*   Accessing someone's account without their knowledge.\r\n*   Bug exposing a way to perform an action on behalf of another user.\r\n*   Changing a user's settings without their knowledge. \r\n*   Changing values of any site wide data.\r\n*   Programmatically deleting images that don't belong to you.\r\n*   Cross-site scripting.\r\n\r\n\r\nDOMAINS UNDER SCOPE\r\n-----------------------\r\nWe are interested in your findings for the following domains:\r\n\r\n* imgur.com\r\n* api.imgur.com\r\n* i.imgur.com\r\n\r\nPlease disregard subdomains/domains such as:\r\n\r\n* blog.imgur.com\r\n* community.imgur.com\r\n* imgurads.com\r\n\r\n\r\n\r\nREWARDS\r\n-----------------------\r\nFor each resolved eligible vulnerability report, the first reporter will receive at Imgur’s discretion:\r\n\r\n*   Recognition on our Hall of Fame.\r\n*   Monetary compensation ranging from $50 to $5000, depending on severity and potential impact of the vulnerability.\r\n\r\n\r\nEXCLUSIONS\r\n-----------------------\r\nThe following conditions are out of scope for the vulnerability disclosure program. Any of the activities below will result in disqualification from the program permanently.\r\n*   Public release of information before submission through Hackerone.\r\n*   Bugs coming from third party softwares in use by imgur. e.g. store.imgur.com and help.imgur.com\r\n*   Physical attacks against Imgur employees, offices, and data centers.\r\n*   Any vulnerability obtained through the compromise of a Imgur customer or employee accounts. If you need to test a vulnerability, please create a free account.\r\n*   Social engineering of Imgur employees, contractors, vendors, or service providers.\r\n*   Self-XSS without a vector for a third party attack.\r\n*   Knowingly posting, transmitting, uploading, linking to, or sending any malware.\r\n*   Pursuing vulnerabilities which send unsolicited bulk messages (spam) or unauthorized messages.\r\n*   Content injection vulnerabilities where the field injected always shows the result of a user's input.\r\n*   Attacks requiring physical access to a user's device.\r\n*   Tricking a user into manually performing a series of steps.\r\n\r\nPlease do not make reports for the following issues:\r\n*   Password policy.\r\n*   Brute force attacks on the /delete/ or /edit/ endpoints.\r\n*   Username enumeration and other similar enumeration reports.\r\n*   Sessions not being destroyed on password reset (a separate utility exists for this under the \"security\" tab)\r\n*   Imgur has global rate limiting that might not be apparent with low testing volume. Please refrain from reporting issues that require no rate limit to be in place.\r\n*   CSRF - we are aware of many parts of the site that are vulnerable to CSRF and are currently working on a site wide fix. After the fix goes out, we'll remove this exclusion.\r\n*   Open redirects. We currently are not addressing this issue, but hope to in the future. We will mark these as \"Informative\".\r\n*   OAuth misconfiguration and email signup merging can lead to issues - we are aware that there is a potential problem and are already working on a fix for all platforms.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": []
+}

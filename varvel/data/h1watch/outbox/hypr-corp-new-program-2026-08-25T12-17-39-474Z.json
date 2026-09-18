@@ -1,0 +1,110 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hypr-corp",
+      "name": "HYPR",
+      "offersBounties": true,
+      "assets": [
+        "*.gethypr.com",
+        "*.hypr.com",
+        "HYPR Workforce Access.app",
+        "HyprUnlock.exe",
+        "com.hypr.one"
+      ],
+      "exclusions": [
+        "demo.hypr.com",
+        "help.hypr.com",
+        "partners.hypr.com",
+        "support.hypr.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hypr-corp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hypr-corp",
+  "name": "HYPR",
+  "url": "https://hackerone.com/hypr-corp",
+  "policy": "# Bug Bounty Test Request Form\nIn order to request credentials for the HYPR platform please submit your handle and email [in this form.](https://forms.gle/KsWtaMqBsQjJfdJ57)\n\nMain subdomain for testing: **https://hypr97027.gethypr.com/** or **https://pentesting.gethypr.com/**\n\nAdditional subdomain to test against cross-tenant access: **https://pentesting2.gethypr.com/** / **https://hypr57932.gethypr.com/ **. Valid user for this tenant: admin@hypr.com\n\nOther subdomains may be running older HYPR versions and bounties might not be applicable as described on this policy.\n\nYou will receive and invitation email from HYPR to create an account. Please note you'll need to install the HYPR app from Google Play or App Store in order to create an account and login to our web platform, alternatively you can use passkeys to register and login. The invitation email includes the links to download the proper app for your phone.\n\nAn admin account will be created for you and you can add as many users as you'd like once you create your first account.\n\nPlease do not delete any data that's already in the platform. You can edit and delete any data that you add but please don't delete anything previous since this is a shared environment. \n\n# Treasure map / getting started\nPlease review the attached pdf that contains a quick-start guide as well as what our main security concerns are:\nF1872893\n\n# Our Mission\nWe have one mission and that is to create a passwordless world. For us, security isn’t just about keeping the bad guys out. It’s about protecting people in everything they do, wherever they are.\n\nHYPR founders realized passwords will continue to be the hackers’ favorite target unless something is done about it. They saw it as an opportunity to approach security in a brand new way. What if our everyday smartphone can be used to change the security and user experience landscape? That became the launching pad for HYPR.\n\nOur global team comes from software, information security, and digital identity backgrounds to deliver security that’s meant for everyone. United by the common mission to create a passwordless world, we maintain a work ethic that prioritizes our customer’s success and growth.\n\nHYPR looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nHYPR will make a best effort to meet the following SLAs for hackers participating in our program. Please expect responses Monday through Friday during EST business hours:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 60 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Same vulnerability being present across different tenants will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of HYPR.\n\n# Documentation\nAll documentation for the HYPR platform is located at [the HYPR Docs Website.](docs.hypr.com)\n\n# Scoped Applications\nYou can download these applications directly from their appropriate application stores.\n* iOS application at App Store: com.hypr.one\n* Android application at Google Play Store: com.hypr.one\n* Desktop applications can be downloaded from the platform.\n\n#Out of scope domains\nsupport.hypr.com\nhelp.hypr.com\npartners.hypr.com\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions.\n* Previously known vulnerabilities already in the roadmap for getting fixed.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.\n* Attacks requiring MITM or physical access to a user's device.\n* User enumeration of any kind.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* CVEs without a working exploit or when no sensitive info is retrieved (i.e.: CVE-2020-10770)\n* In Scope exploited Stale DNS entries will be awarded a $250 bounty\n* Vulnerabilities affecting older tenant versions.\n* Vulnerabilities related to fully managed third-party services will be awarded on a case by case basis, even if these are under a HYPR DNS entry. i.e.: status.hypr.com, etc\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep HYPR and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.hypr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.hypr.one",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.hypr.one",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "HyprUnlock.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "HYPR Workforce Access.app",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gethypr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.hypr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.hypr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners.hypr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "demo.hypr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

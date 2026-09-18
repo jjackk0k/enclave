@@ -1,0 +1,157 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "files",
+      "name": "Files.com",
+      "offersBounties": true,
+      "assets": [
+        "FIles.com REST API",
+        "Files.com Command Line Interface (CLI) App",
+        "Files.com Desktop v4 App (previously known as Desktop App) ",
+        "Files.com Desktop v6 App",
+        "Files.com Mobile App",
+        "Files.com On-Premise Agent",
+        "Files.com SDK's",
+        "app.files.com",
+        "www.files.com",
+        "your-assigned-subdomain.files.com"
+      ],
+      "exclusions": [
+        "In-App AI Assistant",
+        "developers.files.com",
+        "mail.files.com",
+        "status.files.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "2 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\files-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "files",
+  "name": "Files.com",
+  "url": "https://hackerone.com/files",
+  "policy": "Here at Files.com, we take security seriously and encourage independent security researchers to help us keep our platform secure. We offer a Security Bug Bounty Program (the “Program”) to provide a clear incentive and reward structure for responsible security research on Files.com.\n\nWe pay **$250 to $10,000 USD**, at our sole discretion, for valid reports that identify significant security vulnerabilities. We pay quickly and fairly, every time—**provided you follow these rules**.\n\nIf you have discovered a vulnerability or would like to perform security research against Files.com, you must read and comply with the terms below.\n\n## Warning\n\nFiles.com enforces strict program rules and professional standards.\n\nFailure to comply with these rules—including submitting reports based on assumptions, undocumented expectations, or unprofessional behavior—may result in immediate report closure, negative reputation points, reporter bans, and escalation to HackerOne.\n\nIf you believe a report violates our rules, **do not submit it**.\n\nTesting is authorized **only** against assets explicitly listed as In-Scope. Any Files.com domain, subdomain, or property not listed—including unlisted subdomains and affiliated entities—is out of scope.\n\nBe professional. Be precise. Use the documentation.\n\n\n## Reports We Are Looking For\n\nWe are interested in vulnerabilities that pose **real, material security risk** to Files.com or our customers.\n\nExamples include (but are not limited to):\n\n- Privilege Escalation  \n- Authentication Bypass  \n- Leakage of Sensitive Data  \n- Remote Code Execution  \n- SQL Injection  \n- Cross-Site Request Forgery (CSRF)  \n- Cross-Site Scripting (XSS)  \n- Code Injection  \n\n## How We Define Authorization And Expected Behavior\n\nFiles.com maintains comprehensive, publicly available API documentation at https://developers.files.com/ that explicitly defines which users and roles are permitted to perform each action in our API.\n\nThe web application UI is not to be used as a definition of our security boundaries.  The absence of a button, menu item, or workflow in the web UI does not imply that an action is unauthorized via the API.\n\nIf you believe an API endpoint permits actions beyond what is intended, your report **must** reference the relevant API documentation and demonstrate how the behavior contradicts the documented authorization model.\n\nReports based on:\n- UI behavior\n- Assumptions  \n- Comparisons to other products\n- “Expected” behavior not documented by Files.com  \n\nwill be closed as invalid.\n\n**In short:**\n- Do not guess  \n- Do not infer intent from the UI  \n- Do reference the API documentation  \n- Do demonstrate a contradiction between implementation and documentation  \n\n\n## Severity Categorization\n\nWhile we encourage the use of CVSS or similar scoring systems, Files.com retains final discretion over severity categorization.\n\nWe use CVSS as a starting point and apply additional adjustments, including (but not limited to):\n\n- **Critical** severity is reserved for platform-wide or cross-customer vulnerabilities.\n- Findings that allow escalation only within a single customer account are capped at **High** severity.\n- Findings related to installable client applications (Files CLI, Files Agent) are capped at **Medium** severity unless there is a broader vulnerability in the Files.com API or cloud service.\n- Findings on marketing assets (https://www.files.com) are capped at **Low** severity unless they can be escalated to an actual customer-impacting vulnerability (excluding DoS).\n\nSeverity reflects the **actual value and impact** of the finding to our business and customers.\n\n\n## Bug Bounty Program Requirements\n\nTo participate in our program, you must create trial account on our platform by navigating to Files.com.com and clicking the button to start a Free Trial.  That Trial sign up process will create the '*your-assigned-subdomain*.files.com' URL to be used for testing.\n\n**VERY IMPORTANT**: Your account must include the phrase \"[**BUGBOUNTY**]\" in the \"Company Name\" used when registering. (Without the quotes, no space between the two words, but with square brackets.)\n\nHere is an example of the values to use in the Trial sign up form:\n* Company name:   [BUGBOUNTY] Trial Company\n* Phone Number:  555-555-5555\n* Work email:   test@abc123.com\n* Password:  Pa55w0rd\n\nAbsolutely do not under any circumstances input payment card information (credit card or debit card) or make a payment unless you intend to pay the charge in full.  If you properly tag your account as a [BUGBOUNTY] site by following the directions above, we will not prompt you for payment during your testing period.\n\n\n### Additional Rules\n\n* Videos are an excellent way to communicate your findings.  We will only accept videos in the .webm or .mp4 format created using the HackerOne Video Proof of Concept support article, documented at https://docs.hackerone.com/en/articles/9047911-video-proof-of-concept.\n* Do not create more than four trial accounts within a 90-day period for the purpose of conducting security research against our platform.\n* Do not attempt to gain access to another user's account or data.\n* Do not impact other users with your testing.\n* Do not perform any attack that could harm the reliability/integrity of our services or data. DDoS/spam attacks are not allowed.\n* Do not publicly disclose a bug either before or after it has been fixed. Public disclosure means disclosure to anyone, even on private \"Hacker\" websites and forums.\n* Do not attempt non-technical attacks such as social engineering, phishing, or physical attacks against our employees, users, or infrastructure.\n* Do not upload information about the vulnerability to any site you do not directly own. This includes uploading videos to YouTube, Vimeo, etc, even if marked private.\n* Do not use our AI assistant feature.\n* Any scanners or automated tools used to find vulnerabilities need to be heavily rate limited. An appropriate rate is about 2 requests per second.\n* Decisions made by us regarding the eligibility of submissions are final. Do not write back to dispute a decision.\n* You are expected to be 100% professional and pleasant to work with via the HackerOne platform.\n\n\n## Reports That Do Not Qualify\n\nThe following reports are **out of scope** and will not be rewarded:\n\n- Anything related to Files.com prior to **2025**\n- Reports involving legitimate Site Admins using documented administrative capabilities\n- Billing, pricing, free service, or usage-based cost issues\n- Publicly shared documents (e.g., W-9, SOC 2 reports)\n- Issues affecting outdated or unpatched browsers or plugins\n- Vulnerabilities requiring extremely unlikely user interaction\n- Timing attacks that only prove user or site existence\n- Social or physical attack vectors\n- Denial of service attacks or DNSSEC issues\n- Insecure settings on non-sensitive cookies\n- Claims that HTTP Digest is more secure than HTTP Basic\n- Password strength complaints\n- Disclosure of public or low-risk information (including invoice PDFs)\n- Duplicate or previously known issues\n- Brute forcing or automation of intended functionality\n- Issues that cannot be reproduced or understood\n- Vulnerabilities in underlying operating systems\n- Reports requiring local code execution or binary modification\n- Desktop or Agent installation in undocumented locations\n- Reports related to the Desktop app on macOS being available across users in a multi-user environment\n- Reports related to the Mac Quarantine feature\n- Functional bugs with no security impact\n- Issues related to the Files.com Editor (OnlyOffice)  \n  Reports must be submitted to OnlyOffice’s program:  \n  https://www.onlyoffice.com/blog/2022/02/onlyoffice-is-launching-a-bounty-program-on-hackerone\n- Email address verification issues\n- Findings requiring elevated privileges (admin/root)\n\nOnly vulnerabilities exploitable by a standard user without elevated permissions are in scope.\n\n## Common Authorization Misunderstandings (Not Vulnerabilities)\n\nThe following behaviors are **intentional, documented, and not security issues**:\n\n- **API Capabilities Beyond The UI** : The Files.com API exposes functionality not present in the UI by design.\n\n- **Form Field Sets**:  Form field sets are available to all users exactly as documented.\n\n- **User and Group Visibility to Folder Admins**:  Folder Admins are intended to see all users and groups.\n\n- **“Allow Users To Create API Keys” Setting**:  This setting governs API key creation only. It does not restrict deletion or management.\n\nFiles.com interprets documentation **literally**. If it is documented, it is authorized.\n\n## Commonly False Positive Reports\n\n* Files.com is an FTP, SFTP, and WebDAV hosting service. Obviously this means that we will have an open FTP server on port 21, SFTP on port 22, and it means that our servers respond to DAV verbs.\n\n* The Read-Only Site Admin permission really does provide access to read/see to everything that a Site Admin can see.  Reports suggesting that the Read-Only Site Admin users should not be able to see something are misguided. They are intended to be able to see *everything*.\n\n* Files.com offers the ability to make a folder publicly hosted at https://subdomain.hosted-by-files.com/folder_name/.  This hosting mode is intended to be full-featured web hosting just like any other web hosting provider, meaning that the ability to serve full websites with Javascript is intended.  This means that you can upload malicious Javascript to that folder and have it be served.  That's intentional.  In order for an XSS attack related to public hosting to be in scope, it needs to relate to one Files.com customer attacking another customer, rather than attacking itself.\n\n* EXIF Geolocation data not being stripped: Files.com does not alter uploaded content in any way. Users are free to upload and share content any way they want. \n\n* Symlinks are not a vulnerability unless they create security risks like unauthorized access or privilege escalation. Reporting their presence alone is not a valid issue without a proven security impact.\n\n\n## Additional Terms\n\nWe aim to pay bounties as quickly as possible and will pay bounties sometimes before the issue is patched. Therefore, we require that you do not disclose any vulnerability publicly, either before or after the bounty is paid.\n\nIf paid a bounty, you may disclose that you received a bounty, but you may not disclose the amount or any information related to the type of vulnerability you found. Under no other circumstances may you disclose anything about your participation in this program.\n\nYou are still bound by the Terms of Service you agreed to upon signup for your Trial account. Please read and understand this document as it affects your rights.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com Web Application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "your-assigned-subdomain.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Files.com Web Application** \n\n**Please review the Out of Scope assets** -- note that not all subdomains of https://*.files.com are in scope for this asset.  Please review the listing of assets marked Out of Scope prior to any testing.  This list will change so please refer back during all phases o",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the main marketing site for Files.com.  \n\nOn the marketing site asset (https://www.files.com) we will only accept vulnerabilities that lead to a vulnerability on the main *.files.com platform.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FIles.com REST API",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## REST API\nFull documentation for the REST API can be found here:  https://developers.files.com/\n\nThe REST API URL is tied to your specific site (https://*sitename*.files.com) that was generated when you created the trial using the [BUGBOUNTY] setup process defined in the Policy section.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developers.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://developers.files.com/ is a documentation site and is out of scope for the bounty program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://status.files.com/ is a status site hosted by StatusPage and is out of scope for this bounty program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mail.files.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "mail.files.com is an old domain and is out of scope for this program",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Files.com SDK's",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Full documentation for the Files.com SDK’s can be found here: \nhttps://developers.files.com/#per-language-sdks\n\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Files.com Command Line Interface (CLI) App",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com Command Line Interface (CLI) App\n\nFull documentation for the Files.com Command Line Interface (CLI) App can be found here: https://www.files.com/docs/client-apps/command-line-interface-cli-app.\n\nThe Files.com Command Line Interface (CLI) App is tied to your specific site (https://sitename.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Files.com Desktop v4 App (previously known as Desktop App) ",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com Desktop v4 App (previously known as Desktop App) \n\nFull documentation for the Files.com Desktop v4 App can be found here: https://www.files.com/docs/client-apps/desktop-app.\n\nThe Files.com Desktop v4 App is tied to your specific site (https://sitename.files.com) that was generated when you",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Files.com Desktop v6 App",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com Desktop v6 App\n\nFull documentation for the Files.com Desktop v6 App can be found here: https://www.files.com/docs/client-apps/desktop-v6-app.\n\nThe Files.com Desktop v6 App is tied to your specific site (https://sitename.files.com) that was generated when you created the trial using the [BU",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Files.com Mobile App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com Mobile App\n\nFull documentation for the Files.com Mobile App App can be found here: https://www.files.com/docs/client-apps/mobile-app.\n\nThe mobile app will be installed locally from the App Store or Play Store.\n\nThe Files.com Mobile App is tied to your specific site (https://sitename.files.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Files.com On-Premise Agent",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Files.com On-Premise Agent\n\nFull documentation for the Files.com On-Premise Agent can be found here: https://www.files.com/docs/on-premise/agent.\n\nThe Files.com On-Premise Agent is tied to your specific site (https://sitename.files.com) that was generated when you created the trial using the [BUGBOU",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "In-App AI Assistant",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Due to the costs associated with fulfilling AI requests, no testing is to be performed against this asset, at all. Violators will be banned from our program.",
+      "max_severity": "none"
+    }
+  ]
+}

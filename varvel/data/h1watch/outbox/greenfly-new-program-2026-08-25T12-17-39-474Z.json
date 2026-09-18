@@ -1,0 +1,55 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "greenfly",
+      "name": "Greenfly",
+      "offersBounties": false,
+      "assets": [
+        "api.greenfly.com",
+        "portal.greenfly.com"
+      ],
+      "exclusions": [
+        "www.greenfly.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\greenfly-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "greenfly",
+  "name": "Greenfly",
+  "url": "https://hackerone.com/greenfly",
+  "policy": "# ==Do not fill out any forms on our www.greenfly.com web site requesting a login to Greenfly.  These requests will not be granted.==\r\n\r\nGreenfly looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Program Policy\r\n\r\nSecurity researches will disclose potential weaknesses in compliance with the following guidelines:\r\n\r\n# Do\r\n\r\n* Attempt to find vulnerabilities within our \"in scope\" services (portal.greenfly.com, api.greenfly.com).\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* Understand multiple vulnerabilities caused by one underlying issue should be combined into a single report.\r\n* Provide a clear, concise description of the steps needed to reproduce any vulnerability you submit.\r\n* Provide the complete details related to the security issue, including proof-of-concept (POC) URL, as well as the details of the system(s) where tests have been conducted.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\r\n\r\n# Don't\r\n\r\n* Don't attempt to find vulnerabilities within our \"out of scope\" services (www.greenfly.com).\r\n* Don't fill out any forms on our \"www.greenfly.com\" web site requesting a login to Greenfly.  These requests will not be granted.\r\n* Don’t cause harm to Greenfly, its customers, shareholders, partners or employees.\r\n* Don’t engage in any act that may cause an outage or stop any of Greenfly’s services. Any testing that has a negative impact on the availability of our products and services can result in being blocked or banned.\r\n* Don’t engage in illegal activities or any acts that violate any international laws or regulations, or federal or state laws or regulations.\r\n* Don’t store, share, compromise or destroy any Greenfly data or customer data while conducting research activities. If personally identifiable information (PII) is encountered, you are required to stop and immediately notify Greenfly.\r\n* Don't discuss any vulnerabilities (even resolved ones) outside of the program without express consent from Greenfly.\r\n\r\n# Out of Scope Vulnerabilities\r\n\r\nThe following types of vulnerabilities are out of scope for this program:\r\n\r\n* Phishing and social engineering attacks\r\n* Issues on www.greenfly.com (our marketing web site)\r\n* Missing best practices in SSL/TLS configuration\r\n* Missing best practices in email configuration (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Missing best practices in Content Security Policy\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Rate limiting or brute-force issues (e.g. repeatedly requesting password resets)\r\n* Copy/pasting tool output (ex: WPScan results, SSL Labs links) as a report\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Mobile Apps - Class, method name, or API token leak as a result of disassembly\r\n\r\n# Test Plan\r\n\r\nWhen making any web requests to the Greenfly platform, please include the following HTTP header to help accelerate our validation of reports:\r\n\r\n`X-HackerOne-Username: <username>`\r\n\r\n# Response Targets\r\n\r\nGreenfly will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n* Time to first response (from report submit) - 5 business days\r\n* Time to triage (from report submit) - 10 business days\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n# Submission Guidelines\r\n\r\nAll potential weaknesses submitted must include enough information to reproduce and validate the issue. Documentation should include a detailed summary of the issue, targets, steps performed, screenshots, tools utilized, and any information that will help Greenfly during triage.\r\n\r\n# Privacy and Security Notice\r\n\r\nGreenfly is committed to leveraging technology in a way that provides you transparency on how we collect, process, and share personal information. In accordance with the terms of the Greenfly [Privacy Policy](https://portal.greenfly.com/privacypolicy) you understand and agree that, by providing us with an inquiry or a submission, we may collect certain information about you, your device, and your use of the Greenfly platform.\r\n\r\nThank you for helping keep Greenfly and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.greenfly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.greenfly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.greenfly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

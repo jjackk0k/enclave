@@ -1,0 +1,96 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "nimiq",
+      "name": "Nimiq",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/nimiq/core-rs-albatross"
+      ],
+      "exclusions": [
+        "*.nimiq.com",
+        "Blockchain testnet",
+        "https://github.com/nimiq/core-js/",
+        "https://github.com/nimiq/core-rs/",
+        "https://github.com/nimiq/ledger-app-nimiq",
+        "https://keyguard.nimiq.com/",
+        "https://miner.nimiq.com/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\nimiq-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "nimiq",
+  "name": "Nimiq",
+  "url": "https://hackerone.com/nimiq",
+  "policy": "Nimiq  looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\nIn this program we want to find security vulnerabilities of our  PoS blockchain. Nimiq PoS is a decentralized, peer-to-peer blockchain for robustness and scalability using a dual-block system:\n- Micro blocks: Produced every second for fast transactions.\n- Macro blocks: Ensure consensus, finalize sets of blocks and rotating validators using the Tendermint protocol.\n\nIt also offers the possibility to run different types of nodes:\n- History Nodes: Store the entire blockchain for historical access.\n- Full Nodes: Sync selectively, handle transactions, and prune old data.\n- Light Nodes: Verify blockchain state with ZKPs, optimized for browsers.\n- Validators: Produce blocks and participate in consensus.\n- Prover Nodes: Generate Zero-knowledge proofs  (ZKPs) for secure and private state validation.\n\nAnd leverages the power of Zero-knowledge proofs (ZKPs) to enable efficient network participation without compromising security.\nFor a detailed overview, visit our [Developer Center](https://www.nimiq.com/developers/learn/).\n\n# Response Targets\nNimiq will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n#Scope Leniency\n* This program **will not** accept submissions for assets that are not listed as in scope\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Requesting Testnet funds:\nUse the [Nimiq Testnet Faucet](https://test.nimiq.watch/#faucet) or request directly via the [Testnet Wallet](https://hub.pos.nimiq-testnet.com/).\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Any issues already reported publicly [on GitHub](https://github.com/nimiq/core-rs-albatross/issues).\n* Any activity that could lead to the disruption of any of our services outside of the PoS MainNet or [PoS TestNet](https://github.com/nimiq/core-rs-albatross?tab=readme-ov-file#testnet).\n* Any issue specific to the TestNet deployment that is unrelated to our code.\n* Privacy related vulnerabilities (e.g., leaking your address to other peers on the network).\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Sections of the code intended to be used for testing purposes.\n* Zero-Knowledge keys setup outside of MainNet: Since we have fixed seeds for the unit tests/devnet that are obviously insecure, any issues related to the zkp key setup outside of MainNet will be considered out of scope for this program.\n* [Testnet wallet](https://wallet.pos.nimiq-testnet.com/).\n* DoS vulnerabilities in the RPC server, except for client crashes or deadlocks.\n\nThank you for helping keep Nimiq and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/nimiq/core-rs-albatross",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\nSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n\nWhen duplicates occur, we only award t",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.nimiq.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Blockchain testnet",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/nimiq/core-js/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/nimiq/core-rs/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/nimiq/ledger-app-nimiq",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://keyguard.nimiq.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://miner.nimiq.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

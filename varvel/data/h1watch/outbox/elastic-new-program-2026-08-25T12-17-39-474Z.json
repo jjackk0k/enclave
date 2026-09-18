@@ -1,0 +1,248 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "elastic",
+      "name": "Elastic",
+      "offersBounties": true,
+      "assets": [
+        "*.elastic.co",
+        "*.elasticnet.co",
+        "*.elstc.co",
+        "*.eops.nl",
+        "*.found.io",
+        "*.swiftype.com",
+        "Beats - Auditbeat",
+        "Beats - Filebeat",
+        "Beats - Heartbeat",
+        "Beats - Metricbeat",
+        "Beats - Packetbeat",
+        "Beats - Winlogbeat",
+        "Elastic Agent",
+        "Elastic Package Registry",
+        "Elastic Synthetics Monitoring",
+        "Other",
+        "cloud.elastic.co"
+      ],
+      "exclusions": [
+        "community.elastic.co",
+        "discuss.elastic.co",
+        "https://github.com/elastic/*/wiki",
+        "https://github.com/swiftype/*/wiki",
+        "learn.elastic.co",
+        "link.email.elastic.co",
+        "sendgrid.elastic.co",
+        "track.email.elastic.co"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\elastic-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "elastic",
+  "name": "Elastic",
+  "url": "https://hackerone.com/elastic",
+  "policy": "The Elastic team appreciates the security community and shares the goal of keeping our businesses, customers, and the internet safe. Elastic values your efforts and promises to remain responsive; update you as your reports are triaged and remediated. We award bounty eligible reports at triage and hope to work together on an ongoing basis.\n\nElastic's bounty structure falls under two umbrellas: Product Vulnerabilities & Other. While we accept vulnerabilities on any assets that we own/control, we are _particularly_ interested in vulnerabilities in our products, and as such will pay significantly more as indicated in our bounty structure.\n\n##PRODUCT BUG BOUNTY AMOUNTS\n\nWe are specifically interested in any/all bugs related to the Elastic suite of products. Find an IDOR in Elasticsearch? Report it. Find an XSS in Kibana? Report it. If we wrote code with a bug in it, we want to know about it!\n\nOur code is [open](https://github.com/elastic) so use that to your advantage!\n\n## What we're interested in\n* Attacks that lead to compromise of Elastic user data\n* Widespread compromise of Elastic user accounts\n* Remote code execution on systems and applications\n* Access to administrator/superuser accounts\n* Arbitrary access to a user’s sensitive data/functionality\n* Kibana XSS and CSRF\n* Access to underlying containers\n* Access to unauthorized data as authenticated user\n* Privilege escalation as authenticated user to non superuser\n* Authenticated SSRF\n\n#Expectations\n* If you report a subdomain takeover, please document your findings in order to write the report. Multiple subdomain takeovers caused by one underlying record/IP will be awarded one bounty.\n* Active credentials protected by 2FA/MFA will be classified as Low.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Application‑layer attacks should be reproduced on a deployment that meets the minimum requirements specified in the product documentation, and in all cases with no less than 1 CPU and 2 GB of RAM.\n* Our rewards are based on the severity of a vulnerability. Please note that reward decisions are up to the discretion of Elastic.\n\n\n#Disclosure\n* Let us know as soon as possible upon discovery of a potential security issue, and we’ll make every effort to quickly resolve the issue. \n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Follow HackerOne's disclosure guidelines.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\nMultiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n\n##Out of scope\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues should be considered out of scope:\n* Security issues in third party systems, domains, services and components fall outside this policy and are not eligible for a bounty. We encourage you to submit these to the third party owner. In cases where the third party owner cannot be contacted or is unresponsive, we will be happy to assist with communication if a report is submitted to us.\n* Findings that require administrative or root operating system privileges are out of scope. Administrators are very powerful, free to modify or downgrade the OS. Elastic aligns with the MSRC's stance that the boundary between an administrator and the kernel is not a security boundary. https://www.microsoft.com/en-us/msrc/windows-security-servicing-criteria\n* Findings that require administrative level of access to our products and where the impact/severity is limited to Low for Availability. \n* Findings in legacy or end-of-life product versions. Security issues must be reproducible on currently maintained releases\n* Subdomain takeovers on typosquatted domains or parked/reserved domains for phishing\n* Application-level Denial of Service attacks against Swiftype\n* Cross-site scripting vulnerabilities that are not accompanied by a bypass of our content security policy. Cross-site scripting vulnerabilities without a content security bypass will be assessed on a case by case basis and might be rewarded at a low severity level.\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Lack of Rate limiting or bruteforce issues \n* Volumetric attacks (e.g., network flooding, request flooding, port flooding, required traffic volume scaling with deployment size) are never eligible for bounty rewards.\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing\n* Issues that require unlikely user interaction\n* Open Redirects that are not chained into a more impactful vulnerability\n* Broken links in documentation\n* Issues where an attacker gets access to paid features for free or at a discount\n* Recent acquisitions by Elastic are out of Scope for the Bug Bounty program for at least 6 months after the acquisition is complete. Reports received sooner than that will not qualify for a reward.\n\n\n# Stipulations\nTo be eligible for the Bug Bounty Program, you must not:\n* Be employed by Elastic or any subsidiary;\n* Be a former employee or contractor (including outsourced penetration tester)of Elastic or any subsidiary that has left the company less than `6` months ago.\n\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Elastic and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "learn.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "link.email.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "track.email.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sendgrid.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cloud.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**How to test**\n\n1. Go to https://cloud.elastic.co/\n1. Click “Sign Up”\n1. Enter your @wearehackerone email and click “Start Free Trial” (you can create multiple trials if necessary)\n1. Find your verification email and click “Verify and Accept”\n1. Set your password\n1. Click “Start Free Trial”\n\nWe ret",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.elastic.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All subdomains are in scope UNLESS OTHERWISE LISTED IN OUT-OF-SCOPE.   ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.found.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "These are internal assets, bugs found in services that are hosted in subdomains and subdomain takeovers are welcome. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.swiftype.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Application-layer DoS attacks are explicitly out of scope. We will not be triaging or rewarding such reports. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.elstc.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Not all applications and services hosted here are of the same importance so expect some nuance while we triage reports about assets falling in this category. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/elastic/*/wiki",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our wikis are public on purpose",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.elasticnet.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.eops.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/swiftype/*/wiki",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our wikis are meant to be public",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Other",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "If you found something that we own that is not explicitly listed as in-scope, please file it under this asset for us to investigate. We don't want our scope section to stop you from finding us vulnerabilities!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "discuss.elastic.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Elastic Package Registry",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- https://github.com/elastic/package-registry\n- https://epr.elastic.co/search?all\n\nElastic's package registry is used to pull elastic packages. Being able to modify our package registry is of particular interest to us.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Elastic Synthetics Monitoring",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "To get access, do the following steps:\n\n1. Create a new Observability deployment on cloud.elastic.co using an account with your @wearehackerone.com email alias.\n2. See https://www.elastic.co/docs/solutions/observability/synthetics/create-monitors-ui to set up a monitor\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Auditbeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/beats/auditbeat\n- Docker container: https://www.docker.elastic.co/r/beats/auditbeat\n- Source code: https://github.com/elastic/beats/tree/main/auditbeat",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Filebeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/beats/filebeat\n- Docker container: https://www.docker.elastic.co/r/beats/filebeat\n- Source code: https://github.com/elastic/beats/tree/main/filebeat\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Heartbeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/beats/heartbeat\n- Docker container: https://www.docker.elastic.co/r/beats/heartbeat\n- Source code: https://github.com/elastic/beats/tree/main/heartbeat\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Metricbeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/beats/metricbeat\n- Docker container: https://www.docker.elastic.co/r/beats/metricbeat\n- Source code: https://github.com/elastic/beats/tree/main/metricbeat",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Packetbeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/beats/packetbeat\n- Docker container: https://www.docker.elastic.co/r/beats/packetbeat\n- Source code: https://github.com/elastic/beats/tree/main/packetbeat",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Beats - Winlogbeat",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- Download: https://www.elastic.co/downloads/beats/winlogbeat\n- Source code: https://github.com/elastic/beats/tree/main/winlogbeat",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Elastic Agent",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must be a supported version: https://www.elastic.co/support/eol\n\nIncludes\n- All platforms: https://www.elastic.co/downloads/elastic-agent\n- With Fleet: https://www.elastic.co/guide/en/fleet/current/fleet-elastic-agent-quick-start.html\n- Source code: https://github.com/elastic/elastic-agent",
+      "max_severity": "critical"
+    }
+  ]
+}

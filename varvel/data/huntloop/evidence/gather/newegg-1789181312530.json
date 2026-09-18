@@ -1,0 +1,97 @@
+{
+ "at": "2026-09-12T02:48:24.368Z",
+ "opportunity": "newegg",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "sellerportal.newegg.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.newegg.app",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ERR_SSL_TLSV1_UNRECOGNIZED_NAME: BC160100:error:0A000458:SSL routines:ssl3_read_bytes:tlsv1 unrecognized name:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 112\n"
+  },
+  {
+   "host": "secure.newegg.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b97e3ed673302-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "secure.newegg.ca",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "pmtcards.newegg.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b97f5d8e49533-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

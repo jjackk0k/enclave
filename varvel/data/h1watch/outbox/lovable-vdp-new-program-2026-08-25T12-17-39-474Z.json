@@ -1,0 +1,71 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lovable-vdp",
+      "name": "Lovable VDP",
+      "offersBounties": false,
+      "assets": [
+        "api.lovable.dev",
+        "lovable.dev",
+        "mcp.lovable.dev",
+        "oauth.lovable.dev"
+      ],
+      "exclusions": [
+        "lovable.app"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lovable-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lovable-vdp",
+  "name": "Lovable VDP",
+  "url": "https://hackerone.com/lovable-vdp",
+  "policy": "# Disclosure Policy\n* Do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from Lovable.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Always provide detailed reports with reproducible steps. E.g python script demonstrating the exploit.\n* Avoid automated scanning, DAST, fuzzing lovable API and endpoints.\n* Social engineering (e.g., phishing, vishing, smishing) is strictly prohibited.\n* Only interact with accounts you own or with the explicit permission of the account holder.\n* Never target real users or companies. Consult with Lovable staff before performing any destructive  or sensitive actions. While the program has Safe harbour policy, it's important to avoid any business impact on user, data, availability related to your testing.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact. Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n* Always add session header to identify as legitimate researcher.\n\n## Identifying yourself as a researcher\nResearchers should add the following header to all  HTTP requests:\n> X-HackerOne-Research: [H1 username]\n\nWhile you're welcome to create multiple accounts for research purposes, we ask that you use your HackerOne email alias when doing so. You can find instructions on how to use your email alias here: https://docs.hackerone.com/en/articles/8404308-hacker-email-alias\n\n# Focus of the Program\n* Lovable Editor (lovable.dev) application security \n* Generic project takeover via prompt injection (e.g. injections delivered via Lovable Cloud DB)\n* Development sandbox escape or takeover\n* Cross-tenant data access\n* Coding agent escape (get access to underlying APIs or resources)\n* Broken access controls or privilege escalation within workspace\n\n# Out-of-scope\n(This does not mean we do not care about the problems below, but we want to focus VDP on novel exploits)\n* TLS, infrastructure configuration, security headers, clickjacking issues unless can be exploited.\n* AI or tooling prompt leakage.\n* Unsafe AI instructions.\n* AI jailbreaking, prompt injection, other types of AI attacks without proven impact.\n* Injecting malicious code, vulnerabilities, or files into websites built with Lovable is out of scope. As creators fully control their own sites, self-reflected vulnerabilities (such as adding <script>alert(1)</script>) do not represent valid security issues in the Lovable platform. Reports must demonstrate a clear impact on other users or the Lovable infrastructure to be considered in scope. Findings limited to a reporter’s own website or any customer-built apps (*.lovable.app, except if created by Lovable) will be marked as Not Applicable (N/A).\n* Input validation issues unless part of a successful exploit chain.\n* Information disclosure unless part of a successful exploit chain.\n* Vulnerable dependencies or components unless part of a successful exploit chain.\n\nWe appreciate your time and effort and thank you for helping keep Lovable and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "lovable.app",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "lovable.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oauth.lovable.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.lovable.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mcp.lovable.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

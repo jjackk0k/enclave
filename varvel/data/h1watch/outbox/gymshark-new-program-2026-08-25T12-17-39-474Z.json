@@ -1,0 +1,114 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gymshark",
+      "name": "Gymshark",
+      "offersBounties": false,
+      "assets": [
+        "*.gymshark.com",
+        "*.gymshark.io",
+        "*.gymsharkapps.io",
+        "1139151320",
+        "1139155460",
+        "com.gymshark.fitness",
+        "com.gymshark.store"
+      ],
+      "exclusions": [
+        "creators.gymshark.com",
+        "gymshark.okta.com",
+        "onboarding.gymshark.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gymshark-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gymshark",
+  "name": "Gymshark",
+  "url": "https://hackerone.com/gymshark",
+  "policy": "Gymshark is a fitness apparel & accessories brand, manufacturer and online retailer based in the United Kingdom. Gymshark has grown from a screen printing operation in a garage, into one of the fastest growing and most recognisable brands in fitness.\n \nOur vision is to unite the conditioning community, and Gymshark wants to ensure the safety of this community and family whilst using our services.\n \nWe work hard to develop secure services, and we recognise the importance that the wider security community has in further enhancing our security posture. This is why we've launched Gymshark's Vulnerability Disclosure Program, and we look forward to working with you!\n\nIf you believe you've found a qualifying security vulnerability in an in-scope asset, please submit a report in accordance with the guidelines below that includes a detailed description of your discovery with clear, concise reproducible steps or a working proof-of-concept.\n\n# Response Targets\nGymshark will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | dependent on severity and complexity |\n\nWe’ll keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Out of Scope Vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Clickjacking.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Missing HttpOnly or Secure flags on cookies\n* Vulnerabilities within Shopify's core platform\n\n\n\nThank you for helping keep Gymshark and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.gymshark.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gymshark.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.gymshark.fitness",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Gymshark's Android Training App",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1139155460",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Gymshark's iOS eCommerce App",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1139151320",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Gymshark's iOS Training App",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gymshark.okta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "onboarding.gymshark.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.gymshark.store",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "creators.gymshark.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.gymsharkapps.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

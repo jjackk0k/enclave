@@ -1,0 +1,107 @@
+{
+ "at": "2026-09-17T05:23:33.223Z",
+ "opportunity": "oanda",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.oanda.fxtrade",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.oanda.fxtrade:443 refused: host unreachable"
+  },
+  {
+   "host": "oanda.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c5adfdba27654f-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "oanda.jp",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c5ae06886a79b8-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "tms.pl",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c5ae0e0e1bb84d-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubdomains;"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "tmsbrokers.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c5ae15c8ca93de-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

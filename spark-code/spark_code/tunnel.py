@@ -1,14 +1,17 @@
-"""SSH tunnel lifecycle.
+"""SSH tunnel lifecycle — self-healing since 2026-09-12.
 
-Spark Code never leaves residue: it spawns no permanent processes of its
-own. If the agent lane doesn't answer on 127.0.0.1:8080 at startup, we
-open the owner's standard SSH tunnel as a hidden, detached child process
-(same command as heretic-code.bat), remember that WE started it, and on
-exit offer to close it. Tunnels we did not start are left alone.
+The lane (127.0.0.1:8080) is kept alive by the TUNNEL-KEEPER: a small
+powershell loop (tunnel-keeper.ps1, next to this package) that probes the
+lane every 20s and re-opens the owner's standard SSH tunnel whenever it is
+down — through WiFi flaps, router reboots, and Spark naps. It is launched
+hidden + detached by ensure() when it isn't already running, and it is
+deliberately NOT ours to close: it belongs to the PC (the operator can also
+pin it to Windows startup), so the lane heals without any app or session
+staying open. A raw one-shot ssh used to die silently on the first flap —
+that fragility is what this replaced.
 
-Closing the CLI (and the tunnel we opened) frees the llama.cpp server
-slot the session was using; nothing persists on the Spark beyond the
-shared llama-server itself.
+close() only ever terminates a legacy tunnel child THIS process spawned
+(`self.proc`); the keeper is never killed by the console.
 """
 
 from __future__ import annotations
@@ -25,6 +28,8 @@ _CREATE_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 _DETACHED = getattr(subprocess, "DETACHED_PROCESS", 0)
 _NEW_GROUP = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
 
+KEEPER_PS1 = config.ROOT / "tunnel-keeper.ps1"
+
 
 class TunnelStartError(Exception):
     pass
@@ -38,65 +43,67 @@ def endpoint_up(base_url: str = config.BASE_URL, timeout: float = 3.0) -> bool:
         return False
 
 
+def _keeper_running(runner=None) -> bool:
+    """True when a tunnel-keeper.ps1 powershell is alive (cmdline-checked —
+    a random powershell is never mistaken for it). Never raises: an
+    unanswerable probe reads as 'not running' and the keeper simply gets
+    spawned (idempotent on the keeper's side)."""
+    if runner is None:
+        from .menuops import run_hidden as runner
+    try:
+        r = runner(["powershell.exe", "-NoProfile", "-Command",
+                    "(Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -match 'tunnel-keeper\\.ps1' } | Measure-Object).Count"],
+                   timeout=15)
+        out = (r.stdout or "").strip() if hasattr(r, "stdout") else str(r)
+        return out.isdigit() and int(out) > 0
+    except Exception:
+        return False
+
+
 class TunnelManager:
     def __init__(self) -> None:
         self.proc: Optional[subprocess.Popen] = None
         self.started_by_us = False
 
+    def _ensure_keeper(self, popen=None) -> None:
+        """Spawn the tunnel-keeper hidden + detached if it isn't running.
+        Idempotent (the keeper itself also refuses to double-open the ssh)."""
+        if _keeper_running():
+            return
+        if popen is None:
+            from .menuops import popen_hidden as popen
+        popen(["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass",
+               "-WindowStyle", "Hidden", "-File", str(KEEPER_PS1)],
+              creationflags=_DETACHED | _NEW_GROUP)
+
     def ensure(self, wait_s: float = 15.0) -> str:
         """Guarantee the endpoint answers. Returns 'already-up' or 'started'.
 
-        Idempotent and safe to call repeatedly (e.g. before every turn): if we
-        already own a live tunnel process we just wait for it rather than
-        spawning a second SSH, so a WiFi flap / Spark sleep heals on the next
-        prompt instead of failing the turn.
+        Idempotent and safe to call repeatedly (e.g. before every turn): the
+        keeper is brought up first (it re-tries the ssh every 20s forever),
+        then we wait up to wait_s for the lane. A Spark that is genuinely
+        unreachable raises an HONEST error that says the keeper keeps
+        retrying on its own — no click, no session, no residue required.
         """
         if endpoint_up():
             return "already-up"
 
-        # Reuse our existing (still-alive) tunnel: only wait for it to answer,
-        # don't open a duplicate SSH that would fight over :8080.
-        if self.proc is not None and self.proc.poll() is None:
-            deadline = time.time() + wait_s
-            while time.time() < deadline:
-                if endpoint_up(timeout=2.0):
-                    return "already-up"
-                time.sleep(1.0)
-            raise TunnelStartError(
-                "The SSH tunnel spark-code opened is alive but the model server\n"
-                "is not answering - llama-server on the Spark may be down or busy\n"
-                "(model swap / benchmark). Try again in a few minutes, and check\n"
-                "that `ssh varvel@gx10-d094.local` works without a password."
-            )
-
-        self.proc = subprocess.Popen(
-            config.SSH_ARGS,
-            stdin=subprocess.DEVNULL,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            creationflags=_CREATE_NO_WINDOW | _DETACHED | _NEW_GROUP,
-        )
-        self.started_by_us = True
+        self._ensure_keeper()
         deadline = time.time() + wait_s
         while time.time() < deadline:
             if endpoint_up(timeout=2.0):
                 return "started"
-            if self.proc.poll() is not None:
-                raise TunnelStartError(
-                    "The SSH tunnel process exited immediately "
-                    f"(code {self.proc.returncode}).\n" + config.TUNNEL_HELP
-                )
             time.sleep(1.0)
         raise TunnelStartError(
-            "Agent lane unreachable after 15s. The tunnel opened but the model\n"
-            "server did not answer - llama-server on the Spark is likely down or\n"
-            "busy (model swap / benchmark). Try again in a few minutes, and check\n"
-            "that `ssh varvel@gx10-d094.local` works without a password."
+            "The tunnel-keeper is running and re-tries every 20s on its own —\n"
+            "the Spark is unreachable right now (check it is powered and on the\n"
+            "network). The lane heals BY ITSELF the moment the Spark answers;\n"
+            "no click and no open app needed.\n" + config.TUNNEL_HELP
         )
 
     def heal(self) -> bool:
         """Best-effort re-establishment used before each turn: if the lane is
-        dark, try to bring it back (reusing or opening our tunnel). Never raises -
+        dark, try to bring it back (the keeper does the real work). Never raises -
         returns True when the endpoint answers afterwards. A failed heal just means
         the next request will report the tunnel-down error honestly."""
         if endpoint_up():
@@ -108,7 +115,8 @@ class TunnelManager:
             return False
 
     def close(self) -> bool:
-        """Terminate the tunnel only if THIS process started it."""
+        """Terminate the tunnel only if THIS process spawned a legacy child.
+        The keeper is NEVER closed — it belongs to the PC, not this app."""
         if self.proc is None:
             return False
         try:

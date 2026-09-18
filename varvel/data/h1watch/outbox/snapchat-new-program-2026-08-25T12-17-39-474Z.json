@@ -1,0 +1,249 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "snapchat",
+      "name": "Snapchat",
+      "offersBounties": true,
+      "assets": [
+        "*.sc-core.net",
+        "Lens Studio",
+        "accounts.snapchat.com",
+        "ads.snapchat.com",
+        "app.snapchat.com",
+        "business.snapchat.com",
+        "com.bitstrips.imoji",
+        "com.snapchat.android",
+        "com.toyopagroup.picaboo",
+        "create.snapchat.com",
+        "geofilters.snapchat.com",
+        "kit.snapchat.com",
+        "map.snapchat.com",
+        "my.snapchat.com",
+        "scan.snapchat.com",
+        "snappublisher.snapchat.com",
+        "spectacles.com",
+        "story.snapchat.com",
+        "www.bitmoji.com",
+        "www.bitstrips.com"
+      ],
+      "exclusions": [
+        "Spectacles",
+        "Spectacles charging case",
+        "returns.spectacles.com",
+        "support.snapchat.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\snapchat-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "snapchat",
+  "name": "Snapchat",
+  "url": "https://hackerone.com/snapchat",
+  "policy": "*Policy*\n---------------------\n\nAt Snapchat, we are looking forward to fostering new relationships with the security community as part of our bug bounty program (“Bug Bounty Program”). Our security team reviews all vulnerability reports and acts upon them in accordance with responsible disclosure. \nPlease note that your participation in the Bug Bounty Program is voluntary and subject to the terms and conditions set forth on this page (“Bug Bounty Terms”). By submitting a vulnerability report to Snap you acknowledge that you have read and agree to these Bug Bounty Terms.\n\n*Eligibility*\n----------------\nTo qualify for a reward under this Bug Bounty Program, you must:\n* Be the first to report a specific vulnerability.\n* Send a clear textual description of the report along with steps to reproduce the vulnerability. Include attachments such as screenshots\\videos or proof of concept code as necessary.\n* Disclose the vulnerability report responsibly to us. Public disclosure or disclosure to other third parties - including vulnerability brokers - before we address your report will forfeit the reward.\n* Demonstrate care in reproducing the vulnerability. In particular, test only on accounts you own and do not attempt to view or tamper with data belonging to others.\n\nIn addition to the requirements above, you are not eligible for the Bug Bounty Program if:\n\n* You left the employment of Snap or its affiliates or subsidiaries within the past (6) months;\n* You are currently performing work for Snap as a contract worker, whether independently or through a vendor of Snap; or\n* You have been prohibited in writing from participating in the Bug Bounty Program by Snap at any time.\n\n*Use test accounts for testing*\n---------------------------\n\nIf you are investigating bugs or vulnerabilities, please use test accounts. If you cannot reproduce an issue with a test account, you can use an account you are expressly authorized to use. You are not permitted to use or interact with any real account belonging to another person without the express written consent of the account owner.\n\n*Scope*\n-----------------------\n\nThe systems and products that are in-Scope are defined in the “Scope” tab in the HackerOne portal. Any other systems and vulnerabilities are out-of-scope, including the exclusions below in the section entitled “Non-qualifying vulnerabilities and exclusions.” \n\n*Rewards*\n------------------------\n\nWe will reward reports according to their severity on a case-by-case basis as determined by our security team, in their sole discretion. We may pay more for unique, hard-to-find bugs; we may also pay less for bugs with complex prerequisites that lower risk of exploitation. Our minimum reward is $250 USD.\n\nWe are particularly interested in the following categories of security bugs. Here are the typical payments for each:\n\n| **Severity** \t| **Vulnerability**                                           \t| **Typical Payouts[1]** \t|\n|--------------\t|-------------------------------------------------------------\t|:--------------:\t|\n| Critical     \t| Server-Side Remote Code Execution (e.g. command injection) with significant impact to snapchat services or users  \t|     $35,000    \t|\n|              \t| Remote Code Execution on Client (iOS/Android)                         \t|     $25,000    \t|\n| High         \t| Significant Authentication Bypass / Logic Flaw that allows mass exploitable account takeover          \t|     $15,000    \t|\n|              \t| Insecure direct object reference (IDOR) that allows an attacker to discover another user’s friend list   | $10,000 \n| Medium       \t| Unrestricted File System Access (Server-side) that discloses confidential information about our services \t|     $5,000    \t|\n| Low          \t| XSS or XSRF With Significant Security Impact                \t|     $4,000     \t|\n\n[1] Note that the figures listed reflect typical payouts for Snapchat's core applications and websites listed in the \"In Scope\" section below. Additionally, we always assess the security impact of a vulnerability on our users and their data before deciding on a Bounty. Bounties for non-core websites may vary and be lower than the typical payouts listed in this table. This depends on the nature of the non-core website and is subject to the discretion of the reward panel. For example, if a non-core website is going to be deprecated, a bug in this non-core website may be considered to be lower priority than a bug in our core applications or websites as listed above. This will be reflected in the bounty amount.\n\nCertain vulnerabilities with a working proof of concept on some of our Android mobile app(s) may qualify for an additional bounty through the Google Play Security Rewards Program. To see which apps and vulnerabilities may qualify for a bounty, please refer to the Google Play Security Rewards Program’s Scope and Vulnerability Criteria.\n\n*Non-qualifying vulnerabilities and exclusions*\n--------------------------------\n\n* Social engineering attempts on our staff including phishing emails\n* Attempts to access our offices or data centers\n* Vulnerabilities in a vendor we integrate with\n* Use of automated tools that could generate significant traffic and possibly impair the functioning of our application\n* Reports solely indicating a lack of a possible security defense such as certificate pinning. We constantly make security improvements to our product offering.\n* Screenshot detection avoidance. This exclusion may be lifted under reasonable constraints in the future.\n* Two-factor authentication bypass that requires physical access to a logged-in device.\n* Scan's mobile and desktop applications are not currently in scope.\n* Attacks that require physical access to or modification of the hardware are not in scope\n* The mostly static support website hosted on https://support.snapchat.com/ is not in scope.\n* The Spectacles charging case is not in scope.\n* Vulnerabilities that are already known (e.g. discovered by an internal team)\n* Passive mixed content on web pages\n* Open redirect with low security impact. If you can chain with other vulnerabilities (e.g. steal OAuth tokens, SSRF, etc.) we are still interested in hearing about them.\n* Generic information disclosure(e.g. Stack trace) without additional impact\n* Issues that merely result in spam/annoyance without additional impact (e.g sending emails without sufficient rate limiting)\n* For desktop applications (e.g. Snap Camera), local user attackers, i.e. control of a local user account to get privilege escalation.\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Reports related to our device attestation enforcement. This includes reports centered around the x-snapchat-att header as well as the req_token and device_check_token parameters, etc.\n\n\nAdditionally, the following reports do not qualify for a reward:\n* Lack of email address verification during account registration. We are currently making improvements to our registration flow.\n* Local access to user data when operating a rooted mobile device.\n* Tampering with the host header in the request and receiving a redirect to a safe domain. This is handled by Google AppEngine itself; it is not specific to Snapchat and we do not find issues with it.\n* Support for RC4 in SSL/TLS negotiation. For our domains scoped in this rewards program, SSL/TLS is handled by Google AppEngine itself and Google routinely reviews its cipher suite support.\n\n\n*Legal*\n----------------------\n\nThese Bug Bounty Terms supplement Snap’s Terms of Service (“Snap TOS”). The Snap TOS apply to your use of, and participation in, the Bug Bounty Program as if fully set forth herein. If there are any conflicts between the Snap TOS and these Bug Bounty Terms, the Bug Bounty Terms will control, but only with respect to Good Faith Security Research (as defined below) conducted by you while participating in the Bug Bounty Program. You are also required to comply with the HackerOne terms.\n\nIf you’re on a sanctions list, or live in a country that’s on a sanctions list, we cannot give you a reward. Keep in mind that your citizenship and residency may affect whether you owe taxes on any reward you receive, and you alone are responsible for paying those taxes.\n\nWe, of course, reserve the right to cancel or modify this program at any time. And the ultimate decision over an award—whether to give one and in what amount—is a decision that lies entirely within our discretion.\n\nFinally, and needless to say, please do not violate any laws when conducting your tests.\n\n*Access to Personal Data*\n------------------------\n\nIf you inadvertently access another person's data or Snap data without authorization while investigating a bug, you must promptly cease any activity that might result in further access to such personal data or Snap data and notify Snap immediately. Your notice should include what information was accessed and how you obtained access. After sending the notice, you should immediately delete the personal data and/or Snap data from all of your systems. Continuing to access that data may demonstrate you are not conducting Good Faith Security Research, disqualify you from a reward, and disqualify you from any benefit of the Safe Harbor described below. You must also acknowledge the inadvertent data access in any related bug bounty report you may subsequently submit. You may not share or disclose any inadvertently accessed Snap data or personal data with anyone else.\n\n*Safe Harbor*\n--------------\n\nSnap supports Good Faith Security Research. “Good Faith Security Research” is accessing a computer solely for purposes of good-faith testing, investigation, and/or correction of a security flaw or vulnerability, where such activity is carried out in a manner designed to avoid any harm to individuals and the public, and where the information derived from the activity is used to promote the security or safety of the class of devices, machines, or online services to which the accessed computer belongs, or those who use such devices, machines, or online services. \n\nIf you are engaging in Good Faith Security Research in compliance with these Bug Bounty Terms, Snap provides you authorization, including under the Computer Fraud and Abuse Act (CFAA), to test the security of the products and systems identified as in-scope in the “Scope” section, above. Good Faith Security Research does not include intentionally accessing Snap data or data from a Snap account without express consent, including (but not limited to) data relating to an identified or identifiable natural person (i.e., personal data).\n\nIf Snap determines in its sole discretion that your Good Faith Security Research complies in all respects with these Bug Bounty Terms, we will not report you to law enforcement or pursue a civil action against you, including actions under the CFAA or DMCA that involves circumventing the technological measures we have used to protect in scope products and services. This includes situations where you have engaged in accidental or good faith violations of these Bug Bounty Terms, as determined by Snap in its sole discretion.\n\nTo the extent activities authorized by these Bug Bounty Terms are inconsistent with the Snap TOS, we waive those restrictions solely to the extent necessary for the limited purpose of permitting Good Faith Security Research by you in accordance with these Bug Bounty Terms.\n\nIf someone brings legal action against you for Good Faith Security Research as part of this Bug Bounty Program, and Snap determines (in its sole discretion) that you have complied with these Bug Bounty Terms, we will endeavor to take steps to make it known, either to the public or a court, that your actions were authorized under this Bug Bounty Program.\n\n*Security Advisories*\n---------------------\n\nCVE-2024-5436 - Type confusion in Snapchat LensCore could lead to denial of service or arbitrary code execution prior to iOS and Android versions 12.88.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "returns.spectacles.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "returns.spectacles.com application is owned and managed by Netsuite. Please consider reporting vulnerabilities directly to them.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Static support website",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Spectacles charging case",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.bitstrips.imoji",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]\n[iOS App Store](https://itunes.apple.com/us/app/bitmoji-keyboard-your-avatar/id868077558)",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "com.bitstrips.imoji",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]\n[Google Play Store](https://play.google.com/store/apps/details?id=com.bitstrips.imoji)",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "com.toyopagroup.picaboo",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\n[iOS App Store](https://itunes.apple.com/us/app/snapchat/id447188370?mt=8)",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.snapchat.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\n[Google Play Store](https://play.google.com/store/apps/details?id=com.snapchat.android)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Spectacles",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.bitmoji.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "www.bitstrips.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "scan.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSnapcode creation website",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "kit.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSNAPKIT web application and SDKs",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "snappublisher.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSnapchat's publisher tool. ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "geofilters.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSnapchat's on-demand Geofilters purchase website. ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "spectacles.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSnapchat's spectacles purchase website. ",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "accounts.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nSnapchat's account management website. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nMain server-side application hosted on Google App Engine under the hostname feelinsonice-hrd.appspot.com and app.snapchat.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Lens Studio",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "map.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "story.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "ads.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.sc-core.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Snapchat's internal services",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "create.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Snapchat's Geofilter creation tool. ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "business.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Snapchat's Business Manager. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.snapchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Snapchat's Spotlight on the web. ",
+      "max_severity": "high"
+    }
+  ]
+}

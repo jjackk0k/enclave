@@ -1,0 +1,229 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "singlestore",
+      "name": "SingleStore",
+      "offersBounties": false,
+      "assets": [
+        "*.cloud.singlestore.com",
+        "*.svc.singlestore.com",
+        "api.singlestore.com",
+        "auth.singlestore.com",
+        "authsvc.singlestore.com",
+        "backend.singlestore.com",
+        "https://portal.singlestore.com/",
+        "https://portal.singlestore.com/admin",
+        "mcp.singlestore.com",
+        "nimbus-gateway.singlestore.com",
+        "phone-home.singlestore.com",
+        "singlestore-operator",
+        "singlestore.com",
+        "singlestoredb-server"
+      ],
+      "exclusions": [
+        "*.ito.singlestore.com",
+        "*.labs.singlestore.com",
+        "bifrost.singlestore.com",
+        "docs.singlestore.com",
+        "login.internal.singlestore.com",
+        "status.singlestore.com",
+        "studio.singlestore.com",
+        "support.singlestore.com",
+        "training.singlestore.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\singlestore-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "singlestore",
+  "name": "SingleStore",
+  "url": "https://hackerone.com/singlestore",
+  "policy": "# About SingleStore\nSingleStore is a distributed, relational database with optimized speed and scalability to support data-intensive and real-time applications. SingleStore has two distinct product types:\n* SingleStore Helios is our DBaaS offering enabling customers to leverage a real-time data platform designed for all applications, analytics and AI - most items in scope of this program relate to this product offering;\n* SingleStore Self-Managed for customers which intend to run our licensed database software on their own infrastructure.\n\nMore information about SingleStore and our products can be viewed on our [website](https://singlestore.com/) and in our [documentation](https://docs.singlestore.com/).\n\n# About our Responsible Disclosure Program\nAt SingleStore we appreciate the efforts and transparency of the security research community in responsibly disclosing vulnerabilities that may have slipped past us during our software development security practices. Should you find a vulnerability in one of our systems, we would prefer to hear about it as soon as possible so that we can perform our due diligence to protect our users, customers and businesses.\n\n## Program Rules\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug.\n* Please provide detailed reports with reproducible steps and any additional information or artifacts (such as screenshots and screen recordings) necessary for us to triage the finding correctly. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Submitted reports containing *verbatim* output of automated security scans (e.g. Burp Suite, Nessus) will be disregarded.\n* Make a good faith effort to uphold applicable laws and regulations, avoid privacy violations, destruction of data, and interruption or degradation of our service and user experience. \n* Only interact with accounts you own or with explicit permission of the account holder.\n* SingleStore does **not** provide any type of user credentials nor will we provision accounts for security researchers. Regardless, you are encouraged to sign up your own user accounts during testing for in-scope assets that allow user enrolment (see Testing section below).\n\nThe following activities are **expressly prohibited**:\n* Carrying out testing on any customer workspace(s), cluster(s), or any other service that's clearly specifically attached to the customer's tenant or organization(s).\n* Attempting to compromise or actually compromising in any way or form another user's account. Once again, please only interact with accounts you own or have explicit permission to leverage for testing.\n* Social engineering activities (e.g. phishing, vishing, smishing).\n* Physical attacks against SingleStore's employees, contractors, our premises, or any of our service providers.\n* Knowingly sharing any type of malware with SingleStore or its employees.\n* Carrying out any illegal, unethical or harmful practices on or through our platform, including but not limited to cryptomining, storing malicious content, illicit data or data meant to be used for illicit purposes, and similar type of activities.\n\n## Testing Etiquette\nAs part of your testing efforts, please add HackerOne identifiers in headers, usernames and emails whenever applicable, i.e.:\n* Adding the header `X-HackerOne-Research: [H1 username]` to HTTP requests;\n* Using your HackerOne email alias `username@wearehackerone.com`;\n* Using usernames prefixed or suffixed by clear identifiers, e.g. `user1-hackerone`, `user2-h1`.\n\nPlease also **avoid using Intercom's chat features available on our website or within the SingleStore Portal when testing**. These channels connect directly to our internal support teams, and test-related activity in these environments may generate unnecessary noise and disrupt normal operations.\n\n## Instructions for Testing SingleStore Helios\nYou can self-register a SingleStore Helios account through [Portal](https://portal.singlestore.com/) and either click \"Sign Up\" and fill-in the required fields or use one of the social logins buttons: Google or Microsoft. Once that's done, you can sign in on Portal into your newly created organization from which you can invite additional users, spin up workspaces and database clusters and experiment with features such as SingleStore Notebooks and SingleStore Kai. \n\nNote that your user account in Portal will not work for the [administrative SingleStore Portal ](https://portal.singlestore.com/admin)  (and it is not meant to). \n\nPlease refer to our [Security Administration Docs](https://docs.singlestore.com/cloud/security/administration/) for steps on how to manage users for organizations and database clusters.\n\nFor testing SingleStore's Management API (api.singlestore.com), you will need to generate an API key - you can do so through [Portal](https://portal.singlestore.com/). For detailed instructions refer to our [Management API Docs](https://docs.singlestore.com/cloud/reference/management-api/).\n\nNote that our product features a serverless platform for running containerized workloads accessible within Portal. While it is a product feature we're certainly interested in getting feedback from the ethical hacker community on its security maturity, we please ask you to first read through the [SingleStore Aura's documentation](https://docs.singlestore.com/cloud/aura-container-service/) before submitting reports so that you understand the context around this feature and minimize the number of reported false-positives.\n\n## Instructions for Testing SingleStore Self-Managed\nSingleStore provides pre-built SingleStoreDB server images for customers deploying self-managed environments. These images are made available on DockerHub: https://hub.docker.com/r/memsql/node\n\nFor development and testing purposes, a separate image is available without commercial licensing restrictions:\nhttps://github.com/singlestore-labs/singlestoredb-dev-image\n\nBy using SingleStore Self-Managed software, you agree to the applicable Free/Trial License Terms. For full details, please refer to: https://www.singlestore.com/legal/\n\nAdditional information and alternative installation methods for self-managed deployments are available in the official documentation: https://docs.singlestore.com/db/v9.0/deploy.\n\nPlease take note of the following rules for Self-Managed Testing:\n* **Reports must be reproduced against the latest available patch version of the currently supported SingleStoreDB release;**\n* **Vulnerabilities affecting third-party components must demonstrate a direct and realistic impact on SingleStoreDB, rather than reporting generic CVEs present in underlying dependencies.**\n\n## Response Targets\nSingleStore will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | Target in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n## Scope Leniency\nThis program may sporadically accept submissions for assets that are not listed as explicitly in scope depending on their severity and complexity.\n\n## Out of scope vulnerabilities\n* Clickjacking on pages with no sensitive actions;\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions;\n* Attacks requiring MITM or physical access to a user's device;\n* Previously known vulnerable libraries without a working Proof of Concept;\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability;\n* Missing best practices in SSL/TLS configuration;\n* Any activity that could lead to the disruption of our service (DoS);\n* Rate limiting or bruteforce issues on non-authentication endpoints;\n* Missing best practices in Content Security Policy;\n* Missing HttpOnly or Secure flags on cookies;\n* Configuration of or missing security headers;\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.);\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version];\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors);\n* Tabnabbing;\n* Issues that require unlikely user interaction;\n* Improper logout functionality and improper session timeout;\n* CORS misconfiguration without an exploitation scenario;\n* Broken link hijacking;\n* Lack of SSL Pinning;\n* Open redirect - unless an additional security impact can be demonstrated.\n\nIn addition to the above, the following list of exclusions applies for SingleStore Self-Managed testing:\n* Vulnerabilities that only affect end-of-life (EOL) or unsupported versions of SingleStoreDB (see https://docs.singlestore.com/db/v9.0/support/singlestore-software-end-of-life-eol-policy/);\n* Vulnerabilities that affect older patch versions but are fixed in the latest supported release;\n* Reports of publicly known CVEs that have already been addressed in current releases;\n* Issues that require unrealistic attack conditions or privileged internal access not available to customers;\n* Security issues arising from user-controlled configuration, deployment, or operational practices. Reports must demonstrate a vulnerability in SingleStoreDB itself, not an issue caused by insecure or non-recommended configuration choices;\n* Vulnerabilities specific to the development or testing container image provided at\nhttps://github.com/singlestore-labs/singlestoredb-dev-image. This image is provided for development and testing convenience and may include additional utilities, debugging tools, or a base OS that is not hardened for production use. \n\n\nThank you for helping keep SingleStore, our product, customers and userbase safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://portal.singlestore.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Portal is SingleStore's Internet-facing cloud portal for the SingleStore Helios product, a DBaaS offering where customers can use, manage and monitor several different aspects related to their data, databases and users on the platform.\n\nSee https://docs.singlestore.com/cloud/getting-started-with-sin",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://portal.singlestore.com/admin",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Portal Admin is an internal-only version of SingleStore's Portal. It's meant for SingleStore staff (w/ the right roles and privileges) to manage certain aspects of organizations enrolled in SingleStore Helios.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore's Portal authentication workflows rely on the authentication service deployed at auth.singlestore.com and authsvc.singlestore.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore's Management API can be used to create and manage workspaces, workspace groups, private connections, etc. in SingleStore Helios (these changes are visible through Portal too).\n\nSee https://docs.singlestore.com/cloud/reference/management-api/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "backend.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is where our backend GraphQL API supporting SingleStore Helios is hosted from.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore's main webpage and domain.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "authsvc.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore's Portal authentication workflows rely on the authentication service deployed at auth.singlestore.com and authsvc.singlestore.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "studio.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "training.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.svc.singlestore.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore maintains several subdomains under svc.singlestore.com or cloud.singlestore.com pertaining to the SingleStore Helios offering. These can be easily discovered through a tool like `subfinder` or `amass`.  Usually we structure our public-facing services as `{service-name}.{cell}.{svc|cloud}",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.labs.singlestore.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bifrost.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.ito.singlestore.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "login.internal.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "nimbus-gateway.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore Helios BYOC offering infrastructure.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "phone-home.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore telemetry collection infrastructure.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "singlestoredb-server",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStoreDB server image for self-managed customers. Can be obtained from https://hub.docker.com/r/memsql/node.\n\nA development/test image is available at without license restrictions at https://github.com/singlestore-labs/singlestoredb-dev-image.\n\nBy using our software you agree to our free/trial ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "singlestore-operator",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore Operator image for self-managed customers. Can be obtained from https://hub.docker.com/r/memsql/operator.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cloud.singlestore.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "SingleStore maintains several subdomains under svc.singlestore.com or cloud.singlestore.com pertaining to the SingleStore Helios offering. These can be easily discovered through a tool like `subfinder` or `amass`.  Usually we structure our public-facing services as `{service-name}.{cell}.{svc|cloud}",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mcp.singlestore.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Upcoming public-facing MCP server for SingleStore Helios.",
+      "max_severity": "critical"
+    }
+  ]
+}

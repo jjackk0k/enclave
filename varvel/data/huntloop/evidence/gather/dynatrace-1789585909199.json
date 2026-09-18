@@ -1,0 +1,90 @@
+{
+ "at": "2026-09-16T19:11:42.269Z",
+ "opportunity": "dynatrace",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "account-sprint.dynatracelabs.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sso-sprint.dynatracelabs.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; preload",
+    "content-security-policy": "default-src 'self' https://static.sso-sprint.dynatracelabs.com https://dt-cdn.net; base-uri 'self'; script-src 'self' ht",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "github.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "github.com",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ ",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/.git/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "myaccount-hardening.dynatracelabs.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 36ebde0b08ea3144d51a5c4ebe210c20.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self' data: https://*.dynatrace.com https://*.dynatracelabs.com https://api.myaccount-hardening.dynatracela",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sprint.dynatracelabs.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to sprint.dynatracelabs.com:443 refused: host unreachable"
+  }
+ ]
+}

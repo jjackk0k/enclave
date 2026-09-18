@@ -1,0 +1,135 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "deribit",
+      "name": "Deribit",
+      "offersBounties": true,
+      "assets": [
+        "*.deribit.com",
+        "1293674041",
+        "Tier 1",
+        "Tier 2",
+        "com.deribit",
+        "insights.deribit.com",
+        "pb.deribit.com",
+        "test.deribit.com"
+      ],
+      "exclusions": [
+        "*.chattest.deribit.com",
+        "deribit.zendesk.com",
+        "office.deribit.com",
+        "support.deribit.com",
+        "trust.deribit.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\deribit-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "deribit",
+  "name": "Deribit",
+  "url": "https://hackerone.com/deribit",
+  "policy": "**ATTENTION : ALL TESTS SHOULD BE PERFORMED ON OUR TEST ENVIRONMENT : TEST.DERIBIT.COM**\nTesting directly on www.deribit.com will make you ineligible for bounty and disallowed from further hunting.\n\n# Introduction\n\nDeribit is the leading cryptocurrency option exchange by volume and uses the latest available technology to offer microsecond response time. We value security and availability before all so that traders can focus fully on what matters the most to them, making money.\nAs a part of our perpetual quest for improvement and security, we highly respect and value the work of ethical hackers. We take security very seriously and strive to provide lightning fast response times to our hunters. No technology is perfect and Deribit believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. We are excited for you to participate as a security researcher to help us identify vulnerabilities in our web & mobile apps.\nDeribit continuously pushes out new code. In the event you don’t find anything today, there may be something present tomorrow! We appreciate a timely response on our testnet changes. Good luck, and happy hunting!\n\n# Disclosure Policy\n* Hackers are not allowed to discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Deribit.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n \n# Live environment\nTesting is only allowed on our test environment.\nOur live environment (www.deribit.com) contains a few additional features, including KYC verification and cryptocurrency deposit/withdrawal. If you wish to hunt on this features, you first need to find a valid vulnerability on our test environment. Then, you may ask for authorization through your open ticket to hunt on our live environment. Please note that due to strict regulations, Deribit is not open to trading in [certain countries](https://www.deribit.com/kb/deribit-restricted-countries)\n \n# Oudated components\nDeribit rewards reports on vulnerable software or dependencies if the following conditions are met:\n- A proof-of-concept (PoC) is provided demonstrating exploitability in our infrastructure ;\n- The affected component has not been updated within a reasonable timeframe. \n\nWe will begin accepting reports once the following timeframes have elapsed since the CVE was published:\n\n| Target                           | Critical |High | Medium or Low |\n|----------------------------------|-----------|---------------|--------------|\n| www.deribit.com / test.deribit.com | 24 hours  | 7 days        | 14 days      |\n| *.deribit.com                    | 7 days    | 14 days       | 30 days      |\n\n# Out of scope vulnerabilities\n \n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* The live trading systems are only in scope for wallet & balance functionality as the implementation is different on test\n* Ability to upgrade from an account:read_write api key to higher privilege is not considered a privilege escalation. This is intended purpose.\n* Zendesk\n* Newly disclosed Zero Days (refer to Oudated components) and Zero Days\n* Clickjacking on Tier 2 targets\n* SPF/DMARC misconfiguration\n* Deribit open source projects\n* Social engineering of Deribit staff or contractor\n* Banner grabbing or low sensitive information disclosure\n* Any hypothetical flaw or best practices without exploitable POC\n* Any report generated by automatic tool without a POC\n* Missing security header\n* Missing best practice in SSL/TLS configuration\n* Vulnerability that require root/jailbreak to exploit\n* Password policy\n* No rate limiting or too lax\n* Wordpress CORS policy, xmlrpc, user enumeration, dos ...\n* Broken link\n* Attacks requiring MITM or physical access to a user's device\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Missing HttpOnly or Secure flags on cookies\n* Customers credentials found on the darknet or other forums if they are not Deribit's fault\n* Employees API keys that are only working on our test environment (production's one are in scope)\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under his policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Deribit and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "test.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.deribit",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1293674041",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "insights.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "pb.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.deribit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "deribit.zendesk.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.chattest.deribit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "office.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Tier 1",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tier 2",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trust.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.deribit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

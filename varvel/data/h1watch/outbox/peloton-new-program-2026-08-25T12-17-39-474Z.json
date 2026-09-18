@@ -1,0 +1,79 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "peloton",
+      "name": "Peloton",
+      "offersBounties": false,
+      "assets": [
+        "cms.onepeloton.com",
+        "cosmos-stage.onepeloton.com",
+        "cosmos.onepeloton.com",
+        "qa1-cms.onepeloton.com",
+        "www.onepeloton.com"
+      ],
+      "exclusions": [
+        "Security vulnerabilities that are identified in Peloton products or in website domains owned, operated, or controlled by Peloton that are not listed above are OOS"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\peloton-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "peloton",
+  "name": "Peloton",
+  "url": "https://hackerone.com/peloton",
+  "policy": "Peloton looks forward to working with the security community including individuals from the UK to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nPeloton will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | Target in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Only interact with accounts you own or with explicit permission of the account holder.\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as: \n* “X-HackerOne-Research: [H1 username]”\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Configuration of or missing security headers.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing\n* Issues that require unlikely user interaction\n* Improper logout functionality and improper session timeout.\n* CORS misconfiguration without an exploitation scenario\n* Broken link hijacking\n* Lack of jailbreak detection in mobile apps.\n* Lack of SSL Pinning\n\nThank you for helping keep Peloton and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Security vulnerabilities that are identified in Peloton products or in website domains owned, operated, or controlled by Peloton that are not listed above are OOS",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cms.onepeloton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cosmos.onepeloton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cosmos-stage.onepeloton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "qa1-cms.onepeloton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "www.onepeloton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

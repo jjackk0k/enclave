@@ -1,0 +1,21 @@
+{
+  "handle": "acme-bbp",
+  "name": "Acme Corp Bug Bounty",
+  "policy": "Acme pledges safe harbor for good-faith security research: comply with this policy, report promptly, do not access or exfiltrate user data beyond the minimum proof, and we will not pursue legal action. Denial of service, social engineering, and physical testing are prohibited.",
+  "bounty_table": [
+    { "severity": "critical", "bounty": "$5,000 - $15,000" },
+    { "severity": "high", "bounty": "$2,000 - $5,000" },
+    { "severity": "medium", "bounty": "$500 - $2,000" }
+  ],
+  "structured_scopes": [
+    { "asset_identifier": "example.com", "asset_type": "DOMAIN", "eligible_for_submission": true, "eligible_for_bounty": true, "max_severity": "critical" },
+    { "asset_identifier": "*.api.example.com", "asset_type": "WILDCARD", "eligible_for_submission": true, "eligible_for_bounty": true },
+    { "asset_identifier": "203.0.113.0/24", "asset_type": "CIDR", "eligible_for_submission": true, "eligible_for_bounty": true },
+    { "asset_identifier": "198.51.100.7", "asset_type": "IP_ADDRESS", "eligible_for_submission": true, "eligible_for_bounty": true },
+    { "asset_identifier": "https://app.example.com/admin", "asset_type": "URL", "eligible_for_submission": true, "eligible_for_bounty": true, "instruction": "admin console exposed to the internet" },
+    { "asset_identifier": "Acme Smart Toaster", "asset_type": "HARDWARE", "eligible_for_submission": true, "eligible_for_bounty": false },
+    { "asset_identifier": "status.example.com", "asset_type": "DOMAIN", "eligible_for_submission": false, "instruction": "third-party status page — do not test" },
+    { "asset_identifier": "203.0.113.99/32", "asset_type": "CIDR", "eligible_for_submission": false, "instruction": "monitoring host — never touch" },
+    { "asset_identifier": "api.example.com", "asset_type": "DOMAIN", "eligible_for_submission": false, "instruction": "legacy gateway, excluded by the program" }
+  ]
+}

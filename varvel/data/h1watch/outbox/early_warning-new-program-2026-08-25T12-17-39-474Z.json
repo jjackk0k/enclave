@@ -1,0 +1,232 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "early_warning",
+      "name": "Early Warning",
+      "offersBounties": true,
+      "assets": [
+        "*.earlywarning.com",
+        "*.zelle.com",
+        "*.zellepay.com",
+        "developer*.earlywarning.com",
+        "ews-fusion.my.site.com",
+        "support*.earlywarning.com",
+        "www.certos.com",
+        "zelleservice.my.salesforce.com",
+        "zelleservice.my.site.com"
+      ],
+      "exclusions": [
+        "*.clearxchange.com",
+        "*bc.earlywarning.com",
+        "api.zmsp.*.earlywarning.io",
+        "ccpa*.zellepay.com",
+        "ccpa.zellepay.com",
+        "demo.earlywarning.com",
+        "docs.earlywarning.com",
+        "flip0717.earlywarning.com",
+        "http://api.zellepay.com",
+        "http://api.zmsp.earlywarning.com",
+        "http://earlywarningapi.force.com",
+        "platform.cat.earlywarning.io",
+        "platformtest.cat.earlywarning.io",
+        "toolkit.zellepay.com",
+        "zellepay.earlywarning.com",
+        "zellepay.force.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\early_warning-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "early_warning",
+  "name": "Early Warning",
+  "url": "https://hackerone.com/early_warning",
+  "policy": "#Summary\nZelle® is transforming how money moves, with more than five billion digital payments sent since its launch in 2017. The Zelle Network® connects more than 2,100 bank and credit union brands of all sizes, enabling consumers and businesses to send digital payments to people and businesses they know and trust with an eligible bank account in the U.S. Money is available directly in bank accounts generally within minutes when the recipient is already enrolled with Zelle®. \n\nZelle® and Paze ℠ are the property of Early Warning Services, LLC.\n\nThis program is for the [Zellepay.com](https://zellepay.com) website, the [Zellepay Partner Portal](https://partners.zellepay.com), the Zellepay Customer Portal, the Zellepay iOS and Android mobile apps, and the supporting Web service APIs.\n\nIn this program we will reward for vulnerabilities that are found in the business logic or the application platform stack.\n\n#Testing Credentials\nEarly Warning does not maintain official testing accounts to be provisioned to security researchers. No credentials will be provided.\n\n#Response Targets\nEarly Warning will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business day\n* Time to triage (from report submit) - 2 business days\n* Time to bounty (from triage) - 1 business day\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n#Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express written consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n#Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n#Access and Authentication Required\n* The iOS and Android mobile applications are available for download from their respective app stores\n* No credentials will be provided\n* Reports that cannot demonstrate impact through screenshots and/or video reproduction to the organization will be closed as N/A\n* Temporary cards and all other cards will not be accepted\n* Your `[user]@wearehackerone` email alias must be used when conducting testing in the program. Failure to do so may cause your traffic to be treated as an attack, and will be responded to accordingly\n* No Early Warning employees may participate in this bug bounty program\n\n#Rewards\nPlease see the structured bounty table. Our bounty table provides general guidelines, and all final decisions are at the discretion of Early Warning.\n\nReports that include a Nuclei Template to validate the submitted vulnerability may be awarded a bonus. The Nuclei Template must be unique for the submitted vulnerability and existing open-source community templates will not be eligible for a bonus. Nuclei Template bonuses will be given out at the sole discretion of Early Warning.\n\nEarly Warning retains a perpetual right to complete ownership and usage of the submitted Nuclei Template. Researchers are prohibited from making submitted templates available to the public without express written consent from Early Warning.\n\n#Requested Focus Areas\n* Unauthorized access to card data\n* Business logic flaws allowing the unauthorized transfer of funds\n* Authentication bypass\n* Remote code execution\n* Unauthorized access to customer data\n* Unauthorized access to the zellepay.com website\n* Unauthorized access to the zellepay.com Partner Portal\n* Cross-site scripting (XSS)\n* SQL injection (SQLi)\n* Cross-site request forgery (CSRF) for critical functions such as money transfers or money requests\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n##Out of scope\n* Reports from automated tools or scans\n* Zelle® functionality in any bank app\n* Denial of service attacks in any form or fashion\n  * If you suspect a non-volume-based denial-of-service bug exists, create a bug bounty report before testing and Early Warning Services team will evaluate each report on a case-by-case basis\n* Volume-based attacks, including lack or tuning or rate-limiting\n* Spoofing text messages that appear to come from zellepay, if it does not result in an actual transfer of money\n* Social Engineering\n* Email spoofing (eg Lack of SPF, DKIM, DMARC records)\n* Attacks that involve emailing or texting any user, if it does not result in an actual transfer of money\n* Descriptive error messages (e.g. Stack Traces, application or server errors)\n* Clickjacking on pages with no sensitive actions\n* Unauthenticated/logout/login CSRF\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices related to:\n  * SSL/TLS\n  * Security headers without direct exploitability \n  * SPF, DKIM, DMARC\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Any domains that resolve to Salesforce endpoints within scope must be tested in accordance with [Salesforce's Security Assessment Policy](https://help.salesforce.com/s/articleView?id=000392845&type=1)\n* The decommissioned Android and iOS applications are no longer in scope\n* Please note the Zellepay Facebook page (https://www.facebook.com/zellepay) is region-locked to only display for US customers.  Anyone outside the US will see the error: \"The link you followed may have expired, or the page may only be visible to an audience you're not in. \" This is by design, and any reports of this as a bug will be closed.\n* Credential dumps\n  * Customer credentials: As we cannot control how customers manage or secure their credentials on their systems, we do not pay bounties for customer credential dumps originating from third party sites.\n  * Employee credentials: We have an internal team that monitors the web for employee credential dumps. Any reports received will be forwarded to them, and if they are already aware of the reported credential dump, the report will be closed as 'informational'.\n\n# Starting Domains\nHere is a list of sub-domains that you can use to get started:\n* accountinfo-cat.earlywarning.com\n* accountinfo.earlywarning.com\n* identitychek.earlywarning.com\n* identitychekcat.earlywarning.com\n* mfa.earlywarning.com\n* identitychekcatxml.earlywarning.com\n* identitychekxml.earlywarning.com\n* sa*.earlywarning.com\n* partners.zellepay.com\n* register.zellepay.com\n\n\nPlease note that not all sub-domains may resolve.\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Early Warning and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.zellepay.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.earlywarning.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "toolkit.zellepay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "demo.earlywarning.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.clearxchange.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ccpa.zellepay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "developer*.earlywarning.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support*.earlywarning.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "zellepay.earlywarning.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope per Salesforce policy",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.zmsp.*.earlywarning.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*bc.earlywarning.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.zelle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "platformtest.cat.earlywarning.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "platform.cat.earlywarning.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.earlywarning.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "flip0717.earlywarning.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "zellepay.force.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "zelleservice.my.site.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ews-fusion.my.site.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ccpa*.zellepay.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://api.zellepay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://api.zmsp.earlywarning.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://earlywarningapi.force.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "zelleservice.my.salesforce.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.certos.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

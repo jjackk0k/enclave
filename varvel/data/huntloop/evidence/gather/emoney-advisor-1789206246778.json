@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-12T09:43:57.521Z",
+ "opportunity": "emoney-advisor",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "wealth.emaplan.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "BigIP",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "emaplan.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to emaplan.com:443 refused: TTL expired"
+  },
+  {
+   "host": "emoneyadvisor.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": "7.1",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 7.1\""
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubdomains;",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

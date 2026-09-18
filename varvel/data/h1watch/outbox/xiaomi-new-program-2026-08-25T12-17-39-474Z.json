@@ -1,0 +1,238 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "xiaomi",
+      "name": "Xiaomi",
+      "offersBounties": true,
+      "assets": [
+        "*.mi.com",
+        "*.miui.com",
+        "*.miwifi.com",
+        "*.xiaomi.com",
+        "*.xiaomiyoupin.com",
+        "Mi Band",
+        "Mi Electric Scooter ",
+        "Mi Home Webcam ",
+        "Mi Laser Projector",
+        "Mi Robot Vacuum",
+        "Mi TV ",
+        "Mi TV Box",
+        "Mi/Redmi Phone",
+        "com.android.browser",
+        "com.mi.global.shop",
+        "com.miui.cloudbackup",
+        "com.miui.cloudservice",
+        "com.miui.micloudsync",
+        "com.xiaomi.account",
+        "com.xiaomi.market",
+        "com.xiaomi.mibrain.speech",
+        "com.xiaomi.micloud.sdk",
+        "com.xiaomi.mipicks",
+        "com.xiaomi.payment",
+        "com.xiaomi.smarthome"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\xiaomi-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "xiaomi",
+  "name": "Xiaomi",
+  "url": "https://hackerone.com/xiaomi",
+  "policy": "# TABLE OF CONTENTS\n* Ground Rules & Code of Conduct\n* Disclosure Policy\n* Safe Harbour\n* Response Time\n* General Assessment Rules\n* Detailed Rules and Reward Scheme\n    * Web Vulnerabilities \n    * Mobile Vulnerabilities \n    * Hardware Vulnerabilities\n    * Privacy Vulnerabilities \n* Out of scope Vulnerabilities\n* FAQ\n\n----------------\n \n# Ground Rules & Code of Conduct\n* The security of our products is vital to us, and we constantly strive to guarantee our users' security. Xiaomi hopes to provide solid and comprehensive security protection to our products and services by working closely with individuals, organizations, and companies around the world. To protect the interests of our users, we thank and reward researchers who help us improve security.\n* Respect users' privacy - Xiaomi hopes to respect our users’ privacy, and we oppose and condemn the actions of hackers who use vulnerability testing as an excuse, eg: exploiting vulnerabilities to steal user data, editing, copying, or stealing data from related system services through the intrusion into Xiaomi’s services, or maliciously disseminating vulnerabilities which may disclose users' data.\n* Cause more good than harm - You should never leave a system or users in a more dangerous state when you find any vulnerabilities. You shall not engage in activities that may degrade, damage, or destroy the information in our systems, or that may impact our users, such as Denial of Service, social engineering, or spam.\n* Dispute resolution - When the results of the vulnerability review are disputed, we will handle in accordance with the principle of prioritizing the interests of the reporters, and if necessary, external parties may be invited to jointly decide and introduce CVSS standard. \n* Note: This platform is for international white hats. White hats from Mainland China must submit reports to the Xiaomi Security Center via https://sec.xiaomi.com/\n\n ------------ \n\n# Disclosure Guidelines\n* Please do not disclose or discuss any security vulnerabilities (even resolved vulnerabilities) in Xiaomi products without express consent from Xiaomi, regardless of whether the vulnerability is involved in this bug bounty program.\n* Please follow the disclosure guidelines of HackerOne. If you believe you have discovered a security vulnerability, please report it with a thorough explanation of the vulnerability and comply with the format stated in the Eligibility for Bounty section.\n \n------------ \n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nIf you have any suggestions for our program, please send us an email at security@xiaomi.com to give us feedback. If the suggestions are adopted, Xiaomi will send you a thanks reward.\n\nThanks for keeping Xiaomi and our users secure and safe!\n\n--------- \n\n# Response Time\nXiaomi will make a best effort to meet the following target response time for the white hats participating in our program:\n* Time to first response (from report submission) - 2 business days\n* Time to triage (from report submission) - 10 business days\n* Time to bounty (from triage) - 14 business days\n \nWe’ll try to keep you informed about our progress.\n\nPlease _do not_ send spam messages and follow-ups if our response doesn't exceed the target response time above. We appreciate your patience.\n\n ------------ \n\n# General Assessment Rules\n* Please include as much detailed information as possible in the vulnerability report, such as the steps to reproduce the vulnerability and the expected results of each step. If the information you submit is insufficient to help us verify the vulnerability, you will not be eligible for the reward.\n* If you discover a security vulnerability through the use of automated tools or scanners, please perform a manual reproduction and provide relevant details, otherwise, the vulnerability report may be ignored or receive a smaller reward than expected.\n* If multiple vulnerability reports are submitted, all caused by the same reason, these reports will only be confirmed as ONE valid submission. For example, vulnerabilities are caused by common server configurations affecting multiple products.\n* When duplicate vulnerability reports appear, we will verify them based on the order of submission time, and the first vulnerability report that meets the confirmation requirements will be rewarded.\n* For vulnerability reports involving third-party components, we only accept unknown or 0-day vulnerabilities, and only reward the first valid submission.\n* For vulnerability reports involving the cooperative manufacturers of Xiaomi, we only confirm the vulnerabilities that affect the products and services of Xiaomi and give reasonable ratings based on the actual situation.\n* We set up a \"sheriff\" service for SSRF testing. If you believe you have found an SSRF vulnerability in our production environment, please test it via https://ssrf.dun.mi.com/ssrf/hacker. Please provide the necessary information when submitting the report based on your testing results as follows -\n    *  If there is an echo display, a complete page screenshot of the echo display (including text length, and complete/partial echo) shall be provided in the report.\n    *  If there is no echo display, the content and access time of the custom field shall be provided in the report. We will verify your submitted information.\n* For the vulnerabilities related to the data leakage from cloud storage buckets, e.g. S3, KSS, FDS, etc., the following factors will be considered before confirmation -\n    *  whether the data or link should have access restricted,\n    *  if yes, the sensitivity of the data or link is exposed to the public.\n* The final assessment result of each vulnerability report depends on multiple factors, including but not limited to the severity and risk, the difficulty of being exploited, the scope of impact, and whether there are mitigation measures.\n* Xiaomi has the final decision and interpretation rights on the final assessment results, including whether a vulnerability report should be rewarded and the specific amount of the reward\n\n\n\n------------ \n\n# Detailed Rules and Bounty Scheme\n\n\n\n## WEB VULNERABILITIES\n\n**Scope & Categorization**\n* Important businesses: account.xiaomi.com , jr.mi.com, mi.com, xiaomiyoupin.com, mipay.com, miui.com, miwifi.com etc \n* General businesses: miliao.com, duokan.com, c.mi.com, game.mi.com, Xiaomi’s entertainment services\n* Edge business: such as virtual banking, Xiaomi Chaoshen, financial technology, and other Xiaomi cooperative investment businesses, as well as some third-party businesses, such as imilab.com, zhimi.com, zmifi.com, etc., there are also some operation and maintenance monitoring, test pages, testing environment, and open source systems that lack access rights (according to the name to determine whether the suspected Xiaomi-related business needs internal evaluation to confirm whether it has actual impact on Xiaomi);\n\n*Please note that the above list may be updated due to business development at any time.*\n \n### Bounty Scheme and Examples \n| Categorization / Severity      | Critical      | High      | Medium      | low      |\n| ------------------ | ----------- | ----------- | ----------- | ----------- |\n| Important Business | $900~$2000 | $400~$800 | $70~$110 | No Reward |\n| General Business   | $400~$800  | $150~$300 | $50~$60 | No Reward |\n| Edge Business      | $100~$200   | $50 | No Reward | No Reward |\n\n*Please note that vulnerabilities with low severity will be triaged and receive reputation points accordingly, but will not be eligible for bounties.*\n\n**Examples of CRITICAL vulnerabilities**\n* Direct access to core system permissions can directly harm vulnerabilities in the intranet, including but not limited to command execution, remote overflow, and other vulnerabilities;\n* Vulnerabilities that can obtain a large amount of Xiaomi user core data or involve trade secret contracts include but are not limited to DB injection of core SQL ;\n* Payment-related vulnerabilities include but are not limited to serious logic errors, vulnerabilities that can obtain a large number of benefits and cause losses to companies and users;\n* Vulnerabilities that endanger the Xiaomi account system: If there is no interaction, any Xiaomi account login can obtain detailed user information, log in to Xiaomi Cloud to control mobile phones, user payment, and other permissions\n \n\n \n**Examples of HIGH vulnerabilities**\n* Vulnerabilities that can obtain sensitive user information, including but not limited to SQL injection from ordinary sites;\n* The logical vulnerabilities of individual activities and businesses, such as those that can obtain higher benefits, such as points and red packets;\n* Weak password or authentication information bypasses into the background, and there are actual permissions or sensitive information code leaks in the business, which can actually operate an online business and cause greater harm.\n* Can SSRF intranet, support a variety of protocols, can detect vulnerabilities in intranet services (SSRF vulnerability verification method see the points for attention in the scoring rules);\n* Vulnerabilities in specific scenarios or through some user interaction to log in to individual Xiaomi accounts and have actual user operation permissions;\n* Access to sensitive information such as core cookies or storage xss\n\n\n \n**Examples of MEDIUM vulnerabilities**\n*  General user information disclosure;\n*  Vulnerabilities that require interaction to affect users, including but not limited to stored XSS, CSRF for important sensitive operations;\n*  Destructive ultra vires, such as editing, deleting comments, changing function attributes, etc.\n*  File inclusion, directory traversal, and vulnerabilities that can view some sensitive information;\n*  Code leaks, vulnerabilities that have sensitive information but have not been successfully exploited;\n*  Can be SSRF intranet, no echo, or partial echo but failed to obtain information or service permissions vulnerability (SSRF vulnerability verification method see the scoring rules note);\n*  Vulnerabilities in Github that disclose employee email account passwords, online server account passwords, and other file uploads can only cause phishing, (important business) storage XSS vulnerabilities that are not limited by browser security policies Domxss requires strong interaction, multi-step interaction (two steps or more) to have a greater impact on users;\n*  The domain name can be hijacked arbitrarily by an attacker\n\n\n\n**Examples of LOW vulnerabilities**\n* Vulnerabilities that can obtain user information under certain circumstances, including but not limited to reflective XSS, Csrf , temporary file traversal, Url jump, SMS bombing minor information disclosure;\n* Including but not limited to debugging information, Phpinfo, SVN file disclosure, GitHub employee intranet survival test server account password and other machine log files with certain sensitive information;\n* Confirmed as a vulnerability, but there are more difficult vulnerabilities;\n* Denial of service class attacks caused by application layer defects;\n\n\n------------ \n\n## MOBILE VULNERABILITIES\n### Scope & Categorization\n* Important businesses: Latest version of Xiaomi mobile apps preinstalled on Xiaomi Mobile Phones, MIUI vulnerabilities\n* General businesses: Single-issue apps, non-pre-installed but downloadable Xiaomi mobile apps\n* Edge businesses: Special Edition Business APP\n\n* Please note that the above list may be updated due to business development at any time.*\n\n \n### Bounty Scheme and Examples\n| Categorization / Severity      | Critical      | High      | Medium      | low      |\n| ------------------ | ----------- | ----------- | ----------- | ----------- |\n| Important Business | $3500~$15000 | $800~$1600 | $200~$600 | $50~$100 |\n| General Business   | $700~$3000  | $400~$700 | $100~$200 | No Reward |\n| Edge Business      | $300~$700   | $100~$150 | No Reward  | No Reward |\n\n \n**Examples of CRITICAL vulnerabilities**\n* Bypass the Secure Boot\n* Launch a permanent denial of service attack remotely, causing the device to no longer be usable and requiring flashing and erasing of all data to recover\n* Obtain ROOT permissions\n* Remote execution of arbitrary code in a privileged process\n* Execute arbitrary code in TEE\n* Unauthorized access to TEE-protected data (only fingerprints, faces and other data that can cause user property damage are rated as serious)\n \n\n **Examples of HIGH vulnerabilities**\n* Remotely obtain user-related sensitive information (photos, address books, audio, etc.)\n* Remotely execute arbitrary code in order to application processes\n* Remote access to protected data (data accessed by privileged processes only)\n* Local execution of arbitrary code in privileged applications, TCB, or ICE\n* System-level lock screen bypass (needs to test the latest development version and be universally reproducible)\n* Launch a permanent denial of service attack locally, causing the device to no longer be usable and requiring flashing and erasing of all data to recover\n* Remotely read arbitrary data in the victim APP sandbox\n* Remotely turn on or off functions that are usually initiated by users without user interaction, or functions that require user permission before they can be used\n* Bypassing device protection functions (e.g. mobile phone retrieval)\n* Modify security settings locally without user interaction\n* Obtain user-sensitive information locally\n \n\n**Examples of MEDIUM vulnerabilities**\n* Remotely launch a temporary denial of service attack, which can cause the system to hang or the device to restart\n*Logic vulnerabilities that can be used to deceive users\n* Locally read arbitrary data from the victim APP sandbox\n* Bypass APP lock screen bypass\n* Locally Obtain sensitive user information (for example: mobile phone number) without permission\n* Locally execute arbitrary code in ord application processes\n* Locally turn on or off functions that are usually initiated by users without user interaction, or functions that require user permission before they can be used\n\n \n\n\n**Examples of LOW vulnerabilities** \n* Vulnerabilities that require multiple (more than two) user interactions to trigger\n* Hijacking vulnerability in APP upgrade function\n* Requires physical contact. In some scenarios, information security-related vulnerabilities will only occur with the user cooperation\n* Obtain non-user-related sensitive information\n* Launch a temporary denial of service attack remotely, causing the application to crash and restart\n* Execute arbitrary code in restricted processes through local\n\n\n### Terminology Explanation\n**Remote**: refers to exploiting vulnerabilities to carry out attacks without installing applications or actually touching the device, including web browsing, reading SMS and MMS messages, sending and receiving emails, file downloads, and wireless network communications (excluding short-range communications with a communication distance less than 10 cm) ) and other methods.\n**Local**: Refers to exploiting vulnerabilities to carry out attacks that require the installation of applications on the victim system, or require physical contact with the device and short-range communication with a communication distance of less than 10 centimeters.\n**Restricted process**: A process that is subject to stricter permission constraints than ordinary application processes, or that runs in a highly restricted SElinux (or SEAndroid) domain.\n**Ordinary application process**: refers to an application or process running in the untrusted_app or platform_app domain of SELinux (or SEAndroid), such as a third-party application process or a built-in application process without system-level permissions.\n**Privileged process**: refers to applications or processes running in the system_app domain of SELinux (or SEAndroid), including processes running with system-level permissions and processes with root permissions.\n**TCB**: TCB is the abbreviation of Trusted Computing Base, which refers to the overall protection device in the computer, including hardware, firmware, software and the combination responsible for executing security policies. It establishes a basic protection environment and provides additional user services required by a trusted computer system, including but not limited to part of the kernel and drivers, or user services equivalent to the kernel, such as init, vold, etc.\n**TEE**: TEE is the abbreviation of Trusted Execution Environment, which coexists with the Android system on the device. It is mainly used to provide Android with an operating environment for trusted computing, trusted storage , and other security services.\n**ICE**: ICE is the abbreviation of Independent Computing Environment, which refers to a combination of relatively focused functional services and an independent computing unit, firmware program, and simple OS, such as a baseband Modem.\n \n ------------ \n\n## HARDWARE VULNERABILITIES\n### Scope & Categorization\n* Xiaomi and Mijia brand hardware & IoT products. \n* For hardware & IoT products not using Xiaomi and Mijia brand, please submit the vulnerability by selecting “Other hardware assets”. \n* Important businesses: Routers, Cameras, TV,and other intelligent hardware related to user privacy, personal safety, and property security.\n* General businesses: Devices that do not store user information and do not pose significant  risks to users ,like Smart bulb. etc.\n \n### Bounty Scheme and Examples \n| Categorization / Severity      | Critical      | High      | Medium      | low      |\n| ------------------ | ----------- | ----------- | ----------- | ----------- |\n| Important Business | $2000~$9000 | $800~$2000 | $200~$600 | $50~$100 |\n| General Business   | $500~$1200  | $400~$700 | $80~$150 | $50 |\n\n \n **Examples of Critical vulnerabilities**\n* Vulnerabilities that could cause significant financial loss to users\n* Universal RCE  targeting different device models\n* Remotely render a device permanently inoperable\n\n **Examples of HIGH vulnerabilities**\n* Non-interactive command execution in LAN environment\n* Vulnerabilities that can acquire large amounts of detailed sensitive user information within WAN environment\n\n **Examples of MEDIUM vulnerabilities**\n* Interactive or authorized command execution in LAN environment\n* Denial-of-service (not including traffic and performance attacks)   in  WAN environment\n \n\n **Examples of LOW vulnerabilities**\n* Insecure Configuration\n* Implant malicious code or tamper with firmware into the target device physically but without dismantling the device\n* Denial-of-service (not including traffic and performance attacks) impact on the device via  LAN\n\n--------- \n\n\n## PRIVACY VULNERABILITIES\n\n**Scope**\nMobile apps preinstalled on the smartphones of Xiaomi.\n\n| App Name | Package Name |\n| :--- | :--- |\n| App Vault | com.mi.android.globalminusscreen |\n| Backup & Reset | com.miui.backup |\n| Mi Browser | com.android.browser |\n| Downloads | com.android.providers.downloads.ui |\n| File Manager | com.mi.android.globalFileexplorer |\n| Gallery | com.miui.gallery |\n| Messaging | com.android.mms.service |\n| Mi Video | com.miui.videoplayer |\n| Mi Music | com.miui.player |\n| Security Center | com.miui.securitycenter |\n| Weather | com.miui.weather |\n| Mint Keyboard | com.mint.keyboard |\n| GetApps | com.xiaomi.mipicks |\n| Settings | com.android.settings |\n| Mi Store | com.mi.global.shop |\n| Mi Community | com.mi.global.bbs |\n| Fashion Gallery | com.miui.android.fashiongallery |\n| Mi Drop / ShareMe | com.xiaomi.midrop |\n| Mi Cloud | com.miui.cloudservice |\n| Themes | com.android.thememanager |\n| Notes | com.miui.notes |\n| Camera | com.android.camera |\n| Clock | com.android.deskclock |\n| Compass | com.miui.compass |\n| Mi Account | com.xiaomi.account |\n| Calculator | com.miui.calculator |\n| Recorder | com.android.soundrecorder |\n| Screen Recorder | com.miui.screenrecorder |\n| Services & Feedback | com.miui.bugreport |\n| System Launcher | com.miui.home |\n\n** Bounties **\n\n|  Severity  | Bounty  | \n| -------------- | ------------------ |\n| High | $500-$200 |\n| Medium | $200-$100 |\n| Low | $100-$50 |\n\nPrivacy vulnerabilities refer to violations of laws and regulations related to privacy or data protection in the country or region where the user is located. If it is not fixed in time, it will infringe the user's rights and interests, or cause negative impact or damage to the company's operations or reputation.\nThe severity of a privacy vulnerability will be comprehensively determined based on factors such as the degree of violation of laws and regulations, the degree of damage to user rights and interests, the degree of impact on the company, and the impact scope.\n\n\n--------- \n\n\n# Out-of-Scope Vulnerabilities \n\nWhen reporting vulnerabilities, please always consider the attack scenario and exploitability, as well as the security impact of the vulnerability. For vulnerabilities that are difficult to exploit and have low impact, we may ignore this submission. The following types of issues will not be accepted and are considered beyond the scope of our bug bounty program.\n\n**For Web**\n* Design flaws and best practices that do not lead to security vulnerabilities\n* Vulnerabilities that cannot be used to exploit other users or Xiaomi. Eg. Self-XSS/having a user paste JavaScript into the browser console/Unserviceable exposure of third-party API keys with no significant security impact \n* Subdomain takeovers - Unable to prove it can be taken over \n* Minimal security implications  such as logout/Unauthenticated/Low-impact CSRF/Low-impact CRLF/Self-use CSRF /Low-impact clickjacking, low-impact UI redressing/misconfiguration that lead to CORS but without any information leak\n* Content Spoofing / Text Injection that cannot be leveraged for XSS or sensitive data disclosure.\n* Session not invalidated after logout\n* Insensitive disclosure information such as:\n    * Error message: Software version/IP\n    * Uploaded file cannot be parsed \n    * Vulnerabilities that can only be reproduced by certain low-level IE browsers\n    * HTTP codes/pages or,other HTTP non- codes/pages etc/insensitive information files\n    * Public links, such as social media profile pictures, live videos, etc\n* Reflected file download attacks\n* SSRF vulnerability that cannot obtain the relevant server information of the Intranet, but simple accessed dns log without any impact\n* Misconfigurations such as: \n    * DNS issues (i.e. mx records, SPF records, etc.)\n    * Reports of insecure SSL/TLS ciphers(unless you have a working proof of concept, and not just a report from a scanner)\n    * Presence of autocomplete attribute on web forms\n    * Mixed content warnings\n    * Missing security-related HTTP headers which do not lead directly to a vulnerability  \n\n**For Mobile**\n**Code security and user data storage**\n* Absence of certificate pinning\n* Sensitive data in URLs/request bodies when protected by TLS\n* User data stored unencrypted on external storage (Except for APP logs with                                                          sensitive information or user data for which encryption has been promised)\n* Lack of obfuscation is out of scope\n* OAuth & App secret hard-coded/recoverable in APK\n* Any kind of sensitive data protected by the APP private directory\n* Lack of binary protection control in android app\n* APP setting allowbackup:True \n \n** Local DoS attacks with limited impact**\n* Sending malformed intents to the exported component causes the APP to crash only\n* Browser crashes due to excessive resource requests\n* Local DoS attacks that users can resolve by restarting the browser  \n\n**Others**\n* Any data leak because the malicious APP has acquired the appropriate permissions\n* Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken environment)\n* Spoofing vulnerability with less deceptive\n* Attacks that are only available in lower versions of Android\n\n--------- \n\n\n\n# FAQ\n* Will Xiaomi secretly fix the neglected vulnerability？\n\n*Absolutely not! If the ignored vulnerability is later fixed, it is possible that the vulnerability has already been discovered internally and is being fixed, or that the vulnerability no longer appears during the change of the product itself, rather than Xiaomi ignoring the report and fixing it based on the report information.*\n\n--------- \n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.mi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.xiaomi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mi/Redmi Phone",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/hk/mobile/     ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi Band",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/hk/wearables/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi Home Webcam ",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/us/mi-home-security-camera/ , https://www.mi.com/in/camera-360/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi Robot Vacuum",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " https://www.mi.com/hk/mi-robot-vacuum/ ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi TV Box",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/us/mi-box-s/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi Laser Projector",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/us/mi-laser-projector-150/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi TV ",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/in/product-list/tv/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mi Electric Scooter ",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mi.com/us/mi-electric-scooter/",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.miui.micloudsync",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.smarthome",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.market",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mi.global.shop",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.mibrain.speech",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.account",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.miui.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.xiaomiyoupin.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.miwifi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.payment",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.mipicks",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.xiaomi.micloud.sdk",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.miui.cloudbackup",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.miui.cloudservice",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.android.browser",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    }
+  ]
+}

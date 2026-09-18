@@ -1,0 +1,125 @@
+{
+ "target": "mcp-server.zomato.com",
+ "date": "2026-08-31",
+ "operator": "varvel",
+ "transport": "ghost socks5://10.64.0.1:1080 + X-HackerOne: varvel, fail-closed",
+ "accounts": {
+  "A": "varvel-zom-a-sl0i@emalupe.com/uid447585412",
+  "B": "varvel-zom-b-qpbw@emalupe.com/uid447585565"
+ },
+ "as_metadata": {
+  "issuer": "https://mcp-server.zomato.com/",
+  "endpoints": [
+   "/authorize",
+   "/token",
+   "/register"
+  ],
+  "grants": [
+   "authorization_code",
+   "refresh_token"
+  ],
+  "pkce": [
+   "S256"
+  ],
+  "token_auth_methods_includes_none": true
+ },
+ "results": [
+  {
+   "id": 1,
+   "hypothesis": "DCR abuse",
+   "response": "200 static client_id fd37dd28-254b-42b7-a55a-c85369d625c8 / secret Z-MCP, echoes redirect_uris, stateless facade",
+   "verdict": "odd-harmless"
+  },
+  {
+   "id": 2,
+   "hypothesis": "redirect_uri carried unvalidated at /authorize",
+   "response": "307 to /consent with verbatim redirect_uri",
+   "verdict": "deferred-to-verify-otp"
+  },
+  {
+   "id": 3,
+   "hypothesis": "redirect_uri bypass (7 variants)",
+   "response": "all 403 {\"error\":\"Invalid redirect_uri parameter\"}",
+   "verdict": "CLEAN"
+  },
+  {
+   "id": 4,
+   "hypothesis": "allowlist baseline",
+   "response": "200 code issued for https://claude.ai/api/mcp/auth_callback",
+   "verdict": "baseline-ok"
+  },
+  {
+   "id": 5,
+   "hypothesis": "PKCE enforcement",
+   "response": "400 Missing/invalid code_verifier for all wrong variants; 200 token with correct verifier",
+   "verdict": "CLEAN"
+  },
+  {
+   "id": 6,
+   "hypothesis": "code reuse",
+   "response": "500 Failed to exchange token",
+   "verdict": "CLEAN"
+  },
+  {
+   "id": 7,
+   "hypothesis": "refresh grant",
+   "response": "400 without code_verifier; 200 with any value",
+   "verdict": "spec-deviation-no-impact"
+  },
+  {
+   "id": 8,
+   "hypothesis": "scope coercion",
+   "response": "requested mcp:tools, granted offline openid",
+   "verdict": "cosmetic"
+  },
+  {
+   "id": 9,
+   "hypothesis": "/mcp unauth",
+   "response": "401",
+   "verdict": "CLEAN"
+  },
+  {
+   "id": 10,
+   "hypothesis": "MCP catalog",
+   "response": "ZomatoMcpServer 3.1.0, 10 tools incl. get_saved_addresses_for_user, get_order_history, create_cart, checkout_cart",
+   "verdict": "catalogued"
+  },
+  {
+   "id": 11,
+   "hypothesis": "cross-account read A vs B",
+   "response": "token-scoped own data only; no user_id param on any tool",
+   "verdict": "CLEAN-caveat-empty-accounts"
+  },
+  {
+   "id": 12,
+   "hypothesis": "IDOR via address_id",
+   "response": "INVALID_ADDRESS_ID identical for both tokens; ids non-sequential",
+   "verdict": "CLEAN"
+  },
+  {
+   "id": 13,
+   "hypothesis": "cross-account cart checkout",
+   "response": "identical 'Please create a cart before checkout.'",
+   "verdict": "CLEAN"
+  }
+ ],
+ "findings": [],
+ "submission_drafted": false,
+ "captures": [
+  ".tmp/mcp-flow-*.json",
+  ".tmp/mcp-pkce-own-pair-1.json",
+  ".tmp/mcp-pkce-acctB-1.json",
+  ".tmp/mcp-token-t*.json",
+  ".tmp/mcp-tools-A.json",
+  ".tmp/mcp-cross-account.json",
+  ".tmp/mcp-idor-probe.json",
+  ".tmp/mcp-tools-list-full.txt",
+  ".tmp/mcp-consent.html"
+ ],
+ "caveats": [
+  "both accounts unseeded; strong-form cross-account read not executable",
+  "bind_user_number not exercised (needs real SMS)",
+  "refresh-grant code_verifier quirk is informational only"
+ ],
+ "generated": "2026-08-31T11:48:37Z"
+}

@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "etoro_bbp",
+      "name": "eToro BBP",
+      "offersBounties": true,
+      "assets": [
+        "aggregator.etoro.com",
+        "api.etoro.com",
+        "billing-pci.etoro.com",
+        "billing.etoro.com",
+        "candle-src.etoro.com",
+        "candle.etoro.com",
+        "cashier-src.etoro.com",
+        "cashier.etoro.com",
+        "charts.etoro.com",
+        "com.etoro.openbook",
+        "etoropartners.com",
+        "partners.etoro.com",
+        "push-d-gw.cloud.etoro.com",
+        "push-d-hap.cloud.etoro.com",
+        "push-demo-hk-lightstreamer.cloud.etoro.com",
+        "push-demo-lightstreamer.cloud.etoro.com",
+        "push-dn-hap.cloud.etoro.com",
+        "push-hap.cloud.etoro.com",
+        "push-lightstreamer.cloud.etoro.com",
+        "push-n-hap.cloud.etoro.com",
+        "push-real-hk-lightstreamer.cloud.etoro.com",
+        "www.etoro.com"
+      ],
+      "exclusions": [
+        "api-portal.etoro.com",
+        "templates.etoro.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\etoro_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "etoro_bbp",
+  "name": "eToro BBP",
+  "url": "https://hackerone.com/etoro_bbp",
+  "policy": "Please note that your participation in the eToro Bug Bounty Program is voluntary and subject to the terms and conditions set forth on this page. By submitting a report, you acknowledge that you have read and agreed to these terms.\n\neToro works vigilantly with the information security community to help keep our customer's personal information secure. If you believe you have found a security vulnerability on eToro's systems, we would appreciate your help in disclosing it to us in a responsible manner.\n\nWe will investigate all reports and fix vulnerabilities according to our security policy. Please make a good faith effort to avoid privacy violations and disruptions to others.  If you encounter any private information, please let us know.\n\n#Bug Bounty Policy\n\n#We ask that:\n\n* You provide us reasonable time to investigate and mitigate all reports. We’ll try to keep you informed about our progress throughout the process but we are not obligated to.\n* Any finding provided by you shall be confidential and cannot be disclosed to third parties (even resolved ones) without our express consent. violations of this section could disqualify you from the program.\n* You do not interact with an individual account (which includes modifying or accessing data from the account) without the owner’s written consent. \n* You make a good faith effort to avoid privacy violations and disruptions to others, including (but not limited to) unauthorized access to or destruction of data and interruption or degradation of our services.\n* You refrain from exploiting a security issue you discover for any reason (this includes demonstrating additional risk, such as attempted compromise of sensitive company data or probing for additional issues.)\n* You do not intentionally violate any other applicable laws or regulations, including (but not limited to) laws and regulations prohibiting unauthorized access to data.\n* For the purposes of this policy, you are not authorized to access user data or company data, including (but not limited to) personally identifiable information and data relating to an identified or identifiable natural person.\n \n\n#Bug Bounty Program Terms:\n\nWe recognize security researchers help us keep people safe by reporting vulnerabilities in our services.\n\n* **If you use an account on our platform for testing, you must sign up using your HackerOne email address.**\n* **The following details must be recorded by the hacker prior to any testing and may be requested by eToro: IP Address, User-agent, Usernames used in the platform (when used).**\n* Adhere to our policy.\n* Report a security bug: that is, identify a vulnerability in our services or infrastructure which creates a security or privacy risk (note that eToro ultimately determines the risk of an issue and that many software bugs are not security issues.)\n* If you inadvertently cause a privacy violation or disruption (such as accessing account data, service configurations, or other confidential information) while investigating an issue, you must disclose this in your report.\n* Do not interact with other accounts without written consent.\n* Your activities must not violate any law, or disrupt or compromise any of eToro data.\n* We highly appreciate including steps to remediation in your report.\n* We reserve the right to publish reports (and accompanying updates).\n* By making a submission, you represent and warrant that the report is original to you.\n* We reserve the right to modify the eToro Bug Bounty Program terms and conditions at any time.\n\n\n#Please note:\n* Testing out-of-scope assets will lead to an escalation to HackerOne.\n* Usage of automated tooling in order to send a massive amount of requests including Stress Testing is strictly forbidden and could result in being removed from the program.\n* File upload vulnerabilities are in scope, however, please refrain from creating large request volumes (over 75 files).\n\n# Vulnerabilities that will be triaged as Low [with a minimum bounty] (until further notice):\n\n* Subdomain takeover\n* Missing SPF/DKIM/DMARC records on any of our domains.\n\n#Out of scope vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking/CORS related (We are using Cordova framework on mobile platforms which sadly requires broken CORS).\n* Any vulnerability regarding Facebook SDK on mobile.\n* WordPress vulnerabilities with low/medium severity.\n* Vulnerabilities on pages with no sensitive actions or information.\n* Unauthenticated/logout/login CSRF.\n* Lack of rate-limit.\n* Username/email enumeration.\n* Password complexity requirements, account/email enumeration, or any report that discusses how you can learn whether a given username or email address has an eToro account.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* CSV injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS/Ciphers configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Self-XSS, or XSS that does not affect authenticated users.\n* Reports involving leaked credentials from third-party sites.\n* Issues that require the user to install a malicious third-party app on mobile.\n\nAny information you receive or collect about eToro through the eToro Bug Bounty Program must be kept confidential and only used in connection with the eToro Bug Bounty Program. You may not use, disclose or distribute any such confidential information, including, but not limited to, any information regarding your submission and information you obtain when researching the eToro sites, without eToro’s prior written consent.\n \n\nAs a condition of participation in the eToro Bug Bounty Program, you hereby grant eToro and its subsidiaries, affiliates and customers a perpetual, irrevocable, worldwide, royalty-free, transferrable, sublicensable and non-exclusive license to use, reproduce, adapt, modify, publish, distribute, publicly perform, create derivative work from, make, use, sell, offer for sale and import the submission, as well as any materials submitted to us in connection therewith, for any purpose. You should not send us any report that you do not wish to license to us. You hereby represent and warrant that the any submission made by you to us is original to you and you own all right, title and interest in and to it, and you waive any right or claim of any nature you may have arising from submitting a report to us.\n\nPlease note that if we discover that you breached any of your obligations above we will remove you from the eToro Bug Bounty Program and disqualify you from receiving any payments.\n\nThank you for helping keep eToro and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "etoropartners.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partners.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "templates.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.etoro.openbook",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.etoro.openbook",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-portal.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "aggregator.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "billing.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "billing-pci.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "candle.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "candle-src.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier-src.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "charts.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-d-gw.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-d-hap.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-demo-hk-lightstreamer.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-demo-lightstreamer.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-dn-hap.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-hap.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-lightstreamer.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-n-hap.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-real-hk-lightstreamer.cloud.etoro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gocardless_bbp",
+      "name": "GoCardless Bug Bounty Program",
+      "offersBounties": true,
+      "assets": [
+        "*.gocardless-cicd.io",
+        "*.gocardless-lab.io",
+        "*.gocardless.dev",
+        "*.gocardless.io,*.gocardless-banking.io",
+        "api-sandbox.gocardless.com",
+        "bankaccountdata.gocardless.com",
+        "connect-sandbox.gocardless.com",
+        "oauth-sandbox.gocardless.com",
+        "ob.gocardless.com",
+        "pay-sandbox.gocardless.com",
+        "www.gocardless.com"
+      ],
+      "exclusions": [
+        "*.gocardless-staging.io",
+        "api-staging.gocardless.com",
+        "api.gocardless.com",
+        "connect.gocardless.com",
+        "learn.gocardless.com",
+        "manage.gocardless.com",
+        "oauth-staging.gocardless.com",
+        "oauth.gocardless.com",
+        "outgrow.gocardless.com",
+        "pay.gocardless.com",
+        "support.gocardless.com",
+        "xero-sandbox.gocardless.com",
+        "xero-staging.gocardless.com",
+        "xero.gocardless.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gocardless_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gocardless_bbp",
+  "name": "GoCardless Bug Bounty Program",
+  "url": "https://hackerone.com/gocardless_bbp",
+  "policy": "# Disclosure Policy\nThe policy covers any public-facing website owned, operated, or controlled by GoCardless, including web applications hosted on those sites.\n\nPlease do not discuss any vulnerabilities (even resolved ones) outside of the program. We currently do not have a public disclosure policy, so any disclosure requests will be denied.\n\n# Response Targets\nThe bounty is typically paid out when a triaged issue has been remediated or within 30 days of setting the report as triaged.\n\n# Rules of Engagement\nYour participation in our program is voluntary and subject to the following:\n* You must include a working Proof of Concept.\n* You must include a security impact justification.\n* You must follow HackerOne platform rules.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* You must not threaten or try to extort GoCardless or our customers.\n* You must not access, modify, copy, download, delete, compromise, or otherwise misuse others’ data.\n* You must not access non-public information without authorisation.\n* You must not access production services or data without authorisation.\n* You must not degrade, interrupt, or deny services to our users.\n* You must not incur a loss of funds that are not your own.\n* You must use your own accounts and not interact with other users’ accounts or data.\n* You must use your HackerOne email alias for accounts when conducting research on our platform.\n* If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* When duplicate reports occur, only the first report that can be fully reproduced may be eligible for a reward at GoCardless' discretion.\n* Chained/Multiple vulnerabilities caused by a single underlying issue or root cause are eligible for a single reward at GoCardless' discretion.\n* Identical issues on multiple in-scope domains are eligible for a single reward at GoCardless' discretion.\n* Rate-limit issues are capped at Low impact.\n* DoS/DDoS issues are capped at Medium impact.\n* Leaked credential reports or WayBack Machine reports are not accepted.\n\n## Setting up accounts for vulnerability research\nYou must use a HackerOne email alias account for accounts configured in our environments (e.g., `hacker123@wearehackerone.com`). More details on HackerOne aliases: https://docs.hackerone.com/hackers/hacker-email-alias.html \nPlease add \"**bug bounty**\" to the company or name field to make the account easily identifiable as belonging to a security researcher.\n\nTo get started on the GoCardless platform, we recommend that you review the extensive documentation about the types of accounts that can be set up:\n* [Getting started with GoCardless](https://support.gocardless.com/hc/en-gb/sections/360000149785-Getting-Started)\n* [GoCardless guide for developers](https://developer.gocardless.com/getting-started/api/introduction/)\n* [API Reference](https://developer.gocardless.com/api-reference/)\n* [Partner integration getting started guide](https://developer.gocardless.com/getting-started/partners/introduction/)\n* [Schema details](https://api.gocardless.com/schema)\n* [Role-based access on GoCardless Merchant Dashboard](https://support.gocardless.com/hc/en-gb/articles/360014298099-Add-team-members)\n* [Test Account Details](https://developer.gocardless.com/resources/test-bank-details/)\n* [GoCardless MCP](https://developer.gocardless.com/developer-tools/mcp/)\n* [GoCardless CLI](https://developer.gocardless.com/developer-tools/gc-cli/)\n* [GoCardless SSO](https://support.gocardless.com/hc/en-gb/articles/25133480784028-Single-Sign-On-SSO)\n\n## Test In Sandbox Only\nPlease conduct all research and testing in our **sandbox environment** (e.g., https://manage-sandbox.gocardless.com).\n\nNo disruptive testing, or automated scanning is to be conducted, and only manual testing is permitted on the following in-scope domains:\n* https://ob.gocardless.com\n* https://mcp.gocardless.com\n\n! Only connect the GC MCP and GC CLI tools to your Sandbox test accounts.\n\nOther than the above exception, we ask that you do NOT conduct testing and research on our production environments:\n* https://manage.gocardless.com  (please use https://manage-sandbox.gocardless.com instead)\n* https://api.gocardless.com (please use https://api-sandbox.gocardless.com instead)\n* https://payer-details.gocardless.com (please use https://payer-details-sandbox.gocardless.com instead)\n* https://oauth.gocardless.com (please use https://oauth-sandbox.gocardless.com instead)\n* https://connect.gocardless.com (please use https://connect-sandbox.gocardless.com instead)\n* https://pay.gocardless.com (please use https://pay-sandbox.gocardless.com instead)\n\nHowever, if you feel that there may be an issue that can only be reproduced in the production environment, please seek our consent for further testing via the HackerOne platform.\n\n## Third-party services and applications\nThird-party Software-as-a-Service (SaaS) services and applications are out of scope, even if they are accessible under an in-scope domain. This would typically include services, such as Zendesk, Jira, Salesforce, or externally hosted forms. Please submit any findings related to such services and applications via the appropriate service provider's Vulnerability Disclosure program.\n\nOur publicly supported GitHub repositories (https://github.com/gocardless?q=&type=public&language=&sort=) explicitly belonging to the GoCardless organisation and defining a security file are IN scope. GitHub repositories under the GoCardless organisation that are forks, mirrors, or archived are OUT of scope. GitHub repositories not owned by GoCardless, but referencing our services or code, are OUT of scope.\n\n# Out of scope vulnerabilities\n\n## Not a Vulnerability\nBehaviours commonly reported as findings that are intentional or do not present a threat:\n* SSRF via Webhook URLs is a false positive; the proxy is specifically configured not to ping internal hosts\n* Cross-organisation access to billing request actions - billing requests are public because they have to be available to unregistered Payers\n* Developer access tokens and partner app access tokens remain active after user deactivation by design, as they are scoped to the entire organisation\n* Unauthenticated logout/login CSRF, search request CSRF, CSRF on unauthenticated or otherwise non-sensitive pages\n* Merchant Dashboard `read_only` and `read_write` user access to some of the \"developers\" information and functionality\n* The `/flags` API endpoint returns Organisation IDs, Creditor IDs, and other organisation settings\n* Unverified user accounts being able to invite customers via direct API request - this is not an issue, since an unverified Merchant organisation will not be able to collect payments regardless\n* Publicly available MCP /register endpoint\n* Sentry DSN, Optimizely, Braze, Segment, and other client-side API keys on the front-end - implementation follows vendor guidelines\n* Issues related to privilege separation of `admin` & `read_write` users on GC4X: these roles have identical permissions by design\n* **Public user registration on Jira service desk**\n* Public submission of Support tickets via Zendesk\n\n## Social Engineering, Composite, and Hard-to-Exploit Vulnerabilities\nWhen reporting vulnerabilities to GoCardless, please consider (1) the attack scenario and exploitability, and (2) the security impact of the finding. The following issues are considered out of scope unless you can demonstrate an exploitation approach that does not require social engineering, physical breach, or nation-state resources:\n* Clickjacking\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept (PoC)\n* Public zero-day vulnerabilities that have an official patch released for less than 30 days will be reviewed on a case-by-case basis\n* Comma-Separated Values (CSV) injection\n* Missing best practices in SSL/TLS configuration\n* Missing best practices in Content Security Policy (CSP)\n* Missing cookie flags\n* Missing security-specific HTTP headers (`X-Frame-Options`, `X-Content-Type-Options`, `Strict-Transport-Security`, etc.)\n* Missing email verification functionality\n* CORS misconfiguration without demonstrating a specific attack and its impact\n* Email best practices (invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities that only affect users of outdated or unpatched browsers and operating systems\n* Minor technical information disclosure, such as software versions, sourcemaps, service banners, internal IDs, or health check endpoints\n* Rate-limiting issues that lead to spam\n* Rate-limiting bypass or brute-forcing of endpoints not related to authentication\n* Content spoofing and text injection issues without a PoC that would not require direct modification of the page content\n* Content spoofing and text injection issues without a demonstration of security impact that isn't social engineering\n* User or email enumeration\n* Hypothetical subdomain takeovers without supporting evidence\n* \"Exposed\" login interfaces of third-party tools\n* Issues that are premised on an unlikely user interaction\n* Open redirection\n* Support chat file uploads\n* We are no longer issuing rewards for reports of potential GoCardless credentials leaked on third-party sites. We use other tools to continuously monitor the threat landscape for leaked credentials and other business-critical information about GoCardless and our customers. Further to that, upon every login, users' passwords are checked against a database of compromised passwords. You may still report these cases, but no bounty will be issued.\n\n# Safe Harbour\nAll activities conducted in a manner consistent with this policy will be considered authorised conduct, and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our public-facing content, without authenticated access to sensitive information related to merchants or payers.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "pay-sandbox.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Sandbox for the API used to process billing requests, related to the Merchant Dashboard application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-sandbox.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Sandbox version of the Merchant Dashboard API component - used to power the Merchant Dashboard (manage.gocardless) and to provide functionality for customers who wish to integrate their services with ours.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "connect-sandbox.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Sandbox version of the Merchant Dashboard OpenID authentication component.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.gocardless.io,*.gocardless-banking.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Internal infrastructure and tools (e.g., performance dashboards).",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "xero-staging.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Testing environment for the GoCardless integration with Xero. Frequently used by merchants for testing implementations.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.gocardless-cicd.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Non-production environment for infrastructure services.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.gocardless.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Playground area for engineers in an isolated environment",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Production version of the Merchant Dashboard API component.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "manage.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "\nProduction version of the Merchant Dashboard application.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "connect.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Production version of the Merchant Dashboard OpenID authentication component.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pay.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "\nProduction version of the API used to process billing requests, related to the Merchant Dashboard application.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "xero.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Production version of the GoCardless integration with Xero. \nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "oauth-sandbox.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The authentication component for GoCardless for Xero (GC4X).",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "xero-sandbox.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "GoCardless integration with Xero (GC4X). Users and permissions are managed through the Dashboard application (manage.gocardless). ReadOnly users cannot access GC4X; ReadWrite and Admin users have the same level of access on GC4X.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "oauth.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Production version of the authentication component of the GC4X application.\nPlease test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.gocardless-lab.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Testing and experimentation environment for internal tools with no live data.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.gocardless-staging.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Staging environment for GoCardless applications, APIs, and internal tools being developed or supported. Commonly used for testing and development, is identical to the Sandbox environment, in which we prefer the testing to be done.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api-staging.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Staging version of the Dashboard API. Please test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "oauth-staging.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Staging version of the OAuth API. Please test the Sandbox deployment instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ob.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the PRODUCTION endpoint for Account Information Services (AIS) user-facing flow (Bank Account Data (BAcD) and Instant Bank Payments (IBP)). Only gentle manual testing of the workflow can be performed using this instance. No DoS or other destructive testing, no attacks on the infrastructure. ",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "support.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our Zendesk instance. However, it is not under our control, and vulnerabilities should reported directly to Zendesk. If you think there is an issue that is caused specifically by our implementation of Zendesk that is not present in other instances, do let us know, and we can consider issuing",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bankaccountdata.gocardless.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "!Note that this is a production instance, so you must avoid denial of service, data corruption, and any other destructive or disruptive actions. No automated scanning allowed - manual testing only!\nThis is our Bank Account Data dashboard application and Open Banking API endpoint meant for partners a",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "learn.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a third-party application, which is not developed or maintained by us. Please report vulnerabilities related to this asset directly to \"PayTo University\".",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "outgrow.gocardless.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a third-party application, which is not developed or maintained by us. Please report vulnerabilities related to this asset directly to \"Outgrow\".",
+      "max_severity": "none"
+    }
+  ]
+}

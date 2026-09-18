@@ -1,0 +1,172 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "audible",
+      "name": "Audible",
+      "offersBounties": true,
+      "assets": [
+        "*.audible.(TLD)",
+        "379693831",
+        "com.audible.application",
+        "tax.audible.com"
+      ],
+      "exclusions": [
+        "*.acx.com",
+        "Affiliate Programs",
+        "All Audible blogs across marketplaces",
+        "All help centers across marketplaces",
+        "acx-horizonte.audible.com/",
+        "adobedtm.com",
+        "demdex.net",
+        "https://www.audible.com/ep/podcast-development-program",
+        "https://www.audiblehub.com/submit",
+        "newsletters.audible.com",
+        "omtrdc.net",
+        "www.audiblecareers.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\audible-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "audible",
+  "name": "Audible",
+  "url": "https://hackerone.com/audible",
+  "policy": "## Introduction\n\nAudible exists to unleash the power of the spoken word and to take the digital audio book download business into the mainstream. We work to change the way individuals control the what, when, where, and how of the words they hear, and to establish literate listening as a core tool for anyone who wants to be more productive, more well-informed, or more thoughtfully entertained.\n\nAudible appreciates your participation in this program and looks forward to your findings.\n\nFor security issues related to Amazon Web Services (AWS), please submit reports via the [AWS Vulnerability Disclosure Program](https://hackerone.com/aws_vdp).\nFor security issues related to Amazon Devices, please submit reports via [Amazon Vulnerability Research Program - Devices page](https://hackerone.com/amazonvrp-devices).\nFor security issues related to Ring, please submit reports via [the Ring Bug Bounty page](https://hackerone.com/ring)\nFor security issues related to eero, please submit reports via [the eero Bug Bounty page](https://hackerone.com/eero)\n\n## Who Can Participate in this Program\n\nAudible customers and security researchers who discover a potential security finding within Audible products or services can report it to Audible.\nAmazon employees and contractors, as well as their immediate family members (e.g., parent, sibling, spouse, child) are strictly prohibited from participating in VRP. Amazon employees and contractors may not share information with an external security researcher to bypass this prohibition or otherwise enable another person to participate in VRP (in which case all parties are ineligible). Residents of any countries/regions that are subject to United States sanctions, such as Cuba, Iran, North Korea, Sudan, and Syria or Crimea, and any person designated on the U.S. Department of the Treasury’s Specially Designated Nationals List are strictly prohibited from receiving a reward.\n\nYou must be 18 or older to be eligible for an award.\n\n## How the Program Works\n\n* Security researchers and customers of Audible are encouraged to report any behavior impacting the information security posture of Audible Android Application.\n* If you are performing research, you are required to use your own accounts and are not authorized to access or otherwise interact with other people's accounts or data. If, during your testing, you discover a vulnerability that could allow you to bypass an authentication control and gain access to another account, you should report the issue but not take further action with the other account or its data.\n* Document your findings thoroughly, providing steps to reproduce and send your report to us.\n* Reports with complete vulnerability details, including screenshots or video, are essential for a quick response.\n* We will contact you to confirm that we’ve received your report and trace your steps to reproduce your research.\n* We will work with the affected teams to validate the report.\n* We will issue bounty awards for eligible findings. To be eligible for rewards, reports must comply with all parts of this policy and you must be the first to report the issue to us. You must be 18 or older to be eligible for an award.\n* We will notify you of remediation and may reach out for questions or clarification. You must be available to provide additional information if needed by us to reproduce and investigate the report.\n* We will work with the affected teams to make necessary improvements and remediation\n\nTo protect your privacy, we will not, unless served with legal process or to address a violation of this policy:\n\n* Share your PII with third parties\n* Share your HackerOne points\n* Participation status\n\n## Services/Products in Scope\n\n**Web**\n* \\*.audible.\\*\n\n**Mobile**\n* The latest version of the Audible Android and iOS Mobile Applications\n\nIf a researcher is not able to demonstrate impact on bounty eligible assets then that finding will not be considered for rewards. If assets/IPs are not associated to in-scope domains please refrain from testing them as part of the Audible Program. \n\nReports of zero-day vulnerabilities (vulnerabilities that were not previously known to the security community) within in-scope services and products will be eligible for an award at our discretion if the report provides significant insight that assists Amazon's security teams with remediation efforts, or has not previously been identified by another researcher on our own vulnerability response program.\n\n\n## Rules of Engagement (Behavior)\n* Comply with all provisions of this policy at all times, including those regarding who can participate in VRP.\n* Test only in-scope services and products, and only test for eligible vulnerabilities. Do not test out-of-scope assets, and do not test for ineligible vulnerabilities or other out-of-scope issues.\n* Do not attempt to conduct post-exploitation: modification or destruction of data, interruption or degradation of Amazon services, and pivoting with access not normally granted.\n   * Do the minimum amount of testing necessary to identify and validate the finding. Do not perform additional testing after you have confirmed that a vulnerability exists.\n   * For any given finding, perform the necessary actions to demonstrate impact. Once the impact has been demonstrated and reported, do not attempt to reproduce the finding again unless requested by the VRP team. Amazon will work to identify the full severity of an issue on the merits of the content itself.\n      * Valid Example: A XSS issue that can be escalated with a separate CSRF issue. \n      * Invalid Example: Testing many individual instances of a single issue for the purposes of illustrating severity.\n      * Invalid Example: Finding disclosed credentials and using them to pivot.\n* Amazon employees and contractors, as well as their immediate family members are strictly prohibited from participating in this program.\n* Do not attempt to conduct post-exploitation: modification or destruction of data, interruption or degradation of Amazon services, and pivoting with access not normally granted.\n* Do not attempt to perform brute-force attacks, denial-of-service attacks that hinder Amazon in serving Customers.\n* Do not compromise or test Amazon accounts that are not your own\n    * If you encounter user information that is not your own in the course of your research, please stop and report this activity to our team so we can investigate. Please report to us what information was accessed and delete the data. Do not save, copy, transfer, or otherwise use this data. Continuing to access another person’s data may be regarded as evidence of a lack of good faith\n* Do not attempt to target Amazon employees or its customers, including social engineering attacks, phishing attacks or physical attacks\n* Do not perform any testing against assets that directly involve Amazon Employees in communication\n    * This can include support chats, even ones appearing to be automated, or Contact Us areas.\n* Do not perform physical attacks again any Amazon facility\n* Don’t do anything illegal or unethical. You are responsible for complying with local laws, restrictions, regulations, etc.\n\n**Violation of the above rules may result in forfeit of bounty eligibility, or further, disqualification from bounty program participation at Amazon’s discretion.**\n\n## Rules of Engagement (Testing) \n\n* Make sure to use the User-Agent string `audibleresearcher_yourh1username` while testing \n* Limited usage of automated scanners/tools is allowed with above User-Agent applied and scanners/tools must be configured to not send more than **5** requests per second to any particular service. \n* Please note, use of scanning tools without the User-agent string `audibleresearcher_yourh1username` may result in your account/IP getting blocked by automated protections. It can take time to reinstate these so please make sure to include it.\n* Do not use 3rd party sites when testing (for instance, XSS Hunter variants). When doing blind XSS or any testing, only utilize assets that you expressly own and control yourself. This can be done using a home-forked version of the xsshunter-express repo.\nOur concern in using 3rd party infrastructure is around exposure of vulnerability and sensitive data to said 3rd parties. Make sure that all traffic goes through domains only you have control over.\n**Not using a version hosted yourself, will result in complete forfeiture of any reward. **\n\n\n## For other Types of Issues\n\n* For unknown, suspicious, or fraudulent Purchases, orders, or credit card transactions, suspicious password changes, account changes, or potential fraud please contact [Customer Service](https://www.amazon.com/gp/help/customer/contact-us/).\n* For Amazon Web Services (AWS) related issues, please report via [click here](https://aws.amazon.com/security/vulnerability-reporting/).\n* To report Copyright Infringement related issues, please report via [click here](https://www.amazon.com/gp/help/reports/infringement).\n\n## Bypass Reports  \nIf you find a bypass of a previous report you’ve created, or we ask that you create a new report due to the content being different enough, please fill out the Custom Field `Bypass Reference` with the original ID of the finding. This has no bearing on reward, it just helps Amazon with secondary data tracking.\n\n## Creating Accounts for Vulnerability Research\n\n\nPlease create accounts using your HackerOne email to help us track security research activity. You can create accounts on Amazon by using <[yourh1username@wearehackerone.com](mailto:yourh1username@wearehackerone.com)> \n\nAlso, while testing is it required add the string `audibleresearcher_yourh1username` in your User-Agent header. You can create match and replace proxy rules in Burp by going to *Proxy* >> *Options* >> *Match and Replace* with the following options:\n**Type:** `Request header`\n**Match:** `^User-Agent.*$*` ** \n***Replace:** `User-Agent: audibleresearcher_yourh1username`*\n\n\n\n\n## Research Guidance\n\nReference HackerOne guidance on writing quality reports:\n\n* https://docs.hackerone.com/hackers/quality-reports.html\n* https://www.hacker101.com/sessions/good_reports\n\n## Responsible Disclosure Policy\n\nThank you for joining us in supporting ethical and responsible disclosure. By participating in this program, you agree not to share publicly or privately any details or descriptions of your findings with any third party. You also agree not to attempt to threaten or extort Amazon.\n\nAmazon commits to timely remediation of your findings, and prompt response to relevant questions.\n\n## Out-of-Scope\n\n**Domains**\n\n* help.audible.com\n* newsletters.audible.com\n* https://www.audiblecareers.com/\n* https://www.audible.com/ep/podcast-development-program\n* https://www.audiblehub.com/submit\n* https://www.audible.ca/blog/en\n\n**Issues**\n\n* Bitflipping, Bitsquatting\n* Security Practices where other mitigating controls exist i.e. missing security headers, etc.\n* Social Engineering, Phishing\n* Physical Attacks\n* Missing Cookie Flags\n* CSRF with minimal impact i.e. Login CSRF, Logout CSRF etc.\n* Content Spoofing\n* Stack Traces, Path Disclosure, Directory Listings\n* SSL/TLS controls where other mitigating controls exist\n* Banner Grabbing\n* CSV Injection\n* Reflected File Download\n* Reports on Out of dated browsers\n* Reports on outdated version/builds of in-scope Mobile Apps\n* DOS/DDOS\n* Host header Injection without a demonstrable impact\n* Scanner Outputs\n* Vulnerabilities on Third Party Products\n* User Enumeration\n* Password Complexity\n* HTTP Trace Method\n\n### Operational Security Issues \nThe goal of this program is to improve the security of our services for Customers. We do not reward, but will accept “Operational Security” (OpSec) submissions. OpSec issues include leaked employee passwords, leaked business documents, etc. These submissions will only receive reputation points.\n\n## Known Issues\n\n* Issues with Certificate Pinning\n* Issues with shared preference folders on Mobile\n* Issues with hardcoded api keys\n* Issues with DRM\n\n\n## Exclusions\n\nThe below specific findings will not be accepted\n\n* Crashes due to malformed Intents sent to exported Activity/Service/BroadcastReceiver\n* Lack of obfuscation\n* Absence of certificate pinning\n* Lack of jailbreak detection\n\n#Severity Examples\n|         | Vulnerability         | Severity Range         |  \n|----------                |------------                |--------                |\n| 1 | Remote Code Execution | Critical   |               \n| 2 | SQL Injection | High - Critical | \n| 3 | XXE | High - Critical | \n| 4 | XSS    | High - Critical     |\n| 5 | Server-Side Request Forgery    | Medium - Critical | \n| 6 | Directory Traversal - Local File Inclusion | Medium - High | \n| 7 | Authentication/Authorization Bypass (Broken Access Control) | Medium - High      |   \n| 8 | Privilege Escalation | Medium - High   | \n| 9 | Insecure Direct Object Reference      | Medium - High       | \n| 10 | Misconfiguration        | Low - High         | \n| 11 | Web Cache Deception | Low - Medium   |\n| 12 | CORS Misconfiguration      | Low - Medium        | \n| 13| CRLF Injection    | Low - Medium |  \n| 14 | Cross Site Request Forgery        | Low - Medium         | \n| 15 | Open Redirect        | Low - Medium      |  \n| 16 | Information Disclosure | Low - Medium   | \n| 17 | Request Smuggling | Low – Medium | \n| 18 | Mixed Content | Low |\n\nPlease note, this is not meant to be an exhaustive list, but a general guideline for what severity these issues are given.\n\n## *Legal Safe Harbor*\n\n*Amazon will not bring any legal action against anyone who makes a good faith effort to comply with program policies, or for any accidental or good faith violation of this policy. This includes any claim under the Digital Millennium Copyright Act (DMCA) for circumventing technological measures to protect the services and applications eligible under this policy.*\n\n*As long as you comply with this policy:*\nWe consider your security research to be \"authorized\" under the Computer Fraud and Abuse Act and related laws. This limited authorization does not provide you with authorization to access company data or another person’s account.\n\n* We waive any restrictions in our applicable Terms of Service and Acceptable Use Policy that would prohibit your participation in Amazon Audible in accordance with the terms of this policy, for the limited purpose of your security research under this policy.\n\nAmazon cannot authorize any activity on third-party products or guarantee they won’t pursue legal action against you. We aren’t responsible for your liability from actions performed on third parties.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.audible.(TLD)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This scope item encompasses the following domains:\n\n- \\*.audible.com\n- \\*.audible.ca\n- \\*.audible.com.au\n- \\*.audible.co.uk\n- \\*.audible.com.br\n- \\*.audible.ca\n- \\*.audible.in\n- \\*.audible.fr\n- \\*.audible.es\n- \\*.audible.co.jp\n- \\*.audible.it\n- \\*.audible.de\n\nThere are 3rd party applications within ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.audible.application",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "(https://play.google.com/store/apps/details?id=com.audible.application)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "379693831",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "(https://apps.apple.com/us/app/audible-audiobooks-podcasts/id379693831)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "newsletters.audible.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.audiblecareers.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.audible.com/ep/podcast-development-program",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.audiblehub.com/submit",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "All help centers across marketplaces",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This includes help.audible.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "All Audible blogs across marketplaces",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Examples:\n* https://www.audible.ca/blog/en\n* https://www.audible.com/blog",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Affiliate Programs",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Example:\n* https://creators.audibletrial.com\n* https://audible.targetcircle.com/signup",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tax.audible.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.acx.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "demdex.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is Adobe owned, do not send requests to this.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "omtrdc.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is adobe owned, do not send requests to this.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "adobedtm.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is adobe owned, do not send requests to this.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "acx-horizonte.audible.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

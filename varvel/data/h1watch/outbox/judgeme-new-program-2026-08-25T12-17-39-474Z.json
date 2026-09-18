@@ -1,0 +1,92 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "judgeme",
+      "name": "Judge.me ",
+      "offersBounties": true,
+      "assets": [
+        "bigcommerce-adapter.judge.me",
+        "cache.judge.me",
+        "https://judge.me/reviews",
+        "insights.judgeme.dev",
+        "judge.me",
+        "shop.judge.me",
+        "woocommerce-adapter.judge.me"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Automated scanning is prohibited"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\judgeme-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "judgeme",
+  "name": "Judge.me ",
+  "url": "https://hackerone.com/judgeme",
+  "policy": "Security is top priority at Judge.me. We constantly release new features and no system is perfect. We look forward to working with the security community around the world to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nJudge.me  will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 15 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Automated scanning is prohibited as it almost certainly doesn't reveal any vulnerabilities, while strips many of our system alerts and may negatively affect our system's performance.\n* Do not write test reviews on our customer websites, instead, write reviews on your test store, or on [one of our test stores](https://judgeme-pentest.myshopify.com/).\n* Do not write test reviews on the app store of ecommerce platforms since this may violate the platform's policy.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Test Plan\nYou can create a test account on your own easily using the following instructions. Please ensure that you register accounts using your @wearehackerone email alias.\n\nThere are two types of users in our system: `Reviewer` (aka Buyer) and `Shop` (aka Merchant). \n\n### Reviewer\n- **To register**: simply use your email to write a review on any [product page](https://judgeme-pentest.myshopify.com/products/pentest) with our review widget on.\n- **To log in**: fill in your email in our [login page](https://judge.me/login) and we will send you an email with magic link to log in.\n\n### Merchant\n\n#### **To register**:\n1. Create a [Shopify Partner account](https://www.shopify.com/partners). A Shopify Partner account can have unlimited number of Shopify development stores.\n2. Within your Shopify Partner account, create [a development store](https://help.shopify.com/en/partners/dashboard/managing-stores/development-stores#create-a-development-store-for-testing-apps-or-themes)\n3. Go to our [login page](https://judge.me/login), fill in your Shopify domain (e.g. `xxx.myshopify.com`), accept a few steps (don't forget to check the terms and the app permissions ;).\n4. Optionally, you can upgrade to our [Awesome paid plan](https://judge.me/awesome). It will be free (the charge will be just a test charge) as our apps are \"partner-friendly\" (meaning any Shopify development store can upgrade for free).\n\n#### **To log in**: \nSimply go to the Apps page in your Shopify store Admin (e.g. `xxx.myshopify.com/admin/apps`), and click on our apps.\n\n# Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Judge.me.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Self-XSS which is not directly exploitable or would require convincing the user to copy/paste the JavaScript payload\n* Text injection or Content spoofing in our 404-not-found page ([example](https://hackerone.com/reports/1421413))\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. application or server errors).\n* Disclosure of server or software version numbers\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Judge.me and our users safe!\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "judge.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the core part of our system. It hosts our main app [Judge.me Product Reviews](https://apps.shopify.com/judgeme) and is also the central point of communication for other assets.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://judge.me/reviews",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our new product. It is user (reviewer) facing, unlike the other assets, which are merchant facing. Its entry point is https://judge.me/reviews, and its pages are prefixed with https://judge.me/reviews.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shop.judge.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is lightweight, basically just to connect our other Shopify apps to our main asset ​https://judge.me/.\n\nIts entry point is https://shop.judge.me/login?app_key=ali_reviews or https://apps.shopify.com/aliexpress-review-importer",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "woocommerce-adapter.judge.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a simple, lightweight server, basically just to connect Wordpress websites (specifically WooCommerce websites) to our main asset ​https://judge.me/.\n\nIts entry point is from installing our Wordpress plugin: https://wordpress.org/plugins/judgeme-product-reviews-woocommerce/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bigcommerce-adapter.judge.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a simple, lightweight server, basically just to connect BigCommerce websites to our main asset ​https://judge.me/.\n\nIts entry point is from installing our BigCommerce  app: https://www.bigcommerce.com/apps/product-reviews-by-judge-me/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cache.judge.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a simple NodeJS server, using Hapi framework. It's basically to store and cache our public widgets' HTML content, so that when end users want to fetch our widget content, they can fetch from this server directly, which is faster and more resilient to spikes in number of requests.\n\nPlease see",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "insights.judgeme.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

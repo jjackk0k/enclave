@@ -1,0 +1,84 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "razorpay",
+      "name": "Razorpay",
+      "offersBounties": true,
+      "assets": [
+        "api.razorpay.com",
+        "checkout.razorpay.com",
+        "dashboard.razorpay.com",
+        "invoices.razorpay.com",
+        "payroll.razorpay.com",
+        "x.razorpay.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "DO NOT use automated tools or scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\razorpay-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "razorpay",
+  "name": "Razorpay",
+  "url": "https://hackerone.com/razorpay",
+  "policy": "Razorpay looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nRazorpay will make the best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on the severity of the bug |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please use your username@wearehackerone.com email address for registration where the username is your HackerOne username.\n* Include a custom HTTP header in all your traffic. (Burp and other proxies allow easy automatic addition of headers to all outbound requests.) A header that includes your username: X-Bug-Bounty: HackerOne-<username>\n* **DO NOT use automated tools or scanners**. Reports as such will be closed as N/A.\n* Never use a finding to compromise/exfiltrate data or pivot to other systems. Use a proof of concept only to demonstrate an issue. Post-exploitation should not be performed. (E.g., in case of a code execution found, stop and report)\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (Eg. phishing, vishing, smishing) is prohibited.\n* Make good faith and effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Consequences of complying with this policy\n* We will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy.\n* We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act. We will not bring a DMCA claim against you for circumventing the technological measures we have used to protect the applications in scope.\n* If legal action is initiated by a third party against you and you have complied with Razorpay’s bug bounty policy, Razorpay will take steps to make it known that your actions were conducted in compliance with this policy.\n \n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n* Issues without clearly identified security impacts such as missing security headers.\n* Role-Based Access Control (RBAC) issues and privilege escalation between different role levels\n* Clickjacking and issues only exploitable through clickjacking\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring Man In The Middle (MITM) or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints and issues without impact\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers (Less than 2 stable versions behind the latest released stable version)\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (Eg. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Price manipulation WITHOUT SUCCESSFUL TRANSACTION\n* Any services hosted by 3rd party providers and services not provided by Razorpay\n* IDOR references for objects that you have permission to access\n* Missing CAA headers\n* Vulnerabilities requiring physical access to the victim's unlocked device.\n* DOM Based Self-XSS and issues exploitable only through Self-XSS.\n* Reports of spam\n* Reports that require social engineering/phishing\n* Subdomain takeover\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Razorpay and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "dashboard.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Signup Workflow: https://razorpay.com/docs/payments/sign-up/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reference:\nhttps://razorpay.com/docs/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "checkout.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Payment Workflow: https://razorpay.com/docs/payments/dashboard/test-live-modes/\nReference:\nhttps://razorpay.com/docs/\nhttps://razorpay.com/docs/payments/payments/test-card-upi-details/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "invoices.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reference:\nhttps://razorpay.com/docs/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "payroll.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Doc - https://razorpay.com/docs/x/xpayroll/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "x.razorpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Docs - https://razorpay.com/docs/x",
+      "max_severity": "critical"
+    }
+  ]
+}

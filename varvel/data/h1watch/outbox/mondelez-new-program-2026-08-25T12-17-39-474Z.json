@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mondelez",
+      "name": "Mondelēz International",
+      "offersBounties": false,
+      "assets": [
+        "alpengold.me",
+        "cadbury.co.uk",
+        "cadbury.com.au",
+        "cadbury.ie",
+        "cocoalife.org",
+        "contactus.mdlzapps.com",
+        "fattorieosella.it",
+        "fcmilka.de",
+        "fun.cadbury.co.uk",
+        "ir.mondelezinternational.com",
+        "milka.ru",
+        "mmmax.milka.at",
+        "mmmax.milka.de",
+        "mondelezinternational.com",
+        "oreo-la.com",
+        "oreo.com",
+        "oreo.eu",
+        "oreo.ru",
+        "perfectsnacks.com",
+        "philadelphia-professional.de",
+        "ticketing.cadburyfc.com",
+        "www.cadbury.com.au",
+        "xn--80abwto.xn--p1ai"
+      ],
+      "exclusions": [
+        "bot.cadburygifting.in",
+        "www.cadburygifting.in"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mondelez-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mondelez",
+  "name": "Mondelēz International",
+  "url": "https://hackerone.com/mondelez",
+  "policy": "# Introduction\nMondelēz International takes vulnerability disclosures seriously and appreciates the security researchers’ efforts. Mondelēz International is committed to establishing a transparent and open communication with researchers.\n\nThe Purpose of the Vulnerability Disclosure Policy (VDP) is to give security researchers clear guidelines for conducting vulnerability research, discovery, and reporting against Mondelēz International systems.\n \nMondelēz International accepts vulnerability findings from various sources such as independent security researchers, industry partners, or customers. Mondelēz defines a vulnerability as a technical flaw or weakness found in a system that can be leveraged to compromise the confidentiality, integrity, or availability of Mondelēz International products, services, and data. Please see the rules of engagement for security researchers below.\n \n# Legal Authorization (Safe Harbor)\nIf all the associated guidelines highlighted in this policy are followed during the security research, Mondelēz International will consider the research to be authorized, and will look to collaborate to understand any discovered issues quickly. Mondelēz International will not recommend or pursue legal action against authorized activities that are in accordance with this policy.\n\n # Test Instructions\nWhen testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. Please do the following when participating in Mondelez VDP Program:\n  *Where possible, register accounts using your <HackerOne-username>+x@wearehackerone.com addresses. (see https://docs.hackerone.com/hackers/hacker-email-alias.html )\n  *Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n* No credentials are required or provided for this program. If you self-register for any accounts, please register with your **@wearehackerone.com** email address. You may not use exposed credentials to continue testing without written consent from Mondelēz International.\n  *Include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily.\n  *Identifier: Your HackerOne Username\n  *Format: X-Mondelez-VDP: HackerOne-<HackerOne-username>\n  *Example: X-Mondelez-VDP: HackerOne-H4x0r\n* ==Always tag your traffic, and  list your IP in the submission form.==\n\n# Submitting a Report\n* Notify us immediately upon discovery of any real security issues. \n* HackerOne will acknowledge that the submission was received within two (2) business days of the submission date. (Requires contact information. We cannot communicate with anonymous submissions).\n* HackerOne will validate steps to reproduce, proof of concept, and severity. Further details may be requested to properly triage the submission. Below are details requested to assist with triaging the reported finding:\n \t* URL\n \t* Vulnerability description\n \t* Potential impact of the issue reported\n \t* Step-by-step re-production instructions including technical details\n \t* Any proof-of-concept code that is used\n \t* Remediation or mitigation steps for the reported issue\n* Any tools utilized to detect the issue\n \t \n# Rules of Engagement\nSecurity researchers **must** carry out the following activities:\nDO:\n* Notify us immediately upon discovery of any real or potential security issues\n* Discard and purge any stored Mondelēz International data upon reporting a vulnerability finding\n\n# Out-of-Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* Self XSS\n* Unauthenticated/logout/login CSRF\n* Attacks requiring MITM or physical access to a user's device\n* Any activity that could lead to the disruption of our service (DoS)\n* Missing best practices in SSL/TLS configuration\n* Content spoofing and text injection issues WITHOUT showing an attack vector/without being able to modify HTML/CSS\n* Publically-known Zero-day vulnerabilities will not be considered for eligibility until more than 30 days have passed since patch availability.\n\nSecurity researchers **must not** carry out the following activities:\nDO NOT:\n* Test any systems not specified in Appendix A: In-scope systems.  \n* Conduct any testing that may disrupt, impair, or disable Mondelēz International systems (e.g. DoS, DDoS).\n* Engage in social engineering of Mondelēz International employees, contractors, and customers.\n* Physically test any facilities or resources (e.g., office access, tailgating), send any unsolicited or social engineering mail to any Mondelēz International users (e.g., phishing, vishing).\n* Exploit any vulnerability beyond the minimal amount of testing required to identify an indicator related to the vulnerability.\n* Compromise, copy or exfiltrate any data from any systems.\n* Test any third-party websites, applications, or services that integrate with or link to/from Mondelez International systems.\n* Carry on with the testing if you find vulnerabilities involving sensitive data, including personally identifiable information or proprietary data. In this case, you must stop your test and notify us immediately and you must not disclose this data to anyone.\n* Discuss this program or any vulnerabilities (even resolved ones) outside of the program without express written consent (including via email) from Mondelēz International. \n \n#Processing Expectations\nUpon submission of the finding, the Mondelēz International team will:\n* Acknowledge that the submission was received within two (2) business days of the submission date.\n* Collaborate to validate and resolve reported vulnerability findings.\n \nThank you for helping keep our company and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "mondelezinternational.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.cadbury.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ir.mondelezinternational.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cadbury.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fun.cadbury.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mmmax.milka.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oreo.eu",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alpengold.me",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ticketing.cadburyfc.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oreo-la.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "xn--80abwto.xn--p1ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cocoalife.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fcmilka.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cadbury.ie",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "contactus.mdlzapps.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "milka.ru",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "perfectsnacks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bot.cadburygifting.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.cadburygifting.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fattorieosella.it",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mmmax.milka.at",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oreo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oreo.ru",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "philadelphia-professional.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cadbury.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hack_the_box",
+      "name": "Hack The Box",
+      "offersBounties": false,
+      "assets": [
+        "api.jobs.hackthebox.com",
+        "https://academy.hackthebox.com/",
+        "https://account.hackthebox.com",
+        "https://app.hackthebox.com/",
+        "https://ctf.hackthebox.com",
+        "https://enterprise.hackthebox.com",
+        "https://jobs.hackthebox.com/",
+        "https://status.hackthebox.com/",
+        "labs.hackthebox.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hack_the_box-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hack_the_box",
+  "name": "Hack The Box",
+  "url": "https://hackerone.com/hack_the_box",
+  "policy": "The following summary outlines key rules and expectations but does not substitute the official [VDP Terms](https://resources.hackthebox.com/hubfs/Legal/Compliance/VDPTC.pdf), which you are required to read in full before engaging in any testing activity.\n\nParticipation in this Vulnerability Disclosure Program is strictly subject to your acceptance and continuous compliance with the full [VDP Terms](https://resources.hackthebox.com/hubfs/Legal/Compliance/VDPTC.pdf), which are legally binding and take precedence over any summary or guidance provided here.\n\nBy initiating any testing or submitting a report, you confirm that you have read, understood, and agreed to be bound by the latest version of the [VDP Terms](https://resources.hackthebox.com/hubfs/Legal/Compliance/VDPTC.pdf).\n\n# Program Scope\n\nHack The Box authorizes vulnerability research only on systems that it directly owns and operates. Testing is permitted exclusively on assets explicitly listed as in-scope. Any activity beyond this scope is strictly prohibited and not protected by Safe Harbor.\n\nThe following are considered in-scope assets:\n\n- [academy.hackthebox.com](https://academy.hackthebox.com) \n- [app.hackthebox.com](https://app.hackthebox.com) \n- [labs.hackthebox.com](https://labs.hackthebox.com) \n- [enterprise.hackthebox.com](https://enterprise.hackthebox.com) \n- [ctf.hackthebox.com](https://ctf.hackthebox.com) \n- [account.hackthebox.com](https://account.hackthebox.com) \n- [jobs.hackthebox.com](https://jobs.hackthebox.com) \n- [api.jobs.hackthebox.com](https://api.jobs.hackthebox.com) \n- [status.hackthebox.com](https://status.hackthebox.com)\n\nAll other systems, subdomains, integrations, or services—including third-party tools or unlisted assets—are out-of-scope and must not be tested.\n\n# Testing Rules (What’s Allowed)\n\n- Use only your own personal HTB account\n- Respect the platform – no abuse, persistence, or lateral movement\n- Minimize impact – test only to the extent required to prove risk\n- Communicate respectfully and professionally\n- Ask for clarification on edge cases via [HackerOne Platform](https://hackerone.com/hack_the_box)\n- Comply with all prohibited actions below\n\n# Strictly Prohibited Activities\n\n- Testing systems or services not explicitly listed as in-scope, including unlisted subdomains, external platforms, third-party tools, and services not operated by Hack The Box.\n- Accessing, interacting with, or simulating other users’ accounts, data, or sessions, including mimicking customer environments or generating synthetic data that resembles real user activity.\n- Submitting, storing, or including any sensitive data (e.g., credentials, cookies, tokens, logs, personal data) in reports, communications, or third-party tools.\n- Performing any action—manual or automated—that disrupts, degrades, or impairs the performance, availability, or functionality of Hack The Box services or infrastructure, including:\n\t- DoS attacks\n\t- Credential stuffing, brute-force attacks, or rate abuse\n\t- Automated scanning, crawling, or fuzzing without prior written authorization\n\t- Automated account creation or script-driven interactions (bots)\n- Engaging in social engineering, phishing, pretexting, impersonation, or other deceptive behaviors targeting individuals, staff, or systems.\n- Attempting to physically access Hack The Box premises, equipment, infrastructure, or networks.\n- Uploading credentials, tokens, or other secrets to third-party repositories, tooling platforms, pastebins, or external services.\n- Violating applicable laws or regulations, or engaging in any conduct that creates legal, operational, reputational, or security risks for Hack The Box, its users, or its partners.\n\n# Valid Findings\n\nWe welcome high-impact, well-documented reports that affect in-scope assets and demonstrate a clear, real-world security impact. Focus areas include vulnerabilities that:\n\n- Allow unauthorized access to accounts, data, or internal systems\n- Break authentication or session mechanisms\n- Escalate privileges or bypass user boundaries\n- Exploit flawed business logic or access control\n\nValid examples include (but are not limited to):\n\n- Remote Code Execution (RCE)\n- SQL Injection (SQLi)\n- Server-Side Request Forgery (SSRF)\n- Authentication bypass or session issues\n- Privilege escalation\n- IDOR, XSS, CSRF\n- Business logic abuse\n- Unauthorized admin access\n\nWe do not accept:\n\n- Theoretical or low-risk issues\n- Duplicate or previously known bugs\n- Scanner output with no proof-of-impact\n- Anything listed in [HackerOne’s Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings)\n\nPlease ensure your submission includes clear steps to reproduce, evidence of impact, and relevant context. We prioritize quality and actionable reports.\n\n# Report Quality\n\nReports must be clear, complete, and reproducible.\n\n- Include:\n\t- A concise title\n\t- Step-by-step reproduction (URLs, roles, payloads, etc.)\n\t- Expected vs. actual behavior\n\t- Real-world impact\n\t- Supporting evidence (PoC, screenshots, logs)\n- Submit one report per issue (unless chaining is essential)\n- Group related bugs only if they share a root cause\n- First valid report gets recognition\n- Follow:\n\t- [HackerOne Quality Reports Guide](https://docs.hackerone.com/en/articles/8475116-quality-reports)\n\t- [Hacker101 Session: Writing Good Reports](https://www.hacker101.com/sessions/good_reports)    \n\n# Timelines\n\nWe aim to:\n\n- Acknowledge valid reports within 5 business days\n- Provide initial status updates within 10 business days\n- Coordinate disclosure within 90 days where feasible\n\n\n# Safe Harbor\n\nWe align with [Gold Standard Safe Harbor](https://docs.hackerone.com/en/articles/8494525-gold-standard-safe-harbor-statement) (relevant [FAQ](https://docs.hackerone.com/en/articles/8494502-safe-harbor-faq)):\n\nAs long as you act in good faith, follow the [VDP Terms](https://resources.hackthebox.com/hubfs/Legal/Compliance/VDPTC.pdf), and stay within scope, we will:\n\n- Not take legal action against you\n- Not suspend your HTB account\n- Affirm the research as Good Faith Security Research if questioned by a third party\n\nSafe Harbor does not apply if you fail to comply with applicable laws or [VDP Terms](https://resources.hackthebox.com/hubfs/Legal/Compliance/VDPTC.pdf).",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://academy.hackthebox.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://account.hackthebox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ctf.hackthebox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://enterprise.hackthebox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://app.hackthebox.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://jobs.hackthebox.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://status.hackthebox.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "labs.hackthebox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.jobs.hackthebox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

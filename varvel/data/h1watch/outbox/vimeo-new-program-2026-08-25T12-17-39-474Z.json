@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "vimeo",
+      "name": "Vimeo",
+      "offersBounties": true,
+      "assets": [
+        "*.cloud.vimeo.com",
+        "*.vhx.tv",
+        "*.vimeo.com",
+        "1491791513",
+        "425194759",
+        "api.vhx.tv",
+        "api.vimeo.com",
+        "checkout.vimeo.com",
+        "com.vimeo.android.videoapp",
+        "com.vimeocreate.videoeditor.moviemaker",
+        "embed.vhx.tv",
+        "http://vimeo.com/api",
+        "http://vimeo.com/create",
+        "http://vimeo.com/ondemand",
+        "player.vimeo.com",
+        "vhx.tv",
+        "vimeo.magisto.com",
+        "vimeopro.com",
+        "www.vimeo.com"
+      ],
+      "exclusions": [
+        "*.email.vimeo.com",
+        "*.wibbitz.com",
+        "*.wirewax.app",
+        "*.wirewax.com",
+        "All",
+        "vimeo.atlassian.net"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "DO NOT use automated tools or scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\vimeo-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "vimeo",
+  "name": "Vimeo",
+  "url": "https://hackerone.com/vimeo",
+  "policy": "#Vimeo's Bug Bounty Program Policy\n\nVimeo engineers are committed to ensuring the safety and security of our site and users. We greatly respect the work of security experts and strive to stay up-to-date with the latest security techniques. However, we acknowledge that no system is infallible. If you identify a security vulnerability in one of our products, we encourage you to report it to us.\n\nBefore submitting a report, please review our guidelines below to understand what constitutes a security vulnerability and our preferred reporting methods. We are committed to evaluating and resolving all valid bugs promptly after a report is filed.\n\nBounties are awarded based on merit at our discretion.\n\n &nbsp;\n &nbsp;\n\n# Table of Contents\n* [About Vimeo](#user-content-about-vimeo)\n* [Rules](#user-content-rules)\n* [Rules for us](#user-content-rules-for-us)\n* [Triage and Payout Process](#user-content-triage-and-payout-process)\n* [Criteria for premium accounts](#user-content-criteria-for-premium-accounts)\n* [Qualifying vulnerabilities (in-scope)](#user-content-qualifying-vulnerabilities-in-scope)\n* [Recommended features for increased focus](#recommended-features)\n* [Non-qualifying vulnerabilities (out-of-scope)](#user-content-non-qualifying-vulnerabilities-out-of-scope)\n* [Disclosure Policy](#user-content-disclosure-policy)\n* [Safe Harbor](#user-content-safe-harbor)\n \n &nbsp;\n &nbsp;\n\n# About Vimeo\n\nVimeo is a platform for video creation, hosting, sharing, and streaming, with features like a Video Player, Live Streaming, and Vimeo OTT. We have many similarities to YouTube, but our revenue model is completely different (eg. our videos are ad-free, we charge content creators, etc.). \n\nOur company has 6 different components:\n- vimeo.com\n- vhx.tv (also known as \"OTT\")\n- magisto.com \n- livestream.com — **out-of-scope\n- wirewax.com — **out-of-scope**\n- wibbitz.com — **out-of-scope**\n\nPlease note that, previously, Vhx, Magisto, and Livestream each had their own separate bug bounty programs within HackerOne. We have now merged those three programs into the main Vimeo program.\n\n\n#Rules\n\n**Requirements for your submission to be eligible for a bounty reward:**\n- **You must demonstrate a vulnerability with proof/evidence.** When hunting for bugs and when providing evidence, please only use your own accounts. Do not use or access other people’s data or accounts at any time.\n- **You must be the “first reporter.”** Please understand that we have an active security team that does regular internal testing and contracts out for pentests often. As such, we often find and fix issues on our own. If our internal security team or our pentesters or our developers happen to find the same issue before you find it, they will count as the “first reporter” and your report will be considered a duplicate.\n- **The underlying issue must be unique**, ie. multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- **Your report must be in scope.** Please look over the scope table at the end of this policy before submitting a report. We want to help reduce your risk of submitting an out-of-scope report that could hurt your Signal, as well as reduce noise in our inbox.\n\n\n**Suggestions to ensure fast processing and maximum bounty:**\n- Communicate respectfully and professionally at all times\n- Provide detailed reproducible steps. This is important.\n- Explain the potential impact\n- Submit only one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n- We highly recommend that you sign up for any throwaway accounts using your *@wearehackerone.com*  email address. [Learn more here](https://docs.hackerone.com/hackers/hacker-email-alias.html). This helps us distinguish between bug bounty hunters and actual malicious actors. We’ll be less likely to flag or suspend your Vimeo account(s).\n- We strongly encourage providing a video POC for each finding, although it is not required. If you do provide one, please upload the video in a file format that is supported by the [H1 embedded player](https://docs.hackerone.com/programs/using-markdown.html#inline-images-and-video) (e.g. `.mp4`, `.mov`, `.webm`, etc, but not `.avi`).\n\n**Your report does not necessarily need to include a full exploit.** Did you come across a spicy bug that has a good impact, but you’re missing one or two pieces needed to complete the exploit? Send it our way, we’d be happy to take a look and might even consider it without it being fully complete.\n\n# Dont's\n\n- **DO NOT use automated tools or scanners.** Reports as such will be closed as N/A.\n- **DO NOT DDoS** or otherwise attack us in a way that would disrupt service for our customers.\n- **DO NOT disclose** or discuss any vulnerability, even resolved ones, outside of the program at any time without express consent from Vimeo. Please see our Disclosure Policy below for instructions on requesting permission for disclosure. \n- **DO NOT attempt to access other people's private data or accounts.** Basic Vimeo accounts are free, so setting up example cases with throwaway accounts should be easy.\n- **Do NOT attempt to conduct post-exploitation**: modification or destruction of data, interruption or degradation of services, and pivoting with access not normally granted.\n\n &nbsp;\n &nbsp;\n\n#Rules for us\nVimeo and HackerOne will make their best efforts to meet the following SLAs for hackers participating in our program:\n- HackerOne aims to complete initial triage within 2 days after you submit your report\n- Vimeo will complete the final triage within 3 business days after the H1 triage\n- Vimeo will award the full bounty immediately once we confirm that it’s not a duplicate and we intend to fix it\n &nbsp;\n &nbsp;\n\n#Triage and Payout Process\nVimeo is a HackerOne-managed program. HackerOne currently has a commitment to complete initial triage within 2 days after you submit your report. Once they finish the initial triage, they will pass the report back to Vimeo so that we may conduct the final triage. Items in the *Triaged* state alone will NOT be considered accepted until Vimeo makes a final decision, which we will signify with a full bounty payout.\n\nPlease be aware that, even if the HackerOne team has triaged a ticket, the Vimeo team may potentially close the ticket at any time with no payout, eg. if we discover that it is a duplicate or if we decide not to fix the issue. Further note that if the report is a duplicate, we may potentially not provide any links to the original ticket, especially if the original reporter would prefer that their report be kept private or if the original ticket exists within our internal ticketing system.\n\n &nbsp;\n &nbsp;\n\n# Criteria for premium accounts\nBasic Vimeo accounts are free, but Vimeo offers additional features to our customers via our [paid plans](https://vimeo.com/upgrade). We’d like to give our bug bounty researchers access to these paid plans free of charge so that they may test all the extra functionality that is available only in those plans.\n\nTo be eligible for a paid account, you must meet at least one of the following qualifications:\n\n| Plan Tier                        | Access Period  | Qualification Criteria                          |\n|----------------------------------|----------------|-------------------------------------------------|\n| Advanced ( standard or starter)  | 180 Days       | 2 Medium or 1 High severity submissions         |\n\n\n\nNote: The plan will be activated only on a 2 HackerOne alias account. If you believe you have met the criteria, please submit the form and await our response.\nForm link : https://forms.gle/88UEMuwVKfyuGpeVA \n\n &nbsp;\n &nbsp;\n\n#Qualifying vulnerabilities (in-scope) \nPlease take the time to provide a clear proof of concept that shows how a particular vulnerability is exploitable. You must be able to reproduce the issue on request with your account(s). Use the following table to categorize security issues. \n\nHowever, note that your report does not necessarily need to include a full exploit. Did you come across a spicy bug that has a good impact, but you’re missing one or two pieces needed to complete the exploit? Send it our way — we’d be happy to take a look and might even consider it without it being fully complete.\n\n*Note: Non-listed vulnerabilities may also be eligible. Some vulnerability types may fall under a variety of severity ratings determined by the scope/scale of exploitation and impact.*\n\n\n| Severity (Minimum) | Severity (Maximum) | Vulnerability Type                                         | Bug Examples                                                                                              |\n|--------------------|--------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|\n| Critical           | Critical           | OS Shell Execution                                       | Remote Code Execution; Code Injection; OS Command Injection                                                 |\n| Medium             | Critical           | SQL Injection                                            | SQL Injection (Inband SQLi; Blind SQLi)                                                                     |\n| Medium             | Critical           | Server-Side Request Forgery                              | SSRF (unrestricted); Content-Restricted SSRF; Error-based SSRF (true/false); Blind SSRF                     |\n| Medium             | Critical           | Improper Restriction of XML External Entity Reference    | XXE                                                                                                         |\n| Medium             | Critical           | Uncontrolled Format String                               | Insecure Deserialisation                                                                                    |\n| Medium             | High               | Inconsistent Interpretation of HTTP Requests             | HTTP Request Smuggling                                                                                      |\n| Medium             | High               | Cross-Site Scripting                                     | Different type of XSS                                                                                       |\n| Low                | Medium             | Download of Code Without Integrity Check                 | S3 Bucket Upload                                                                                            |\n| Low                | Critical           | Incorrect Authorization                                  | Authorization Bypass; Account Takeover                                                                      |\n| Low                | Critical           | Information Exposure                                     | Exposure of PII; Credentials on GitHub; Confidential Information Exposure                                   |\n| Low                | Critical           | Missing Authentication for Critical Function             | Exposed Administrative Interface                                                                            |\n| Low                | Critical           | Inclusion of Functionality from Untrusted Control Sphere | Server Side Includes Injection; Local File Inclusion; Directory Traversal                                   |\n| Low                | Critical           | Incorrect Permission Assignment                          | IDOR; Horizontal Privilege Escalation; Vertical Privilege Escalation                                        |\n| Low                | High               | Cross-Site Request Forgery                               | State-Changing CSRF; Non-State-Changing CSRF                                                                |\n| Low                | High               | Misconfiguration                                         | Subdomain Takeover; Dangling DNS Record                                                                     |\n| Low                | Medium             | CRLF Injection                                           | CRLF Injection                                                                                              |\n\n &nbsp;\n &nbsp;\n\n# Recommended features for increased focus\n We recommend that researchers prioritize their efforts on the core features provided within our upgrade plans. You can find more information about these features at the following links:\n - Vimeo: https://vimeo.com/upgrade-plan\n - Vimeo enterprise\n - Magisto: https://www.magisto.com/account/upgrade\n - Vimeo AI features ( Enterprise tier)\n\n# Non-qualifying vulnerabilities (out-of-scope)\n- User enumeration\n- Open redirect (Unless chained to show an impact)\n- Reports from automated tools or scans\n- Missing rate limits, unless it can lead to account takeover\n- Vulnerabilities affecting subdomains that resolve to third‑party or externally hosted services (e.g., billing.vimeo.com, help.vimeo.com).\n- Missing cookie flags on non-sensitive cookies\n- Logout CSRF attacks (unless chained to show an impactful exploit)\n- Reports of insecure SSL/TLS ciphers (unless you have a working proof of concept -- and not just a report from a scanner)\n- Reports of insecure crossdomain.xml configuration (again, unless you have a working proof of concept and not just a report from a scanner)\n- Reports of window.opener redirects\n- Open SMTP redirects (just because it looks like you can use our servers doesn't mean it's true-- unless you have a PoC)\n- Email-related attacks including spoofing or any issues related to SPF, DKIM or DMARC\n- Clickjacking on static websites\n- Content spoofing/text injection\n- Use of a known vulnerable library (without evidence of exploitability)\n- Vulnerabilities affecting users of outdated browsers or platforms\n- Social engineering and Man-in-the-Middle attacks\n- Missing HTTP security headers (unless you deliver a proof of concept that leverages their absence)\n- Self-XSS \n- Denial of service attacks, do not perform them.\n- 3rd party sites used by Vimeo.\n- Subdomain takeovers where someone has signed up for an account, forwarded to an external site that doesn't exist/can be compromised\n- RCE on sites that link or are redirected from Vimeo.\n- Exploits that require the attacker to have access to the user’s device or external account (phone, laptop, email, 2FA token, etc)\n- Issues where the user’s device or account (phone, laptop, email, etc) has been rooted, malwared, bot'd, etc.\n- Google Maps API key exposure, unless it is allowing you to interact with any other google services.\n- Stack traces or path disclosures (without sensitive data).\n- Banner and Version grabbing.\n- CSV injection and Host header Injection ( without any server side impact ).\n- Broken link hijacking on customer's VHX subdomains.( for eg: `customername.vhx.tv`).\n- Login spoofing with @vimeo.com or @vhx.tv.\n- Autologin token reuse.\n- Public 0-day/1-day vulnerabilities known to team within 15 days of the disclosure.\n- IDOR on UUID (or randomly generated alphanumeric IDs with a length of 16+ characters), unless there is a proven method to retrieve Vimeo asset UUIDs or random generated id's.\n- Fake card or BIN-based payment bypass.\n- Pre-account signup and account lockout.\n- Credential leaks from personal/external sources.( unless there is an exposure of @vimeo.com and @vhx.tv)\n- Username and userid exposure (  private mode )\n- No Lockout on Login/Forget Password bruteforce.\n\n &nbsp;\n &nbsp;\n\n#Disclosure Policy\nVimeo understands that disclosure helps the infosec community and strengthens your professional reputation.\n \n###Rules\n \n- If you wish to disclose a specific issue, you must receive explicit prior approval from Vimeo.\n- Please do not discuss any vulnerabilities, even resolved ones, outside of the program at any time without express consent from Vimeo.\n \n###How to request permission\nPlease request permission for disclosure by commenting on the report within HackerOne, and we’ll kick off an internal disclosure process promptly.\n \n###Restrictions\n- Vimeo reserves the right to approve or deny any request for disclosure for any reason and at our sole discretion.\n- Only Resolved reports requested by the original reporter are eligible for disclosure. All other reports (Informative, NA, Spam) are not eligible for disclosure of any kind, in or outside the HackerOne platform.-\n- Duplicate reports are not eligible for disclosure. Only the original reporter is eligible for disclosure\n \nShould a researcher break any disclosure or program policies, that researcher shall no longer be protected under Safe Harbor and will be subject to legal action at our discretion. Furthermore, failure to comply with these rules may result in a program ban for all company properties.\n \nIn addition to these rules, please also follow [HackerOne's disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n\n &nbsp;\n &nbsp;\n\n# Safe Harbor\nThank you for helping Vimeo, Inc. and its subsidiaries (“Vimeo”). Vimeo provides this Safe Harbor Statement to encourage and facilitate research using HackerOne’s bug bounty program to help us identify bugs and vulnerabilities.\n\nWe authorize access to our owned-and-operated systems, services, and applications for the purpose of conducting research consistent with HackerOne’s then-current policies. We will not consider your good faith activities in this regard to violate applicable criminal or civil laws (even if those activities inadvertently exceed the scope of our authorization), such as the Digital Millennium Copyright Act or Computer Fraud and Abuse Act, and we will not commence legal action with respect to such activities.\n\nIf legal action is commenced against you as a result of your good faith activities, Vimeo will take steps to make it known to parties commencing such action that your activities were conducted in accordance with this Safe Harbor Statement.\n\nTo the extent that our applicable online terms of service are inconsistent with this Safe Harbor Statement, then this Safe Harbor Statement shall control.\n\nPlease note that this Safe Harbor Statement does not extend to systems, services, and applications that we do not control.\n\nWe encourage you to contact us if you have questions regarding the scope of this Safe Harbor Statement. You may do so through HackerOne or by emailing us at bugbounty@vimeo.com.\n\n**Thanks for helping us fight the good fight!**\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.vimeo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "player.vimeo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.vimeo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cloud.vimeo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Upload endpoints such as \\ *.cloud.vimeo.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vimeopro.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Vimeo Pro portfolios hosted on vimeopro.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://vimeo.com/ondemand",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Vimeo On Demand hosted sites: https://vimeo.com/ondemand",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://vimeo.com/api",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Legacy API endpoints such as vimeo.com/api",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "425194759",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vimeo.android.videoapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vimeo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "See scope/program for more definitive information. Does not include 3rd parties under vimeo.com domain names. Subject to realization we missed one.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "checkout.vimeo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is an S3 bucket behind a CDN. We will be responsible for things WE can control about this (Content, S3 permissions, CDN headers, etc). For items beyond our control, those are not in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.email.vimeo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "All",
+      "asset_type": "WINDOWS_APP_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "No MS versions will be accepted.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://vimeo.com/create",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vimeo.magisto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only as it integrates with Vimeo. For anything about it itself, please report on the Magisto program",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vimeocreate.videoeditor.moviemaker",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1491791513",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vimeo.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Although it has the name VIMEO, this is not our instance.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.wirewax.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not perform any testing on these assets.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.wirewax.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not perform any testing on these assets.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.wibbitz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not perform any testing on these assets.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vhx.tv",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The VHX homepage at vhx.tv redirects to a login page at ott.vimeo.com. Please submit these reports to the VHX program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "embed.vhx.tv",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.vhx.tv",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vhx.tv",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**EXCEPT for community.vhx.tv, 3rd party sites and EXCEPT a single-customer configured site**\n\nThe vulnerability must affect every site in order to be valid.",
+      "max_severity": "critical"
+    }
+  ]
+}

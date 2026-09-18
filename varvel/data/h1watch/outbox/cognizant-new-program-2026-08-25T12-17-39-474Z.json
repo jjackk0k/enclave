@@ -1,0 +1,251 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "cognizant",
+      "name": "Cognizant",
+      "offersBounties": false,
+      "assets": [
+        "10th Magnitude",
+        "Advanced Technology Group (ATG)",
+        "Belcan",
+        "Brilliant Services",
+        "Cognizant Health Sciences",
+        "Cognizant Mobility",
+        "Collaborative Solutions",
+        "Contino",
+        "DevBridge",
+        "Inawisdom",
+        "LEV+",
+        "Magenic",
+        "Mirabeau",
+        "Mobica",
+        "Netcentric",
+        "New Signature",
+        "Others",
+        "Sentient",
+        "Servian",
+        "Softvision",
+        "Thirdera",
+        "Utegration",
+        "Zenith",
+        "Zone Digital",
+        "cognizant.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\cognizant-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "cognizant",
+  "name": "Cognizant",
+  "url": "https://hackerone.com/cognizant",
+  "policy": "Cognizant recognizes how important the security community is in helping to keep our products, solutions, systems, tools and ultimately our customers safe. We thank you in advance for your contributions to our vulnerability disclosure program.\n\nThe following Responsible Disclosure Guidelines (“Guidelines”) describe the voluntary program through which Cognizant will engage with parties who identify and report to Cognizant potential security vulnerabilities. \nPlease note that Cognizant is not offering compensation in exchange for information pertaining to security vulnerabilities under this or any other bounty or responsible disclosure program.\n\nThe Cognizant Cybersecurity Incident Response Team (CSIRT) handles incident response for Cognizant and coordinates internally as appropriate.  \n\nCognizant will aim to respond to new reports within 7 business days. Please note, report status marked as triaged is subject to change pending our team's final analysis.\n\nCustomers and other entitled or authorized users of a Cognizant product or solution should contact the respective Cognizant Technical and Solution Support teams to report any issues discovered within Cognizant products. If the Technical Support and Solution Team determines that a reported issue is a security vulnerability, it will contact Cognizant CSIRT, as needed.\n\n#Program Guidelines\n\n- **Do not** cause harm to Cognizant, our customers, our business partners, our affiliates, or others;\n- **Do not** conduct social engineering, including the use of spear phishing tactics, of Cognizant personnel, clients, customers, business partners or contractors.\n- **Do not** impact the integrity or availability of any systems or users or the operation of our applications, systems or services, including through any type of brute force attacks, any types of denial of service attacks, destruction of data, and interruption or degradation of our services;\n- **Do not** publicly disclose or share with a third party any potential vulnerabilities reported under this program without receiving our express written authorization in accordance with the confidentiality provision below.\n- **Do not** compromise the privacy or safety of our employees, customers, or users. More precisely:\n    - Do not deliberately access user data, including but not limited to personally identifiable information (PII) and personal health information (PHI);\n    - Do contact us immediately if you inadvertently encounter user data, including but not limited to PII and PHI;\n    - Do not view, alter, save, store, transfer, or otherwise access such data;\n    - Do immediately purge any local information upon reporting the vulnerability to Cognizant, and provide Cognizant with evidence that you deleted the data; and\n    - Do act in good faith to avoid privacy violations.\n- **Do** provide a clear fact-based description of the vulnerability, including the target, steps, tools, and  artifacts used during discovery (the detailed summary will allow us to reproduce the vulnerability). Please include a description and explanation of the security issue identified and proof of concept (if applicable); \n- **Do** not include any information that may identify an individual (such as a name, contact information, or other similar information) in any attachments included in your submission and vulnerability report;\n- **Do** not conduct any form of login (interactive or system) with any credentials that may have been obtained.  If any credentials have been obtained, then do report this as a credential leak and do specify the source, where the credential(s) are or were found, how it was found, what the believed impact is (based on mode of discovery), and detailed context about the uncovered leak. \n- **Do** not use any obtained credential to “pivot” or test the credential against any system, service, or application, Cognizant, or non-Cognizant owned. \n- **Do not** alter, remove, or upload files in any situation and/or part of any remote code execution (RCE) exploit. Do not read sensitive system files or modify file permissions in any situation. Furthermore, you are not permitted to interact with the underlying OS or services or any other components such but not limited to databases, jump servers, application servers, etc. \n- **Do not** maintain any type of establishment or persistent connection mechanisms, including but not limited to netcat, ssh reverse tunnels, etc.  \n- Cognizant does not participate in compensated bug bounty awards at this time;\n- When submitting a report, you acknowledge you are subject to [HackerOne's Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines) (as modified by this Program Policy including but not limited to disclosure timelines), the [HackerOne Finder Terms and Conditions](https://www.hackerone.com/terms/finder) and the [HackerOne General Terms and Conditions](https://www.hackerone.com/terms/general); and\n- Cognizant may choose to disregard submissions by parties who submit a high volume of low quality, incomplete, and/or non- actionable reports;\n- Do comply with all applicable laws.\n- Cognizant does not allow disclosure of findings.\n\n#Scope\n\nPlease note that the following Companies are also in scope of this program: \n* 10th Magnitude\n* Advanced Technology Group\n* Brilliant Service\n*Belcan\n* Contino\n* DevBridge\n* HUNTER Technical Resources\n* LEV+\n* Magenic\n* Matterway\n* Mirabeau\n* Mobica\n* Netcentric\n* NewSignature\n* Servian\n* Softvision\n* TMGHealth\n* Trizetto Provider Solutions\n\n\n#Out of Scope Submissions\n\n####The following submissions are not accepted as part of this program. All submissions must demonstrate a security impact and/or a vulnerability. \n\n1. Low quality submissions or a “data dump” from automated tools or scans. Such submissions will be disregarded.\n2. Submission of issues without a clearly stated and identified security impact and vulnerability. \n3. Speculative reports about and/or containing theoretical damage without tangible and hard evidence or information of substance indicating a true attack path and exploitability.\n4. Reports of insecure SSL / TLS ciphers without a working proof of concept. Reports from TLS / SSL scanning sites is not adequate and are considered a scan related data dump. \n5. Self-exploitation or attacks within a logical suitable position. i.e. self-application cookie recycling / re-use attacks.\n6. Open ports which do not lead directly to a vulnerability. \n7. Best practice / hygiene recommendations without tangible risk identified including a working concept. \n8. Presence of autocomplete attributes on a web application / form. \n9. Forms missing CSRF tokens without evidence of the actual CSRF vulnerability.\n10. Self cross-site scripting (XSS) vulnerabilities without evidence on how the vulnerability can be used to attack another user.\n11. Distributed or non-distributed Denial of Service attacks. Submissions of vulnerabilities showing an attack “may” occur will be reviewed provided a vulnerability with working details are part of the submission. Working details is a paper review not a logical / actual test. Do not perform any type of DoS tests or simulations. \n12. Simple submissions of pure reconnaissance data. i.e. banner grabbing issues (figuring out what web server is used etc.).\n13. Account oracles.\n14. Our policies or configurations and/or the presence or absence of our SPF / DMARC records. \n15. Physical attempts against any Cognizant property. \n\n#Third Party Software, Services, and Domains\n\nPlease also note that security issues found in third-party assets which are not managed by Cognizant are considered out of scope and should be reported to the affected party directly. When issues reported to the Cognizant program originate in a different vendor's service, Cognizant reserves the right to forward submissions to the affected party.\n\n#Confidentiality \n\nAny information you receive or collect about us, our affiliates, partners, or any of our users, employees, customers and clients, or agents in connection with the Responsible Disclosure Program (“Confidential Information”) must be kept confidential and only used in connection with the Responsible Disclosure Program. At this time, Cognizant is not utilising HackerOne Disclosure or participating in any disclosure options outside of HackerOne.\nPlease abide by [HackerOne's Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines) in all respects not discussed herein.\n\n#Legal Notice\n\nYou must comply with all applicable laws and regulations in connection wth your security research activities or other participation in the Responsible Disclosure Program.  By submitting a vulnerability report to Cognizant, you grant to Cognizant, its subsidiaries and its affiliates, a perpetual, irrevocable, no charge license to all intellectual property rights licensable by you in or related to the use of this material.  Also, it is important that you notify us if any of this material is not your own work or is covered by the intellectual property rights of others. Not notifying us means that you've represented that no third-party intellectual property rights are involved.\n\n#Safe Harbor\n\n####When you comply with these Guidelines in all respects, Cognizant will not pursue a civil action against you related to your research that falls within these Guidelines.\n\n\n\n*Thank you for helping to keep Cognizant, our internet presence, and our customers safe! It is greatly welcomed and appreciated.*\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "cognizant.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "cognizant.com\ncognizantgoc.com\n1ct.es\ncognizantfoundation.org\ncognizantproducts.com\ndigitally-driven-ei-technologies.com\nei-technologies.com\nhpa.services\nlevdigital.com\nmeritsoft.com\nmy.connect.aws\ncognizantog.com\ncodezeroconsulting.com\ncognizant.cc\ncognizant.jobs\ncognizant.me\ncognizantbenefits.com\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "10th Magnitude",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "10thmagnitude.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Advanced Technology Group (ATG)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "fusekit.io\natginfo.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Brilliant Services",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "bril-sys.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Belcan",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Contino",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "devopsmaturity.com\ncontino.io",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "DevBridge",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "devbridge.com\ndevbridge.net",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LEV+",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Magenic",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mirabeau",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "mirabeau.com\nmirabeau.nl\nwerkenbijmirabeau.nl\nprd-oaov2.net",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mobica",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "mobica.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Netcentric",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "cognizantnetcentric.com\nnetcentric.biz",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "New Signature",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "newsig.com\nnewsignature.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Servian",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "servian.com\ne-it.nz\ne-it.co.nz",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Softvision",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "cognizantsoftvision.com\nsoftvision.com\nsoftvision.global\nsoftvision.ro",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Cognizant Health Sciences",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "receivablesoutsourcingllc.com\nhealthtranzform.com\nhealthtranzformdev.com\ngatewayedi.com\nsharedinvestigator.com\ntrizettoprovider.com\nclinicalsystemsconnector.com\nhpa.services\ntrizetto.com\ncishoc.com\nbhspatients.com\nbolderhealthcare.com\nclaimlogic.com\ncognizantrcm.com\nbasconnect.net\nsiponelab.com\ntmgh",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Cognizant Mobility",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "cognizant-mobility.com\nrastparkgutscheine.de\ntruck2park.de\ntruck2park.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Collaborative Solutions",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "collaborativesolutions.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Inawisdom",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "inawisdom.com\ninawisdom.co.uk",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Sentient",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "evolution.ml",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Thirdera",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "thirdera.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Utegration",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "utegration.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Zenith",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "zenithtechnologies.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Zone Digital",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "zonedigital.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Others",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

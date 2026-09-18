@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fidelity",
+      "name": "Fidelity",
+      "offersBounties": false,
+      "assets": [
+        "*.fidelity.com"
+      ],
+      "exclusions": [
+        "activate.fidelity.com",
+        "activate1.fidelity.com",
+        "alertstreaming.fidelity.com",
+        "boundless.fidelity.com",
+        "china.fidelity.com",
+        "dmt.fidelity.com",
+        "dmtfi.fidelity.com",
+        "event.fidelity.com",
+        "https://api-stage.fidelity.com/brokerage-debit-card-order/v1",
+        "https://api-test.fidelity.com/brokerage-account-checking-stop-payment/v1",
+        "https://api.fidelity.com/brokerage-account-checking-stop-payment/v1",
+        "india.fidelity.com",
+        "jobs.fidelity.com",
+        "reviews.fidelity.com",
+        "reviews.retail.fidelity.com",
+        "sitecatalyst.fidelity.com",
+        "social.fidelity.com",
+        "social.retail.fidelity.com",
+        "testjobs.fidelity.com",
+        "www.boundless.fidelity.com",
+        "www.fidelityworkplace.com",
+        "www.india.fidelity.com",
+        "www.jobs.fidelity.com",
+        "www.myfidelitysolutions.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "100 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fidelity-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fidelity",
+  "name": "Fidelity",
+  "url": "https://hackerone.com/fidelity",
+  "policy": "Fidelity Vulnerability Disclosure Program Policy\n============\n\nTable of Contents\n============\n\n##I. Program Terms\n 1. Safe Harbor \n 2. Program Eligibility\n 3. Program Rules\n 4. Legal\n\n##II. Testing & Submission Process\n1. Response Times\n2. Test Instructions\n3. Scope Exclusions\n\n##III. FAQ's\n__________________________________________\n\nI. Vulnerability Disclosure Program\n=============\nFidelity looks forward to working with the security community to identify and responsibly disclose vulnerabilities in the domain(s) designated in scope in this Policy  in order to keep our business and customers safe. If you have any information about or discover security vulnerabilities that could impact Fidelity or our customers, please submit a report in accordance with this policy (“Policy”). By participating in our Vulnerability Disclosure Program (“Program”) and submitting your findings, you confirm that you meet our Program Eligibility terms and accept and agree to be bound by this Policy. \n\n** 1. Safe Harbor**\nAny activities conducted in a manner consistent with this Policy will be considered authorized conduct, and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this Policy, we will make it known that your actions were conducted in compliance with this Policy. Fidelity reserves all legal rights in the event of noncompliance with this Policy or applicable law.\n\n **2. Program Eligibility**\n+ You are at least 18 years of age.\n+ You are not a resident of, or located in, any country against which the United States has issued sanctions or other trade restrictions and are not a person (or affiliated with a company or organization) designated in the U.S. Department of the Treasury’s Specially Designated Nationals List. \n+ Follow HackerOne’s Disclosure Guidelines.\n+ You may not engage in any security research or vulnerability disclosure activity that is inconsistent with terms and conditions of the Policy or applicable law.\n+ You are the first to submit a sufficiently reproducible report for a vulnerability – this is a requirement to be eligible for the report to be accepted and triaged.\n+ Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n+ Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n+ Publicly-known Zero-day vulnerabilities will not be considered until more than 30 days have passed since patch availability.\n+ Fidelity employees are not eligible for participation in this Program.\n\n**3. Program Rules**\n*Do:*\n+ Perform testing using only accounts that are your own personal/test accounts or an account that you have explicit permission from the account holder to utilize.\n+ Exercise caution when testing to avoid negative impact to us and our customers and the services we and they depend on.\n+ STOP testing if you are unsure about the impact it may have on our systems. If you think you may cause, or have caused, damage with testing a vulnerability, immediately report your initial finding(s) and request authorization to continue testing.\n\n*Do NOT:*\n+ Do not Brute force credentials or guess credentials to gain access to systems.\n+ Do not participate in denial of service attacks.\n+ Do not upload shells or create a backdoor of any kind.\n+ Do not engage in any form of social engineering of Fidelity employees, customers, or vendors.\n+ Do not test third party assets, subdomains managed by third parties, or any domains listed as out of scope in this Policy. Please check our publicly published IP ranges and conduct all necessary due diligence to determine ownership of an asset prior to testing. \n+ Do not engage or target any Fidelity employee, customer, or vendor during your testing.\n+ Do not access, modify, copy, download, delete, compromise or otherwise misuse others’ data or access non-public information without authorization. Do not attempt to extract, download, or otherwise exfiltrate any non-public data other than your own.\n+ If you encounter any sensitive data, including personally identifiable information (PII), financial information, or proprietary information, you must stop your test, immediately notify Fidelity, and not disclose this data to anyone else. \n+ Do not change passwords of any account that is not yours. If ever prompted to change a password of an account that is nor yours, stop and report the finding immediately. \n+ Do not do anything that would be considered a privacy violation, cause destruction of data, or engage in any activity that can potentially or actually interrupt, degrade, or stop our services or assets or that can potentially or actually harm Fidelity, our customers, employees, or vendors. \n+ Do not interact with accounts you do not own.\n+ Do not send more than 100 requests per second per unique domain.\n+ Do not initiate a fraudulent financial transaction.\n+ Do not engage in any activity that violates (a) U.S. federal or state laws,  regulations, or rules or (b) the laws or regulations of any country where (i) data, assets or systems reside, (ii) data traffic is routed or (iii) the researcher is conducting research activity.\n+ Do not mass scan Fidelity domains. Offending IP addresses may be blocked.\n+ Do not exploit beyond what is necessary to demonstrate vulnerability presence. You need to show that you could exploit a vulnerability, but you must not actually exploit it.\n+ Do not access content of communications, data, or information on Fidelity systems except to the extent that information directly relates to the vulnerability and is necessary to prove the vulnerability exists.\n+ Do not discuss the Program or any vulnerabilities you discover outside the Program or share any Report (as defined below) with any third parties without Fidelity’s express written consent. Do not store or share non-public data obtained through testing except to the extent necessary to communicate the finding to the Fidelity.\n+ Do not contact the Fidelity security team directly about the status of a HackerOne report you have submitted. Please keep all communications within the HackerOne platform.\n+ Do not upload or share proof of concept videos or write ups of reported issues on third-party platforms.\n\n\n*In-Scope Vulnerabilities for Mobile applications*\n+\tUnauthorized access to Fidelity customer/user account\n+\tApplication Login/Authentication Bypass\n+\tApplication Logic Bypass\n+\tAuthorization Bypass\n+\tInsecure Access Controls\n+\tApplication Requests permissions that are overly privileged causing both privacy & security issues\n+\tSensitive user data / Fidelity data extraction\n+\tXSS, CSRF, directory traversal, Injection vulnerabilities that pose a valid risk\n+\tSecurity issues related to the implementation of third-party SDK/framework/libraries/plugins that integrate with Fidelity apps. However, third-party end-points are not in-scope.\n+\tExposed credentials/secret/hard-coded secrets which lead to leakage of sensitive user/Fidelity data\n\n**Note**: In case account credentials are identified, please DO NOT try to validate them but submit a report with the details of your finding, including where it was found.\nAs per our Program Rules:\n\"Perform testing using only accounts that are your own personal/test accounts or an account that you have explicit permission from the account holder to utilize.\"\n\"Do not interact with accounts you do not own.\"\n\n\n**4. Legal**\n+ You acknowledge and agree that any and all information you receive, collect, encounter, obtain, or otherwise acquire, access or generate about us, our products and services, our affiliates, customers, employees, service providers, or agents in connection with the Program (whether before or after you participate in the Program, including as a result of you finding and/or investigating a vulnerability in our domains) and any information regarding your participation in our Program (collectively, “Fidelity Confidential Information”) must be kept confidential, only used in connection with Program and not disclosed to any third party except to HackerOne as expressly permitted under this Policy. \n+ You have no rights, title or ownership to any Fidelity Confidential Information, and you may not use, disclose or distribute any such Fidelity Confidential Information, including any reports, except to HackerOne as required for your participation in the Program.\n+ By participating in our Program, you represent and warrant that (1) you will hold the Fidelity Confidential Information in strict confidence, (2) you have not used and will not use Fidelity Confidential Information for any purpose other than in connection with the Program, and (3) you have not and will not copy, reproduce, sell, assign, license, market, transfer, or otherwise dispose of, give, disclose or share such Fidelity Confidential Information with any third party, except for disclosing certain Fidelity Confidential Information to HackerOne as expressly permitted under this Policy.\n+ By reporting a vulnerability under our Program, you hereby represent and warrant that your report, including any information and materials submitted therewith (collectively, “Report”) is original to you and you own all right, title and interest in the Report. As a condition to your participation in our Program and by submitting a Report, you hereby grant to Fidelity and its affiliates a perpetual, irrevocable, transferable, sublicensable, worldwide, royalty-free exclusive right and license to reproduce, adapt, modify, publish, distribute, publicly perform, create derivative work from, make, use, sell, offer for sale and import the Report for any purpose. You hereby  waive all claims, including breach of contract or implied-in-fact contract, arising from your Report. \n+ After a Report has been submitted, we reserve the right to request from you, and you hereby accept to abide by such request, to immediately securely and permanently delete any data related to such Report, including, without limitation, any Fidelity Confidential Information in your possession or control. Additionally, you agree to immediately securely and permanently delete any data related to the Report upon it no longer being reasonably necessary to retain for the purposes of conveying the impact or scope of the reported vulnerability, after verifying with the Fidelity security team via the HackerOne platform that it is no longer necessary.\n+ If you engage in any activities that are inconsistent with this Policy or the law, you may be subject to criminal and/or civil liabilities.\n+ Fidelity reserves the right to terminate or modify the Program at any time without prior written notice to you, and you accept any modification to this Policy if you participate in the Program ,. Please check this site regularly for any updates to this Policy, which are effective upon posting. You can [subscribe](https://docs.hackerone.com/hackers/manage-notifications.html#program-notifications) to receive email notifications when this Policy is updated.\n\nII. Submission Process\n=============\n \n**1. Response Times**\n\n| Type of Response | Target (business days) |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 5 days |\n| Time to Resolution | depends on severity and complexity |\n\n**2. Test Instructions**\n\n**We strongly recommend you use a customized user agent header in your HTTP(S) requests**, for example:\n* User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:96.0) Gecko/20100101 Firefox/96.0 **vdp-hackeroneusername**\n\n* For non-HTTP requests we strongly recommend you add an identification to artifacts in POCs, and, or payloads so our teams can identify you as a verified hacker and not a malicious attacker: `h1:<vdp-hackeroneusername>`.  If you forget to tag your traffic, please list your IP in the submission form.\n\n* No credentials are required or provided for this Program. If you self-register for any accounts, please register with your **@ wearehackerone.com** email address. You may not use exposed credentials to continue testing without Fidelity’s express written approval.\n\n**Mobile apps guidance**\n* Only use the latest official releases in the Play Store and App Store for testing.\n* Only test backend domains listed as in-scope for the program.\n* Applications developed and signed by Fidelity must be up-to-date with the latest update.\n\n**3. Scope Exclusions**\nFidelity reserves the right to add to and subtract from this Scope Exclusions list depending on the evaluated severity of reported vulnerabilities and risk acceptance*\n* Clickjacking on pages with no sensitive actions.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions including login/logout functionalities.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working proof of concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Any activity that could lead to the disruption of our service (DoS), including but not limited to, inundating support services with invalid requests.\n* Missing best practices including Content Security Policy and HttpOnly or Secure flags on cookies.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).\n* Vulnerabilities only affecting users of outdated or unpatched browsers (Less than 2 stable versions behind the latest released stable version).\n* Tabnabbing.\n* Issues that require unlikely user interaction by the victim.\n* Self XSS if can’t be chained with other vulnerabilities to demonstrate impact.\n* Security vulnerabilities in third-party products (SaaS) or websites that are not under Fidelity direct control.\n* Disclosure of known public files or directories, (e.g. robots.txt).\n* Missing best practices in SSL/TLS configuration.\n* HTTP Request Smuggling\n\n**Mobile applications**\nThe following mobile vulnerabilities are out-of-scope and will not be accepted:\n* Vulnerabilities that can only be exploited on a rooted / jailbroken device, or via debug access to a user’s device, or on a device with intentionally reduced security controls are considered out of scope. Submissions will be accepted only if the vulnerability exists and can be exploited on a non-jailbroken, non- rooted or non-modified device.\n* Vulnerabilities on third party libraries without showing specific impact to the target application (e.g. a CVE with no exploit)\n* Vulnerabilities that require extensive user interaction or social engineering\n* Lack of / Incomplete certificate pinning\n* Bugs that simply cause an app to crash without any security impact\n* Exposure of non-sensitive data on the device\n* Exposure of data via usage of overlays or accessibility services.\n* Enumerating and/or Brute Forcing Login and/or Registration.\n* Issues relating to unlocking client-side features in modified Fidelity applications, rooted devices, or jailbroken devices.\n* Exported components without permissions \n* Sensitive information in memory dump as clear text \n* Insecure data storage (unless it contains password data) \n* No session timeout \n* Lack of Root Protection \n* Ability to copy information to the pasteboard \n* Insecure WebView Implementation (javascript) (Exception: Unless an exploit is found) \n* Excessive Application Permission (Exception: Unless exploitable) \n* Sensitive Information Included in Snapshots \n* Lack of Code Obfuscation\n* Unauthenticated/logout/login CSRF\n* Any kind of sensitive data stored in app private directory (which cannot be accessed by any other application)\n* Crashes due to malformed URL Schemes\n* Vulnerabilities in the operating system itself (unless they directly impact the security of the application)\n* Spamming or phishing through the app\n* Lack of two factor authentication \n* Lack of binary protection (anti-debugging) controls\n* Lack of exploit mitigations i.e., PIE, ARC, or Stack Canaries\n\nIII. FAQ's\n============\n\n1. Can I get Fidelity swag?\n* Fidelity does not currently offer swag\n\n2. Can Fidelity provide me with a pre-configured test account?\n* This Program does not provide credentials or any special access\n\n3. [What is required when submitting a report?](https://docs.hackerone.com/hackers/submitting-reports.html)?\n\n4. [How do I make my report great?](https://docs.hackerone.com/hackers/quality-reports.html)\n\n5. [I submitted a report. Now what? I have questions.](https://www.hackerone.com/blog/how-bug-bounty-reports-work)\n\n6. [What causes a report to be closed as Informative, Duplicate, N/A, or Spam?](https://docs.hackerone.com/hackers/report-states.html)\n\n7. What is an example of an accepted vulnerability?\n* Valid and accepted vulnerabilities would be the type of report that identifies a unique security impact on this Program’s specific scope. The report must also meet any submission criteria outlined in our Program  policy, such as test plan instructions and a working proof of concept.\n\n______________________________________________________\nThank you for helping keep Fidelity and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "china.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.boundless.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "testjobs.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.jobs.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "india.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.india.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "boundless.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "social.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reviews.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "social.retail.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reviews.retail.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sitecatalyst.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jobs.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "activate1.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "event.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.fidelityworkplace.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.myfidelitysolutions.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "activate.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dmt.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dmtfi.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "alertstreaming.fidelity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api-stage.fidelity.com/brokerage-debit-card-order/v1",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api-test.fidelity.com/brokerage-account-checking-stop-payment/v1",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api.fidelity.com/brokerage-account-checking-stop-payment/v1",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

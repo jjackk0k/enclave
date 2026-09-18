@@ -1,0 +1,370 @@
+{
+  "lab": "range-iso/logiclab (T3 round)",
+  "at": "2026-08-30T01:13:36.136Z",
+  "fixture": {
+    "target": "targets/logiclab.mjs",
+    "base": "http://127.0.0.1:49472"
+  },
+  "extraction": {
+    "candidates": 16,
+    "dropped": [],
+    "kinds": [
+      "bounds-min",
+      "server-authoritative",
+      "bounds-max",
+      "flow-order",
+      "usage-limit",
+      "role-gate",
+      "state-machine",
+      "actor-separation"
+    ]
+  },
+  "recall": {
+    "hit": 8,
+    "total": 8,
+    "gate": "≥6/8"
+  },
+  "control": {
+    "claims": 0,
+    "total": 8,
+    "gate": "0 claims"
+  },
+  "decoyFate": {
+    "naiveWouldFlag": true,
+    "verdict": "enforced",
+    "detail": "violation request accepted (2xx) but the readback shows the SERVER-side value — accepted-but-ineffective, not a violation | x-server-authoritative param → tamper 0.01 (control value 25)"
+  },
+  "probes": [
+    {
+      "candidate": "createPayment",
+      "kind": "bounds-min",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | schema minimum 1 → probe -100"
+    },
+    {
+      "candidate": "createOrder",
+      "kind": "server-authoritative",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-server-authoritative param → tamper 0.01 (control value 25)"
+    },
+    {
+      "candidate": "createBooking",
+      "kind": "bounds-max",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | schema maximum 4 → probe 5"
+    },
+    {
+      "candidate": "confirmCheckout",
+      "kind": "flow-order",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-flows.checkout = createOrder→payOrder→confirmCheckout → invoke the terminal step without its predecessors"
+    },
+    {
+      "candidate": "applyCoupon",
+      "kind": "usage-limit",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-limit 1 + enum [\"SAVE10\",\"SAVE20\"] → second distinct operand \"SAVE20\""
+    },
+    {
+      "candidate": "setRideStatus",
+      "kind": "role-gate",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-role driver + enum → low-priv session drives the machine to \"completed\""
+    },
+    {
+      "candidate": "cancelOrder",
+      "kind": "state-machine",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-state-machines.order: cancel allowed from [\"pending\",\"paid\"]; setup reaches delivered → invoke anyway"
+    },
+    {
+      "candidate": "createReferral",
+      "kind": "actor-separation",
+      "safe": false,
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "attacker",
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | x-distinct-actors → the caller redeems THEIR OWN operand (resolved at runtime via /api/me)"
+    },
+    {
+      "candidate": "createSafePayment",
+      "kind": "bounds-min",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 422,
+      "effectMatch": "unchanged",
+      "detail": "violating request refused (422) — the invariant holds | schema minimum 1 → probe -100"
+    },
+    {
+      "candidate": "createSafeOrder",
+      "kind": "server-authoritative",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": true,
+      "controlOk": true,
+      "violationStatus": 200,
+      "effectMatch": "server",
+      "detail": "violation request accepted (2xx) but the readback shows the SERVER-side value — accepted-but-ineffective, not a violation | x-server-authoritative param → tamper 0.01 (control value 25)"
+    },
+    {
+      "candidate": "createSafeBooking",
+      "kind": "bounds-max",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 422,
+      "effectMatch": "unchanged",
+      "detail": "violating request refused (422) — the invariant holds | schema maximum 4 → probe 5"
+    },
+    {
+      "candidate": "confirmSafeCheckout",
+      "kind": "flow-order",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 409,
+      "effectMatch": "server",
+      "detail": "violating request refused (409) — the invariant holds | x-flows.checkout = createOrder→payOrder→confirmCheckout → invoke the terminal step without its predecessors"
+    },
+    {
+      "candidate": "applySafeCoupon",
+      "kind": "usage-limit",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 409,
+      "effectMatch": "unchanged",
+      "detail": "violating request refused (409) — the invariant holds | x-limit 1 + enum [\"SAVE10\",\"SAVE20\"] → second distinct operand \"SAVE20\""
+    },
+    {
+      "candidate": "setSafeRideStatus",
+      "kind": "role-gate",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 403,
+      "effectMatch": "server",
+      "detail": "violating request refused (403) — the invariant holds | x-role driver + enum → low-priv session drives the machine to \"completed\""
+    },
+    {
+      "candidate": "cancelSafeOrder",
+      "kind": "state-machine",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 409,
+      "effectMatch": "server",
+      "detail": "violating request refused (409) — the invariant holds | x-state-machines.order: cancel allowed from [\"pending\",\"paid\"]; setup reaches delivered → invoke anyway"
+    },
+    {
+      "candidate": "createSafeReferral",
+      "kind": "actor-separation",
+      "safe": true,
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "controlOk": true,
+      "violationStatus": 422,
+      "effectMatch": "unchanged",
+      "detail": "violating request refused (422) — the invariant holds | x-distinct-actors → the caller redeems THEIR OWN operand (resolved at runtime via /api/me)"
+    }
+  ],
+  "composition": {
+    "candidates": [
+      "composed:published-creds-login→invariant-violation:payment-negative",
+      "composed:published-creds-login→invariant-violation:payment-negative:safe",
+      "composed:published-creds-login→invariant-violation:order-price-tamper",
+      "composed:published-creds-login→invariant-violation:order-price-tamper:safe",
+      "composed:published-creds-login→invariant-violation:booking-seat-overrun",
+      "composed:published-creds-login→invariant-violation:checkout-step-skip",
+      "composed:published-creds-login→invariant-violation:coupon-stacking",
+      "composed:published-creds-login→invariant-violation:ride-role-confusion",
+      "composed:published-creds-login→invariant-violation:order-backward-cancel",
+      "composed:published-creds-login→invariant-violation:self-referral"
+    ],
+    "winners": [
+      "composed:published-creds-login→invariant-violation:payment-negative",
+      "composed:published-creds-login→invariant-violation:order-price-tamper",
+      "composed:published-creds-login→invariant-violation:booking-seat-overrun",
+      "composed:published-creds-login→invariant-violation:checkout-step-skip",
+      "composed:published-creds-login→invariant-violation:coupon-stacking",
+      "composed:published-creds-login→invariant-violation:ride-role-confusion",
+      "composed:published-creds-login→invariant-violation:order-backward-cancel",
+      "composed:published-creds-login→invariant-violation:self-referral"
+    ],
+    "findings": [
+      {
+        "chain": "composed:published-creds-login→invariant-violation:payment-negative",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:order-price-tamper",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:booking-seat-overrun",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:checkout-step-skip",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:coupon-stacking",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:ride-role-confusion",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:order-backward-cancel",
+        "error": null,
+        "passesOracleGate": true
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:self-referral",
+        "error": null,
+        "passesOracleGate": true
+      }
+    ],
+    "attempts": [
+      {
+        "chain": "composed:published-creds-login→invariant-violation:payment-negative",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:payment-negative:safe",
+        "stepsOk": false,
+        "impactOk": false,
+        "verdict": "enforced",
+        "canaryReached": false,
+        "error": "invariant verdict body missing \"\\\"verdict\\\":\\\"violated\\\"\""
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:order-price-tamper",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:order-price-tamper:safe",
+        "stepsOk": false,
+        "impactOk": false,
+        "verdict": "enforced",
+        "canaryReached": false,
+        "error": "invariant verdict body missing \"\\\"verdict\\\":\\\"violated\\\"\""
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:booking-seat-overrun",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:checkout-step-skip",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:coupon-stacking",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:ride-role-confusion",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:order-backward-cancel",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      },
+      {
+        "chain": "composed:published-creds-login→invariant-violation:self-referral",
+        "stepsOk": true,
+        "impactOk": true,
+        "verdict": "violated",
+        "canaryReached": false,
+        "error": null
+      }
+    ]
+  },
+  "verdict": {
+    "extract": "16 candidates extracted from the live spec (0 honestly dropped)",
+    "recall": "8/8 planted violations proven (gate ≥6/8) — PASS",
+    "control": "0/8 violated-claims on the clean control surface (gate 0) — PASS",
+    "decoy": "PASS — accepted-but-ignored price decoy: naive flags, readback oracle clears",
+    "compose": "8 composed invariant chains impact-proven; findings pass oracle gate: true"
+  }
+}

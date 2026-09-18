@@ -1,0 +1,147 @@
+{
+ "at": "2026-09-12T02:10:32.434Z",
+ "opportunity": "krisp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "download.krisp.ai",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b605acbbfd7ce-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "krisp.ai",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b60629ece001f-LHR",
+    "x-cache": "BYPASS",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "frame-ancestors https://account.krisp.ai https://dev.account.krisp.ai https://stage.account.krisp.ai https://krisp-blog-",
+    "x-frame-options": "ALLOW-FROM https://account.krisp.ai https://dev.account.krisp.ai https://stage.account.krisp.ai https://krisp-blog-dev.k",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/wp-admin/",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/wp-admin/admin-ajax.php",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "account.krisp.ai",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b606a2849ef07-LHR",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.krisp.ai",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b60721e8c47cf-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "teams.krisp.ai",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b607b6a65bea2-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

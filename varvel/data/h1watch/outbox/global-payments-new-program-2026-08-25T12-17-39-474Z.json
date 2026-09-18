@@ -1,0 +1,253 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "global-payments",
+      "name": "Global Payments",
+      "offersBounties": false,
+      "assets": [
+        "Active Networks",
+        "Analytics & Customer Engagement (ACE)",
+        "ECSI",
+        "Ezidebit",
+        "GP AUNZ",
+        "GP Integrated",
+        "GP Integrated - PayGateway",
+        "GP eCom",
+        "GPE",
+        "Global Payments Inc",
+        "Global Payments Integrated",
+        "Greater Giving",
+        "Heartland Payment Systems",
+        "Heartland Restaurant / Retail / Human Capital Management (Get Hired)",
+        "MerchantWare",
+        "Micropayments",
+        "Nextep",
+        "OpenEdge",
+        "Sentral",
+        "Storman",
+        "TSYS ",
+        "TouchNet",
+        "eWay"
+      ],
+      "exclusions": [
+        "Globalpaymentsinc.com and Globalpayments.com - OUT OF SCOPE",
+        "Xenial (Xenial)"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "45 requests per minute"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\global-payments-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "global-payments",
+  "name": "Global Payments",
+  "url": "https://hackerone.com/global-payments",
+  "policy": "Have feedback on our program? Let us know [here!](https://docs.google.com/forms/d/e/1FAIpQLSc_bAdYNvHTZCaU8J0ES0u77I8znDQpN6FqAeCUdIeZARH_Uw/viewform?usp=sf_link)\n\n#Global Payments Vulnerability Disclosure Program (“VDP”) Policy\n\nGlobal Payments is a Fortune 500 worldwide commerce ecosystem serving customers in over 100 countries! We have a team of 24,000 experts and innovators working to serve our customers—dedicated to solving complexity in commerce by providing simple, secure payments and software solutions that anticipate changing needs and carry our customers forward. We’re trusted in over 3.5 million customer locations and 1,300 financial institutions. \n\nGlobal Payments Inc. (“Global Payments”) looks forward to working with the information security community to find vulnerabilities in order to keep our businesses and customers safe. Please read this Program Policy in its entirety.\n\n\n#Eligibility for Participation\n\nYou must be 18 years old or older to submit a vulnerability for consideration as part of the Program. If you are a minor (under 18 years of age), a parent or legal guardian must submit the vulnerability.\n\nYou must be an individual security researcher participating in your own individual capacity. If you work for a security research organization, that organization must permit you to participate in your individual capacity. You are responsible for reviewing and complying with your employer’s rules for participating in the Program.\n\n#Ineligibility for Participation\n\nYou may not participate in the VDP if you are any of the following:\nA resident of, or if you have a tax form from, China or Hong Kong. \n\nA resident of any country/region that is the subject of a broad, geographically-defined United States (U.S.) sanctions program, such as Cuba, Iran, North Korea, Sudan, Syria or Crimea, or a person, or an affiliate, agent, employee, or contractor of a person, that is designated in the U.S. Department of the Treasury’s Specially Designated Nationals and Blocked Persons List or any other Office of Foreign Assets Control (“OFAC”) sanctions list.\n\nA resident of any country/region, or a person, or an affiliate, agent, employee, or contractor of a person, that has been sanctioned by the relevant authorities in the country or region from which any data you access through the Program originates, or in which any portion of the information system you access is hosted and/or deployed.\n\nA current employee of Global Payments., a Global Payments affiliate, or an immediate family member (parent, sibling, spouse, or child) or household member of such an employee.\n\nA contingent staff member, contractor, or vendor employee that is currently working with, or has worked in the past twelve (12) months with, Global Payments or a Global Payments affiliate.\n\n\n#Response Targets\n\nGlobal Payments will make a best effort to meet the following SLAs for security researchers participating\nin the program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n#Scope\n\nPlease refer to scoped assets to view current in-scope assets. No VPN access nor credentials will be provided for testing.\n\n#Disclosure Policy\n\n- You agree not to discuss this VDP or any vulnerabilities (even resolved ones) outside of the VDP without express consent from Global Payments.\n- Global Payments reserves the right to approve or deny any request for disclosure.\n- You agree to follow HackerOne's disclosure guidelines.\n\n#Program Guidelines\n\n- This Program is not intended to encourage any researcher to access, view, transmit, disclose, interact with, or otherwise process Personal Information, defined here to include any information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular individual or household. Personal Information may include, as applicable, any Payment Account Number (PAN), Cardholder Data (CHD), or Sensitive Authentication Data (SAD), as each term is defined by the Payment Card Industry Data Security Standard (PCI-DSS). Should you encounter any Personal Information during your research or in connection with the Program, you are required to: (1) minimize your access to Personal Information, including immediately halting your activity, where possible;  (2) comply with the additional data protection obligations set forth in the “Data Protection” section of these Program Terms, below; and (3) return any Personal Information you obtain during your research or in connection with the Program when you submit a report, and securely delete all copies of the Personal Information immediately following the submission of your report. \n- Keep scans to 45 requests per minute.\n- For account creation, use your HackerOne email address and only create a single user account.\n- Refer to the assets in scope for specific instructions on testing and follow those instructions.\n- Provide detailed reports with reproducible steps. If the report is not sufficiently detailed to enable reproduction of the issue, the issue may not be triaged.\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to prove impact. When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n- Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- You may only interact with accounts you own or with explicit permission of the account holder.\n- Do not engage in any activity that can potentially or actually cause harm to Global Payments, our customers, or our employees.\n- Do not engage in any activity that can potentially or actually stop or degrade Global Payments’ services or assets.\n- Do no harm and do not exploit any vulnerability beyond the minimal amount of testing required to prove that a vulnerability exists or to identify an indicator related to a vulnerability.\n- Do not initiate a fraudulent financial transaction.\n\n#Out of scope vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security\nimpact of the bug. \n\nIn addition to the below, any vulnerability on the HackerOne Core Ineligible Findings list is out of scope:\n- Unexploitable vulnerabilities discovered via scanning. All submissions must have a valid proof of concept.\n- Attacks requiring man-in-the-middle (MITM) or physical access to a user's device.\n- Vulnerabilities on partner or supplier products.\n- Rate limiting or brute-force issues on non-authentication endpoints.\n\n\n#Grounds for Disqualification\n\nBecause we do not allow any actions that could negatively impact the customer experience on our websites, apps, or other Global Payments assets, attempting any of the following could result in permanent disqualification from the Program and could result in a possible criminal and/or legal investigation:\n- Violation of the Participation Requirements\n- Disruption or denial-of-service attacks (Application and Network)\n- Social engineering attacks\n- Brute-force attacks\n- Exfiltration of data\n- Code injection on live systems\n- The compromise or testing of application accounts that are not your own\n- Any threats, attempts at coercion, or extortion of Global Payments employees, other partner employees, or customers\n- Physical attacks against Global Payments, contractors, or customers\n- Any physical attempts against Global Payments property or data centers\n- Any other action that violates these Program Terms\n- Any other action that violates the law\n- Any action that endangers yourself or others\n- Aggressive vulnerability scans or automated scans on Global Payments servers (including scans using tools such as Core Impact or Nessus)\n\n\n#Additional Legal Terms\n\nBy submitting security or vulnerability information to Global Payments, you confirm that you have read, understand, and agree to these Program Terms. Further, you agree that by submitting such information to Global Payments, even if the information is not eligible for a reward, you grant Global Payments a worldwide, perpetual, irrevocable, non-exclusive, transferable, sublicensable, fully-paid and royalty-free license under any and all intellectual property rights that you own or control to use, copy, modify, or create derivative works based upon such information and otherwise exploit such information for any purpose.\n\nAny Global Payments information that you may encounter, view, acquire, or access, is owned by Global Payments or its customers, clients, or third-party providers. You have no rights, title, or ownership in any such information. Nothing in these Program Terms shall be deemed to constitute a grant of any license or other right to or in any Global Payments or third-party product, service, patent, trademark, trade secret, or other intellectual property.\n\nYou must comply with all applicable federal, state, local, and international laws, regulations, and rules in connection with your security research activities and your participation in the Program. If you violate any applicable law or any requirement established by these Program Terms, you will not be considered a security researcher, and you may become subject to criminal penalties and civil liability. In particular, by participating in the Program, you confirm your understanding: (1) that applicable United States federal laws make it a felony offense for you to intentionally access an information system that is connected to the internet without authorization, or to exceed the scope of your authorized access to such a system, and in doing so to obtain any information therefrom; and (2) that any action that you take on a Global Payments information system that exceeds the limits established by these Program Terms may therefore constitute a federal crime. Global Payments reserves all rights to pursue all available remedies, civil and criminal, against any individual or entity operating in violation or excess of the Program Terms.\n\nGlobal Payments retains the right to obtain your Personal Data (as defined in the HackerOne Privacy Policy) from HackerOne, and to process such Personal Data as necessary to accomplish the legitimate business objectives of Global Payments, including but not limited to ensuring the security and integrity of our infrastructure, data, products, and services. Global Payments may also obtain and process your Personal Data for the purpose of exercising or defending legal rights; to take precautions against liability; to protect the rights, property, or safety of Global Payments, of any other individuals, or of the general public; to protect Global Payments and our assets from fraudulent, abusive, or unlawful uses; or to investigate and defend Global Payments against third-party claims or allegations. By submitting a vulnerability report via the Global Payments Vulnerability Disclosure Program (https://hackerone.com/global-payments) you consent to HackerOne disclosing Personal Data to Global Payments, upon request, in the circumstances described in this paragraph.\n\nGlobal Payments may modify these Program Terms or terminate the Program at any time.\n\n##Data Protection\nTo the extent you access, or view, transmit, disclose, interact with, or otherwise process Personal Information in connection with the Program, you constitute a Processor and/or Service Provider, as each term is defined by Data Protection Laws. For purposes of these Program Terms, “Data Protection Laws” means all laws and regulations applicable to the processing of Personal Information in connection with the  Program, which may include, but may not be not limited to, the California Consumer Privacy Act, as modified by the California Privacy Rights Act of 2020 (“CCPA”) and the General Data Protection Regulation (EU) 2016/679 (“GDPR”). Any capitalized term not defined herein shall have the meaning given to that term in the Data Protection Laws.\n\nProcessing Instructions and Details. As a Processor/Service Provider, you shall process Personal Information: (i) only to the extent necessary for participation in the  Program; (ii) in compliance with all instructions provided by Global Payments in relation to the processing; and (iii) in accordance with these Program Terms and Data Protection Laws. The categories of Personal Information to which you gain access may include Global Payments team member and customer contact information and any other Personal Information accessed or viewed in connection with the Program. The nature of the processing is solely for the purpose of identifying and submitting a vulnerability through the Program and the duration of processing is limited to the time needed to submit the report. The business purpose and/or lawful basis of the processing is to ensure the security and integrity of our infrastructure, data, products, and services.\n\nProcessing Restrictions. You will not: (i) retain, use, disclose or otherwise process Personal Information for any purpose not contemplated by these Program Terms; (ii) retain, use, disclose, or otherwise process Personal Information outside of the direct business relationship between you and Global Payments; (iii) use, distribute, sell, rent, release, or disclose Personal Information to a third party for monetary or other valuable consideration; (iv) combine Personal Information with any other personal information that you receive from, or on behalf of, another person or persons, or collect from your own interaction with a Data Subject; or (v) share Personal Information with any third party for cross-context behavioral advertising, whether or not for monetary or other valuable compensation.\n\nCompliance with Data Protection Laws. You agree that: (i) you shall provide Personal Information with the same level of protection that Global Payments would be required to provide for it; and (ii) you understand the obligations placed upon you by Data Protection Laws. If you determine that you are no longer able to meet your compliance commitments in these Program Terms, you must immediately notify Global Payments in writing.\n\nSub-Processors. You agree that you will not use any Sub-Processors to process Personal Information without the prior written consent of Global Payments.\n\nConfidentiality and Security. You shall maintain the confidentiality of Personal Information to which you have access and limit such access to what is strictly necessary to participate in the Program. While any Personal Information is in your possession or accessible by you, you shall ensure you have reasonable and appropriate security procedures and practices in place to protect the Personal Information from unauthorized access, destruction, use, modification, or disclosure. \n\nPrivacy Incidents. You shall notify Global Payments immediately, and in no event later than within 24 hours, upon becoming aware of a Privacy Incident, and you shall provide full assistance to Global Payments in meeting Global Payments’ obligation(s) with respect to such Privacy Incident under Data Protection Laws. For purposes of these Program Terms, “Privacy Incident” means any act, omission, event or occurrence that compromises the confidentiality, integrity, or availability of Personal Information. For the avoidance of doubt, the term “Privacy Incident” includes, without limitation: (i) any incident involving the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of or access to Personal Information; and (ii) any incident involving Personal Information that meets the definition of a “security breach,” “personal data breach,” “breach of the security of the system,” or any other similar term under the Data Protection Laws.\n\nAssistance. You shall provide full assistance to Global Payments to enable Global Payments to meet its obligations(s) to perform any assessments or respond to any requests regarding the processing of Personal Information that are required by Data Protection Laws. You shall promptly provide to Global Payments, upon request, all information necessary to demonstrate your compliance with these Program Terms and Data Protection Laws.  \n\nReturn and Deletion. You must return any Personal Information you obtain during your research or in connection with the Program when you submit a report, and securely delete all copies of the Personal Information immediately following the submission of your report.\n\nTransfers. You shall not Transfer Personal Information without the prior written consent of Global Payments. For purposes of these Program Terms, “Transfer” means the access by, transfer or delivery to, or disclosure to, a person, entity or system of Personal Information where such person, entity or system is located in a country or jurisdiction other than the country or jurisdiction from which the Personal Information originated. You and Global Payments agree that when a Transfer is subject to the GDPR, the EU Standard Contractual Clauses Module Two (Controller to Processor) or Module Three (Processor to Processor) (found in Commission Implementing Decision (EU) 2021/914 of 4 June 2021 on standard contractual clauses for the transfer of personal data to third countries pursuant to Regulation (EU) 2016/679 of the European Parliament and of the Council), which are deemed incorporated into and form part of these Program Terms, will apply as follows:\n\n- Global Payments shall be deemed to be the “data exporter” and you shall be deemed the “data importer” with respect to the processing of Personal Information.\n- Clause 7 shall not apply.\n- The audits described in Clause 8.9 shall be carried out in any manner that Global Payments deems appropriate.\n- For Clause 9, Option 1: Specific Prior Authorization shall apply, and the time period for the request for specific authorization shall be 30 days.\n- For Clause 11(a), the optional language shall not apply.\n- The Data Protection Commissioner of Ireland shall be the competent supervisory authority (Clause 13(a)).\n- The EU Standard Contractual Clauses will be governed by the laws of the Republic of Ireland (Clause 17). \n- Disputes shall be resolved before the courts of Ireland, County of Dublin (Clause 18).\n- The information included in the “Data Protection” section of these Program Terms is incorporated accordingly into Annexes I (A, B and C), II and III of the EU Standard Contractual Clauses.\n\nTransfers subject to the laws of the United Kingdom or the Swiss Confederacy shall be pursuant to the EU Standard Contractual Clauses, as incorporated above, subject to any modifications required by the applicable jurisdiction’s regulatory authority to render those clauses a suitable mechanism for papering an international transfer.\n\nFor the avoidance of doubt, nothing about your agreement to comply with the terms set forth in this Data Protection section renders you an agent, employee, or contractor of Global Payments.\n\n##Safe Harbor\nAny research activities conducted in strict accordance with these Program Guidelines, as determined by Global Payments, will be considered authorized conduct, and we will not initiate legal action against you relating to such research activities. \n\nThank you for helping keep Global Payments and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Heartland Payment Systems",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Heartland Payment Systems are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "TSYS ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Global Payments Inc",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GP eCom",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments eCom, such as addonpayments.com, elavonpaymentgateway.com, globaliris.com, globalpay-ecommerce.com, payandshop.com, realexpayments.com, realexplatform.com, rxdev.com, rxpplatorm.com, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GPE",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Europe, such as gpe.cz, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GP AUNZ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Australia/New Zealand are in scope for this program",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Storman",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Storman, such as storman.com, storman.com.au, selfstoragesoftware.com.au, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "eWay",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments eWay, such as ewaypayments.com, eway.com.au, webactive.com.au, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Ezidebit",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Ezidebit, such as ezidebit.com.au, ezidebit.com and getpayments.com, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Sentral",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Sentral, such as sentral.com.au, are in scope for this program.\n\n\nThe below domains are also included:\n*.nonprod.sentral.com.au and  nextgen-whitehat-pen-testing.nonprod.sentral.com.au",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GP Integrated",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Integrated, such as globalpaymentsintegrated.com, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GP Integrated - PayGateway",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Integrated related to Pay Gateway, such as paygateway.com and its subdomains are in scope for this program",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "OpenEdge",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Integrated related to OpenEdge View, such as openedge.com and openedgeview.com are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MerchantWare",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Integrated  related to MerchantWare \n\nURLs in scope:\nmerchantware.net\naccessaccountdetails.com ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Global Payments Integrated",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any other domains managed by Global Payments Integrated, such as x-charge.com, xgiftonline.com, giftbalance.info, or t3secure.net, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Xenial (Xenial)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Nextep",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Global Payments Integrated related to Sicom, such as nextepsystems.com and nextepsystems.net are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Active Networks",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Specific domains managed by Active Networks such as teampages.com, activeclubsports.com, activeswim.com, beactivebefit.com, and jumpforward.com. **OUT OF SCOPE:**\n Domains including active.com and activenetwork.com are hosted on a 3rd party CDN and are out of scope.\n\nTesters cannot create their own ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "TouchNet",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Specific domains managed by Touchnet are in scope: test.secure.touchnet.net.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Analytics & Customer Engagement (ACE)",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by ACE, such as heartlandordering.us, beanstalkdata.com, chockstone.com, beanstalkloyalty.com, and heartlandgiftcard.com are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Heartland Restaurant / Retail / Human Capital Management (Get Hired)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Heartland Restaurant & Retail, such as digitaldining.com, dinerware.com, heartlandplusone.com, hlprd.com, hcomm.us, gethired.com, myspringboard.us, springboardretail.com, pcamerica.com, mobilebytes.com, businessviewglobal.com, heartlandpayroll.com, gpcheck.com, hpservicing.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Greater Giving",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Greater giving, such as greatergiving.com, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Micropayments",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by Heartland Micropayments, such as heartlandmicropayments.com, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ECSI",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any domains managed by ECSI, such as ecsi.net, are in scope for this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Globalpaymentsinc.com and Globalpayments.com - OUT OF SCOPE",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Globalpaymentsinc.com and Globalpayments.com are out of scope for the Vulnerability Disclosure Program. Research on these assets are only allowed in our private bug bounty program with specific testing instructions. ",
+      "max_severity": "none"
+    }
+  ]
+}

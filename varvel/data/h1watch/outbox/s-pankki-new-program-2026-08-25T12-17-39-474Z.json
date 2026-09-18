@@ -1,0 +1,102 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "s-pankki",
+      "name": "S-Pankki",
+      "offersBounties": true,
+      "assets": [
+        "740514933",
+        "digili.s-cloud.fi",
+        "extranet.s-pankki.fi",
+        "fi.spankki",
+        "https://crosskey.io/stores/s-pankki/apis",
+        "mobile.s-pankki.fi",
+        "online.s-pankki.fi",
+        "www.s-pankki.fi"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\s-pankki-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "s-pankki",
+  "name": "S-Pankki",
+  "url": "https://hackerone.com/s-pankki",
+  "policy": "# S-Pankki Bug Bounty Program\n\nS-Pankki looks forward to working with the security community to find security vulnerabilities in order to keep our businesses, systems and customers safe.\n\n* https://www.s-pankki.fi\n\n# Program Rules\nOur bug bounty program is limited strictly to technical security vulnerabilities of S-Pankki services listed in the scope. Any activity that would disrupt, damage or adversely affect any data or account is not allowed.\n\nThese program rules are:\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* We run our program in English and all reports should be submitted in English.\n* S-Pankki has all rights to make bounty policy changes at any time without prior notification.\n* S-Pankki has right to discontinue the bug bounty program at any time without prior notification.\n* Employees from following companies are not allowed to participate to the bugbounty program: S-Pankki, S-Group, Crosskey, HiQ, Nitor, WithSecure, F-Secure, Reversec, Comiq, Solita, Reaktor, Taitopilvi, Vaimo, Solteq, Frantic,  New Things Co, KnowIT, Digia, Columbia Road, Vala Group,Taito United, Gofore and Netlight.\n\nPlease do not perform brute force testing to determine whether rate limiting is in place for particular APIs or pieces of functionality.\n\nThe following actions are strictly prohibited:\n\n- Denial of Service attacks\n- Physical attacks against offices and data centers\n- Social engineering (e.g. phishing, vishing, smishing) of our service desk, employees or contractors\n- Compromise of a S-Pankki user's or employee's account\n- Automated tools or scans, botnet, compromised site, end-clients or any other means of large automated exploitation or use of a tool that generates a significant volume of traffic\n\nAdditionally, the vulnerabilities listed in the section below will not be considered for bounty.\n\n# Out-of-scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug.\n\nThe following issues are considered out of scope:\n\n- Self-XSS and XSS without impact\n- Clickjacking on pages with no sensitive actions\n- Unauthenticated CSRF\n- Attacks requiring MITM or physical access to a user's device (MITM in mobile applications are in-scope but those are reviewed case by case)\n- Previously known vulnerable libraries without a working Proof of Concept\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability\n- Any activity that could lead to the disruption of our service (DoS).\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n\n# SLA\nS-Pankki will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days \n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Data Protection \nS-Pankki may receive personal data in relation to use of Bug Bounty program and shall adhere the EU General Data Protection Regulation (GDPR) and other applicable legislation.\n\nWhenever personal data is encountered during testing, S-Pankki expects and requires all persons involved to handle that data with utmost care. Showing or proving the existence of a flaw does likely not require any data dumps - so even if possible, no dumping of personal data is allowed.  Any exfiltrated personal data must immediately be deleted and any testing that might result in further personal data being revealed must be halted.  You shall not store personal data. Personal data samples, if needed in the report, shall be properly obfuscated before posting. This includes submitting reports that contain your own data. In the case where personal data is posted in a report we will redact that information as soon as possible. If after the redaction the report is unintelligible, it will not be processed.\n\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep S-Pankki and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "online.s-pankki.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-Bank netbank which provides netbank functionalities (accounts, payments, cards, loans, investments etc) to private customers. \n\nNotice that you should use your own netbank credentials or demo customer (ID: 12345678 PW: 123456) credentials. \n\nPlease ensure to place your @wearehackerone email into t",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.s-pankki.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-bank public pages",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://crosskey.io/stores/s-pankki/apis",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-Bank PSD2 interface.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "740514933",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-mobiili banking application (iOS).\n\nThe application can be found from App Store \nhttps://apps.apple.com/fi/app/s-mobiili/id740514933?l=fi\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fi.spankki",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-mobiili banking application (Android).\n\nThe application can be found from Google Play https://play.google.com/store/apps/details?id=fi.spankki&hl=fi\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mobile.s-pankki.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-mobile banking application interface.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "extranet.s-pankki.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S-Bank portal where customers can take care of their S-Bank actions with other banks credentials. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "digili.s-cloud.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Services for S-Bank and S-group customers where customers can take S-bank basic banking services into use (later \"digipa\") and gain S-Group co-op membership (later \"digili). \n\nBasic banking services include opening an account and setting it as a benefit services account, applying for Visa Debit-card",
+      "max_severity": "critical"
+    }
+  ]
+}

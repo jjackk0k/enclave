@@ -1,0 +1,28 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "shopify-scripts",
+      "name": "shopify-scripts",
+      "offersBounties": true,
+      "assets": [],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\shopify-scripts-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "shopify-scripts",
+  "name": "shopify-scripts",
+  "url": "https://hackerone.com/shopify-scripts",
+  "policy": "[Shopify Scripts](https://help.shopify.com/api/tutorials/shopify-scripts) is powered by a Ruby gem ([ESS](https://github.com/Shopify/ess)) that wraps [MRuby](https://github.com/mruby/mruby). It provides a sandboxed, lightweight environment where untrusted Ruby scripts can be executed safely in a way that isolates them from Shopify’s native Ruby environment. We are looking to reward any issue that affects this sandboxed environment that could put Shopify’s infrastructure or our merchants’ data at risk.\r\n\r\n# Scope\r\n\r\n* Any issue in [MRuby](https://github.com/mruby/mruby), as long as it is exploitable through [ESS](https://github.com/shopify/ess).\r\n* Any issue that affects Shopify caused by a bug in [MRuby](https://github.com/mruby/mruby) or [ESS](https://github.com/shopify/ess).\r\n\r\n# Rules for participation\r\n\r\n1. Do not test any proofs of concept on Shopify’s infrastructure, or existing Shopify stores.\r\n2. Do not disclose issues publicly before they are resolved.\r\n3. Only original reports will be rewarded.\r\n4. We will reward security issues only; bugs without security implications should not be reported.\r\n5. You agree to release any patch sent to us under the original project license (in this case, [MIT License](https://github.com/mruby/mruby/blob/master/MITL)).\r\n\r\nFailure to follow these rules will disqualify you from participating in this program.\r\n\r\n# Maximum payouts and eligible vulnerabilities\r\n\r\n* $20,000 for issues that directly lead to a compromise of Shopify’s infrastructure (for example, remote code execution outside ESS's seccomp-bpf sandbox, with a PoC provided).\r\n* $10,000 for issues that would lead to a compromise of Shopify’s infrastructure if an MRuby bug allowing arbitrary code execution inside the seccomp-bpf sandbox were present (for example, a demonstration that the seccomp-bpf sandbox restrictions can be bypassed to execute arbitrary code without syscall restrictions).\r\n* $5,000 for denial of service against Shopify’s infrastructure (for example, a crash affecting the MRI process, with a PoC provided).\r\n* $1,000 for security issues affecting MRuby as configured in ESS (for example, a crash in the sandboxed MRuby process).\r\n* $500 for a bypass of resource limitations (execution time, instruction count, or memory allocation).\r\n* $200 for serialization issues, escaping issues, unsafe handling of attacker-controlled data, etc. caused by a bug in MRuby or ESS.\r\n* $100 for security issues not affecting Shopify but affecting MRuby or ESS.\r\n\r\nNotes:\r\n* A proof of concept for the top bounty tier must use the version of MRuby that is specified in ESS's master branch.\r\n* Proofs of concept for the top three bounty tiers should demonstrate an attack that is effective against the operating system we use in our production servers (presently Ubuntu 14.04 64-bit). The Vagrant environment that we provide with ESS can be used for testing.\r\n\r\n# Criteria for awarding bounties\r\n\r\nWe will use the following criteria to help us determine a final payout amount for each valid issue reported to us.\r\n\r\n* The report demonstrates beyond a doubt that that the issue is exploitable, with a working proof of concept or any other appropriate means.\r\n* The report includes a patch that resolves the issue. Since MRuby and ESS are open source projects, we’d like to encourage meaningful contributions that will benefit everyone.\r\n* Difficulty of exploitation and impact will be considered as well.\r\n\r\n# Known issues\r\n\r\nThe following issues are already known to us, and will be closed as duplicates:\r\n\r\n* Stack overflows resulting from execution of recursive Ruby code, parsing of long Ruby expressions, or printing recursive objects\r\n* Crashes when processing untrusted RiteBinary (mrb) files\r\n* Any issue listed at https://github.com/mruby/mruby/issues\r\n* Any MRuby issue caught by [ESS's regression testing script](https://github.com/Shopify/ess/blob/master/script/regression)",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": []
+}

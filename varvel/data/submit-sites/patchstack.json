@@ -1,0 +1,96 @@
+{
+  "site": "patchstack",
+  "verified": "2026-08-26",
+  "source": "live scout of the report form (.tmp/submit-drive-scout.json) plus operator-verified form facts; scope rules June 2026",
+  "entryUrl": "https://patchstack.com/database/report/wordpress/plugin/{slug}",
+  "securityPolicyUrl": "https://patchstack.com/database/wordpress/plugin/{slug}/security-policy",
+  "vdpUrl": "https://patchstack.com/database/vdp/{slug}",
+  "mvdpMarker": "official vulnerability disclosure program",
+  "access": "open — no login required",
+  "identity": {
+    "name": "Varvel",
+    "email": "Varvel@proton.me"
+  },
+  "form": {
+    "textInputs": [
+      "name",
+      "email",
+      "website",
+      "comp_name",
+      "comp_slug",
+      "comp_link",
+      "vuln_version"
+    ],
+    "textareas": [
+      "shortDescription",
+      "reproduce",
+      "additional_info"
+    ],
+    "prefilledByRoute": [
+      "comp_name",
+      "comp_slug",
+      "component-type",
+      "prefix"
+    ],
+    "consentCheckbox": "#consent",
+    "fileInput": "#file-input",
+    "fileAccept": ".zip",
+    "fileNote": "the file input accepts .zip ONLY — videos must be zipped before attaching"
+  },
+  "combos": {
+    "prereq": {
+      "label": "Pre-requisite",
+      "matchLabel": "pre-requisite",
+      "knownOptions": [
+        "Subscriber",
+        "Contributor",
+        "Editor"
+      ],
+      "note": "option strings for other auth levels (unauthenticated/author/administrator) are NOT banked — the generator flags them and the driver MISSED-reports anything absent"
+    },
+    "owaspClass": {
+      "label": "OWASP 2021: Vulnerability class",
+      "matchLabel": "vulnerability class",
+      "missingAuthorization": "A1: Broken Access Control"
+    },
+    "owaspType": {
+      "label": "OWASP 2021: Vulnerability type",
+      "matchLabel": "vulnerability type",
+      "options": [
+        "SQL Injection",
+        "Cross Site Scripting (XSS)",
+        "Remote File Inclusion",
+        "Local File Inclusion",
+        "Session Hijacking",
+        "Cross Site Request Forgery (CSRF)",
+        "Open Redirection",
+        "Bypass Vulnerability",
+        "Multiple Vulnerabilities",
+        "Unknown",
+        "Arbitrary File Download",
+        "Sensitive Data Exposure",
+        "Arbitrary Code Execution",
+        "Arbitrary File Upload",
+        "Server Side Request Forgery (SSRF)",
+        "Full Path Disclosure (FPD)",
+        "Directory Traversal",
+        "Denial of Service Attack",
+        "Direct static code injection",
+        "CRLF Injection",
+        "PHP Object Injection",
+        "XML External Entity (XXE)",
+        "Insecure Direct Object References (IDOR)",
+        "Remote Code Execution (RCE)",
+        "Unvalidated Redirects and Forwards",
+        "Privilege Escalation",
+        "CSV Injection",
+        "Deserialization of untrusted data",
+        "Other Vulnerability Type",
+        "Broken Authentication"
+      ]
+    }
+  },
+  "limits": {
+    "shortDescription": 4096
+  }
+}

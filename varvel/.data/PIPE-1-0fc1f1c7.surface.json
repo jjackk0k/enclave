@@ -1,0 +1,347 @@
+{
+  "scope": {
+    "engagement": "PIPE-1",
+    "signedBy": "M.Vale L4",
+    "cidrs": [
+      "10.10.0.0/16"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "root-1",
+      "type": "root",
+      "label": "PIPE-1",
+      "sub": "M.Vale L4"
+    },
+    {
+      "id": "host-2",
+      "type": "host",
+      "label": "web-01",
+      "sub": "",
+      "ip": "10.10.2.18"
+    },
+    {
+      "id": "service-3",
+      "type": "service",
+      "label": "https:443",
+      "sub": "",
+      "port": 443,
+      "proto": "tcp",
+      "host": "host-2"
+    },
+    {
+      "id": "service-4",
+      "type": "service",
+      "label": "ssh:22",
+      "sub": "",
+      "port": 22,
+      "proto": "tcp",
+      "host": "host-2"
+    },
+    {
+      "id": "subdomain-5",
+      "type": "subdomain",
+      "label": "admin.acme.internal",
+      "sub": ""
+    },
+    {
+      "id": "subdomain-6",
+      "type": "subdomain",
+      "label": "api.acme.internal",
+      "sub": ""
+    },
+    {
+      "id": "endpoint-7",
+      "type": "endpoint",
+      "label": "/admin",
+      "sub": "",
+      "method": "GET"
+    },
+    {
+      "id": "endpoint-8",
+      "type": "endpoint",
+      "label": "/api/v1/users",
+      "sub": "",
+      "method": "GET"
+    },
+    {
+      "id": "tech-9",
+      "type": "tech",
+      "label": "nginx 1.24",
+      "sub": "",
+      "name": "nginx",
+      "version": "1.24"
+    },
+    {
+      "id": "tech-10",
+      "type": "tech",
+      "label": "Node.js 18",
+      "sub": "",
+      "name": "Node.js",
+      "version": "18"
+    },
+    {
+      "id": "host-11",
+      "type": "host",
+      "label": "db-01",
+      "sub": "",
+      "ip": "10.10.2.20"
+    },
+    {
+      "id": "service-12",
+      "type": "service",
+      "label": "postgres:5432",
+      "sub": "",
+      "port": 5432,
+      "proto": "tcp",
+      "host": "host-11"
+    },
+    {
+      "id": "tech-13",
+      "type": "tech",
+      "label": "PostgreSQL 14",
+      "sub": "",
+      "name": "PostgreSQL",
+      "version": "14"
+    },
+    {
+      "id": "finding-14",
+      "type": "finding",
+      "label": "unauthenticated admin panel",
+      "sub": "",
+      "sev": "crit",
+      "risk": "high",
+      "ref": "F-01",
+      "cve": "CVE-2025-14190",
+      "conf": 85,
+      "confidence": "confirmed",
+      "evidence": "GET /admin returned a 200 management console with no auth"
+    },
+    {
+      "id": "cve-15",
+      "type": "cve",
+      "label": "CVE-2025-14190",
+      "sub": "",
+      "cvss": 9.8
+    },
+    {
+      "id": "finding-16",
+      "type": "finding",
+      "label": "weak postgres credentials",
+      "sub": "",
+      "sev": "high",
+      "risk": "high",
+      "ref": "F-02",
+      "conf": 85,
+      "confidence": "confirmed",
+      "evidence": "authenticated with a weak/default credential pair; the post-auth read-back returned the server banner (PostgreSQL 14)"
+    },
+    {
+      "id": "exploit-17",
+      "type": "exploit",
+      "label": "auth bypass -> RCE",
+      "sub": "",
+      "ref": "X-01",
+      "gated": true,
+      "state": "proved"
+    },
+    {
+      "id": "cred-18",
+      "type": "cred",
+      "label": "svc_web@web-01",
+      "sub": "",
+      "kind": "token"
+    },
+    {
+      "id": "foothold-19",
+      "type": "foothold",
+      "label": "www-data shell",
+      "sub": "",
+      "host": "host-2"
+    },
+    {
+      "id": "route-20",
+      "type": "route",
+      "label": "reused svc credential",
+      "sub": ""
+    }
+  ],
+  "edges": [
+    {
+      "from": "root-1",
+      "to": "host-2",
+      "kind": "recon"
+    },
+    {
+      "from": "host-2",
+      "to": "service-3",
+      "kind": "svc"
+    },
+    {
+      "from": "host-2",
+      "to": "service-4",
+      "kind": "svc"
+    },
+    {
+      "from": "subdomain-5",
+      "to": "host-2",
+      "kind": "resolves"
+    },
+    {
+      "from": "subdomain-6",
+      "to": "host-2",
+      "kind": "resolves"
+    },
+    {
+      "from": "host-2",
+      "to": "endpoint-7",
+      "kind": "exposes"
+    },
+    {
+      "from": "host-2",
+      "to": "endpoint-8",
+      "kind": "exposes"
+    },
+    {
+      "from": "host-2",
+      "to": "tech-9",
+      "kind": "runs"
+    },
+    {
+      "from": "host-2",
+      "to": "tech-10",
+      "kind": "runs"
+    },
+    {
+      "from": "root-1",
+      "to": "host-11",
+      "kind": "recon"
+    },
+    {
+      "from": "host-11",
+      "to": "service-12",
+      "kind": "svc"
+    },
+    {
+      "from": "host-11",
+      "to": "tech-13",
+      "kind": "runs"
+    },
+    {
+      "from": "host-2",
+      "to": "finding-14",
+      "kind": "finding"
+    },
+    {
+      "from": "cve-15",
+      "to": "host-2",
+      "kind": "affects"
+    },
+    {
+      "from": "host-11",
+      "to": "finding-16",
+      "kind": "finding"
+    },
+    {
+      "from": "finding-14",
+      "to": "exploit-17",
+      "kind": "exploit"
+    },
+    {
+      "from": "exploit-17",
+      "to": "cred-18",
+      "kind": "yields"
+    },
+    {
+      "from": "host-2",
+      "to": "foothold-19",
+      "kind": "escalates"
+    },
+    {
+      "from": "host-2",
+      "to": "route-20",
+      "kind": "pivots"
+    },
+    {
+      "from": "route-20",
+      "to": "host-11",
+      "kind": "lateral"
+    }
+  ],
+  "holds": [
+    {
+      "action": "egress:8.8.8.8",
+      "rule": "enclave-denied",
+      "target": "PIPE-1",
+      "at": "2026-09-17T23:32:52.982Z"
+    }
+  ],
+  "phaseLog": [
+    {
+      "phase": "recon",
+      "summary": "Enumerated 10.10.0.0/16; the platform held one out-of-scope egress probe.",
+      "at": "2026-09-17T23:32:52.983Z"
+    },
+    {
+      "phase": "validate",
+      "summary": "Two findings confirmed with disambiguating probes.",
+      "at": "2026-09-17T23:32:52.984Z"
+    },
+    {
+      "phase": "exploit",
+      "summary": "AI-surface lane SKIPPED: no AI-shaped endpoints and no web bases — nothing to detect",
+      "at": "2026-09-17T23:32:52.989Z"
+    },
+    {
+      "phase": "exploit",
+      "summary": "Proved the admin-panel path under the signed window; recovered a service credential.",
+      "at": "2026-09-17T23:32:52.989Z"
+    },
+    {
+      "phase": "postex",
+      "summary": "artifact file @ web-01:/tmp/varvel_poc -> cleanup: rm -f /tmp/varvel_poc",
+      "at": "2026-09-17T23:32:52.991Z"
+    },
+    {
+      "phase": "postex",
+      "summary": "Minimal proof of impact; one controlled pivot to db-01; one artifact recorded for cleanup.",
+      "at": "2026-09-17T23:32:52.991Z"
+    },
+    {
+      "phase": "report",
+      "summary": "Engagement summary: scope honored (10.10.0.0/16). 2 findings (1 critical, 1 high), 1 proved exploit chain with a controlled pivot to db-01, 1 governance hold (out-of-scope egress). Remediation: enforce auth on the admin panel; rotate postgr",
+      "at": "2026-09-17T23:32:52.991Z"
+    },
+    {
+      "phase": "report",
+      "summary": "COVERAGE-INCOMPLETE: 2 queued in-scope surface item(s) were never exercised — the campaign is NOT done-clean; remaining queue: /admin, /api/v1/users",
+      "at": "2026-09-17T23:32:52.991Z"
+    }
+  ],
+  "debunked": [],
+  "counts": {
+    "hosts": 2,
+    "subdomains": 2,
+    "svcs": 3,
+    "endpoints": 2,
+    "tech": 3,
+    "cves": 1,
+    "findings": 2,
+    "confirmed": 2,
+    "crit": 1,
+    "risk": {
+      "high": 2,
+      "medium": 0,
+      "info": 0
+    },
+    "exploits": 1,
+    "creds": 1,
+    "footholds": 1,
+    "routes": 1,
+    "holds": 1
+  },
+  "model": {
+    "nodeTypes": 16,
+    "edgeKinds": 20
+  }
+}

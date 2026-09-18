@@ -1,0 +1,54 @@
+{
+ "at": "2026-09-12T13:29:46.483Z",
+ "opportunity": "mufg-vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "mufg.jp",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to mufg.jp:443 refused: host unreachable"
+  },
+  {
+   "host": "mufgamericas.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-cache": "HIT, HIT",
+    "via": "1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=31622400"
+   },
+   "endpoints": [
+    {
+     "path": "/admin/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  }
+ ]
+}

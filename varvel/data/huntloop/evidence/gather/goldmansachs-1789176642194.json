@@ -1,0 +1,92 @@
+{
+ "at": "2026-09-12T01:30:21.097Z",
+ "opportunity": "goldmansachs",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "research.gs.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "ALLOW-FROM experience.adobe.com",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "developer.gs.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: GET developer.gs.com/ via the chain aborted"
+  },
+  {
+   "host": "goldmansachsindices.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to goldmansachsindices.com:443 refused: connection refused"
+  },
+  {
+   "host": "marquee.gs.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "webserver",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "script-src 'self' 'unsafe-inline' 'unsafe-eval' *.gs.com:* https://gsgir.122.2o7.net https://*.tt.omtrdc.net https://vie",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "goldmansachs.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

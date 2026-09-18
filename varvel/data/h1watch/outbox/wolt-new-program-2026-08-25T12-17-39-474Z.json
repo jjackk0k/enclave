@@ -1,0 +1,242 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wolt",
+      "name": "Wolt",
+      "offersBounties": true,
+      "assets": [
+        "*.wolt.com",
+        "1477299281",
+        "943905271",
+        "authentication.wolt.com",
+        "com.wolt.android",
+        "com.wolt.courierapp",
+        "corporate.wolt.com",
+        "drive.wolt.com",
+        "merchant.wolt.com",
+        "ops.wolt.com",
+        "restaurant-api.wolt.com",
+        "wolt.com"
+      ],
+      "exclusions": [
+        "*.pipedrive.com",
+        "blog.wolt.com",
+        "gettest.wolt.com",
+        "https://merchant-onboarding-service.wolt.com/merchant-admin/inbound-merchant",
+        "https://merchant.wolt.com/api/merchant-onboarding/merchant-admin/inbound-merchant",
+        "https://merchant.wolt.com/app/partner-with-wolt",
+        "https://restaurant-api.wolt.com/v1/waw-api/corporate-leads",
+        "https://wolt.com/en/wolt-for-work-contact-request",
+        "https://wolt.typeform.com",
+        "links.wolt.com",
+        "press.wolt.com",
+        "wolt.atlassian.net"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate-limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wolt-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wolt",
+  "name": "Wolt",
+  "url": "https://hackerone.com/wolt",
+  "policy": "# Disclosure Policy\n* Please, follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n*  Employees and contractors of the organization are not eligible to participate in this program.\n* ⛔ Don't use or interact with accounts or data you don't own, including but not limited to  restaurants/venues and merchant data.\n* ⛔ Use only your own accounts and data for testing purposes.\n\n# Testing Plan\n* Users are able to sign up for a free account through our website\n* Please use your **hacker email alias** when testing (`h1username@wearehackerone.com`)\n* Claim credentials (when applicable) for additional testing\n* Add the following headers to requests: `X-HackerOne-Research: [H1 username]`. Reports resulting in testing without headers can result in the forfeiture of the eligible bounty.\n* Please, keep report brief and concise. 300-400 words per report is a good limit.\n\n## Test entities\n- If you need to test any sort of access to user data, please do it only against this specific **consumer test account**, whose `user_id` is `670fa3e9ead6e49d65cc3614`. \n- If you need to test any sort of access to restaurant or venue data, please do it only against this specific **venue test account**, whose `venue_id` is `670e7897e3c56dcc5b5a0989`.\n- If you need to test any sort of venue-related functionality, please do it only against this test venue (real purchase is not available): https://wolt.com/en/fin/helsinki/venue/test-670e7897e3c56dcc5b5a0989-sh0p\n\n## Where can we get credentials?\nWe have several user types:\n- Customer account. You can self-register using [wolt.com](https://wolt.com), the [iOS app](https://itunes.apple.com/app/id943905271), or the [Android app](https://play.google.com/store/apps/details?id=com.wolt.android).\n- Courier account. Not available at the moment.\n- Merchants or business account. Not available at the moment.\n\n# Out of scope\n\n * Multiple leaked human identity credentials originating from third-party datasets (leaked credential lists, databases, monitoring services and credential marketplaces)\n * Testing the payment processors is out of scope\n * Spam, social engineering and physical intrusion\n * There are humans behind every Customer Support chat. Any interaction with Customer Support staff, including social engineering attempts, is forbidden and out of scope\n * Network DoS/DDoS attacks\n * Web Cache Poisoned Denial of Service\n * Brute force attacks\n * Attacks requiring access to a victim's computer/device\n * Reports that state that software is out of date/vulnerable without a proof-of-concept\n * Mass creating of entities, including accounts, profiles and applications\n* `GATEKEEPER_API_KEY` exposure since it is not a secret value\n\n## Web\n * API key disclosure without proven business impact\n * Signup with unverified mobile numbers (if you took over an existing number, then that's a finding!)\n * Verbose messages/files/directory listings without disclosing any sensitive information\n * CORS misconfiguration without proven impact\n * Missing cookie flags\n * Missing security headers\n * Cross-site Request Forgery without proven impact\n * Autocomplete on web forms\n * Bypassing rate-limits or the non-existence of rate-limits\n * Best practices violations (password complexity, expiration, re-use, etc.)\n * Clickjacking without proven impact/unrealistic user interaction\n * CSV Injection\n * Sessions not being invalidated (logout, enabling 2FA, etc.)\n * Content injection without being able to modify the HTML\n * Username/email enumeration\n * Email bombing\n * HTTP Request smuggling without any proven impact\n * Homograph attacks\n * Banner grabbing/Version disclosure\n * Subdomain takeover without proof\n * Arbitrary file upload without proof\n * Host header injection without proven business impact\n\n## Mobile\n * Shared links leaked through the system clipboard\n * Attacks requiring malicious apps to be installed beforehand\n * Sensitive data in URLs/request bodies when protected by TLS\n * Lack of obfuscation\n * Path disclosure in the binary\n * Lack of jailbreak & root detection\n * Crashes due to malformed URL Schemes\n * Lack of binary protection (anti-debugging) controls, mobile SSL pinning\n * Snapshot/Pasteboard leakage\n * Runtime hacking exploits (exploits only possible in a jailbroken environment)\n\n# Legacy Hall of Fame\n\nWe appreciate reports received by the following researchers previously on the Intigriti platform: `0xcm1k3`, `0xd0m7`, `0xdln`, `_lauritz_`, `agnel123`, `altcool6`, `amirsec76`, `anhdva`, `anonymoushobbit`, `apogiatzis`, `athulms`, `badmusmuritado`, `baloocky`, `black_dd`, `bughuntar`, `bunny0417`, `callmedaddy`, `chrismas_here`, `commadno6407`, `crofr`, `cybersamurai`, `d0xing`, `deneuv`, `dk4trin`, `drak3hft7`, `drdoctor0`, `dynnyd20`, `floerer`, `giongfnef26`, `godiego`, `goseck`, `greenfire`, `greensec`, `gug_saas`, `h4rshbothra`, `harshtalavaniya99`, `hashem_mm`, `hetroublemak3r`, `ja`, `juniorbrets`, `k_link_1337`, `kir_tis`, `kurt4j`, `liikala96`, `ling0`, `lucsouza`, `m0chan`, `maara`, `makaveli`, `mariosk`, `marius_dp`, `mherano`, `mikemyers`, `mysc0x1`, `nc5`, `nd_passenger`, `neolokir`, `ninjan11`, `noman181`, `notroks`, `notron`, `nva`, `oxidor`, `phiko`, `pod_krinko1`, `pprab`, `pushpak35`, `pwnedchicken`, `qwe_aldo1`, `rahimian`, `redyetidev`, `richlee`, `rjflsec`, `s3c_krd`, `s3nn`, `saintbarber`, `sanfindings`, `sezo`, `sheikhrishad`, `six2dez`, `slashx0x`, `soloboy`, `steffe`, `talha`, `testt0`, `th3ho4ds`, `thaivd98`, `the14st`, `themastersunil`, `theokeen`, `thezodd`, `valbrux`, `vkiee`, `wcraft`, `whitehatind`, `xburns`, `yotamsofer`, `youngvanda`, `yuzadef`, `zere`, `bricked`, `rev1th`\n\nThank you for helping keep Wolt and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "authentication.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Keywords: OAuth2, OIDC, JWT\n* Used by: Regular wolt.com users, Wolt employees, other services (service-to-service communication).\n* Handles the vast majority of our authN/authZ. In other words, JWTs signed by this service can grant you access to other services/APIs.\n* Your JWT as a regular wolt.com ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "corporate.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Keywords: admin\n* Used by: Wolt employees, corporate customers.\n* Admin portal for Wolt's corporate customers.\n* Your JWT as a regular wolt.com user should grant you limited access.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "drive.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Keywords: admin\n* Used by: Wolt employees, delivery partners.\n* Admin portal for Wolt's last-mile delivery partners.\n* Your JWT as a regular wolt.com user should grant you limited access.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "merchant.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Keywords: admin\n* Used by: Wolt employees, store managers.\n* Portal for store managers to update menus.\n* Your JWT as a regular wolt.com user should grant you limited access.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ops.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Keywords: admin\n* Used by: Wolt employees.\n* This service's endpoints are only accessible by Wolt employees (if you can show otherwise, that’ll be very interesting). However, your tainted data (e.g., purchase info, profile info) may be processed by this service.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "restaurant-api.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* Used by: Regular wolt.com users, Wolt employees, corporate customers, delivery partners, store managers.\n* Notable use-cases: Creating and editing users, placing orders, tracking orders, setting prices.\n* Your JWT as a regular wolt.com user should grant you access to most functionality for your us",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Used by: Everybody.\n* Our main web page.\n* Notable use-cases: Offering an in-browser JavaScript app to interact with other APIs and services. Offering HTTP endpoints to interact with this service's own APIs.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wolt.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "press.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a third-party SaaS and we aren't authorized to test it.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "links.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gettest.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.wolt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Keywords: Third-party SaaS, WordPress\n* Used by: Wolt employees.\n* WordPress blog hosted by wpengine.com. wpengine.com owns the infrastructure, but we maintain the WordPress installation.\n* Note: Only WordPress-level probes are allowed.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.wolt.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Wolt  Customer Android app: https://play.google.com/store/apps/details?id=com.wolt.android\n\nNotable use-cases: Regular wolt.com account creation, placing orders, tracking your orders, modifying your profile info.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.wolt.courierapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Wolt Courier Partner Android app: https://play.google.com/store/apps/details?id=com.wolt.courierapp\n\n* Notable use-cases: Receiving delivery requests, tracking orders, completing deliveries, modifying your profile info.\n* For the time being we don't provide accounts of the courier type.\n* It would b",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1477299281",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Wolt Courier Partner iOS app: https://apps.apple.com/app/1477299281 \n* Notable use-cases: Receiving delivery requests, tracking orders, completing deliveries, modifying your profile info.\n* For the time being we don't provide accounts of the courier type.\nIt would be very interesting if you can inte",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "943905271",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Wolt Customer iOS app: https://apps.apple.com/app/943905271\n\nNotable use-cases: Regular wolt.com account creation, placing orders, tracking your orders, modifying your profile info.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wolt.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Anything else under the `.wolt.com` domain is fair game with some exceptions (see the out of scope items). Depending on the affected service and finding type, we might bump this to Tier-1 bounties.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pipedrive.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any Pipedrive forms linked from *.wolt.com domains are out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://merchant.wolt.com/api/merchant-onboarding/merchant-admin/inbound-merchant",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not POST data here, as it will be sent to a third-party system that is also out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://restaurant-api.wolt.com/v1/waw-api/corporate-leads",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not POST data here, as it will be sent to a third-party system that is also out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://merchant-onboarding-service.wolt.com/merchant-admin/inbound-merchant",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not POST data here, as it will be sent to a third-party system that is also out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://wolt.com/en/wolt-for-work-contact-request",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://merchant.wolt.com/app/partner-with-wolt",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://wolt.typeform.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any Typeform forms linked from *.wolt.com domains are out of scope.",
+      "max_severity": "none"
+    }
+  ]
+}

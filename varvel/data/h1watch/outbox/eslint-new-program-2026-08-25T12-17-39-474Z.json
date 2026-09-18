@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "eslint",
+      "name": "ESLint",
+      "offersBounties": false,
+      "assets": [
+        "https://github.com/eslint/eslint",
+        "https://github.com/eslint/eslint-github-bot",
+        "jenkins.eslint.org"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\eslint-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "eslint",
+  "name": "ESLint",
+  "url": "https://hackerone.com/eslint",
+  "policy": "To securely report a vulnerability, please [open an advisory on GitHub](https://github.com/eslint/eslint/security/advisories/new). The form is also accessible when [submitting a new issue](https://github.com/eslint/eslint/issues/new/choose).",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "jenkins.eslint.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "ESLint's Jenkins server is used to carry out releases of ESLint-maintained packages. As such, it has access to several confidential resources, including an npm token and ssh key with access to all of ESLint's packages and repositories, respectively.\n\nFor transparency, the build logs from each ESLint",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/eslint/eslint-github-bot",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "`eslint-github-bot` is a webhook service that automates some common tasks for repositories run by the ESLint team. ESLint's instance of `eslint-github-bot` is hosted at https://jenkins.eslint.org:7999.\n\nExamples of potential security bugs in the bot include:\n\n* An issue that allows an attacker to im",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/eslint/eslint",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[ESLint](https://github.com/eslint/eslint) is a static analysis tool for JavaScript code.\n\nWe are interested in hearing about cases where running ESLint on attacker-supplied source file, with an attacker-supplied set of JSON rule/parser option/environment configurations, could allow an attacker to e",
+      "max_severity": "critical"
+    }
+  ]
+}

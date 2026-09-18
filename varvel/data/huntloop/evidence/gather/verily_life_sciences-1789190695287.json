@@ -1,0 +1,57 @@
+{
+ "at": "2026-09-12T05:24:52.878Z",
+ "opportunity": "verily_life_sciences",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "apps.apple.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "daiquiri/5",
+    "x-cache": "TCP_REFRESH_MISS from a2-19-160-192.deploy.akamaitechnologies.com (AkamaiGHost/22.6.3-da071da6976b6d633b0b37bcfe65c0fc) ",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "upgrade-insecure-requests; default-src 'none'; manifest-src 'self' https://*.apple.com; img-src 'self' https://*.apple.c",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "play.google.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "ESF",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/internalPref",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  }
+ ]
+}

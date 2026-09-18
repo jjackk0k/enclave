@@ -1,0 +1,116 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lowes",
+      "name": "Lowe's Companies VDP",
+      "offersBounties": false,
+      "assets": [
+        "com.LowesAndroid",
+        "com.lowes.LowesStore",
+        "com.lowes.LowesStoreTestFlight",
+        "https://corporate.lowes.com/",
+        "https://talent.lowes.com/",
+        "https://uat.lpsdxp.com/",
+        "https://www.lowes.co.in/",
+        "lowes.com"
+      ],
+      "exclusions": [
+        "http://myfbm.com",
+        "www.lowesprosupply.com/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lowes-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lowes",
+  "name": "Lowe's Companies VDP",
+  "url": "https://hackerone.com/lowes",
+  "policy": "#**LOWE'S VULNERABILITY REPORTING ELIGIBILITY POLICY**\n\nAt Lowe's, we respect and care deeply about the data security and privacy of our customers, associates and partners. The security of our eCommerce platforms and systems is of paramount importance to us. We welcome security researchers to share details of any suspected vulnerabilities in our systems and eCommerce platforms in a responsible manner. When a Security Researcher reports any suspected security vulnerabilities in accordance with this Vulnerability Disclosure Policy, Lowe's and/or its designated service provider will review the vulnerability in accordance with Lowe's policies and procedures, and at Lowe’s discretion, you may be eligible for monetary or nonmonetary compensation for your efforts.\n\n**No joint venture, partnership, employment or agency relationship is created or exists between you and Lowe's as a result of or related to your vulnerability submission.**\n\n# **How Does It Work?**\n\nLowe's vulnerability reporting eligibility policy is designed to better protect and prioritize our platforms and systems that serve our customers. We have defined **Program Scope and Focus Areas** that we would like Security Researchers to focus on.  If it is not covered under the Policy, we will acknowledge your contributions toward better protections\n\nLowe's will not take legal action against or suspend or terminate the accounts of those who discover and report security vulnerabilities in accordance with this Vulnerability Disclosure Policy. Lowe's reserves all legal rights in the event of any noncompliance.\n\nLowe's does not condone any illegal or unethical activities, and will not triage any noncompliant submission and/or any ineligible participants.\n\n##**Who is Eligible to Participate?**\n\nAll Security Researchers must meet the following eligibility requirements to be eligible for submitting reports:\n\n- You are 18 years of age or older, or if you are 16 years of age old with demonstrable parental consent.\n- You are either an individual researcher participating in your own individual capacity, or you work for an organization that permits you to participate. You are responsible for reviewing your employer's rules for participating in this Program.\n- You are not employed by a competitor of Lowe's (i.e. a home improvement retailer);\n- You are not a resident of any countries nor an individual under U.S. sanctions, nor are you affiliated with such country or person in the submission of the Vulnerability;\n- You are not a government official acting in your official capacity;\n- Currently or within six months prior to providing your Vulnerability report, you are not a Lowe's employee, or an employee of a Lowe's contractor or service provider of Lowe's, or an immediate family member (parent, sibling, spouse, or child) or household member of such an employee;\n- You obtained Vulnerability in good faith and in an ethical manner and you will only seek reasonable compensation for your expertise, knowledge and efforts;\n- You will not engage in any illegal or unethical activities exploiting the Vulnerabilities to Lowe's harm; and\n- You comply with all applicable laws and regulations, applicable Lowe's policies, your non-disclosure agreement and Security Vulnerabilities Reporting Terms and Conditions of Lowe's.\n- There is no other legal prohibition that prevents you from performing the security research under this policy.\n\n# **Response Targets**\nLowe's Companies will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\n#**First Things First – Here are Some Ground Rules**\n\nLowe's does not condone any illegal activities, and prohibits any of the conduct listed below. As such, we ask you do NOT perform the below actions and we will not triage any of the vulnerabilities discovered by the following:\n\n- access, download, or modify data residing in an account that does not belong to you, you may, however, investigate or target vulnerabilities against your own test accounts. Testing must not disrupt or compromise any data or data access that is not yours.\n- perform any attack that could harm our services, including launching any denial of service attacks (DDoS), Spam, pyramid schemes, or deploy or use any other malicious software or technology\n- conduct non-technical attacks such as social engineering or phishing.\n- access infrastructure is not allowed.\n- test the physical security of Lowe's facilities, employees, equipment, etc.\n- attack, in any way, our end users, or engage in trade of stolen user credentials.\n- perform automated/scripted testing of web forms, especially Contact forms that are designed for customers to contact our support team.\n- use automated scanners/tools\n- test third-party applications, websites, or services that integrate with or link to Lowe's properties\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* This program **will** accept submissions for assets that are not listed as in scope and are validated as Lowe's owned assets.\n\n#**Let the Hunt Begin!**\n\n## **Vulnerability Submission**\n\nPlease review the program scope and focus areas before you start. You will need to follow designated submission format and provide all the information required. Lowe's and/or its designated service provider (HackerOne) will review and validate the reported vulnerability. Any submission that cannot be validated, either internally or via Lowe's retained 3rd party investigation, is not eligible for compensation and/or triage.\n\n# Test Plan\n* Users are able to sign up for a free account through our website\n* Please use your **hacker email alias** when testing (h1username@wearehackerone.com)\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as:\n* “X-HackerOne-Research: [H1 username]”\n\n## **Vulnerability Review Process and Scoring**\n\nLowe's and its designated service provider (HackerOne) will review and rate vulnerabilities submitted.\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for triage.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n## **Vulnerability Reporting **\n\nLowe's and its designated service provider (HackerOne) will review and rate vulnerabilities submitted.\n\n## **Program Scope and Focus Areas**\n\n### **In-Scope**\n\nThe following consumer-facing websites operated by Lowe's that collects or processes personal information:\n\n| **URL** | **Target Name** | **Target Type** |\n| --- | --- | --- |\nhttps://lowes.com/* | [Lowes.com](http://www.lowes.com/) | Website |\nhttps://play.google.com/store/apps/details?id=com.lowes.android&hl=en_US | [Lowe's Android App](https://play.google.com/store/apps/details?id=com.lowes.android&hl=en_US) | Android Application |\nhttps://apps.apple.com/us/app/lowes-home-improvement/id457954781 | [Lowe's iOS App](https://apps.apple.com/us/app/lowes-home-improvement/id457954781) | iOS Application |\nhttps://uat.lpsdxp.com/* | [Lowe's Pro Supply UAT](https://uat.lpsdxp.com/) | Website |\nhttps://talent.lowes.com/* | [Lowe's Careers](https://talent.lowes.com) | Website |\nhttps://www.lowes.co.in/* | [Lowe's Corporate India](https://www.lowes.co.in) | Website |\nhttps://corporate.lowes.com/* | [Lowes Corporate](https://corporate.lowes.com) | Website |\n\n\n**Important** - the Apps are only available from the USA, so it may be necessary to use a VPN to connect to the Play Stores.\n\n###**Out of Scope URL(s)**\n\n| **URL** | **Target Name** | **Target Type** |\n| --- | --- | --- |\nwww.lowesprosupply.com/* | [LowesProSupply](http://www.lowesprosupply.com/) | Website |\n\nLowe's Focus Areas:\n\n1. Cross Site Scripting (XSS)\n2. Cross Site Request Forgery (CSRF)\n3. Insecure direct object references\n4. Injection Vulnerabilities\n5. Authentication Vulnerabilities\n6. Server-side Code Execution\n7. Privilege Escalation\n8. Significant Security Misconfiguration (when not caused by user)\n9. Any out of the box issues which could lead to compromise or leakage of data and directly affect the confidentiality or integrity of user data of which affects user privacy.\n\n###**Out of Scope**\n\nThe following finding types are specifically excluded from the Vulnerability triage:\n\n1. Findings from physical testing such as store, office, or distribution center access (e.g. open doors, tailgating).\n2. Findings derived primarily from social engineering (e.g. phishing, vishing).\n3. Findings from applications or systems not listed in the scope section.\n4. Functional, UI and UX bugs and spelling mistakes.\n5. Network level Denial of Service (DoS/DDoS) vulnerabilities.\n6. Pivoting, scanning, and vulnerability exploitation.\n7. Exfiltration of data from Lowe's systems.\n8. Email spoofing and missing or incorrect SPF/DMARC/DKIM records of any kind\n9. Descriptive error messages (e.g. Stack Traces, application or server errors).\n10. HTTP 404 codes/pages or other HTTP non-200 codes/pages.\n11. Fingerprinting / banner disclosure on common/public services.\n12. Disclosure of known public files or directories, (e.g. robots.txt).\n13. Clickjacking and issues only exploitable through clickjacking.\n14. Login/Logout/Unauthenticated/low impact/anonymous user CSRF.\n15. Presence of application or web browser autocomplete or save password functionality.\n16. Lack of Secure/HTTP Only flags on non-sensitive Cookies.\n17. Lack of Security Speedbump when leaving the site.\n18. Weak Captcha / Captcha Bypass\n19. Forgot Password page brute force and account lockout not enforced.\n20. OPTIONS HTTP method enabled\n21. Username / email enumeration via Login Page error message or Forgot Password error message\n22. Any missing HTTP security headers\n23. SSL Attacks such as BEAST, BREACH, Renegotiation attack\n24. SSL Forward secrecy not enabled\n25. SSL weak / insecure cipher suites\n26. Vulnerabilities affecting users of outdated browsers such as:\n- IE 9\n- Chrome 40\n- Firefox 35\n- Safari 7\n- Opera 13\n\n##**Confidentiality**\n\nLowe's requires that vulnerability submissions remain confidential and cannot be disclosed to third parties or as part of paper reviews or conference submissions without Lowe's prior express written consent. You must not use, disclose or threat using the Vulnerabilities to cause any direct or indirect harm to Lowe's. **Violation of this section may disqualify you from any future participation in Lowe's Vulnerability reporting**\n\n## **Legal**\n\nLowe's reserves the right to modify terms and conditions of this program and your participation in the program constitutes acceptance of all terms. Please check this site regularly as we routinely update our program terms and eligibility, which are effective upon posting. We reserve the right to cancel this program at any time.\n\nThank you for helping Lowe's improve our system and eCommerce platform!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "lowes.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This website uses self-registration for user accounts. Please create accounts responsibly and using your HackerOne designated email address.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lowes.LowesStore",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This application is only accessible in the US. VPN use may be required for testing.\nApple App Store Link: https://apps.apple.com/us/app/lowes-home-improvement/id457954781",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lowes.LowesStoreTestFlight",
+      "asset_type": "TESTFLIGHT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Public TestFlight Link: https://testflight.apple.com/join/nB0VMPeC",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.LowesAndroid",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This application is only accessible in the US. VPN use may be required for testing.\nGoogle Play Store Link: https://play.google.com/store/apps/details?id=com.lowes.android&hl=en_US&gl=US",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.lowesprosupply.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please do not request a user account for this asset.\nTesting is to be performed as an unauthenticated user.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://uat.lpsdxp.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://talent.lowes.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.lowes.co.in/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://corporate.lowes.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://myfbm.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

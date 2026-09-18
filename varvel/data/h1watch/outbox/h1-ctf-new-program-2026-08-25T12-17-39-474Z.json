@@ -1,0 +1,65 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "h1-ctf",
+      "name": "h1-ctf",
+      "offersBounties": false,
+      "assets": [
+        "*.hackyholidays.h1ctf.com"
+      ],
+      "exclusions": [
+        "*.bountypay.h1ctf.com",
+        "*.ccc.h1ctf.com",
+        "h1-415.h1ctf.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\h1-ctf-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "h1-ctf",
+  "name": "h1-ctf",
+  "url": "https://hackerone.com/h1-ctf",
+  "policy": " #CTF\r\n Welcome to HackerOne's 12 Days of Hacky Holidays! Here are the rules for claiming your prize:\r\n \r\n - Send us your write-ups once you have figured out all 12 flags\r\n - Keep an eye out for hints on this page or by following us on [Twitter](https://twitter.com/Hacker0x01/)\r\n - Teams are allowed, but prizes are given to 1 person per team\r\n\r\n{F1112200}\r\n\r\n#Prizes:\r\n - Each flag will get you up to 3 private invites to private programs hosted on HackerOne (Just make sure to submit it on ctf.Hacker101.com)\r\n - Our favorite report will also receive an invite to HackerOne's next live hacking event (being first to submit does no affect this prize)\r\n- $2,000 for the first person to solve all challenges and submit a write up\r\n- $1,000 for the most creative write up\r\n- $1,000 for the first person to submit a 0 or no interaction (automated script) report\r\n- Mistery bonuses (**$100-$500**)\r\n- All winners will also receive HackerOne swag\r\n- Portswigger's Burp Suite Certified Practitioner Certificaion for up to 25 people\r\n\r\n\r\n #RULES\r\n - This CTF will end on December 23, 2021, by 2:00 PM Pacific Time\r\n - Please do not release your writeups while the CTF is live, we'll let you know when to disclose your write-up as soon as we can. We promise! \r\n - **THIS IS A CTF** so please **do not** send missing best practices, CSRF, or possible CVE related vulnerabilities to this program. **Doing so will result in your report getting closed as `spam`.** \r\n - Once the CTF is closed, HackerOne will disclose all submissions.\r\n - Only test against the asset(s) listed within the scope\r\n \r\n # Exclusions \r\n While hacking, we would like to ask you to refrain from: \r\n \r\n * Denial of service \r\n * Spamming \r\n * Social engineering (including phishing) of HackerOne CTF staff or contractors \r\n \r\n # Safe Harbor \r\n Any activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n \r\n Happy hacking and have a hacky holiday!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "h1-415.h1ctf.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Archived - H1-415-2020 CTF",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bountypay.h1ctf.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "h1-2006 CTF",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hackyholidays.h1ctf.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ccc.h1ctf.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

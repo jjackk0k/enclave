@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ro",
+      "name": "Ro",
+      "offersBounties": false,
+      "assets": [
+        "*.getroman.com",
+        "*.hellorory.com",
+        "*.kit.ro.co",
+        "*.modernfertility.com",
+        "*.myplenity.com",
+        "*.ro.co",
+        "*.ropharmacy.com",
+        "1514854156",
+        "1585858911",
+        "http://ro.co/derm",
+        "http://ro.co/mind",
+        "http://ro.co/pharmacy",
+        "http://ro.co/spermkit",
+        "login.ro.co",
+        "my.ro.co",
+        "start.ro.co"
+      ],
+      "exclusions": [
+        "community.modernfertility.com",
+        "https://*.ro.co/api/members",
+        "https://*.ro.co/svc/auth-verifications/*/phone/*",
+        "https://login.ro.co/authorize",
+        "https://ro.co/api/account-exists",
+        "https://ro.co/api/presigned-upload-url",
+        "https://ro.co/messages/*",
+        "https://ro.co/weight-loss/glp1-insurance-checker/*",
+        "https://ro.co/weight-loss/supply-tracker/*"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "50 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ro-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ro",
+  "name": "Ro",
+  "url": "https://hackerone.com/ro",
+  "policy": "# Purpose\nRoman Health Ventures Inc. (Ro) is a healthcare company that provides its members with an end-to-end healthcare experience, from diagnosis, to delivery of medication, to ongoing care. We take this responsibility seriously and we welcome and appreciate feedback from good faith security researchers who want to help ensure the security of our services and the data of the individuals seeking care through our platform. If you believe you have discovered a security or privacy-related vulnerability in any of our in-scope websites or other assets, we want to hear from you. This policy outlines the steps you should take to report vulnerabilities to us, what you can expect from us after you’ve submitted your report, and what we expect from you throughout your participation in our vulnerability disclosure program.\n\n# Our Expectations of You\nYou must engage in security research responsibly and in good faith. In order to participate in our vulnerability disclosure program you must agree to and follow these requirements:\n* **Cause no harm.** Do not cause harm to our information systems, our members, or others. This includes, without limitation, that you must (1) not compromise the privacy or safety of our members, (2) not destroy our members’ data, (3) not interrupt or degrade the operation of our services, (4) not send unsolicited bulk messages (spam) or unauthorized messages, and (5) not post, transmit, upload, link to, or send any malware.\n* **Do not access identifiable health information or other personal data.** Do not knowingly view, alter, save, store, transfer, download, exfiltrate, or otherwise access any data from any of our assets, including without limitation any data that contain, or may potentially contain, any identifiable health or medical information or any other personal information (as defined under all applicable privacy laws), which data is referred to throughout this policy as “personal data”.  \n* **Immediately report inadvertent personal data access to Ro.** We have not structured this vulnerability disclosure program to result in your access to any personal data. You should not access any personal data in connection with your participation in our vulnerability disclosure program. However, if you inadvertently encounter personal data in the course of your good faith research, **you must immediately (1) stop your probe, (2) report your findings to us and indicate in your report that the severity level of the vulnerability is “critical”,  (3) purge any personal data on your local device after reporting the vulnerability to us, and (4) confirm to us in writing, in a form satisfactory to us, that you have completed such purge.** You agree that you will cooperate with our efforts to confirm that you took these steps to remove any personal data from your device and to otherwise protect the personal data that you inadvertently discovered.\n* **No demands for payment.** Do not make any demands for payment, rewards, or other compensation for your participation in our vulnerability disclosure program. Demanding payment in return for not destroying or taking other action towards our information systems or data will result in you being viewed and treated as a threat rather than an authorized participant in our program. \n* **Comply with applicable law and this policy.** Play by the rules by complying with all applicable laws governing your security research, by cooperating with us to protect personal data, and by otherwise following this policy and any other relevant agreements between us and/or you and HackerOne. Only good faith research that conforms to this policy and all other relevant agreements is considered authorized research under this program. \n* **Limitations on who can submit reports.**. You must be eighteen or older to submit a report through our vulnerability disclosure program. This program is also not open to any individual on, or located or ordinarily residing in any country on, any U.S. sanctions lists, including without limitation any list related to debarment, exclusion, or suspension from any federal or state healthcare program.. \n* **Prompt disclosure to Ro.**  Please report any vulnerability that you’ve discovered promptly, using only the official channels described in our reporting section of this policy. Do not, under any circumstances, discuss with anyone other than Ro your report(s) or any vulnerabilities (even resolved ones) without express written consent from Ro.\n* **In-scope testing only.** Perform testing only on in-scope assets pursuant to our testing guidelines (all as further described below), and respect systems and activities which are out-of-scope. \n\n# Out of Scope Assets & Vulnerabilities Not Eligible for Submission\nAny web application, native application, or other Ro asset not expressly listed under “Scope” is excluded from the scope of this program and is not authorized for testing. In addition, the following vulnerabilities are considered out of scope and not eligible for rewards in our bug bounty program:\n* Attacks designed or likely to degrade, deny, or adversely impact services or user experience (e.g., Denial of Service, Distributed Denial of Service, Brute Force, Password Spraying, Spam…)\n* Attacks designed or likely to destroy, corrupt, make unreadable (or attempts therein) data or information that does not belong to you\n* Any vulnerability obtained through the compromise of an account member or employee of Ro or any of its affiliates.\n* Attacks requiring MITM or physical access to a user’s device\n* Intentionally accessing data or information that does not belong to you beyond the minimum viable access necessary to demonstrate the vulnerability\n* Performing physical, social engineering, hardware or electronic attacks against Ro or its affiliates personnel, offices, pharmacies, labs, wireless networks or property.\n* Security issues or vulnerabilities created or introduced by the reporter (e.g., modifying a library we rely on to include a vulnerability for the sole purpose of a reward)\n* Reports generated from automated vulnerability assessment tools\n* Reports of missing “best practices”, configurations, policy suggestions or other guidelines which do not indicate a security issue (to include SSL/TLS configurations)\n* Attacks or email security best practices/controls related to email servers, email protocols, email security (e.g. SPF, DMARC, DKIM), or email spam\n* Missing cookie flags on non-sensitive cookies\n* Reports of simple IP or port scanning\n* Missing HTTP headers (e.g. lack of HSTS), lack of Secure or HTTP only flag on non-sensitive cookies\n* Software or infrastructure bannering, fingerprinting, or reconnaissance with no proven vulnerability\n* Clickjacking or self-XSS reports\n* Domain-based phishing, typosquatting, punycodes, bitflips, or other techniques\n* Violating any laws or breaching any agreements (or any reports of the same)\n* Publicly-disclosed vulnerabilities which have already been reported to Ro or are already known to the wider security community\n* Reports of security issues already known and tracked by the Ro product security team.\n* Unauthenticated/logout/login CSRF\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Session Management in regards to session termination (e.g., User Logout, Password Recovery)\n* Submissions / messages to our Care Team\n* Security issues in third-party applications, services, or dependencies that integrate with Ro products or infrastructure that do not have a demonstrable proof of concept for the vulnerability (e.g., libraries, SAAS services)\n     * Only vulnerabilities found in Ro’s or its affiliate’s client-side implementation of a third-party vendor’s product or service will be eligible for submission\n\n\n# Instructions for Testing & Submitting a Report\n## User Identification Requirements\n* All researchers participating in our program MUST include their HackerOne username in the User-Agent string of their requests, formatted as: `<username>@wearehackerone.com`\n* When using Burp Suite, please configure Match and Replace rules to automatically modify the User-Agent header. For command-line tools, ensure you manually set the User-Agent flag.\n* Additionally, testing that requires authentication must be done from a Ro account associated with your `@wearehackerone.com` email address. Please use your HackerOne username as the first name and HackerOne as the last name. This ensures proper tracking and attribution of testing activities.\n\n## General Testing Guidelines\nHelp us protect the security and privacy of our information systems and our members by abiding by the following guidelines while engaging in testing activities under this program:\n* * Limit any automated scanning to 50 requests per second (RPS). Aggressive testing that causes service degradation will be grounds for removal from the program.\n* Limit your amount of access to in-scope assets to the minimum required for effectively demonstrating a proof-of-concept. \n* Never submit personal data as part of your submission to the HackerOne portal. Instead, follow the instructions above under the section titled “Immediately report inadvertent personal data access to Ro”.\n* Testing that requires authentication must be done from a Ro account associated with your `@wearehackerone.com` email address. Please create a free account to test potential vulnerabilities.\n* Make sure that scanners have a narrow scope set that is limited to only those assets that are in-scope under this policy. \n* If you discover a publicly exposed password or key, you should not use the key to test if it is an active key.\n* If you discover a successful SQL injection, do not exploit the vulnerability beyond the steps needed to demonstrate your proof-of-concept.\n\n## Report Format\nPlease report all vulnerabilities eligible for submission pursuant to this policy by clicking the “Submit Report” button on our HackerOne portal, located at `hackerone.com/ro?type=team`. Please complete all required fields in your report and provide as much detail as possible to demonstrate the quality of the vulnerability. Reports that are low quality and unclear will be closed. Please only submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n\n# Our Commitments to You\nRo is committed to communicating with you in a timely manner. If your participation in our vulnerability disclosure program meets expectations and otherwise complies with this policy, you can expect us to make a good faith effort to:\n* Acknowledge that your report has been received **within two business days** after it’s submitted.\n* Review your report to confirm whether it is complete and complies with this policy **within five business days** after your report is acknowledged, where possible. We may also work with you to better understand your report if it is complete and in compliance with this policy. \n* Strive to keep you informed, as appropriate and permitted under applicable law, about the progress of your report as it is processed.\n* Work to remediate vulnerabilities confirmed by Ro in a timely manner, taking into account the severity and complexity of the identified vulnerability.\n\n# This Policy Controls \nIn order to participate in our vulnerability disclosure program you must comply with this policy. Please note that if there is any inconsistency between this policy and any other applicable terms between us or you and HackerOne, including without limitation the HackerOne's Disclosure Guidelines, the terms of this policy will prevail. We may change the terms of this policy at any time in our sole discretion, including without limitation the list of in-scope assets, out-of-scope assets, and vulnerabilities not eligible for submission.\n\n# Note: Swag is available for all valid submissions! \n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.ro.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "\n",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "my.ro.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Must have an account that is created through an Online Visit (OV). For example, through the online visit at https://www.getroman.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "login.ro.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our custom domain for SSO through Auth0",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://ro.co/pharmacy",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "http://ro.co/mind",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "start.ro.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Online visits from any of our products (getroman.com, ro.co/mind, etc) will redirect to start.ro.co. Navigating directly to start.ro.co without beginning from an OV only redirects to ro.co",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://ro.co/derm",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "http://ro.co/spermkit",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.getroman.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.ropharmacy.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.myplenity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.hellorory.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.modernfertility.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "1514854156",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The latest version of iOS app installed from the official store at:\nhttps://apps.apple.com/us/app/ro/id1514854156",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1585858911",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The latest version of iOS app installed from the official store at: \nhttps://apps.apple.com/us/app/ro/id1585858911",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.modernfertility.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ro.co/messages/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.kit.ro.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://ro.co/weight-loss/supply-tracker/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ro.co/weight-loss/glp1-insurance-checker/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ro.co/api/account-exists",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ro.co/api/presigned-upload-url",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.ro.co/api/members",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://login.ro.co/authorize",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.ro.co/svc/auth-verifications/*/phone/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mtb",
+      "name": "M&T Bank Vulnerability Disclosure",
+      "offersBounties": false,
+      "assets": [
+        "*.leafnow.com",
+        "*.mtb.com",
+        "*.trustnota.com",
+        "*.wilmingtontrust.com",
+        "1449758462",
+        "1460176225",
+        "397761931",
+        "884228815",
+        "884242294",
+        "com.mtb.mbanking.sc.retail.prod",
+        "com.mtb.mobilebanking.ncr"
+      ],
+      "exclusions": [
+        "ceros.leafnow.com",
+        "com.mts.webtrading"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mtb-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mtb",
+  "name": "M&T Bank Vulnerability Disclosure",
+  "url": "https://hackerone.com/mtb",
+  "policy": "M&T Bank is committed to ensuring the security of our customers by protecting their information. This policy is intended to give security researchers clear guidelines for conducting vulnerability discovery activities and to convey our preferences in how you should submit discovered vulnerabilities to us. We encourage you to contact us to report potential vulnerabilities in our systems in accordance with the guidelines below.\n**Note**: *This is a Responsible Disclosure Program, which addresses technical vulnerabilities that could be exploited. For all customer service needs, please [contact us](https://www3.mtb.com/homepage/explore-the-m-and-t-bank-help-center/mandt-bank-phone-numbers-by-department/telephone-directory). If you are reporting fraud or phishing, please call us at 1-800-724-2440*.\n\n# Program Terms\n* Your report is subject to [HackerOne’s Vulnerability Disclosure Guidelines](https://www.hackerone.com/terms/disclosure-guidelines).\n* Social engineering (e.g., phishing, vishing, smishing, tabnabbing) for the purposes of validating a vulnerability is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. You must only interact with accounts you own or with the explicit permission of the account holder.\n* Comply with applicable federal, state, local, and international laws in connection with your participation in this Responsible Disclosure Program.\n* M&T reserves the right to modify the terms of this policy or terminate the program at any time.\n\n# Researcher Responsibilities\nBy submitting a report to M&T you agree to adhere to the following guidelines:\n* You are at least 18 years old;\n* You are not located in or a resident of a country under United States sanctions, nor a person on, or working on behalf of a party identified on, any restricted party list maintained by the United States government;\n* You consent to your information being stored and transferred to the United States and acknowledge that you have read and accepted the terms of this policy and [HackerOne’s Vulnerability Disclosure Guidelines](https://www.hackerone.com/terms/disclosure-guidelines);\n* You agree not to disclose vulnerability details to anyone other than M&T without first obtaining M&T’s written permission;\n* You agree that your research will be conducted for testing and research purposes only, and that you will not attempt to gain access to customer or user accounts or M&T’s confidential information;\n* Once you’ve established that a vulnerability exists or encounter any sensitive data (including personally identifiable information, financial information, or proprietary information or trade secrets of any party), **you must stop your test, notify us immediately, and not disclose this data to anyone else**;\n* You understand that nothing in this agreement, including submission of a report, shall be deemed to constitute the grant to you of any license or other right to any M&T or third-party product, service, patent, trademark, trade secret, or any other intellectual property; and\n* By submitting a report to M&T Bank, you grant to M&T Bank, its subsidiaries and its affiliates, a perpetual, irrevocable, no charge license to all intellectual property rights licensable by you in or related to the use of information or material submitted. You must notify us if any part of your report is not your own work or is the intellectual property of a third-party.\n\n# Reporting Guidelines\n## Reporting a Vulnerability\nInformation submitted under this policy will be used for defensive purposes only – to mitigate or remediate vulnerabilities. If your findings include newly-discovered vulnerabilities that affect all users of a product or service and not solely M&T Bank, we may share your report with the Cybersecurity and Infrastructure Security Agency, where it will be handled under their [coordinated vulnerability disclosure process](https://www.cisa.gov/coordinated-vulnerability-disclosure-process). We will not share your name or contact information without express permission.\n\n## Create a Clear Report\nIn order to help us triage and prioritize submissions, we recommend that your reports:\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact. When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Describe the location the vulnerability was discovered and clearly describe the potential impact of the exploitation.\n* Offer a detailed description of the steps needed to reproduce the vulnerability (proof of concept scripts or screenshots are helpful).\n* Be in English, if possible.\n\n# Scope\nThe program scope includes any public-facing system owned, operated, or controlled by M&T Bank, Wilmington Trust, or their affiliates or subsidiaries, including web applications hosted on those sites. The assets specifically stated as in scope may be subject to change throughout the lifetime of this program.\n\n# Out of Scope Vulnerabilities\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\nWhen duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Large scale automated attacks using penetration testing software is prohibited.\n* Denial of Service attacks are prohibited.\n* Physical attacks are prohibited.\n* Intentional conduct that deletes or alters user-generated data; impairs, disrupts, or disables systems; or renders data inaccessible is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n \n# Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Rate limiting or brute-force issues on non-authentication endpoints.\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing.\n* Open redirect - unless an additional security impact can be demonstrated.\n* Issues that require unlikely user interaction.\n\n**In addition to the out-of-scope vulnerabilities listed above, any service not expressly listed above, such as any connected services, are excluded from scope and are not authorized for testing.** \n\nAdditionally, vulnerabilities found in systems from our vendors fall outside of this policy’s scope and should be reported directly to the vendor according to their disclosure policy (if any). If you aren’t sure whether a system is in scope or not, contact us before starting your research.\n\nThough we develop and maintain other internet-accessible systems or services, we ask that active research and testing only be conducted on the systems and services covered by the scope of this document. If there is a particular system out of scope that you think merits testing, please contact us to discuss it first. We may  amend the scope of this policy over time.\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Reporting a Vulnerability\nInformation submitted under this policy will be used for defensive purposes only – to mitigate or remediate vulnerabilities. If your findings include newly-discovered vulnerabilities that affect all users of a product or service and not solely M&T Bank, we may share your report with the Cybersecurity and Infrastructure Security Agency, where it will be handled under their [coordinated vulnerability disclosure process](https://www.cisa.gov/coordinated-vulnerability-disclosure-process). We will not share your name or contact information without express permission.\n\n# Response Targets\nM&T Bank will make a best effort to meet the following Service Level Agreements (SLAs) for those participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 2 days |\n| Time to Resolution | Depends on severity & complexity |\n\nTo the best of our ability, we will keep you informed about our progress throughout the process.\n\n# Authorization and Safe Harbor\nSecurity research activities conducted in good faith, and in a manner consistent with this policy, will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\nM&T Bank does not authorize, permit, or otherwise allow (expressly or impliedly) any person, including any individual, group of individuals, consortium, partnership, or any other business or legal entity to engage in any security research or vulnerability or threat disclosure activity that is inconsistent with this policy or the law. If you engage in any activities that are inconsistent with this policy or the law, you may be subject to criminal and/or civil liabilities.\n\n# Questions\nPlease contact us with questions regarding this policy at support@hackerone.com. We also invite you to contact us with suggestions for improving this policy. Thank you for helping keep M&T Bank and our users safe!!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.mtb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wilmingtontrust.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mtb.mbanking.sc.retail.prod",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mtb.mobilebanking.ncr",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mts.webtrading",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "397761931",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1460176225",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "884242294",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1449758462",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "884228815",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.trustnota.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.leafnow.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ceros.leafnow.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

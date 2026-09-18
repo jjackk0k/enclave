@@ -1,0 +1,136 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "cosmos",
+      "name": "Cosmos",
+      "offersBounties": true,
+      "assets": [
+        "CometBFT",
+        "CosmWasm",
+        "Cosmos SDK",
+        "Hermes Relayer",
+        "Solidity IBC Eureka",
+        "https://github.com/cosmos/gaia",
+        "https://github.com/cosmos/iavl",
+        "https://github.com/cosmos/ics23",
+        "https://github.com/cosmos/ledger-cosmos",
+        "ibc-go",
+        "www.github.com/cosmos/evm"
+      ],
+      "exclusions": [
+        "Horcrux"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\cosmos-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "cosmos",
+  "name": "Cosmos",
+  "url": "https://hackerone.com/cosmos",
+  "policy": "# Cosmos Stack Bug Bounty Program\n\n\n## IMPORTANT NOTICE\n\nThe Cosmos Stack Bug Bounty Program is moving! We are trialing a new bug bounty platform for the next 90 days, [Immunefi](https://immunefi.com)! Submissions on Hackerone will be paused as of this update and all new submissions must be made on Immunefi. Please find our program at: https://immunefi.com/bug-bounty/cosmos/information/.\n\nIf you have an outstanding report with us on Hackerone, there is no required action for you. All prior reports on Hackerone will be resolved on Hackerone, we will still be continuously monitoring those reports.\n\nWe hope to see you all on Immunefi! Thanks for helping keep the Cosmos ecosystem safe.\n\n---\n\n## Overview\n\nCosmos Labs believes that proactively finding and fixing bugs is a vital part of building strong, resilient blockchain protocols. This program exists as a public good to actively reward the people who discover bugs in the Cosmos Stack.\nOur stack includes distributed systems protocols, cryptography, a smart contract platform, a consensus algorithm, and an interoperability protocol. As such, this program is not the right place to search for web application vulnerabilities like XSS, CSRF, and header misconfigurations.\n\nThe focus of this program is on surfacing vulnerabilities in the protocols, modules, and infrastructure that make up the Cosmos Stack. Assets in scope include source code for integral components of Cosmos, and do not include third-party services or IT assets.  These assets are fully defined in our Scope section.\nBounty rewards are based on multiple factors, including impact, risk, likelihood of exploitation, and report quality. We use an impact/likelihood framework to assess criticality, available here.\n\n## Program Rewards\n\nWhile there is no maximum program reward at this time, we value creative findings and high-severity bugs, and we maintain a robust program budget to reward them accordingly.\n\nWe evaluate each report and rate the severity of submitted issues. At our discretion, we may reward exceptionally high-quality reports or creative lower-severity findings at a higher tier.\n\nInformational reports are not eligible for bounty rewards.  Repeated informational or inapplicable submissions will be treated as spam and result in exclusion from the program.\n\nRewards for eligible bugs are paid out according to our assessment of issue severity:\n\n* Critical: starting at $50,000\n* High: starting at $12,500\n* Medium: starting at $2,500\n* Low: starting at $1,000\n\nIf duplicate reports are received, a bounty (if applicable) will be awarded to the first valid reporter.\nWhen an issue is on track to be mitigated or remediated, we will coordinate with researchers to credit the finding in advisories and release notes, and to support disclosure of valid issues reported through this program.\n\n##Coordinated Vulnerability Disclosure Policy\n\nWe are committed to working in good faith with anyone who believes they have discovered a vulnerability in the Cosmos Stack.\nThis policy, as hosted on HackerOne, is the official Coordinated Vulnerability Disclosure policy for the Cosmos Stack and the teams and infrastructure it supports. It supersedes all previous security policies used by individual teams or projects within scope.\n\n## Our Commitments\n\nWhen working with us under this policy, we will always use reasonable efforts to:\n\n* Respond and work with you to understand and validate reports\n* Keep you informed about vulnerability status and progress\n* Remediate valid vulnerabilities in a timely manner, within operational constraints\n* Extend Safe Harbor for security research conducted in accordance with this policy\n\n## Expectations of Researchers\n\nWhen participating in this program in good faith, researchers must follow these guidelines. Participants who violate these expectations may have their reports closed, be deemed ineligible for bounty rewards, or be permanently banned from the program as Cosmos Labs’ discretion. \n\n* Adhere to the policy and agreements, including the requirements for confidentiality, privacy, disclosure, and eligibility.\n* Never violate privacy, disrupt systems, destroy data, or harm user experience\n* Use only Official Channels to discuss vulnerability information\n* Only disclose remediated vulnerabilities.\n* Perform testing and submit reports only on in-scope systems\n* Limit data access strictly to what is required for proof of concept\n* Cease testing immediately and submit a report if any sensitive user data is encountered (PII, PHI, financial data, proprietary information)\n* Use only test accounts you own or have explicit permission to use\n* Never engage in extortion or coercive behavior\n\nIn addition, repeated submissions that do not meet program guidelines will result in a ban from the program.\n\n# Program Scope\n\nWe are interested in a full range of vulnerabilities with demonstrable security impact, ranging from issues proven with unit tests to those requiring full cluster deployments and complex transaction flows.\n\n##Release Policy Requirement\n\n Only released code is eligible for bounty rewards.\n\nTo be considered valid and in scope:\n\n*The issue must exist in released code that is tagged and actively maintained under the Cosmos Release Family Policy\n*Code that exists only on main, master, or other development branches is not in scope\n\nThe Release Family Policy is defined here:\n\nhttps://docs.cosmos.network/sdk/latest/release-family#upgrades-and-support \n\n## In Scope\n\n*The issue must be exploitable in an intended deployed environment and configuration.\n* Exploitation must not require a previously compromised environment (e.g., a compromised node or a majority-compromised consensus).\n* The issue must exist in a supported release according to the Release Family Policy.\n\n## Out of Scope\n\n* Issues requiring a compromised environment to exploit.\n* Assets not explicitly listed as in scope, including those not owned by participating teams.\n* Issues already publicly or privately addressed.\n* Third-party services and websites.\n* Web vulnerabilities (including but not limited to XSS, CSRF, CORS, cookie flags, TLS config, headers, email configuration).\n* Documented configuration behaviors in expected deployment scenarios.\n* Governance misconfiguration-specific issues.\n* Package registry or dependency management issues without Cosmos-specific exploit PoCs.\n* Social engineering attacks.\n* Scanner-generated or informational-only reports.\n* Dependency vulnerability reports without demonstrated impact on in-scope systems.\n* Non-trivial or volumetric DoS attacks mitigated by gas, fees, or operational controls.\n* Architectural critiques without immediate exploitability.\n* Issues fixed upstream less than 90 days prior.\n* Downstream effects of previously resolved bounty issues.\n* Following https://github.com/cosmos/cosmos-sdk/pull/25090, the x/group, x/circuit, x/crisis, and x/nft modules are no longer in scope.\n\n### A Note on Gaia\n\nGaia is included only as a reference implementation of the Cosmos Stack.\nAll Cosmos Hub-specific features, third-party modules, or non-core functionality in the Gaia repository are out of scope for bounty rewards.\n\n# Program Policies\n\n* All submissions must include a Proof of Concept demonstrating real-world impact and exploitability. The proof of concept must be code that can be read and run by the security team. Descriptions of attacks do not count as valid PoCs and will result in submissions being closed as \"Not Applicable\".\n* PoCs must demonstrate real user flows\n* Mock-only or database-only calls are insufficient\n* Reports without adequate detail will be closed or returned\n\nSubmissions must be original work authored by humans. Reports generated or significantly assisted by AI tools (including but not limited to ChatGPT, Claude, Copilot, etc.) are prohibited and will result in immediate closure and potential program ban. All submissions must demonstrate genuine human understanding, manual testing, and original analysis.\n\n## Eligibility for Bounty\n\nTo be eligible for consideration under our bug bounty program, researchers must meet the following criteria: \n\n* You must not have been employed by or contracted to the team maintaining the affected code within the last 12 months\n* You must submit exclusively through HackerOne\n* Email submissions are not eligible for bounty rewards\n* You must maintain a HackerOne reputation score above 150 and a HackerOne signal above 1.\n* Have a HackerOne profile that is at least 6 months old.\n* If the researcher has previously submitted to our program, they must maintain a valid-to-closed report ratio above 50%.\n\nSubmissions from researchers who do not meet these requirements will be closed as Spam. Repeated submissions that fail to meet these criteria may result in removal from the program and/or a platform ban.\n\n## Confidentiality\n\nAll communication regarding submitted issues must occur exclusively on HackerOne.\n\nExternal communication, out-of-band disclosures, or premature publication will void eligibility for bounty rewards and future participation.\n\n## Official Channels\n\nHackerOne: official vulnerability reporting platform\nEmail (non-bounty): security@cosmoslabs.io\n\nEmail reports are accepted for disclosure purposes only and are not eligible for bounty rewards.\n\n## Disclosure\n\nPublic disclosure is supported only after an issue is marked Resolved on HackerOne.\n\nResearchers may request attribution in advisories or release documentation once disclosure is approved.  Researchers who bypass this will be banned permanently from all of our programs.\n\n## Good Faith\n\nResearchers must act respectfully and in good faith at all times. Misconduct—including threats, harassment, extortion, public shaming, or false accusations—will result in report closure and permanent exclusion from the program.\nCosmos Labs will work with you in good faith, but in the case of any dispute Cosmos Labs’ decision will be final.\n\n## Safe Harbor\n\nResearch conducted in accordance with this policy is considered:\n\n* Authorized under applicable anti-hacking and anti-circumvention laws\n* Exempt from relevant TOS/AUP restrictions\n* Conducted lawfully and in good faith\n* Safe Harbor applies only to claims under the control of participating organizations.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/cosmos/iavl",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The `iaviewer` application itself is not in-scope for the bug bounty program, unless there is an underlying bug in the `iavl` library that can be exploited through the application or other applications using the `iavl` library.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/cosmos/ledger-cosmos",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are looking for security vulnerabilities that, when exploited, can make a person lose their fund, access to their private key or otherwise impact them _on the production system_, in this case, a public Ledger device.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "https://github.com/cosmos/gaia",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The following is a list of examples of the kinds of vulnerabilities that we’re most interested in. It is not exhaustive: there are other kinds of issues we may also be interested in!\n\n* Injection exploits\n* Privilege escalation\n* IBC\n* Inter-module interactions\n* Network channel attacks\n* Replay att",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/cosmos/ics23",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "CosmWasm",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " CosmWasm is a smart contract platform that focuses on security, performance and interoperability by Confio GMBH. It is the only smart contracting platform for public blockchains with significant adoption outside of the EVM. \n\nFor documentation about the platform and a Getting Started guide, please ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "CometBFT",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Cosmos SDK",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Cosmos SDK is an open-source framework for building multi-asset public Proof-of-Stake (PoS) blockchains, like the Cosmos Hub, as well as permissioned Proof-of-Authority (PoA) blockchains. SDK-based blockchains are built out of composable [modules](https://docs.cosmos.network/main/build/building-",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ibc-go",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Inter-Blockchain Communication Protocol (IBC)  allows blockchains to talk to each other. The protocol realizes this interoperability by specifying a set of data structures, abstractions, and semantics that can be implemented by any distributed ledger that satisfies a small set of requirements. \n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Horcrux",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Horcrux is a [multi-party-computation \\(MPC\\)](https://en.wikipedia.org/wiki/Secure_multi-party_computation) signing service for CometBFT nodes built and maintained by Strangelove Labs. It provides high-availability key management for Cosmos validator operations, and mitigates the risk of double sig",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Hermes Relayer",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hermes is a Rust implementation of an Inter-Blockchain Communication (IBC) relayer that is developed and maintained by Informal Systems. It provides a CLI to relay packets between Cosmos SDK chains, exposes [Prometheus](https://prometheus.io/) metrics and offers a REST API.\n\nThe [documentation for H",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Solidity IBC Eureka",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "IBC v2 is a simplified version of the IBC protocol that is encoding agnostic. This enables a trust-minimized IBC connection between Ethereum and a Cosmos SDK chain.\nhttps://github.com/cosmos/solidity-ibc-eureka",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.github.com/cosmos/evm",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

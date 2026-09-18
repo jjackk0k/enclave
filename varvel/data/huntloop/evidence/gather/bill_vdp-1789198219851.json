@@ -1,0 +1,102 @@
+{
+ "at": "2026-09-12T07:30:10.464Z",
+ "opportunity": "bill_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.bill.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": "3.5.1",
+     "evidence": "jquery-3.5.1.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39d3492caba3edb-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "script-src 'self' data: blob: https://*.logrocket.io *.cashview.com *.bdc-cdn.com *.bill.com *.bdc-edit.com *.bankofamer",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.divvy.co",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39d34a279439460-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.bdc.bill",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.bdc.bill:443 refused: host unreachable"
+  },
+  {
+   "host": "com.divvypay.divvy",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.divvypay.divvy:443 refused: host unreachable"
+  },
+  {
+   "host": "bill.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

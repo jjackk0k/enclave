@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fig",
+      "name": "Fig",
+      "offersBounties": false,
+      "assets": [
+        "www.fig.co"
+      ],
+      "exclusions": [
+        "blog.fig.co",
+        "help.fig.co"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fig-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fig",
+  "name": "Fig",
+  "url": "https://hackerone.com/fig",
+  "policy": "# Fig Bug Response Program \r\n\r\nFig is a game publisher based in San Francisco, CA. The Fig.co platform allows individuals to invest in Fig Game Shares, participate in rewards-based campaigns, and to purchase or pre-order games. The platform also allows the developers we work with to manage their games on our platform. We encourage responsible disclosure of security vulnerabilities. We value the positive impact of your work and thank you in advance for your contribution. This program does not provide monetary rewards for bug submissions. \r\n\r\n# Responsible Disclosure \r\n\r\nIf you are able to execute an attack and gain access to our systems, accounts, or any other type of sensitive data, we ask that you *make every effort to not leak data or damage the integrity of our systems* and report the issue privately to us via this program. Specifically, this means you must: \r\n\r\n* Provide us with a reasonable amount of time to fix the issue before publishing it elsewhere. \r\n* Provide us with details (code, endpoints, etc) of the vulnerability so we can find and fix it. \r\n* Make a good faith effort to avoid interruption or degradation of our services. \r\n* Not leak, tamper, or destroy any Fig data. \r\n* Not defraud Fig users or Fig itself (by making fraudulent transactions). \r\n* Not create a large number of user accounts or fake data records. \r\n* Not make financial transfers with compromised user account(s). \r\n\r\n# Scope \r\n\r\nFig maintains the following services which are within the scope of this program: \r\n\r\n* Website (https://www.fig.co/). Note that systems we do not control (such as links/redirects to third-party sites) are excluded from the scope of the bounty. \r\n\r\nThe following are security vulnerabilities which would be relevant for us if they exist: \r\n\r\n* Authentication bypass or privilege escalation \r\n* Remote code execution \r\n* Sensitive data leakage \r\n* SQL injections \r\n* Accounting errors \r\n* XSS/CSRF/click-jacking \r\n* Denial of service not relating to a distributed attack \r\n\r\n# Out of scope \r\n\r\nThe following issues are outside the scope of this program and should not be attempted: \r\n\r\n* No physical attacks against Fig employees, offices, or data centers. \r\n* No social engineering of Fig employees, users, or service providers (phishing). \r\n* No DDoS (SYN floods, Slowloris attacks, etc) \r\n* 3rd-party API integrations with our services. \r\n* Vulnerabilities that are strictly client-side or require physical or malicious access to the user's device. \r\n* Password policy. \r\n* Our blog (https://blog.fig.co) or presences on social media (Facebook, Twitter, etc). \r\n* This bounty program is only concerned with security-related bugs, please e-mail help@fig.co for all other bugs. \r\n\r\n# Signal to Noise \r\n\r\nThe following issues are often ambiguous in nature and should be carefully considered before a report is filed: \r\n\r\n* Missing best practices which don't lead to a vulnerability (automated scanners tend to report these) \r\n* Missing security headers (X-XSS-Protection, X-Content-Type-Options, X-Frame-Options, etc) \r\n* Missing CSRF tokens which don't affect the security of the application \r\n* SSL/TLS issues (renegotiation DoS, cipher suites, etc) unless you can demonstrate a practical attack \r\n* Brute force attacks against user chosen passwords \r\n* Throttling rate limits on endpoints which do not require it \r\n\r\nIn general, reports for these issues should demonstrate practical method(s) for exploitation. Otherwise, these reports will be closed as non-applicable. \r\n\r\nWe reserve the right to cancel this program at any time. You must not violate any law. You also must not disrupt any service or compromise anyone’s data. ",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.fig.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.fig.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "help.fig.co is hosted by Zendesk and is not directly integrated with www.fig.co",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.fig.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "blog.fig.co is hosted by wpengine and is not directly integrated with www.fig.co.",
+      "max_severity": "none"
+    }
+  ]
+}

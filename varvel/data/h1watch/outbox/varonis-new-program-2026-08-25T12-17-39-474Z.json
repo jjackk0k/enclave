@@ -1,0 +1,103 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "varonis",
+      "name": "Varonis",
+      "offersBounties": true,
+      "assets": [
+        "*.varonis.com",
+        "*.varonis.io",
+        "downloads.varonis.com",
+        "licensemgmt.varonis.com",
+        "my.varonis.com",
+        "support.varonis.com"
+      ],
+      "exclusions": [
+        "*.cyral.com",
+        "*.varonis-preprod.com",
+        "All other assets"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\varonis-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "varonis",
+  "name": "Varonis",
+  "url": "https://hackerone.com/varonis",
+  "policy": "# Varonis Bug Bounty Program\n\nAt Varonis, data is at the center of everything we protect. Our Data Security Platform helps organizations discover sensitive data, reduce their blast radius, remediate exposure, detect abnormal activity, and stop threats before they result in a data breach. Through visibility, automated prevention, proactive detection, and response, Varonis protects sensitive data across identity, cloud, applications, email, and AI environments.\n\nOur public bug bounty program extends that mission to our own internet-facing attack surface. We work with the security research community to identify vulnerabilities that could:\n\n- Expose Varonis, employee, partner, or customer data\n- Provide unauthorized access to Varonis systems or production services\n- Cross customer, tenant, privilege, or trust boundaries\n- Compromise the confidentiality, integrity, or availability of our products and services\n- Create a practical path to account takeover, data exposure, code execution, or abuse of security-sensitive functionality\n\nWe value quality over quantity. Show us the realistic attack path, the security boundary crossed, and the impact an attacker could achieve, while using the minimum testing necessary to prove the issue.\n\n---\n\n## Severity and Rewards\nVaronis determines rewards based on the validated severity, exploitability, affected asset, and demonstrated impact.\n\n### Reward Range\n| Severity | CVSS v3.1 Range | Expected Reward Range |\n|----------|----------------|----------------------|\n| Critical | 9.0 to 10.0 | $3,500 - $7,000 |\n| High | 7.0 to 8.9 | $1,500 - $3,000 |\n| Medium | 4.0 to 6.9 | $300 - $900 |\n| Low | 0.1 to 3.9 | $50 - $150 |\n\n### Reward Determination\nVaronis uses CVSS v3.1 as a baseline for severity, but the final rating and bounty reflect the vulnerability's validated, real-world impact.\n\nVaronis may consider:\n- Affected asset and environment\n- Exploitability, complexity, and required privileges\n- Customer, tenant, or sensitive-data impact\n- Account takeover or privilege-escalation potential\n- Existing mitigations and compensating controls\n- Confidentiality, integrity, and availability impact\n- Report quality and reproducibility\n\nRewards generally fall within the published Expected Reward Range for the validated severity. Varonis may adjust the severity or bounty when the practical impact differs from the initial CVSS score.\n\n---\n\n## Rules of Engagement\n\n### Identify Your Testing\nSet a custom HTTP header in all testing traffic. Include the header you used in your vulnerability report so Varonis can identify your activity and deconflict it from other testing.\n\n| Identifier Type | Header Format | Example |\n|----------------|---------------|---------|\n| HackerOne username | X-Bug-Bounty: HackerOne-&lt;username&gt; | X-Bug-Bounty: HackerOne-username |\n| Tool identifier | X-Bug-Bounty: &lt;toolname&gt; | X-Bug-Bounty: BurpSuitePro |\n\n### Stay Within Scope\n- Test only assets explicitly listed as in scope\n- Follow all asset-specific restrictions\n- Do not attempt to access any employee, customer, partner, or third party accounts\n\n### Use Safe Testing Methods\n- Use the minimum testing necessary to confirm a vulnerability and its impact\n- Do not alter, delete, corrupt, encrypt, ransom, or destroy data\n- Do not establish persistence or pivot into other systems or environments\n- Do not download databases, bulk records, files, mailboxes, logs, or datasets\n- Do not intentionally degrade availability or performance\n\n### Prohibited Activities\nUnless Varonis expressly authorizes the activity in writing, do not perform:\n- Denial-of-service, distributed denial-of-service, stress, load, or resource-exhaustion testing\n- Password spraying, credential stuffing, brute forcing, or credential guessing\n- Phishing, vishing, smishing, pretexting, impersonation, or other social engineering\n- Physical security testing\n- Man-in-the-middle attacks requiring control of another person's network or device\n- Testing against employees, customers, partners, suppliers, or vendors\n- Malware deployment, persistence, ransomware, destructive payloads, or data encryption\n- Excessive or unsafe automated scanning\n- Actions that violate applicable law or third-party terms\n\n---\n\n## Eligible Vulnerabilities and Focus Areas\nOur focus areas are informed by the OWASP Top 10:2025, but not all OWASP vulnerabilities are automatically eligible. In-scope vulnerabilities include but are not limited to:\n\n### Access Control and Tenant Isolation\n- Cross-tenant or cross-customer data access\n- Insecure direct object reference\n- Horizontal or vertical privilege escalation\n- Unauthorized access to administrative functions\n- Server-side Request Forgery (SSRF) with demonstrated impact\n\n### Authentication and Session Security\n- Authentication bypass\n- Account takeover\n- Multi-factor authentication bypass\n- Improper token validation\n- Session fixation or session confusion\n- OAuth, SAML, OIDC, or SSO implementation flaws with demonstrated impact\n\n### Injection and Server-Side Exploitation\n- SQL injection\n- Command injection\n- Server-side template injection\n- Remote code execution\n- Unsafe deserialization\n- Directory traversal, arbitrary file read or write\n- File upload vulnerabilities leading to a practical exploit path\n- XML external entity processing with demonstrated impact\n\n### Data, Secrets, and Cryptography\n- Unauthorized access to sensitive or customer-related data\n- Exposed credentials, API keys, tokens, signing material, or secrets\n- Cryptographic implementation flaws with demonstrated impact\n- Data exposure that materially increases the impact of another compromise\n\n### Client-Side and Request Integrity\n- Stored cross-site scripting with a realistic victim and impact scenario\n- DOM-based vulnerabilities that cross a security boundary\n- CSRF affecting privileged or security-sensitive actions\n\n### APIs and Business Logic\n- API authorization or authentication failures\n- Mass assignment with demonstrated impact\n- Business-logic abuse and workflow manipulation\n- Race conditions with demonstrated impact\n- Security-control bypass\n- Abuse of privileged integration or automation functionality\n- Improper enforcement of quotas or limits resulting in meaningful impact\n\n### Supply Chain and Security Misconfiguration\n- Dependency or supply-chain weaknesses with a working proof of concept against an in-scope asset\n- Exploitable cloud or application misconfiguration\n- Failure conditions that expose data or fail open\n- Security logging or alerting weaknesses only where the report demonstrates an exploitable security bypass or meaningful concealment capability\n\n---\n\n## Out-of-Scope Findings\nThe following findings are not eligible unless the report demonstrates a realistic exploit path and meaningful additional impact.\n\n### Low-Impact Web Findings\n- Clickjacking on pages without sensitive actions\n- Self-XSS\n- Tabnabbing\n- Open redirect without additional demonstrated impact\n- Content spoofing or text injection without a practical attack scenario\n- CSRF affecting unauthenticated forms or non-sensitive actions\n- Issues requiring highly unlikely or impractical user interaction\n- Reflected XSS without a realistic victim path or meaningful security impact\n\n### Security Hardening and Configuration\n- Missing recommended HTTP security headers without demonstrated impact\n- Content Security Policy recommendations without a demonstrated bypass\n- Missing HttpOnly, Secure, or SameSite cookie attributes without demonstrated impact\n- SSL/TLS hardening recommendations without practical impact\n- Missing or incomplete SPF, DKIM, or DMARC records without demonstrated impact\n\n### Informational Findings\n- Software or framework version disclosure\n- Server banners or technology fingerprinting\n- Verbose response headers\n- Descriptive errors or stack traces without exploitable information\n- Publicly available information\n- Directory or filename exposure without unauthorized content access\n\n### Rate Limiting and Enumeration\n- Rate limiting on non-sensitive or non-authentication endpoints without demonstrated impact\n- Username, email, hostname, or tenant enumeration without a practical attack path\n- Theoretical brute-force concerns\n- Rate-limit bypasses that do not materially change exploitability or impact\n\n### Dependencies, Known Issues, and Unsupported Software\n- Vulnerable software identification without a working proof of concept against an in-scope asset\n- Findings based only on version matching, already-known vulnerabilities, duplicate or previously reported issues\n- Recently disclosed vulnerabilities within the first 30 days of disclosure\n- Issues affecting only unsupported or materially outdated browsers, clients, or operating systems\n\n### Insufficient Evidence\n- Scanner-only findings\n- Missing reproduction steps\n- Missing proof of concept\n- Missing demonstrated impact\n- Theoretical findings\n- AI-generated claims that have not been verified\n- Reports that do not account for existing mitigations\n- CSV injection without a practical exploit path\n- Fabricated endpoints, requests, responses, or evidence\n\n---\n\n## Leaked Credentials\nReports involving exposed credentials may be reviewed when:\n\n- The credentials apply to an in-scope, Varonis-owned or Varonis-operated system\n- The researcher identifies the lawful source\n- The exposure was not purchased or obtained through an unauthorized or criminal source\n\nThe following are out of scope:\n- Credentials for third-party services where a Varonis email address is only the username\n- Credentials purchased by the researcher\n- Reports that do not identify the source\n- Credentials unrelated to an in-scope Varonis service\n\nDo not validate exposed credentials unless the applicable scope instructions expressly permit limited validation. Never access, enumerate, modify, download, or retain data using exposed credentials.\n\n---\n\n## Duplicate and Related Reports\n- The first complete, reproducible report of a vulnerability is generally eligible for the bounty\n- Later reports sharing the same root cause may be closed as duplicates even if they use a different parameter, endpoint, payload, or technique\n- Multiple effects caused by one underlying flaw may receive one bounty\n- Findings may be considered separately if they have distinct root causes or independently exploitable impacts\n- Reports of vulnerabilities already known to Varonis may be closed as previously known\n- Varonis may link researchers to duplicate reports\n\n---\n\n## Submission Process\nSubmit one vulnerability per report unless multiple vulnerabilities must be chained to demonstrate impact.\n\nEach report must include:\n- A clear description of the vulnerability and affected asset\n- Complete, reproducible steps and a working proof of concept\n- Any required account access, privileges, configuration, or user interaction\n- A realistic attack scenario and demonstrated security impact\n- Relevant evidence, such as requests, responses, screenshots, or logs\n- The source IP address and testing header used\n- Recommended remediation or mitigation, when available\n\nUse only the minimum evidence necessary to demonstrate impact and redact sensitive or unrelated information before submitting.\n\nReports that are not reproducible, lack sufficient evidence, or do not demonstrate practical security impact may be closed as Not Applicable.\n\n---\n\n## Response Targets\nVaronis will make reasonable efforts to meet the response targets for researchers participating in our program:\n\n| Response Stage | Target |\n|---------------|--------|\n| First Response | 2 business days |\n| Time to Triage | 5 business days |\n| Time to Resolution | Dependent on severity and complexity |\n\nWe will communicate through the HackerOne report and provide meaningful updates as the report progresses through validation, remediation, and retesting.\n\nResponse targets are goals rather than guarantees. Complex findings, product-release dependencies, or issues requiring third-party coordination may require additional review.\n\n---\n\n## Varonis Disclosure Policy\nDo not publicly disclose vulnerability details, report content, proof-of-concept material, sensitive information, customer information, or remediation details without Varonis' express written approval.\n\nAll disclosure requests must be coordinated through the HackerOne report. Follow [HackerOne's disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n---\n## Legal Terms and Conditions\n\nYou must comply with Varonis' [Terms and Conditions](https://my.varonis.com/Home/Terms), security industry best practices, and all applicable federal, state, local as well as any other laws in connection with your security research activities or other participation in this bug bounty program. You agree that any and all information acquired or accessed as part of this exercise is confidential to Varonis and you shall hold all such information in strict confidence and shall not copy, reproduce, sell, assign, license, distribute, market, transfer or otherwise dispose of, give, or disclose such information to third parties or use such information for any purposes other than as part of your participation in the program described herein or as expressly authorized in writing by Varonis.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.varonis.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.varonis.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.varonis-preprod.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "All other assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.cyral.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "licensemgmt.varonis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "downloads.varonis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.varonis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.varonis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

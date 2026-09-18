@@ -1,0 +1,82 @@
+{
+ "at": "2026-09-11T21:53:02.958Z",
+ "opportunity": "capital-one-bounty",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 15,
+  "delayMs": 1200,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.konylabs.capitalone",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.konylabs.capitalone:443 refused: host unreachable"
+  },
+  {
+   "host": "com.wikibuy.prod.main",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wikibuy.prod.main:443 refused: host unreachable"
+  },
+  {
+   "host": "capitalone.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "capitaloneshopping.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a399e75e2d1f7876-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [
+    {
+     "path": "/api*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "capitalonegslbex.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to capitalonegslbex.com:443 refused: host unreachable"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rghost",
+      "name": "RGhost",
+      "offersBounties": false,
+      "assets": [
+        "rghost.net"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rghost-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rghost",
+  "name": "RGhost",
+  "url": "https://hackerone.com/rghost",
+  "policy": "No technology is perfect, and RGhost believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Exclusions \r\nThe following attacks are out of scope of this program:\r\n* Session fixation / expiration / replay attacks (session cookie is valid after sign out)\r\n* Authentication-related CSRFs: Registration, Sign-in and Sign out\r\n* Credentials brute-force / lack of captcha / creation of an unlimited number of accounts\r\n* Absence of email confirmation / password reset functionality \r\n* SSRF using URL file uploading, unless it leads to other attack\r\n* Image tag usage in the file & profile description\r\n* Lack of password policy for files\r\n* Download link invalidation on password change\r\n* Information disclosure using browser cache after user logs out\r\n* Denial of service & server IP address disclosure\r\n* Spamming  (creating files /  comments / user accounts)\r\n* Social engineering (including phishing) of RGhost staff or contractors\r\n\r\n# Intentional business logic\r\nThe following behavior is considered as intentional service behavior and is excluded from the scope of this program:\r\n* Anonymous actions which don't lead to any other attack by itself (e.g. anonymous file upload, download, commenting, viewing of other people files, enumeration of pages / objects on the website)\r\n* Commenting/voting on deleted files\r\n* Potentially sensitive information (exif metadata / list of files in the archive) is accessible  after files are deleted\r\n* Merging of two accounts with the same email if one is registered using normal email signup and another one is registered using oauth (this does not lead to account takeover as oauth emails are validated by oauth providers)\r\n\r\n# Some technical details\r\n* It might appear from server responses that a vulnerability has been successfully triggered (unauthorized update or stored XSS). This might not be the case - please check if the object has been actually updated on the backend, sometimes it's just a reply with an error message from the server.\r\n* The service stores ids of created comments in the session cookie if the user is anonymous. That information is not being reset and is used to authorize comment operations even after user logs in. That is also intentional business logic.\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep RGhost and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "rghost.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

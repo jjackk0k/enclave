@@ -1,0 +1,214 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "krisp",
+      "name": "Krisp",
+      "offersBounties": true,
+      "assets": [
+        "*.krisp.ai",
+        "Other",
+        "account.krisp.ai",
+        "analytics.krisp.ai",
+        "api.krisp.ai",
+        "app.krisp.ai",
+        "download.krisp.ai",
+        "help-jp.krisp.ai",
+        "help.krisp.ai",
+        "https://download.krisp.ai/mac",
+        "https://download.krisp.ai/win",
+        "krisp.ai",
+        "resources.krisp.ai",
+        "teams.krisp.ai",
+        "upld.krisp.ai"
+      ],
+      "exclusions": [
+        "*dev*.krisp.ai",
+        "metabase.krisp.ai",
+        "sdk-docs.krisp.ai",
+        "url5145.krisp.ai",
+        "voice-ai-newsletter.krisp.ai",
+        "whatsnew.krisp.ai"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\krisp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "krisp",
+  "name": "Krisp",
+  "url": "https://hackerone.com/krisp",
+  "policy": "Krisp looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nKrisp will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Do not post vulnerabilities without our consent, this includes but is not limited to: posting your proof of concept on for example, Twitter, YouTube, Vimeo, etc.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- In case that a reported vulnerability was already known to the company from our own tests, it will be flagged as a duplicate.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n- Do not take advantage of the vulnerability or problem you have discovered, for example by downloading more data than necessary to demonstrate the vulnerability.\n- Do not put a backdoor in the system, not even for the purpose of showing the vulnerability as inserting a backdoor will cause even more damage to the safety of our systems.\n- Please use a rate limit of 5 requests per second when using automation.\n\n\n# Test plan\n- Please test on the staging environment, then you must verify on the production environment,\n- When assessing the backend, please run your scanners only on the staging environment,\n- Register with your `@wearehackerone.com` email at https://app.krisp.ai/ and https://stage.app.krisp.ai/ for the production and staging environments accordingly,\n- You can test the payment flow on the staging environment with [Stripe](https://stripe.com/docs/testing#cards) and [PayPal](https://developer.paypal.com/docs/payflow/payflow-pro/payflow-pro-testing/#credit-card-numbers-for-testing) test cards,\n- For other question refer to the help widget at https://account.krisp.ai, visit https://help.krisp.ai/ or email us at security@krisp.ai.\n\n# Main scope\n\n- Latest version of Krisp [windows application](https://download.krisp.ai/win)\n- Latest version of Krisp [mac application](https://download.krisp.ai/mac)\n- Our web apis and apps \n  - https://account.krisp.ai \n  - https://app.krisp.ai \n  - https://api.krisp.ai\n  - https://teams.krisp.ai \n  - https://download.krisp.ai\n  - https://analytics.krisp.ai\n  - https://upld.krisp.ai\n\n# Secondary scope\n\n- https://krisp.ai,\n- *.krisp.ai,\n- Any resource that is verified that belongs to us (verify with security@krisp.ai),\n- Leaks that have security impact (github, pastbin, etc),\n- Misconfigurations in 3rd parties such as jobs.krisp.ai, whatsnew.krisp.ai, help.krisp.ai.\n\n# Rewards\n\nAll amounts are for reference purposes only. Reward applicability and reward amount may depend on problem severity, novelty, exploitation probability, environmental and other factors. Reward decision is made by Krisp security team for each report individually.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Vulnerabilities in 3rd parties (although we are eager to hear them and address those to the proper parties),\n* Zero-day vulnerabilities that have had an official patch for less than 1 month may be awarded on a case by case basis,\n* Bypassing free minutes limitation via changing frontend applications' logic, integrity,\n* Ability to reverse-engineer an application, lack of binary protection,\n* Clickjacking on pages with no sensitive actions,\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions (for example logout CSRFs),\n* Reports of missed protection mechanism / best current practice (e.g. no CSRF token, framing/clickjacking protection, reflecting Origin) without demonstration of real security impact for user or system,\n* Attacks requiring MITM or physical access to a user's device,\n* Previously known vulnerable libraries without a working Proof of Concept,\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability,\n* Missing best practices in SSL/TLS configuration,\n* Network-level Denial of Service (DoS/DDoS) vulnerabilities,\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS,\n* Rate limiting or bruteforce issues on non-authentication and non-sensitive endpoints ,\n* Missing best practices in Content Security Policy,\n* Missing HttpOnly or Secure flags on cookies,\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.),\n* Missing DNSSEC,\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version],\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing,\n* Issues that require unlikely user interaction,\n* Issues that require edit/admin permissions will most likely be rated as low or closed.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Krisp and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://download.krisp.ai/win",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp Windows electron app.\nBypassing free minutes limitation via changing frontend applications' logic is out of scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://download.krisp.ai/mac",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp MacOS electron app.\nBypassing free minutes limitation via changing frontend applications' logic is out of scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "account.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp account frontend\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "teams.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Teams API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "download.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download endpoints",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "analytics.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp analytics",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "upld.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Websocket API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.krisp.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Except for OOS domains",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Misconfigurations are in scope and may be awarded",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "whatsnew.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*dev*.krisp.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Development environment",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Other",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Anything that is verified that belongs to us and doesn't match any other scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "resources.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Misconfigurations are in scope and may be awarded",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help-jp.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Misconfigurations are in scope and may be awarded",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "url5145.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "voice-ai-newsletter.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Krisp account frontend\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sdk-docs.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "metabase.krisp.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

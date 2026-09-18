@@ -1,0 +1,46 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "flexport_vdp",
+      "name": "Flexport VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.flexport.com",
+        "*.transmissionapp.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\flexport_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "flexport_vdp",
+  "name": "Flexport VDP",
+  "url": "https://hackerone.com/flexport_vdp",
+  "policy": "#Program Overview\nWe appreciate your efforts and hard work in making the internet (and Flexport) more secure, and look forward to working with the researcher community to create a meaningful and successful vulnerability disclosure program. Good luck and happy hunting!\n\n\n# Response Targets\n\nFlexport will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 5 days |\n| Time to Resolution | Depends on severity and complexity |\n\nObjective\n\nTo state explicitly the submissions and report types that will be out of scope and not considered for rewards. This disclosure program is limited to security vulnerabilities in web applications owned by Flexport. **This program does not provide bounty or monetary rewards for bug submissions.**\n\nRatings/Rewards:\n\nIt is important to note that in some cases a vulnerability priority will be modified due to its likelihood or impact. In any instance where an issue is downgraded, a full, detailed explanation will be provided to the researcher - along with the opportunity to appeal, and make a case for a higher priority.\n\nTesting is only authorized on the targets listed as In-Scope. Any domain/property of Flexport not listed in the targets section is out of scope. This includes any/all subdomains not listed above. If you believe you've identified a vulnerability on a system outside the scope, please reach out to support@hackerone.com before submitting. \n\n##Safe Harbor:\n\n**When conducting vulnerability research according to this policy, we consider this research to be:**\n\n- Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy;\n- Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls;\n- Exempt from restrictions in our Terms & Conditions that would interfere with conducting security research, and we waive those restrictions on a limited basis for work done under this policy; and\n- Lawful, helpful to the overall security of the Internet, and conducted in good faith.\n- You are expected, as always, to comply with all applicable laws.\n\nIf at any time you have concerns or are uncertain whether your security research is consistent with this policy, please inquire via support@hackerone.com before going any further.\n\n##In Scope Targets\n* *.flexport.com\n* *.transmissionapp.com\n* *.deliverr.com\n* *.convoy.com\n\n**Please DO NOT sign up or create any test accounts on any application which allows self registration. Any vulnerability which requires a user account would be considered out of scope.**\n\n\n###Access:\nAll targets are publicly accessible. Please use your own account for testing or research purposes. Do not attempt to gain access to another user’s account or confidential information.\n\n\n#Out of Scope\n* Any vulnerability which requires self-registration (for example: https://developers.flexport.com/s/forums). This is to avoid spamming of our public forums.\n* Not applicable -- non  reproducible security vulnerability or explicitly out-of-scope per our guidelines.\n* Credential re-usage from public dumps.\n* Vulnerabilities whose primary security impact is focused on Phishing.\n* UUID enumeration of any kind.\n* Account oracles -- the ability to submit a phone number, email, UUID and receive back a message indicating an Flexport account exists.\n* Open redirects. 99% of open redirects have low security impact. For the rare cases where the impact is higher, e.g., stealing oauth tokens, we do still want to hear about them.\n* Reports that state that software is out of date/vulnerable without a proof-of-concept.\n* Reports that affect only outdated user agents or app versions -- we only consider exploits in the latest browser versions for Safari, FireFox, Chrome, Edge, IE and the versions of our application that are currently in the app stores.\n* Stack traces, path disclosure, and directory listings.\n* Best practice concerns.\n* Highly speculative reports about theoretical damage -- please always provide a proof-of-concept.\n* Vulnerabilities that cannot be used to exploit other users or Flexport -- e.g. self-xss or having a user paste JavaScript into the browser console.\n* Vulnerabilities as reported by automated tools without additional analysis as to how they're an issue.\n* Reports from automated web vulnerability scanners (Tenable, Qualys, etc.) that have not been validated.\n* Distributed denial of service attacks (DDOS).\n* Physical or social engineering attempts (this includes phishing attacks against Flexport employees).\n* Content injection issues.\n* Cross-site Request Forgery (CSRF) with minimal security implications (Logout CSRF, etc.)\n* Missing cookie flags on non-authentication cookies.\n* Issues that require physical access to a victim’s computer/device.\n* SSL/TLS scan reports (this means output from sites such as SSL Labs).\n* Banner grabbing issues (figuring out what web server we use, etc.).\n* Open ports without an accompanying proof-of-concept demonstrating vulnerability.\n* Entering the Flexport offices as a potential vendor, interviewee, or family/friend overhearing conversations and then attempting to extort\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.flexport.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transmissionapp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

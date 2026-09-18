@@ -1,0 +1,145 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "polygon-technology",
+      "name": "Polygon Technology",
+      "offersBounties": true,
+      "assets": [
+        "api-gateway.polygon.technology",
+        "api-polygon-tokens.polygon.technology/",
+        "faucet-api.polygon.technology/",
+        "faucet.polygon.technology",
+        "gasstation.polygon.technology/",
+        "portal.polygon.technology",
+        "staking-api.polygon.technology",
+        "staking.polygon.technology"
+      ],
+      "exclusions": [
+        "*.matic.network",
+        "https://github.com/0xPolygon/heimdall-v2",
+        "https://github.com/maticnetwork/bor",
+        "https://github.com/maticnetwork/contracts",
+        "https://github.com/maticnetwork/heimdall",
+        "https://github.com/maticnetwork/matic-cli "
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\polygon-technology-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "polygon-technology",
+  "name": "Polygon Technology",
+  "url": "https://hackerone.com/polygon-technology",
+  "policy": "# Polygon Labs Bug Bounty Program\n\nPolygon Labs looks forward to working with the security community to find security vulnerabilities to keep users safe.\n\n## Response Targets\n\nPolygon Labs will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | SLA in Business Days |\n| ---------------- | -------------------- |\n| First Response   | 2 days               |\n| Time to Triage   | 2 days               |\n| Time to Bounty   | 14 days              |\n| Time to Resolution | Depends on severity and complexity |\n\n## Disclosure Policy\n\nAs this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization. Follow HackerOne's disclosure guidelines.\n\n## Program Rules\n\n- Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n- Ask the program team before submitting vulnerabilities on unscoped subdomains.\n- Only interact with accounts you own or with the explicit permission of the account holder.\n\n## Rewards\n\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Polygon Labs.\n\n## Out-of-Scope Vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n- Any issues already reported publicly on GitHub.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Sections of the code intended to be used for testing purposes.\n- Clickjacking on pages with no sensitive actions.\n- Attacks requiring MITM or physical access to a user's device.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Missing best practices in SSL/TLS configuration.\n- Any activity that could lead to the disruption of our service (DoS).\n- Issues that require unlikely user interaction.\n- Privacy-related vulnerabilities (e.g., leaking your address to other peers on the network).\n- Open redirect - unless an additional security impact can be demonstrated.\n- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis.\n- Rate limiting or bruteforce issues on non-authentication endpoints.\n- Missing best practices in Content Security Policy.\n- Missing HttpOnly or Secure flags on cookies.\n- Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).\n- Vulnerabilities that depend solely on third-party services that we utilize and might be subject to their bug bounty program.\n- Broken social media links not directly related to Polygon Labs (f.e solution providers listed on ecosystem.polygon.technology are considered as OUT of scope)\n\n## Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will, within our sole discretion, endeavor to make it known that your actions were conducted in compliance with this policy.\n\n## Program Changes\n\nWe reserve the right to modify the Bug Bounty Program or cancel the Bug Bounty Program at any time.\n\nThank you for helping keep users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/maticnetwork/heimdall",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/maticnetwork/bor",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/maticnetwork/contracts",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "#Contracts\nThis repository contains the smart contracts that power Matic Network",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.matic.network",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "staking-api.polygon.technology",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "faucet.polygon.technology",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.polygon.technology",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Here are just some of things you will be able to to do with Polygon Portal: \n\nBridge your assets via Socket bridge and a range of third-party bridges; \nManage your assets and token lists; \nUse the Refuel Gas feature to purchase MATIC or ETH for gas on the destination chain;\nLeverage developer tools ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/maticnetwork/matic-cli ",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "staking.polygon.technology",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "faucet-api.polygon.technology/",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "api-gateway.polygon.technology",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gasstation.polygon.technology/",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "api-polygon-tokens.polygon.technology/",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://github.com/0xPolygon/heimdall-v2",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

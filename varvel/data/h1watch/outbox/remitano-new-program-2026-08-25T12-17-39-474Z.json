@@ -1,0 +1,137 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "remitano",
+      "name": "Remitano",
+      "offersBounties": true,
+      "assets": [
+        "1116327021",
+        "api.remitano.com",
+        "com.remitano.remitano",
+        "socket.remitano.com",
+        "www.remitano.com"
+      ],
+      "exclusions": [
+        "blog.remitano.com",
+        "cdn.remitano.com",
+        "developers.remitano.com",
+        "s3.remitano.com",
+        "security.remitano.com",
+        "sendgrid.remitano.com",
+        "status.remitano.com",
+        "support.remitano.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\remitano-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "remitano",
+  "name": "Remitano",
+  "url": "https://hackerone.com/remitano",
+  "policy": "# Introduction\r\n\r\nRemitano recognizes the importance and value of security researchers’ efforts in helping keep our community safe. We encourage responsible disclosure of security vulnerabilities via our bug bounty program (“Bug Bounty Program”) described on this page.\r\nNote: This program is for the disclosure of software security vulnerabilities only. If you believe your Remitano account has been compromised, change your email password and immediately contact support via support@remitano.com. \r\n\r\nThe Bug Bounty Program directly serves Remitano's mission by helping us be the trusted way to exchange between fiat and cryptocurrencies. In that spirit, the scope and philosophy of the program aim to safeguard two highest priority assets (“Sensitive Data”) :\r\n* Cryptocurrencies and fiat currency balances\r\n* Customer information\r\n\r\n# Response Times\r\nRemitano will make a best effort to meet the following SLAs for hackers participating in our program:\r\n* Time to first response (from report submit) - 2 business days\r\n* Time to triage (from report submit) - 2 business days\r\n* Time to bounty (from triage) - 14 business days\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n-------------\r\n\r\n# Program Rules of Engagement\r\n\r\n* Please submit a HackerOne report to us before engaging in conduct that may be inconsistent with or unaddressed by this policy. This report should include a brief description of your intended conduct so that we may determine whether it is consistent with the Bug Bounty Program policy.\r\n* We believe it is critical to provide these assurances in order to allow security researchers to fully investigate potential security vulnerabilities. As such, we embrace the standardization of policy language that provides legal protection to security researchers as a part of the #legalbugbounty project.\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Remitano\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines). \r\n* Making a good faith effort to preserve the confidentiality and integrity of any Remitano customer data.\r\n* Not defrauding Remitano customers or Remitano itself in the process of participating in the Bug Bounty Program.\r\n* Not profiting from or allowing any other party to profit from a vulnerability outside of Bug Bounty Program payouts from Remitano.\r\n* Reporting vulnerabilities with no conditions, demands, or ransom threats.\r\nRemitano considers Social Engineering attacks against Remitano employees to be a violation of Program Policies. Researchers engaging in Social Engineering attacks against Remitano employees will be banned from the Remitano Bug Bounty program. We define Social Engineering as acts that influence people to perform security-impacting actions or divulge confidential information.\r\n\r\nPlease, never attempt to access anyone else's data and do not engage in any activity that would be disruptive or damaging to your fellow users or to Remitano.\r\n\r\n-------------\r\n\r\n# Rewards\r\n|                 | Critical (CVSS 9.0 - 10.0) | High (CVSS 7.0 - 8.9) | Medium (CVSS 4.0 - 6.9) | Low (CVSS 0.0 - 3.9) |\r\n|-----------------|----------------------------|-----------------------|-------------------------|----------------------|\r\n| Class A Rewards | $10,000                    | $5000                 | $3000                   | $1000                |\r\n| Class B Rewards | $5,000                     | $2,500                | $1,500                  | $500                 |\r\n| Class C Rewards | $2,500                     | $1,250                | $500                    | $100                 |\r\n\r\nA report must be a valid, in scope report in order to qualify for a bounty. Remitano will determine in its sole discretion whether a report is eligible for a reward and the amount of the award.\r\n\r\n\r\n# Report Evaluation\r\n\r\nIn order to be deemed valid, a report must demonstrate a software vulnerability in a service provided by Remitano that harms Remitano or Remitano customers. Reports that include a clear Proof of Concept or specific step by step instructions to replicate the vulnerability are considerably more effective at communicating a researcher’s findings and are therefore far more likely to be deemed valid. \r\n\r\nPlease be available to cooperate with the Remitano engineering team to provide further information on the report if needed.\r\n\r\n## On Treating Similar Vulnerabilities\r\n\r\nIn particular, we may decide that multiple reports are so closely related, or all caused by a single underlying root case, and thus consider these multiple reports as a single vulnerability and only reward once.\r\n\r\n-------------\r\n\r\n# Vulnerabilities Categorization\r\n\r\nWe categorize issues in to classes as of below:\r\n\r\n| Class of issues                 | Examples                                                                                                                                                                           | Class of consideration |   |   |\r\n|---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|---|---|\r\n| Fund being stolen               | 1) Reversal of crypto deposit 2) Re-processing of completed fiat or crypto withdrawal 3) Successfully by passing two factor authentication to withdraw user fiat or crypto balance | Class A - highest      |   |   |\r\n| Compromise customer information | 1) Be able to access to other user trading history 2) Successfully compromise a user account without access to his email, google account or facebook account                       | Class B - medium       |   |   |\r\n| Other issues                    | 1) Crash or delay remitano website without performing DDOS attack       | Class C - low |\r\n\r\n**Note that we are not considering these as a valid security attacks:**\r\n1. abusive reversal using ACH / bank transaction / credit card chargeback\r\n2. \blog in without 2FA code - this is designed as a feature (we ask for 2FA code when fund need to be moved)\r\n\r\n-------------\r\n\r\n# Remitano Testing Guidance\r\n\r\n### Remitano Technology stacks:\r\n  - Amazon Web Services\r\n   - Cloudflare\r\n   - Node.js\r\n   - PostgreSQL\r\n   - Ruby on Rails\r\n   - React/React Native\r\n\r\n## Product Features:\r\n1. **P2P escrow** - connect buyers and sellers to trade cryptos (https://remitano.com). We support P2P escrow trading on 6 currencies: BTC, ETH, USDT, XRP, LTC, BCH.\r\n\r\n2. **Wholesale** - created for large traders (https://wholesale.remitano.com) with competitive trading fees, which is much lower than some of the largest exchanges in the world.\r\n\r\n3. **Swap** - Swap instantly between cryptos (https://remitano.com/dashboard/wallets)\r\n\r\n4. **Invest** - Open invest positions with altcoins with Tether USDT (or purchase directly with Fiat) (https://remitano.com/invest)\r\n\r\n5. **Forum** - Content Management System, user can submit their own posts, our content team will review and publish user contents - (https://remitano.com/forum)\r\n\r\n6. **Wallet** - Crypto Wallet management, we support deposit and withdrawal instantly for BTC, ETH, USDT (3 chains: Omni Tether, ERC-20 on Ethereum, TRC-20 on Tron), XRP, LTC, BCH. (https://remitano.com/dashboard/wallets)\r\n\r\n7. **Multi-level Referral program** (https://remitano.com/r/referral)\r\n\r\n8. **Remitano API** - Allows access to all of the features of the Remitano platform. Docs: https://developers.remitano.com\r\n\r\n9. **Remitano Pay** - Add Remitano Payment Gateway to third party ecommerce websites (https://remitano.com/payment_gateway)\r\n\r\n## Product Updates [We will keep this section regularly updated with new releases]\r\n\r\n_Recent releases:_\r\n* **04/2022:** Launch nft5.io\r\n\r\n* **11/2021:** Launch AMM Liquidity Pool and Swap: https://remitano.com/pool\r\n\r\n* **07/2021:** Introduce RENEC Network mining feature https://remitano.com/remitano_pay\r\n\r\n* **06/2021:** Launched Remitano Payment Gateway - https://remitano.com/payment_gateway\r\n\r\n**View [this document for the full list of Remitano product updates](https://docs.google.com/document/d/e/2PACX-1vR8vdl2aK3SoFT3pv5Me4U8f9EAx1cMPc-eeBn1sWQq9IY9HJvr1Sc1wTEGMuLAHn7_SSZ-buFKzYPU/pub), including those from early 2020 and 2019.**\r\n\r\n-------------\r\n\r\n# Out-of-Scope Vulnerabilities\r\n\r\nOur scope is listed below in the structured scope section. Additionally, all vulnerabilities that require or are related to the following are out of scope:\r\n* Social engineering\r\n* Physical security\r\n* Non-security-impacting UX issues\r\n* Vulnerabilities or weaknesses in third party applications that integrate with Remitano\r\n* Bring down Remitano with DDOS Attack\r\n* Abusive reversal using ACH / bank transaction / credit card chargeback\r\n* Log in without 2FA code - this is designed as a feature (we ask for 2FA code when funds need to be moved)\r\n\r\nIf you feel that a particular asset or activity not mentioned here should be in scope, please submit a report along with a brief description of why you believe that the asset should be covered by this scope.\r\n\r\n-------------\r\n\r\n# Legal and Fine Print\r\n\r\nRemitano pledges not to initiate legal action for security research conducted pursuant to all Bug Bounty Program policies, including good faith, accidental violations. We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act, the DMCA, and applicable anti-hacking laws such as Cal. Penal Code 502(c). We will not bring a DMCA claim against researchers for circumventing the technological measures we have used to protect the applications in scope of the Bug Bounty Program.\r\n\r\nIf legal action is initiated by a third party against you and you have complied with the Bug Bounty Program policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Please understand that if your security research involves the networks, systems, information, applications, products, or services of another party (which is not us), that third party is not bound by our pledge and may determine whether to pursue legal action. Remitano cannot and does not authorize security research on other entities.\r\n\r\nWe reserve the right to modify the Bug Bounty Program or cancel the Bug Bounty Program at any time.\r\nThe current Bug Bounty Program as described on this page is v1.1 of our Bug Bounty Program.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1116327021",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.remitano.remitano",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The following subdomains host services provided by third parties, and therefore are explicitly out of program scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The following subdomains host services provided by third parties, and therefore are explicitly out of program scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdn.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "s3.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sendgrid.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "developers.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "security.remitano.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

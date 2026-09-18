@@ -1,0 +1,80 @@
+{
+ "at": "2026-09-16T17:50:09.315Z",
+ "opportunity": "vectra_ai_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "vectra.ai",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c1b63b6d5acdc8-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.vectranetworks.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "SELF_SIGNED_CERT_IN_CHAIN: self-signed certificate in certificate chain"
+  },
+  {
+   "host": "metadata.vectranetworks.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to metadata.vectranetworks.com:443 refused: host unreachable"
+  },
+  {
+   "host": "rp.vectranetworks.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "SELF_SIGNED_CERT_IN_CHAIN: self-signed certificate in certificate chain"
+  },
+  {
+   "host": "update2.vectranetworks.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "SELF_SIGNED_CERT_IN_CHAIN: self-signed certificate in certificate chain"
+  }
+ ]
+}

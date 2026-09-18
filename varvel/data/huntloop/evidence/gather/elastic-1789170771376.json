@@ -1,0 +1,87 @@
+{
+ "at": "2026-09-11T23:52:43.201Z",
+ "opportunity": "elastic",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "cloud.elastic.co",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none';script-src 'strict-dynamic' https://js.stripe.com https://play.vidyard.com/embed/v4.js https://play.v",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "elastic.co",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": "1.29.7",
+     "evidence": "server: nginx/1.29.7"
+    }
+   ],
+   "headers": {
+    "server": "nginx/1.29.7",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "found.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to found.io:443 refused: host unreachable"
+  },
+  {
+   "host": "swiftype.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "elstc.co",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to elstc.co:443 refused: host unreachable"
+  }
+ ]
+}

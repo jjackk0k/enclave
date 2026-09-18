@@ -1,0 +1,117 @@
+{
+ "at": "2026-09-16T19:14:06.630Z",
+ "opportunity": "mozilla",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "addons.allizom.org",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS, HIT, MISS",
+    "via": "1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'none';base-uri 'self';child-src 'none';connect-src https://addons.allizom.org https://*.google-analytics.co",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "developer.mozilla.org",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Google Frontend",
+    "x-cache": "MISS, HIT, HIT",
+    "via": "1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "accounts.firefox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS",
+    "via": "1.1 varnish"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "vpn.mozilla.org",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-cache": "MISS, MISS, MISS",
+    "via": "1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "base-uri 'none';default-src 'self';connect-src 'self' https://accounts.firefox.com https://accounts.stage.mozaws.net;fon",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "relay.firefox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-cache": "MISS, MISS, MISS",
+    "via": "1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

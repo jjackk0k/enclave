@@ -1,0 +1,49 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "phpbb",
+      "name": "phpBB",
+      "offersBounties": false,
+      "assets": [
+        "https://github.com/phpbb/phpbb"
+      ],
+      "exclusions": [
+        "www.phpbb.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\phpbb-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "phpbb",
+  "name": "phpBB",
+  "url": "https://hackerone.com/phpbb",
+  "policy": "No technology is perfect, and phpBB believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \n\n# Disclosure Policy \n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \n* To assist in our evaluation, please specify if AI tools (e.g., ChatGPT, Claude, GitHub Copilot, any other AI-based agents or tools) were used during your research or in the creation of your report and PoC.\n* When using AI tools to write your report, please keep them to a clear and concise format. We prefer direct and direct communication over lengthy essays.\n\n# Exclusions \nWhile researching, we'd like to ask you to refrain from: \n* Denial of service \n* Spamming \n* Social engineering (including phishing) of phpBB staff or contractors \n* Any physical attempts against phpBB property or data centers \n\nFurthermore, please consider the following functionality to be outside the scope of valid reports:\n* Installer: The install/ folder is intended to be removed after installation and does not remain on production boards.\n* Remote avatar: This feature is disabled by default and was removed in the latest development feature version. As clear warnings regarding its use were provided, this is considered outside the scope of this program.\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep phpBB and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/phpbb/phpbb",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The Admin Control Panel allows adminstrators to create custom BBcodes. This feature also allows the use of JavaScript, therefore XSS created by an adminstrator is out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.phpbb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please limit your reports to the phpBB git repository for now.",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+ "at": "2026-09-12T04:44:47.592Z",
+ "opportunity": "sheer_bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.sheer.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "\"max-age=31536000; includeSubDomains; preload\"",
+    "x-frame-options": "DENY always",
+    "x-content-type-options": "nosniff always"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "my.sheer.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "\"max-age=31536000; includeSubDomains; preload\"",
+    "x-frame-options": "DENY always",
+    "x-content-type-options": "nosniff always"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "allegion",
+      "name": "Allegion",
+      "offersBounties": false,
+      "assets": [
+        "*.allegion.com",
+        "*.yonomi.co",
+        "Schlage Encode",
+        "Schlage NDE/NDEB",
+        "brio.com.au",
+        "brionz.com",
+        "briouk.com",
+        "briousa.com",
+        "www.allegion.co.uk",
+        "www.ausloc.com",
+        "www.axasecurity.com",
+        "www.bricard.com",
+        "www.cisa.com",
+        "www.fireglass.com",
+        "www.fshlocking.com.au",
+        "www.gainsboroughhardware.com.au",
+        "www.interflex.de",
+        "www.isonas.com",
+        "www.krytonitelock.com",
+        "www.normbau.de",
+        "www.republicdoor.com",
+        "www.schlage.com",
+        "www.simons-voss.com",
+        "www.specadsystems.com",
+        "www.trelock.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\allegion-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "allegion",
+  "name": "Allegion",
+  "url": "https://hackerone.com/allegion",
+  "policy": "Allegion takes the security of our products and systems seriously and looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Disclosure Policy\r\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n\r\nAs part of this program, all researchers shall follow these rules to minimize potential risks to individuals, data, systems, and products:\r\n\r\n•\t ==Please rate limit your automated scanning tools to 100 requests per second. Anything more than this which results in degradation of the site will result in a program ban.==\r\n•\tOnly research vulnerabilities related to in scope systems; do not access other systems or perform out-of-scope research;\r\n•\tIf identifying vulnerabilities involving information that could reasonably identify a person, do not access, download, store, process, or transmit such information; and if identification of such a vulnerability occurs, notify Allegion immediately;\r\n•\tAvoid harming or impacting or otherwise degrading any person, product, service, or user experience;\r\n•\tDo not engage in social engineering (e.g., phishing, vishing, smishing);\r\n•\tOnly interact with accounts you own or with explicit permission of the account holder;\r\n•\tPerform research in a manner consistent with applicable law;\r\n•\tPreserve and keep data generated during security testing and research under appropriate security controls; and\r\n•\tAgree that Allegion may use your research to take all reasonable steps to validate, mitigate, and disclose the vulnerability.\r\n\r\nAs part of this program, all researchers shall follow these rules when making reports:\r\n\r\n•\tPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n•\tSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n•\tWhen duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n•\tMultiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n\r\n# Out of scope vulnerabilities\r\n\r\nThe following vulnerability categories are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n# Response Targets\r\nAllegion will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 5 days |\r\n| Time to Triage | 10 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to work with you to understand and remediate vulnerabilities and keep you informed about our progress throughout the process. \r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you or refer your activity to law enforcement. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Allegion and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.allegion.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.specadsystems.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.isonas.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.krytonitelock.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.republicdoor.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.schlage.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.fireglass.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.yonomi.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.trelock.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.simons-voss.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.normbau.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "www.interflex.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.gainsboroughhardware.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.fshlocking.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.allegion.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.cisa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brio.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brionz.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "briouk.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "briousa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.bricard.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.axasecurity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.ausloc.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Schlage NDE/NDEB",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Schlage Encode",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

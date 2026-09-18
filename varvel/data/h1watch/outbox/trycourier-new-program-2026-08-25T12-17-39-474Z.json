@@ -1,0 +1,110 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "trycourier",
+      "name": "Courier",
+      "offersBounties": false,
+      "assets": [
+        "*.ct0.app",
+        "api.courier.com",
+        "api.trycourier.app",
+        "www.courier.com",
+        "www.trycourier.app"
+      ],
+      "exclusions": [
+        "docs.courier.com",
+        "help.courier.com",
+        "status.courier.com",
+        "updates.courier.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\trycourier-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "trycourier",
+  "name": "Courier",
+  "url": "https://hackerone.com/trycourier",
+  "policy": "No technology is perfect, and Courier believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Exclusions \r\n\r\n**IMPORTANT**: Please **DO NOT** send messages via our in-app support mechanism (Intercom) to test for XSS issues. This has been tested many times, is provided by a 3rd-party (Intercom), and creates extra work for our support team.\r\n\r\nAlso, please do not submit tickets about DMARC.\r\n\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Courier staff or contractors\r\n* Any physical attempts against Courier property or data centers\r\n* Attempting to spoof emails sent from trycourier.com\r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Courier and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.trycourier.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our web application, which customers use to design & configure the notifications they will send via our API.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.trycourier.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This API is used by Courier customers to programmatically send notifications to their users; this is the core use case for our product, without which Courier is of limited value.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ct0.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The ct0.app domains are used for click-through tracking.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our public-facing website. It is a static site, and open source:\n\nhttps://github.com/trycourier/website",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "api.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This API is used by Courier customers to programmatically send notifications to their users; this is the core use case for our product, without which Courier is of limited value.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our technical documentation portal, hosted by Readme.com.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our user-documentation portal, hosted by Intercom.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "updates.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.courier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

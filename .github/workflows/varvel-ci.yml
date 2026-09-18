@@ -1,0 +1,23 @@
+name: VARVEL CI
+
+on:
+  push:
+    paths: ['varvel/**', '.github/workflows/varvel-ci.yml']
+  pull_request:
+    paths: ['varvel/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: varvel
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # VARVEL has zero runtime dependencies; the suite is Node's built-in test runner.
+      # `npm test` keeps CI in lockstep with package.json (the single source of truth).
+      - name: Run the VARVEL test suite
+        run: npm test

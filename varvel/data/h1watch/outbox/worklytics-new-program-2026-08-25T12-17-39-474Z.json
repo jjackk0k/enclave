@@ -1,0 +1,39 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "worklytics",
+      "name": "Worklytics",
+      "offersBounties": false,
+      "assets": [
+        "*.worklytics.co"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\worklytics-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "worklytics",
+  "name": "Worklytics",
+  "url": "https://hackerone.com/worklytics",
+  "policy": "No technology is perfect, and Worklytics believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\nKeep in mind [Hackerone's definition of Vulnerability](https://www.hackerone.com/disclosure-guidelines).  For the purposes of this program \"design flaws\" / \"failures to adhere to security best practices\" will generally be resolved as an *informative* report rather than a confirmed vulnerability.  \r\n\r\nReports should have either 1) clear, concise reproducible steps, or 2) a working proof-of-concept (POC) - or they may be marked as \"Needs More Info\" until more detail is provided.  If we mark a report as \"Needs More Info\" and do not receive a response within 7 days, we may close it as \"Invalid/Not Applicable\".\r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Using automated scanners unless you 1) identify with your hackerone email address in the User-Agent string, and 2) limit your requests to maximum rates of 1 req/sec and 10,000 req/day\r\n* Denial of service\r\n* Spamming \r\n* Social engineering (including phishing) of Worklytics, Co staff or contractors \r\n* Any physical attempts against Worklytics, Co property or data centers \r\n\r\nScope exclusions:\r\n * **EMail DNS configurations**: We consider email spoofing due to lack of DMARC as out-of-scope.  We'll evaluate issues with SPF/DKIM, if they open a vector (eg, mail delivered to inbox) - but generally we consider these as low severity, as depend on participation from the targeted user as well as weak security policies of their email system - neither of which we can fully overcome.  For example, SPF `~all` is the recommended practice by major providers like SendGrid, even if some scanners suggest you should use `-all`.\r\n  * **SWEET32 / weak ciphers on worklytics.co**: We're aware that our marketing site, hosted via `worklytics.co`, supports various weak TLS ciphersuites. We accept the risk this poses, given that this site does not serve non-public information and its use-case (marketing) justifies providing an experience that maximizes compatibility across browsers.  Please focus TLS/ciphersuite reports on `app.worklytics.co`/`intl.worklytics.co`/`app-eu.worklytics.co`, which are domains that we use to serve customer data.\r\n\r\n# Instructions\r\n * **Demo Request Form** : if you test the demo request form on [www.worklytics.co](https://www.worklytics.co), please refer to Hackerone clearly in your submission. Either use your Hackerone email as the email address in the form, or clearly state \"HACKERONE\" in the comment section.\r\n * **Subdomain Takeovers**: if you report a subdomain takeover, you MUST include a valid PoC of a claimed subdomain takeover, such as: \r\n    1. send an email from the claimed subdomain to `security@worklytics.co`\r\n    2. host a file on the claimed subdomain named with your hackerone username (eg, `https://target.worklytics.co/{userName}.html`)\r\n\r\n# Common False Positives\r\nThe following issues have been repeatedly reported as vulnerabilities, but we (and many others) don't consider them to be:\r\n * **disclosure of Wordpress user ids / names** [is not a security vulnerability](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue). \r\n * **lack of [DNS CAA record](https://en.wikipedia.org/wiki/DNS_Certification_Authority_Authorization)** - this is a proposed IETF standard, not yet adopted or supported by all CAs; major websites, like microsoft.com, amazon.com, etc don't maintain a CAA DNS record.\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Worklytics and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.worklytics.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Worklytics is concerned about any vulnerabilties in web applications hosted under any sub-domain of worklytics.co.  Specifically, we host our marketing site at www.worklytics.co, and our web application platform at app.worklytics.co, app-eu.worklytics.co (EU customers), and intl.worklytics.co (non-E",
+      "max_severity": "critical"
+    }
+  ]
+}

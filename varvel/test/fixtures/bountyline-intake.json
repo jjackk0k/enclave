@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": { "name": "Acme Corp Bug Bounty", "handle": "acme-line", "url": "https://hackerone.com/acme-line" },
+  "policy": "Acme pledges safe harbor for good-faith security research. Automated scanning and automated tools are prohibited without prior written permission. Denial of service and social engineering are prohibited.",
+  "safeHarbor": "We will not pursue legal action against good-faith research that complies with this policy.",
+  "rewards": [
+    { "severity": "critical", "bounty": "$5,000 - $15,000" },
+    { "severity": "high", "bounty": "$2,000 - $5,000" }
+  ],
+  "inScope": {
+    "cidrs": [ { "asset": "203.0.113.0/24" } ],
+    "domains": [ { "asset": "example.com" } ],
+    "wildcards": [],
+    "other": []
+  },
+  "outOfScope": {
+    "cidrs": [ { "asset": "203.0.113.99/32", "note": "monitoring host — never touch" } ],
+    "domains": [],
+    "wildcards": [],
+    "other": []
+  },
+  "engagementScope": "203.0.113.0/24",
+  "signable": true,
+  "overlaps": [],
+  "gaps": [ "1 in-scope domain(s) are NOT in the signed CIDR scope — resolve them (VPN on) and sign the /32s+/128s before any contact" ]
+}

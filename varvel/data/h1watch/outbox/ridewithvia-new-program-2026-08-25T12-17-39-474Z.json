@@ -1,0 +1,183 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ridewithvia",
+      "name": "Via",
+      "offersBounties": true,
+      "assets": [
+        " com.citymapper.app.release",
+        "469463298",
+        "6449737830",
+        "6464473474",
+        "657777015",
+        "eu.remix.com",
+        "global-api.citymapper.com",
+        "https://metroconnect.app.ridewithvia.com",
+        "https://pt-runner.app.ridewithvia.com",
+        "platform.remix.com",
+        "ridewithvia.neoridelittlerock",
+        "ridewithvia.par.piercetransit",
+        "via.rider"
+      ],
+      "exclusions": [
+        "*.citymapper.com/",
+        "*.drivewithvia.com",
+        "citymapper.com",
+        "remix.com",
+        "ridewithvia.com",
+        "ridewithvia.okta.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ridewithvia-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ridewithvia",
+  "name": "Via",
+  "url": "https://hackerone.com/ridewithvia",
+  "policy": "#About Via\nAt Via, we are building the transportation systems of tomorrow, right now. Via's technology is deployed worldwide through dozens of partner projects with public transportation agencies, private transit operators, taxi fleets, private companies, and universities, seamlessly integrating with public transit infrastructure to power cutting-edge on-demand mobility.\n\nVia looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nVia will make the best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submission) - 5 business days\n* Time to triage (from report submission) - 10 business days\n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering of any kind (e.g. phishing, vishing, smishing) is absolutely prohibited.\n* Avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. Under no circumstances should you access any personally identifiable information (\"PII\") of a Via rider, Via driver, or anyone associated with Via.\n\n# Rewards\nPlease see the structured bounty table. Our bounty table provides general guidelines and the amounts are indicative of ranges, thus, all final decisions are at the discretion of Via.\n\n\n---\n\n\n# Program’s Scope Highlights \n\n##** New Additions! (November 2024) ** \nWe are pleased to announce the expansion of our bug bounty program to include 2 new Rider applications, covering both web and mobile platforms!\n\n### Metro Connect (New Addition):\nGoogle Play: https://play.google.com/store/apps/details?id=ridewithvia.neoridelittlerock\nApple Store: https://apps.apple.com/us/app/metro-connect-rock-region/id6449737830\nWeb URL: https://metroconnect.app.ridewithvia.com/\n\n### Pierce Transit - Runner (New Addition):\nGoogle Play: https://play.google.com/store/apps/details?id=ridewithvia.par.piercetransit\nApple Store: https://apps.apple.com/us/app/pierce-transit-runner/id6464473474\nWeb URL: https://pt-runner.app.ridewithvia.com/\n\n## Remix\n`platform.remix.com`\n`eu.remix.com`\n\n## Citymapper\nGoogle Play: https://play.google.com/store/apps/details?id=com.citymapper.app.release\nApp Store: https://apps.apple.com/us/app/citymapper/id469463298\nAPI Domain: `*global-api.citymapper.com`\n\n# Out-of-scope\n`*.remix.com`\n`*.citymapper.com`\n`citymapper.com/*`\n`https://ridewithvia.com` - commercial site \n\nStay tuned for future updates and further expansions!\n\n---\n\n#Known Issues\nPlease note that the Via Security Team actively looks for vulnerabilities across all assets internally. For reported issues that are already known to us, we will close them as duplicates.\n\n#Out-of-scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Cache Poisoning\n* OTP Bypass (e.g: Response manipulation, Account registration and profile updates)\n* Exposed API keys that pose no risk of accessing any sensitive information, including but not limited to: Google API, mParticle, and Leanplum keys.\n* Task Hijacking\n* Clickjacking on pages with no sensitive actions.\n* Weak password policy.\n* UUID / ID enumeration of any kind.\n* Logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Open ports without an accompanying proof-of-concept demonstrating vulnerability.\n* Subdomain Takeovers / Dangling DNS on non-wildcard domains are classified as Low; only Wildcard domain takeovers with proven impact may qualify for Medium or High severity.\n* Invalid or missing SPF/DKIM/DMARC\n* Issues regarding missing rate limiting or bypasses for non-sensitive endpoints.\n* SMS/Email bombing, flooding, or simply triggering messages to a phone number/email address without demonstrating a significant security vulnerability.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Missing HTTP header/ Missing cookie flag which does not lead to a direct vulnerability\n* Software version disclosure\n* Self-XSS\n* SSL/TLS scan reports\n* Reports consisting of automated scanner output (e.g., Nessus, Burp) without a manual Proof of Concept.\n* Path or hostname disclosure in error messages\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* User / Data Enumeration issues with low-risk and insignificant information being enumerated\n* Social engineering of any kind (e.g. phishing, vishing, smishing, spear phishing).\n\n#Never in scope\n* Third-party services used by Via app\n* Third-party implementations integrating the Via SDK\n* DoS \n \n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Via and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "ridewithvia.okta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.drivewithvia.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ridewithvia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "657777015",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "via.rider",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "469463298",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": " com.citymapper.app.release",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.citymapper.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "global-api.citymapper.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "citymapper.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "remix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "eu.remix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "platform.remix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://metroconnect.app.ridewithvia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ridewithvia.neoridelittlerock",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6449737830",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://pt-runner.app.ridewithvia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6464473474",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ridewithvia.par.piercetransit",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

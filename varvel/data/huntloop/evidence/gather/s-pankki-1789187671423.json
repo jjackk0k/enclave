@@ -1,0 +1,96 @@
+{
+ "at": "2026-09-12T04:34:24.314Z",
+ "opportunity": "s-pankki",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "online.s-pankki.fi",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.s-pankki.fi",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "server": "server",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'self';font-src 'self' data: fonts.gstatic.com https://giosg-chat-public-eu.s3.amazonaws.com https://cdn.gio",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "crosskey.io",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "fi.spankki",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to fi.spankki:443 refused: host unreachable"
+  },
+  {
+   "host": "mobile.s-pankki.fi",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

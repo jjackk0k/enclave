@@ -1,0 +1,1 @@
+let s=''; try { s=JSON.stringify(EVIDENCE||{}); } catch(e) { s=String(EVIDENCE||''); } const ok=s.includes('hack.whocoronavirus.org') && (s.includes('ERR_TLS_CERT_ALTNAME_INVALID') || s.includes('internal.joinforma.com')); if(ok){ console.log('FINDING_TLS_CERT_MISMATCH'); }

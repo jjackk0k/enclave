@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bcny",
+      "name": "The Browser Company of NYC",
+      "offersBounties": true,
+      "assets": [
+        "Arc on Mac",
+        "Arc on Windows",
+        "Dia Assistant",
+        "Dia Browser",
+        "arc.net",
+        "bcny.com",
+        "company.thebrowser.arc",
+        "diabrowser.com",
+        "id6472513080",
+        "thebrowser.company"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bcny-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bcny",
+  "name": "The Browser Company of NYC",
+  "url": "https://hackerone.com/bcny",
+  "policy": "# Response Targets\n\nThe Browser Company will make a best effort to meet the following response targets for researchers participating in our program:\n\n- Time to first response (from report submit) - 1 business day\n- Time to triage (from report submit) - 10 business days. H1 Triage will review and validate reports with a clear proof of concept (POC) and proven Critical/High severity impact faster than those that do not provide these details.          \n- Time to resolution (from report submit) - Varies depending on severity\n\nWe’ll try to keep you informed about our progress throughout the process. \n\n# Disclosure Policy\nHackerOne's Disclosure Guidelines shall not apply when participating in our program. Instead, we ask you to abide by the following Disclosure Policy:\n\n* Unless we provide our express consent, do not disclose to any third parties, including to the public:\n  * Any identified vulnerabilities (whether resolved or otherwise);\n  * Any report submitted by you in relation to this program (whether resolved or otherwise); and/or\n  * Your participation in this program.\n* Any unauthorized public disclosure will result in immediate disqualification from this program and you will be ineligible to receive any rewards under this program, even if you submit a report to us identifying an eligible vulnerability.\n\n# Eligibility Requirements\nTo be eligible to participate in this program, you must:\n\n* Be at least 18 years of age.\n* Not be employed by us or any of our affiliates or be an immediate family member of a person employed by us or any of our affiliates.\n* Not be a resident of, or make reports from, a country against which the United States has issued export sanctions or other trade restrictions and not otherwise be an embargoed or restricted person.\n* Not be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to this program.\n\n# Program Rules\n\n* Please provide detailed reports with verifiable and reproducible steps. If the report is not detailed enough to allow us to verify or reproduce the issue, as determined by us in our sole discretion, the issue will not be eligible for a reward.\n* You may only submit one vulnerability per report, unless you need to chain vulnerabilities to better explain the security impact of such vulnerabilities.\n* When duplicates occur, only the first report that was received by us (and that can be fully verified and reproduced by us, as determined in our sole discretion) is eligible for a reward.\n* If multiple vulnerabilities are caused by one underlying issue, such vulnerabilities will be eligible for only one reward.\n* You must make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service, and you must only interact with accounts you own or with the explicit permission of the account holder.\n* If submitted reports cover more than one asset in scope, such report will be paid out once at the highest paying in scope asset category, as determined in our sole discretion.\n* The vulnerability reported must be in scope of this program, and must not be out of scope (as determined by us in our sole discretion).\n* In addition, we ask that you do not:\n    * Leave any system in a more vulnerable state than you found it.\n    * Brute force credentials or guess credentials to gain access to systems.\n    * Participate in denial of service attacks.\n    * Upload shells or create a backdoor of any kind.\n    * Engage in any form of social engineering of our employees, customers, affiliates or partners.\n    * Engage or target any of our employees, customers, or partners during your testing.\n    * Attempt to extract, download, or otherwise exfiltrate data that may have personal data or other sensitive data other than your own.\n    * Change passwords of any account that is not yours or that you do not have explicit permission to change. If ever prompted to change a password of an account you did not register yourself or an account that was not provided to you, stop and report the finding immediately.\n\nViolation of any of the above Program Rules, as determined in our sole discretion, may result in your forfeit of reward eligibility, or further, disqualification from participating in this program.\n\n# Out of Scope Vulnerabilities\n\n** The Browser Company will have sole discretion to make the final determination if an issue is or is not in scope. The below list contains examples of issues that are not in scope, but such list should only be used as a guide as it is not exhaustive. **\n\n### The following potential issues are not considered in scope:\n\n- Bugs in the product that do not lead to user security impacts\n- Social engineering or phishing of employees or contractors\n- Any attacks against our physical property or data centers\n- Use of automated scanning tools\n- Lack of rate limiting on any resources\n- Password policy issues, including lack of upper limit on passwords\n- Bugs on websites that are not owned or operated by The Browser Company.\n- Issues in an upstream software dependency (ex: Chromium) which are not severe enough to warrant a fix independently of upstream. If the upstream maintainer believes the issue is won’t fix but we disagree, we may reward for the issue and consider it valid.\n- Attacks requiring physical/local access to a user's device.\n- Attacks requiring local user or root of user’s device\n- Vulnerabilities in outdated versions of client software\n- Missing security best practices that do not directly lead to a vulnerability\n- New browser fingerprinting or cross-site tracking methods are generally out-of-scope but will be considered on a case-by-case basis.\n- Banner or version disclosure of any kind\n- Disclosure that the user is using Arc rather than Chrome\n- Denial-of-service and crash issues in our client-side products are out-of-scope (UNLESS: the issue does not exist in Chrome. In general, we do not consider resource exhaustion attacks to be security bugs).\n- Bugs in browser extensions which are not enabled/installed by default.\n- Broken links in social media account posts\n- Attacks which require unusual product or system configurations (such as blocking network requests to services or disabling recommended security features) are generally out-of-scope\n- Pairs of Unicode and Latin characters which look similar-enough to be used in homoglyph-based phishing.\n- Self-XSS issues\n- Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n- Clickjacking on pages with no sensitive actions\n- Cross-Site Request Forgery (CSRF) / Server-Side Request Forgery (SSRF) on unauthenticated forms or forms with no sensitive actions\n- Attacks requiring MITM or physical access to a user's device.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Missing best practices in SSL/TLS configuration.\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n- Missing security headers (Content Security Policy, cookie policies, HSTS, etc) which don’t directly lead to a vulnerability or account compromise\n- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\n- Tabnabbing\n- Open redirect - unless an additional security impact can be demonstrated\n- Expected behaviors as described in the [Arc Support](https://resources.arc.net/hc/en-us), Dia, or any in product descriptions.\n- Infrastructure issues that does not affect The Browser Companies products, to report an infrastructure issue you must show how it affects a user of our products.\n- Data not being cleared locally after logging out.\n- Prompt injections that lead to misinformation, unexpected behaviors, denial of service or denial of correct service of the assistant is explicitly out of scope.  A prompt injection is only considered in scope if it has a demonstrable and specific harm to a user by **automatically** exfiltrating sensitive user data or taking unauthorized actions as the user. BCNY has full authority to declare what is and is not in scope for a reward around the assistant\n- Local user modifying prompts or sandbox restrictions\n- Attacks that require the user to agree or click “allow” in relevant permission prompts\n- Bypassing sandbox limitations without a demonstrable data exfiltration or system integrity violation\n- Improper token handling by third-party services, especially around token revocation\n- Prompt injection via tools the user has explicitly agreed to fully trust\n- Writing data to tools and apps the user has explicitly agreed to fully trust\n- Inducing high memory or CPU usage by the assistant\n- Users manually typing prompt injections or malicious prompts\n- Assistant-generated inaccurate, biased, or hallucinated output that does not result in unauthorized actions or data exfiltration\n- Jailbreaking or manipulating the assistant’s persona, tone, or style without demonstrating a concrete security impact\n- Data read by the assistant into its own context window that is not exfiltrated to an attacker-controlled destination\n- Non-deterministic or inconsistent model output, as this is inherent behavior of large language models\n- Token consumption, API cost, or rate-limiting concerns against the AI backend\n- Any exploit that involves socially engineering users to bypass clear intention dialogs\n- Force closure of tabs\n- Gaining user IP address or location\n- Expose different content to a user and to the assistant. For example dynamic changes or invisible text.\n- Accessing system prompts\n- Email mining\n- AuthTokens used within their expiry window\n- AI theft or denial of wallet style attacks\n- Bypasses of the allow list or referral process to gain access to Dia\n- Vulnerabilities that require a user to install an extension first\n- Bypasses of built in ad-blocker or leaks of trackers\n- Gaining access to paid or trial-gated features without a valid entitlement, including bypassing plan gating, extending or restarting a free trial, and manipulating usage grants, allowances, or quotas on your own account.\n- Computer use vulnerabilities must demonstrate injection of data not presented to the user and/or data inserted to a different origin than the top level frame or the displayed displayed destination origin.\n- Credential datasets; our bounty scope covers vulnerabilities in BCNY systems.\n- Disclosure of publicly-identifiable client configuration values that are public by design, such as Firebase Web API keys, project IDs, and auth domains found in client-side bundles. These are not secrets and their presence is expected behavior. Reports based solely on their discovery are out-of-scope; only a demonstrated, impactful misconfiguration of the associated backend security rules will be considered.\n- Vulnerabilities only found in Alpha, Beta, or Early Bird releases of products. \n\n# Bounty Payments\nThe Browser Company (and not you or HackerOne) will ultimately have sole discretion to determine whether you and/or your submitted reports are eligible for a bounty payment and the amount of such bounty payment, including sole discretion to determine the severity of any identified vulnerability. If we determine a report submitted by you is eligible for a bounty payment in accordance with the foregoing, you acknowledge and agree that the applicable bounty payment (as determined in our sole discretion) constitutes the sole consideration due to you in connection with such eligible report.\n\n# CVE Policy\n- See our corporate CVE policy at https://thebrowser.company/security/cve-policy\n- This HackerOne Program page carriers the live asset scope and exclusions.\n- We do not issue CVEs for backend services or infrastructure unless they directly create a vulnerability in client software that requires client version updates to mitigate\n- All issues to be considered for CVE must be submitted through HackerOne\n- We typically only consider assigning CVEs for high‑severity and critical issues in our client software.\n- We publish advisories and CVE records after a fix or mitigation is available\n\n# Safe Harbor\nThe Browser Company strongly supports security research into our products and wants to encourage that research. Therefore, we have enabled the [Gold Standard Safe Harbor policy](https://docs.hackerone.com/en/articles/8494525-gold-standard-safe-harbor-statement) in our program. The Browser Company reserves all legal rights in the event of noncompliance with this policy.\n\nThank you for helping keep The Browser Company of New York and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Arc on Mac",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id6472513080",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "company.thebrowser.arc",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "arc.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "thebrowser.company",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bcny.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Arc on Windows",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Dia Browser",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Browser capabilities of Dia, excludes all assistant features",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "diabrowser.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Dia Assistant",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

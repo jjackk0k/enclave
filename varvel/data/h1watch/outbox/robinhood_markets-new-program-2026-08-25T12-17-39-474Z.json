@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "robinhood_markets",
+      "name": "Robinhood Markets",
+      "offersBounties": false,
+      "assets": [
+        "*.1integrations.com",
+        "*.rhapollo.net",
+        "*.rhinternal.net",
+        "*.robinhood.com",
+        "*.robinhood.net",
+        "*.say.rocks",
+        "*.saytechnologies.com",
+        "*.x1.co",
+        "*.x1creditcard.com",
+        "1634080733",
+        "6462308655",
+        "938003185",
+        "api.robinhood.com",
+        "cashier.robinhood.com",
+        "com.robinhood.android",
+        "com.robinhood.gateway",
+        "com.robinhood.money",
+        "https://*.say.rocks",
+        "https://*.saytechnologies.com",
+        "minerva.robinhood.com",
+        "nummus.robinhood.com",
+        "oak.robinhood.net"
+      ],
+      "exclusions": [
+        "fleet.infra.robinhood.net",
+        "https://www.saytechnologies.com/contact/sales",
+        "shop.robinhood.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\robinhood_markets-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "robinhood_markets",
+  "name": "Robinhood Markets",
+  "url": "https://hackerone.com/robinhood_markets",
+  "policy": "Welcome to the Robinhood Vulnerability Disclosure Program! We’re excited to work more closely with you on discovering bugs in Robinhood. Thank you for helping keep Robinhood and our users safe!\nRobinhood Markets, Inc.\n\n# Overview: VDP Rules #\n\nBy submitting reports to our program, you agree that you’ve read, understood, and will follow our Program Rules and overall Program Policy.\n* Be careful with sensitive information. If sensitive information, such as personally identifiable information or user account credentials, is uncovered as part of your research, stop and report it to us immediately. Do not save, download, export, store, copy, move, or otherwise retain any sensitive or personally identifiable information, and work with us on any additional requests we may have.\n* Test responsibly. Only interact with and test bugs against accounts you own. We do not allow testing against user accounts not owned by the Security Researcher. Reach out to us if you need help with testing cross-account issues.\n* Do not cause harm. Do not engage in activities that disrupt, damage, or otherwise cause harm to or defraud Robinhood, our users, our employees, our data or our users’ data, or our brand—including, without limitation, denial of service attacks, social engineering, phishing, spam, social media scams, fraudulent transactions, data exfiltration or tampering, or physical attacks.\n* Do not exceed $1,000 USD when testing unbounded loss vulnerabilities. When you reach $1,000 USD file your report with all verification you have completed so far. Internal teams will verify unbounded loss vulnerabilities collaboratively with you. Testing over $1,000 USD may result in termination from our program.\n* Do not disclose reports made to the Robinhood vulnerability disclosure program at any time, in any location independent of the HackerOne platform.\n\nViolation of any of our Program Rules may result in (but is not limited to) consequences such as permanent disqualification and removal from the Robinhood Vulnerability Disclosure Program, or voiding the protections of the HackerOne Gold Standard Safe Harbor.\n\n# Overview: Special Considerations #\nDue to the nature of our business, we ask that you also follow these guidelines:\n* Do not perform resource intensive tests which could result in disruption or downtime for our services.\n* Do not make financial transactions with other user accounts you do not own.\n* Findings dependent on account takeover (ATO) are typically not accepted\n* If your report shows theoretical impact rather than demonstrates an impact (e.g. ‘This flaw could result in information disclosure’ versus ‘Here is the information I was able to access using the flaw’), severities will be lower.\nSafe harbor for researchers is applied.\n* Do not send large volumes of data to our websockets.\n* Do not create large volumes of support tickets.\n\n#Overview: Submission Requirements #\nUse the following headers when making requests to Robinhood resources or assets for vulnerability disclosure research where <Username> is your HackerOne username and <TestAccountEmail> is the email associated with the test account you’re making the request with:\n```X-Bug-Bounty: <Username>```\n```X-Test-Account-Email: <TestAccountEmail>```\nResearchers who use these headers and document them in their report will be given a $50 USD bonus on reports which receive a bounty award.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "minerva.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nummus.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.saytechnologies.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://www.saytechnologies.com/contact/sales",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.rhinternal.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.robinhood.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.robinhood.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.say.rocks",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.saytechnologies.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "com.robinhood.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.say.rocks",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rhapollo.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.1integrations.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oak.robinhood.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.x1.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.x1creditcard.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1634080733",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6462308655",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "938003185",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.robinhood.gateway",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.robinhood.money",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shop.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fleet.infra.robinhood.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

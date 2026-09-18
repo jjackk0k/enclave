@@ -1,0 +1,132 @@
+{
+ "at": "2026-09-12T14:48:14.604Z",
+ "opportunity": "peloton",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "cms.onepeloton.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39fb64849007797-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cosmos.onepeloton.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39fb650fe4f98f3-LHR",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 851879d53a84651e63e2408132976dfe.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cosmos-stage.onepeloton.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39fb65ccd821674-LHR",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 a05c188e51bae9a78597941cbf106e52.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "qa1-cms.onepeloton.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39fb668d91f9a08-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.onepeloton.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "frame-ancestors 'self' https://app.contentful.com https://retail-ipad-apps.vercel.app https://checkout.stripe.com https:",
+    "x-frame-options": "SAMEORIGIN https://app.contentful.com https://retail-ipad-apps.vercel.app https://checkout.stripe.com https://peter-jone",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

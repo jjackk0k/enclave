@@ -1,0 +1,63 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "finra",
+      "name": "FINRA Response",
+      "offersBounties": false,
+      "assets": [
+        "*.finra.org",
+        "https://ews.qa.finra.org/*"
+      ],
+      "exclusions": [
+        "*.fip.finra.org",
+        "https://ews.finra.org/*"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\finra-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "finra",
+  "name": "FINRA Response",
+  "url": "https://hackerone.com/finra",
+  "policy": "FINRA is committed to maintaining secure applications and infrastructure as we strive to protect the data we handle.  We wish to encourage security researchers to report vulnerabilities in order to help us keep our enterprise and data safe. \r\n\r\n*Note: This program does not offer rewards.*\r\n \r\n# Response Targets\r\nFINRA will make a best effort to meet the following response targets for security researchers participating in our VDP program:\r\n \r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 1 day |\r\n| Time to Triage | 1 day |\r\n| Time to Resolution | depends on severity and complexity |\r\n \r\nWe’ll try to keep you informed about our progress throughout the process.\r\n \r\n# Disclosure Policy\r\n*  Please do not discuss this program or any vulnerabilities (even resolved items) outside of the program without express consent from FINRA.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n* Provide FINRA at least 60 days to fix a reported issue. For any escalations please reach out via Hackerone platform and do not disclose the identified vulnerability details or expose any data publicly. \r\n \r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps, clear evidence (such as screenshots, video, or command lines).\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Only interact with accounts you own or with the explicit permission of the account holder.\r\n* Do not engage in any activity that can potentially or actually cause harm to FINRA, our customers, or our staff.\r\n* Do not engage in any activity that can potentially or actually stop or degrade FINRA services or assets.\r\n* Do not engage in any activity that violates (a) federal or state laws or regulations or (b) the laws or regulations of any country where (i) data, assets or systems reside, (ii) data traffic is routed or (iii) the researcher is conducting research activity.\r\n* You can perform lightweight automation but need to avoid functions like delete, email, submit case.\r\n* Do not store, share, compromise or destroy FINRA or customer data. If Personally Identifiable Information (PII) is encountered, you should immediately halt your activity, purge related data from your system, and promptly contact FINRA. This step protects any potentially vulnerable data, and you.\r\n \r\nBy responsibly submitting your findings to FINRA in accordance with these guidelines FINRA agrees to provide you with safe harbor as provided below. FINRA reserves the right to revoke such safe harbor and enforces all legal rights in the event of noncompliance with these guidelines.\r\n \r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n \r\n#Out of scope vulnerabilities\r\n \r\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n* Clickjacking on pages with no sensitive actions.\r\n* Unauthenticated/logout/login CSRF.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Insufficient error handling\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\r\n* File upload - unless an additional security impact can be demonstrated\r\n* Known vulnerabilities: username enumeration, cookie scoped to parent domain\r\n \r\nThank you for helping keep FINRA and our users safe!\r\n\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.finra.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ews.qa.finra.org/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ews.finra.org/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.fip.finra.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

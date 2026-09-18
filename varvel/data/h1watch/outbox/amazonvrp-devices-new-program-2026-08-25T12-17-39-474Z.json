@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "amazonvrp-devices",
+      "name": "Amazon Vulnerability Research Program - Devices",
+      "offersBounties": true,
+      "assets": [
+        "1324809509",
+        "302584613",
+        "944011620",
+        "947984433",
+        "Echo Family Devices",
+        "FireTV",
+        "Kindle E-Reader",
+        "Luna",
+        "Tablets",
+        "a4k.amazon.com",
+        "alexa.amazon.com",
+        "alexaanswers.amazon.com",
+        "amazon.com/hz/mycd/*",
+        "blueprints.amazon.com",
+        "com.amazon.dee.app",
+        "com.amazon.kindle",
+        "com.amazon.storm.lightning.client.aosp",
+        "com.amazon.tahoe.freetime",
+        "creator.amazon.com",
+        "developer.amazon.com/alexa/*",
+        "developer.amazon.com/apps-and-games/*",
+        "read.amazon.com",
+        "skills-store.amazon.com"
+      ],
+      "exclusions": [
+        "Devices",
+        "Services and Apps"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\amazonvrp-devices-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "amazonvrp-devices",
+  "name": "Amazon Vulnerability Research Program - Devices",
+  "url": "https://hackerone.com/amazonvrp-devices",
+  "policy": "# Amazon Devices and Services Bug Bounty Program Overview\n\nSafeguarding our customers’ security is a top priority. We recognize that performing high quality security research requires considerable amount of effort, time, and skills investment from researchers. We value the contributions of external security researchers who help bring potential issues to our attention and further protect our customers/improve the security of our devices and services. The Amazon Devices and Services bug bounty program is designed to recognize security research on our consumer electronics - Fire branded devices and tablets, Echo, Kindle, Blink, Alexa, and Luna Gaming devices, associated cloud services and web/mobile applications through bounty rewards. If you believe you have discovered a vulnerability impacting our devices and services, we encourage you to report it to us through this portal. Please review this page for our process, responsible research and disclosure policy, reward guidelines, and detailed scope of The Amazon Devices and Services Bug Bounty Program.\n\n## Amazon Devices and Services Bug Bounty Program Process\n\nIn order to be eligible for a bounty reward, you must be the first to report an issue to us for assets outlined in scope. To ensure appropriate reward allocations, please provide a detailed report including - software version of device/application research was performed on, clear description of the issue, proof of concept (wherever applicable), along with detailed steps to reproduce the issue; you can optionally also provide patch/mitigation suggestions. We will acknowledge the receipt of the report, and in case of any additional questions, we will communicate and work with you through the HackerOne portal. \nTo be considered for a reward, you must comply with all parts of this policy, including the following requirements - \n\n* Adherence to our Responsible Research and Disclosure Policy and other legal obligations.\n* Report a vulnerability only for the products or services that are listed within the scope of the program and is not a duplicate submission of a previously known vulnerability.\n* Vulnerabilities cannot be disclosed to a third party without our consent and must be submitted first to us through HackerOne.\n* Vulnerabilities found in SoC vendor’s specific code may not qualify for rewards unless there is a demonstrated impact on Amazon Digital products.\n* You must be available to provide additional information if needed by us to reproduce and investigate your report.\n* You must abide by the HackerOne’s [Finder Terms and Conditions](https://www.hackerone.com/terms/finder)\n\nPlease note that we will prioritize the remediation of the submissions based on the risk, customer impact, severity of the issue reported.\n\n## Restrictions\n\nTo be eligible for the program, you must not:\n\n* Be a resident of, or make your submission from, a country against which the United States has issued export sanctions or other trade restrictions.\n* Be employed by Amazon or any subsidiaries of Amazon.\n* Be an immediate family member of a person employed by Amazon or any subsidiaries of Amazon.\n\n## Additional Rules of Engagement\n\n* Do not test `Contact Us` based functionality.\n* Do not use 3rd party sites when testing (for instance, XSS Hunter variants). When doing blind XSS or any testing, only utilize assets that you expressly own and control yourself. This can be done using a home-forked version of the xsshunter-express repo. Our concern in using 3rd party infrastructure is around exposure of vulnerability and sensitive data to said 3rd parties. Make sure that all traffic goes through domains only you have control over.\n   * **Not using a version hosted yourself, will result in complete forfeiture of any reward.** \n* DOS/DDOS is out of scope on web properties\n\n**Avoid and Immediately Report Safety Issues.**\n If you identify an issue in a physical system (e.g., robotics, an autonomous vehicle, a satellite), do not attempt to change physical state or degrade, disrupt, or interfere with service availability or stability. If you believe you have found an issue that could impact safety, mission-critical operations, or service availability at scale, immediately stop testing and report the issue to us, even if your report is incomplete or the affected system is not authorized for testing. Do not attempt further validation. We will work with you to validate safely.\n\n## Bypass Reports\n\nIf you find a bypass of a previous report you’ve created, or we ask that you create a new report due to the content being different enough, please fill out the Custom Field `Bypass Reference` with the original ID of the finding. This has no bearing on reward, it just helps Amazon with secondary data tracking.\n\n## Creating Accounts for Vulnerability Research\n\nPlease create accounts using a HackerOne email to help us track security research activity. You can create accounts on Amazon by using [yourh1username@wearehackerone.com](mailto:yourh1username@wearehackerone.com)\n\nAlso, while testing please forward the string `amazonvrpresearcher_yourh1username` in your User-Agent header. You can create match and replace proxy rule in Burp by going to *Proxy* >> *Options* >> *Match and Replace* with the following options: \n**Type:** `Request header`\n**Match:** `^User-Agent.*$`\n**Replace:** `User-Agent: amazonvrpresearcher_yourh1username`\n\n## Devices and Services Bug Bounty Program Scope\n\n**In Scope Devices**\n This program sponsors the vulnerabilities discovered on devices (listed below) that are running latest available software. \n\n* The Bug Bounty program covers all Amazon-branded or manufactured devices sold by Amazon or an authorized retailer, including all Fire devices and tablets, Echo, Kindle, Blink, Alexa, and Luna Gaming devices that are running the latest available software.\n\n**Software Update Reference**\n\n* [FireTV Software Versions](https://www.amazon.com/gp/help/customer/display.html?nodeId=201497590)\n* [Fire Tablet Software Version](https://www.amazon.com/gp/help/customer/display.html?nodeId=G2JXLC4L34GX73TE)\n* [Echo Software Versions](https://www.amazon.com/gp/help/customer/display.html?nodeId=GMB5FVUB6REAVTXY)\n* [Kindle E-Reader Software Versions](https://www.amazon.com/gp/help/customer/display.html?nodeId=GKMQC26VQQMM8XSW)\n* [Blink Software Versions](https://support.blinkforhome.com/en_US/security-and-app-updates/2016136)\n* [Luna Controller Software Versions](https://www.amazon.com/gp/help/customer/display.html?nodeId=G6F4QENEFP5Q5JRZ)\n\n**In Scope Services & Apps**\n_In Scope Mobile Application Packages:_\n\n|Name\t|Android Package Name\t|Apple iOS App ID\t|\n|---\t|---\t|---\t|\n|FreeTime\t|com.amazon.tahoe.freetime\t|1324809509\t|\n|Alexa Companion App\t|com.amazon.dee.app\t|944011620\t|\n|FireTV (Bison)\t|com.amazon.storm.lightning.client.aosp\t|947984433\t|\n|Kindle\t|com.amazon.kindle\t|302584613\t|\n|Amazon Photos\t|com.amazon.clouddrive.photos\t|621574163\t|\n|Amazon Key\t|com.amazon.cosmos\t|1291586307\t|\n|Amazon Luna\t|com.amazon.tails\t|1528364633\t|\n\n==(**Note:** Reports on outdated version/builds are out of scope)==\n\n_In Scope Web Applications Domains:_\n\n|Name\t|Domain\t|\n|---\t|---\t|\n|Alexa Developer\t|[developer.amazon.com/alexa/*](http://developer.amazon.com/alexa/)\t|\n|Amazon App Store\t|[developer.amazon.com/apps-and-games/*](http://developer.amazon.com/apps-and-games/)\t|\n|Alexa Web\t|[alexa.amazon.com](http://alexa.amazon.com/)\t|\n|Skills Store\t|[skills-store.amazon.com](http://skills-store.amazon.com/)\t|\n|Kindle Cloud Reader\t|[read.amazon.com](http://read.amazon.com/)\t|\n|Kindle Publishing\t|[https://kdp.amazon.com](https://kdp.amazon.com/)\t|\n|Alexa Answers\t|[alexaanswers.amazon.com](http://alexaanswers.amazon.com/)\t|\n|Alexa BluePrints\t|[blueprints.amazon.com](http://blueprints.amazon.com/)\t|\n|Amazon FireTV App Creator\t|[creator.amazon.com](http://creator.amazon.com/)\t|\n|Device Content Manager\t|[amazon.com/hz/mycd/*](http://amazon.com/hz/mycd/)\t|\n|Amazon Photos\t|https://www.amazon.com/photos/\t|\n|Amazon Luna\t|https://luna.amazon.com/\t|\n|Alexa API\t|https://api.amazonalexa.com/\t|\n\n## Vulnerability Severity Ratings\n\nThe severity of a vulnerability generally reflects the security impact of the issue on the product. Please use the following description to determine the severity of reported issues. Please note there maybe additional vulnerabilities that are not explicitly called out in the below description. In all cases, Amazon reserves the sole discretion to determine the severity of the vulnerability based on security impact.\n\n**The Severity mentions below are a guideline, and not definitive. There may be situations where compensating controls or complexity of a finding increases or decreases severity.**\n\nReports of zero-day vulnerabilities (vulnerabilities that were not previously known to the security community) within in-scope services and products will be eligible for an award at our discretion if the report provides significant insight that assists Amazon's security teams with remediation efforts, or has not previously been identified by another researcher on our own vulnerability response program.\n\n**Severity Rating for Devices** \n*Note, issues that are demonstrated with ADB are generally accepted only if ADB is used to demonstrate a behavior that is possible to implement in an app.*\n\n**Critical**\n Critical vulnerabilities may allow a remote attacker to gain control of the device or cause a permanent, unrecoverable device failure even after factory reset. Vulnerabilities that allow an attacker to perform remote or local bypass of critical security controls for example secure boot bypass fall into this category. Vulnerabilities that allow an attacker to perform arbitrary code execution, or remote access to sensitive assets on the device for example a device owner’s Amazon account credentials or authentication tokens, are also classified as critical vulnerabilities.\n\n**High**\n High vulnerabilities may allow temporary bypass of critical security controls through local access. This category includes vulnerabilities that could allow arbitrary code execution in an unprivileged process or local code execution in a privileged process with user interaction. Vulnerabilities that could allow local access to owner’s Amazon account or other sensitive data protected by device kernel or a privileged process fall into this category. Vulnerabilities that allow bypass of core security features such as mandatory access controls, sandboxing mechanisms or bypass user interaction requirements for device operations example, modifying privacy settings, or installing apps. Additionally, these vulnerabilities may include device bricking scenarios such as vulnerabilities that cause permanent, unrecoverable device failure even after factory reset with local access vector, and vulnerabilities that cause temporary device failure requiring a factory reset with remote access vector.\n\n**Medium**\nMedium vulnerabilities may allow a local attacker to cause temporary device failure requiring a factory reset with local access vector. Protocol security weaknesses that allow observing of sensitive information through physical access are included in this category. Vulnerabilities that allow bypassing of exploit mitigations would also fall into this category. These vulnerabilities could have similar impact to High vulnerabilities but may require other vulnerabilities or user interaction.\n\n**Low**\n Low vulnerabilities that may not pose a direct security impact to customer or the device such as parental control bypasses.\n\n## **GenAI Details and Assessment Considerations**\n\n* For any GenAI submissions please include as much of the following information as you can for your report to be considered. Some won’t be applicable due to context: \n    * Timestamp\n    * IP\n    * Consumed Content | Prompt String \n    * Security Impact\n\nPlease note that any reports related to the prompt response content are out of scope where there is no clear application security impact and the potential issue is about responsible AI usage. We will not reward on these reports and close them as informative unless there is direct application security impact on the in-scope GenAI applications. Few examples for these out-of-scope reports are generation of inappropriate text/visual content with the model, get inappropriate suggestions from the model, malicious code generation. Any issues which are result of model hallucinations are out scope as well.\n\n**IMPORTANT NOTE:** DO NOT submit generated sensitive images such as sexually explicit images, extremely graphic or violent images, or Child Sex Abuse Material (CSAM) in reports. Amazon Bug Bounty will not review this material or reward it, and your account may be banned.\n\n## LLM/GenAI Vulnerabilities\n\n|Potential Vulnerabilities\t|Severity\t|Comments\t|\n|---\t|---\t|---\t|\n|Unauthorized access/disclosure of PII/PHI data\t|High-Critical\t|Severity will be dependent on the context and influencing factors.\t|\n|Cross customer sensitive data access\t|High-Critical\t|Severity will be dependent on the context and influencing factors.\t|\n|Unauthorized system or environment changes\t|High-Critical\t|Severity will be dependent on the context and influencing factors.\t|\n|Model Theft and LLM training data poisoning\t|High-Critical\t|Depending on the overall impact and application context.\t|\n|Advarsaries can retrieve personal customer data without consent\t|High-Critical\t|Severity will be dependent on the context and influencing factors.\t|\n|Information Disclosure\t|Low-Critical\t|Severity will be dependent on the context and influencing factors.\t|\n|Prompt Injection\t|Medium - Critical\t|Severity will be dependent on the context and influencing factors. Please make sure to read notes above\t|\n|Insecure Output Handling\t|Medium-Critical\t|Impact will depend on resulting potential vulnerabilities like HTML injection,XSS,SSRF, RCE etc.\t|\n|Insecure plugins impacting models\t|Medium-High\t|Depending on the impact like content injection, code execution, differential error responses, system data exfiltration,\t|\n|Excessive functionality, permissions and autonomy\t|Low-High\t|Depending on the actions allowed by excessive agency issues\t|\n|Response manipulation providing guidance to customers\t|Medium-High\t|Severity will be dependent on the context and the guidance.\t|\n|Adversaries can perform unauthorized actions on behalf of users\t|Medium-Critical\t|Depending on the impact, ease and issue radius.\t|\n|LLM vulnerable to solicitation and social engineering\t|Medium-High\t|Depending on the overall impact and application context.\t|\n|In context data could be used to de-anonymize users\t|Medium\t|Severity will be dependent on the context and influencing factors.\t|\n|Absent customer API or data opt out mechanisms\t|Medium\t|Severity will be dependent on the context and influencing factors.\t|\n|Command Injection\t|High-Critical\t|Depending on the impact, ease and issue radius.\t|\n|API Auth Bypass\t|High-Critical\t|Depending on the impact, ease and issue radius.\t|\n|Runtime Information Disclosure\t|Low-Medium\t|Severity will be dependent on the context and influencing factors.\t|\n\n**Service & Apps Vulnerability Severity Ratings** \nUse following table to determine the severity ratings for web and mobile app vulnerabilities.\n\n|Vulnerability\t|Severity Range\t|\n|---\t|---\t|\n|Remote Code Execution\t|Critical\t|\n|SQL Injection\t|High - Critical\t|\n|XXE\t|High - Critical\t|\n|XSS\t|Medium - High\t|\n|Server-Side Request Forgery\t|Low - Critical\t|\n|Directory Traversal - Local File Inclusion\t|Medium - High\t|\n|Authentication/Authorization Bypass (Broken Access Control)\t|Medium - High\t|\n|Privilege Escalation\t|Medium - High\t|\n|Insecure Direct Object Reference\t|Medium - Critical\t|\n|Misconfiguration\t|Low - High\t|\n|Web Cache Deception\t|Low - Medium\t|\n|CORS Misconfiguration\t|Low - Medium\t|\n|CRLF Injection\t|Low - Medium\t|\n|Cross Site Request Forgery\t|Low - Medium\t|\n|Open Redirect\t|Low - Medium\t|\n|Information Disclosure\t|Low - Medium\t|\n|Request smuggling\t|Low – Medium\t|\n|Mixed Content\t|Low\t|\n\n## Out-of-Scope Issues\n\n* Zoox autonomous vehicles and autonomous driving technology\n* Bitflipping, Bitsquatting\n* Discovering and testing against AWS customer assets\n* Model Hallucinations\n* Content moderation issues, solicitation\n* Security Practices where other mitigating controls exist i.e. missing security headers, etc.\n* Social Engineering, Phishing\n* Physical Attacks\n* Missing Cookie Flags\n* CSRF with minimal impact i.e. Login CSRF, Logout CSRF, etc.\n* Content Spoofing\n* Stack Traces, Path Disclosure, Directory Listings\n* SSL/TLS controls where other mitigating controls exist\n* Banner Grabbing\n* CSV Injection\n* Reflected File Download\n* Reports on Out of dated browsers\n* Reports on outdated version/builds of in-scope Mobile Apps\n* DOS/DDOS\n* Host header Injection without a demonstrable impact\n* Scanner Outputs\n* Vulnerabilities on Third-Party Products\n* Auth User Enumeration\n* Password Complexity\n* HTTP Trace Method\n\n### Operational Security Issues\n\nThe goal of this program is to improve the security of our services for Customers. We do not reward, but will accept “Operational Security” (OpSec) submissions. OpSec issues include leaked employee passwords, password dumps, leaked business documents, etc. These submissions will only receive reputation points.\n\n## Responsible Research and Disclosure Policy\n\nBy participating in this program, you agree not to share publicly or privately any details or descriptions of your findings with any party.\nWe require that you - \n\n* Do not access or collect any customer data. \n* Do not exploit security vulnerabilities for any other purposes than for testing.\n* Must not publicly disclose any information regarding the reported issue without written consent from Amazon\n* In case of accidental exposure to or collection of customer data, you must notify us what information was accessed and provide written confirmation that the data has been securely deleted. \n\nWhile it is our goal to resolve the vulnerabilities reported to us in responsible timeframe, the vulnerabilities initially disclosed publicly or to a third party without our consent may not be eligible for rewards.\n\n## Safe Harbor\n\nAmazon will not bring any legal action against anyone who makes a good faith effort to comply with program policies, or for any accidental or good faith violation of this policy. This includes any claim under the Digital Millennium Copyright Act (DMCA) for circumventing technological measures to protect the services and applications eligible under this policy. \nAs long as you comply with this policy: \n\n* We consider your security research to be \"authorized\" under the Computer Fraud and Abuse Act.\n* We waive any restrictions in our applicable Terms of Service and Acceptable Use Policy that would prohibit your participation in this policy, for the limited purpose of your security research under this policy.\n\nAmazon cannot authorize any activity on third-party products or technology (including any third-party technology that is included in, or that interoperates with, Amazon products) or guarantee that third parties won’t pursue legal action against you. We aren’t responsible for your liability from actions performed on third parties or their technology. \nDon’t do anything illegal or unethical. You are responsible for complying with local laws, restrictions, regulations, etc.\n To protect your privacy, we will not, unless served with legal process or to address a violation of this policy: \n\n* Share your PII with third parties.\n* Share your research without your permission.\n* Share your HackerOne points, or participation without your permission.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "read.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alexaanswers.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blueprints.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "creator.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "amazon.com/hz/mycd/*",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "a4k.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.amazon.com/apps-and-games/*",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.amazon.com/alexa/*",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alexa.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "skills-store.amazon.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tablets",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Fire HD 8 (Gen 10)\nFire 7\" (Gen 9)\nFire HD 10 (Gen 9)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Echo Family Devices",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Devices must be purchased on Amazon or an authorized retailer, and must be running the latest available software.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FireTV",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Devices must be purchased on Amazon or an authorized retailer, and must be running the latest available software.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Kindle E-Reader",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Devices must be purchased on Amazon or an authorized retailer, and must be running the latest available software.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.amazon.kindle",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.amazon.kindle",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.amazon.storm.lightning.client.aosp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.amazon.storm.lightning.client.aosp",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.amazon.tahoe.freetime",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.amazon.tahoe.freetime",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "944011620",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/id944011620",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "302584613",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/id302584613",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "947984433",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/id947984433",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1324809509",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/id1324809509",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.amazon.dee.app",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.amazon.dee.app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Devices",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Placeholder for the top Rewards modal",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Services and Apps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Placeholder for the top Rewards modal",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Luna",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Luna Controller\n\nDevices must be purchased on Amazon or an authorized retailer, and must be running the latest available software.",
+      "max_severity": "critical"
+    }
+  ]
+}

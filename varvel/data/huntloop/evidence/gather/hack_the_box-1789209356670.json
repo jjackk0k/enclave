@@ -1,0 +1,128 @@
+{
+ "at": "2026-09-12T10:35:50.315Z",
+ "opportunity": "hack_the_box",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "academy.hackthebox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e448b6d519e25-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "account.hackthebox.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e4493af4e34ff-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ctf.hackthebox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e449b8e03c4f0-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "enterprise.hackthebox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "laravel",
+     "label": "Laravel",
+     "version": null,
+     "evidence": "csrf-token\" content="
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e44a35d711205-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.hackthebox.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e44ab6993ed06-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

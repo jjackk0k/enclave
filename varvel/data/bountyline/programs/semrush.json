@@ -1,0 +1,109 @@
+{
+  "id": "semrush",
+  "handle": "semrush",
+  "name": "Semrush",
+  "platform": "generic",
+  "url": "https://hackerone.com/semrush",
+  "engagement": "semrush",
+  "intakePath": "data/bountyline/semrush-program.json",
+  "signedScopePath": "data/bountyline/semrush-scope-signed.json",
+  "scopeVerification": "seam-verified",
+  "automation": {
+    "policy": "human-cadence",
+    "basis": "operator-override",
+    "evidence": "operator set --automation human-cadence (policy text said: prohibited, default-silent)"
+  },
+  "state": "queued",
+  "createdAt": "2026-08-26T12:24:29.387Z",
+  "updatedAt": "2026-08-26T13:28:42.948Z",
+  "history": [
+    {
+      "at": "2026-08-26T12:24:29.387Z",
+      "from": null,
+      "to": "imported",
+      "note": "intake record data/bountyline/semrush-program.json"
+    },
+    {
+      "at": "2026-08-26T13:17:50.771Z",
+      "from": "imported",
+      "to": "scoped",
+      "note": "signed scope recorded (seam-verified)"
+    },
+    {
+      "at": "2026-08-26T13:17:50.776Z",
+      "from": "scoped",
+      "to": "hunted",
+      "note": "campaign artifact .tmp/semrush-hunt-2026-08-26-surface.json"
+    },
+    {
+      "at": "2026-08-26T13:28:08.857Z",
+      "from": "hunted",
+      "to": "triaged",
+      "note": "validator-readiness triage"
+    },
+    {
+      "at": "2026-08-26T13:28:08.995Z",
+      "from": "triaged",
+      "to": "reported",
+      "note": "bountyreport drafts"
+    },
+    {
+      "at": "2026-08-26T13:28:42.949Z",
+      "from": "reported",
+      "to": "queued",
+      "note": "queued for the operator send click"
+    }
+  ],
+  "hunt": {
+    "campaignArtifact": ".tmp/semrush-hunt-2026-08-26-findings.json",
+    "reportArtifact": ".tmp/semrush-hunt-2026-08-26-report.md",
+    "at": "2026-08-26T13:17:50.776Z",
+    "cadence": "human-cadence",
+    "note": "artifact re-pointed by operator 2026-08-26T13:35Z: original surface export carries no findings[] shape; this export carries the 1 validated finding + the policy-excluded tally, with paths to the full surface+report"
+  },
+  "triage": {
+    "ready": 1,
+    "notReady": 0,
+    "total": 1,
+    "at": "2026-08-26T13:28:08.857Z",
+    "source": ".tmp/semrush-hunt-2026-08-26-findings.json",
+    "staleDays": 30
+  },
+  "reports": [
+    {
+      "path": "C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\bountyline\\programs\\semrush\\reports\\01-cors-reflects-arbitrary-origin-with-credentials-.md",
+      "finding": {
+        "label": "CORS reflects arbitrary Origin WITH credentials on Google-IAP-fronted admin host (admin.semrush.net)",
+        "sev": "med",
+        "ref": null,
+        "cve": null,
+        "validation": "validated"
+      },
+      "redactions": 1,
+      "readiness": "ready"
+    }
+  ],
+  "queue": {
+    "at": "2026-08-26T13:28:42.949Z",
+    "items": [
+      {
+        "report": "C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\bountyline\\programs\\semrush\\reports\\01-cors-reflects-arbitrary-origin-with-credentials-.md",
+        "finding": {
+          "label": "CORS reflects arbitrary Origin WITH credentials on Google-IAP-fronted admin host (admin.semrush.net)",
+          "sev": "med",
+          "ref": null,
+          "cve": null,
+          "validation": "validated"
+        },
+        "checklist": [
+          "Read 01-cors-reflects-arbitrary-origin-with-credentials-.md end-to-end — the honesty footer lists every unverified gap; resolve or consciously accept each",
+          "Confirm the submission-readiness line reads READY (validator-gate validated and fresh)",
+          "Confirm the scope attestation matches the signed scope on record (data/bountyline/semrush-scope-signed.json)",
+          "Log in to the program and submit the report BY HAND — VARVEL never submits: no network submission code path exists in this pipeline, by design",
+          "Record the platform's act: bountyline mark semrush submitted|duplicate|informative|resolved|paid"
+        ]
+      }
+    ]
+  },
+  "rounds": []
+}

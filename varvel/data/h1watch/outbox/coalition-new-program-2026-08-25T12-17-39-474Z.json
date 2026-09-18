@@ -1,0 +1,82 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "coalition",
+      "name": "Coalition, Inc.",
+      "offersBounties": false,
+      "assets": [
+        "api.thecoalition.com",
+        "coalitioninc.com",
+        "platform.thecoalition.com"
+      ],
+      "exclusions": [
+        "blog.thecoalition.com",
+        "help.thecoalition.com",
+        "www.thecoalition.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\coalition-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "coalition",
+  "name": "Coalition, Inc.",
+  "url": "https://hackerone.com/coalition",
+  "policy": "We take security, transparency, and the trust of our users seriously. Coalition appreciates the work of security researchers, and we’ve developed this program to make it easy to report vulnerabilities, and to recognize you for your effort to help us solve cyber risk.\r\n\r\nIf you believe you have found a security vulnerability that could impact Coalition or our users, we encourage you to let us know right away. We will investigate all legitimate reports and do our best to quickly fix the problem. We ask that you follow our Vulnerability Disclosure Policy and HackerOne's Disclosure Guidelines, and make a good faith effort to avoid privacy violations, destruction of data and interruption or degradation of our service during your research.\r\n\r\nSubmitting high quality reports is highly encouraged. A high quality report is one that explains the vulnerability in detail, identifies its impact and most importantly which includes steps or a \"proof of concept\" that allows us to reproduce the issue.\r\n\r\nVery low quality reports such as those which only contain automated output will be rejected.\r\n\r\n**DO NOT** submit the following as they will also be rejected:\r\n* Missing Best Practice, Configuration, or Policy Suggestions\r\n* Output from Automated Scanners without a PoC to demonstrate a specific vulnerability\r\n* Logout Cross Site Request Forgery\r\n* Lack of Secure or HTTP only flag on non-sensitive cookies\r\n* Email configuration issues without a PoC to demonstrate a specific flaw\r\n \r\nNote: This program is for the disclosure of software security vulnerabilities only. If you believe your Coalition account has been compromised, change your password and contact help@coalitioninc.com immediately.\r\n\r\n#Responsible Disclosure\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\r\n* Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\nIn order to encourage responsible disclosure, we promise not to bring legal action against researchers who point out a problem provided they do their best to follow the above guidelines.\r\n\r\n#Scope\r\nThe following web properties owned by Coalition are in scope for the program.\r\n* *.thecoalition.com\r\n* *.coalitioninc.com\r\n\r\nNote: platform.thecoalition.com is our broker platform, only available to licensed insurance brokers.\r\n​\r\nAccordingly we aren’t able to provide an account for testing purposes. If you were otherwise able to gain access we’d love to know as it is not intended for public access.\r\n\r\nPlease note that help.coalitioninc.com is hosted by Intercom. All activities on these subdomains must be conducted pursuant to their respective Terms of Service and Vulnerability Disclosure Programs (as applicable). Bugs found should be reported directly to each respective service.\r\n\r\n**Customers of Coalition are out of scope.**\r\n\r\n#Guidelines for Testing\r\nPlease be considerate when testing our infrastructure. Failure to follow these guidelines will lead to disqualification from the Coalition Vulnerability Disclosure and/or Bug Bounty programs.\r\n\r\n* Make sure that scanners have a narrow scope set that is limited to authorized Coalition IPs only.\r\n* Do not not send unsolicited bulk messages (spam) or unauthorized messages.\r\n* Do not knowingly post, transmit, upload, link to, or send any malware.\r\n* Do not attack Coalition customers, partners or suppliers.\r\n\r\n#Exclusions\r\nThe following conditions are out of scope for the Coalition Vulnerability Disclosure Program. Any of the activities below will result in disqualification from the program permanently.\r\n* Social engineering of Coalition employees, contractors, vendors, or service providers.\r\n* Physical attacks against Coalition employees, offices, or data centers.\r\n* Any vulnerability obtained through the compromise of a Coalition user or employee account. \r\n* Any testing that results in a denial of service, or that otherwise impacts production application availability\r\n* Being an individual on, or residing in any country on, any U.S. sanctions lists.\r\n\r\nAdditionally, while researching, we'd like to ask you to refrain from:\r\n* Automated scanning \r\n* Denial of service\r\n* Spamming\r\n* SSL/TLS Scan reports \r\n* Any finding without a working proof of concept example\r\n* Anything that would bring harm to Coalition’s apps, infrastructure, or customers\r\n\r\n#What to Expect from Coalition\r\nCoalition takes vulnerabilities seriously, and believes that vulnerability disclosure programs are a critical element in pursuit of our mission to solve cyber risk.  Coalition’s promise to you as a researcher includes:\r\n\r\n* Take all reported findings seriously\r\n* Fast acknowledgement of reports\r\n* Confirmation and acknowledgement of findings as identified\r\n* Attribution to you the researcher, and public disclosure of vulnerabilities\r\n* Some pretty sweet looking socks (no really)\r\n\r\n#Privacy Policy\r\nCoalition’s privacy policy can be found here: https://www.coalitioninc.com/legal/privacy\r\n \r\n**Thank you for helping keep Coalition and our users safe!**\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "platform.thecoalition.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.thecoalition.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.thecoalition.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Coalition's blog is hosted by Ghost.  Security bugs in Ghost may be reported per https://github.com/TryGhost/Ghost/blob/master/SECURITY.md",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.thecoalition.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Coalition's www site is hosted by Webflow.  Security bugs in Webflow may be reported to the service provider.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.thecoalition.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Coalition's help site is hosted by Intercom.  Security bugs in Intercom may be reported directly to the vendor.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "coalitioninc.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

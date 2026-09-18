@@ -1,0 +1,90 @@
+{
+ "at": "2026-09-12T02:52:49.321Z",
+ "opportunity": "omise",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "vault.omise.co",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.omise.co",
+   "kind": "domain",
+   "status": 401,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=63072000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "dashboard.omise.co",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=63072000; includeSubDomains",
+    "x-frame-options": "DENY"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "github.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "github.com",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ ",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/.git/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.omise.co",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b9e7b18d1a6e8-LHR",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

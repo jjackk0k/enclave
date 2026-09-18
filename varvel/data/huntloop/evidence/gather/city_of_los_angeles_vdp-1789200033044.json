@@ -1,0 +1,60 @@
+{
+ "at": "2026-09-12T07:59:54.270Z",
+ "opportunity": "city_of_los_angeles_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "lacity.org",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "lacity.gov",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "drupal",
+     "label": "Drupal",
+     "version": "10",
+     "evidence": "x-generator: Drupal 10"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "x-generator": "Drupal 10 (https://www.drupal.org)",
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains ; preload",
+    "content-security-policy": "default-src 'self'; child-src 'self' blob: https://platform.twitter.com https://www.youtube.com https://ens2.lacity.org ",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/admin/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  }
+ ]
+}

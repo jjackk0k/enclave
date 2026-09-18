@@ -1,0 +1,108 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "figma",
+      "name": "Figma",
+      "offersBounties": true,
+      "assets": [
+        "Figma Atlassian App",
+        "Figma Desktop App",
+        "Figma Slack App",
+        "Figma Weave",
+        "Figma for Microsoft Teams",
+        "Figma iOS and Android apps",
+        "api.figma.com",
+        "www.figma.com"
+      ],
+      "exclusions": [
+        "www.designsystems.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\figma-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "figma",
+  "name": "Figma",
+  "url": "https://hackerone.com/figma",
+  "policy": "Figma looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\n\nOur primary focus is on high/critical findings right now, and we aim to expand scope beyond that over time. For high/critical findings, Figma will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 3 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\nOur focus is on __unauthorized access__ to user data. Logic bugs that allow an attacker to bypass limits on free accounts and get access to premium features are not something we prioritize and nor are they eligible for a bounty.\n\n# Disclosure Policy\n\nTo promote the discovery and reporting of vulnerabilities and increase user safety, we ask that you:\n\n* Share the security issue with us in detail;\n* Please be respectful of our existing applications. Spamming forms through automated vulnerability scanners will not result in any bounty or award since those are explicitly out of scope;\n* Give us a reasonable time to respond to the issue before making any information about it public and work with us on making reports public.\n* Do not access or modify our data or our users’ data, without explicit permission of the owner. Only interact with your own accounts or test accounts for security research purposes;\n* Contact us immediately if you do inadvertently encounter user data. Do not view, alter, save, store, transfer, or otherwise access the data, and immediately purge any local information upon reporting the vulnerability to Figma\n* Act in good faith to avoid privacy violations, destruction of data, and interruption or degradation of our services (including denial of service); \n* Otherwise comply with all applicable laws.\n* Unless explicitly clarified above, in general also follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Payment fraud, including making any payments using a credit card you do not own and are not expressly authorized to use, is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Out of scope vulnerabilities\n\nWe generally recommend also reading up on industry best practices from the [Google Bug Hunter university](https://sites.google.com/site/bughunteruniversity/) and [Dropbox's guidelines](https://dropbox.tech/security/dropbox-bug-bounty-program-best-practices-2). Please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device. Only exception is that if you invalidate a token or cookie by pressing logout or disabling the app in the UI, then the cookie or token should stop working.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices (e.g., SSL/TLS configuration or SMTP/Email configuration).\n* Any activity that could lead to the disruption of our service (DoS) via consumption of resources due to request flooding.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Logic bugs that allow an attacker to bypass limits on free accounts and get access to some premium features \n* Search engines or other crawlers (like wayback machine) having a list of Figma file links -- these are all shared publicly by our customers and we are aware of the risk this index has.\n* Content moderation bypass\n* AI output in the context of content moderation bypass\n\n# PGP Key Fingerprint\n`107B 00AA BE39 6235 A31F  5CE8 EC06 D6B3 C202 A8E7`\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Figma and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.figma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are primarily looking for high/critical vulnerabilities in the system.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.figma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.designsystems.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Figma Atlassian App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://marketplace.atlassian.com/apps/1217865/figma-for-jira \n\nUnauthorized access via this app or the APIs that this app uses is also in scope. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Figma Desktop App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Figma iOS and Android apps",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Figma Slack App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://figma.slack.com/apps/A01N2QYSA81-figma-and-figjam?tab=more_info",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Figma for Microsoft Teams",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://appsource.microsoft.com/en-us/product/office/wa200004521?tab=overview",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Figma Weave",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Figma Weave (formerly Weavy) is an iframe within the Figma application which can be reached by clicking \"Weave\" in Figma (redirects to https://figma.com/weave/...) or directly at https://weavy.ai.",
+      "max_severity": "critical"
+    }
+  ]
+}

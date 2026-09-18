@@ -1,0 +1,92 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "oanda",
+      "name": "OANDA",
+      "offersBounties": false,
+      "assets": [
+        "*.coinpass.com",
+        "*.oanda.com",
+        "*.oanda.jp",
+        "*.tms.pl",
+        "*.tmsbrokers.com",
+        "370922777",
+        "com.oanda.fxtrade"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\oanda-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "oanda",
+  "name": "OANDA",
+  "url": "https://hackerone.com/oanda",
+  "policy": "# Updates\n| Date | Details |\n| ----- | ----- |\n| 2022-09-01 | Removed *.investmentuniversity.pl from scope |\n\nOANDA is an innovator in computer engineering and financial modeling that provides online trading and currency information services to everyone, from individuals to large corporations; portfolio managers to financial institutions.  We are a market maker and a trusted source for currency data with one of the world's largest historical, high frequency, filtered currency databases.\n\nWe are looking forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nOANDA will make a best effort to meet the following SLOs for hackers participating in our program:\n\n| Type of Response | SLO in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 5 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n\n# Program Rules\n* Please provide detailed reports with reproducible steps.  If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced)\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.  Only interact with accounts you own or with explicit permission of the account holder\n* All researchers on HackerOne have an email alias in the format username@wearehackerone.com, which automatically forwards to your real email address.  All testing on our program must be done using an account registered with your unique @wearehackerone.com alias to be considered for validation\n* If you would like to create additional test accounts, add a plus (“+”) sign and any combination of words or numbers after your username. For example: username+1@wearehackerone.com.  This enables you to test different attack vectors / account levels without targeting other users or creating multiple HackerOne profiles\n* All tests on the trading platform can only be done on the DEMO (Practice) environment\n\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy\n* Missing email best practices (invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers (less than 2 stable versions behind the latest released stable version)\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this Policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this Policy, we will take steps to make it known that your actions were conducted in compliance with this Policy.\n\nThank you for helping keep OANDA and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.oanda.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All services that fall under this domain. With exception to the fxTrade platform, the \"fxTrade Practice\" can be used instead.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oanda.fxtrade",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Make sure to never use the Trade environment, use Practice instead.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "370922777",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Make sure to never use the Trade environment, use Practice instead.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.oanda.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All services that fall under this domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tms.pl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All services that fall under this domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tmsbrokers.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All services that fall under this domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.coinpass.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

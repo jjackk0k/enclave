@@ -1,0 +1,73 @@
+{
+ "at": "2026-09-11T23:53:43.280Z",
+ "opportunity": "enjin",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.enjin.mobile.wallet",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.enjin.mobile.wallet:443 refused: host unreachable"
+  },
+  {
+   "host": "nft.io",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nuxt",
+     "label": "Nuxt",
+     "version": null,
+     "evidence": "/_nuxt/"
+    },
+    {
+     "id": "vue",
+     "label": "Vue.js",
+     "version": null,
+     "evidence": "data-v-fe86f777"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "Nuxt",
+    "cf-ray": "a39a97f66d9cecf8-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "script-src 'self' 'nonce-jGa693dCd+QTix2KBfuN3g==' 'wasm-unsafe-eval' https://cdn.nft.io https://www.google.com https://",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "enjinusercontent.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to enjinusercontent.com:443 refused: host unreachable"
+  }
+ ]
+}

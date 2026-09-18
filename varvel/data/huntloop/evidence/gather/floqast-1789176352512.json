@@ -1,0 +1,57 @@
+{
+ "at": "2026-09-12T01:25:47.956Z",
+ "opportunity": "floqast",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api-eu.floqast.app",
+   "kind": "domain",
+   "status": 401,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "eu.floqast.app",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "script-src 'self' blob: https://js.pusher.com https://sockjs-mt1.pusher.com https://stats.pusher.com https://static.eu.f",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "floqast.app",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

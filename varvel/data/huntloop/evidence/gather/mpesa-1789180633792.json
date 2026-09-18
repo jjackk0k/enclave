@@ -1,0 +1,85 @@
+{
+ "at": "2026-09-12T02:37:04.381Z",
+ "opportunity": "mpesa",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "mpa.qr.web.m-pesa.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 0f3cf20f6db29b970aa67df851b05904.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src mpesa-qr-code-prod-eu-west-1-data.s3.eu-west-1.amazonaws.com *.m-pesa.com *.gstatic.com *.googleapis.com; sc",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mpa.ekyc.backoffice.m-pesa.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 922dfe970b636b0cb294f8b601fdecf4.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mpa.ekyc.selfregister.m-pesa.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to mpa.ekyc.selfregister.m-pesa.com:443 refused: host unreachable"
+  },
+  {
+   "host": "openapiportal.m-pesa.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=16070400; includeSubDomains",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "openapi.m-pesa.com",
+   "kind": "domain",
+   "status": 503,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=16070400; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

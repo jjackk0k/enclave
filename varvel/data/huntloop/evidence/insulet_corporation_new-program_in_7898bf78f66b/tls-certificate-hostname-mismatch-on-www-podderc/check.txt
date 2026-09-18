@@ -1,0 +1,7 @@
+const assets = (EVIDENCE && Array.isArray(EVIDENCE.assets)) ? EVIDENCE.assets : [];
+const a = assets.find(x => x && x.host === 'www.poddercentral.com');
+if (!a || typeof a.error !== 'string') process.exit(2);
+for (const s of ['ERR_TLS_CERT_ALTNAME_INVALID', 'www.poddercentral.com', 'DNS:*.dnsmadeeasy.com']) {
+  if (!a.error.includes(s)) process.exit(2);
+}
+console.log('TLS_ALTNAME_MISMATCH_CONFIRMED');

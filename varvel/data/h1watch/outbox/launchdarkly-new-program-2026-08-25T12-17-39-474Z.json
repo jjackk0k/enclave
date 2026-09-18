@@ -1,0 +1,123 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "launchdarkly",
+      "name": "LaunchDarkly",
+      "offersBounties": true,
+      "assets": [
+        "LaunchDarkly Open Source SDKs",
+        "app.launchdarkly.com",
+        "docs.launchdarkly.com",
+        "events.launchdarkly.com",
+        "https://launchdarkly.com/docs",
+        "stream.launchdarkly.com"
+      ],
+      "exclusions": [
+        "blog.launchdarkly.com",
+        "launchdarkly.com",
+        "sandbox.launchdarkly.com",
+        "slack.launchdarkly.com",
+        "status.launchdarkly.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\launchdarkly-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "launchdarkly",
+  "name": "LaunchDarkly",
+  "url": "https://hackerone.com/launchdarkly",
+  "policy": "# **LaunchDarkly is no longer accepting or reviewing submissions through HackerOne.**\n# We've moved to a new platform\nNo further submissions to HackerOne will be triaged or paid out by LaunchDarkly.\nPlease submit all findings to our new [bug bounty program platform](https://bugcrowd.com/engagements/launchdarkly-mbb-og). The program on HackerOne will no longer be monitored.\n\n\n**The following standards are kept in place only for posterity.**\n\n# LaunchDarkly Program Policy\nAt LaunchDarkly, our vision is to create a world in which software releases are safe and unceremonious. LaunchDarkly gives product delivery teams the safeguards to move fast without breaking things through the use of feature flags. \n\nAs a platform that our users trust to handle their user and customer data, application security and data protection are crucially important to us. LaunchDarkly looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\n\nLaunchDarkly will make a best effort to meet the following response targets for hackers participating in our program:\n\n- Time to first response (from report submit) - 2 business days\n- Time to triage (from report submit) - 5 business days\n- Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Program Rules\n\n- All testing should be done on accounts associated with an email address on the `wearehackerone.com` domain. Once you have confirmed your email address, accounts on this domain will automatically be activated on a plan that provides access to all features on the LaunchDarkly platform. These accounts must only be used for testing for the purposes of the LaunchDarkly Bug Bounty Program. If you would like an account for other purposes, you may sign up for another account with a different email address.\n    - If you need to test features on accounts without access to these features, you may create a trial account using a different email address, as long as it contains the string `hackerone` (for easy identification as a tester account). For example, you can create an account as `username+hackerone@gmail.com`. Note that these accounts will have a regular trial that will expire.\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n- Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Disclosure Policy\n\n- Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization. Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n- Please do not share any information about LaunchDarkly's functionality, as researchers may have access to unreleased features.\n\n# Testing and Guidance\n\n## LaunchDarkly frontend (app.launchdarkly.com)\n\n**What it does:** The main LaunchDarkly application and point of entry. LaunchDarkly customers use this interface to log into the application and manage feature flags, context types, segments, and so on. Admin level users may also manage their LaunchDarkly organization (i.e. users, roles, environments) from this interface. \n\n**How to test:** Please create an account with your `@wearehackerone.com` email address in order to receive an account with full access to all features on the LaunchDarkly platform. Documentation for how to use LaunchDarkly may be found on our [docs website](https://docs.launchdarkly.com/).\n\n**What to look for:** In addition to the usual web vulnerability concerns, we'd be particularly interested in any findings related to:\n- Improper authentication/access control \n- User privilege escalation to perform actions not defined in role\n- XSS/SSRF in user input fields \n\nAdditionally, we'd like to call special attention to the following application components that we recently released for general availability:\n- **Custom Contexts:** We've recently updated the platform's user model to support customer-defined contexts (e.g. users, devices, business units, organizations) for flag targeting. While this change in the underlying model should generally be a 1 for 1 replacement (i.e., users -> custom contexts), we'd be interested to see if the new infrastructure, UI components, etc. created to support custom contexts are susceptible to any web application vulnerabilities or business logic errors. For more details, see the following docs:\n    - [Introduction to contexts](https://docs-stg.launchdarkly.com/contexts-eap/guides/flags/intro-contexts)\n    - [Best practices for upgrading users to contexts](https://docs.launchdarkly.com/guides/flags/upgrading-contexts)\n- **Experimentation:** In 2022 we launched a refresh our experimentation offering which allows customers to use feature flags in conjunction with events tracking to evaluate how feature flags affect key performance metrics. We'd be interested in any potential vulnerabilities or logic errors that arise from creating and running experiments within the platform. \n\n**What it runs on:** React/NodeJS  \n\n## LaunchDarkly APIs (app.launchdarkly.com/api/v2/)\n\n**What it does:** Provides the backend APIs for the LaunchDarkly application\n\n**How to test:** Our external-facing API documentation may be found here: [API docs](https://apidocs.launchdarkly.com/) \n\nThe `/api/v2/` and `/internal/` subroutes are customer-facing APIs and require either a valid `ldso` session cookie or an access token in the `Authorization` header for authentication. You may create an access token from the Account Settings page in the UI for use in API testing. If you prefer to use the session cookie, the `ldso` token may be retrieved from your own browser after logging into the UI. \n\nConversely, the `/private/` APIs are not meant to allow authentication to any non-LaunchDarkly users and use a separate authentication mechanism. Any cases where these endpoints are improperly accessible are worthy of note. \n\n**What to look for:** In additional to the usual API vulnerability concerns, we'd be particularly interested in any findings related to:\n- Unauthenticated/unauthorized access to APIs\n- APIs returning unexpected data (e.g. data from different accounts/environments, data the user role should not have access to, etc.)\n- Handler logic errors that cause unexpected/undefined behavior \n\n**What it runs on:** Golang \n\n## LaunchDarkly SDKs \n\n**What they do:** SDKs are integrated into customer applications to evaluate LaunchDarkly feature flags the application. LaunchDarkly provides a wide range of SDKs for various languages and platforms, documented here: [SDK docs](https://docs.launchdarkly.com/sdk)\n\n**How to test:** We encourage researchers to integrate SDKs with custom applications and test the communication between the SDKs and LaunchDarkly's servers (see more details in the streamer/event recorder sections below). You'll need to generate an SDK key/client ID from the UI in order to initialize the SDK's connection with LaunchDarkly. We'd be interested in any general API vulnerability findings as well as any handler logic vulnerabilities that you may find. \n\nAdditionally, our SDKs are open source and are available on Github (e.g. [React client SDK](https://github.com/launchdarkly/react-client-sdk)). We encourage researchers to dig into the open source code if interested. However, we will **not** be accepting the following types of findings: \n- Findings related to non-SDK repositories (i.e., repos not ending in `-sdk`)\n- Vulnerability/dependency scan results of our source code. Please try and dig into our source code more deeply than just reporting a scan result that we may already be aware of.\n\n**What it runs on:** The SDKs cover a wide range of languages and platforms depending on the SDK, see the docs referenced above for details. \n\n## Streamer (stream.launchdarkly.com)\n\n**What this does:** Streamer provides flag information for server and client SDKs for flag evaluation. SDKs maintain connectivity with distributed streamer nodes and receive flag updates as changes are made in the platform in real time, allowing end user clients to react instantaneously and update the application accordingly. \n\n**How to test:** streamer.launchdarkly.com exposes a set of routes for retrieving flag data depending on whether the SDK is client or server-side (see the distinction here: [client vs server SDKs](https://docs.launchdarkly.com/sdk/concepts/client-side-server-side)).\n\n**What to look for:** Generally, we're looking for ways that attackers could exploit our flag evaluation logic to improperly retrieve flag information meant for other users. Client-side SDKs are specifically meant to prevent attackers from accessing things such as flag evaluation rules due to the untrusted nature of client devices, so any improper handling/exposure of this data may be considered noteworthy. \n\n**What it runs on:** Golang\n\n## Event Recorder (events.launchdarkly.com)\n\n**What this does:** Once flags are evaluated by the client/server SDKs, these SDKs will record and send events to `events.launchdarkly.com` for metrics collection. This allows customers to collect data about things such as which flags are being evaluated, how many times flags are evaluated, which contexts are being targeted, etc. \n\n**How to test:** events.launchdarkly.com exposes a set of routes for handling and processing event data. No authentication is needed to access these endpoints, but the endpoint may expect certain metadata to be considered valid input. \n\n**What to look for:** We'd be interested in ways that attackers may want to exploit our event recording mechanisms. \n\n**What it runs on:** Golang \n\n## Docs Site (docs.launchdarkly.com)\n\n**What this does:** Static site hosting LaunchDarkly documentation (i.e. installation/user/admin guides, API references, etc.)\n\n**What to look for:** The site is mostly static, but there are user input fields (e.g. search bar) that we'd want to ensure are not vulnerable to any XSS or other injection vulnerablities. The site also makes cross-origin requests to app.launchdarkly.com, so any potential CSRF vulnerabilities would be noteworthy. \n\n**What it runs on:** React/NodeJS\n\n## Third Party Integrations (not currently in scope)\n\n**What these do:** LaunchDarkly provides a handful of third party integrations for use by customers. While these aren't considered in scope today, we are working on refining our testing methodologies for these integrations and plan on making these available for testing in our program in the future. \n\n# Rewards\n\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of LaunchDarkly.\n\n# Known issues\n\nPlease note that the following issues are considered known risks and will not be eligible for bounties: \n- Rate limiting on account verification and forgot password pages\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n- Clickjacking on pages with no sensitive actions\n- Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n- Attacks requiring MITM or physical access to a user's device.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability specific to the LaunchDarkly platform. Vulnerabilities related to Excel interpreting and executing injected text are **not** in scope.\n- Missing best practices in SSL/TLS configuration.\n- Any activity that could lead to the disruption of our service (DoS).\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n- Rate limiting or bruteforce issues on non-authentication endpoints\n- Missing best practices in Content Security Policy.\n- Missing HttpOnly or Secure flags on cookies, except the `ldso` cookie.\n- Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n- Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n- Vulnerabilities only affecting users of uncommonly-used browser extensions (eg, an [extension designed](https://chrome.google.com/webstore/detail/skip-redirect/jaoafjdoijdconemdmodhbfpianehlon?hl=en) to find redirect URLs embedded in the URL are designed to create open redirects on all URLs)\n- Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n- Tabnabbing\n- Open redirect - unless an additional security impact can be demonstrated\n- Issues that require unlikely user interaction\n- Client-side SDK keys (used by the JS SDK and mobile SDKs) are not required to be kept secret. Please don’t report that these are visible in a properly-deployed application of the service.\n- Client-side keys or  tokens used on our website that are also not required to be kept secret. Examples include: Algolia search API key, TrackJS analytics token, etc. \n- Jira ServiceDesk allowing public registration\n- Verification email inbox spam \n- HTML injection on text fields within the app or emails generated by the application\n- Password reset link not expiring if email address changed \n- Vulnerability scans / dependency scans on open source repositories \n- Open source Github findings *not* related to our client and server SDKs (i.e., repos not suffixed by `-sdk`)\n\nLaunchdarkly credentials that have been leaked are only eligible if:\n- Customer credentials that were leaked through some action or inaction of LaunchDarkly (ie, a customer checking their own API token into Github would not be eligible)\n- They are not meant to be made public (the browser SDK operates using a token that is intended to be embedded in publicly-exposed source code)\n- Tokens belonging to LaunchDarkly-controlled accounts, that have the `\"bountyEligible\": true` value in the `/api/v2/caller-identity` [response](https://launchdarkly.com/docs/api/other/get-caller-identity). This excludes testing accounts, and other accounts with no valuable data.\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep LaunchDarkly and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "events.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stream.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our static marketing site.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sandbox.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "slack.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "LaunchDarkly Open Source SDKs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our SDKs are open source and are available on Github (e.g. [React client SDK](https://github.com/launchdarkly/react-client-sdk)). We encourage researchers to dig into the open source code if interested. However, we will **not** be accepting the following types of findings: \n- Findings related to non",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.launchdarkly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our docs site is now hosted at launchdarkly.com/docs. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://launchdarkly.com/docs",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our static documentation website. ",
+      "max_severity": "critical"
+    }
+  ]
+}

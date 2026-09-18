@@ -1,0 +1,151 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "aeromexico_vdp",
+      "name": "Aeromexico VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.aeromexico.com",
+        "*.amlab7.com",
+        "http://www.aeromexico-delta.com",
+        "http://www.delta-aeromexico.com",
+        "http://www.vuela.aeromexico.com",
+        "https://amfacturacion.aeromexico.com",
+        "https://facturacion.aeromexico.com",
+        "https://portalfacturacioncargo.aeromexico.com",
+        "https://www.aeromexico.com/es-mx/aeromexico-rewards",
+        "https://www.aeromexicobusiness.com",
+        "https://www.aeromexicorewards.com",
+        "https://www.aeromexicovacations.com",
+        "www.aeromexico.com*"
+      ],
+      "exclusions": [
+        "*www.aeromexico.com",
+        "https://www.aeromexico.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\aeromexico_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "aeromexico_vdp",
+  "name": "Aeromexico VDP",
+  "url": "https://hackerone.com/aeromexico_vdp",
+  "policy": "Aeromexico Vulnerability Disclosure Policy\n\nAeromexico proudly looks forward to collaborating with the cybersecurity’s researcher community in order to keep our systems and information safe and resilient. This program is designed to engage with researchers to responsibly report any vulnerability achieving enhanced cybersecurity defenses.\nBy participating in this program, you adhere to the requirements of the Hacker One Community Member Terms and Conditions (https://www.hackerone.com/terms/community) and Hacker One Vulnerability Disclosure Guidelines (https://www.hackerone.com/disclosure-guidelines), excepting for those conditions explicitly stated in this policy.\n\nWe’ll try to keep you informed about our progress throughout the process.\n\nDisclosure Policy\nPlease do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\nFollow HackerOne's disclosure guidelines (https://www.hackerone.com/disclosure-guidelines).\n\nEligibility requirements\nIn order to responsibly disclosure any vulnerability and to comply with the organization’s Vulnerability Disclosure Policy, the listed conditions must be followed:\n\nAeromexico does not accept vulnerability submissions from current employees, contractors, or their immediate family members.\n\nThis Vulnerability Disclosure Program does not offer monetary rewards or compensation of any kind.\n\nVulnerabilities in scope\nAny type of Cross site scripting (Stored, Reflected, DOM).\n\nAny type of Injection (SQL, OS, XML).\n\nCross site request forgery (CSRF/XSRF) on authenticated forms or forms with sensitive actions.\n\nSecurity misconfigurations with significant impact.\n\nBusiness logic abuse with significant impact\n\nAuthentication/authorization bypass (broken access control).\n\nDirectory traversal - local file inclusion.\n\nCRFL (Carriage Return Line Feed) attack.\n\nPrivilege Escalation (lateral and vertical).\n\nVulnerabilities out of scope\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n[List of out-of-scope items, unchanged por brevedad aquí, pero completamente incluido en el archivo.]\n\nScope Leniency\nThis program will not accept submissions for assets that are not listed as in scope.\n\nProgram Rules\nProvide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n\nSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n\nWhen duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n\nMultiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n\nSession Layer: HTTP Headers\nResearchers should add headers to requests such as:\n\nX-HackerOne-Research: [H1 username]\n\nRestrictions\nThe following actions are strictly prohibited:\n\nPost-exploitation of any vulnerability, including any loss-integrity modification or destruction of data.\n\nBrute force, dictionary or password spraying attacks leading to account take over.\n\nDOS/DDOS attacks.\n\nSocial engineering, phishing, vishing nor any type of social engineering attack.\n\nPenetration testing to any infrastructure component.\n\nTesting any avionics system such as navigation system, entertainment system, aircraft’s Wi-Fi system.\n\nPhysical attacks within the proximity of aircrafts or airport facilities.\n\nNote: Any non-compliance with this policy shall be considered as grounds for disqualification.\n\nThank you for helping keep Aeromexico and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://www.aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.aeromexicobusiness.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.aeromexicovacations.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.aeromexicorewards.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.aeromexico.com/es-mx/aeromexico-rewards",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://amfacturacion.aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://facturacion.aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://portalfacturacioncargo.aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*www.aeromexico.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.aeromexico.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aeromexico.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.aeromexico-delta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "http://www.delta-aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "http://www.vuela.aeromexico.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.amlab7.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ferrero",
+      "name": "Ferrero",
+      "offersBounties": false,
+      "assets": [
+        "*.babyruth.com",
+        "*.butterfinger.com",
+        "*.crunchbar.com",
+        "*.duplo.de",
+        "*.eatnatural.com",
+        "*.estathe.it",
+        "*.famousamos.com",
+        "*.fanniemay.com",
+        "*.ferrero-kuesschen.de",
+        "*.ferrerorocher.com",
+        "*.fiestaferrero.it",
+        "*.fulfilnutrition.com",
+        "*.giotto.de",
+        "*.hanuta.de",
+        "*.keebler.com",
+        "*.kinder.com",
+        "*.littlebrowniebakers.com",
+        "*.moncheri.it",
+        "*.motherscookies.com",
+        "*.murraysugarfree.com",
+        "*.nutella.com",
+        "*.pocketcoffee.it",
+        "*.raffaello.com",
+        "*.thorntons.com",
+        "*.tictac.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ferrero-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ferrero",
+  "name": "Ferrero",
+  "url": "https://hackerone.com/ferrero",
+  "policy": "## Scope Exclusions\n- All domains or subdomains not explicitly listed in the Scope of the program\n\n## Overview\nFerrero International S.A. is an Italian multinational manufacturer of branded chocolate and confectionery products, and the second biggest chocolate producer and confectionery company in the world. It was founded in 1946 in Alba, Piedmont, Italy, by Pietro Ferrero, a confectioner and small-time pastry maker who laid the groundwork for Nutella and added hazelnut to save money on chocolate, taking the idea from gianduia, a sweet chocolate spread containing about 30% hazelnut paste, invented in Turin during Napoleon's regency (1796–1814).\nThe Ferrero Group has a strong global presence and Ferrero products are present and sold, directly or through authorised retailers, in more than 170 countries belonging to the entire international community.\n\nWe believe that no technology is perfect and that working with skilled security researchers is crucial in identifying weaknesses in our technology.\n\nThe **Purpose of the Vulnerability Disclosure Policy (VDP) is to give security researchers clear guidelines for conducting vulnerability research, discovery, and reporting on Ferrero's systems.**\nFerrero looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Program Rules\n## Recognition\nOnce a report is resolved and closed, the researcher will receive a +7 count on their public profile under “Thanks Received” and be listed on Ferrero’s HackerOne webpage under “Hackers Thanked.”\n\nFerrero will determine, in its sole discretion, whether recognition will be provided, and Ferrero will only recognize the first researcher to have discovered a specific, and previously unreported, vulnerability. Ferrero reserves the right to withhold recognition for researchers who have violated this policy in the past.\n\nThe report submitted will be reviewed by a team of security experts.\nWe are happy to thank everyone who submits valid reports which help us improve our security posture.\n\n## Rules Of Engagement\nWhile researching for Cyber Security related issues the following rules of engagement must be followed:\n- DO NOT alter compromised accounts by creating, deleting or modifying any data\n- DO NOT use compromised accounts to search for post-auth vulnerabilities\n- DO NOT include Personally Identifiable Information (PII) in your report and please REDACT/OBFUSCATE the PII that is part of your PoC (screenshot, server response, JSON file, etc.) as much as possible.\n- In case of exposed credentials or secrets, limit yourself to verifying the credentials validity\n- In case of sensitive information leak, DO NOT extract/copy every document or data that is exposed and limit yourself to describe and list what is exposed.\n- You must avoid tests that could cause degradation or interruption of our service (refrain from using automated tools, and limit yourself about requests per second).\n- You must not leak, manipulate, or destroy any user data.\n- Avoid further _unnecessary_ exploitation when you've found a critical vulnerability, stop to what is strictly required to produce a functional PoC, for instance:\n    - For RCE PoC, it would be sufficient to perform whoami ; uname commands, no need to compromise the entire OS.\n    - For SQLi, it would be sufficient to print the DB banner or show the DB name, username, table names, but no need to dump the entire DB.\n- Other techniques and procedures for lateral movement, post-exploitation or establishing persistence through back-doors are completely forbidden.\n- Customer or employee account compromise through bruteforce, dictionary or password guessing attacks are forbidden. However, default system/aplication passwords can be reported if present.\n- Phishing, spear phishing or any type of social engineering tests, against either employees or customers are prohibited.\n- You must not be a former or current employee of Ferrero or one of its contractor.\n- You must not have compromised the privacy of our users\n- Only interact with test accounts you own\n\n## Unqualifying Issues\n### The following issues are outside the scope of our vulnerability disclosure program:\n\n- Stolen secrets, credentials or information gathered from a third-party asset that we have no control over\n- Tabnabbing\n- Missing cookie flags, security-related HTTP headers and Expired certificate or best practices and other related issues for TLS/SSL certificates which do not lead directly to a vulnerability\n- Session expiration policies (no automatic logout, invalidation after a certain time or after a password change)\n- Disclosure of information without direct security impact (e.g. stack traces, secrets, credentials, path disclosure, software versions, IP disclosure, 3rd party secrets)\n- Content/Text/HTML/CSV injections and Mixed Content warnings\n- Clickjacking/UI redressing\n- Denial of Service (DoS) attacks\n- Known CVEs without working PoC and outdated libraries without a demonstrated security impact\n- Reports from automated web vulnerability scanners that have not been manually validated\n- Invalid or missing SPF (Sender Policy Framework) records (Incomplete or missing SPF/DKIM/DMARC)\n- Open ports without real security impact\n- Physical or Social engineering of staff or contractors and/or any issues that require physical access to a victim’s computer/device\n- Presence of autocomplete attribute on web forms\n- Vulnerabilities affecting outdated browsers or platforms\n- Any hypothetical flaw or best practices without exploitable PoC\n- Unexploitable vulnerabilities (ex: Self XSS, Blind SSRF without direct impact (e.g. DNS pingback), XSS or Open Redirect in HTTP Host Header)\n- Reports with attack scenarios requiring MITM or physical access to victim's device\n- Unauthenticated / Logout / Login and other low-severity Cross-Site Request Forgery (CSRF)\n- Subdomain takeover without a full working PoC\n- Lack of rate-limiting, brute-forcing or captcha issues and password requirements policies (length / complexity / reuse)\n- Ability to spam users (email / SMS / direct messages flooding)\n\n## Testing Instructions\n### Hacker Account Creation\nWe require to **use your HackerOne email alias** `[username]@wearehackerone.com` **to create your test accounts** on the in-scope assets.\n\n### User agent\n**Please append to your user-agent header the following value**:\n**`-VDP-ferrero-international-s.a-[H1 username]`**\n\n\n# Disclosure Policy\nYou must not discuss any vulnerabilities (even resolved ones) outside of the program without express and explicit consent from the organization.\n\n\n# Legal Notice:\n\nIf we conclude, in our sole discretion, that you have complied with the requirements above when reporting a security vulnerability, Ferrero will not pursue claims against you or initiate a law enforcement investigation in response to your report:\n\n- You do not cause harm to Ferrero or our customers;\n- You make a good faith effort to avoid compromising the privacy of our customers or employees, or disrupting the operation of our products, services or IT infrastructure;\n- You do not violate any law;\n- Once you have confirmed a vulnerability, you report it in a timely manner and do not exploit it further;\n- To the extent that you have accessed non-public Ferrero information in the course of your research, you do not maintain copies of any such information or share any such information with any third party;\n- You do not publicly disclose or share the vulnerability details without the written permission of Ferrero. Violation of these requirements may result in permanent disqualification from the program.\n\nAny activity determined to involve the intentional compromise of the privacy of our customers or employees or the intentional disruption of the operation of our products, services or IT infrastructure will result in permanent disqualification from the program.\n\nWe may collect information that could reasonably be used to identify you (e.g., IP address). Ferrero uses this information to evaluate a reported vulnerability and protect Ferrero products, services or information technology infrastructure.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.kinder.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.nutella.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tictac.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ferrerorocher.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.raffaello.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.estathe.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.eatnatural.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fulfilnutrition.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.moncheri.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.babyruth.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.butterfinger.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.crunchbar.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.duplo.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.famousamos.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fanniemay.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ferrero-kuesschen.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fiestaferrero.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.giotto.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hanuta.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.keebler.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.littlebrowniebakers.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.motherscookies.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.murraysugarfree.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pocketcoffee.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.thorntons.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

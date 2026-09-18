@@ -1,0 +1,74 @@
+{
+ "at": "2026-09-12T13:30:12.804Z",
+ "opportunity": "myndr",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.myndr.nl",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "php",
+     "label": "PHP",
+     "version": "8.4.25",
+     "evidence": "x-powered-by: PHP/8.4.25"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "PHP/8.4.25",
+    "cf-ray": "a39f43fa8b6715c9-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "myndr.nl",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f4404cf400019-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "myndr.net",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

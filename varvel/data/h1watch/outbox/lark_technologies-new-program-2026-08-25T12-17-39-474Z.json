@@ -1,0 +1,183 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lark_technologies",
+      "name": "Lark Technologies",
+      "offersBounties": true,
+      "assets": [
+        "1452166623",
+        "Mac OS Executable: Download here https://www.larksuite.com/download",
+        "Windows OS Executable: Download here https://www.larksuite.com/download",
+        "api.larksuite.com",
+        "app.larksuite.com",
+        "caldav.larksuite.com",
+        "com.larksuite.suite",
+        "file.larksuite.com",
+        "hackers_chosendomain.larksuite.com",
+        "internal-api-drive-stream.larksuite.com",
+        "internal-api-lark-api.larksuite.com",
+        "internal-api.larksuite.com",
+        "lark-frontier.byteoversea.com",
+        "larksuite.com",
+        "open.larksuite.com",
+        "passport.larksuite.com",
+        "status.larksuite.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lark_technologies-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lark_technologies",
+  "name": "Lark Technologies",
+  "url": "https://hackerone.com/lark_technologies",
+  "policy": "The security and privacy of your data are our utmost concern. Lark abides by rigorous security policies, and implements robust systems to protect user data. We encourage security research individuals as well as teams to test our security, and we offer rewards for valid reported vulnerabilities. As we keep on adding new features, we encourage community researchers to keep working on our projects to find new vulnerabilities.\n\n# Response Targets\nLark Technologies will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business days\n* Time to triage (from report submit) - 3 business days\n* Time to bounty (from triage) - 5 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure and Confidentiality Policy\nLark Technologies supports public recognition and disclosure of contributions and findings for in-scope reports closed as resolved. We will seek to allow participants to be publicly recognized whenever possible.\n* Public disclosure of a vulnerability (either full or partial) is only permitted after the Lark Team receives a Disclosure Request within the HackerOne platform and the Lark Team agrees to disclose the report.\n* Retention, copying, or disclosure of Lark information gained as a result of participation is not permitted.\n* Lark Technologies may redact any sensitive information prior to disclosure.\n\nIf requesting beyond a HackerOne disclosure (e.g. in a blog or at a conference):\n* Request approval before commencing a write up.\n* Share your final blog edits and where the content is to be hosted with Lark Technologies for approval.\n* Do not publicly disclose information until you have explicit written consent to do so from Lark Technologies.\n\n------\n\n# Program Rules\n* You must be the first reporter to report the issue to us. We will only reward the first reporter. \n* When submitting a vulnerability, please provide us with enough information so that we could reproduce and verify it. \n* By submitting a report, you agree that materials will be shared with TikTok USDS Joint Venture LLC for independent triage, audit, verification, and patching based on impact to systems in the United States. \n* Please use your own account for testing purposes. Do not gain access to another user's account or their confidential information. \n* Please do not test for denial of service, spam, social engineering issues. \n* All of the tests must not violate any law, or compromise any data that is not your own.\n* Please contact security@larksuite.com to report security incidents such as customer data leakage or breach of infrastructure\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n\n------\n\n\n# Testing and Guidance\n\n## Signing Up\n* You may register up to two test accounts on https://www.larksuite.com/ for free\n* You will be required to create a domain name for each account which you will be using to do your testing\n\n## Treasure Map and Lark Suite Product Guidance\nTo better understand the Lark Suite Product and its core functions, please refer to the updated Treasure Map 2.1 we have created: https://bytedance.feishu.cn/docs/doccnlT329U2f6EFPV5Bvqa0f3A#ZWfYX1\n\n------\n\n\n# Bug Bounty Rewards Assessment\nTypical bug bounty rewards range from $100 to $5,000, depending on their severity and asset tier. No upper limits\n\n_Rewards Range:_\n\n**Critical vulnerabilities examples:**\n* SQL Injection, which could get massive customer information\n* Remote code execution on server side\n* Remote code execution on client app\n* Remote user sensitive information disclosure on client app\n* Privilege escalation affecting all users\n* Broken authentication affecting all users\n* SSRF to lark internal service, with extremely critical impact, such as being able to access internal sensitive data\n* And other critical severity issues\n\n**High vulnerabilities examples:**\n* Privilege escalation affection part users\n* Broken authentication affection part users\n* SSRF to internal services of Lark\n* And other high severity issues\n\n**Medium vulnerabilities examples:**\n* Privilege escalation affecting single user\n* Broken authentication affecting single user\n* XSS which could attack other Lark users\n* Logical vulnerabilities affecting sensitive operations\n* Remote denial of service or app crash\n* Information disclosure of service(with customer data)\n* Remote information disclosure on client app, like program memory, log, etc\n* Insecure storage of sensitive information on client app\n* And other medium severity issues\n\n**Low vulnerabilities examples:**\n* Information leakage(without customer data)\n* Server misconfiguration or errors\n* Local denial of service or app crash\n* Local information disclosure on client app, like program memory, log, etc\n* And other low severity issues\n\nPlease refer to the rewards section for the bounty table. Our bounty table provides general guidelines, and all final decisions are at the discretion of Lark. We reserve the right to accept and review any security report including for out of scope issues, but we will not award a bounty for out of scope issues in fairness to other researchers who are adhering to program scope. This will be true regardless of the severity of the vulnerability.\n\n------\n\n# Known Issues\n - All paid feature bypass issues in Admin Setting Page reported after 11 Apr 2025\n - Please note that these known issues will not be eligible for bounties:\n    - Cross-Site Request Forgery (CSRF)\n    - Cross-Origin Resource Sharing (CORS)\n    - Clickjacking \n\nWe are working on a fix for the above issues and seek your kind patience.\n\n\n# Out of Scope Vulnerabilities \n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* Reports from automated tools or scans\n* False positive SQL Injection \n    * To avoid submitting a false positive, please ensure that you are able to provide a working PoC that demonstrates the ability to retrieve the current database / current user name\n* Spam vulnerability, mail spoofing, mail bomb, etc.\n* Self-XSS\n* Use of known-vulnerable library or component\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Vulnerabilities that are already known (e.g. discovered by an internal team)\n* Best practice reports are not eligible for bounties but are appreciated.\n* Exposure of Google Maps API Key.\n\n**_Notes about IDOR Vulnerabilities_**\nResearchers must be able to prove a feasible way to gain an ID as an attacker and we will not accept reports where IDs are being brute forced. \n* **Example:** An ID is 19 characters long. To guess this ID, an attacker will have to calculate 10^19 combinations which is not in the range of an online brute force attack. IDOR vulnerabilities with access to unimportant data will also not be eligible for bounty. \n\n# Out of Scope bugs for Android apps\n* Any URIs leaked because a malicious app has permission to view URIs opened\n* Sensitive data in URLs/request bodies when protected by TLS\n* Lack of obfuscation and binary protection\n* Any kind of sensitive data stored in app private directory\n* Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken environment & root permission)\n* Shared links leaked through the system clipboard.\n* Intent or URL Redirection leading to phishing\n* Third party library 0day \n\n# Out of Scope bugs for iOS apps\n* Lack of Exploit mitigations i.e., PIE, ARC, or Stack Canaries\n* Absence of certificate pinning\n* Path disclosure in the binary\n* User data stored unencrypted in the app private directory\n* Lack of obfuscation is out of scope\n* Lack of jailbreak detection is out of scope\n* OAuth & app secret hard-coded/recoverable in IPA\n* Crashes due to malformed URL Schemes\n* Lack of binary protection (anti-debugging) controls\n* Snapshot/Pasteboard leakage\n* Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken environment)\n* Third party library 0day is out of scope\n* URL Redirection leading to phishing\n\n------\n\n\n# Contacting the Lark Technologies Team\n\nIf you require any clarifications regarding the scope of the program (eg: potential Lark's user data leaking in one of our third-party vendors) or face specific challenges when testing, you may email the Lark Team at security@larksuite.com.\n \nHowever, please do not escalate questions about the validity or bounties of your existing reports. Such emails will not be responded to and discussions should be done within the report itself. If you are unsure about a potential vulnerability, please submit the report to us and we will assess it accordingly. \n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lark-frontier.byteoversea.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "file.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "open.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 2** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "caldav.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "status.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 2** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "passport.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "internal-api.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "internal-api-lark-api.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "internal-api-drive-stream.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Windows OS Executable: Download here https://www.larksuite.com/download",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset\n\nThis is the Lark Suite application for Windows. Only the latest version of the application will be in scope. \n\nPlease download the latest version of the application here: https://www.larksuite.com/download",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mac OS Executable: Download here https://www.larksuite.com/download",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset\n\nThis is the Lark Suite application for Mac OS. Only the latest version of the application will be in scope.\n\nPlease download the latest version of the application here: https://www.larksuite.com/download",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1452166623",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset\n\nOnly the latest version of the application will be in scope. \n\n[Download from the Apple App Store here](https://apps.apple.com/app/lark-collaboration-tool/id1452166623)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.larksuite.suite",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset\n\nOnly the latest version of the application will be in scope. \n\n[Download from the Google Play Store here](https://play.google.com/store/apps/details?id=com.larksuite.suite)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hackers_chosendomain.larksuite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Tier 1** Asset\n\n<hacker’s_chosendomain>.larksuite.com\nIf you find a vulnerability against your own test account domain, please feel free to use this asset for submission.\n",
+      "max_severity": "critical"
+    }
+  ]
+}

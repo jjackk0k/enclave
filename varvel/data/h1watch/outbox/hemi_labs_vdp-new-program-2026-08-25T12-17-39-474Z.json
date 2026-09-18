@@ -1,0 +1,108 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hemi_labs_vdp",
+      "name": "Hemi VDP",
+      "offersBounties": false,
+      "assets": [
+        "https://app.hemi.xyz/",
+        "https://explorer.hemi.xyz/",
+        "https://rpc.hemi.network/noderpc",
+        "https://rpc.hemi.network/rpc",
+        "https://rpc.hemi.network/v1/ws/public",
+        "https://rpc.hemi.network/wsrpc"
+      ],
+      "exclusions": [
+        "Any Atlassian Product/Service",
+        "https://docs.hemi.xyz/",
+        "https://news.hemi.xyz/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hemi_labs_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hemi_labs_vdp",
+  "name": "Hemi VDP",
+  "url": "https://hackerone.com/hemi_labs_vdp",
+  "policy": "Hemi is a modular blockchain built for superior scaling, security and interoperability.\n\nAt Hemi Labs, we consider security a fundamental part of our network. We value the security of our network and our users, however no matter how much effort we put into security, there could still be vulnerabilities hiding.\n\nIf you discover vulnerabilities in Hemi, we encourage responsible disclosure of the vulnerability so that we can take steps to resolve the vulnerability as quickly as possible. We ask you to help us better protect Hemi and our users by reporting vulnerabilities through HackerOne.\n\nHackerOne is our only official vulnerability reporting platform, and allows us to triage and respond to vulnerability reports in a secure and fast manner. If you want to report a vulnerability, please report it through HackerOne. - Emails to Hemi Labs team members are not an acceptable way of reporting vulnerabilities.\n\n# Program Rules\n\nWe consider security a fundamental part of the Hemi Network. We appreciate your help in securing Hemi.\n\n## Disclosure policy\n\n- Please do not discuss any vulnerabilities outside of the program without express consent from Hemi Labs.\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n- Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n\n# Researching\n\n- Do not impact other users with your testing, this includes testing against wallet addresses or accounts you do not own, disrupting block production or preventing transactions from being processed.\n- Do not blindly submit reports with outputs from an automated testing tool that you have not manually verified.\n- When testing HTTP requests, you MUST include a `X-HackerOne-Research: [H1 username]` header with your HackerOne username.\n- If you need to create an account with an email address, please use your **HackerOne email alias** (`@wearehackerone.com`) email address to make the account identifiable.\n\n## The following is NEVER allowed\n\n- Directly attacking or impacting Hemi users.\n- Distributed Denial of Service (DDoS) attacks.\n- Exploiting rate limiting.\n- Spamming content or requests.\n- Large-scale automated vulnerability scanning or automated tools that produce excessive amounts of traffic.\n- Attacking Hemi Labs employees, contractors or our support/moderation teams (attempts at social engineering).\n\n# Reporting vulnerabilities\n\nWhen reporting a vulnerability, the more information you can provide, the faster we can triage and confirm the reported vulnerability. Reports with clear and concise reproduction steps and screenshots are highly valued.\n\nIn order to protect Hemi and our users, do not reveal vulnerabilities to others until we have researched, addressed and disclosed a vulnerability. We will consider disclosing vulnerabilities on a case-by-case basis.\n\nIf you wish to publicly share your research or vulnerability, you should request disclosure, share a draft with us for review and approval at least 30 days prior to publishing any such information.\n\nThank you for helping keep Hemi and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://app.hemi.xyz/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Hemi Portal - includes the Hemi native tunnel.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://explorer.hemi.xyz/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Hemi mainnet blockchain explorer (powered by Blockscout)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://rpc.hemi.network/rpc",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://rpc.hemi.network/noderpc",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://rpc.hemi.network/v1/ws/public",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://rpc.hemi.network/wsrpc",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://news.hemi.xyz/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Hemi newsletter website (powered by beehiiv)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://docs.hemi.xyz/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Hemi documentation site (powered by GitBook)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any Atlassian Product/Service",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not use Atlassian products or services here at Hemi Labs so their sites and services are out of scope. ",
+      "max_severity": "none"
+    }
+  ]
+}

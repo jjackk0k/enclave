@@ -1,0 +1,18 @@
+{
+  "_note": "commitwatch fixture scan-3: regression case — a nonce check REMOVED from a public AJAX handler (wp_ajax_nopriv_ present). The strongest band: removed gate + public route + sink context.",
+  "plugins": {
+    "acme-forms": { "head": 1251, "changesets": [] },
+    "cap-shops": { "head": 48, "changesets": [] },
+    "initech-ai": { "head": 89, "changesets": [] },
+    "globex-seo": {
+      "head": 312,
+      "changesets": [
+        {
+          "rev": 312,
+          "message": "Refactor the sitemap refresh handler",
+          "diff": "Index: trunk/includes/sitemap.php\n===================================================================\n--- trunk/includes/sitemap.php\t(revision 311)\n+++ trunk/includes/sitemap.php\t(revision 312)\n@@ -15,8 +15,6 @@\n function globex_refresh_sitemap() {\n-\tif ( ! wp_verify_nonce( $_POST['nonce'], 'globex-sitemap' ) ) {\n-\t\twp_die();\n-\t}\n \t$file = $_POST['path'];\n \tfile_put_contents( $file, globex_render_sitemap() );\n }\n add_action( 'wp_ajax_nopriv_globex_refresh', 'globex_refresh_sitemap' );\n"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "amazonvrp",
+      "name": "Amazon Vulnerability Research Program",
+      "offersBounties": true,
+      "assets": [
+        "*.amazon.ae",
+        "*.amazon.ca",
+        "*.amazon.cl",
+        "*.amazon.co.za",
+        "*.amazon.com.au",
+        "*.amazon.com.be",
+        "*.amazon.com.br",
+        "*.amazon.com.co",
+        "*.amazon.com.mx",
+        "*.amazon.com.ng",
+        "*.amazon.com.tr",
+        "*.amazon.pl",
+        "297606951",
+        "Amazon Subsidiaries (Please only actively test explicitly stated scope)",
+        "Other Amazon Retail Assets (Please only actively test explicitly stated scope)",
+        "Other Amazon Retail Mobile Apps (Please only actively test explicitly stated scope)",
+        "Other Amazon Retail Sites (Please only actively test explicitly stated scope)",
+        "amazonpayinsurance.in",
+        "com.amazon.mShop.android.shopping",
+        "https://www.amazonpay.in/*",
+        "www.amazon.*"
+      ],
+      "exclusions": [
+        "\"Contact Us\" Functionality",
+        "AWS and AWS customer assets are strictly out of scope",
+        "Amazon Web Services (AWS)",
+        "amazongames.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "5 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\amazonvrp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "amazonvrp",
+  "name": "Amazon Vulnerability Research Program",
+  "url": "https://hackerone.com/amazonvrp",
+  "policy": "# Amazon Vulnerability Research Program (VRP) - Program Policy (8/13/2026)\n\n## Introduction\n\nAt Amazon, we take security and privacy very seriously. If you believe that you have found a security vulnerability that affects any Amazon product or service, please report it to us. Reports that fall within the scope of Amazon’s Vulnerability Research Program (VRP) are eligible for a reward. We appreciate your efforts in helping protect customer trust and make Amazon more secure.\n\n## Other Amazon Programs\n\nPlease submit reports for suspected vulnerabilities relating to AWS, Ring and eero via:\n\n- The [AWS Bug Bounty page](https://aws.amazon.com/security/vulnerability-reporting/)\n\n- The [Ring Bug Bounty page](https://hackerone.com/ring)\n\n- The [eero Bug Bounty page](https://hackerone.com/eero)\n\n## What is VRP?\n\nVRP is a security research initiative driven by Amazon's Stores Security Bug Bounty Team.\n\n## Who Can Participate in VRP?\n\nAnyone who discovers a potential security finding within Amazon products or services can report it to VRP, with the following exceptions:\n\n- Amazon employees and contractors, as well as their immediate family members (e.g., parent, sibling, spouse, child) are strictly prohibited from participating in VRP. Amazon employees and contractors may not share information with a third party to bypass this prohibition or otherwise enable another person to participate in VRP.\n\n- Residents of any countries/regions that are subject to United States sanctions, such as Cuba, Iran, North Korea, Sudan, and Syria or Crimea, and any person designated on the U.S. Department of the Treasury’s Specially Designated Nationals List are strictly prohibited from participating in VRP.\n\nYou must be 18 or older to be eligible for a reward.\n\n## How VRP Works\n\nSecurity researchers and Amazon customers are encouraged to report any behavior impacting the information security posture of Amazon products and services. Document your findings thoroughly. For a quicker response, submit a report with complete details, including steps to reproduce the issue and screenshots or videos. We will contact you to confirm receipt of your report and attempt to reproduce your research. We will work with internal teams to validate the report, contain and remediate vulnerabilities, and make other improvements. Amazon will issue rewards for validated findings if they are eligible under this Policy. To be eligible for rewards, reports must comply with all parts of this Policy, and you must be the first to report the issue to Amazon.\n\nQualified researchers who regularly submit high-quality findings may be added to the **Amazon Private Program** (invited researchers only).\n\n## How to Conduct Testing\n\n1.  **Accounts.** Use the User-Agent string `amazonvrpresearcher_yourh1username` while testing. Create Amazon accounts using a HackerOne email (yourh1username@wearehackerone.com) to help us track security research activity. You can create match and replace proxy rules in Burp by going to Proxy \\>\\> Options \\>\\> Match and Replace with the following options: **Type:** Request header **Match:** ^User-Agent.\\*\\$ **Replace:** User-Agent: amazonvrpresearcher_yourh1username.\n\n2.  **Banned/Blocked Accounts.** If your Amazon account is banned because of good faith research activity, log into the account and follow the on-screen instructions. Be prepared with a recent payment card statement, which may be necessary to prove ownership. Use a valid payment method to avoid account blocks. Restoration typically takes 24 hours. If your account is not reinstated, create a new one.\n\n3.  **Scanning.** Limited usage of automated scanners/tools is allowed with above User-Agent applied. Scanners/tools must be configured to not send more than 5 requests per second to a single service. Use of scanning tools without the User-agent string amazonvrpresearcher_yourh1username may result in your account/IP getting blocked by automated protections. It will take time to reinstate blocked accounts and delay your research.\n\n4.  **SSRF Testing.** You can use [bugbounty-sheriff.aka.amazon.com](https://bugbounty-sheriff.aka.amazon.com/) (port 443) for testing SSRF issues. SSRF sheriff is installed on this server, and it supports HTTPS.\\\n    To validate dependency confusion issues, use the following command in the \"preinstall\" field in the package.json file: `curl https://bugbounty-sheriff.aka.amazon.com/foobar -e '<package-name>+<hackerone-alias>`. We will review logs to verify a successful hit, so be sure to include your alias in the command to allow Amazon to identify your hit.\n\n5.  **Third Party Sites.** Do not use third party sites (e.g., XSS Hunter variants) when testing. When conducting blind XSS or other testing, only use assets that you own and control yourself. For example, using a home-forked version of the xsshunter-express repo is permitted. Make sure that all traffic goes through domains only you have control over. Testing using third party infrastructure could expose discovered issues or other sensitive data to third parties and may result in ineligibility for any reward.\n\n6.  **Subdomain Takeovers.** Prove control by serving an HTML file at a hidden/non-root path containing your HackerOne username in an HTML comment. Do not publish content at the index path or simulate downstream attacks.\n\n## How to Submit a Report\n\n1.  **Identify the Asset.** Use \\*.amazon.\\* for the HackerOne general asset field unless the asset is specifically mentioned as a scope item. Copy and paste the URL that pertains to your report next to Asset URL:.\n\n2.  **Required Detail.** Include as much information as you can to help Amazon address issues and issue rewards quickly.\n\n3.  **Bypass Reports.** If you find a bypass of a previous report you’ve created, create a new report. Include the ID of the original finding under Custom Field Bypass Reference to help with secondary data tracking.\n\n4.  **Validation Assistance.** We may contact you with questions or requests for clarification to help Amazon validate, reproduce, investigate, or remediate an issue you submit. You must provide this additional information to be eligible for a reward.\n\nHackerOne provides guidance on how to write quality reports:\n\n- <https://docs.hackerone.com/hackers/quality-reports.html>\n\n- <https://www.hacker101.com/sessions/good_reports>\n\n## Rules of Engagement\n\n1.  **Only Test In-Scope Assets & Vulnerabilities.** If an asset is not associated with a domain or product identified as in-scope in this Policy, do not test it as part of VRP. Only test for eligible vulnerabilities. Do not test for ineligible vulnerabilities or other out-of-scope issues.\n\n2.  **Avoid and Immediately Report Safety Issues.** If you identify an issue in a physical system (e.g., robotics, an autonomous vehicle, a satellite), do not attempt to change physical state or degrade, disrupt, or interfere with service availability or stability. If you believe you have found an issue that could impact safety, mission-critical operations, or service availability at scale, immediately stop testing and report the issue to us, even if your report is incomplete or the affected system is not authorized for testing. Do not attempt further validation. We will work with you to validate safely.\n\n3.  **Minimize Access and Delete Information.** Conduct the minimum testing needed to validate an issue. Do not attempt to execute instructions that may directly or visibly alert other people to your activity or that may access, modify, or delete other people’s accounts or data. Delete any retained data from your devices upon request from Amazon or after a reward decision has been made. If the vulnerability or your testing causes a public and readily visible issue, immediately report the issue to us, even if your report is incomplete.\n\n4.  **No Post-Exploitation Actions.** Do not attempt to conduct post-exploitation: modification or destruction of data, interruption or degradation of Amazon services, and pivoting with access not normally granted.\n\n5.  **No Denial of Service.** Do not attempt to perform actions that could hinder Amazon in serving customers or carrying out other business functions. This includes brute-force, denial-of-service (DoS/DDoS), and other similar attacks or techniques.\n\n6.  **No Account Takeovers.** Do not compromise or test Amazon accounts that are not your own. You are not authorized to access or otherwise interact with other people's accounts or data. If you discover an issue that could allow you to bypass an authentication control and gain access to another account, report it but do not access the account or its data or take other further action.\n\n7.  **No Accessing Others’ Data.** If you encounter personal data that is not your own during research, immediately stop and report the issue. In your report, include information about what information was accessed. Do not save, copy, transfer, or otherwise use the personal data. If you have already inadvertently transferred or copied the data to a system you own or control, delete it. Retaining or continuing to access another person’s data will be regarded as evidence of a lack of good faith, resulting in ineligibility for any reward and inapplicability of this Policy’s Legal Safe Harbor.\n\n8.  **No Graphic Material.** Do not attempt to generate sexually explicit images, extremely graphic or violent images, or Child Sex Abuse Material (CSAM) using Amazon products. While ineligible for a reward, you can responsibly disclose related issues to Amazon if you inadvertently encounter graphic materials during testing. If you make such a report, do not include copies of the graphic material. Amazon will not review graphic material if submitted, and it may be illegal to possess. \n\n9.  **No Social Engineering.** Do not attempt to target Amazon employees or customers, including social engineering and phishing attacks. Do not perform any testing against assets that involves directly engaging in communication with Amazon personnel, including support chats, even if they appear to be automated—or Contact Us pages.\n\n10. **No Physical or Wireless Attacks.** Do not perform physical attacks against any Amazon facility or infrastructure. Do not transmit, jam, spoof, interfere with, or intentionally manipulate any radio communications (including satellite, cellular, GPS/GNSS, Wi-Fi, Bluetooth, or other wireless signals).\n\n11. **No Breaking the Law.** Don’t do anything illegal or unethical. You are responsible for complying with all applicable laws, regulations, and other restrictions. You also must abide by the [HackerOne Code of Conduct](https://www.hackerone.com/policies/code-of-conduct).\n\nViolation of these Rules of Engagement may result in loss of bounty eligibility, or further, disqualification from participation in VRP at Amazon’s discretion. Amazon may update this Policy, including the scope of VRP and these Rules of Engagement, from time to time.\n\n## Responsible Disclosure\n\nBy participating in VRP, you agree not to share publicly or privately any details or descriptions of your findings with any third party. You also agree not to attempt to threaten or extort Amazon. \n\nAmazon commits to timely triage of reports, remediation of verified findings, and response to relevant questions.\n\n## Out-of-Scope Assets\n\nAWS and AWS customer assets are strictly out of scope, as are some corporate and non-production assets. Never test:\n\n- Anything with aws in the subdomain\n\n- Zoox autonomous vehicles and autonomous driving technology\n\n- Amazon Leo satellite command-and-control or other operational control paths\n\n- Anything that is .a2z\n\n- Anything that redirects to [midway-auth.amazon.com](http://midway-auth.amazon.com/)\n\n- Anything that ends with \\*.dev\n\n- Anything that redirects to AWS\n\n- Anything that is non-production asset (e.g. - test, qa, integ, preprod, gamma, beta, user-aliases, regions)\n\nSecurity issues discovered in the AWS IP Space (<https://ip-ranges.amazonaws.com/ip-ranges.json>) are not in scope for VRP. AWS customers operate assets in this space. Discovering and testing against AWS and AWS customer assets is strictly out of scope for VRP and may violate the AWS Acceptable Use Policy (<https://aws.amazon.com/aup/>).\n\nNote that Shodan may indicate an affiliation with Amazon for AWS customers, and should not be used to determine whether an asset is owned by Amazon.\n\nUnless specifically identified in this Policy, all Amazon subsidiary businesses (e.g., Twitch) and their assets are out of scope. Security issues related to Amazon’s physical stores, including Whole Foods Market and its mobile applications, are out of scope.\n\nYou are not authorized to test any asset, domain, or IP address outside the scope of VRP. If you become aware of an out-of-scope vulnerability, you may report the security finding for our review, but it may be ineligible for rewards.\n\n## In-Scope Assets\n\nPlease see the Scope tab for complete details on current in-scope assets. In general, bounty-eligible findings are limited to the following marketplaces and mobile apps:\n\n- All retail marketplaces (wildcard scoped, i.e., \\*.amazon)\n\n  - [amazon.com](https://www.amazon.com/) (United States)\n\n  - [amazon.co.uk](https://www.amazon.co.uk/) (UK)\n\n  - [amazon.in](https://www.amazon.in/) (India)\n\n  - [amazon.de](https://www.amazon.de/) (Germany)\n\n  - [amazon.fr](https://www.amazon.fr/) (France)\n\n  - [amazon.co.jp](https://www.amazon.co.jp/) (Japan)\n\n  - [amazon.ca](https://www.amazon.ca/) (Canada)\n\n  - [amazon.cn](https://www.amazon.cn/) (China)\n\n  - [amazon.it](https://www.amazon.it/) (Italy)\n\n  - [amazon.es](https://www.amazon.es/) (Spain)\n\n  - [amazon.nl](https://www.amazon.nl/) (Netherlands)\n\n  - [amazon.ae](https://www.amazon.ae/) (United Arab Emirates)\n\n  - [amazon.sg](https://www.amazon.sg/) (Singapore)\n\n  - [amazon.se](https://www.amazon.se/) (Sweden)\n\n  - [amazon.sa](https://www.amazon.sa/) (Saudi Arabia)\n\n  - [amazon.eg](https://www.amazon.eg/) (Egypt)\n\n  - [amazon.pl](https://www.amazon.pl/) (Poland)\n\n  - [amazon.com.au](https://www.amazon.com.au/) (Australia)\n\n  - [amazon.com.tr](https://www.amazon.com.tr/) (Turkey)\n\n  - [amazon.com.br](https://www.amazon.com.br/) (Brazil)\n\n  - [amazon.com.mx](https://www.amazon.com.mx/) (Mexico)\n\n  - [amazon.com.be](https://www.amazon.com.be/) (Belgium)\n\n  - [amazon.co.za](https://www.amazon.co.za/) (South Africa)\n\n  - [amazon.com.ng](https://amazon.com.ng) (Nigeria)\n\n  - [amazon.com.co](https://amazon.com.co) (Colombia)\n\n  - [amazon.cl](https://amazon.cl) (Chile)\n\n- Android and iOS Apps – Retail & Shopping\n\n  - MShop (Android: com.amazon.mShop.android.shopping; iOS: amazon-shopping-297606951)\n\n\n## In-Scope Security Issues\n\nThe following is a non-exhaustive list of common in-scope security issues and the usual severity range.\n\n|  | **Vulnerability** | **Severity Range** |\n|----|----|----|\n| 1 | Remote Code Execution | Critical |\n| 2 | SQL Injection | High - Critical |\n| 3 | XXE | High - Critical |\n| 4 | XSS | High - Critical |\n| 5 | Server-Side Request Forgery | Medium - Critical |\n| 6 | Directory Traversal - Local File Inclusion | Medium - High |\n| 7 | Authentication/Authorization Bypass (Broken Access Control) | Medium - High |\n| 8 | Privilege Escalation | Medium - High |\n| 9 | Insecure Direct Object Reference | Medium - High |\n| 10 | Misconfiguration | Low - High |\n| 11 | Web Cache Deception | Low - Medium |\n| 12 | CORS Misconfiguration | Low - Medium |\n| 13 | CRLF Injection | Low - Medium |\n| 14 | Cross Site Request Forgery | Low - Medium |\n| 15 | Open Redirect | Low - Medium |\n| 16 | Information Disclosure | Low - Medium |\n| 17 | Request Smuggling | Low – Medium |\n| 18 | Mixed Content | Low |\n\n**Fraud and Abuse.** Fraud and abuse reports may, in our discretion, be reward-eligible if they indicate substantial impact, are clear and concise, and result in action by Amazon. Reports should describe realistic, unique, and systemic behavior in detail that is not reliant on contrived scenarios but based on realizable human behavior at scale.\n\n**Zero Days.** Reports of zero-day vulnerabilities (vulnerabilities that were not previously known to the security community) within in-scope services and products will be eligible for a reward at Amazon’s discretion if the issue has not previously been identified by another researcher or the report provides significant insight that assists Amazon with remediation efforts.\n\n\n## In-Scope LLM/GenAI Issues\n\nFor any reports related to generative AI, please include as much of the following information as you can: timestamp, IP address, consumed content or prompt string, responses, and security impact.\n\nThe following is a list of in-scope security issues related to generative AI and the usual severity range.\n\n| **Potential Vulnerabilities** | **Severity** | **Comments** |\n|----|----|----|\n| Unauthorized access/disclosure of PII/PHI data | High-Critical | Severity will be dependent on the context and influencing factors. |\n| Cross customer sensitive data access | High-Critical | Severity will be dependent on the context and influencing factors. |\n| Unauthorized system or environment changes | High-Critical | Severity will be dependent on the context and influencing factors. |\n| Model Theft and LLM training data poisoning | High-Critical | Depending on the overall impact and application context. |\n| Adversaries can retrieve personal customer data without consent | High-Critical | Severity will be dependent on the context and influencing factors. |\n| Information Disclosure | Low-Critical | Severity will be dependent on the context and influencing factors. |\n| Prompt Injection | Medium – Critical | Severity will be dependent on the context and influencing factors. Please make sure to read notes above |\n| Insecure Output Handling | Medium-Critical | Impact will depend on resulting potential vulnerabilities like HTML injection, XSS, SSRF, RCE etc. |\n| Insecure plugins impacting models | Medium-High | Depending on the impact like content injection, code execution, differential error responses, system data exfiltration, |\n| Excessive functionality, permissions and autonomy | Low-High | Depending on the actions allowed by excessive agency issues |\n| Response manipulation providing guidance to customers | Medium-High | Severity will be dependent on the context and the guidance. |\n| Adversaries can perform unauthorized actions on behalf of users | Medium-Critical | Depending on the impact, ease and issue radius. |\n| LLM vulnerable to solicitation and social engineering | Medium-High | Depending on the overall impact and application context. |\n| In context data could be used to de-anonymize users | Medium | Severity will be dependent on the context and influencing factors. |\n| Absent customer API or data opt out mechanisms | Medium | Severity will be dependent on the context and influencing factors. |\n| Command Injection | High-Critical | Depending on the impact, ease and issue radius. |\n| API Auth Bypass | High-Critical | Depending on the impact, ease and issue radius. |\n| Runtime Information Disclosure | Low-Medium | Severity will be dependent on the context and influencing factors. |\n\nAmazon will confirm validity and severity of the issues on a case-by-case basis. Issue severity and bounty amount are discretionary, as evaluated by Amazon. \n\n## Out-of-Scope Issues\n\n1.  **Security Issues.** The following are not eligible for rewards under VRP:\n\n- Clickjacking\n\n- Self-XSS\n\n- Email spoofing – SPF records misconfiguration\n\n- Bitflipping, bitsquatting\n\n- Security practices where other mitigating controls exist (e.g., missing security headers)\n\n- Social engineering, phishing\n\n- Physical attacks\n\n- Missing cookie flags\n\n- CSRF with minimal impact (e.g., Login CSRF, Logout CSRF)\n\n- Content spoofing\n\n- Stack traces, path disclosure, directory listings\n\n- SSL/TLS controls where other mitigating controls exist\n\n- Banner grabbing\n\n- CSV injection\n\n- Reflected file download\n\n- Reports on outdated browsers\n\n- Reports on outdated version/builds of in-scope Mobile Apps\n\n- Reports on devices running outdated software\n\n- DoS/DDoS\n\n- Host header injection without a demonstrable impact\n\n- Scanner outputs\n\n- Vulnerabilities in third-party products, services, or assets\n\n- User enumeration\n\n- Password complexity\n\n- HTTP TRACE method\n\n2.  **GenAI Issues.** Reports related to the generative AI prompt response content are out of scope where there is no clear application security impact. Responsible AI issues are out of scope and ineligible for a reward without a direct security impact. Examples of out-of-scope issues include generation of inappropriate text/visual content with the model, inappropriate suggestions from the model, and malicious code generation. Any issues which are result of model hallucinations are out of scope as well.\n\n3.  **Amazon Account Issues.** For issues related to your personal use of an Amazon product or service such as suspicious orders, password changes, account changes, or potential fraud, contact [Customer Service](https://www.amazon.com/gp/help/customer/contact-us/).\n\n4.  **Copyright Infringement.** For issues related to copyright infringement, please use Amazon’s [Report Infringement Form](https://www.amazon.com/report/infringement).\n\n5.  **Operational Security Issues.** We do not reward but will accept reports related to operational security, including leaked Amazon personnel passwords, leaked business documents, and similar issues. These reports will receive only reputation points.\n\n## Legal Points\n\n1.  **Limited Safe Harbor.** Amazon will not bring any legal action against anyone who makes a good faith effort to comply with this Policy, or for any accidental or good faith violation of this Policy. If you comply with this Policy:\n\n    1.  Amazon considers your security research to be \"authorized\" and lawful under the U.S. Computer Fraud and Abuse Act (CFAA), U.S. Digital Millennium Copyright Act (DMCA), and similar laws in the United States and other jurisdictions. This limited authorization does not provide you with authorization to access company data or another person’s account.\n\n    2.  Amazon waives any restrictions in its applicable Terms of Service and Acceptable Use Policy that would prohibit your participation in VRP in accordance with the terms of, for the limited purpose of your security research under, this Policy.\n\n    3.  If legal action is initiated by a third party against you in connection with activities conducted under this Policy, Amazon will take steps to make it known that your actions were conducted in compliance with this Policy.\n\n    4.  Amazon cannot authorize any activity on third-party systems or assets or guarantee that those third parties won’t pursue legal action against you. Amazon is not responsible for your liability from actions performed on third-party systems or assets. Amazon is not responsible if you commit a crime during our testing and is not able to prevent criminal liability.\n\n2.  **Privacy.** To protect your privacy, Amazon will not, unless served with legal process or to address a violation of this Policy, share your personal data with third parties or share your HackerOne points or participation without your permission. If your report relates to an issue with a third party’s products, services, or assets, we may report your contact information and findings to the relevant third party.\n\n3.  **Rewards Discretionary.** This is an experimental and discretionary rewards program. You should understand that we can cancel the program at any time and have sole and complete discretion on reward decisions.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Amazon Web Services (AWS)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Currently, anything related to AWS should be considered out of scope and should be reported directly to AWS: https://aws.amazon.com/security/vulnerability-reporting/",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Other Amazon Retail Sites (Please only actively test explicitly stated scope)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Amazon Retail Mobile Apps (Please only actively test explicitly stated scope)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "amazongames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Amazon Subsidiaries (Please only actively test explicitly stated scope)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.amazon.*",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All international retail marketplaces\n* Brazil: www.amazon.com.br\n* Canada: www.amazon.ca\n* Mexico: www.amazon.com.mx\n* United States: www.amazon.com\n* China: www.amazon.cn\n* India: www.amazon.in\n* Japan: www.amazon.co.jp\n* Singapore: www.amazon.sg\n* Turkey: www.amazon.com.tr\n* United Arab Emirates:",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.amazon.mShop.android.shopping",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.amazon.mShop.android.shopping",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "297606951",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/amazon-shopping/id297606951",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Amazon Retail Assets (Please only actively test explicitly stated scope)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "\"Contact Us\" Functionality",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.amazonpay.in/*",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "amazonpayinsurance.in",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.cl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.co.za",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.au",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.br",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.mx",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.ng",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.tr",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.pl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.com.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS and AWS customer assets are strictly out of scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.amazon.ae",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazon.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

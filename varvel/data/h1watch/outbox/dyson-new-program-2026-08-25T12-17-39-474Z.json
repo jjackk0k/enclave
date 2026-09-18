@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "dyson",
+      "name": "Dyson",
+      "offersBounties": true,
+      "assets": [
+        "993135524",
+        "Dyson Connected Products (IoT Hardware)",
+        "Github findings",
+        "Other Dyson Assets",
+        "com.dyson.mobile.android",
+        "www.dyson.co.uk",
+        "www.dyson.com",
+        "www.dyson.ie",
+        "www.dyson.it",
+        "www.dysoncanada.ca"
+      ],
+      "exclusions": [
+        "*central.dyson.com",
+        "bounce.dyson*",
+        "comm.dyson*",
+        "jobs.dyson.com",
+        "m.shop.dyson.cn",
+        "mail.register-dyson.co.kr",
+        "on.dyson.co.uk",
+        "register-dyson.co.kr",
+        "reviews.dyson*",
+        "sakti3.com",
+        "shop.dyson.co.kr",
+        "sm2.dyson.com",
+        "sm3.dyson.com",
+        "test.oepay.dyson.cn",
+        "view.dyson.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\dyson-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "dyson",
+  "name": "Dyson",
+  "url": "https://hackerone.com/dyson",
+  "policy": "\n# Dyson Bug Bounty Program\n\nDyson takes the security of its customers, employees, and technology very seriously. Whilst we build our systems to be as robust as possible, we greatly value the support of security experts around the world in helping us identify and eliminate any weaknesses. To recognize these efforts and the key role security researchers play in keeping Dyson secure we offer a bounty for reporting certain qualifying security vulnerabilities. Please make sure you review and understand the program policy before submitting a report.\n\nIf you think you have found a security flaw, we welcome the chance to work with you – and reward you – to resolve the issue.\n\n## How we’ll thank you\n\nTo show our appreciation for taking the time to help keep us secure, Dyson may provide cash rewards for qualifying vulnerabilities. We will work with you to determine the impact on our company, so submissions with detailed explanations and screenshots alongside the impact you believe it faces on Dyson will go a long way to ensure that we both agree what the impact is. As a large company with many moving parts, it can take time for us to remediate vulnerabilities, especially when they involve many components or 3rd parties.\n\n## Program Rules\n\nThe scope for Dyson’s Bug Bounty program includes most of our assets and products. If it is not out of scope, and it is impactful to us or our customers,   we want to hear about it. Please note that issues without security impact submitted to our program will be closed out - please review our out-of-scope section before submitting.\nBy submitting a report or otherwise disclosing a vulnerability to us, you are indicating that you have read and agreed to follow the rules outlined in this policy. To ensure Dyson maintains its high level of reputation, and to keep ourselves and our customers safe,   we ask you to adhere to the below rules when testing:\n\n•\tSocial engineering techniques (e.g. phishing, vishing, smishing) of Dyson employees or users are strictly prohibited.\n•\tMake a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n•\tBe respectful when interacting with our team, our team will do the same.\n•\tDo not intentionally harm the experience or usefulness of the service to others, including degradation of services and denial of service attacks.\n•\tPerforming tests against accounts belonging to Dyson employees or customers is prohibited. Only interact with accounts you have created or with explicit permission of the account holder.\n•\tAny physical attacks against Dyson property or data centers are not permitted. \n•\tInclude a custom HTTP header in all your traffic of the format **X-Hackerone: <Username>**\n\n## Report & Bounty Eligibility\n\nWe appreciate every researcher who submits valid issues to us as it allows us to improve the security of our company and our products. To qualify for a reward, and to ensure that we can continue to have a working relationship you must:\n•\tBe the first reporter of the vulnerability.\n•\tSubmit a vulnerability within our Scope.\n•\tDemonstrate a security impact to an asset or application in scope.\n•\tFollow Hacker One’s disclosure guidelines.\n•\tHave a working POC outlining the security implications for your report.\n•\tNot have publicly disclosed the vulnerability without our consent.\n•\tNot be employed by Dyson or any of its affiliates or an immediate family member of a person employed by Dyson or any of its affiliates.\n•\tProvide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n•\tSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n•\tNot be using duplicate Hacker One accounts.\n•\tSubdomain takeover vulnerabilities will be triaged as low severity across all asset categories. If the researcher is unable to demonstrate an actual takeover, the bounty awarded will be reduced by 50%. Furthermore, rewards for subdomain takeover findings will only be issued in cases where a practical takeover is demonstrably achievable within the given scenario.\n•\tAll the reports related to \"Promo-Code /Coupon Code / Free Shipping \" vulnerabilities will be considered as Informative or N/A across all asset categories. These issues are not eligible for bounty or further triage.\n• Open redirects will be considered as Informative across all asset categories. \n\n\nPlease note that multiple vulnerabilities caused by one underlying issue will be awarded one bounty. In the event of duplicates, we only award the first report that was received (provided that it can be fully reproduced).\nBefore submitting an issue on an asset, make sure it is not listed in the out-of-scope section. Vulnerabilities reported on out-of-scope assets will be closed as N/A.\n\n\n## Reporting guidelines & tips\n\n* Please submit reports in plaintext, not via an attached file like DOC or PDF.\n* Please only submit one issue per report – this ensures you will receive credit for each issue and avoids delays in processing your report.\n* Quality matters – please make it clear what you are reporting and what the impact is. Higher quality reports help us quickly understand the issue, reduce the need for back-and-forth, and can therefore result in higher pay-outs.\n* Provide detailed written steps on how to reproduce your issue.\n* Before assigning a severity, please consider exactly how it impacts the security or privacy of Dyson users or systems, how an attacker could exploit, and how it could be fixed.\n* Please fill out every section and questions on the report as this will facilitate the triage process, thus avoiding delays.\n* For reports on assets that fall within the other assets category, please provide additional information and indicators suggesting why the asset belongs to Dyson.\n\nIf the vulnerability is particularly complex, including a video may be helpful – but please do not submit a report that is only a video.\nGeneral software bugs that do not represent any security risk or are excluded from our program can be reported via email to security.vulnerabilities@dyson.com. Additionally, if unsure whether a domain belongs to Dyson please contact the aforementioned email address for clarification.\n\n**At this time Dyson is not permitting public disclosure of submitted reports.** \n\n\n## Guidance on AI-Generated Reports\n\nWe’ve noticed a rise in reports created entirely by AI that lack practical value. While AI can help improve clarity and organization, reports must include your own analysis, testing, or insights to meet our standards. Submissions that appear fully automated and lack genuine human contribution will be rejected. We expect thoughtful research, solid evidence, and analytical thinking—AI should assist, not replace, your work.\n\n\n## Engagement and Resolution Timeframes\n\nIf you discover a potential security problem in our products, applications or websites. Please let us know as soon as possible.\n\nDyson will make a best effort to meet the following SLAs for hackers participating in our program:\n* Time to first response (from report submit) - 5 business days.\n* Time to triage (from report submit) - 10 business days.\n* Time to bounty (from triage) - 30 business days\n* Time to resolution (from triage) - 30 business days (Low and Medium issues may require more time)\n\n## Qualifying Vulnerabilities\n\nAny design or implementation issue that is reproducible and substantially affects the security of Dyson is likely to qualify.\n \nWhen in doubt whether we would consider a vulnerability for a reward, map out the impact the vulnerability would have to Dyson or Dyson’s customers.\n\n## Reflected cross-site scripting \n\nWe encourage you to increase the severity of your reflected cross-site scripting/open redirect findings by going beyond the traditional alert (1) pop-up or a redirection to google.com.\n\n* Reflected cross-site scripting reports without additional demonstrated impact (e.g. account takeovers) will be set to low severity.\n\n## Non-Qualifying Vulnerabilities\n\nPlease consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Reports generated using automated scanning tools\n* Newly disclosed \"0-day\" or \"zero-day\" vulnerabilities, publicised less than a month prior\n* Issues without clearly identified security impact, such as clickjacking on a static website, missing security headers, or descriptive error messages\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms\n* Issues related to software or protocols not under Dyson control\n* Clickjacking or lack of X-Frame-Options on pages without an authenticated, state-changing action\n* CSRF on non-sensitive actions, such as login, logout, adding items to a shopping cart etc.…\n* Username/Email Enumeration\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS). All reports related to \"Lack of rate-limiting\" or \"Rate \n    Limiting\" related vulnerabilities will be considered as Out Of Scope.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Brute-forcing coupon codes.\n* Lack of secure/HTTP Only flags for non-sensitive data.\n* Banner grabbing issues.\n* Bugs requiring exceedingly unlikely user interaction (e.g., requiring a user to manually type in an XSS payload)\n* Social Media account takeovers\n* We are aware the S3 software update repository (software.dyson.com) can be enumerated, but the binary images within should be encrypted. We would love to hear if they aren’t, or they can be unencrypted!\n* We know of the SPF issues; there is an ongoing project to rectify this, so do not submit email spoofing reports.\n* Credentials submitted from the sources of Dark Web.\n* Rate Limiting Bugs on Password Reset Endpoints.\n* Reports related to Outdated/Old links will not be eligible for a reward and will be considered as N/A.\n* Reports of cache poisoning vulnerabilities that rely on the use of \"cachebusters\"—such as unique or random query parameters appended to resource URLs in order to trigger the cache poisoning—are not eligible for bounty consideration. Only reports demonstrating a cache poisoning impact against default or standard asset URLs, without the need to manipulate the URL with arbitrary or non-standard parameters, will be considered within scope.\n\n## Non-Qualifying Vulnerabilities (IoT Hardware)\n\nThe following bugs relating to IoT Hardware are unlikely to be eligible for a bounty:\n\n* We are aware that Bluetooth on the device is constantly on, this was a design decision.\n* We are aware of the availability of some debug/serial interfaces on certain components within the product. Whilst the discovery of these interfaces will not be eligible for bounty payments, any sensitive data yielded or manipulations you can perform over said interfaces will be.\n* Local network flooding that causes devices to stop responding for a brief period of time.\n* We are aware that in some Dyson products, direct communication traffic (MQTT) between a mobile device and the product which is routed over a secured Wi-Fi network is not encrypted.\n\n\n## Our fine print\n\nThe information on this page is intended only for security researchers. If you’d like to know more about our security and data privacy, please see our [Privacy website](http://privacy.dyson.com/en/homepage.aspx)\n\n#The Dyson Responsible Disclosure Program\nDyson takes the security of its customers, employees and technology very seriously. Whilst we build our systems to be as robust as possible, we greatly value the support of security experts around the world in helping us identify and eliminate any weaknesses. \n\nIf you think you've found a security flaw, we welcome the chance to work with you to resolve the issue. \n \n>The information on this page is intended only for security researchers. If you’d like to know more about our security and data privacy, please see our [Privacy website](http://privacy.dyson.com/en/homepage.aspx). \n \n# Disclosure policy: how you can help us\nIf you discover a potential security problem in our products, applications or websites, please let us know as soon as possible. We will endeavor to acknowledge your correspondence within 72 hours and provide regular updates to you about progress. \n\nFinally, please make every effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n \n \n# Bug Bounty Program\n\nDyson currently runs a Bug Bounty program on Hacker One, if you wish to submit a new report via the program, do so here:  \n\nhttps://hackerone.com/dyson?type=team \n\n#Vulnerability Disclosure Program \n\nDyson currently run a Vulnerability Disclosure Program, if you wish to submit a new report via the program, please email security.vulnerabilities@dyson.com. Please note: we do not pay bounties for issues reported to us outside of our Bug Bounty program.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "993135524",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "(Dyson Link App - https://itunes.apple.com/gb/app/dyson-link/id993135524)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.dyson.mobile.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "(Dyson Link App - https://play.google.com/store/apps/details?id=com.dyson.mobile.android)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Dyson Connected Products (IoT Hardware)",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Dyson Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We welcome reports for all other assets that are owned or managed by Dyson. If you are unsure if something you have found is a Dyson asset, then please contact us first for clarification.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Github findings",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any issues found on Github that could pose a risk for Dyson such as leaked credentials.\nThese reports will be evaluated on a case-by-case basis",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "comm.dyson*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Asset out of scope as it is pending internal review. \n\nThis also includes:\n* comms.* ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bounce.dyson*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Asset out of scope as it is pending internal review. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sakti3.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "on.dyson.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sm2.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "m.shop.dyson.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "register-dyson.co.kr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jobs.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reviews.dyson*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sm3.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "view.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mail.register-dyson.co.kr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "test.oepay.dyson.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "shop.dyson.co.kr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*central.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.dyson.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.dyson.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.dysoncanada.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.dyson.it",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.dyson.ie",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

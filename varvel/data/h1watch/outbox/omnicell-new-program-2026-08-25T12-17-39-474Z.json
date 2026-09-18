@@ -1,0 +1,54 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "omnicell",
+      "name": "Omnicell",
+      "offersBounties": false,
+      "assets": [
+        "*.enlivenhealth.co",
+        "*.myomnicell.com",
+        "*.omnicell.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\omnicell-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "omnicell",
+  "name": "Omnicell",
+  "url": "https://hackerone.com/omnicell",
+  "policy": "# Response Targets\n\nOmnicell Corporation will make reasonable efforts to meet the following response\ntargets for researchers participating in our program:\n\n- Time to first response from report submission: 3 business days.\n- Time to triage from report submission: 3 business days.\n\nWe will also make reasonable efforts to keep you updated on our progress throughout\nthe process.\n\n# Disclosure Policy\n\n- Do not discuss this program or any vulnerabilities (even resolved ones) outside\nof the program without express consent from the organization.\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n\n- Please submit detailed reports that include reproducible steps. Reports that do\nnot contain enough detail to reproduce the issue will not be eligible for a reward.\n- Provide technical details of the vulnerability or concern, such as:\n  - URLs or systems impacted, including software version, if applicable\n\n  - Additional information that will be helpful to us such as details of testing\nenvironment and tools used to discover vulnerabilities\n  - Discovery method, when, where, how\n- Submit one vulnerability per report, unless multiple vulnerabilities must be\nchained together to demonstrate impact.\n- In the event of duplicate reports, only the first report received will be eligible for\nan award, provided the issue can be fully reproduced.\n- Multiple vulnerabilities that stem from a single underlying root cause will be\neligible for a single acknowledgment only.\n- Social engineering, including phishing, vishing, and smishing, is prohibited.\n- Act in good faith to avoid privacy violations, data destruction, and service\ninterruption or degradation. Only interact with accounts you own or for which you\nhave the account holder’s explicit permission.\n- Test devices will not be provided.\n- Keep requests to Omnicell web servers to a minimum.\n- Omnicell Employees or contractors (past and current) and their associates/family\nmembers are not eligible.\n\n# Out of Scope Vulnerabilities\n\nWhen submitting vulnerability reports, please consider both the attack scenario or\nexploitability and the security impact of the issue. The following are considered out of\nscope:\n\n- Clickjacking on pages that do not perform sensitive actions.\n- Unauthenticated, logout, or login CSRF.\n- Attacks that require a machine-in-the-middle position or physical access to a\nuser’s device.\n- Previously known vulnerable libraries without a working proof of concept.\n- CSV injection without a demonstrated vulnerability impact.\n- Missing SSL/TLS best-practice configurations including weak cipher suites, TLS\nversions.\n- Minor CORS misconfiguration without data exposure.\n\n- Any activity that could disrupt service availability, including DoS.\n- Content spoofing or text injection issues that do not demonstrate an attack vector\nor the ability to modify HTML/CSS.\n- Rate-limiting or brute-force issues on non-authentication endpoints.\n- Missing Content Security Policy best practices.\n- Missing HttpOnly or Secure cookie flags.\n- Missing email security best practices, including invalid, incomplete, or missing\nSPF, DKIM, or DMARC records.\n- Vulnerabilities that affect only outdated or unpatched browsers that are fewer\nthan two stable versions behind the latest stable release.\n- Software version disclosure, banner identification issues, or descriptive error\nmessages and headers, such as stack traces, application errors, or server errors.\n- Public zero-day vulnerabilities with an official patch available for less than one\nmonth; these may be considered on a case-by-case basis.\n- Open redirects unless additional security impact can be demonstrated.\n- Issues that depend on unlikely user interaction.\n- Issues in third-party services such as bugs in Cloud providers (AWS, Azure,\nGCP), embedded widget.\n\n# Unauthorized Conduct\n\nThis policy is designed to be compatible with common vulnerability disclosure good\npractice. Researchers shall disclose potential vulnerabilities in accordance with the\nfollowing guidelines:\n\n- Do not engage in any activity that can potentially or actually cause harm to\nOmnicell, our customers, our employees, or any third-party.\n- Do not engage in any activity that can potentially or actually stop or degrade\nOmnicell services or assets.\n- Do not perform automated scanning or testing.\n- Do not store, share, compromise or destroy Omnicell or third-party data,\nincluding data of individuals. If Personally Identifiable Information (PII) is\nencountered, you should immediately halt your activity, purge related data from\n\nyour system, and immediately contact Omnicell. This step protects any\npotentially vulnerable data and you.\n- Provide Omnicell reasonable time to fix any reported issue, before such\ninformation is shared with a third party or disclosed publicly.\n- Hack, penetrate, or otherwise attempt to gain unauthorized access to Omnicell or\nthird-party applications, systems, or data.\n- Download, copy, disclose, corrupt, or prevent access or use any proprietary or\nconfidential Omnicell or third-party data, including customer data.\n- Adversely impact Omnicell or third-party the operation of Omnicell applications or\nsystems.\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered\nauthorized conduct and we will not initiate legal action against you. If legal action is\ninitiated by a third party against you in connection with activities conducted under this\npolicy, we will take steps to make it known that your actions were conducted in\ncompliance with this policy.\n\nThank you for helping keep Omnicell Corporation and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.omnicell.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.myomnicell.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.enlivenhealth.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

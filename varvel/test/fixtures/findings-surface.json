@@ -1,0 +1,53 @@
+{
+  "scope": {
+    "engagement": "acme-bbp",
+    "signedBy": "marcus · Red-Team-Lead · L4",
+    "cidrs": [ "203.0.113.0/24" ]
+  },
+  "nodes": [
+    { "id": "root-1", "type": "root", "label": "acme-bbp" },
+    { "id": "host-2", "type": "host", "label": "www.example.com", "ip": "203.0.113.10" },
+    {
+      "id": "finding-3", "type": "finding",
+      "label": "SQL injection in /login username parameter",
+      "sev": "crit", "risk": "high",
+      "ref": "https://www.example.com/login",
+      "conf": 95, "confidence": "confirmed",
+      "evidence": "POST /login HTTP/1.1\nHost: www.example.com\nCookie: session=4f8a2c-live-cookie-value\nAuthorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJVadQssw5c\n\nusername=admin' OR '1'='1&password=hunter2\n\nHTTP/1.1 200 OK — marker VRV-SQLI-9f2 present",
+      "validation": {
+        "state": "validated",
+        "oracle": "http repro: marker VRV-SQLI-9f2 present in response body",
+        "at": "2026-08-20T10:00:00.000Z",
+        "validatedAt": "2026-08-20T10:00:00.000Z",
+        "marker": "VRV-SQLI-9f2",
+        "control": { "line": "control read: garbage marker VRV-SQLI-9f2-GARBAGE absent (paired read clean)" }
+      }
+    },
+    {
+      "id": "finding-4", "type": "finding",
+      "label": "Reflected XSS in search box",
+      "sev": "med", "ref": "/search?q=", "conf": 40, "confidence": "suspected",
+      "evidence": "GET /search?q=<script>alert(1)</script> — appears reflected (unverified)"
+    },
+    {
+      "id": "finding-5", "type": "finding",
+      "label": "Claimed RCE via template injection",
+      "sev": "high", "ref": "/render", "confidence": "suspected",
+      "validation": {
+        "state": "refuted",
+        "oracle": "http repro: marker VRV-RCE-77 absent; control matched",
+        "at": "2026-08-21T09:00:00.000Z",
+        "control": { "matched": true }
+      }
+    }
+  ],
+  "edges": [
+    { "from": "host-2", "to": "finding-3", "kind": "finding" },
+    { "from": "host-2", "to": "finding-4", "kind": "finding" },
+    { "from": "host-2", "to": "finding-5", "kind": "finding" }
+  ],
+  "holds": [
+    { "action": "exfil-batch", "rule": "dlp", "target": "203.0.113.10", "at": "2026-08-20T11:00:00.000Z" }
+  ],
+  "counts": {}
+}

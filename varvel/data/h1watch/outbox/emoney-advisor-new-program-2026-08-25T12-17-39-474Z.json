@@ -1,0 +1,54 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "emoney-advisor",
+      "name": "eMoney Advisor",
+      "offersBounties": false,
+      "assets": [
+        "*.emaplan.com",
+        "*.emoneyadvisor.com",
+        "wealth.emaplan.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\emoney-advisor-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "emoney-advisor",
+  "name": "eMoney Advisor",
+  "url": "https://hackerone.com/emoney-advisor",
+  "policy": "Maintaining the confidentiality, integrity and availability of our products is a priority at eMoney Advisor. eMoney Advisor appreciates the role of security researchers in improving our security posture. We are committed to creating a safe and transparent environment for the reporting of vulnerabilities.\r\n\r\nIf you believe you have found a security vulnerability that could impact eMoney Advisor or our users, we encourage you to report this right away. eMoney Advisor will investigate all legitimate reports and fix the problem as soon as we can. We ask that you follow eMoney Advisor’s Vulnerability Disclosure Policy, HackerOne’s Disclosure Guidelines, and make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service during your research. We value the positive impact of your work and thank you in advance for your contribution.\r\n\r\n# Response Targets\r\n\r\neMoney Advisor will use our commercially reasonable efforts to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------------- | ---------------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\neMoney Advisor will try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n\r\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express written consent from eMoney Advisor.\r\n\r\n* Follow HackerOne's disclosure guidelines available at (https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n\r\n* When duplicate reports occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Scope\r\n\r\nSecurity vulnerabilities that are discovered in domains owned, operated or controlled by eMoney Advisor are in scope.\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n\r\n* Attacks requiring MITM or physical access to a user's device.\r\n\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n\r\n* Missing best practices in SSL/TLS configuration.\r\n\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n\r\n* Missing best practices in Content Security Policy.\r\n\r\n* Missing HttpOnly or Secure flags on cookies\r\n\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n\r\n* Tabnabbing\r\n\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n\r\n* Issues that require unlikely user interaction\r\n\r\n# Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy but will have no further liability for your activities.\r\n\r\nThank you for helping keep eMoney Advisor and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.emaplan.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.emoneyadvisor.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wealth.emaplan.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

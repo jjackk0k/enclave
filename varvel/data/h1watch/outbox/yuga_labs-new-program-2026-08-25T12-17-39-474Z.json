@@ -1,0 +1,81 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "yuga_labs",
+      "name": "Yuga Labs",
+      "offersBounties": true,
+      "assets": [
+        "*.boredapeyachtclub.com",
+        "*.otherside.xyz",
+        "*.yuga.com",
+        "*.yugalabs.io",
+        "831287358355275877",
+        "961114489414094898"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\yuga_labs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "yuga_labs",
+  "name": "Yuga Labs",
+  "url": "https://hackerone.com/yuga_labs",
+  "policy": "Welcome to the Yuga Labs bug bounty program! We care deeply about the security of our community and we look forward to working with bug bounty hunters to find and remediate vulnerabilities.\n\nShaping web3 through storytelling, experiences, and community. We believe that the potential of web3 can be realized when we start with imagination, not limitations. No borders, no rulers, just people making cool shit, together. In the Yugaverse, fans and players are owners and creators, and in the game of web3, everyone can create and play together on one team.\n\n# Response Targets\nYuga Labs will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 4 days |\n| Time to Bounty | 5 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Discord Policy\nFor the Discord program, we're looking for any issues where an attacker may be able to:\n* Access NFT-gated channels without owning the appropriate NFT (e.g. #members-only)\n* Post to restricted channels (see **Announcement Flag** below)\n* Perform any unauthorized action against the Discord server\n\nWhen testing, avoid testing in public channels like #general and take all steps to avoid disrupting the Discord server. You are expected to follow all rules listed in the #rules channel. Social engineering is explicitly out of scope and will result in a permanent ban from both the Discord server and the HackerOne program.\n\nIf you find you're able to perform unauthorized actions, do not perform any unnecessary test actions. For example, if you identify a vulnerability allowing you to post to any channel, send one test message to the #announcements-canary channel, stop testing, and report the issue.\n\n## Announcement Flag\nFor the purposes of the bug bounty program, we've created a hidden #announcements-canary channel on the  Bored Ape Yacht Club, Otherside, Meebits, and Cryptopunks Discord servers which has the same permissions as the #announcements channel. If you identify a way in which you can post a custom message to the #announcements-canary channel, we will award (at minimum) a critical payout.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* HTTP request smuggling without clear a reproducible demonstration of harm to another user (e.g. poisoned link, collected HTTP requests from another user, etc)\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service, including NextJS/CloudFlare header DoS\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction will be awarded on a case by case basis\n* Granting temporary access to token-gated functionalities across multiple wallets via transferring an NFT between addresses\n* Issues related to authentication on the Meebits and Cryptopunks websites\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Yuga Labs and our users safe! For any questions regarding the Yuga Labs HackerOne program, please contact security@yugalabs.io",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.boredapeyachtclub.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.yuga.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.yugalabs.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.otherside.xyz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "NOTE: all hosts with CNAME records pointed to out-of-scope, or partner websites, will be considered out of scope. This includes \"odk.otherside.xyz\", and additionally, all development domains that are not explicitly in scope are considered out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "831287358355275877",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Bored Ape Yacht Club Discord Server\nCanary Channel ID: 999376248943943813",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "961114489414094898",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Otherside Discord Server\nCanary Channel ID: 999375944731082923",
+      "max_severity": "critical"
+    }
+  ]
+}

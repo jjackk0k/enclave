@@ -1,0 +1,172 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "palantir_public",
+      "name": "Palantir Public",
+      "offersBounties": true,
+      "assets": [
+        "Any public (Internet-facing) infrastructure owned and operated by Palantir.",
+        "Any public cloud (e.g. Amazon AWS, Microsoft Azure) resource or infrastructure operated and managed by Palantir."
+      ],
+      "exclusions": [
+        "Any infrastructure or assets related to Silk, FancyThat, or other Palantir acquisitions.",
+        "blog.palantir.com",
+        "certification.palantir.com",
+        "community.palantir.com",
+        "explore.palantir.com",
+        "gear.palantir.com",
+        "go.palantir.com",
+        "info.palantir.com",
+        "investors.palantir.com",
+        "learn.palantir.com",
+        "palantirfedstart.com",
+        "palantirpacusa.com",
+        "sandbox.training.palantir.com",
+        "store.palantir.com",
+        "training.palantir.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\palantir_public-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "palantir_public",
+  "name": "Palantir Public",
+  "url": "https://hackerone.com/palantir_public",
+  "policy": "If you've identified a potential security flaw in our infrastructure or software, please let us know within 24 hours.\r\n\r\nPrior to reporting, please review the following information including our responsible disclosure policy, scope, reward information, and other guidelines.\r\n\r\n# Program Overview\r\nThis HackerOne bug bounty program is public and is designed for non-product security issue reporting. \r\n\r\n#Responsible Disclosure Policy\r\nPalantir is proud to base our responsible disclosure policy on the https://disclose.io/ vulnerability disclosure framework. Security is one of our core tenets at Palantir, and we value the input of security professionals acting in good faith to help us maintain a high standard for the security and privacy of our users. This includes encouraging responsible vulnerability research and disclosure. This policy sets out our definition of good faith in the context of finding and reporting vulnerabilities, as well as what you can expect from us in return.\r\n\r\n##When working with us according to this policy, you can expect us to:\r\n\r\n- Extend Safe Harbor for your vulnerability research that is related to this policy.\r\n- Work with you to understand and validate your report, including a timely initial response to the submission.\r\n- Work to remediate discovered vulnerabilities in a timely manner.\r\n- Recognize your contribution to improving our security if you are the first to report a unique vulnerability, and your report triggers a code or configuration change. This recognition may result in award of financial compensation (see “Rewards”) at Palantir’s discretion if allowable under regulatory, compliance, and legal requirements.\r\n\r\n##To encourage vulnerability research and to avoid any confusion between good-faith hacking and malicious attack, we ask that you:\r\n- Play by the rules. This includes following this policy, as well as any other relevant agreements.\r\n- Politely report any vulnerability you’ve discovered promptly to the Palantir information security team. We reserve the right to disqualify individuals from the program for malicious, disrespectful or disruptive behavior.\r\n- Include detailed information, including the process of replication, for the security issue in question.\r\n- Do not engage in repeated submission of rejected, low-quality, or automated vulnerability reports.\r\n- Do not access, modify, destroy, save, transmit, alter, transfer, use or view data belonging to anyone other than yourself. If a vulnerability provides unintended access to data, please cease testing, purge local information, and submit a report immediately.\r\n- Avoid violating the privacy of others, disrupting our systems, destroying data, and/or harming user experience.\r\n- Keep the details of any discovered vulnerabilities confidential, according to the Disclosure Policy. Uncoordinated public disclosure of a vulnerability may result in disqualification from this program.\r\n- Use only the official channels designated (see “Reporting”) to discuss vulnerability information with us.\r\n- Perform testing only on in-scope systems, and respect systems and activities which are out-of-scope.\r\n- Do not engage in extortion, threats, or other tactics designed to elicit a response under duress. Palantir will not allow safe harbor or award rewards for vulnerability disclosure conducted under threat of full disclosure, exposure of data, or withholding of vulnerability information.\r\n\r\n##When conducting genuine in scope vulnerability research according to this policy, we consider this research to be:\r\n- Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy when conducting genuine vulnerability research.\r\n- Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls when conducting genuine vulnerability research according to this policy.\r\n- Exempt from restrictions in our Terms & Conditions that would interfere with conducting genuine vulnerability security research, and we waive those restrictions on a limited basis for genuine vulnerability research done under this policy.\r\n- Lawful, helpful to the overall security of the Internet, and conducted in good faith.\r\n- You are expected, as always, to comply with all applicable laws.\r\n-If at any time you have concerns or are uncertain whether your security research is consistent with this policy, please submit a report through one of our official Reporting channels before going any further.\r\n\r\n#Out of Scope\r\n\r\n- Attacks designed or likely to degrade, deny, or adversely impact services or user experience (e.g., Denial of Service, Distributed Denial of Service, Brute Force, Password Spraying, Spam...).\r\n- Attacks designed or likely to destroy, corrupt, make unreadable (or attempts therein) data or information that does not belong to you.\r\n- Attacks designed or likely to validate stolen credentials, credential reuse, account takeover (ATO), hijacking, or other credential-based techniques.\r\n- Intentionally accessing data or information that does not belong to you beyond the minimum viable access necessary to demonstrate the vulnerability.\r\n- Performing physical, social engineering, or electronic attacks against Palantir personnel, offices, wireless networks, or property.\r\n- Security issues in third-party applications, services, or dependencies that integrate with Palantir products or infrastructure that do not have a demonstrable proof of concept for the vulnerability (e.g., libraries, SAAS services).\r\n- Security issues or vulnerabilities created or introduced by the reporter (e.g., modifying a library we rely on to include a vulnerability for the sole purpose of receiving a reward).\r\n- Attacks performed on any systems not explicitly mentioned as authorized and in-scope.\r\n- Reports generated from automated vulnerability assessment tools.\r\n- Reports of missing “best practices” or other guidelines which do not indicate a security issue.\r\n- Attacks related to email servers, email protocols, email security (e.g., SPF, DMARC, DKIM), or email spam.\r\n- Missing cookie flags on non-sensitive cookies.\r\n- Reports of insecure SSL/TLS ciphers (unless accompanied with working proof of concept).\r\n- Reports of how you can learn whether a given client can authenticate to a Palantir product or service.\r\n- Reports of mappings between code names and client names.\r\n- Reports of simple IP or port scanning.\r\n- Missing HTTP headers (e.g. lack of HSTS).\r\n- Email security best practices or controls (e.g. SPF, DKIM, DMARC).\r\n- Software or infrastructure bannering, fingerprinting, or reconnaissance with no proven vulnerability.\r\n- Clickjacking or self-XSS reports.\r\n- Reports of publicly resolvable or accessible DNS records for internal hosts or infrastructure.\r\n- Reports of user-provided remote code execution in sandboxed environments (e.g., Product Features).\r\n- Domain-based phishing, typosquatting, punycodes, bitflips, or other techniques.\r\n- Violating any laws or breaching any agreements (or any reports of the same).\r\n- Publicly-disclosed vulnerabilities which have already been reported to Palantir or are already known to the wider security community.\r\n- Reports of security issues already known and tracked by the Palantir information security team.\r\n\r\n#Rewards\r\nPalantir provides rewards to vulnerability reporters at its discretion. Our minimum reward is $250 USD.\r\n\r\nPlease note that Palantir reserves the right to adjust the bounty depending upon the severity of the vulnerability reported and quality of the report.\r\n\r\nPalantir will only reward the first reporter of a vulnerability and only if a discovered vulnerability is deemed to be in scope and reported in compliance with this Policy.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Any public (Internet-facing) infrastructure owned and operated by Palantir.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is an expansive scope to help you identify security issues in any Internet-facing infrastructure we run. \n\nAll domains and subdomains owned and operated by Palantir are included within the scope. These may include, but are not limited to: \n* palantir.com\n* palantir.tech\n* palantir.build\n* palan",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any public cloud (e.g. Amazon AWS, Microsoft Azure) resource or infrastructure operated and managed by Palantir.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- Public cloud storage accounts. (e.g. AWS S3 buckets, Azure data blobs)\n- Public cloud compute servers. (e.g. AWS EC2 instances, Azure Virtual Machines)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gear.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "investors.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "go.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "explore.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "info.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any infrastructure or assets related to Silk, FancyThat, or other Palantir acquisitions.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "certification.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "training.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "learn.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd-party certification website/service.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "palantirpacusa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any domain related to the Palantir PAC. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "palantirfedstart.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any domain related to FedStart or Palantir FedStart. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sandbox.training.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "store.palantir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

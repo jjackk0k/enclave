@@ -1,0 +1,78 @@
+{
+ "at": "2026-09-12T02:13:44.472Z",
+ "opportunity": "line",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "jp.naver.line.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to jp.naver.line.android:443 refused: host unreachable"
+  },
+  {
+   "host": "com.linecorp.linelite",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.linecorp.linelite:443 refused: host unreachable"
+  },
+  {
+   "host": "line.me",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "openresty",
+    "strict-transport-security": "max-age=43200"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "line-apps.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to line-apps.com:443 refused: connection not allowed by ruleset"
+  },
+  {
+   "host": "line.naver.jp",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,217 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fanduel",
+      "name": "FanDuel",
+      "offersBounties": true,
+      "assets": [
+        "*.fanduel.com",
+        "*.mgmt.fndlsb.net",
+        "*.prd.fndlsb.net",
+        "*.tvg.com",
+        "*inf.fndlsb.net",
+        "1413721906",
+        "1485539253",
+        "1506229470",
+        "4njbets.com",
+        "4njbets.us.betfair.com",
+        "599664106",
+        "6740879082",
+        "com.fanduel.android.self",
+        "com.fanduel.casino",
+        "com.fanduel.flywheelnativecontainer.picks",
+        "com.fanduel.racing",
+        "com.fanduel.sportsbook",
+        "login-4ngbets.us.betfair.com",
+        "login-4njbets.us.betfair.com",
+        "www.4njbets.com"
+      ],
+      "exclusions": [
+        "*.fndl.dev",
+        "affiliates.fanduel.com",
+        "equibase-store.fanduel.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fanduel-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fanduel",
+  "name": "FanDuel",
+  "url": "https://hackerone.com/fanduel",
+  "policy": "#Bug Bounty Program Policy\nAt FanDuel, Everything Begins with the Customer. We strive to protect our valued customers from attackers who seek to compromise the confidentiality, integrity or availability of our platform. We also recognize the important role that the research community plays in bolstering our security. We look forward to working with you to identify and remediate vulnerabilities to keep our platform and its customers safe.\n\nAt FanDuel, our talented team of engineers work non-stop to make our code as secure as possible. However, software without a single vulnerability simply does not exist in the real world. As our products evolve and technology advances, new vulnerabilities are bound to arise. Our Bug Bounty Program policy and partnership with HackerOne help us stay ahead of any potential problems. If you believe you've found a security issue in our product or service, we encourage you to notify us. Good luck and happy hunting!\n\n#Response Targets\nFanDuel will make a best effort to meet the following SLAs for hackers participating in our program:\n\nType of Response                 SLA in business days\nFirst Response                        0-2 days\nTime to Triage                         3-5 days\nTime to Resolution              depends on severity and complexity\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n#Conduct Guidelines\n While we encourage you to discover and report any vulnerabilities you find in a responsible manner, the following conduct is prohibited and will result in disqualification from the Bug Bounty Program. By submitting a report to this program you agree to adhere to these guidelines.\n\n· Disclosing any vulnerabilities or suspected vulnerabilities you discover to any other person without explicit FanDuel authorization\n· Disclosing the contents of any submission to this program without explicit FanDuel authorization\n· Accessing sensitive personally identifiable information (PII) of any person stored on a FanDuel product or service including, but not limited to, medical or health information, Social Security numbers, passport numbers, driver’s license numbers, bank account information, credit or debit card information, etc. If you encounter any PII do not proceed with access and immediately purge any local information, if applicable.\n· Performing actions that may negatively affect FanDuel system performance or its users (e.g. Spam, Phishing, Brute force, Distributed Denial of Service (DDoS))\n· Conducting any kind of physical attack on FanDuel personnel, property or data centers\n· Social engineering any FanDuel employee or contractor\n· Exfiltrating data. Please test only the minimum necessary to validate a vulnerability (we can verify if data exfiltration would be possible from a vulnerability, and will reward with the impact in mind)\n· Violating any laws or breaching any agreements in order to discover vulnerabilities\n \n#Disclosure Guidelines\n· Let us know as soon as possible upon discovery of a potential security issue and we'll make every effort to quickly resolve the issue.\n· Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n· Please do not discuss or disclose any vulnerabilities (even resolved ones) outside of the program without express written consent from the organization.\n· Follow HackerOne's Disclosure Guidelines.\n\n#Program Rules\n· Please provide detailed reports with clear steps to reproduce the behavior and concrete evidence the target is vulnerable in the way described. If the report does not provide this information, the report may be closed as Not Applicable.\n· Submit one vulnerability per report, unless you need to chain vulnerabilities to fully communicate impact.\n· When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n· Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n· Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n· Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n· Only interact with accounts you own or with explicit permission of the account holder.\n· Large-scale vulnerability scanners, scrapers, or automated tools which produce excessive amounts of traffic are not permitted. Failure to comply may result in suspension of your FanDuel account and a ban of your IP address.\n· *Note*: We do allow the use of automated tools so long as they do not produce excessive amounts of traffic. For example, running one nmap scan against one host is allowed, but sending 50,000 requests in two minutes using Burp Suite Intruder is excessive.\n· Use the header X-HackerOne: [HackerOne_Username] in all traffic sent during your tests, replacing the placeholder [HackerOne_Username] with your HackerOne username.\n·\nResearchers who meet any of the following criteria are ineligible for participation:\n· An individual who is under the age of 18.\n· A resident of, or submission of a report from, any countries/regions that are under United States sanctions or trade restrictions as determined by the US Office of Foreign Assets Control  (such as Cuba, Iran, North Korea, Sudan, and Syria or Crimea, nor a person designated on the U.S. Department of the Treasury’s Specially Designated Nationals List.\n· A current employee of FanDuel or a Flutter subsidiary, or an immediate family (parent, sibling, spouse, or child) or household member of such an employee.\n· A contingent staff member or contractor or vendor employee currently working pursuant to a contract with FanDuel or its affiliates in the Flutter Entertainment Group, or an immediate family (parent, sibling, spouse, or child) or household member of such a contingent staff member, contractor or vendor.\n\n#Vulnerabilities In Scope\nFanDuel is interested in the following types of vulnerabilities:\n· Cross-Site Scripting (XSS)\n· Cross-Site Request Forgery (CSRF)\n· Unauthorized Cross-Tenant Data Tampering or Access (for multi-tenant services)\n· Insecure Direct Object References\n· Injection Vulnerabilities\n· Authentication Vulnerabilities\n· Server-Side Code Execution\n· Privilege Escalation\n· Significant Security Misconfiguration (when not caused by user)\n· Directory Traversal\n· Information Disclosure\n· FanDuel applications and their associated services (specific to the FanDuel engineered/ controlled components of the product)\n· FanDuel reserves the right to reject any submission in its sole discretion, including any submission that it determines does not meet the above criteria or is in violation of any aspect of this policy. Submissions that entail or require the manipulation of data, network access, or physical attack against FanDuel offices or data centers and/or social engineering of our service desk, employees or contractors will not be accepted.\n· Submissions that result in the alteration or theft of FanDuel data, or the interruption or degradation of FanDuel systems will not be accepted. \n\n#Exclusions\nWhile researching, we'd ask you to refrain from:\n· Denial of service attacks or other activities that adversely affect the performance or delivery of FanDuel’s services and operations\n· Spamming\n· Social engineering (including phishing, impersonation or use of existing credentials), or any activities that involve coercion, harassment, threats, or intimidation of FanDuel staff or contractors\n· Any physical attempts against FanDuel property or the property of FanDuel customers\n· Exfiltrating data\n· Establishing command line access, a persistent presence on our systems or “pivoting” to other systems\n· Any activities that involve the disclosure or display to any third-parties or to the public of vulnerability report findings, including any proof of concept\n· Any activities that violate applicable laws and regulations\n\n#Out of Scope Vulnerabilities:\n When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following non-exhaustive list of issues are considered out of scope for our Bug Bounty Program:\n· Vulnerabilities disclosed without a working proof-of-concept or clear reproducible steps\n· Clickjacking on pages with no sensitive actions.\n· Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n· Descriptive Error Messages\n· Fingerprinting/Banner disclosure on common public services\n· Subdomain takeovers without a complete proof of concept\n· Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML\n· Bugs requiring exceedingly unlikely user interaction (e.g., requiring a user to manually type in an XSS payload)\n· Vulnerabilities related to networking protocols or industry standards not controlled by FanDuel, including flaws that impact outdated or unpatched browsers and plugins\n· Any product vulnerability in which the vulnerability is in code or hardware not created, designed, or updated by FanDuel\n· Any product vulnerability that involves device modification or bypassing of security controls inherent to the device in a way that requires ownership, hardware modification, or direct device access\n· Attacks requiring MITM or physical access to a user's device.\n· Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n· Missing best practices in SSL/TLS configuration.\n· SSL Attacks, such as BEAST/BREACH\n· Any activity that could lead to the disruption of our service (DoS).\n· Rate limiting or brute force issues on non-authentication endpoints\n· Missing best practices in Content Security Policy.\n· Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n· Vulnerabilities only affecting users of outdated or unpatched browsers (Less than 2 stable versions behind the latest released stable version)\n· Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n· Tab-nabbing\n· Open redirect - unless an additional security impact can be demonstrated\n· Broken link hijacking\n· Mobile app vulnerabilities requiring a malicious app install to exploit\n· Missing email verification on sign-up.\n· Dark web forum credential leaks are temporarily out of scope.\n· Missing best-practice bugs that don’t pose a direct/immediate risk to our company or our users (e.g. missing certificate authority authorization)\n· Missing HTTP headers (e.g. lack of HSTS), lack of Secure or HTTP only flag on non-sensitive cookies\n· Username enumeration on the `api.fanduel.com/users/[userId]` endpoint\n\n#Additional Considerations:\n· For regulatory purposes, FanDuel currently does not provide test accounts to security researchers. Researchers should create their own personal accounts on the platform for testing purposes. We recommend using your HackerOne @wearehackerone.com email address to any FanDuel account that you use to perform security research and testing. See Hacker Email Alias | HackerOne Help Center . Clearly identifying accounts that are associated with vulnerability research helps our teams to differentiate between possibly malicious activity and that of researchers involved in our Bug Bounty Program. Please note that adding your HackerOne email address does not provide any exemptions to our Terms of Service or permit you to act beyond our Program Rules and scope.\n· Please keep details of reported vulnerabilities confidential until we have fixed the issue and agree on disclosure timing. After remediation we may ask you to validate the fix. We ask you to provide FanDuel with a reasonable amount of time to resolve the vulnerability.\n· By submitting a report, you represent and warrant that the report is original to you and your work product and does not include code or other content copied or otherwise derived from a third party (including from the output of any generative AI tool), and that you have all legal rights and permissions to provide the report to FanDuel.\n· You hereby assign to FanDuel all rights, title, and interest (including all intellectual property rights), in the contents of all vulnerability reports that you submit to FanDuel. By participating in the Bug Bounty Program, you represent that you have the right to assign all such right, title and interest to us and that your participation in the vulnerability and disclosure program, and assignment of such right, title and interest will not breach any agreement you may have with a third party (e.g., your employer).\n\n#Good Faith Disclosures and Safe Harbor\nYou must act in good faith when investigating and reporting vulnerabilities to us.\nActing in good faith means that you will:\nFollow the rules outlined in this policy: This includes the Program Terms, FanDuel Terms of Use, and any terms and conditions for FanDuel’s domains that are in scope.\n\n*Respect our customers’ privacy*: You should only interact with FanDuel accounts you own or with explicit permission from the account holder. The intent of the program is designed to hunt for vulnerabilities in our products and services. If you encounter user information during the course of your research:\n· Stop at that point in your testing where you have an adequate proof of concept for submission purposes. Actions taken beyond this are not authorized.\n· Report the submission with a complete proof of concept immediately so we can investigate. Please redact any real user data in your report prior to submission.\n· Keep user information confidential; Do not save, copy, store, transfer, disclose, or otherwise retain the information.\n· Work with the FanDuel team on any further requests.\n\n*Extortion*: You should never illegally or in bad faith leverage the existence of a vulnerability or access to sensitive or confidential information, such as by making extortion demands or ransom requests. If you find a vulnerability, report it to us with no conditions attached.\n\n*Safe Harbor*: You should never leave a system, FanDuel employees or customers in a more vulnerable state than when you found them. This means that you should not engage in testing or related activities that degrades, damages, or destroys information within our systems, or that may impact our users, such as denial of service, social engineering or spam. If you have made a good faith effort to abide by these Program Terms, we will not initiate or recommend legal action against you, and if a third party initiates legal action, we will make it known that your activities were conducted pursuant to the Bug Bounty Program. Failure to act in good faith will result in immediate disqualification from the Bug Bounty Program. If at any point while researching a vulnerability, you are unsure whether you should continue, stop, report your initial finding(s) and request authorization to continue testing. FanDuel expressly reserves all rights not otherwise granted herein, including all legal rights in the event of noncompliance with this Policy. You shall comply with all applicable federal, state, and local laws and regulations in connection with your security research activities or other participation in this program. Actions that are not consistent with this Policy are not covered by our Safe Harbor provision and may make you legally liable.\n\nThank you for helping keep FanDuel and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.fanduel.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any testing, development, or perf environments are out of scope for this asset class unless the finding can reasonably impact production.\n\nFor any support assets such as `support.fanduel.com` please do not submit any findings related to public objects being disclosed via the `/s/sfsites/aura` path. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "599664106",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.fanduel.android.self",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "login-4ngbets.us.betfair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.4njbets.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mgmt.fndlsb.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.prd.fndlsb.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*inf.fndlsb.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "4njbets.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "4njbets.us.betfair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "login-4njbets.us.betfair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.fanduel.sportsbook",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fndl.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.fanduel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.fanduel.casino",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1506229470",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.fanduel.racing",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1485539253",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.fanduel.flywheelnativecontainer.picks",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6740879082",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1413721906",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "equibase-store.fanduel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tvg.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any testing, development, or perf environments are out of scope for this asset class unless the finding can reasonably impact production.\n\nFor any support assets such as `support.tvg.com` please do not submit any findings related to public objects being disclosed via the `/s/sfsites/aura` path. Many",
+      "max_severity": "critical"
+    }
+  ]
+}

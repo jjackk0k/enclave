@@ -1,0 +1,70 @@
+{
+ "at": "2026-09-16T19:35:38.895Z",
+ "opportunity": "zebra_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api.zillin.io",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: SOCKS5 dial 10.64.0.1:1080 -> api.zillin.io:443 aborted"
+  },
+  {
+   "host": "portal.uvtrace.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "CERT_HAS_EXPIRED: certificate has expired"
+  },
+  {
+   "host": "zebra.com",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "BigIP"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "zebra.engineering",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Google Frontend"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "hartsystems.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to hartsystems.com:443 refused: connection refused"
+  }
+ ]
+}

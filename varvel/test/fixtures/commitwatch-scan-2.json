@@ -1,0 +1,45 @@
+{
+  "_note": "commitwatch fixture scan-2: the four watched plugins each advanced ONE revision. Recorded mini diffs pinning the classifier bands: r1251 nonce-added = HIGH, r48 capability-tightened (open permission_callback closed) = HIGH, r89 $wpdb->prepare added = MEDIUM, r311 typo-only = NOISE FLOOR (not a lead).",
+  "plugins": {
+    "acme-forms": {
+      "head": 1251,
+      "changesets": [
+        {
+          "rev": 1251,
+          "message": "Add nonce verification to the settings AJAX handler",
+          "diff": "Index: trunk/includes/ajax.php\n===================================================================\n--- trunk/includes/ajax.php\t(revision 1250)\n+++ trunk/includes/ajax.php\t(revision 1251)\n@@ -38,6 +38,9 @@\n function acme_save_settings() {\n+\tcheck_ajax_referer( 'acme-settings', 'nonce' );\n+\n \t$opts = $_POST['settings'];\n \tupdate_option( 'acme_settings', $opts );\n \twp_send_json_success();\n }\n"
+        }
+      ]
+    },
+    "cap-shops": {
+      "head": 48,
+      "changesets": [
+        {
+          "rev": 48,
+          "message": "Tighten the import REST route permission callback",
+          "diff": "Index: trunk/cap-shops.php\n===================================================================\n--- trunk/cap-shops.php\t(revision 47)\n+++ trunk/cap-shops.php\t(revision 48)\n@@ -10,9 +10,12 @@\n \tregister_rest_route( 'capshops/v1', '/import', array(\n \t\t'methods' => 'POST',\n \t\t'callback' => 'capshops_import',\n-\t\t'permission_callback' => '__return_true',\n+\t\t'permission_callback' => 'capshops_can_manage',\n \t) );\n }\n+\n+function capshops_can_manage() {\n+\treturn current_user_can( 'manage_options' );\n+}\n"
+        }
+      ]
+    },
+    "initech-ai": {
+      "head": 89,
+      "changesets": [
+        {
+          "rev": 89,
+          "message": "Use prepared statements in the search query",
+          "diff": "Index: trunk/includes/db.php\n===================================================================\n--- trunk/includes/db.php\t(revision 88)\n+++ trunk/includes/db.php\t(revision 89)\n@@ -20,7 +20,7 @@\n function initech_find( $term ) {\n \tglobal $wpdb;\n-\treturn $wpdb->get_results( \"SELECT * FROM {$wpdb->prefix}initech WHERE name LIKE '%$term%'\" );\n+\treturn $wpdb->get_results( $wpdb->prepare( \"SELECT * FROM {$wpdb->prefix}initech WHERE name LIKE %s\", '%' . $term . '%' ) );\n }\n"
+        }
+      ]
+    },
+    "globex-seo": {
+      "head": 311,
+      "changesets": [
+        {
+          "rev": 311,
+          "message": "Fix a typo in the readme and a docblock",
+          "diff": "Index: trunk/readme.txt\n===================================================================\n--- trunk/readme.txt\t(revision 310)\n+++ trunk/readme.txt\t(revision 311)\n@@ -3,7 +3,7 @@\n-= AI powerd SEO toolkit =\n+= AI powered SEO toolkit =\nIndex: trunk/globex-seo.php\n===================================================================\n--- trunk/globex-seo.php\t(revision 310)\n+++ trunk/globex-seo.php\t(revision 311)\n@@ -1,5 +1,5 @@\n-// AI powerd SEO suite bootstrap\n+// AI powered SEO suite bootstrap\n"
+        }
+      ]
+    }
+  }
+}

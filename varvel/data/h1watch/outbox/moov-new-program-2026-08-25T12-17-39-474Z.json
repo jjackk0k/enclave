@@ -1,0 +1,130 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "moov",
+      "name": "Moov",
+      "offersBounties": false,
+      "assets": [
+        "api.moov.io",
+        "cards.moov.io",
+        "dashboard.moov.io",
+        "gateway.moov.io",
+        "infra-oss.moov.io",
+        "moov.io",
+        "oss.moov.io"
+      ],
+      "exclusions": [
+        "email-zendesk",
+        "slack.moov.io",
+        "support.moov.io",
+        "tools.cards.moov.io",
+        "tools.moov.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\moov-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "moov",
+  "name": "Moov",
+  "url": "https://hackerone.com/moov",
+  "policy": "#Brand Promise\r\n\r\nMoov looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n#Scope\r\n\r\nThis policy applies to any digital assets, owned, operated, or maintained by Moov, including public facing websites.\r\n\r\n#Out of Scope\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope: \r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n\r\n#Disclosure Policies\r\n\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the MOOV Financial.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n#Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep MOOV Financial and our users safe!\r\n\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "dashboard.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "api, cards, dashboard, infra-oss, js, oss, tools.cards, tools, demo, docs, www and slack are all in scope.  \n\nsupport.moov.io is not in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "email-zendesk",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "email (GH-mail) , zendesk (zendesk*), and slack (slack*) are not in scope.  ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "support.moov.io is not in scope for reporting as this is not our application.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cards.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gateway.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "infra-oss.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oss.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "slack.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tools.cards.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tools.moov.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

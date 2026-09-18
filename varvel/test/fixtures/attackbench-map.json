@@ -1,0 +1,26 @@
+{
+  "_attackbenchMap": {
+    "note": "FIXTURE — a mini capability map for attackbench tests. Modules name REAL repo files so the tools-layer honesty gate (repoFileExists) passes.",
+    "updated": "2026-08-26",
+    "scopeNote": "fixture scope note",
+    "nonClaim": "fixture non-claim text"
+  },
+  "capabilities": [
+    { "id": "fake-creds", "title": "Fixture credential-access capability",
+      "status": "exists",
+      "modules": ["engine/attackbench.mjs", "tools/attackbench.mjs"],
+      "techniques": ["T1078", "T1003"],
+      "note": "fixture exists entry covering two catalog ids" },
+    { "id": "fake-recovery-inhibit", "title": "Fixture planned recovery-inhibition capability",
+      "status": "planned",
+      "modules": [],
+      "techniques": ["T1490"],
+      "basis": "docs/nowhere.md — a documented plan, honestly not built",
+      "note": "fixture planned entry" },
+    { "id": "fake-channel", "title": "Fixture channel transport (out-of-catalog)",
+      "status": "exists",
+      "modules": ["engine/callback.mjs"],
+      "techniques": ["T1071.001"],
+      "note": "fixture out-of-catalog surface" }
+  ]
+}

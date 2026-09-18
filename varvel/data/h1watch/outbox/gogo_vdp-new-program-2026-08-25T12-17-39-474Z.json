@@ -1,0 +1,247 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gogo_vdp",
+      "name": "Gogo VDP",
+      "offersBounties": false,
+      "assets": [
+        "http://gogo.aero",
+        "http://gosatcom.net",
+        "http://satcomdirect.com.br",
+        "http://satcomsimple.com",
+        "http://satcomtest.com",
+        "http://www.sdgov.gogoair.com",
+        "www.*.gogoair.*.com",
+        "www.aeroxr.com",
+        "www.gogoair.com"
+      ],
+      "exclusions": [
+        "gogo-cards.com",
+        "gogo-tours.fr",
+        "gogo.mw",
+        "gogo705.com",
+        "gogo750.com",
+        "gogomuseumcafe.com",
+        "gogosqueez.com",
+        "gogotelugo.com",
+        "gogotours.ca",
+        "http://gpden.gogoair.com",
+        "http://gpmlb.gogoair.com",
+        "https://gogo.to",
+        "legacy.gogoair.com",
+        "www.gogo574.com",
+        "www.gogocloud.net",
+        "www.gogocommercialaviation.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gogo_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gogo_vdp",
+  "name": "Gogo VDP",
+  "url": "https://hackerone.com/gogo_vdp",
+  "policy": "📜 The Rules of Engagement: Our VDP Guidelines\nWelcome, researchers! To ensure a productive and positive partnership, we've established the following guidelines for our Vulnerability Disclosure Program. We ask that you read and adhere to these rules throughout your testing.\n\n✈️ Our Core Principles: Your Code of Conduct\nYour trust is essential to us. We expect all researchers to act in good faith and uphold the highest ethical standards.\n\n# **Testing Window:** Please limit all research and testing from Monday 2PM GMT to Friday 11PM GMT\n\nRule\tDescription\n* Act in Good Faith\tYour activities should be focused on finding and reporting vulnerabilities, not disrupting, damaging, or harming Gogo, our systems, our data, or our users.\n* Protect Our Data\tExfiltrating or copying any data is strictly prohibited. Your testing should be limited to verifying the existence of a vulnerability.\n* Respect User Privacy\tYou must not access, modify, or compromise the data or privacy of our customers or employees. Only interact with accounts you own or for which you have explicit, documented permission.\n\n🔧 Technical Guidelines for Testing\nTo ensure the stability of our services, please follow these technical rules.\n\n* **Identify Yourself:** Please add a custom HTTP header to all your testing traffic. This helps our team distinguish your research from malicious activity.\n\n*   **Header:** X-HackerOne-Research: [Your-H1-Username]\n\n* **Responsible Automated Scanning:** Automated scanning is welcome, but it must be throttled to a reasonable rate to avoid impacting our services. As a guideline, please limit requests to 10 requests per second. Excessive scanning may lead to your IP being blocked.\n\n# **DO NOT** submit ANY forms within ANY Gogo systems.\n\n📝 Reporting & Disclosure: How to Work With Us\nClear communication is key to a successful VDP.\n\n* **Prompt & Detailed Reports:** Report any potential vulnerability to us promptly through the HackerOne platform. High-quality reports are essential for our team to validate and fix issues. \n\nYour report must include:\n* **Detailed, Reproducible Steps:** If we cannot reproduce the issue, we cannot triage it.\n* **One Vulnerability Per Report:** Please submit a single, distinct vulnerability in each report. The only exception is when chaining vulnerabilities is necessary to demonstrate impact.\n* **First-to-Find:** We operate on a first-come, first-served basis. When duplicate vulnerabilities are reported, we will only award the first reproducible report received.\n* **Confidentiality & Disclosure:** To protect our users, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the HackerOne platform without our express written consent. Always follow HackerOne's disclosure guidelines.\n\n🎯 Target-Rich Environment: Qualifying Vulnerabilities\nWe are most interested in vulnerabilities that have a clear and demonstrable security impact. We encourage creative and impactful findings. \n\nExamples include:\n\n**Web & Application Security:**\t\n* Cross-Site Scripting (XSS)\n* Cross-Site Request Forgery (CSRF)\n* Insecure Direct Object References (IDOR)\n* Open Redirects (with demonstrated impact)\n\n**Authentication & Access Control:**\t\n* Authentication or Authorization Bypasses\n* Privilege Escalation\n* Directory Traversal\n\n**Data & Injection:** \n* Flaws\tInjection Vulnerabilities (e.g., SQL, LDAP, XML, command)\n* Server-Side Code Execution (RCE)\n\n**Information & Configuration:**\t\n* Information Disclosure (with proven, real-world impact)\n* Security Misconfigurations that expose sensitive data or enable a realistic attack scenario\n\n\n⛔ Out of Scope: What Not to Report\nThe following findings are considered out of scope. Reports for these issues will not be accepted.\n\nReports Lacking Evidence:\n* Vulnerabilities without clear, reproducible steps or a working proof-of-concept (PoC).\n* Subdomain takeovers without a complete PoC.\n\nNon-Actionable or Third-Party Issues:\n* Flaws in networking protocols, industry standards, or third-party software not controlled by Gogo.\n* Issues related to code, infrastructure, or services not owned or operated by Gogo.\n\nUnrealistic Scenarios:\n* Vulnerabilities requiring highly unlikely user interaction (e.g., a user manually pasting an XSS payload into their own browser).\n* Vulnerabilities that require physical access to a device, hardware modification, or social engineering.\n\nProhibited Targets & Actions:\n\n**DO NOT** target onboard aircraft systems or avionics.\n**DO NOT** target internal corporate IT systems or employee-only portals.\n**DO NOT** perform Denial of Service (DoS) or resource exhaustion attacks.\n**DO NOT** engage in social engineering of Gogo staff, contractors, or customers.\n**DO NOT** attempt to create accounts within ANY Gogo systems.\n**DO NOT** submit ANY forms within ANY Gogo systems.\n\nThank you for your partnership in helping keep Gogo and our users safe! We look forward to your contributions.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.gogoair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.gogocommercialaviation.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "NOT a Gogo asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.gogocloud.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "NOT a Gogo asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.aeroxr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://satcomtest.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://satcomsimple.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://satcomdirect.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://gosatcom.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://gogo.aero",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.sdgov.gogoair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://gogo.to",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "VDP",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogo750.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://gpmlb.gogoair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not test this asset.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://gpden.gogoair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not test this asset.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.gogo574.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Not Gogo asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogo705.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Not Gogo asset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "legacy.gogoair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "N/A",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogosqueez.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogo.mw",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogotours.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogotelugo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogomuseumcafe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogo-tours.fr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gogo-cards.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.*.gogoair.*.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

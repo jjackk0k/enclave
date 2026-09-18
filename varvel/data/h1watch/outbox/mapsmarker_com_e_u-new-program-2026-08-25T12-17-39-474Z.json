@@ -1,0 +1,58 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mapsmarker_com_e_u",
+      "name": "MapsMarker.com e.U.",
+      "offersBounties": false,
+      "assets": [
+        "Maps Marker Pro WordPress plugin"
+      ],
+      "exclusions": [
+        "*.mapsmarker.com/*",
+        "Leaflet Maps Marker WordPress plugin"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mapsmarker_com_e_u-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mapsmarker_com_e_u",
+  "name": "MapsMarker.com e.U.",
+  "url": "https://hackerone.com/mapsmarker_com_e_u",
+  "policy": "Current status: due to misuse of our program (out of scope target attacks which lead to performance issues on our production site) the bug bounty program for Maps Marker Pro is currently suspended! ",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Maps Marker Pro WordPress plugin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Download the current WordPress plugin package from https://www.mapsmarker.com/download-pro and install it on your server (instructions: https://www.mapsmarker.com/install).\n\nOn localhost installation no free 30 days trial activation is needed, on non localhost installations, you can either start a p",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mapsmarker.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The scope of our bug bounty program is only our WordPress plugin package - please refrain from testing our domains *.mapsmarker.com/*",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Leaflet Maps Marker WordPress plugin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The free version of our plugin \"Leaflet Maps Marker\" is out of scope of our bug bounty program",
+      "max_severity": "none"
+    }
+  ]
+}

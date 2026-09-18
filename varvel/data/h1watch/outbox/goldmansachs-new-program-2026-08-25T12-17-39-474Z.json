@@ -1,0 +1,235 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "goldmansachs",
+      "name": "Goldman Sachs",
+      "offersBounties": true,
+      "assets": [
+        "*.ayco.com",
+        "*.claritymoney.com",
+        "*.global-liquidity.gs.com",
+        "*.goldman.com",
+        "*.goldmansachs.com",
+        "*.gs-mosaic.gs.com",
+        "*.gs-mosaic.qa.gs.com",
+        "*.gs.com",
+        "*.gs.de",
+        "*.gsam.com",
+        "*.gspublishing.com",
+        "*.gsselect.com",
+        "*.honestdollar.com",
+        "*.marcus.co.uk",
+        "*.marcus.com",
+        "*.qaglobal-liquidity.gs.com",
+        "developer.gs.com",
+        "goldmansachsindices.com",
+        "marquee.gs.com",
+        "research.gs.com"
+      ],
+      "exclusions": [
+        "*.rocaton.com,secure.rocaton.com",
+        "All .cn domains",
+        "gsg-uk.goldman.com",
+        "gsg.goldman.com",
+        "gspf.goldman.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "60 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\goldmansachs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "goldmansachs",
+  "name": "Goldman Sachs",
+  "url": "https://hackerone.com/goldmansachs",
+  "policy": "\n\nMaintaining the security of our applications and networks is a high priority for Goldman Sachs. If you have information related to security vulnerabilities of GS products and services, please submit a report in accordance with the guidelines below.  \nThe vulnerabilities identified in the HackerOne reports will be classified by the degree of risk as well as the impact they present to the host system, this includes the amount and type of data exposed, privilege level obtained, proportion of systems or users affected. \n> Do not try to further pivot into the network by using a vulnerability. The rules around Remote Code Execution (RCE), SQL Injection (SQLi), vulnerabilities allowing you to access file/folder structure, defacement and file uploads are listed below. \n\n> Do not try to exploit service providers we use (hosting, domain registrar, email, marketing, etc.).  The Firm does not authorize you to perform any actions against non-GS owned property/system/service/data. If you are unsure if a system you discovered belongs to Goldman Sachs or not, ask first before testing further. \n\n> If you encounter Personally Identifiable Information (PII) contact us at [bugbounty@gs.com](mailto:bugbounty@gs.com) immediately. Do not proceed with access and immediately purge any local information, if applicable. \n   \n> Please limit any automated scanning to 60 requests per second. Aggressive testing that causes service degradation will be grounds for removal from the program. \n\nThank you for helping keep Goldman Sachs and our users safe! \n_____ \n\n# **Program Rules** \n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward. Providing clear and concise steps to reproduce the issue will help to expedite the response. As a bare minimum, please include in your report: \n- The URL and any affected parameters \n- The browser, OS, and/or app version \n- The perceived impact. How could the bug potentially be exploited? \n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact. \n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced). \n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty. \n- Social engineering (e.g. phishing, vishing, smishing) is prohibited. \n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \n- Only interact with accounts you own or with explicit permission of the account holder AND Goldman Sachs. Please reach out to bugbounty@gs.com with any questions. \n-\tIf you inadvertently gain access to an account you do not own, please cease testing immediately and submit a report for Goldman Sachs to validate further. Do not attempt to prove higher impact by downloading data or by modifying any settings\n- By default,  the report should clearly reference your @wearehackerone.com email alias address where possible.\n> Register accounts using your <username>@wearehackerone.com addresses.\n> To create additional accounts please use '+N' with your email address: <username>+1@wearehackerone.com, <username>+2@wearehackerone.com etc.\n-\t**Per our Rewards section below, the addition of the following custom headers along with your public IP is required to qualify you for a bonus on valid triaged reports**(Burp and other proxies allow the easy automatic addition of headers to all outbound requests):\n\n| Identifier | Format |\n| ----------- | ----------- |\n| Your Username | X-Bug-Bounty: HackerOne-<username\\> |\n| Tool Identifier | X-Bug-Bounty: <toolname\\> |\n- Do not try to further pivot into the network by using a vulnerability. The rules around RCE, SQLi, vulnerabilities allowing you to access file/folder structure, defacement and file-uploads are listed below. \n- Do not try to exploit service providers we use (hosting, domain registrar, email, marketing, etc.).  The Firm does not authorize you to perform any actions against non-GS owned property/system/service/data. If you are unsure if a system you discovered belongs to Goldman Sachs or not, ask first before testing further. \n- Reports for vulnerabilities that were either recently disclosed to the public or where a patch was just recently released (Zero Day) may not be eligible for\nreward. For additional insight, please refer to the Platform standards deviations.\n- If you encounter Personally Identifiable Information (PII) contact us at [bugbounty@gs.com](mailto:bugbounty@gs.com) immediately. Do not proceed with access, do not upload PII, and immediately purge any local information, if applicable. \n- Please limit any automated scanning to 60 requests per second. Aggressive testing that causes service degradation will be grounds for removal from the program. \n- For any vulnerability (including RCE, XXE, LFI, Path Traversal etc.) that might allow you to read underlying file/ folder structure, it is prohibited to read sensitive files (eg /etc/shadow) and/or snooping through the file/folder structure.\n- For Subdomain Takeovers (SDTO) you must demonstrate that you have taken over the domain and that it is still in your possession to avoid false positives and claim-jumping. A valid Proof of Concept html file hosted by you on the site with your HackerOne username is required, preferably in a sub-directory. SDTO reports without a working proof of concept confirming you have control over the subdomain in question will be closed as N/A.\n- The program does not explicitly forbid researchers from using AI/Large-Language-Model (LLM) assisted tooling in their reports. However, researchers should be careful to manually ensure all of their report's content is complete and contains sufficient evidence for our triagers to reproduce and validate. If researchers fail to provide informative content, the program may classify their reports as Spam.\n\n#**Eligibility Guidelines**\nTo be eligible to participate in the Goldman Sachs Bug Bounty Program, you must:\n- Be at least 18 years old.\n-\tAgree and adhere to the Program Rules and Legal terms as stated in this policy.\n-\tBe the first to submit a sufficiently reproducible report for an issue in order to be eligible for a bounty.\n-\tAssist the Goldman Sachs team in reproducing and triaging the issue, and to provide additional information as needed. \n-\tNot be employed by Goldman Sachs or be employed by 3rd parties managing digital assets in use by Goldman Sachs.\n-\tNot be a resident of, or make submissions from, a country against which the United States has issued export sanctions or other trade restrictions.\n-\tNot be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to the Bug Bounty Program.\n-\tNot be using duplicate HackerOne accounts.\n-\tOut-of-scope vulnerability reports that pose a valid security impact may be addressed as a form of vulnerability disclosure but will generally not be considered eligible for a bounty.\n\nFailure to meet the eligibility requirements above, any breach of the Golman Sachs Bug Bounty policy, or actions taken that adversely impact Goldman Sachs, our affiliates, or any of our users, employees, or agents, may lead to Goldman Sachs in our sole discretion, removing you from this program.\n\n \n_____ \n\n#**Rewards **\n\nGoldman Sachs believes in rewarding findings based on their security impact regardless of the vulnerability class. As a general concept the vulnerabilities identified will be classified by the degree of risk as well as the impact they present to the host system, this includes the amount and type of data exposed, privilege level obtained, proportion of systems or users affected. \nSeverity scores and reward amounts are calculated by evaluating two primary factors: Impact to our users and CVSS 3.0 base score. Please note that those two always work in tandem and a higher or lower CVSS score does not always qualify for a higher or lower reward amount. On the table above, you will find listed our reward structure and further below what usually falls under the 4 different impact classes. \n\n#### **Critical Impact** \nCritical Impact findings present a direct and immediate risk to Goldman Sachs or a **majority** of our users or customers. They often affect core/ critical components in production application stacks or infrastructure. Examples might include: \n- Server Side Injections (RCE, Command Injections) \n- SQLi \n\nNote again that a finding falling under these examples doesn't automatically qualify for a critical bounty reward, the final decision is always based on the security impact of the issue. \n\n#### **High Impact** \nHigh impact findings usually materially impact **several** users/ customers or affect the security of the platform itself including the processes it supports. This would usually include the following types of issues: \n- SSRF \n- LFI \n- XXE \n- Significant Authentication Bypasses \n- Request Smuggling / Desync type of issues are generally rewarded a standard $1,000 \n\nNote again that a finding falling under these examples doesn't automatically qualify for a high bounty reward, the final decision is always based on the security impact of the issue. \n\n#### **Medium Impact** \nMedium impact findings typically materially impact a **small** number of our users/ customers and usually require little to no user interaction to trigger. They often result due to the following types of vulnerabilities: \n- RFI \n- Memory Leaks \n- IDORs \n- Stored XSS \n\nNote again that a finding falling under these examples doesn't automatically qualify for a medium bounty reward, the final decision is always based on the security impact of the issue. \n\n#### **Low Impact** \nBased on how our apps are setup, low impact findings usually only affect a very small number of users or have a fairly limited security impact. These might include issues that require interaction or significant prerequisites to trigger. In our apps this would usually comprise of the below issues: \n- Reflected XSS - In our apps, it is usually considered a low impact issue and is usually rewarded a standard $250 \n- Open Redirects - Similar to reflected XSS, open redirects might have a higher traditional cvss score, but in our apps, it is usually considered a low impact issue and usually rewarded a standard $250 \n- HTML Injection - In our apps, it is usually considered a low impact issue and are usually rewarded a standard $125\n\n#### **Informational Issues** \nThese are usually best practices, mitigations, issues that are by design or acceptable business risk because of the way our apps are setup. \n\n**Notes:** \n- Some of our public applications share similar code bases and configurations, allowing a vulnerability found on one URL to exist on others.  When the same fix addresses the issue in multiple places, only the first report is eligible for reward. However, additional reported instances might affect the severity of the issue and be eligible for discretionary bonuses. So, if you identify numerous instances of the same issue on multiple in-scope domains, we request that you submit a single report that documents the finding. Additional instances that are discovered later should also be added to the original report.\n\n- Subdomain Takeover (SDTO) reports are evaluated based on severity, considering cookie scoping, historical significance, and potential traffic volume. The standard reward for such issues is $750. Valid SDTO reports on *.gs.com, *.marcus.com, *. goldman.com, *.gsam.com might be eligible for a reward up to $1,500 (note again that the actual reward may differ from these standards based on the impact of the finding)\n\n- All submissions will be evaluated on a case-by-case basis by the Firm's BugBounty Rewards Panel. Please remember that as an example, executing RCE (Remote Code Execution/OS Command Injection) does not necessarily mean the impact is Critical. The Bug Bounty Panel will analyze the finding, evaluate the risk, and pay according to the reward schema, while taking the highest foreseen impact scenario into account. Reward amounts may vary depending upon the risk/impact of the vulnerability reported \n\n## **Monetary bonus for IP Address and/or header identification:** \nThere is a possibility that traffic generated by researchers can be categorized as malicious. Providing additional information allows us to identify your traffic. Researchers who are willing to put this information and provide it in a report will be eligible for a $50 bonus for every valid, accepted, non informational report when it is used during testing and it is mentioned in the report. **This can be done by adding the following header to your request:** \n\n| Identifier | Format |\n| ----------- | ----------- |\n| Your Username | X-Bug-Bounty: HackerOne-<username\\> |\n| Tool Identifier | X-Bug-Bounty: <toolname\\> |\n\n------ \n\n# **Mobile apps guidance** \n- Only use the latest official releases in the Play Store and App Store for testing. \n- Only test backend domains listed as in-scope for the program. \n- Applications developed and signed by Goldman Sachs must be up-to-date with the latest update. \n\n**Focus Areas:** \n- Unauthorized access to GS customer/user account \n- Application compromise via physical access \n- GS app attack via user installed legitimate/malicious application \n- Application Login/Authentication Bypass \n- Application Logic Bypass \n- Authorization Bypass \n- Insecure Access Controls \n- Application Requests permissions that are overly privileged causing both privacy & security issues \n- Sensitive user data / GS data extraction \n- Exposed credentials/secret/hard-coded secrets on mobile apps which lead to leakage of sensitive user/GS data \n- XSS, CSRF, directory traversal, Injection vulnerabilities that pose a valid risk \n- Security issues that arise from misconfiguration or improper implementation of third-party SDK/framework/libraries/plugins may be considered as in scope under this program. Goldman Sachs is extremely interested in customer-controlled configuration and implementation choices we made that expose a vulnerability while vulnerabilities in the third-party components' source code itself or third-party external endpoints are not in scope.\n>Examples:\nIN SCOPE: Misconfigured security settings in a third-party authentication plugin\nOUT OF SCOPE: A vulnerability in the third-party plugin's core code\nOUT OF SCOPE: Vulnerabilities in external API endpoints operated by the third-party vendor\n_____ \n\n# **Specific Vulnerabilities Guidance** \n\n### **Remote Code Execution (RCE) Policy** \n\nVulnerabilities which allow execution of code on the application server or shell command on the server itself should be run in accordance to this policy. \n\n#### Prohibited actions when conducting RCE attempts: \n\n- Altering or uploading files on the web server. (In case of file-upload functionality upload of webshells is prohibited, try uploading echo, info or any variable/info-based invocation code) \n- Altering file permissions \n-  Reading sensitive files on the system (e.g /etc/shadow) and/or snooping through the file/folder structure (Same applies to XXE, LFI and Path Traversal, or any other vulnerability which allows you to read underlying file/folder structure) \n- Altering/Modifying/Deleting any files on the system. \n- Copying any files from the system and disclosing them to a non-GS site or entity \n- Interacting with underlying OS-level data and/or databases. \n- Interacting with other services running on the OS-level and/or any remote hosts residing on the network. \n- Interrupting the normal operation of the server. \n- Any type of establishment for persistent connection mechanisms (netcat, ssh reverse tunnel, etc) are prohibited. \n\n#### Allowed actions when conducting RCE attempts - Unix: \n- Executing 'ifconfig', 'hostname', 'whoami', 'uptime', 'top' or any metrics commands \n- Reading content of the '/etc/passwd' file \n- Using 'echo' to pipe characters into a file located in the \"/tmp/\", reading the file and then removing it right after confirmation. \n\n#### Allowed actions when conducting RCE attempts - Windows: \n- Executing `ipconfig`, `hostname`, `whoami` or any metrics commands \n- Reading content of the `drive:/boot.ini`, `drive:/install.ini` or `drive:/Windows/System32/drivers/etc/networks` \n- Using `echo` to pipe characters into a file located in the drive:/temp, reading the file (type) and then removing it right after confirmation. \n\n### SQL Injection (SQLi) Policy** \n\nVulnerabilities which allow injection of attacker controlled parts of the SQL query should be run in accordance to this policy. Prohibited actions when conducting SQLi attempts: \n\n- Reading sensitive files on the system (e.g /etc/shadow) and/or snooping through the file/folder structure (`SELECT LOAD_FILE`) \n- Reading specific sensitive database records \n- Creating/Altering/Modifying/Deleting any files/records on the system/database. This includes use of `INTO OUTFILE` \n- Command Execution (`xp_cmdshell`, uploading .so or any action that leads to command execution) \n- Creating/Deleting Users \n- Reading/Altering Username and Password information (includes password hashes) \n- Interrupting the normal operation of the server and the database. \n\n#### Allowed actions when conducting SQLi attempts: \n\n- Executing SELECT queries such as: `@@version;` `@@SERVERNAME;` `user();` `system_user();` or `database();` \n- Listing Databases names from schema, listing Columns, Table names \n- Using Logic and time in Server Responses \n- Using output responses \n- Executing Mathematical, conversion or logical queries, such as: \n\n1. ASCII Value -> Char `SELECT char(65); # returns A` \n2. Char -> ASCII Value `SELECT ascii('A'); # returns 65` \n3. String Concatenation `SELECT CONCAT('A','B','C'); # returns ABC` \n4. Case Statement `SELECT CASE WHEN (1=1) THEN 'A' ELSE 'B' END; # returns A`) \n5. Character Decoding `SELECT 0x414243; # returns ABC`) \n6. Time Delay `SELECT BENCHMARK(1000000,MD5('A')); SELECT SLEEP(5);` ) \n\n### **File-Upload Policy** \n\nVulnerabilities which allow upload of files through any means (e.g. PUT HTTP Method, File-upload functionality/module., etc.) are subjected to these rules \n\nProhibited actions when conducting File-upload attempts: \n- Altering/Modifying/Deleting/Replacing any files on the system. (e.g. defacement) \n- Uploading files to the account of a user which is not owned by you and you are not authorized by (does not apply to system users or web users like www-data e.g.) \n- Uploading files which deliberately introduce additional exploitation vectors (e.g. html code with cross-site scripting code on it etc.) \n- Uploading files which can cause Denial of Service (e.g. over-sized files or unlimited number of files resulting in running out of Disk Quota) \n\n#### Allowed actions when conducting File-upload attempts: \n- Chained exploitation vectors allowing you to jump out from the upload folder using e.g. path traversal or path manipulation that do not violate prohibited actions mentioned in File-Upload Policy. \n- Upload of a file (any extension) with no content, simple string, integer or a special character. \n _____\n\n\n# **Out of scope vulnerabilities**\n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n- Archived documents and files accessible via services like web.archive.org are temporarily out of scope for the program\n- All Github/Gitlab/darkweb based credential leakage/information disclosure issues are temporarily out of scope. We monitor a lot of different sources like intelx.io, phonebook.cz etc. for leaked credentials, PII, financial information etc. As such, reports sharing a dump of leaked information from darkweb data aggregators like these do not provide value. \n> If you would still like to responsibly disclose any leaked passwords or sensitive information, please make sure to provide  sufficient identifying information, but obfuscate all other sensitive information. eg: For leaked credentials, please share the username (abc@xyz.com) but obfuscate the password (abc****)\n- Any vulnerabilities for assets not owned, hosted or managed by Goldman Sachs are out of scope. Goldman Sachs does not authorize testing on any applications that are hosted by 3rd parties. Please reach out to the Goldman Sachs Bug Bounty team  at bugbounty@gs.com when in doubt about whether an asset is in scope. \n- All Flash based vulnerabilities out of scope\n- Reports from automated tools or scans\n- Reports affecting outdated browsers\n- Denial of Service Attacks\n- Issues without clearly identified security impact (such as clickjacking on a static website) or speculative theoretical exploitability - for example using UXSS to steal the auth cookies, identifying Apache Tomcat 8.0.43 but not being able to perform any attack.\n- Missing security best practices and controls (rate-limiting/throttling, lack of CSRF protection, lack of security headers, missing flags on cookies, descriptive errors, server/technology disclosure - without clear and working exploit)\n- Lack of crossdomain.xml, p3p.xml, robots.txt or any other policy files and/or wildcard presence/misconfigurations in these.\n- Use of a known-vulnerable libraries or frameworks - for example an outdated JQuery or AngularJS (without clear and working exploit)\n- Self-exploitation (cookie reuse, self cookie-bomb, self denial-of-service etc.)\n- Self Cross-site Scripting vulnerabilities without evidence on how the vulnerability can be used to attack another user\n- Lack of HTTPS\n- Reports about insecure SSL / TLS configuration\n- Password complexity requirements, account/email enumeration, or any report that discusses how you can learn whether a given username or email address has a GS-related account\n- Brute Forcing Login and/or Registration\n- Presence/Lack of autocomplete attribute on web forms/password managers.\n- Server Banner Disclosure/Technology used Disclosure\n- Full Path Disclosure\n- IP Address Disclosure\n- CSRF on logout or insignificant functionalities\n- Publicly accessible login panels\n- Clickjacking\n- CSS Injection attacks. (Unless it gives you ability to read anti-CSRF tokens or other sensitive information)\n- Tabnabbing\n- Host Header Injection (Unless it gives you access to interim proxies)\n- Cache Poisoning\n- Reflective File Download\n- Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin: * or accepting of custom Origin header that do not specifically show a valid attack scenario\n- PRSSI - Path-relative stylesheet import vulnerabilities (without a impactful exploitation scenario - for example stealing CSRF-tokens)\n- OPTIONS/TRACE/DELETE/PUT/WEBDAV or any other HTTP Methods accepted by the server which do not specifically show a valid attack scenario\n- Cookie scoped to parent domain or anything related to the path misconfiguration and improperly scoped\n- Private IP/Hostname disclosures or real IP disclosures for services using CDN\n- Open ports which do not lead directly to a vulnerability\n- Our policies on presence/absence of SPF / DKIM / DMARC records\n- Lack of DNS CAA and DNS-related configurations\n- Weak Certificate Hash Algorithm\n- Vulnerabilities that require extensive user interaction or social engineering\n- Social engineering of GS employees or contractors\n- Any physical/wireless attempt against GS property or data centers\n- Avoid all active testing on contact and registration forms, such as \"Contact us\", \"Register for a Demo\". These forms may generate emails that will affect the business. \n- Do not try sending your commando-trained pigeons equipped with knowledge of RFC-2549 to sniff the traffic from our access points\n\n\n**On top of the above, the following items also are out-of-scope for mobile applications:**\n- Vulnerabilities that can *only* be exploited on a rooted, jailbroken, or device with intentionally reduced security controls are considered out of scope. Submissions will be rewarded only if the vulnerability exists and can be exploited on a non-jailbroken, non- rooted or non-modified device.\n- Lack of / Incomplete certificate pinning\n- Bugs that simply cause an app to crash without any security impact\n- Exposure of non-sensitive data on the device\n- Exposure of data via usage of overlays or accessibility services.\n_____\n\n\n# **Public Disclosure Policy**\n- Goldman Sachs will not be publicly disclosing reports at this time. If and when Goldman Sachs does disclose a report, it will be mutually agreed upon with the hacker.\n- Goldman Sachs reserves the right to deny any request for public disclosure. If a hacker publicly discloses without consent, they run the risk of a program ban.\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# **Legal**\n- You must comply with all applicable Federal, State, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program.\n- You agree that You shall not, without the prior written consent of GS in each instance (i) use in advertising, publicity or otherwise the name of GS or its Affiliates or any trade name, trademark, trade device, service mark, symbol or any abbreviation, contraction or simulation thereof owned by GS or its Affiliates, or (ii) represent, directly or indirectly, any service or work provided by You as approved or endorsed by GS or its Affiliates.\n- You agree that any and all information acquired or accessed by You as part of this exercise is confidential to GS and You shall hold the Confidential Information in strict confidence and shall not copy, reproduce, sell, assign, license, market, transfer or otherwise dispose of, give or disclose such information to third parties or use such information for any purposes other than for the performance of your work.\n- You acknowledge and agree that any and all information you encounter is owned by GS or its third party providers, clients or customers. You have no rights, title or ownership to any information that you may encounter.\n- GS may modify the terms of this policy or terminate the policy at any time.\n- By clicking Submit Report, you consent to Your Information being transferred to and stored in the United States and acknowledge that you have read and accepted the Terms, Privacy Policy and Disclosure Guidelines presented to you when you created your account.\n- Please use your own account for testing or research purposes. Do not attempt to gain access to another users account or confidential information.\n- Please do not test for spam, social engineering or denial of service issues. Your testing must not violate any law, or disrupt or compromise any data that is not your own.\n_____\n\n\n\n==**Most Valuable Hacker (MVH) Recognition Program**==\n\nThe Most Valuable Hacker (MVH) program recognizes security researchers who consistently demonstrate exceptional contributions to our security posture through high-impact, high-quality vulnerability reports and collaborative engagement throughout the remediation process.\n\n**Annual Recognition:** Three researchers are honored annually for sustained excellence throughout the year. The top-ranked researcher is awarded a $2000 monetary bonus, the second-ranked researcher receives $1000, and the third-ranked researcher receives $500.\n\n**Quarterly Recognition:** Three researchers are honored each quarter. The top-ranked researcher receives a $500 monetary bonus. The second and third-ranked researchers receive public recognition.\n\n##**Recognition Criteria:**\nResearchers are evaluated based on:\n**Impact**: Severity and business criticality of identified vulnerabilities\n**Quality**: Thoroughness of reports, including detailed reproduction steps and remediation guidance\n**Consistency**: Regular submission of valid, actionable findings\n**Collaboration**: Professional communication and support during the vulnerability triage/Resolution process\n**Volume**: Number of valid and actionable security reports submitted through HackerOne\n\n>**2026 Q1 Recognition**:\n>1. @erickfernandox\n>2. @thaivu\n>3. @shabomala\n\n>**2025 Annual Recognition**:\n>1. @m0chan\n>2. @godiego \n>3. @medusa_, @sw33tlie, @bsysop\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.goldmansachs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is Goldman Sachs' main website. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.goldman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gsg.goldman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.marcus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.honestdollar.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gspf.goldman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.marcus.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gsg-uk.goldman.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Do not pentest",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "research.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gsam.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.claritymoney.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gsselect.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gs-mosaic.qa.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gs-mosaic.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.qaglobal-liquidity.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.global-liquidity.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "goldmansachsindices.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "marquee.gs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ayco.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rocaton.com,secure.rocaton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.gspublishing.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gs.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes:\n*.gs.de\n*.gsmarkets.de\n*.gsmarkets.nl\n*.gsmarkets.at\n*.gsmarkets.be\n\nExcludes the 3rd party hosted site:\nclassic.gs.de\n\nIn scope sites may display a page overlay to US visitors which can be hidden using an adblocker like uBlock Origin",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "All .cn domains",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please note that all GS assets with .cn domains are Out of scope",
+      "max_severity": "none"
+    }
+  ]
+}

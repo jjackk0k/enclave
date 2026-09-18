@@ -1,0 +1,74 @@
+{
+ "at": "2026-09-12T02:26:29.061Z",
+ "opportunity": "metamask",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "metamask.io",
+   "kind": "domain",
+   "status": 307,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b77b5dc929497-LHR",
+    "strict-transport-security": "max-age=15778476; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; media-src 'self' https://*.twimg.com/ https://videos.ctfassets.net/; script-src 'self' 'wasm-unsafe-",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "io.metamask",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to io.metamask:443 refused: host unreachable"
+  },
+  {
+   "host": "io.metamask.metamask",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to io.metamask.metamask:443 refused: host unreachable"
+  },
+  {
+   "host": "snaps.metamask.io",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "GitHub.com",
+    "x-cache": "HIT",
+    "via": "1.1 varnish"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

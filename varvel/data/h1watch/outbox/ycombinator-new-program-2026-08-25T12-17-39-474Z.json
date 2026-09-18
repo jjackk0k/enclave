@@ -1,0 +1,90 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ycombinator",
+      "name": "Y Combinator",
+      "offersBounties": false,
+      "assets": [
+        "*.ycombinator.com",
+        "blog.ycombinator.com",
+        "conference.startupschool.org",
+        "www.startupschool.org",
+        "www.workatastartup.com",
+        "www.ycombinator.com"
+      ],
+      "exclusions": [
+        "news.ycombinator.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ycombinator-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ycombinator",
+  "name": "Y Combinator",
+  "url": "https://hackerone.com/ycombinator",
+  "policy": "Y Combinator considers the security of our systems and applications to be of the utmost importance.\r\n\r\n#Security Practices\r\nY Combinator uses a variety of tools and techniques to help protect our data and software. We employ on-prem and cloud services, both of which receive routine review for safety.\r\n\r\n#Reporting Security Vulnerabilities\r\nY Combinator welcomes input from the security research community. Through responsible disclosure we are hoping to advance the cause of improving the security of our applications and user data. To that end, we encourage security researchers to notify us of any potential vulnerabilities uncovered. Reports received through this channel should receive a prompt reply and if you do not receive a timely response we ask that you please attempt to contact us again. To protect our users we also request that you please refrain from sharing information about any potential vulnerabilities with anyone outside of YC. Once we have confirmed the vulnerability and mitigation we hope that you will join us in an announcement.\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n * We will provide disclosure credit on our website for bugs reported at https://www.ycombinator.com/security\r\n* We will, at our sole discretion, provide cash bug bounties for **significant** vulnerabilities.  While we appreciate all reports, we will not provide cash bug bounties for what we consider to be minor issues.\r\n\r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Y Combinator staff or contractors\r\n* Any physical attempts against Y Combinator property or data centers\r\n\r\n\r\nThank you for helping keep Y Combinator and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.ycombinator.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.workatastartup.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "news.ycombinator.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.startupschool.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.ycombinator.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our Blog site, its hosted by a 3rd party and generally they keep it up to date but open vulnerabilities will be addressed.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "conference.startupschool.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a static site hosted on S3.\nAny vulnerabilities here should be reported to Amazon.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "www.ycombinator.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a static website hosted behind Cloudfront.",
+      "max_severity": "low"
+    }
+  ]
+}

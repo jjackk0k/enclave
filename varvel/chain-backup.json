@@ -1,0 +1,26 @@
+{
+  "name": "localize-backup-archive",
+  "base": "https://localizestaging.com",
+  "steps": [
+    {
+      "id": "backup-dir",
+      "path": "/backup/",
+      "expect": { "status": 200, "contains": "Index of" },
+      "note": "Directory listing on /backup — confirm exposed archive listing"
+    },
+    {
+      "id": "backup-sql-header",
+      "path": "/backup/db.sql",
+      "method": "HEAD",
+      "expect": { "status": 200 },
+      "note": "Check DB dump exists — proving backup archive exposure"
+    },
+    {
+      "id": "backup-tar-header",
+      "path": "/backup/site.tar.gz",
+      "method": "HEAD",
+      "expect": { "status": 200 },
+      "note": "Check tarball exists — proving source/config backup exposure"
+    }
+  ]
+}

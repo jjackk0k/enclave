@@ -1,0 +1,154 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "greenhouse",
+      "name": "Greenhouse.io",
+      "offersBounties": true,
+      "assets": [
+        "Tier 1 Assets",
+        "Tier 2 Assets",
+        "Tier 3 Assets",
+        "api.greenhouse.io",
+        "app.greenhouse.io",
+        "app.interseller.io",
+        "boards.greenhouse.io",
+        "interseller.io",
+        "jss.greenhouse.io",
+        "onboarding.greenhouse.io",
+        "support.greenhouse.io",
+        "www.greenhouse.io"
+      ],
+      "exclusions": [
+        "community.greenhouse.io",
+        "resources.greenhouse.io",
+        "store.greenhouse.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\greenhouse-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "greenhouse",
+  "name": "Greenhouse.io",
+  "url": "https://hackerone.com/greenhouse",
+  "policy": "#About#\n\nGreenhouse is software to optimize your entire recruiting and onboarding process. Find better candidates, conduct more focused interviews, and make data-driven hiring decisions.\n\nThrough this security bug bounty program we collaborate with security researchers worldwide to identify and mitigate security vulnerabilities in our platform.\n\nFind a security flaw in Greenhouse? Submit a report here. If we confirm it and it's within the guidelines below we'll send you a reward.\n\n#Guidelines#\n\nRewards are contingent on you operating within these guidelines and are granted at the discretion of Greenhouse:\n\n* Domains eligible for reward: app.greenhouse.io, api.greenhouse.io, boards.greenhouse.io, greenhouse.io, onboarding.greenhouse.io\n* If you're using your company's Greenhouse account, testing is **not permitted** without prior written authorization from Greenhouse.\n* We do not provide test accounts.\n* Only issues that might impact the security of our data and supporting systems are in-scope; usability, functionality, and programming bugs are out-of-scope.\n* Social engineering attacks against employees are out-of-bounds and will not be accepted.\n* Any research or testing that impacts our application's performance or exposes confidential information to anyone else is out-of-bounds and will not be accepted.\n* Output copied from any scanning, auditing, or attack tool without supporting evidence or a proof-of-concept will not be accepted as original work and will not be accepted.\n* If we catch you using a scanner against our applications you may be subject to being banned from our bounty\n* You are not an individual on, or residing in any country on, any U.S. sanctions lists.\n* You must provide a clear, detailed, and working proof of concept (PoC) that exploits the security issue\n\n**Submissions without a working PoC will likely be rejected**\n\nSubmissions of  pre-validated, compromised passwords from leaked databases will be paid out at $10 per leaked production credentials with a upper limit of $500. Reports should include the source of the leak as part of the submission. Splitting up submissions to abuse the upper limit will not be paid out. \n\n#Response Times#\n| Action | Target |\n| --- | ---| --- |\n| Time to first response | 3 days\n| Time to triage | 7 days\n\n#Known Issues, Ineligible For Reward#\nThese issues are not eligible for reward due to design decisions, limitations of third-party services we use, etc. \n* Login/Logout CSRF/XSRF\n* Email configuration (SPF, DKIM, DMARC)\n* SSL/TLS ciphers or denial of service issues\n* Diffie-Hellman parameters\n* Clickjacking/UI Redress on boards.greenhouse.io (X-Frame-Options) or login pages\n* No Strict-Transport-Security header\n* Content Security Policy configuration issues\n* Issue related to links or forms outside of the greenhouse.io or grnh.se domains\n* Broken links on our company landing page, blog or marketing webpages\n* Problems related to widely publicized CVE's\n* DDoS\n* Downstream providers we do not control (e.g. Marketo)\n* Denial of service issues on form input length\n* io.greenhouse.recruiting (Mobile Applications)\n* Paywall bypass reports against Interseller. Testing of payment functionality is out of scope for the bug bounty\n* Leaked API keys due to a customer issues or mis-configuration will not be eligible for bounties.\n* Submissions of  password leaks that have not been pre-validated by the researcher will not be eligible for bounties\n* Header injection vulnerabilities (including CRLF injection) on marketing pages (greenhouse.com, greenhouse.io)\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "boards.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Documentation:\n\nhttps://developers.greenhouse.io/harvest.html\nhttps://developers.greenhouse.io/job-board.html#retrieve-a-department",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onboarding.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "resources.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jss.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "store.greenhouse.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "interseller.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a Marketing website and will produce less bounties than the actual product application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.interseller.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please do not spam the payment form as this is manage by a third party and is out of scope for testing. Vulnerabilities related to paywall bypass are out of scope. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tier 1 Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tier 2 Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tier 3 Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "databricks",
+      "name": "Databricks",
+      "offersBounties": true,
+      "assets": [
+        "Databricks Free Edition",
+        "Open Scope",
+        "accounts.cloud.databricks.com",
+        "databricks.com",
+        "https://dbc-9a3f8ed1-7608.cloud.databricks.com"
+      ],
+      "exclusions": [
+        "*.azuredatabricks.net",
+        "*.cloud.databricks.com",
+        "*.gcp.databricks.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\databricks-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "databricks",
+  "name": "Databricks",
+  "url": "https://hackerone.com/databricks",
+  "policy": "As part of Databricks’ commitment to security, we reward security researchers who find and report to us critical security vulnerabilities and help us keep our business and customers safe. By participating in this program, you are agreeing to the Databricks [terms and conditions](#user-content-terms-and-conditions).\n\nCreating your Databricks Accounts\n=================\n\n**Free Edition**: [Sign up here](https://login.databricks.com/?dbx_source=docs&intent=CE_SIGN_UP) for a personal workspace. This edition has [specific limitations](https://docs.databricks.com/aws/en/getting-started/free-edition-limitations/), such as the absence of Scala and custom compute.\n**Enterprise Workspace**: To test features not available on Free Edition, use the HackerOne Request Credential button. You will be invited to a managed workspace.  Note: You will not have administrative privileges in this environment.\n\n* For both starting points, your home page will show different resources and video links. These can help you become familiar with the complicated Databricks environment.\n* For further information on using Databricks, please visit https://docs.databricks.com/.\n* Databricks Architecture Overview: https://docs.databricks.com/en/getting-started/overview.html\n* Databricks Product Walkthroughs for Researchers - F3696045\n\nGeneral Program Rules\n==============\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Only interact with accounts you own or with express written permission of the account holder. Our security team is here to support your research and collaborate with you.\n* Use your best judgment to avoid unintentional access to customer information. As part of your research, do not modify any files or user or customer data, including permissions, and do not intentionally view or access any data beyond what is needed to prove the vulnerability.\n* Contact us immediately if you inadvertently encounter user or customer data, and immediately and securely purge any data belonging to anyone other than you that you acquire upon reporting the vulnerability to Databricks.\n* Do not disclose your report or the vulnerability without prior express written permission from Databricks.\n- **Conduct your research and reporting through your HackerOne account, including any accounts you create for testing,** so all of your activity stays tied to your researcher identity.\n- **Keep email correspondence tied to your account as well** (`<your-username>@wearehackerone.com`). When you contact us in another way, we have no reliable way to verify your identity.\n\n\nReport and Reward Guidelines\n=======================\n* When reporting, submit only one vulnerability per report, unless you need to chain vulnerabilities to provide impact or demonstrate the issue. \n* If an issue requires the execution of multiple exploits, the chain and the report must include both compiled and source versions, everything needed to execute the chain, and a sample non-destructive payload, if needed. \n* Cross-Site Scripting (XSS) vulnerabilities, including those demonstrated to enable one-click Account Takeover (ATO), will generally be triaged as High Severity because they require user interaction and typically impact only a single user session. The role of the targeted user does not, by itself, increase severity.\n\nTechnical Details\n-----------------\n* Databricks is a Remote Code Execution environment, thus most instances of RCE are considered to be part of the product, and not vulnerabilities. Please do not report remote code execution unless you believe it is either unintended, or violates the security guarantees of the platform.\n* Notebooks execute as root and all cluster access is root  - this is expected. There are no security boundaries within a cluster.\n* Please be aware the Databricks product allows launching of Spark clusters on Azure, and these clusters cost us money to run. Please be mindful of this and do not create excessive clusters.\n* Databricks AI assistive features that return information easily findable via search engines are not vulnerabilities, and reports of such outputs are not eligible for bounty.\n\nOpen source projects\n----------------------\n| Project | Details | \n| ---- | ---- |\n| Apache Spark | Apache Software Foundation is the Official Owner / Maintainer of Apache Spark.  Please follow their [security guidelines](https://spark.apache.org/security.htm) for vulnerabilities involving Apache Spark. | \n| MLFlow |  Databricks Managed MLFlow differs from its open-source cousin.  Please report issues with Databricks Managed MLFlow to this program and issues with open source MLFlow via their [security page](https://github.com/mlflow/mlflow/security).  \n| Redash |  Redash is an open source project owned by the community.  Please refer to their [security policy](https://github.com/getredash/redash/security) to report issues with Redash. |\n\n# Terms and Conditions\n**Applicable Laws.** You must comply with all applicable laws, including local laws of the country or region in which you reside or in which you access or use Databricks services. \n**Bounty.** Databricks bug bounties are granted solely at Databricks’ discretion.\n**Data.** Your testing must not violate any law, or disrupt, compromise or damage data or property that is not your own. This includes attacking any devices or accounts other than your own (or those for which you have express written permission) and using social engineering (e.g., phishing, vishing, smishing) techniques. However, finding technical flaws that can be used for social engineering, such as spoofing or tampering, is allowed.\n**Finances.** You are responsible for any tax implications depending on your country of residency and citizenship. There may be additional restrictions on your ability to participate depending upon your local law.\n**General Eligibility & Sanctions.** We are unable to issue rewards to individuals who are employed by Databricks, Inc.; are an immediate family member of a person employed by Databricks, Inc.; or have less than 18 years of age.  We are also unable to issue rewards to individuals who are in any U.S. embargoed countries or on the U.S. Department’s list of Specially Designated Nationals or the U.S. Department of Commerce Denied Persons List or Entity List or any other restricted party lists.\n**Research.** Immediately both stop your research and notify Databricks using the reporting process before any of the following occur:\n    * You access any accounts or data other than your own (or those for which you have express written permission from their owners)\n    * You disrupt any Databricks service\n    * You access a non-customer facing Databricks system. \n\nIf you have already accessed data other than your own, and acquired it, contact us immediately,  and securely purge any data you have acquired upon reporting the vulnerability to Databricks.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "databricks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cloud.databricks.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are customer workspaces.  Note: Databricks Free Edition may create workspaces in this scope.  They will be considered in scope.  Do not conduct research on any workspace you do not own.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.azuredatabricks.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are customer workspaces.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "accounts.cloud.databricks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://dbc-9a3f8ed1-7608.cloud.databricks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Documentation :\nFor information on using Databricks, please visit https://docs.databricks.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gcp.databricks.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are customer workspaces.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Databricks Free Edition",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Information and Signup links: https://docs.databricks.com/aws/en/getting-started/free-edition",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Open Scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "formassembly",
+      "name": "FormAssembly",
+      "offersBounties": false,
+      "assets": [
+        "1120698698",
+        "app.formassembly.com",
+        "appsecfa.tfaforms.net",
+        "formassembly.com",
+        "https://wordpress.org/plugins/formassembly-web-forms/ ",
+        "typeahead.formassembly.com",
+        "www.formassembly.com"
+      ],
+      "exclusions": [
+        "*.formassembly.com",
+        "*.tfaforms.com",
+        "*.tfaforms.net",
+        "*.veerwest.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\formassembly-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "formassembly",
+  "name": "FormAssembly",
+  "url": "https://hackerone.com/formassembly",
+  "policy": "# FormAssembly Vulnerability Disclosure Program Policy\r\nFormAssembly believes that cybersecurity is a team sport that is why collaborating with the community of skilled cybersecurity professionals is crucial for our company in providing a trusted and secure application.\r\n\r\n## Response Targets \r\nFormAssembly will try its best to meet the following response targets in our program.\r\n\r\n| Response Efficiency Metric | Target |\r\n| --- | --- |\r\n| Time to First Response | Within 1 day (Standard is within 3 days) |\r\n| Time to Triage | Within 3 days (Standard is within 10 days) | \r\n\r\n| Time to Remediation | Target |\r\n| --- | --- |\r\n| Critical | 15 days |\r\n| High | 30 days |\r\n| Medium | 60 days |\r\n| Low | 90 days |\r\n| Informational | 120 days |\r\n\r\n*Note: All days above are in business days.*\r\n\r\n## Program Rules\r\nFormAssembly appreciates the community at HackerOne but please follow the following:\r\n- Please read and follow HackerOne’s [Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines)\r\n- When scanning our In-scope applications using automated tools, please include your HackerOne username as another header. (Example: HackerOne: <username>)\r\n- When creating a test account, please use your @wearehackerone.com alias.\r\n- When reporting a potential security vulnerability, please provide a step by step process for us to properly replicate your finding.\r\n- Do not upload screenshots and/or videos in third-party platforms aside from HackerOne.\r\n- Do not perform any destructive testing, please ask permission first by sending an email to security@formassembly.com in circumstances where the vulnerability may have an impact on our operation.\r\n- FormAssembly holds a lot of data so we limit researchers to test their own accounts and do not target customer’s data.\r\n- Submit one (1) security vulnerability per report unless you need to chain multiple security vulnerabilities\t to attain a high severity report.\r\n- Please do not upload files in an archive/compress format; upload files individually.\r\n\r\n## Public Disclosure\r\nAt FormAssembly, one of our core values is Transparency. You may request to disclose your valid finding, but this decision will be made internally by the FormAssembly Security Team, and not all requests will be fulfilled. We will do our best to accommodate your request, but please keep in mind these decisions are based on what's best for our product, customers, and the organization.\r\n\r\n## Submitting Vulnerability Report\r\nYou may follow the structure below when reporting a potential security vulnerability in our program.\r\n1. Overview of your finding\r\n2. Affected URL\r\n3. Affected parameter/field\r\n4. Steps to reproduce the issue\r\n5. Screenshots/Videos\r\n\r\n## In-Scope Vulnerabilities\r\nFormAssembly is interested in receiving the following vulnerabilities:\r\n- Cross-Site Scripting (XSS)\r\n- Subdomain Takeover\r\n- Web Cache Poisoning\r\n- Server-Side Request Forgery\r\n- Improper Access Control\r\n- Privilege Escalation (Horizontal/Vertical)\r\n- Path Traversal leading into Local File Inclusion\r\n- Remote File Inclusion\r\n- HTTP Request Smuggling\r\n- Session Management Issues\r\n- SQL Injection\r\n- Remote Code Execution\r\n- OS Command Injection\r\n- Personal Information and Sensitive Personal Information\r\n\r\n## Out-of-Scope Vulnerabilities\r\nThe following vulnerabilities are outside the scope of our program.\r\n- Any activity that could lead to the disruption of our service\r\n- Comma Separated Values (CSV) Injection\r\n- Any activity requiring Man-in-the-Middle (MITM) or physical access to a device\r\n- Cross-Site Request Forgery on forms with no sensitive actions\r\n- Clickjacking on forms, pages, or buttons with no sensitive actions\r\n- Presence of autocomplete attribute\r\n- Version disclosure of software, server, or other third parties without clear security impact to our applications\r\n- Tabnabbing\r\n- Missing DNS records (DMARC, DKIM, SPF)\r\n- Social Engineering\r\n- Spamming\r\n- Any kind of phishing\r\n- Missing best practices\r\n- Missing security headers which does not lead to a vulnerability\r\n- Host Header Injection unless you could steal data\r\n- User enumeration - Please see https://security.stackexchange.com/a/200612/192205.\r\n\r\n## Safe Harbor\r\nAny activities conducted in a manner consistent with our program rules, HackerOne’s policy, and disclosure guidelines will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n\r\nThank you for helping keep FormAssembly and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.formassembly.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tfaforms.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tfaforms.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "appsecfa.tfaforms.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our AppSec instance for Compliance Cloud.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.formassembly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "formassembly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1120698698",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "For more information, visit https://help.formassembly.com/help/formassembly-mobile-app-for-ios",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "typeahead.formassembly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a submodule of our main application. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.formassembly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our marketing website built using Wordpress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://wordpress.org/plugins/formassembly-web-forms/ ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our plugin for Wordpress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.veerwest.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

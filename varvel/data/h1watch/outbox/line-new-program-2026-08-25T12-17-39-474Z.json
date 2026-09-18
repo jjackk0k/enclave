@@ -1,0 +1,252 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "line",
+      "name": "LY Corporation",
+      "offersBounties": true,
+      "assets": [
+        "*.line-apps.com",
+        "*.line.biz",
+        "*.line.me",
+        "*.line.naver.jp",
+        "443904275",
+        "539883307",
+        "9wzdncrfj2g6",
+        "Chrome Extension",
+        "LINE Messenger - Chat",
+        "LINE Messenger - Keep",
+        "LINE Messenger - News",
+        "LINE Messenger - OpenChat",
+        "LINE Messenger - VOOM",
+        "LINE Messenger - VoIP",
+        "Other Assets",
+        "Windows Executable",
+        "com.linecorp.linelite",
+        "jp.naver.line.android"
+      ],
+      "exclusions": [
+        "*nvapis.line.me ",
+        "DEMAE-CAN",
+        "LINE Pay",
+        "LINEMAN",
+        "Yahoo Japan",
+        "https://entry.line.me/",
+        "prod-fido-fido2-server.line-apps.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\line-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "line",
+  "name": "LY Corporation",
+  "url": "https://hackerone.com/line",
+  "policy": "# Vulnerabilities Excluded From Scope\nVulnerabilities that we judge as likely to fall under any of the categories below are considered out of scope for this program.\n* Vulnerability as-is after detection using an automated scanner\n* Hypothetical or theoretical vulnerabilities without actual verification code\n* Susceptibility to brute force attacks aimed at retrieving passwords or tokens\n* Request flooding DoS and/or any Server Side DoS attack that may lead to disruption of our service(s)\n* Cache-Poisoned Denial-of-Service\n* Ability to spam LINE users arbitrarily with spam messages\n* Ability to change a password without confirmation of the previous password on LINE app\n* Session fixation\nAbsence of Cross-Site Request Forgery (“CSRF”) token in non-critical processes\n* Login/logout CSRF\n* Attack requiring physical access to a user's device or using a rooted device\n* Missing security header(s)\n* Script executions that do not affect Users\n* Vulnerabilities attributable to out-of-date browsers or platforms\n* Content related to auto fill web forms\n* Absence of secure flag attribute for non-critical cookies\n* Unsafe SSL/TLS cipher suites or protocol version\n* Accessibility of profile photos, VOOM photos, etc. by anyone via URL\n* Vulnerability attributable to virtual phone number\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Reporting that an unauthorized HTTP method can be used\n* Reporting vulnerabilities related to clickjacking, Tabjacking, Tabnabbing, Text injection, Open redirect, DNS CAA record, DNSSEC records\n* Credit card or payment platform reimbursement features\n* Overwriting of files or databases on device, or falsely showing possession of an item by altering a file along the communication pathway.\n* Vulnerabilities only affecting a single browser or a single version only\n* Username/e-mail enumeration only\n* Exposure or lack of security controls on Google Maps API keys\n* Exposure of API keys with no security impact\n* Subdomain takeover reports with CNAME records regarding the livedoor.jp domain without proof of concept\n* Broken link hijacking (social media account etc)\n* Status monitoring page with no disclosure of sensitive data (eg: apache server status and internal metrics)\n* HTTP Request Smuggling (HRS) and related desynchronization attacks\n\n# Prohibited Activities\nThe following activities are prohibited.\n* Port scanning. Please conduct vulnerability testing only on ports 80 and 443.\n* Using automated vulnerability scanners to attack our systems\n* Performing DoS attacks or any actions that place excessive load on our services\n* Physically attacking our assets or data centers\n* Conducting social engineering (phishing, vishing, smishing, etc.)\n* Sending a vulnerability report that includes a third party’s personal data without obtaining their prior consent\n* Any activity that harms our customers, employees, partners, or the provision of our services\n* Carrying out or promoting fraudulent transactions (such as unauthorized billing or product shipment manipulation)\n* Extracting, modifying, destroying, or disclosing to third parties any information about our customers, partners, or employees, or any trade secrets of us or our partners, beyond what is necessary for vulnerability reporting\n* If we determine that your actions violate or may violate our Terms of Use or these guidelines, or are otherwise inappropriate, we may take necessary measures such as blocking communication or suspending accounts.\n\n# Notes\n* Reporters must not disclose or leak to third parties any information related to vulnerabilities, or information obtained by exploiting vulnerabilities, without our prior written consent.\n* If a reporter obtains personal data of our customers, partners, or employees, or trade secrets of us or our partners in connection with a vulnerability report, the reporter must promptly delete such information (including logs, etc.) from all systems and devices they use.\n* Please do not include personal data of yourself or any third party in your vulnerability report.\n* Handling of submitted information\n* To take necessary measures based on your vulnerability report, we may share the content of the report with third parties such as system providers.\n* We pay maximum attention to security in order to safely manage the information collected from reporters.\n\n# Legal Matters (Safe Harbor)\nActivities conducted in accordance with these guidelines are regarded as authorized by us, unless their purpose or manner is improper, and we will not take legal action against reporters for such activities. If a third party takes legal action against a reporter in connection with activities performed under these guidelines, we will take steps, as appropriate, to clarify that the reporter’s actions were carried out in accordance with these guidelines and consider other necessary measures.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.line.me",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier B_ Asset** \n\nPrevious standalone web domains such as live.line.me, music.line.me, news.line.me, store.line.me are now included in this wildcard. \n\nURLs that contain `nvapis.line.me` will be out of scope.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.line-apps.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier B_ Asset** ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.line.naver.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier B_ Asset** ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jp.naver.line.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\n[Google Play Store](https://play.google.com/store/apps/details?id=jp.naver.line.android)\n\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "443904275",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\n[Apple App Store](https://apps.apple.com/jp/app/line/id443904275)\n\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "9wzdncrfj2g6",
+      "asset_type": "WINDOWS_APP_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\n[Microsoft Windows Store](https://www.microsoft.com/ja-jp/p/line/9wzdncrfj2g6)\n\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Chrome Extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nhttps://chrome.google.com/webstore/detail/line/ophjlpahpchlmihnnnihgmmeilfjmjjc\n\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Windows Executable",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nhttps://desktop.line-scdn.net/win/new/LineInst.exe\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "539883307",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nmacOS: [Apple Mac App Store](https://apps.apple.com/id/app/line/id539883307)\n\nPlease make sure you are testing the latest version. Only the latest version is considered in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.linecorp.linelite",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nLINE Lite on the [Google Play Store](https://play.google.com/store/apps/details?id=com.linecorp.linelite)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Pay",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please refrain from testing any functionality that is related to financial transactions. **This includes LINE Pay functionality within the LINE Application and Rabbit Pay for Thailand.**",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "prod-fido-fido2-server.line-apps.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is a FIDO API endpoint for testing integrations. It has no user data and is purely for testing implementations. As such, it is out of scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*nvapis.line.me ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "URLs that contain `nvapis.line.me` will be out of scope.\n\nExample: `dev-nvapis.line.me`, `kr-nvapis.line.me` etc",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "LINE Messenger - VOOM",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nSocial media feature that can share contents in LINE Messengers > Voom Tab and related servers. \n\nThe website (https://linevoom.line.me) is also included.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Messenger - Keep",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nA storage service that lets you save photos, videos, text and files in LINE Messengers > Keep feature and related servers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Messenger - VoIP",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nVoice and Video call service in LINE Messengers > Calls tab or call menu in a chat room and related servers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Messenger - Chat",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nChat and Group Chat feature that can send texts, images, stickers and so on in LINE Messengers > Chats Tab and related servers. Supplementary services such as Album, Notes are also included.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Messenger - OpenChat",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nAnonymous chat service in LINE Messengers > OpenChat and related servers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINE Messenger - News",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier A_ Asset** \n\nNews service in LINE Messengers > News Tab and related servers.\n\nPlease note that this is available in Japan Only.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "If you found a vulnerability in LINE's website or applications that are not explicitly listed in `Scopes`, it can still be submitted and the report will be triaged by LINE and evaluated on case by case basis. \n\nDepending on the outcome of the triage, it may not qualify for monetary reward, for examp",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.line.biz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**_Tier B_ Asset** ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "LINEMAN",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "DEMAE-CAN",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Yahoo Japan",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://entry.line.me/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

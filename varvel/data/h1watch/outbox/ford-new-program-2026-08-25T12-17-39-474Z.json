@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ford",
+      "name": "Ford",
+      "offersBounties": false,
+      "assets": [
+        "*.ford.com",
+        "*.lincoln.com",
+        "*.motorcraft.com",
+        "*.omnicraftautoparts.com",
+        "*.quicklane.com",
+        "1068283395",
+        "1095418609",
+        "1141482401",
+        "1142223695",
+        "1225744589",
+        "1290945517",
+        "1290960071",
+        "1316029168",
+        "1316029395",
+        "587040067",
+        "950707840",
+        "com.ford.fordalexa",
+        "com.ford.fordpass",
+        "com.ford.fordplay",
+        "com.ford.performance.android.experience",
+        "com.ford.remoteaccess",
+        "com.ford.therightway",
+        "com.lincoln.lincolnalexa",
+        "com.lincoln.lincolnplay",
+        "com.lincoln.lincolnway"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "45 requests per minute"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ford-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ford",
+  "name": "Ford",
+  "url": "https://hackerone.com/ford",
+  "policy": "# About\r\n**The Ford Vision**\r\nPeople working together as a lean, global enterprise to make people’s lives better through automotive and mobility leadership.\r\n\r\n**Innovation**\r\nThe Ford Motor company has maintained its position as a leader in the automotive industry through its [innovative people, technologies, and communities](https://corporate.ford.com/innovation.html).  The principle of innovation applies to all aspects of Ford, including security. The Coordinated Disclosure Program is a modern, yet essential security tool, and we need your help to expand its reach.\r\n\r\nFord will be selecting top researchers from our programs to participate in future special hacking projects. We’re excited to work with HackerOne and the hacker community to help keep Ford customers safe.\r\n\r\n\r\n# Eligibility \r\n* You must be 18 years old or older and of sound mind to submit a vulnerability for consideration. If you are a minor, you must submit through a parent or legal guardian.\r\n* You are an individual security researcher participating in your own individual capacity.\r\n* If you work for a security research organization, that organization permits you to participate in your own individual capacity. You are responsible for reviewing your employer’s rules for participating in this program.\r\n\r\n## Researchers who meet any of the following criteria are ineligible for participation:\r\n- A resident of any countries/regions that are under United States sanctions, such as Cuba, Iran, North Korea, Sudan, and Syria or Crimea, nor a person designated on the U.S. Department of the Treasury’s Specially Designated Nationals List.\r\n- A current employee of Ford Motor Company or a Ford subsidiary, or an immediate family (parent, sibling, spouse, or child) or household member of such an employee.\r\n- A contingent staff member or contractor or vendor employee currently working with Ford.\r\n\r\n\r\n# Response Targets\r\nIf we require additional information from you, please allow for another 2-3 days for our team to review and respond to new comments.\r\n\r\n| Response Target | Time (in business days) |\r\n| -------------------| --------------------- |\r\n| First response (from report submit) |   2 days |\r\n| Triage (from report submit) | 2 days |\r\n| Resolution | Depends on severity and complexity |\r\n    \r\n\r\n# Test Instructions\r\nAll assets in scope are on production; no VPN or credentials are required for testing. \r\n\r\n# Reporting Criteria \r\nAll reports will be evaluated based on the following criteria:\r\n1. Steps to reproduce the vulnerability\r\n2  Working proof of concept \r\n3. Business impact\r\n4. Effort required to exploit the vulnerability\r\n5. Likelihood of vulnerability being discovered\r\n\r\n# Valuable Vulnerabilities\r\n* Remote Code Execution\r\n* SQL Injection\r\n* Privilege Escalation to Admin Level\r\n* XML Injection\r\n* Insecure Direct Object Reference\r\n\r\n\r\n# Example of valuable vulnerability\r\n\r\n### High\r\n* **Summary:** Authentication Bypass was found on a mobile to web application. Access to certain functions was disabled by client-side javascript. By removing the necessary variables, a user is able to use features that were previously restricted.\r\n\r\n\r\n ___________________________________________________________________________\r\n\r\n#Ford Coordinated Disclosure Rules\r\n* **The same vulnerability that is found on multiple domains will be treated as a SINGLE vulnerability. Please report all affected domains (e.g. ford.com.ca, ford.com.mx, ford.com.br, etc.) on a single report.  All subsequent reports will be closed as a Duplicate.**\r\n* Do not modify a vehicle that is used on public roads in a manner that could affect the safety of you, other motorists, or pedestrians.\r\n* Do not modify or access data that does not belong to you.\r\n* A vulnerability should NOT be dependent on another vulnerability. Each vulnerability should be executable on its own.  \r\n* No damage caused to a vehicle by modification will be covered under warranty.\r\n* Although Ford will not retaliate against legitimate participants who comply with the Coordinated Disclosure Guidelines, we cannot represent the position of other entities, such as law enforcement or other copyright owners.\r\n* In return for Ford’s consideration of Participant’s submission, which Participant hereby acknowledges as sufficient consideration, Participant waives any claims related to confidentiality and grants Ford a non-exclusive, worldwide, perpetual, irrevocable, royalty-free, fully paid-up, sub-licensable and transferable right to use, copy, reproduce, display, modify, adapt, transmit, and distribute any content submitted, and Participant also covenants not to sue Ford based on any content submitted and for any actions taken by Ford related to any submission.\r\n* Ford will not publicly disclose the identity of any submitter without consent, except where required by law.\r\n\r\n\r\n# General Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may be closed as Information or NA.\r\n* Submit one report per individual vulnerability.  If multiple vulnerabilities could be chained, but still require different fixes, please submit as separate reports and include ID# of the other related reports.  \r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one vulnerability; the first report will be triaged as the original, and all future reports will be closed as Duplicate.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n\r\n## Grounds for Disqualification \r\nAttempting any of the following could result in permanent disqualification from the disclosure program and possible criminal and/or legal investigation. We do not allow any actions that could negatively impact the experience on our websites, apps, or vehicles for other Ford customers.\r\n\r\n* Disruption or denial-of-service attacks (Application and Network)\r\n* Social engineering attacks\r\n* Brute-force attacks\r\n* Exfiltration of data\r\n* Code injection on live systems\r\n* The compromise or testing of application accounts that are not your own\r\n* Any threats, attempts at coercion, or extortion of Ford employees, other partner employees, or customers\r\n* Physical attacks against Ford, contractors, or customers\r\n* Any physical attempts against Ford property or data centers\r\n* Access the personal information of any other person without consent\r\n* Any other action that violates the law\r\n* Any action that endangers yourself, other motorists, or pedestrians\r\n* Attacks against manufacturing systems, applications, networks, and infrastructure. This includes transportation, transportation infrastructure, plant machinery, personnel, equipment, and vehicles\r\n* Aggressive vulnerability scans or automated scans on Ford servers (including scans using tools such as Core Impact or Nessus)\r\n     * Keep scans to 45 requests per minute\r\n\r\n\r\n#Out-of-Scope Vulnerabilities\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Due to the volume of 3rd party assets, including dealerships, partners, suppliers, etc., Ford is excluding low and medium severity 3rd party vulnerabilities from the initial scope.  Ford will accept high and critical severity 3rd party vulnerabilities on a case by case basis.  \r\n* Self XSS \r\n* Clickjacking on pages with no sensitive actions\r\n* Unauthenticated/logout/login CSRF\r\n* Attacks requiring MITM or physical access to a user's device\r\n* Previously known vulnerable libraries without a working Proof of Concept\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\r\n* Missing best practices in SSL/TLS configuration\r\n* Any activity that could lead to the disruption of our service (DoS)\r\n* Reports from automated tools or scans that don’t prove a unique, valid security threat\r\n* Content spoofing and text injection issues WITHOUT showing an attack vector/without being able to modify HTML/CSS\r\n* Brute force attacks\r\n* Password and account recovery policies, such as reset link expiration or password complexity\r\n* Bypass of URL malware detection\r\n* Vulnerabilities affecting users of outdated or unpatched browsers and platforms\r\n* Externally hosted services utilized by Ford\r\n\r\n\r\n\r\n# Disclosure Policy\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n* Ford reserves the right to approve or deny any request for disclosure.\r\n* Disclosing vulnerability information without Ford approval may result in a program ban.\r\n\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n\r\n\r\nThank you for participating in Ford’s Coordinated Disclosure Program.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.ford.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset/application that appears to be owned by Ford is in scope, but this is a priority domain.\n\nThe same vulnerability that is found on multiple domains will be treated as a SINGLE vulnerability. Please report all affected domains (e.g. ford.com.ca, ford.com.mx, ford.com.br, etc.) on a single re",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lincoln.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset/application that appears to be owned by Ford is in scope, but this is a priority domain.\n\nThe same vulnerability that is found on multiple domains will be treated as a SINGLE vulnerability. Please report all affected domains (e.g. lincoln.com.ca, lincoln.com.mx, lincoln.com.br, etc.) on a ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.fordpass",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "## Test VIN: 1FMZU73W92UC83509\n\nNorth America \nhttps://play.google.com/store/apps/details?id=com.ford.fordpass&hl=en\n\nSouth America\nhttps://play.google.com/store/apps/details?id=com.ford.fordpasssa&hl=en\n\nEuropean Union\nhttps://play.google.com/store/apps/details?id=com.ford.fordpasseu&hl=en\n\nAll ser",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.remoteaccess",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1095418609",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "FordPass\nhttps://apps.apple.com/us/app/fordpass/id1095418609",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.fordalexa",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Ford + Alexa\nhttps://apps.apple.com/us/app/ford-alexa/id1316029395",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.fordplay",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.performance.android.experience",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ford.therightway",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "587040067",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1068283395",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Ford App Catalog \nhttps://appadvice.com/app/ford-app-catalog/1068283395",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1316029395",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Ford + Alexa\nhttps://apps.apple.com/us/app/ford-alexa/id1316029395",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1290945517",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Ford Play\nhttps://apps.apple.com/us/app/ford-play/id1290945517",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1142223695",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "950707840",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1225744589",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Ford Performance App\nhttps://apps.apple.com/us/app/ford-performance-app/id1225744589",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lincoln.lincolnway",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "### Test VIN: 1FMZU73W92UC83509\n\nExplore the collection of premier services we call The Lincoln Way (1):\n- With Lincoln Connect, start or stop your engine with a touch of a button or lock and unlock your Lincoln remotely for increased peace of mind (2)\n- With Lincoln Connect, locate your vehicle fro",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1141482401",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The Lincoln Way\nhttps://apps.apple.com/us/app/ford-performance-app/id1141482401",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lincoln.lincolnalexa",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lincoln.lincolnplay",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1290960071",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Lincoln Play\nhttps://apps.apple.com/us/app/ford-performance-app/id1290960071",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1316029168",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Lincoln + Alexa\nhttps://apps.apple.com/us/app/ford-performance-app/id1316029168\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.quicklane.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset/application that appears to be owned by Ford is in scope, but this is a priority domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.motorcraft.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset/application that appears to be owned by Ford is in scope, but this is a priority domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.omnicraftautoparts.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset/application that appears to be owned by Ford is in scope, but this is a priority domain.",
+      "max_severity": "critical"
+    }
+  ]
+}

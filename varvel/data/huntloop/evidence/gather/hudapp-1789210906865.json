@@ -1,0 +1,107 @@
+{
+ "at": "2026-09-12T11:01:40.297Z",
+ "opportunity": "hudapp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "co.hud.app",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to co.hud.app:443 refused: host unreachable"
+  },
+  {
+   "host": "www.hudapp.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-9WMCQLLR1M",
+     "evidence": "googletagmanager.com/gtag/js?id=G-9WMCQLLR1M"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e6a6aaa6590ba-LHR",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 72a04db090fbbd82771157077fb21266.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "prod-cloud.hookupdating.mobi",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 e350828b1e41ccd2ba6babe871ed599a.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "prod-realtime.hookupdating.mobi",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 ea6cff00351b862f92a7d46659ea81b0.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cdn.hookupdating.mobi",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 4284fd77f755f22ec793b21e3fc7e1a0.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

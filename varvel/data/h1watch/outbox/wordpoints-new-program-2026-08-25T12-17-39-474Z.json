@@ -1,0 +1,48 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wordpoints",
+      "name": "WordPoints",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/WordPoints/",
+        "https://github.com/WordPoints/wordpoints/"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wordpoints-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wordpoints",
+  "name": "WordPoints",
+  "url": "https://hackerone.com/wordpoints",
+  "policy": "# Scope\r\nWe're interested in **source code vulnerabilities** in the targets listed below.\r\n\r\n# The Targets\r\nIn order of importance:\r\n- The [WordPoints plugin](https://wordpress.org/plugins/wordpoints/) ([developed on GitHub](https://github.com/WordPoints/wordpoints/)).\r\n- Extensions for the plugin developed under [the WordPoints organization on GitHub](https://github.com/WordPoints/).\r\n\r\nPlease note that at present **the wordpoints.org website is *not* considered a valid target**.\r\n\r\n# Important Notes\r\n- The plugin and many of the extensions are developed with the production code in the `/src` directory of the repository. In these cases, **only code within the `/src` directory is in scope**, since only that code is distributed and installed. This is only important when you're looking at one of the development branches. You can also download the code for the latest release (e.g., for [WordPoints](https://github.com/WordPoints/wordpoints/releases/latest)), and in that case, the package will only contain the production code.\r\n- We do not maintain old branches of the code, so **only vulnerabilities present in the development version and the latest release are in scope**. On GitHub these will be the `develop` and `master` branches, respectively.\r\n\r\n# Reporting Bugs\r\nWhen reporting a vulnerability, please include a POC if possible. That will help us to validate the report as quickly as possible, and will also save you from reporting false bugs.\r\n\r\n# Bounty Program\r\nWe offer small bounties for valid bugs. We may award larger bounties if we think the bug is more serious.\r\n\r\n# Invalid Bugs\r\n- **Path Disclosure:** That's really a server issue, and any competent admin will have `display_errors` disabled on production boxes.\r\n\r\n- **Directory Listing:** Similar to path disclosure, this isn't really a concern. Many of the projects are open source, so an attacker can already easily determine the directory structure. Only if a directory is created after the plugin/extension is installed would there be any concern of sensitive information being disclosed.\r\n\r\n- **Version Disclosure:** Hiding the names or versions of software that a service is running is just security through obscurity.\r\n\r\n- **XSS:** Reports of XSS vulnerabilities are welcome. However, [in WordPress some user Roles are trusted and are allowed to post unfiltered HTML](http://codex.wordpress.org/FAQ_Security#Why_are_some_users_allowed_to_post_unfiltered_HTML.3F) on the front end of the site. An XSS vulnerability may not be considered valid if it can only be exploited by users who have the `unfiltered_html` capability, and if it does not affect the administration panels. If you're unsure whether an XSS bug is valid, please report it anyway.\r\n\r\n- **Nonce Persistence:** WordPress uses CSRF tokens called \"nonces\". However, unlike true nonces, they aren't used only once, but [expire after a limited time](http://codex.wordpress.org/WordPress_Nonces#Nonce_lifetime). If you see the same nonce token value being used repeatedly, that is probably why.\r\n\r\n- **Nonces in `GET` requests:** The WordPress developers have built the nonce system to be fairly robust against leaking of nonces in `GET` requests. WordPress actually includes a function for adding a nonce as a `GET` parameter to a URL, [wp_nonce_url()](https://developer.wordpress.org/reference/functions/wp_nonce_url/). This is generally considered an accepted risk. If you think that a particular case of using an nonce in a `GET` request poses a significant risk, please report it anyway.\r\n\r\n- **File Uploads:** WordPoints allows users with sufficient capabilities to upload arbitrary files to the server. We are only interested in vulnerabilities related to file uploads if they can be exploited by users who do not have the `wordpoints_install_modules` capability.\r\n\r\n- **Outside Scope:** Only source code bugs are within scope; vulnerabilities at the server or network layer are not in scope.\r\n\r\n- **Invalid targets:** The wordpoints.org website is not a valid target. Please see the Targets section above for a list of valid targets. ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/WordPoints/wordpoints/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are mainly interested in vulnerabilities in the released code, which is in the `/src` directory. We are interested in issues present in the `develop` branch and the latest release (`master` branch).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/WordPoints/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are interested in any of the WordPoints extensions developed under this GitHub organization. We are mainly interested in vulnerabilities in the released code, which is in the `/src` directory. We are interested in issues present in the `develop` branch and the latest release (`master` branch).",
+      "max_severity": "critical"
+    }
+  ]
+}

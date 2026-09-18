@@ -18,7 +18,7 @@ const TOOLDEFS = [
   { name: 'Read',  description: 'Read a file inside the enclave workspace.', schema: { type: 'object', properties: { file_path: { type: 'string' } }, required: ['file_path'] } },
   { name: 'Write', description: 'Create/overwrite a file inside the workspace.', schema: { type: 'object', properties: { file_path: { type: 'string' }, content: { type: 'string' } }, required: ['file_path', 'content'] } },
   { name: 'Edit',  description: 'Replace old_string with new_string in a workspace file.', schema: { type: 'object', properties: { file_path: { type: 'string' }, old_string: { type: 'string' }, new_string: { type: 'string' } }, required: ['file_path', 'old_string', 'new_string'] } },
-  { name: 'Bash',  description: 'Run a shell command in the workspace. To use the sealed workload toolchain (nmap/vol/gdb/nuclei/…) run: enclave-shell <command>', schema: { type: 'object', properties: { command: { type: 'string' } }, required: ['command'] } },
+  { name: 'Bash',  description: 'Run a shell command INSIDE the sealed workload container (the toolchain — nmap/vol/gdb/nuclei/… — is on PATH; the workspace is /work). Every command runs in the container, never on the host.', schema: { type: 'object', properties: { command: { type: 'string' } }, required: ['command'] } },
   { name: 'Grep',  description: 'Search file contents (ripgrep) in the workspace.', schema: { type: 'object', properties: { pattern: { type: 'string' }, path: { type: 'string' } }, required: ['pattern'] } },
   { name: 'Glob',  description: 'List files matching a glob in the workspace.', schema: { type: 'object', properties: { pattern: { type: 'string' } }, required: ['pattern'] } },
 ];
@@ -30,23 +30,36 @@ const toolsFor = (apiType) => apiType === 'anthropic'
 function govern(hookPath, toolName, toolInput, sessionFile, wsDir) {
   const payload = JSON.stringify({ tool_name: toolName, tool_input: toolInput, cwd: wsDir });
   const r = spawnSync('node', ['--no-warnings', hookPath], {
-    input: payload, encoding: 'utf8',
+    input: payload, encoding: 'utf8', windowsHide: true, // no console flash per governed call
     env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: wsDir, NODE_NO_WARNINGS: '1' },
   });
   try { const j = JSON.parse(r.stdout).hookSpecificOutput; return { allow: j.permissionDecision === 'allow', reason: j.permissionDecisionReason || '' }; }
   catch { return { allow: false, reason: 'policy hook error — fail-closed' }; }
 }
 
-// Execute an ALLOWED tool. File ops confined to the workspace; Bash runs on the host
-// in the workspace (enclave-shell inside the command routes to the sealed container).
-function execTool(toolName, args, wsDir, container, binPath) {
+// Execute an ALLOWED tool. File ops are confined to the mounted workspace (which IS the
+// container's /work — the same bytes over the bind mount, and within() blocks any path
+// outside it). ALL shell/search (Bash/Grep/Glob) is forced INSIDE the sealed container via
+// `docker exec` — there is NO host-shell path, so a command the model runs without the
+// enclave-shell wrapper can no longer touch the host. If no container is running for this
+// workload, shell is refused (fail-closed) instead of dropping to the host.
+function execTool(toolName, args, wsDir, container, _binPath) {
   const within = p => {
-    const abs = isAbsolute(String(p)) ? String(p) : join(wsDir, String(p));
+    // Git-Bash/POSIX drive form (/c/Users → C:/Users) — normalize before the confinement check
+    const s0 = String(p); const m = /^\/(?:mnt\/)?([a-zA-Z])(?=\/|$)/.exec(s0);
+    const q = m ? m[1].toUpperCase() + ':' + s0.slice(m[0].length) : s0;
+    const abs = isAbsolute(q) ? q : join(wsDir, q);
     const rel = relative(wsDir, abs);
     if (rel.split(/[\\/]/)[0] === '..' || isAbsolute(rel)) throw new Error('path outside the sealed workspace');
     return abs;
   };
-  const env = { ...process.env, ENCLAVE_CONTAINER: container || '', PATH: binPath + (process.platform === 'win32' ? ';' : ':') + (process.env.PATH || '') };
+  // run argv INSIDE the sealed container; never fall back to the host.
+  const dexec = (argv, timeout = 150000) => {
+    if (!container) return 'ERROR: shell/search is disabled for this workload — no sealed container is running (start Docker and pick a workload that has a built image). Nothing is executed on the host.';
+    const r = spawnSync('docker', ['exec', '-i', '-w', '/work', container, ...argv], { encoding: 'utf8', timeout, windowsHide: true });
+    if (r.error) return 'ERROR: could not enter the sealed container: ' + r.error.message;
+    return ((r.stdout || '') + (r.stderr || '')).slice(0, 8000) || '(no output)';
+  };
   try {
     if (toolName === 'Read') return readFileSync(within(args.file_path), 'utf8').slice(0, 20000);
     if (toolName === 'Write') { writeFileSync(within(args.file_path), args.content ?? ''); return 'wrote ' + args.file_path; }
@@ -55,11 +68,27 @@ function execTool(toolName, args, wsDir, container, binPath) {
       if (!c.includes(args.old_string)) return 'ERROR: old_string not found in ' + args.file_path;
       writeFileSync(f, c.replace(args.old_string, args.new_string)); return 'edited ' + args.file_path;
     }
-    if (toolName === 'Grep') { const r = spawnSync('rg', ['-n', String(args.pattern), String(args.path || '.')], { cwd: wsDir, encoding: 'utf8', env }); return (r.stdout || r.stderr || 'no matches').slice(0, 8000); }
-    if (toolName === 'Glob') { const r = spawnSync('bash', ['-lc', 'ls -1 ' + String(args.pattern) + ' 2>/dev/null || true'], { cwd: wsDir, encoding: 'utf8', env }); return (r.stdout || 'no matches').slice(0, 8000); }
-    if (toolName === 'Bash') { const r = spawnSync('bash', ['-c', String(args.command)], { cwd: wsDir, encoding: 'utf8', timeout: 150000, env }); return ((r.stdout || '') + (r.stderr || '')).slice(0, 8000) || '(no output)'; }
+    // ripgrep runs as direct argv (no shell → no injection); even an out-of-workspace path
+    // only ever sees the container's filesystem, not the host's.
+    if (toolName === 'Grep') return dexec(['rg', '-n', String(args.pattern), String(args.path || '.')]);
+    // glob needs shell expansion; any injection stays sealed inside the disposable container.
+    if (toolName === 'Glob') return dexec(['bash', '-lc', 'ls -1 ' + String(args.pattern) + ' 2>/dev/null || true']);
+    // the wrapper is now applied HERE (the enforcement layer), not by the model: strip a
+    // leading `enclave-shell` if the model still emits it, then run in the container regardless.
+    if (toolName === 'Bash') return dexec(['bash', '-lc', String(args.command).replace(/^\s*enclave-shell\s+/i, '')]);
     return 'unknown tool ' + toolName;
   } catch (e) { return 'ERROR: ' + e.message; }
+}
+
+// Kimi's raw coding API (Anthropic shape) accepts only BASE model ids — `k3`, `kimi-k2.7-code`.
+// The k3 CLI config stores the DISPLAY id `kimi-k3[1m]`, and sending that verbatim is a 401
+// ("Your model id does not exist, recognized as other:kimi-k3[1m]"). Normalize at the API
+// chokepoint so no caller can ever ship a display id to the wire. Non-Kimi ids pass through
+// untouched (the [1m]-strip only matches that literal suffix).
+export function normalizeKimiModel(m) {
+  let s = String(m || '').replace(/\s*\[1m\]\s*$/i, '').trim();
+  if (/^kimi-k3$/i.test(s)) s = 'k3';
+  return s || 'k3';
 }
 
 // One completion call. Returns a NORMALIZED { assistantMsg, text, toolCalls:[{id,name,args}] }.
@@ -67,7 +96,7 @@ function execTool(toolName, args, wsDir, container, binPath) {
 async function chat({ apiBase, apiKey, apiType, model, system, convo, effort, fetchImpl = fetch }) {
   const base = apiBase.replace(/\/$/, '');
   if (apiType === 'anthropic') {
-    const body = { model, max_tokens: 8192, system, messages: convo, tools: toolsFor('anthropic') };
+    const body = { model: normalizeKimiModel(model), max_tokens: 8192, system, messages: convo, tools: toolsFor('anthropic') };
     if (effort) body.reasoning_effort = effort;
     const r = await fetchImpl(base + '/v1/messages', { method: 'POST',
       headers: { 'content-type': 'application/json', 'x-api-key': apiKey, authorization: 'Bearer ' + apiKey, 'anthropic-version': '2023-06-01' },

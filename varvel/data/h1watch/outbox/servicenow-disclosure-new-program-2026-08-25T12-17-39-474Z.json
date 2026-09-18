@@ -1,0 +1,54 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "servicenow-disclosure",
+      "name": "ServiceNow Disclosure",
+      "offersBounties": false,
+      "assets": [
+        "*.lightstep.com",
+        "*.service-now.com",
+        "*.servicenow.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\servicenow-disclosure-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "servicenow-disclosure",
+  "name": "ServiceNow Disclosure",
+  "url": "https://hackerone.com/servicenow-disclosure",
+  "policy": "## Overview\n\nWe at ServiceNow are committed to maintaining a secure and trustworthy platform for our customers, partners, and users. We appreciate the contributions of the security research community and welcome reports of potential vulnerabilities submitted in good faith. \n\nWe do not authorize or encourage active testing, scanning, or auditing of its systems or infrastructure. However, we understand that vulnerabilities may occasionally be discovered incidentally. \n\nIf you believe you’ve identified a security issue related to our systems, products, or services, we ask that you report it to us responsibly. The guidelines below outline the best practices for submitting vulnerabilities to us. \n\nPlease do not disclose any issue to the public or a third party until we have resolved it. We welcome transparency and look forward to collaborating with you to ensure accuracy, safety, and alignment for all parties involved. \n\nIf your security issue is related to the Now Platform, you must:\n1. Consult the product documentation located at https://docs.servicenow.com/ to understand the function of the platform\n2. Obtain a test instance for security research by creating a developer account on https://developer.servicenow.com/ using your HackerOne-provided email address.\n\n## Scope\n\nThis policy is limited to technical security vulnerabilities affecting ServiceNow-owned products, services, and systems. Please ensure that your submission involves a technical issue and consider both the exploitability and potential security impact when reporting. \n\nPlease note: \n- We do not authorize active auditing, scanning, or penetration testing of our infrastructure.\n- Assets of acquired companies are in scope.\n\nThe following domains are examples of assets considered within scope: \n```\n*.servicenow.com\n*.service-now.com\n*.lightstep.com\n```\nAdditional assets may be included in scope depending on acquisitions. Feel free to submit your report when you are in doubt. \n\n## Out of scope\n\n- Domains/subdomains outside of our systems, products, or services.\n- Vulnerabilities in ServiceNow partner or customer sites or instances. \n- Automated scanning or use of vulnerability assessment tools. \n- Vulnerabilities requiring physical access to a user’s computer or device. \n- Physical attacks against ServiceNow offices or data centers. \n- Issues based on vulnerabilities already remediated by ServiceNow. \n- Spam or social engineering attacks. \n- Unclaimed package namespaces or registry ownership (e.g., npm) without demonstrated impact to ServiceNow systems.\n- Destructive testing such as DoS/DDoS, resource exhaustion, destructive payloads, data deletion, or corruption.\n\n\n\n## Guidelines\n\nPlease follow the guidelines below when disclosing vulnerabilities. \n\n- Report any potential security issues as soon as possible. We will make every effort to quickly resolve the issue. \n- If you are a ServiceNow customer, submit your findings by following the instructions outlined in our Customer Penetration Testing (CPT) program documentation [here](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0538598) (Now Support account required). \n- If you are a user of a customer’s ServiceNow instance and discover a potential vulnerability through normal use, we will review and, if appropriate, coordinate remediation with the customer responsibly. \n- Provide sufficient detail to reproduce the vulnerability, including a proof of concept. \n- Reports relating to issues not in the ServiceNow AI Platform are not in scope for public disclosure.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or accounts for which you have the explicit permission of the account holder. \n- Redact any language or images that may identify the program or ServiceNow customers from information about a fixed vulnerability. \n- Do not engage in social engineering or phishing of customers or employees. \n- Please do not request compensation for time and materials for discovered vulnerabilities through the Responsible Disclosure Program. \n\n## Vulnerability submissions\n\nTo report a vulnerability, please submit a report (including a proof of concept) via email to disclosure@servicenow.com and follow the auto-response instructions to fully submit your report. You can also submit directly [here](https://hackerone.com/servicenow-disclosure/reports/new?type=team&report_type=vulnerability) (HackerOne account creation required). \n\nFor ServiceNow product vulnerabilities: to ensure faster triage of your report, we require all reports to include information about changes to default settings and the addition of any plugins not installed by default. Please include information about any changes to the out of the box configuration in your report at the beginning of the section \"Steps to Reproduce.\" \n\nThank you for helping keep ServiceNow and our users safe! \n\n \n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.servicenow.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.service-now.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lightstep.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

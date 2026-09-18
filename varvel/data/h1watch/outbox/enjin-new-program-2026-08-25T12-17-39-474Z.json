@@ -1,0 +1,165 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "enjin",
+      "name": "Enjin",
+      "offersBounties": true,
+      "assets": [
+        "*.enjinusercontent.com",
+        "Enjin Blockchain",
+        "com.enjin.mobile.wallet",
+        "nft.io"
+      ],
+      "exclusions": [
+        "assets.enjin.io",
+        "cdn.enjin.io",
+        "cdn.nft.io",
+        "docs.enjin.io",
+        "enj.in",
+        "enjin.io",
+        "faucet.canary.enjin.io",
+        "platform.enjin.io",
+        "support.enjin.io",
+        "support.nft.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\enjin-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "enjin",
+  "name": "Enjin",
+  "url": "https://hackerone.com/enjin",
+  "policy": "Security is the utmost highest priority at Enjin. Despite the heavy attention to detail, we understand that bugs are present within all pieces of technology - that includes our own. It's for that reason why we love to work with talented security researchers, around the world, to assist us in identifying and securing our systems and applications.\n\nIf you suspect that you've identified a security bug within any of our services, that are listed as \"In Scope,\" then we will gladly work with you in order to ensure a rapid resolution of that issue and (for both your time and ethical disclosure) we will compensate you for your discovery.\n\n# Scope\n\nPlease refer to the \"**Scopes**\" section (below) for information about what assets we consider as being \"In Scope.\" Vulnerabilities reported against any other assets are considered Out of Scope, and therefore will not be eligible for any bounty.\n\nNote that the `/cdn-cgi/*` path is controlled by our Content Delivery Network, [Cloudflare](https://www.cloudflare.com). Therefore, any submissions pertaining to this path will be marked as Out of Scope and therefore Not Applicable.\n\n## Enjin Indexer\n\nWe are willing to accept reports about the [Enjin Indexer](https://github.com/enjin/indexer) as the indexer is used throughout Enjin's services. However, that is on basis that you are able to demonstrate an exploitable, reproducible, vulnerability that impacts one or more of our production environments.\n\nWe will not accept any reports revolving around code analysis, issues (including vulnerabilities) with running the indexer locally or general bug reports (no security impact) of the application as the source code is provided out of behavioural transparency. We do not publish any documentation revolving around running the indexer, and we use a substantially more complex networking layer in our production environments than what is explicitly defined within the source code.\n\nReports of the following nature are frequently detected but remain out of scope unless otherwise demonstrated on our production environments:\n1. SSRF;\n2. Unauthenticated BullMQ Dashboard; or\n3. Leveraging specialised queries (such as `refreshEntity`).\n\n# Responsible Disclosure\n\nWe respect the work that the security research community provides and we ask that you act in good faith when working with us. For that reason, we ask that you abide by the following whilst participating within our program:\n- Limit testing to accounts you own and do not impact other users. If you encounter any user data, including but not limited to usernames, emails, or passwords, please report it to us immediately and stop testing right away.\n- When testing, you should only do the minimum required to validate a vulnerability. In cases where it may impact our systems or users, please get in-touch with security@enjin.io first to confirm whether you have permission to proceed. No matter what the case is, never damage or leave any system in a more vulnerable state than when you discovered it.\n- Do not follow \"the rabbit hole\" by continuing to dig deeper (look more thoroughly) into our system. Should you gain access to any of our systems, you should immediately stop and responsibly disclose the vulnerability.\n\n# Response Targets\n\nEnjin has set forth the following response targets upon receiving a report:\n- First response within 72 business hours;\n- Triage within 7 business days;\n- Have a resolution in place within 30 business days; and\n- Payout within 14 business days after a resolution has been confirmed.\n\nWhilst these are our baseline response targets, we will do our best to always exceed these targets.\n\nHowever, in very limited circumstances, we may fail to meet one (or more) of these targets. In the event we fail to meet one of our targets, please be patient with us, as it will almost certainly come down to the complexity of the issue at hand. If no formal resolution has been made within 180 days and with no feedback from the Enjin security team in relation to why that's the case, and as a last resort, then the contents of the report may be publicly disclosed by the finder.\n\n# Eligibility\n\nYou will qualify for a reward if you are the first person to disclose an issue that is not yet known to us and one that affects an asset that's listed as both in-scope and eligible for bounties. You will qualify for a reward if you adhere to the following:\n- You **must** report a vulnerability within **24 hours** of its discovery.\n- You **must not** disclose any details about the vulnerability anywhere else, this includes our support channels.\n- You **must** provide clear steps in order to reproduce the reported vulnerability.\n- You **must not** perform any automated tests / scans against our network.\n- You **must not** perform any attacks that will result in high volumes of traffic (such as Denial of Service attacks.)\n- You **must** avoid any tests that may cause service degradation / interruption.\n- You **must** stop any tests in the event degradation / interruption is identified as a potential result of your tests.\n- You **must not** access; download; leak; manipulate; or destroy any user data.\n- You **must not** save any copies of data acquired through a vulnerability.\n- You **must** only test with accounts that you have created and actively own.\n- You **must** use your `[username]@wearehackerone.com` email address when testing authenticated routes.\n- You **must** set the header `X-H1-Username: [username]` when performing tests outside of the browser (eg. via Postman / cURL / etc.)\n- Your vulnerability **must not** fall within our list of Prohibition or Exclusions (as detailed further, below.)\n\n# Rewards\n\nIf you meet the eligibility criteria, listed above, and have responsibly disclosed a valid vulnerability then you will qualify for a reward.\n\n## Monetary Compensation\n\nEnjin rewards researchers that submit eligible reports for qualifying vulnerabilities. In those cases, our minimum reward is US$60 and our maximum reward is US$1,500. The amount rewarded will vary depending on the severity of the vulnerability reported. Payments will be made directly via HackerOne's payout system.\n\n## Swag\n\nSwag may be awarded, as a discretionary bonus, for a valid report against an in scope asset. Swag is limited to no more than one per researcher. We will not honour (nor respond to) repeated requests to be awarded swag, this is exclusively awarded at the discretion of the Enjin security team.\n\n# Prohibition\n\nThe actions of performing any of the following are strictly prohibited:\n\n- Denial of Service (DoS) attacks (including distributed attacks);\n- Physical attacks against any of our offices, employees, contractors or data centers;\n- Automated tools / scripts / scans that will generate a large volume of traffic;\n- Compromising the account of Enjin's users, employees or contractors;\n- Contacting our support team (all areas operated by support are strictly off-limits);\n- Social engineering our employees or contractors; and\n- Downloading / saving copies of our source code, confidential files or database contents.\n\n# Exclusions\n\nIn addition to the above, the following vulnerabilities will not be considered for bounty and may be closed as Not Applicable:\n\n- Missing security headers (eg. CSP / HSTS / X-Frame-Options / X-Content-Type-Options);\n- Missing security DNS records (eg. SPF / DKIM / DMARC / DS);\n- Missing cookie flags (eg. HttpOnly / SameSite / Secure);\n- Stale DNS records (those pointing to inactive records);\n- Software version disclosure (for any application in our stack);\n- Cross-domain leakage;\n- Information leakage (ie. data cached within searches engines / web archives);\n- Information disclosure;\n- Outdated TLS versions (eg. supporting TLSv1.0 / TLSv1.1);\n- Session timeouts;\n- Session hijacking (cookie reuse);\n- Click-jacking;\n- Tabnabbing;\n- Self-XSS and non-impactful XSS;\n- Account enumeration;\n- Security best practices;\n- Email verification (confirming / changing / bypassing / etc.);\n- Insufficient session expiration;\n- Unlikely user interaction;\n- Missing rate limiting;\n- Cross-Site Request Forgery (CSRF); and\n- WebView and/or WebKit issues.\n\n# Consequences of Complying with This Policy\n\nWe will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act (CFAA). We will not bring a DMCA claim against you for circumventing the technological measures we have used to protect the assets in scope.\n\nIf legal action is initiated by a third party against you in connection with your participation in our program, and you have complied with Enjin's bug bounty policy, Enjin will take steps to make it known that your actions were conducted in compliance with this policy.\n\nPlease contact security@enjin.io before engaging in conduct that may be inconsistent with or unaddressed by this policy.\n\n# Legal Terms\n\nBy participating in this program, you are agreeing to be bound by everything outlined within this policy and the following additional legal terms:\n\n- You must be at least **13 years old** in order to participate in our bug bounty program.\n- Payments are made via HackerOne, and you are solely responsible for paying any taxes associated with those rewards.\n\nWe reserve the right to alter the terms of this program, or terminate this program entirely, at any time.\n\n# Thank You\n\nFinally, we'd like to take this time to thank you for your interest in performing security research against one (or more) assets within our ecosystem. It's researchers, like yourself, that help us to build applications that bring the best possible security to our customers. Therefore, from all of us at Enjin, we'd just like to say: thank **you.**\n\n# Questions?\n\nShould you have any questions, please contact security@enjin.io for clarification. ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "enj.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.enjin.mobile.wallet",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.enjin.mobile.wallet\n\n**Background**\nThe Enjin Wallet is a secure, feature-packed, and convenient blockchain asset wallet built for traders, gamers, and developers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.enjin.mobile.wallet",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/enjin-cryptocurrency-wallet/id1349078375\n\n**Background**\nThe Enjin Wallet is a secure, feature-packed, and convenient blockchain asset wallet built for traders, gamers, and developers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service (ReadMe) is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service (Webflow) is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "nft.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You can also test, for free, on [canary.nft.io](https://canary.nft.io).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdn.nft.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "platform.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**IMPORTANT:** We are not, currently, accepting submissions for this asset.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "faucet.canary.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Canary Faucet can be used to acquire cENJ that is used for testing on the Canary Blockchain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope. Testing on this asset is strictly prohibited.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.nft.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope. Testing on this asset is strictly prohibited.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.enjinusercontent.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service is responsible for the running and maintenance of this website.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "assets.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cdn.enjin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is out-of-scope as a third-party service is responsible for the running and maintenance of this website.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Enjin Blockchain",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Enjin Blockchain refers to either the Enjin Relaychain or the Enjin Matrixchain. It does not refer to other (community-operated) Matrixchains.\n\nIssues originating from Substrate are notifiable but ineligible for a bounty as Enjin Blockchain will automatically work towards scheduling upgrades fro",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "trip_com",
+      "name": "Trip.com",
+      "offersBounties": true,
+      "assets": [
+        "*.budgetair.com",
+        "*.cheaptickets.nl",
+        "*.flugladen.de",
+        "*.staging.travix.com",
+        "*.trainpal.com,*.mytrainpal.com",
+        "*.travix.com",
+        "*.travix.io",
+        "*.trip.biz",
+        "*.trip.com",
+        "*.triplinkintl.com",
+        "*.tyo-masters.co.jp",
+        "*.vayama.com",
+        "*.vliegwinkel.nl",
+        "<locale>.trip.com",
+        "app.blueskytravelvietnam.com",
+        "com.trip.android",
+        "com.trip.ios"
+      ],
+      "exclusions": [
+        "*.dev.travix.com",
+        "*.development.travix.com",
+        "*.playground.travix.com",
+        "*.stg.travix.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\trip_com-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "trip_com",
+  "name": "Trip.com",
+  "url": "https://hackerone.com/trip_com",
+  "policy": "Trip.com Group looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n==** Before submitting a vulnerability report, please read our policy first**==\n\n# Response Targets\nTrip.com Group will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Test Plan\n## Trip Program Scope：\n\n| Application Level | Application Description |\n| ------------- | ------------- |\n| High priority  | https://<locale>.trip.com Main page entry related business (can switch to multiple languages) |\n| Low priority  | Except for High priority applications, *. trip.com domain related applications |\n| Low priority  | \\*.trainpal.com && \\*.mytrainpal.com |\n\n## Travix Program Scope\n| Application Level | Application Description |\n| ------------- | ------------- |\n| Low priority  | *.travix.com  |\n| Low priority  | *.travix.io  |\n| Low priority  | *.cheaptickets.nl  |\nOur business attracts customers from two main sources:\n- Partners (Skyscanner, Google Flights, Kayak, etc..) which redirect customers to our website.\n- Direct (Customer visiting our website directly via ads or loyal customer)\n\nThen when a customer lands on our website via a partner or direct, they go to one of our 50 websites, however, focus on this website: https://www.cheaptickets.nl/ .\n\nDuring that flow, the FE (https://www.cheaptickets.nl) will call multiple Public Backend APIs under .traivx.com, Those Public Backend APIs will call another Internal Backend APIs under (.traivx.com and *.traivx.io) and finally return the results to the FE.\n\nGiven the above information, we are interested to find out how deeply you can investigate our system to find sensitive vulnerabilities which can lead to gaining access inside the system, leaking customer data (PII) or committing fraud.\n> **Note regarding Travix infrastructure:** Travix is currently undergoing a domain migration and governance project. We will not be accepting DNS-related reports until the end of July, as all such issues will be addressed as part of this internal initiative.\n\n\n# Out of scope  bounties\n### There is no bounty, but we will confirm the vulnerability and award Hacker reputation:\n- Sites that use third-party services,such as：https://jobs.careers.trip.com/、https://learninghub.travix.com/. etc\n- The problem of employee account and password leakage on the dark web，Not system administrator account leakage\n- The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in scope for bounty.\n\n# Out of scope vulnerabilities\n### There will be no reward for such vulnerability and no Hacker reputation will be awarded:\n- Account brute force，but unable to login valid Account\n- Self-XSS、Pdf-XSS、Flash-based XSS\n- Email Spoof\n- Session fixation\n- Clickjacking/UI redressing\n- HTTPS/SSL/TLS Related Issues\n- CSV injection\n- Phishing attacks\n- Software version disclosure\n- Login/logout/unauthenticated/low-impact CSRF\n- Session not invalidated after logout\n- Missing security-related HTTP headers which do not lead directly to a vulnerability\n- SSRF vulnerability that cannot obtain the relevant server information of the Intranet, but simple accessed dns log without any impact\n- HTML injection and cannot execute JavaScript code\n- Any activity that could lead to the disruption of our service (DoS, DDoS)\n- Attacks only affecting obsolete browsers or operating systems\n- Any url with \"inrule\" in its name. (e.g. inrule-bq.prd.travix.com). See attached list for out of scope\n- Testing against Partners (Skyscanner, Google Flights, Kayak, etc..) is out of scope\n\n\n# Reward standards\nOur maximum bounty is $5,500 USD \nThe following table lists typical reward ranges by severity, and the actual rewards may fluctuate based on the average value, depending on the actual application scenario of the vulnerability and the level of detail in your report.\n\n| Vulnerability Type | Vulnerability Description | Average Bounty for high-priority asset | Average Bounty for lower-priority asset |\n| ------------- | ------------- | ------------- | ------------- |\n| Remote Code Execution (RCE) | Access to system privileges directly,Including but not limited to command execution, code execution, Webshell, etc. | $5500 | $1500 |\n| SQL Injection | SQL injection vulnerability, which can obtain sensitive database information | $2500 | $1000 |\n| Sensitive Data Exposure | Leakage of a large amount of user plaintext sensitive information, including but not limited to: mobile phone number, bank card information, ID card information, order information, email, address, etc. | $2000 | $800 |\n| Server Side Request Forgery (SSRF) | An SSRF vulnerability that can access trip's intranet and has echo content | $1500 | $500 |\n| Authorization Flaw | Serious unauthorized sensitive operations, including but not limited to unauthorized modification of important information on accounts, ordinary operations on orders, and modification of important business configurations. | $1000 | $300 |\n| Logic flaw |logical design flaws and process flaws | $500 | $200 |\n| Local file read | Vulnerability to read arbitrary system files, which can read important sensitive files. | $500 | $200 |\n| Stored Cross Site Scripting | Only Store  xss, not reflective/dom xss. For the storage xss problem of multiple pages caused by the same data, it can only be considered as one. | $200 | $50 |\n\n==** We do not charge the following low-risk vulnerabilities here as they will not receive effective rewards, but you can submit such vulnerabilities through Trip SRC（ https://src.trip.com ）:  **==\n- Reflected/DOM Cross Site Scripting \n- Cross-Site Request Forgery (CSRF vulnerabilities that can lead to leakage of sensitive user information or account hijacking，No general operations charged, general data modification)\n- Open Redirect(Receiving only Open Redirect can lead to sensitive parameter leakage in URL)\n- Email or SMS Bombing (There is no upper limit or frequency limit for sending)\n- Ordinary system information leakage，such as phpinfo\n- ...\n\nThank you for helping keep Trip.com Group and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.trip.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Except for the domain name of <local>. trip.com\nLow priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "<locale>.trip.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Trip Main Sites\nHigh priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.trip.ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "High priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.trip.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "High priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.travix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Low priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.travix.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Low priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.staging.travix.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in sco",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.trainpal.com,*.mytrainpal.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Low priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cheaptickets.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Low priority Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.stg.travix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in sco",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.dev.travix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in sco",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.development.travix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in sco",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.playground.travix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The staging.travix.com & stg.travix.com & dev.travix.com & development.travix.com & playground.travix.com is in scope, but no bounties will be awarded for bugs found in these platforms. If these platforms can be leveraged to compromise production and infra stack, these bugs will be considered in sco",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.triplinkintl.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tyo-masters.co.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.blueskytravelvietnam.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.budgetair.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.flugladen.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vayama.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vliegwinkel.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.trip.biz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

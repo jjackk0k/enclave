@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "disney",
+      "name": "The Walt Disney Company",
+      "offersBounties": false,
+      "assets": [
+        "Disney Corporate",
+        "abcspotdepot.com",
+        "com.espn.score_center",
+        "disneyauditions.com",
+        "disneyland.disney.go.com",
+        "disneyplus.link",
+        "disneytravelagents.com",
+        "disneyvacationclub.disney.go.com",
+        "dvc-lightcycle-api.wdprapps.disney.com",
+        "espn.com",
+        "shanghaidisneyresort.com.cn",
+        "www.magicalphotos.cn",
+        "www.shanghaidisneyresort.com",
+        "www.shanghaidisneyresort.com.cn"
+      ],
+      "exclusions": [
+        "dolimg.com",
+        "dwss-ptp.disney.com",
+        "espnbet.com",
+        "hotstar.com",
+        "kingdomhearts.com",
+        "magicalfloralandgifts.com",
+        "star.com",
+        "tokyodisneyresort.jp",
+        "unclaimedproperty.disney.com",
+        "www.enchantedfinejewelry.com",
+        "www.waltdisney.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\disney-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "disney",
+  "name": "The Walt Disney Company",
+  "url": "https://hackerone.com/disney",
+  "policy": "## Introduction\n\nThe Walt Disney Company’s (“TWDC,” or “we”) Global Information Security team works diligently to protect Disney’s assets, services, products, and customer information. Additionally, we recognize the valuable role the research community plays in submitting responsible disclosures that may aid our security posture, and we welcome the opportunity to partner with you.\n\nThe HackerOne program accepts reports of potential security vulnerabilities that may provide an attacker with the ability to compromise the integrity, availability, or confidentiality of TWDC products, services, or information technology infrastructure (the “TWDC Program”). Please see below for specific submission criteria.\n\nIf you believe you have found a qualifying security vulnerability in a Disney product or website, please submit a report in accordance with the guidelines below. We value the positive impact of your work and thank you in advance for your contribution.\n\n## Program Rules\nTo ensure a submission is acceptable under TWDC Program you must:\n- **Not use automated scanners/tools**\n- not cause harm to TWDC or TWDC customers;\n- avoid compromising the privacy of our customers or employees, or disrupting the operation of our products, services or information technology  infrastructure;\n- test for vulnerabilities against accounts you own or accounts you have permission from the account holder to test against \n- not violate any law;\n- not publicly disclose or share vulnerability details without the written permission of TWDC;\n- report a confirmed vulnerability in a timely manner and not exploit it further; and\n- not keep any copies of any non-public TWDC information or share such information with any third party.\n\nPlease act in good faith by conducting your activities under this policy and reporting the vulnerability with us promptly, in sufficient detail for us to determine the validity of the vulnerability, and without coercion, dishonesty, or fraudulent intent.\n\nViolation of any of these rules can result in ineligibility for the TWDC Program and removal from HackerOne, and may also result in TWDC taking further action, including but not limited to, bringing legal claims, against you.\n\nTWDC shall in its sole discretion decide what, if any, acknowledgement will be provided for any findings reported through program. You will not be reimbursed for expenses related to vulnerability research (e.g., holding domains, S3 buckets). If we conclude, in our sole discretion, that you have complied with the requirements of the TWDC Program when reporting a security vulnerability, TWDC will not pursue claims against you in response to your report. \n\n## TWDC Program Scope\nThe scope of the TWDC Program will evolve rapidly and therefore properties currently identified as in-scope or out-of-scope may change. Please return to this section often to review the new and updated entries.\n\n### In Scope (Internet Facing Assets Only): \n- The Walt Disney Company\n- Sensitive Corporate info spillover including sites like Github, BitBucket, exposed shared-drives\n- Walt Disney Studios \n- Walt Disney Animation Studios\n- Pixar \n- Marvel\n- Lucasfilm Ltd \n- Disney+ \n- ESPN \n- ESPN+ \n- Disney Parks, Entertainment and Products\n- Disney Media & Entertainment Distribution \n- DisneyNow (DisneyChannel, Disney XD, Disney Junior, FX, etc) \n- Disney Streaming\n- FXX\n- ABC\n- *.bamgrid.com\n\n### Out of Scope:\n- 3rd party affiliates, SaaS solutions, or licensing sites\n- Anything not listed above\nIf you have any questions about what is in scope, please ask. \n\n\n## Unacceptable Submissions\nThe following submissions are not accepted by TWDC:\n- Submissions that result in the alteration or theft of TWDC data or the interruption or degradation of TWDC systems;\n- Attacks which require internal network access or are from TWDC employees or contractors;\n- Social engineering attempts;\n- Any activity involving TWDC physical locations, including but not limited to conducting physical attacks against assets (e.g., any equipment within TWDC facilities, ships, hotels, parks, stores, locks, Point of - - Sale (POS) systems, kiosks);\n- Attacks requiring MITM or physical access to a user's device;\n- Testing that requires mass creation of accounts, rate limit testing, credential stuffing, etc; \n- User enumeration;\n- Activity that could lead to the disruption of service (DoS), including Cache Poisoning;\n- Previously known vulnerable libraries without a working Proof of Concept;\n- Missing best practices in SSL/TLS configuration;\n- Cross-Site Request Forgery (CSRF) with no security impact (e.g., unauthenticated/logout/login CSRF);\n- Comma Separated Values (CSV) injection without demonstrating the vulnerability;\n- Content spoofing and text injection issues without showing an attack vector or being able to modify HTML/CSS;\n- Missing best practices in Content Security Policy;\n- Missing HTTPOnly, Secure, Same-Site flags on cookies unless they are proven to control session authentication;\n- Clickjacking / Tabnabbing attacks;\n- Banner Exposure / Version Disclosure;\n- Missing email best practices (e.g., invalid, incomplete, or missing SPF/DKIM/DMARC records);\n- Open Redirects that are not chained into a more impactful vulnerability;\n- Broken links in documentation; and/or\n- Additional missing security controls often considered “Best practice”, such as certificate pinning or mitigating information disclosures.\n\nAll of the aforementioned submissions are prohibited. TWDC reserves the right, in its sole discretion, to reject any submission.\n\n## Testing\nWeb traffic to and from TWDC properties produces petabytes of data every day. When testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. \nPlease do the following when participating in the TWDC Program:\n- Where possible, register accounts using your <username>+x@wearehackerone.com addresses. (see https://docs.hackerone.com/hackers/hacker-email-alias.html )\n- Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n- **Include a custom HTTP header in all your traffic**. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily.\n   - Identifier: Your Username\n   - Format: X-TWDC-VDP: HackerOne-<username>\n   - Example: X-TWDC-VDP: HackerOne- theredpill\n\nWhen testing for a bug, please also keep in mind:\n- Only use authorized accounts so as not to inadvertently compromise the privacy of our users.\n- When attempting to demonstrate root permissions with the following primitives in a vulnerable process please use the following commands:\n   - Read: cat /proc/1/maps\n   - Write: touch /root/<your H1 username>\n   - Execute: id, hostname, pwd (though, technically cat and touch also prove execution)\n- **Do not use automated scanners/tools**. Such tools include payloads that could trigger state changes or damage production systems or data (e.g., do not execute Burp active scans).\n- Before causing damage or potential damage: stop, report what you've found, and request additional testing permission.\n\n## Crafting a Report\nTo help streamline our intake process, we ask that submissions include:\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n- Description of the reported vulnerability.\n- Steps to reproduce the reported vulnerability.\n- Proof of exploitability (e.g. screenshot, video).\n- Perceived impact to another user or the organization.\n- Proposed CVSSv3 Vector & Score (without environmental and temporal modifiers).\n- List of URLs and affected parameters.\n- Other vulnerable URLs, additional payloads, Proof-of-Concept code.\n- Browser, OS or app version used during testing. \n- Do not use tiny-urls in reports.\n\nPlease report findings in English for now, as the TWDC Program ramps up.  All supporting evidence and other attachments must be stored only within the report you submit. Do not host any files on external services.  Failure to adhere to these minimum requirements may result in delay.  Also please note that whether a disclosure provides a positive contribution to the security community is a key factor in our evaluation.\n\n## Response Targets\nTWDC will make a reasonable effort to meet the following Service Level Agreements for TWDC Program participants:\n* Time to first response (from report submit) – Five (5) business days \n* Time to triage (from report submit) – Ten (10) business days\n\n## Legal Notice:\nYou agree that by submitting such information to TWDC, you grant TWDC a worldwide, perpetual, irrevocable, exclusive, transferable, sublicenseable, fully-paid and royalty-free license under any and all intellectual property rights that you own or control to use, copy, modify, create derivative works based upon and otherwise exploit such information for any purpose. \n\nAny activity which involves the intentional compromise of the privacy of our customers or employees or the intentional disruption of the operation of our products, services, or information technology infrastructure will result in permanent disqualification from the TWDC Program and may result in TWDC taking action, including but not limited to, bringing legal claims, against you. \n\nWe may collect information that could reasonably be used to identify you (e.g., IP address). TWDC may use this information for several purposes, including to evaluate a reported vulnerability and protect TWDC products, services, or information technology infrastructure.\n\nTWDC reserves the right to modify or terminate the TWDC Program in its sole discretion, at any time and without prior notice.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "dolimg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dvc-lightcycle-api.wdprapps.disney.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Do not test on:\n/api/v1/*",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "abcspotdepot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Created to clarify this is in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dwss-ptp.disney.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.magicalphotos.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "NO TESTING from 27th - 3rd of every month for maintenance window.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.shanghaidisneyresort.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Thanks 'encodedguy'\n\n**Maintenance Notice**\nNO TESTING from 27th - 3rd of every month for maintenance window.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.shanghaidisneyresort.com.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "NO TESTING from 27th - 3rd of every month for maintenance window.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "disneyauditions.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "tokyodisneyresort.jp",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This licensing partnership site is OUT of scope of the VDP.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "disneytravelagents.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "disneyland.disney.go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "magicalfloralandgifts.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.enchantedfinejewelry.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "espnbet.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Disney Corporate",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "disneyplus.link",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "disneyvacationclub.disney.go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kingdomhearts.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "shanghaidisneyresort.com.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hotstar.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "star.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "unclaimedproperty.disney.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.waltdisney.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "espn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.espn.score_center",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

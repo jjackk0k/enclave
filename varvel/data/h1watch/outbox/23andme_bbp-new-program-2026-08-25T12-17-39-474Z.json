@@ -1,0 +1,192 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "23andme_bbp",
+      "name": "23andMe Bug Bounty",
+      "offersBounties": true,
+      "assets": [
+        "23andmeresearchinstitute.org",
+        "api.23andme.com",
+        "auth.23andme.com",
+        "fulfillment.23andme.com",
+        "https://23andme.org/ancestry/last-names",
+        "https://23andme.org/blog",
+        "https://23andme.org/clinicians",
+        "https://23andme.org/education",
+        "https://23andme.org/media-center",
+        "https://23andme.org/research",
+        "merch.23andme.com",
+        "portal.23andme.com",
+        "refer.23andme.com",
+        "store.23andme.org",
+        "style.23andme.org",
+        "trust.23andme.com",
+        "www.23andme.org",
+        "you.23andme.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\23andme_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "23andme_bbp",
+  "name": "23andMe Bug Bounty",
+  "url": "https://hackerone.com/23andme_bbp",
+  "policy": "# Welcome, Security Research Community!\n\n23andMe recognizes the importance of working with skilled security researchers to identify and address vulnerabilities in our technology. We encourage responsible disclosure through our Bug Bounty Program and are excited to collaborate with you to enhance our security.\n\n# Scope\n\nTesting is authorized **only** for targets explicitly listed as In-Scope. Any domain/property not listed is considered **Out-of-Scope**, including subdomains. If you discover a vulnerability outside the defined scope, contact [support@hackerone.com](mailto:support@hackerone.com) before submitting your findings. Failure to submit reports through our designated bug bounty route may result in a non-eligible report.\n\n### When Testing:\n\n- **Use your HackerOne email alias** (`h1username@wearehackerone.com`).\n- Include the following header in all requests:\n  ```http\n  X-HackerOne-Research: <YOUR-USERNAME>\n  ```\n- Automated tools: Limit requests to no more than 3 per second and avoid using vulnerability scanners.\n\nFailure to follow these guidelines may result in disqualification from bounty rewards.\n\n---\n\n# Program Rules\n\n* Use your HackerOne email alias for account creation and testing.\n* Add the X-HackerOne-Research header to all requests.\n* Avoid using multiple IP addresses during testing.\n* Refrain from public disclosure without 23andMe's written consent (even post-fix).\n* Only test accounts you own or have explicit permission to interact with.\n* Stop testing immediately if you encounter sensitive data and report it to us.\n* Provide detailed, reproducible reports. Lack of detail may disqualify the submission.\n* Submit one vulnerability per report unless chaining vulnerabilities to demonstrate impact.\n* Social engineering (e.g., phishing) is prohibited.\n* Avoid privacy violations, data destruction, or service disruption.\n* Valid submissions must demonstrate a tangible security risk.\n* Program terms may change at anytime. Participating means you agree to be bound by the new terms.\n* For submissions involving Leaked Credentials:\n  * Do **NOT** attempt to validate.\n  * Attempting to sign in, change data, or test MFA with leaked credentials is forbidden.\n  * Submit evidence only.\n  * Attach the data dump.\n  * Add the exact link or source of the leak. (Required)\n  * No further testing—just share the data. For transparency, end-user credentials alone are usually out of scope unless a program-responsible leak source can be identified.\n\n# Focus Areas\n\nSubmissions addressing the following vulnerabilities are highly valued:\n\n* Sensitive Data Exposure\n* Remote Code Execution (RCE)\n* Authentication Bypass\n* Broken Access Control\n* SQL Injection (or equivalent)\n* Server-Side Request Forgery (SSRF)\n* Malicious File Uploads\n* XML External Entities (XXE)\n* Cross-Site Scripting (XSS)\n* Exfiltration of AWS credentials\n* Misconfigured cloud infrastructure leading to data leakage\n\n\n# Submission Format\n\nReports that fail to follow this structure will likely be closed as informative. Clear writing and strong evidence matter more than length. \n\n## Title\n\nA short, specific title naming the affected component and the issue.\n\n*Examples: \"Multi-Compare Server-Side Limit Not Enforced\", \"IDOR in `/profile/{id}/exports` Allows Cross-Account Data Access\"*\n\n## Overview of the Vulnerability\n\nA concise summary (2–4 sentences) covering:\n\n- The affected feature or endpoint\n- The expected behavior\n- The actual (vulnerable) behavior\n- Why it matters\n\nThen provide a technical description in clear, factual prose:\n\n- What the feature is designed to do\n- What controls are documented or expected to be in place\n- What your testing revealed about how those controls actually behave\n- Specific observations from your requests — be precise with parameter names, HTTP methods, endpoint paths, and response details\n\nWhen you ran multiple test cases, enumerate them so the reviewer can follow your reasoning:\n\n- A request containing [input A] returned [observed result].\n- A request containing [input B] returned [observed result].\n- A request combining [A + B] returned [observed result].\n- Reordering / duplicating / removing values resulted in [observed behavior].\n\nClose with a one-sentence conclusion stating where the gap exists. For example: *\"This demonstrates that the five-profile limit is enforced exclusively at the UI layer and is not validated by the backend service.\"*\n\n## Business Impact\n\nState the impact in 1–3 sentences. Cover:\n\n- What an attacker can actually achieve with this issue\n- What mitigating controls remain in place (authorization, rate limiting, eligibility checks, etc.)\n- A realistic assessment of severity\n\nBe honest about limitations. If authorization checks still gate sensitive data, say so. Overstating impact slows triage and hurts credibility. Aim for accurate impact.\n\n## Demonstrated Impact (Not Theoretical)\n\nReports must show **demonstrated impact**, not hypothetical attack chains. Phrases like *\"an attacker could...\"*, *\"this might allow...\"*, or *\"if combined with...\"* — without a working proof-of-concept — will be closed as informational at best.\n\nAnchor every impact claim to something you actually proved in your testing. Examples:\n\n- **Weak:** \"An attacker could potentially use this to exfiltrate user data.\"\n  **Strong:** \"Using test account A, I submitted [request] and retrieved [specific field] belonging to account B. Screenshot shows account B's email address in the response.\"\n\n- **Weak:** \"This reflected input might lead to XSS under the right conditions.\"\n  **Strong:** \"Payload `<svg onload=alert(1)>` in the `q` parameter executes in the rendered page. Screenshot of the triggered alert attached.\"\n\n- **Weak:** \"If chained with a future CSRF bypass, this could allow account takeover.\"\n  **Strong:** \"Demonstrated end-to-end with two test accounts: [steps]. Account B's session token is recovered at [location].\"\n\nIf you can describe the attack but cannot demonstrate it, the report is incomplete. Either complete the chain end-to-end, or scope your impact claim to only what you proved. Incomplete demonstration will likely result in an informative report.\n\n## Steps to Reproduce\n\nNumbered steps that a triager can follow without guessing. Each step should be specific and actionable.\n\n1. Log in to [application] as a [user role / test account].\n2. Navigate to [feature or URL].\n3. Capture the request to `[endpoint]` using [Burp Suite / browser dev tools / curl].\n4. Modify [specific parameter] from `[value A]` to `[value B]`.\n5. Replay the request.\n6. Observe [expected behavior] vs. [actual behavior].\n\nInclude the raw HTTP request and response when they materially help explain the issue. Redact session tokens, cookies, and any data that doesn't belong to your test accounts.\n\n### Evidence\n\n**Screenshots (preferred):**\n\n- Annotated screenshots are the fastest way for triage to confirm an issue. Highlight the modified parameter, the relevant response field, or the UI state that contradicts the backend.\n- At minimum, include: (1) the request showing your modification, (2) the response showing the vulnerable behavior, (3) any relevant UI state.\n\n**Video (helpful, especially for complex flows):**\n\n- Short screen recordings (under 2 minutes) are useful for multi-step issues, race conditions, or anything where timing matters.\n- Video is a supplement to screenshots, not a replacement. Triagers can scan a screenshot in seconds; video requires playback.\n\n**Raw artifacts:**\n\n- Full HTTP request/response pairs, payloads, or proof-of-concept scripts where applicable.\n- If your PoC needs setup, include a one-line description of what to run.\n\n## Remediation\n\nState the fix in 1–3 sentences. Focus on:\n\n- What validation or control is missing\n- Where it should be enforced (which layer — backend, gateway, frontend)\n- What the expected behavior should look like after the fix\n\nExample: *\"Ensure the server performs the same validation as the UI and enforce the limit at the backend layer.\"*\n\n## Scope Confirmation\n\nBefore submitting, confirm that the affected asset and the vulnerability class are **in scope** for this program. Review the In-Scope assets above and explicitly state in your report:\n\n- The affected asset and where it appears in scope.\n- Whether the vulnerability class is in scope, out of scope, or not explicitly addressed.\n- If the issue touches an asset that is **out of scope**, do not submit. Contact `support@hackerone.com` instead, as noted in the Scope section.\n\nReports targeting out-of-scope assets or vulnerability classes will be closed as N/A and may affect your reputation on the program.\n\n## Pre-Submission Checklist\n\n- [ ] Affected asset and vulnerability class are confirmed **in scope** per program policy\n- [ ] Title names the component and the issue\n- [ ] Overview explains what's expected vs. what actually happens\n- [ ] Business impact is realistic — not inflated, not understated\n- [ ] Every impact claim is backed by a demonstrated PoC, not speculation\n- [ ] Steps to reproduce work from a clean state\n- [ ] At least one annotated screenshot of the request and response\n- [ ] Sensitive data (tokens, PII, other users' data) is redacted\n- [ ] `X-HackerOne-Research` header was used during testing / HackerOne email alias was used for test accounts\n\n## Disclosure Policy\n\nFollow HackerOne's disclosure guidelines. Unauthorized public disclosure may result in disqualification from the program.\n\nHappy Hunting!\n\nWe appreciate your contributions and look forward to collaborating with you to keep 23andMe secure.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "First API from original codebase, responsible for less services at the moment but still integrated into the product.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Responsible for all authenticated services throughout the product.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/blog",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Official blog of 23andMe, sharing insightful articles, updates, and stories on genetics, health, and personal genomics.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/education",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "23andMe's dedicated education site, offering resources and insights to enhance genetic literacy through informative content and educational materials",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/media-center",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Media center for 23andMe, providing press releases, media assets, and comprehensive information for journalists and media professionals",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/clinicians",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Medical and therapeutics site containing information about 23andMe's medical research.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "store.23andme.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Online store for 23andMe products, offering DNA testing kits, genetic insights, and personalized merchandise.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "you.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "you.23andme.com is our main consumer site which contains users DNA kit results, dna relatives, and more. Users can interact with relatives and perform profile related features such as downloading data.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/research",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "research.23andMe.com is the official research domain of 23andMe",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "www.23andme.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The primary public-facing gateway and core application entry point.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "merch.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "E-commerce storefront for 23andMe merchandise.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Clinical trials site portal for 23andMe collaborator-sponsored studies.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "style.23andme.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a documentation site for the 23andMe design system. Its purpose is to organize, streamline, and document the usage of re-usable components within the 23andMe eco-system.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fulfillment.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "23andMe Fulfillment API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://23andme.org/ancestry/last-names",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Surname discovery domain that allows customers to browse different surname information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trust.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Smart Trust Center to learn about our security posture and request access to our security documentation.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "23andmeresearchinstitute.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Public-facing website for the 23andMe Research Institute. Provides information about ongoing genetic research initiatives, published studies, member contribution programs, and partnership opportunities for researchers and collaborators.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "refer.23andme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Customer referral program portal for 23andMe. Handles referral link generation, tracking, and reward redemption for existing customers referring new kit purchases.",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": {
+    "name": "wolt",
+    "handle": "wolt",
+    "url": "https://hackerone.com/wolt"
+  },
+  "policy": "# Disclosure Policy\n* Please, follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n*  Employees and contractors of the organization are not eligible to participate in this program.\n* ⛔ Don't use or interact with accounts or data you don't own, including but not limited to  restaurants/venues and merchant data.\n* ⛔ Use only your own accounts and data for testing purposes.\n\n# Testing Plan\n* Users are able to sign up for a free account through our website\n* Please use your **hacker email alias** when testing (`h1username@wearehackerone.com`)\n* Claim credentials (when applicable) for additional testing\n* Add the following headers to requests: `X-HackerOne-Research: [H1 username]`. Reports resulting in testing without headers can result in the forfeiture of the eligible bounty.\n* Please, keep report brief and concise. 300-400 words per report is a good limit.\n\n## Test entities\n- If you need to test any sort of access to user data, please do it only against this specific **consumer test account**, whose `user_id` is `670fa3e9ead6e49d65cc3614`. \n- If you need to test any sort of access to restaurant or venue data, please do it only against this specific **venue test account**, whose `venue_id` is `670e7897e3c56dcc5b5a0989`.\n- If you need to test any sort of venue-related functionality, please do it only against this test venue (real purchase is not available): https://wolt.com/en/fin/helsinki/venue/test-670e7897e3c56dcc5b5a0989-sh0p\n\n## Where can we get credentials?\nWe have several user types:\n- Customer account. You can self-register using [wolt.com](https://wolt.com), the [iOS app](https://itunes.apple.com/app/id943905271), or the [Android app](https://play.google.com/store/apps/details?id=com.wolt.android).\n- Courier account. Not available at the moment.\n- Merchants or business account. Not available at the moment.\n\n# Out of scope\n\n * Multiple leaked human identity credentials originating from third-party datasets (leaked credential lists, databases, monitoring services and credential marketplaces)\n * Testing the payment processors is out of scope\n * Spam, social engineering and physical intrusion\n * There are humans behind every Customer Support chat. Any interaction with Customer Support staff, including social engineering attempts, is forbidden and out of scope\n * Network DoS/DDoS attacks\n * Web Cache Poisoned Denial of Service\n * Brute force attacks\n * Attacks requiring access to a victim's computer/device\n * Reports that state that software is out of date/vulnerable without a proof-of-concept\n * Mass creating of entities, including accounts, profiles and applications\n* `GATEKEEPER_API_KEY` exposure since it is not a secret value\n\n## Web\n * API key disclosure without proven business impact\n * Signup with unverified mobile numbers (if you took over an existing number, then that's a finding!)\n * Verbose messages/files/directory listings without disclosing any sensitive information\n * CORS misconfiguration without proven impact\n * Missing cookie flags\n * Missing security headers\n * Cross-site Request Forgery without proven impact\n * Autocomplete on web forms\n * Bypassing rate-limits or the non-existence of rate-limits\n * Best practices violations (password complexity, expiration, re-use, etc.)\n * Clickjacking without proven impact/unrealistic user interaction\n * CSV Injection\n * Sessions not being invalidated (logout, enabling 2FA, etc.)\n * Content injection without being able to modify the HTML\n * Username/email enumeration\n * Email bombing\n * HTTP Request smuggling without any proven impact\n * Homograph attacks\n * Banner grabbing/Version disclosure\n * Subdomain takeover without proof\n * Arbitrary file upload without proof\n * Host header injection without proven business impact\n\n## Mobile\n * Shared links leaked through the system clipboard\n * Attacks requiring malicious apps to be installed beforehand\n * Sensitive data in URLs/request bodies when protected by TLS\n * Lack of obfuscation\n * Path disclosure in the binary\n * Lack of jailbreak & root detection\n * Crashes due to malformed URL Schemes\n * Lack of binary protection (anti-debugging) controls, mobile SSL pinning\n * Snapshot/Pasteboard leakage\n * Runtime hacking exploits (exploits only possible in a jailbroken environment)\n\n# Legacy Hall of Fame\n\nWe appreciate reports received by the following researchers previously on the Intigriti platform: `0xcm1k3`, `0xd0m7`, `0xdln`, `_lauritz_`, `agnel123`, `altcool6`, `amirsec76`, `anhdva`, `anonymoushobbit`, `apogiatzis`, `athulms`, `badmusmuritado`, `baloocky`, `black_dd`, `bughuntar`, `bunny0417`, `callmedaddy`, `chrismas_here`, `commadno6407`, `crofr`, `cybersamurai`, `d0xing`, `deneuv`, `dk4trin`, `drak3hft7`, `drdoctor0`, `dynnyd20`, `floerer`, `giongfnef26`, `godiego`, `goseck`, `greenfire`, `greensec`, `gug_saas`, `h4rshbothra`, `harshtalavaniya99`, `hashem_mm`, `hetroublemak3r`, `ja`, `juniorbrets`, `k_link_1337`, `kir_tis`, `kurt4j`, `liikala96`, `ling0`, `lucsouza`, `m0chan`, `maara`, `makaveli`, `mariosk`, `marius_dp`, `mherano`, `mikemyers`, `mysc0x1`, `nc5`, `nd_passenger`, `neolokir`, `ninjan11`, `noman181`, `notroks`, `notron`, `nva`, `oxidor`, `phiko`, `pod_krinko1`, `pprab`, `pushpak35`, `pwnedchicken`, `qwe_aldo1`, `rahimian`, `redyetidev`, `richlee`, `rjflsec`, `s3c_krd`, `s3nn`, `saintbarber`, `sanfindings`, `sezo`, `sheikhrishad`, `six2dez`, `slashx0x`, `soloboy`, `steffe`, `talha`, `testt0`, `th3ho4ds`, `thaivd98`, `the14st`, `themastersunil`, `theokeen`, `thezodd`, `valbrux`, `vkiee`, `wcraft`, `whitehatind`, `xburns`, `yotamsofer`, `youngvanda`, `yuzadef`, `zere`, `bricked`, `rev1th`\n\nThank you for helping keep Wolt and our users safe!",
+  "safeHarbor": null,
+  "rewards": null,
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "authentication.wolt.com",
+        "note": "Keywords: OAuth2, OIDC, JWT\n* Used by: Regular wolt.com users, Wolt employees, other services (service-to-service communication).\n* Handles the vast majority of our authN/authZ. In other words, JWTs signed by this service can grant you access to other services/APIs.\n* Your JWT as a regular wolt.com ",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "corporate.wolt.com",
+        "note": "Keywords: admin\n* Used by: Wolt employees, corporate customers.\n* Admin portal for Wolt's corporate customers.\n* Your JWT as a regular wolt.com user should grant you limited access.",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "drive.wolt.com",
+        "note": "Keywords: admin\n* Used by: Wolt employees, delivery partners.\n* Admin portal for Wolt's last-mile delivery partners.\n* Your JWT as a regular wolt.com user should grant you limited access.",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "ops.wolt.com",
+        "note": "Keywords: admin\n* Used by: Wolt employees.\n* This service's endpoints are only accessible by Wolt employees (if you can show otherwise, that’ll be very interesting). However, your tainted data (e.g., purchase info, profile info) may be processed by this service.\n",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "com.wolt.android",
+        "note": "Wolt  Customer Android app: https://play.google.com/store/apps/details?id=com.wolt.android\n\nNotable use-cases: Regular wolt.com account creation, placing orders, tracking your orders, modifying your profile info.",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "com.wolt.courierapp",
+        "note": "Wolt Courier Partner Android app: https://play.google.com/store/apps/details?id=com.wolt.courierapp\n\n* Notable use-cases: Receiving delivery requests, tracking orders, completing deliveries, modifying your profile info.\n* For the time being we don't provide accounts of the courier type.\n* It would b",
+        "maxSeverity": "critical"
+      }
+    ],
+    "wildcards": [
+      {
+        "asset": "*.wolt.com",
+        "suffix": "wolt.com",
+        "note": "Anything else under the `.wolt.com` domain is fair game with some exceptions (see the out of scope items). Depending on the affected service and finding type, we might bump this to Tier-1 bounties.",
+        "maxSeverity": "critical"
+      }
+    ],
+    "other": [
+      {
+        "asset": "1477299281",
+        "note": "Wolt Courier Partner iOS app: https://apps.apple.com/app/1477299281 \n* Notable use-cases: Receiving delivery requests, tracking orders, completing deliveries, modifying your profile info.\n* For the time being we don't provide accounts of the courier type.\nIt would be very interesting if you can inte · asset_type APPLE_STORE_APP_ID is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "943905271",
+        "note": "Wolt Customer iOS app: https://apps.apple.com/app/943905271\n\nNotable use-cases: Regular wolt.com account creation, placing orders, tracking your orders, modifying your profile info. · asset_type APPLE_STORE_APP_ID is not a network asset",
+        "maxSeverity": "critical"
+      }
+    ]
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "wolt.atlassian.net",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "press.wolt.com",
+        "note": "This is a third-party SaaS and we aren't authorized to test it.",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "links.wolt.com",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "gettest.wolt.com",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "blog.wolt.com",
+        "note": "Keywords: Third-party SaaS, WordPress\n* Used by: Wolt employees.\n* WordPress blog hosted by wpengine.com. wpengine.com owns the infrastructure, but we maintain the WordPress installation.\n* Note: Only WordPress-level probes are allowed.",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "merchant.wolt.com",
+        "note": "Do not POST data here, as it will be sent to a third-party system that is also out of scope. · URL scoped to its host only — the path (/api/merchant-onboarding/merchant-admin/inbound-merchant) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "restaurant-api.wolt.com",
+        "note": "Do not POST data here, as it will be sent to a third-party system that is also out of scope. · URL scoped to its host only — the path (/v1/waw-api/corporate-leads) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "merchant-onboarding-service.wolt.com",
+        "note": "Do not POST data here, as it will be sent to a third-party system that is also out of scope. · URL scoped to its host only — the path (/merchant-admin/inbound-merchant) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "wolt.com",
+        "note": "URL scoped to its host only — the path (/en/wolt-for-work-contact-request) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "merchant.wolt.com",
+        "note": "URL scoped to its host only — the path (/app/partner-with-wolt) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "wolt.typeform.com",
+        "note": "Any Typeform forms linked from *.wolt.com domains are out of scope. · URL scoped to its host only — the path (/) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "merchant.wolt.com",
+        "note": "Keywords: admin\n* Used by: Wolt employees, store managers.\n* Portal for store managers to update menus.\n* Your JWT as a regular wolt.com user should grant you limited access. · EXCLUDED by out-of-scope merchant.wolt.com (overlap precedence)",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "restaurant-api.wolt.com",
+        "note": "* Used by: Regular wolt.com users, Wolt employees, corporate customers, delivery partners, store managers.\n* Notable use-cases: Creating and editing users, placing orders, tracking orders, setting prices.\n* Your JWT as a regular wolt.com user should grant you access to most functionality for your us · EXCLUDED by out-of-scope restaurant-api.wolt.com (overlap precedence)",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "wolt.com",
+        "note": "Used by: Everybody.\n* Our main web page.\n* Notable use-cases: Offering an in-browser JavaScript app to interact with other APIs and services. Offering HTTP endpoints to interact with this service's own APIs. · EXCLUDED by out-of-scope wolt.com (overlap precedence)",
+        "maxSeverity": "critical"
+      }
+    ],
+    "wildcards": [
+      {
+        "asset": "*.pipedrive.com",
+        "suffix": "pipedrive.com",
+        "note": "Any Pipedrive forms linked from *.wolt.com domains are out of scope.",
+        "maxSeverity": "none"
+      }
+    ],
+    "other": []
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [
+    {
+      "asset": "merchant.wolt.com",
+      "direction": "in-scope domain excluded",
+      "by": [
+        "merchant.wolt.com"
+      ],
+      "rule": "out-of-scope wins"
+    },
+    {
+      "asset": "restaurant-api.wolt.com",
+      "direction": "in-scope domain excluded",
+      "by": [
+        "restaurant-api.wolt.com"
+      ],
+      "rule": "out-of-scope wins"
+    },
+    {
+      "asset": "wolt.com",
+      "direction": "in-scope domain excluded",
+      "by": [
+        "wolt.com"
+      ],
+      "rule": "out-of-scope wins"
+    },
+    {
+      "asset": "authentication.wolt.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wolt.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "corporate.wolt.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wolt.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "drive.wolt.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wolt.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "ops.wolt.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wolt.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    }
+  ],
+  "gaps": [
+    "HackerOne adapter: modeled on the documented structured-scope export — entries in structured_scopes[] with eligible_for_submission:false treated as OUT-of-scope; a top-level out_of_scope[] list, when present, is honored verbatim",
+    "no bounty_table/rewards in the export — HackerOne reward ranges live on the program page; carry them by hand if the export omits them",
+    "wildcard *.wolt.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "OVERLAP: out-of-scope press.wolt.com falls under in-scope wildcard *.wolt.com — press.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope links.wolt.com falls under in-scope wildcard *.wolt.com — links.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope gettest.wolt.com falls under in-scope wildcard *.wolt.com — gettest.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope blog.wolt.com falls under in-scope wildcard *.wolt.com — blog.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope merchant.wolt.com falls under in-scope wildcard *.wolt.com — merchant.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope restaurant-api.wolt.com falls under in-scope wildcard *.wolt.com — restaurant-api.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope merchant-onboarding-service.wolt.com falls under in-scope wildcard *.wolt.com — merchant-onboarding-service.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope wolt.com falls under in-scope wildcard *.wolt.com — wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope merchant.wolt.com falls under in-scope wildcard *.wolt.com — merchant.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope merchant.wolt.com falls under in-scope wildcard *.wolt.com — merchant.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope restaurant-api.wolt.com falls under in-scope wildcard *.wolt.com — restaurant-api.wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope wolt.com falls under in-scope wildcard *.wolt.com — wolt.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "6 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact",
+    "non-network asset '1477299281' carried as metadata only — not expressible in a CIDR engagement scope (Wolt Courier Partner iOS app: https://apps.apple.com/app/1477299281 \n* Notable use-cases: Receiving delivery requests, tracking orders, completing deliveries, modifying your profile info.\n* For the time being we don't provide accounts of the courier type.\nIt would be very interesting if you can inte · asset_type APPLE_STORE_APP_ID is not a network asset)",
+    "non-network asset '943905271' carried as metadata only — not expressible in a CIDR engagement scope (Wolt Customer iOS app: https://apps.apple.com/app/943905271\n\nNotable use-cases: Regular wolt.com account creation, placing orders, tracking your orders, modifying your profile info. · asset_type APPLE_STORE_APP_ID is not a network asset)"
+  ]
+}

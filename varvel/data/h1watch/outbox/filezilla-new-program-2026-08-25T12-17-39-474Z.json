@@ -1,0 +1,81 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "filezilla",
+      "name": "FileZilla",
+      "offersBounties": true,
+      "assets": [
+        "https://filezilla-project.org/download.php?type=server&show_all=1",
+        "https://svn.filezilla-project.org/svn/FileZilla3/trunk/",
+        "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/putty",
+        "https://svn.filezilla-project.org/svn/libfilezilla/trunk",
+        "https://svn.filezilla-project.org/svn/libfilezilla/trunk/"
+      ],
+      "exclusions": [
+        "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/storj/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\filezilla-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "filezilla",
+  "name": "FileZilla",
+  "url": "https://hackerone.com/filezilla",
+  "policy": "# Introduction\n\nThis bounty program is for the FileZilla Client, FileZilla Server and the libfilezilla library\n\n# Disclosure Policy \n* Follow HackerOne's disclosure guidelines.\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Please provide detailed reports with reproducible steps demonstrating a plausible exploitation scenario, if the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* The project maintainers have final decision on which issues constitute security vulnerabilities.\n\n# Exclusions \n\nBeware: **We do not accept submissions created using an AI**\n\nWhile researching, we'd like to ask you to refrain from: \n* Denial of service\n* Spamming\n* Social engineering (including phishing) against anybody associated with the FileZilla project\n* Any physical attempts against the property of the FileZilla project and its members.\n\n# Scope\n\nThe bug bounty program will test only:\n\n* The fully free open source version of the FileZilla Client as found on https://filezilla-project.org/download.php?type=client&show_all=1 and the source code repository described on https://filezilla-project.org/sourcecode.php. Other versions of FileZilla are not in the scope of this bounty program.\n* The fully free open source version of the FileZilla Server as found on https://filezilla-project.org/download.php?type=server&show_all=1\n* libfilezilla as available from https://lib.filezilla-project.org/download.php\n\nAll reported bugs must have a security impact. If you encounter ordinary bugs without security impact, please report them on https://trac.filezilla-project.org/\n\n# Out of Scope\n\n* Outdated versions of the software\n* Services running on the filezilla-project.org and filezillapro.com domains and their subdomains\n* Exploits which rely on the assumption that the attacker already has access to the user account FileZilla is run under on the victims system.\n* \"Layer 8\" issues. Always assume the user is making informed decisions if he is given the information to do so.\n\nThe following components are also explicitly not in the scope:\n* The src/storj sub-directory of FileZilla Client and the libstorj dependency\n* The src/putty sub-directory of FileZilla Client contains a modified code from PuTTY.  Issues inherited from PuTTY are not in scope. **Note:** Issues in the modifications specific to FileZilla still are in scope.\n\n# Submission guidelines\n\nWhile FileZilla products are cross-platform, vulnerabilities are to be evaluated given contemporary computer architectures.\n\nSubmissions must include either:\n\n* **We do not accept submissions created using an AI**\n* A detailed explanation explaining the vulnerability based on the source code\n* Simple steps to reproduce the vulnerability without requiring the reproducing party to use specialized tools\n* A proof-of-concept (PoC)\n\n# FileZilla Client technical overview\n\n## Building FileZilla\n\nFileZilla uses the GNU autotools as build system.\n\nIt, as well as almost all its dependencies, can be built using the familiar `configure && make && make install` trinity.\n\nThe following two guides have recently been updated and can be used to build FileZilla:\n\n* Debian and derived: <https://wiki.filezilla-project.org/Compiling_FileZilla_3_and_Getting_Dependencies_on_Linux>\n* Windows: <https://wiki.filezilla-project.org/Cross_Compiling_FileZilla_3_for_Windows_under_Ubuntu_or_Debian_GNU/Linux>\n\n## Dependencies\n\nFileZilla Client directly depends on the following libraries:\n\n* **libfilezilla**: base library for many things such as networking, file i/o, string utilities and the main event system\n* **wxWidgets**: GUI framework\n* **GnuTLS** (via libfilezilla): TLS\n* **Nettle**  (via libfilezilla): Various cryptographic functions used e.g. for the master password functionality\n* **pugixml**: DOM-style XML parser. XML is used to store settings\n\n## Architecture\n\nFileZilla is organized in different components. The most important components are, identified by subdirectory:\n\n* `src/engine`: The protocol implementations\n* `src/engine/ftp`: FTP specific functionality\n* `src/engine/sftp`: SFTP specific functionality, wraps around fzsftp\n* `src/engine/http`: Everything specific to HTTP functionality\n* `src/interface`: The user interface and controlling logic such as the transfer queue\n* `src/putty`: Source for fzsftp, a heavily modified version of PuTTY's psftp\n* `src/fzshellext`: The Windows shell extension to facilitate Drag&drop from Explorer into FileZilla.\n\n## Interesting places\n\nDue to their importance or complexity, we think these parts of the code warrant a closer look:\n\n### FileZilla:\n\n* `src/engine/directorylistingparser.cpp`: The directory listing parser in \n* `src/interface/updater.cpp`: The update mechanism\n* `src/engine/http/request.cpp`: The HTTP state machine capable of request pipelining\n\n### libfilezilla\n\n* `tls_layer_impl::verify_certificate` in `lib/tls_layer_impl.cpp`: Certificate verification\n* `lib/encryption.cpp`: The asymmetric encryption scheme used for the master password functionality\n\n# FileZilla Server technical overview\n\n## Building FileZilla Server\n\nSimilar to building FileZilla Client. If you are able to build the client, you are able to build the server.\n\n## Dependencies\n\nFileZilla Serverdirectly depends on the following libraries:\n\n* **libfilezilla**: base library for many things such as networking, file i/o, string utilities and the main event system\n* **wxWidgets**: GUI framework\n* **GnuTLS** (via libfilezilla): TLS\n* **Nettle** (via libfilezilla): Various cryptographic functions used\n* **pugixml**: DOM-style XML parser. XML is used to store settings\n\n## Architecture\n\nFileZilla Server is organized in different components. It comes with in the form of two programs: The FTP server service itself, and a separate administration user interface.\n\nThe most important components are, identified by subdirectory:\n* `src/filezilla`, `src/server`: The server functionality itself.\n* `src/gui`: The administration user interface\n\n# Rewards\n\nOur rewards are based on the severity of a vulnerability. HackerOne uses CVSS 3.0 (Common Vulnerability Scoring Standard) to calculate severity. \n\n## Specific to FileZilla and libfilezilla\n\n| SEVERITY | CVSS SCORE | REWARD | \n| ------------- |:-------------:| -----:|\n| critical | 9.0 - 10.0 | $5000 |\n| High | 7.0 - 8.9 | $2500 | \n| Medium | 4.0 - 6.9 | $1000 | \n| Low | 0.1 - 3.9 | $250 |\n\n## Specific to FileZilla FileZilla Server\n\n| SEVERITY | CVSS SCORE | REWARD | \n| ------------- |:-------------:| -----:|\n| critical | 9.0 - 10.0 | $2000|\n| High | 7.0 - 8.9 | $1000 | \n| Medium | 4.0 - 6.9 | $500 | \n| Low | 0.1 - 3.9 | $250 |\n\n# Examples for vulnerabilities\n\n## Critical severity bugs\n* Remote Code Execution over an unauthenticated channel\n\n## High severity bugs\n* Code Execution over an authenticated channel\n* Information leaks of private data such as file contents\n\n## Medium severity bugs\n* Remotely triggered crashes\n* Remotely triggered infinite loops\n\n## Low severity bugs\n* Memory leaks\n* Crashes as result of user action\n* User-initiated infinite loops\n\n## No reward for leak of public information:\n* File names, their sizes and modification times\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nIf you have any questions or concerns on this challenge, please contact security@filezilla-project.org.\n\nThank you for helping keep FileZilla and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/libfilezilla/trunk/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/FileZilla3/trunk/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/storj/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This also includes the libstorj dependency.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/libfilezilla/trunk",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/putty",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The code in this directory is based on PuTTY.  Only vulnerabilities specific to changes made in FileZilla compared to upstream are eligible for a bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://filezilla-project.org/download.php?type=server&show_all=1",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

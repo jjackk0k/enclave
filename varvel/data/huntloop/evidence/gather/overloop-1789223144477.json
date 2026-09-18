@@ -1,0 +1,42 @@
+{
+ "at": "2026-09-12T14:25:42.859Z",
+ "opportunity": "overloop",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.overloop.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f9547ae9d4185-LHR",
+    "via": "1.1 heroku-router",
+    "strict-transport-security": "max-age=31556952",
+    "content-security-policy": "default-src overloop.com:* app.overloop.com:* api.overloop.com:*; base-uri overloop.com:* app.overloop.com:* api.overloo",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

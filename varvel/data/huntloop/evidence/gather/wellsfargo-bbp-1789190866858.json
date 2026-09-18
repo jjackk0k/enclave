@@ -1,0 +1,76 @@
+{
+ "at": "2026-09-12T05:27:40.925Z",
+ "opportunity": "wellsfargo-bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "connect.secure.wellsfargo.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.wellsfargo.ceomobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wellsfargo.ceomobile:443 refused: host unreachable"
+  },
+  {
+   "host": "com.wf.wellsfargomobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wf.wellsfargomobile:443 refused: host unreachable"
+  },
+  {
+   "host": "com.wf.mobilebanking",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wf.mobilebanking:443 refused: host unreachable"
+  },
+  {
+   "host": "com.wf.ceomobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wf.ceomobile:443 refused: host unreachable"
+  }
+ ]
+}

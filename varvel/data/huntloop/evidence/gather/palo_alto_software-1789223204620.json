@@ -1,0 +1,86 @@
+{
+ "at": "2026-09-12T14:26:36.911Z",
+ "opportunity": "palo_alto_software",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.paloalto.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 403878b7454f6fe706d117ca3ebbd716.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.liveplan.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "DENY"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.liveplan.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "express",
+     "label": "Express (Node.js)",
+     "version": null,
+     "evidence": "x-powered-by: Express"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Express",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 233a7a4bc4569ad361bf312ac9cd5d48.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.bplans.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

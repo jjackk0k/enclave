@@ -1,0 +1,218 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fertitta_entertainment",
+      "name": "Fertitta Entertainment",
+      "offersBounties": false,
+      "assets": [
+        "*.rocketball.com",
+        "aqbeerfest.com",
+        "aqwine.com",
+        "boardwalkfantasea.com",
+        "brennersfest.com",
+        "chefsdinners.com",
+        "dungeonofdoomkemah.com",
+        "fertittaentertainmentinc.com",
+        "goldennugget.com",
+        "hunttinginn.com",
+        "kemahbeerfest.com",
+        "lilliesasiancuisine.com",
+        "muer.com",
+        "pleasurepier.com",
+        "r-u-i.com",
+        "sanluisresort.com",
+        "shoppostoak.com",
+        "thepostoak.com",
+        "thepostoakhotel.com",
+        "tilmanfertitta.com",
+        "wildwoodcasino.net"
+      ],
+      "exclusions": [
+        "gnltn.com",
+        "ldry.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fertitta_entertainment-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fertitta_entertainment",
+  "name": "Fertitta Entertainment",
+  "url": "https://hackerone.com/fertitta_entertainment",
+  "policy": "# About\r\nFertitta Entertainment, LLC manages and oversees a vibrant array of preeminent brands and establishments that are solely owned by the renowned Houston businessman Tilman Fertitta, whose extensive portfolio includes Landry’s, Golden Nugget casinos, Kemah Boardwalk, Gorio Cruises, The Post Oak Hotel, Post Oak Motors, and The Houston Rockets.\r\n\r\n{F2187810}\r\n\r\n# Welcome\r\nFertitta Entertainment, LLC is pleased to invite the security community to identify and report vulnerabilities keep our businesses, affiliates, partners, and customers safe.\r\n\r\n## Note for New Hackers\r\nIf you are new to HackerOne, welcome!\r\nBefore participating in Fertitta Entertainment, LLC’s vulnerability disclosure program (VDP), we strongly recommend that you first complete HackerOne’s [free Hacker101 course](https://www.hacker101.com/) and review HackerOne’s [Hacker Success Guide](https://docs.hackerone.com/hackers/hacker-success-guide.html) to ensure you have the best possible experience.\r\nIn addition, please familiarize yourself with our VDP policy and pay especially close attention to the **Program Rules** and **Out-of-scope Vulnerabilities** sections below so you will understand how to discover and report vulnerabilities in a safe, responsible way that does not adversely impact our systems, services, and applications.\r\n\r\n### Useful Resources\r\n* OWASP’s [Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/latest/)\r\n* PortSwigger’s [Web Security Academy](https://portswigger.net/web-security)\r\n* HackTheBox Academy's [Bug Bounty Hunter Job Pathway](https://academy.hackthebox.com/module/details/161) \r\n  * (**NOTE**: Although Fertitta Entertainment, LLC's VDP is **NOT** a bug bounty program, this pathway will help you develop a solid foundation to begin participating in our VDP.) \r\n\r\n# Response Targets\r\nFertitta Entertainment, LLC strives to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in Business Days |\r\n| :--------------- | :---------------------- |\r\n| First Response                |  3 days                      |\r\n| Time to Triage                 |  6 days                     |\r\n| Time to Resolution          | Depends on severity—see **Time to Resolution** below.            |\r\n\r\n## Time to Resolution\r\nAfter your report has been validated and triaged, Fertitta Entertainment, LLC will periodically update you on our progress and work to resolve your report within a reasonable time frame that corresponds to the severity of your report:\r\n\r\n| Severity | SLA in Business Days |\r\n| :--------------- | :---------------------- |\r\n| Critical                |  12 days                      |\r\n| High                 |  30 days                     |\r\n| Medium                 |  90 days                     |\r\n| Low                 |  180 days                     |\r\n| None                 |  360 days                     |\r\n\r\n**IMPORTANT**: These SLAs only apply to services, websites, and applications that Fertitta Entertainment, LLC directly manages. Although we are happy to receive vulnerability reports for third-party services or dependencies that are hosted on our domains and to forward them to the responsible parties for remediation, we cannot predict if and when these reports will be resolved.\r\n\r\n# Disclosure Policy\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne’s [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n* Participants **MUST NOT** engage in any enumeration of systems, services, or applications **and MUST NOT** attempt exploitation of any vulnerability outside the scope of this program (see **Scope** below).\r\n* Please provide **clear**, **straightforward**, and **detailed** reports with **reproducible steps**. We encourage you to supply screenshots or screen recordings as needed. Reports that are not sufficiently detailed to reproduce the issue **may not be triaged**.\r\n* **Submit one vulnerability per report**, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n* **Social engineering (e.g. phishing, vishing, smishing) is *strictly* prohibited.**\r\n* You are expected to perform your due diligence and to make a good faith effort to avoid privacy violations, data destruction, and any interruption or degradation of our services.\r\n* If an asset permits user registration, **only interact with accounts that are owned by you**.\r\n* Please also abide by HackerOne's [Code Of Conduct](https://www.hackerone.com/policies/code-of-conduct).\r\n\r\n## **IMPORTANT**: Mind your bandwidth usage!\r\n* We **strongly recommend** that you use a bandwidth monitoring tool (e.g., **NetHogs**, **Wireshark**, **vnStat**, **iftop**) and to **specify lower threads** when using command-line tools such as `gobuster`, `ffuf`, or `wfuzz` while probing our assets for vulnerabilities.\r\n* **DO NOT send more than 100 MB of traffic over a sixty (60) minute period.**\r\n* **DO NOT send more than 1 GB of traffic over a twenty-four (24) hour period to an in-scope asset.**\r\n* If possible, always include a custom HTTP header (`User-Agent: HackerOne VDP [Username]`) when enumerating or fuzzing our assets.\r\n\t* **Burp Suite**: Use the [Add Custom Header](https://portswigger.net/bappstore/807907f5380c4cb38748ef4fc1d8cdbc) Burp extension (available for both Community and Pro editions).\r\n\t* **cURL**, **ffuf**, **Gobuster**, and **wfuzz** all allow you to add a custom header using the `-H` flag.\r\n\t\t**Example:** `curl -H \"User-Agent: HackerOne VDP [Username]\" https://tilmanfertitta.com`\r\n\t* **Nikto** allows you to specify a custom header with the `-header`  flag (don't confuse with the `-h` flag, which specifies the target URL).\r\n\t\t**Example**: `nikto -header \"User-Agent: HackerOne VDP [Username]\" -h https://tilmanfertitta.com`\r\n\r\n# Out of scope vulnerabilities\r\n**NOTE:** Please review our **Assets** section carefully — some assets have additional restrictions or may be partially or entirely out of scope.\r\n\r\nWhen reporting vulnerabilities, please consider **(1)** attack scenario / exploitability ***AND*** **(2)** security impact of the bug. The following issues are considered **out of scope**:\r\n* Any activity that could plausibly lead to any denial or disruption of our services, systems, or applications ([DoS/DDoS attacks](https://csrc.nist.gov/glossary/term/denial_of_service)).\r\n\t* Any activity that sends more than 100 MB of traffic over a sixty (60) minute period ***or*** sends more than 1 GB oftraffic over a twenty-four (24) hour period to an in-scope asset.\r\n* [Clickjacking](https://owasp.org/www-community/attacks/Clickjacking) on pages with no sensitive actions.\r\n* [Cross Site Request Forgery (CSRF](https://owasp.org/www-community/attacks/csrf) on unauthenticated forms or forms with no sensitive actions.\r\n* Man-in-the-middle (MitM)/on-path attacks, as well as attacks that require physical access to a user's device.\r\n* Previously known vulnerable libraries without a working proof of concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\r\n* Rate limiting or brute-forcing on non-authentication endpoints, as well as any brute-forcing that exceeds the **100MB/hour** and **1 GB/day** bandwidth restrictions specified above.\r\n* Missing best practices in Content Security Policy.\r\n* Missing `HttpOnly` or `Secure` flags on cookies.\r\n* Missing email best practices (e.g., invalid, incomplete, or missing SPF, DKIM, or DMARC records).\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers less than two stable versions behind the latest released stable version.\r\n* Software version disclosure, banner identification issues, descriptive error messages/headers (e.g., stack traces,application or server errors unless the error(s) indicate an exploitable injection vulnerability).\r\n* [Tabnabbing](https://owasp.org/www-community/attacks/Reverse_Tabnabbing)\r\n* Open redirect (unless an additional security impact can be demonstrated).\r\n* Issues that require unlikely user interaction.\r\n\r\n# Safe Harbor\r\nActivities conducted in strict conformance with this policy will be considered authorized conduct.\r\n\r\nThank you for helping keep Fertitta Entertainment, LLC and our assets, data, personnel, and customers safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "aqbeerfest.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aqwine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "boardwalkfantasea.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brennersfest.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "chefsdinners.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dungeonofdoomkemah.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hunttinginn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kemahbeerfest.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lilliesasiancuisine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "r-u-i.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pleasurepier.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sanluisresort.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "muer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ldry.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is temporarily out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wildwoodcasino.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Wildwood Casino respectfully requests that hackers only engage the site between 12:30 a.m. CST and 7:30 a.m. CST on Tuesdays, Wednesdays, and Thursdays to limit any potential impact to the site's availability.\n\nWildwood Casino is also explicitly excluding gp.wildwoodcasino.net from Fertitta Entertai",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "goldennugget.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains that contain the term \"reservations\" are temporarily out of scope (e.g., atlanticcity-reservations.goldennugget.com, lakecharles-reservations.goldennugget.com).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "tilmanfertitta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "thepostoak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "thepostoakhotel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shoppostoak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fertittaentertainmentinc.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "gnltn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.rocketball.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    }
+  ]
+}

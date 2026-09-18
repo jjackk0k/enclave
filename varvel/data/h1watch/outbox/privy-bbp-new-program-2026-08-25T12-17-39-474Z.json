@@ -1,0 +1,160 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "privy-bbp",
+      "name": "Privy (Bounty)",
+      "offersBounties": true,
+      "assets": [
+        "@privy-io controlled namespace dependencies",
+        "api.privy.io",
+        "auth.privy.io",
+        "dashboard.privy.io",
+        "home.privy.io",
+        "https://www.npmjs.com/package/@privy-io/cross-app-connect",
+        "https://www.npmjs.com/package/@privy-io/cross-app-provider",
+        "https://www.npmjs.com/package/@privy-io/expo",
+        "https://www.npmjs.com/package/@privy-io/js-sdk-core",
+        "https://www.npmjs.com/package/@privy-io/react-auth",
+        "https://www.npmjs.com/package/@privy-io/wagmi",
+        "recovery.privy.io"
+      ],
+      "exclusions": [
+        "blog.privy.io",
+        "demo.privy.io",
+        "docs.privy.io",
+        "privy.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\privy-bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "privy-bbp",
+  "name": "Privy (Bounty)",
+  "url": "https://hackerone.com/privy-bbp",
+  "policy": "# IMPORTANT\n** To be eligible for bounties, please create your Privy account name with the string \"(BBP)\" (e.g., in the \"Project or company name\" field) so we can associate your account with any submissions to the program. **\n\n# Overview\nPrivy believes that working with security researchers all over the world is essential to building a secure product. If you believe you have identified a vulnerability with our product, please reach out. We will do everything to resolve the issue promptly and collaborate with you actively.\n\n** Privy is now available in GA. You can test most flows on demo.privy.io, and you can use https://dashboard.privy.io/ to sign up and get your API keys to start. Please make sure to include HackerOne in your organization name, and use your hacker email alias (username@hackerone.com) when signing up. Note that this is not a staging environment.**\n\n# Response Targets\nPrivy will work to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 3 days |\n| Time to Triage | 7 days |\n| Time to Bounty | 15 days |\n| Time to Resolution | Depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* We may ask you for help to confirm the issue has been properly resolved.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is strictly prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug.\n\n# Digging in\n\nPrivy is a developer tool, an onboarding solution for developers working with decentralized systems. It helps developers easily onboard all of their users whether they are new to the crypto space or very familiar with it. Privy has the following core product surfaces:\n* Wallet connectors that enable crypto-native users to connect their third-party wallets to customer apps and help developers manage wallet state for their users.\n* Embedded wallets that enable developers to easily provision self-custodial wallets for users without them.\n* An authentication system underlying both above systems that authenticate users and manage user lifecycles through an app.\n* An API developers can call to access user data, as well as a console consuming the same API.\n* The latest OpenAPI specification for our public API is available here: https://dashboard.privy.io/api/v1/openapi.json\n\nLearn more by going to https://docs.privy.io and please reach out to security@privy.io with questions.\n\n# Out of scope vulnerabilities\n\n* The Privy blog (blog.privy.io), website (privy.io), docs (docs.privy.io), and demo (demo.privy.io) are all out of scope.  Generally, *.privy.io is not in scope, only designated resources are in scope. The demo is a useful environment to test application flows just the same, demo-specific vulnerabilities will not be considered (rather than Privy vulnerabilities surfaced through the demo site). \n\n## The following issues are considered out of scope:\n* Race conditions used to add additional members, apps or other soft-limited features of your account\n* Bypassing adding credit card information when moving applications to production (unless you can also show you can move out of the free tier into enterprise!)\n* Viewing publicly accessible configurations with the App ID ( eg. https://auth.privy.io/api/v1/apps/cm5wmef9k04gwpo79ttzehvk5 )\n* CORS headers allowing any domain\n* OAuth redirect allowing any domain (unless you can show bypassing the OAuth configured domains ( https://docs.privy.io/recipes/react/allowed-domains#allowed-oauth-redirect-urls )\n* Adding resources that are difficult for other members of your team to remove (ie long names, special characters, etc)\n* Administrative accounts being able to remove other administrators\n* Viewing Application, embedded wallet and other *public* configurations\n* Expiry of sessions (these use JWTs with a low timeout)\n* Public JWKS endpoints\n* Using third party auth to create an account (with the except of Google OAuth), these will create separate accounts and are the expected behaviour\n* Bypassing PNG upload to upload an image of another type\n* Bypasses of feature gating or billing controls (e.g. accessing paid/enterprise features without the required subscription), as these are intentionally implemented as soft boundaries. This includes but is not limited to webhook functionality and third-party authentication features.\n* Attacks requiring physical access to a user's device, unless the device is in-scope and explicitly hardened against physical access.\n* Attacks requiring disabling Man In The Middle (MITM) protections.\n* Attacks only affecting obsolete browsers or operating systems.\n* Missing best practices (SSL/TLS configuration, Content Security Policies, cookie flags, tabnabbing, autocomplete attribute, email SPF/DKIM/DMARC records), unless a significant impact can be demonstrated.\n* Clickjacking or Cross-Site Request Forgery (CSRF) on unauthenticated pages / forms with no sensitive actions.\n* Open redirects, unless a significant impact can be demonstrated.\n* Self-exploitation (self XSS, self denial-of-service, etc.), unless a method to attack a different user can be demonstrated. This INCLUDES being able to target your own team.\n* Missing validation of `postMessage` origin when the app into which the SDK is installed does not have a Content Security Policy in place.\n* Missing `postMessage` origin validation in out client side SDKs such as `cross-app-connect`, `cross-app-provider`, `react-auth`,  `js-sdk-core` etc.\n* Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.\n* Software version disclosure / Banner identification issues / Descriptive error messages or stack traces.\n* Issues that require unlikely user interaction by the victim.\n* Perceived security weaknesses without evidence of the ability to demonstrate impact.\n* Developer slack invite\n\n## Other exclusions\n* Any activity carried out on a Privy customer site, domain or app is strictly prohibited and will not be considered as part of this program.\n* Any activity that could lead to the disruption of our service (DoS, DDoS) or any volumetric based exploit.\n* Social engineering of customers or end users is prohibited under any circumstance.\n* Social engineering of Privy employees or contractors, unless explicitly authorized.\n* Attacks against our physical facilities, unless explicitly authorized.\n\nThank you for helping keep Privy and our users safe -- we're excited to work with you.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The primary Privy site where you can learn about products & services, get support, etc.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/react-auth",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "demo.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "auth.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/js-sdk-core",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/expo",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/wagmi",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/cross-app-connect",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@privy-io/cross-app-provider",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "home.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "recovery.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "@privy-io controlled namespace dependencies",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.privy.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

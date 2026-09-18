@@ -1,0 +1,234 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "zooplus",
+      "name": "Zooplus",
+      "offersBounties": true,
+      "assets": [
+        "www.zooplus.co.uk",
+        "www.zooplus.com",
+        "www.zooplus.de"
+      ],
+      "exclusions": [
+        "www.zoochic-eu.ru",
+        "www.zoohit.cz",
+        "www.zoohit.si",
+        "www.zoohit.sk",
+        "www.zooplus.at",
+        "www.zooplus.be",
+        "www.zooplus.ch",
+        "www.zooplus.dk",
+        "www.zooplus.es",
+        "www.zooplus.fi",
+        "www.zooplus.fr",
+        "www.zooplus.gr",
+        "www.zooplus.hr",
+        "www.zooplus.hu",
+        "www.zooplus.ie",
+        "www.zooplus.it",
+        "www.zooplus.nl",
+        "www.zooplus.no",
+        "www.zooplus.pl",
+        "www.zooplus.pt",
+        "www.zooplus.ro",
+        "www.zooplus.se"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\zooplus-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "zooplus",
+  "name": "Zooplus",
+  "url": "https://hackerone.com/zooplus",
+  "policy": "#Zooplus \nSince 1999, zooplus has been a pioneer in pet supplies e-commerce, serving millions of pet parents with an ever-growing range of nutritional and lifestyle products, proprietary premium food and accessory brands, alongside expert advice, convenient services, and loyalty programmes. Committed to the vision of ‘Celebrating Pet Love Every Day’ and driven by a passion for innovation, zooplus aims to set the industry standard for personalised, smart shopping. Based in Munich, zooplus operates local online shops across 30 European countries.\n\nThank you for supporting our security mission with relentless proactivity with your reports\n'We enable trust amid a hostile digital landscape.'\n\nWe look forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe!\n\n# Response Targets\nZooplus will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 5 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* It is prohibited to discuss this program or any vulnerabilities (even resolved ones) outside of the program without explicit consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction or mass exfiltration of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Zooplus is in the EU and some services are only made available in Europe through Geo IP. To avoid problems in your test, please use a VPN with an exit node in a country in the EU.\n\n# Test Plan\n* Load-intensive scans should be avoided.\n* When signing up for any Zooplus account, please use your [user]@wearehackerone.com address\n>* Please email bugbounty@zooplus.com to request an account if you do not have one and are unable to create one\n>* Make sure to include your HackerOne email address in the request\n>* We will try and get back to you within 5 business days\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Missing best practices in Content Security Policy.\n* Missing email best practices (only Invalid, incomplete or missing DKIM/DMARC records)\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Open redirect - unless an additional security impact can be demonstrated\n* Self-XSS are out of scope if could not be chained with another kind of attack that not require social engineering.\n* Social media account takeover\" findings can be only rewarded once, as the we have tens of millions of pages needing checks. We'd appreciate it if all found links to accounts are provided in one ticket. \n* Only accept users leaks that include Z+ Employees or 3rd party credentials, like logistics companies. Accounts from voting pools, Kanban boards and other kind of tools used by developers under their own reason are not part of that, unless internal Z+ information is leaked thru it. We also accept leaks from Z+ customers only if comes from leaks generated IN zooplus, or other of the domains in the program, site, of course the way that this leak was obtained must be included in the report. We do not accept leaks obtained with virus, trojans, browser leaks.... directly from the customers as is not a Z+ Leak. Of course we appreciate any report of that as a good faith from all the community and we always tried to be as gratefull as company policies allowed us.\n* We could not accept TLD reports that are not associated with our organization or not reserved by our business as security risk.\n\n### The following vulnerability types are out of scope for the zooplus vulnerability disclosure program. Reports that fall into these categories will not be eligible for reward or further triage:\n\n**Business Logic Vulnerabilities & Voucher, Coupon, and Discount Misuse**\nIssues that arise from intended business processes, even if they can be abused in edge cases, are out of scope. This includes, but is not limited to:\n\n* Account creation flows\n* Manipulation or reuse of promotional codes, vouchers, or coupons\n* Obtaining discounts, free gifts, or benefits (such as “Flash Deals,” “Savings Plan,” or “Zoopoints”) through business logic quirks, unless this leads to a direct compromise of core security controls or customer data.\n* Exploiting regional or cross-shop promotions (e.g., using a French free shipping code for a Belgian address)\n\n**Loyalty and Points System Abuse**\n* Earning or spending “Zoopoints\", newsletter bonuses, or referral points multiple times via timing, race conditions, or cross-shop actions.\n* Bypassing limits on loyalty programs.\n\n# Contact\nIf you have any questions or run into blockers while testing, please email bugbounty@zooplus.com to get in touch with our team.\n\nThank you for helping keep Zooplus and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.zooplus.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hello,\nAs a lot of our domains share the same endpoints in the backend, we kindly ask you to also try to reproduce the error in www.zooplus.com\nIf you are able to reproduce it, please submit it with the .com domain but also report in which country domain you originally found it.\nThis will greatly im",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.zooplus.be",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.dk",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.fr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.gr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.co.uk",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hello,\nAs a lot of our domains share the same endpoints in the backend, we kindly ask you to also try to reproduce the error in www.zooplus.com\nIf you are able to reproduce it, please submit it with the .com domain but also report in which country domain you originally found it.\nThis will greatly im",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.zooplus.ie",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.it",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.hr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.nl",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.no",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.at",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.pl",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.pt",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.ro",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zoochic-eu.ru",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.se",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.ch",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zoohit.sk",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zoohit.si",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.es",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zoohit.cz",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.hu",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.zooplus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hello,\nAs a lot of our domains share the same endpoints in the backend, we kindly ask you to also try to reproduce the error in www.zooplus.com\nIf you are able to reproduce it, please submit it with the .com domain but also report in which country domain you originally found it.\nThis will greatly im",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "robinhood",
+      "name": "Robinhood Markets Bounty",
+      "offersBounties": true,
+      "assets": [
+        "*.rhinternal.net",
+        "*.robinhood.com",
+        "*.robinhood.net",
+        "*.say.rocks",
+        "*.saytechnologies.com",
+        "1634080733",
+        "6462308655",
+        "938003185",
+        "api.robinhood.com",
+        "cashier.robinhood.com",
+        "com.robinhood.android",
+        "com.robinhood.gateway",
+        "com.robinhood.money",
+        "https://*.saytechnologies.com",
+        "minerva.robinhood.com",
+        "nummus.robinhood.com"
+      ],
+      "exclusions": [
+        "affiliates.robinhood.com",
+        "content.research.robinhood.com",
+        "esg.robinhood.com",
+        "events.robinhood.com",
+        "fleet.infra.robinhood.net",
+        "https://www.saytechnologies.com/contact/sales",
+        "share.robinhood.com",
+        "shop.robinhood.com",
+        "vgs-api.robinhood.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\robinhood-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "robinhood",
+  "name": "Robinhood Markets Bounty",
+  "url": "https://hackerone.com/robinhood",
+  "policy": "Robinhood Markets Bounty looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Bug Bounty Program Rules\nBy submitting reports to our program, you agree that you’ve read, understood, and will follow our Program Rules and overall Program Policy.\n\n* Be careful with sensitive information. If sensitive information such as personal information or user credentials are uncovered as part of your research, stop and report it to us immediately. Do not save, store, copy, move, or otherwise retain sensitive information, and work with us on any additional requests we may have.\n* Test responsibly. Only interact with and test bugs against accounts you own. We do not allow testing against user accounts not owned by the Security Researcher. Reach out to us if you need help with testing cross-account issues.\n* Do not cause harm. Do not engage in activities that disrupt, damage, or otherwise cause harm to or defraud Robinhood, our users, our employees, our data or our users’ data, or our brand—including, without limitation, denial of service attacks, social engineering, phishing, spam, social media scams, fraudulent transactions, data exfiltration or tampering, or physical attacks.\n* Do not exceed $1,000 USD when testing unbounded loss vulnerabilities. When you reach $1,000 USD file your report with all verification you have completed so far. Internal teams will verify unbounded loss vulnerabilities collaboratively with you. Testing over $1,000 USD may result in termination from our program.\n* Do not disclose reports made to the Robinhood bug bounty program at any time, in any location independent of the HackerOne platform.\n\nViolation of any of our Program Rules may result in (but is not limited to) consequences such as ineligibility for a bounty, permanent disqualification and removal from the Robinhood Bug Bounty Program, or voiding the protections of the HackerOne \n\n# Special Considerations\nDue to the nature of our business, we ask that you also follow these guidelines:\n* Do not perform resource intensive tests which could result in disruption or downtime for our services.\n* Do not make financial transactions with other user accounts you do not own.\n* Findings dependent on account takeover (ATO) are typically not accepted, though we may award a small bonus for bugs we consider novel.\n* Do not send large volumes of data to our websockets.\n* Do not create large volumes of support tickets.\n\nThe most common reason reports are rejected as ‘informative’ rather than for a bounty is because of impact. If your report shows theoretical impact rather than demonstrates an impact (e.g. ‘This flaw could result in information disclosure’ versus ‘Here is the information I was able to access using the flaw’), severities (and bounties) will be lower.\n\nSafe harbor for researchers is applied.\n\n# Eligibility to Participate\nTo be eligible to participate in any Robinhood Bug Bounty Program, you must:\n* Be at least 18 years of age and meet Robinhood account requirements if you test using a Robinhood account\n* Not be employed by Robinhood as an employee, contingent worker, or contractor (including individuals who separated from Robinhood within the prior 12 months) or be an immediate family member of a current or former Robinhood employee, contingent worker, or contractor\n* Not be a resident of or an individual located within a country appearing on any U.S. sanctions lists, as administered by the Office of Foreign Assets Control (OFAC)\n* Not be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to the Bug Bounty Program\n\nRobinhood also maintains a VIP Bug Bounty Program, which allows access to pre-release features in advance of their launch before the general public. Researchers who participate in our program may be invited to join the VIP Program based on the quality and consistency of their reports, with at least 3-5 reports submitted over time.\n\n# Submission Requirements\nUse the following headers when making requests to Robinhood resources or assets for bug bounty where <Username> is your HackerOne username and <TestAccountEmail> is the email associated with the test account you’re making the request with:\n```X-Bug-Bounty: <Username>```\n```X-Test-Account-Email: <TestAccountEmail>```\nPlease include these host values in your report, as well as your breakdown of the CVSS score you assign to your submission.\n\n# Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). We’ll work with you to find an accurate CVSS score for your report, but please note these are general guidelines and reward decisions are up to the discretion of Robinhood.\n\nOur program calculates bounties for reports based on a sliding CVSSv3 scale; the higher the issue’s score, the higher your bounty will be. We’ll use lower environmental scores for assets that are less important to Robinhood. We encourage rating your issues with CVSS before submission and including a breakdown of what your understanding of the criteria to be, but know that we may have to make adjustments in the event the score isn’t representative of the true impact. True impact will be determined by a host of factors including whether mitigations are in place, whether token interception/account takeover (ATO) is a requirement of the attack, the type of sensitive information disclosed, and what can actually be done with the identified exploit. The most common reason reports are rejected as ‘informative’ rather than for a bounty is because of a failure to provide demonstrable impact. If your report shows theoretical impact rather than demonstrates impact (e.g. ‘This flaw could result in information disclosure’ versus ‘Here is the information I was able to access using the flaw’), severities will be lower. It’s worth noting that severity gets decreased when: exploitation is currently mitigated by effective compensating controls; the vulnerability is only exploitable internally such as behind authentication systems (e.g., Okta) or requires specific privileges that limit accessibility; or the exploitation scenario involves user interactions or conditions that are unlikely to be met or are heavily constrained. Additionally no bounties will be awarded for issues which are fixed and no longer reproducible if the issue is fixed prior to the ticket being triaged/not as a result of the bug bounty ticket. Final determination of the eligibility and severity of the issue will be made by and at the sole discretion of the Robinhood Security Team.\n\nEligibility is limited to domains and properties owned and operated by Robinhood and its acquisitions. Software components used within Robinhood are eligible and may be exploited in your vulnerability testing. Note that bugs in third-party components only qualify if we determine that they can be used to successfully exploit Robinhood. Root cause duplicates (i.e. same issue across multiple hosts or endpoints) will be considered duplicates when the underlying component/mechanism is the same.\nBounties will not be paid for fixed issues which are no longer reproducible, if issues are already known before the ticket is validated, or if they were fixed not as a result of the bug bounty submission.\n\n# Zero-Day Issues\nRobinhood accepts zero-day issues in third party software that can be directly used to compromise the confidentiality or integrity of our products. Zero-day issues may be submitted to our program at any time; however, we will only accept reports that permit us to disclose the issue to the relevant vendors. We cannot authorize testing against any third parties or our vendors.\n\n# Starting Point\nNot sure where to start? Here are a few areas we’d like to see more coverage of and some questions to get you started:\n* Authenticated issues - Create a test account using your HackerOne email and test functionality from the perspective of an authenticated user. What bugs exist in authenticated workflows?\n* Business Logic issues - Can UI protections be circumvented with underlying API calls or can you perform sequence steps out of order in ways that have a security impact?\n* Sensitive Information Disclosure - Are there places in the application where sensitive data like SSNs or other PII are handled insecurely?\n\nConfiguration files are provided solely to assist you in configuring your tooling. Robinhood makes no representations or warranties, express or implied, and assumes no responsibility or liability for any outcomes or issues arising from its use.\n\n# Scope\nTier 1:\n* *.rhapollo.net - Rhapollo.net contains internal Robinhood services.\n* *.rhinternal.net - Rhinternal.net contains internal Robinhood services.\n* *.robinhood.com - Robinhood.com contains the bulk of Robinhood web assets, APIs, and publicly accessible services.\n* api.robinhood.com - api.robinhood.com is an AWS ALB that proxies traffic to many different Robinhood services.\nFor example, while Cashier is available at cashier.robinhood.com, it’s also available at api.robinhood.com/cashier. In most cases, the endpoints should be identical in functionality.\n* nummus.robinhood.com - Nummus handles cryptocurrency trading for Robinhood users, and tracks cryptocurrency account balances.\n* *.robinhood.net - Robinhood.net contains internal Robinhood services. You shouldn’t be able to log into anything here.\noak.robinhood.net\n* Major Oak (also accessible internally at oak.robinhood.com) is our internal administrative tooling, which is used by Customer Support to make changes to customer accounts. Access to and vulnerabilities in Major Oak are very sensitive.\n* 1634080733 iOS - Robinhood Wallet is an application for owning and managing your blockchain assets in a self-custody crypto wallet.\n* 6462308655 iOS - Robinhood Credit Card is an application for the Robinhood Gold Card.\n* 938003185 iOS - Robinhood: Trading and Investing is an online brokerage application for trading and investing\n* com.robinhood.android Android - Robinhood: Trading and Investing is an online brokerage application for trading and investing\n* com.robinhood.gateway Android - Robinhood Wallet is an application for owning and managing your blockchain assets in a self-custody crypto wallet.\n* com.robinhood.money Android - Robinhood Credit Card is an application for the Robinhood Gold Card.\n* com.robinhood.global Android - Robinhood: Trading and Investing is an online brokerage application for trading and investing for international users\n* www.bitstamp.net - www.bitstamp.net is the main host associated with the Bitstamp website. Subdomains are in Tier 3.\n\nTier 2:\n* *.saytechnologies.com\n* *.say.rocks\n\nTier 3:\n* *.1integrations.com\n* *.x1.co\n* *.x1creditcard.com\n* *.1integrations.com\n* *.x1.co\n* *.x1creditcard.com\n* fusion.tradepmr.com - Production environment and TradePMR application.\n* www.tradepmr.com\n* insight2.tradepmr.com\n* *.bitstamp.net - All Bitstamp supporting services and subdomains which are listed below.  Details about APIs can be found here: https://www.bitstamp.net/api/ Subdomains pointing to third-party services are not in scope.\n* Id1406825640 - Bitstamp iOS application\n* net.bitstamp.app - Bitstamp Android application\n\n\n# Out of Scope\n* shop.robinhood.com - Report findings to Brilliant Made https://www.brilliantmade.com/\n* fleet.infra.robinhood.net\n* content.research.robinhood.com - Report findings to https://www.GreatQuestion.co\n* events.robinhood.com\n* www.saytechnologies.com/contact/sales\n* affiliates.robinhood.com\n* vgs-api.robinhood.com\n* share.robinhood.com\n* affiliates.robinhood.com\n* esg.robinhood.com\n* startinvesting.robinhood.com\n* go.robinhood.com\n* underthehoodpod.robinhood.com\n* press.robinhood.com\n* roadshow.robinhood.com\n* weareallinvestors.robinhood.com\n* careers.robinhood.com\n* earlytalent.robinhood.comauth-sandbox.tradepmr.com\n* api-sandbox.tradepmr.com\n* fusion-demo.tradepmr.com\n* fusion-demo.uat.tradepmr.com\n* fusion-demo.uat2.tradepmr.com\n* fusion.uat.tradepmr.com\n* fusion.uat2.tradepmr.com\n* fusion.uat3.tradepmr.com\n* auth-validation.tradepmr.com\n* api-validation.tradepmr.com\n* auth.tradepmr.com\n* api.tradepmr.com\n* sandbox.bitstamp.net\n\nWe consider most informative-type issues to be out of scope, like SPF issues. If most other bug bounty programs exclude it, we likely would too. \n* Physical attacks against Robinhood employees, offices, or data centers\n* Social engineering attacks against Robinhood employees or users, including phishing\n* Vulnerabilities in third-party integrations with the Robinhood API or third-party banking functionality (e.g. credit card chargebacks made through your financial institution)\n* Vulnerabilities that require physical access, rooted / jailbroken devices, or debug access to a user’s device\n* Denial of service without prior authorization\n* Subdomain takeover without taking over the subdomain\n* Cache poisoning\n* Email list or notification setting configuration issues or information disclosure\n* Clickjacking without impact\n* Disclosure of publicly available information\n* Lack of security flags in cookies (except session cookies)\n* Lack of security headers unless exploitable\n* Vulnerabilities caused by out-of-date browsers or browser add-ons\n* Vulnerabilities caused by out-of-date or no longer maintained Android or iOS versions\n* Mobile application root and jailbreak detection\n* For Say Technologies: Voting information disclosure via IDOR, and anything including contact or support forms\n* DNS records including email policy (SPF, DKIM, DMARC), DNSSEC\n* Issues related to unsafe SSL/TLS cipher suites or protocol versions unless exploitable\n* Lack of EXIF stripping on uploads, unless those uploads are publicly accessible\n* Logout CSRF\n\nAdditionally HackerOne has core ineligible findings that are applicable to this program",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "minerva.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nummus.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.saytechnologies.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://www.saytechnologies.com/contact/sales",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.rhinternal.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.robinhood.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.robinhood.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.say.rocks",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.saytechnologies.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "com.robinhood.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1634080733",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "6462308655",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "938003185",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.robinhood.gateway",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.robinhood.money",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shop.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fleet.infra.robinhood.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "content.research.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "events.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vgs-api.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "share.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "esg.robinhood.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

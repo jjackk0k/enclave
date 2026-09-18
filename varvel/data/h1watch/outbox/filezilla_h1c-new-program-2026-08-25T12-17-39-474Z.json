@@ -1,0 +1,64 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "filezilla_h1c",
+      "name": "FileZilla (European Commission - DIGIT)",
+      "offersBounties": true,
+      "assets": [
+        "https://svn.filezilla-project.org/svn/FileZilla3/trunk/",
+        "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/putty",
+        "https://svn.filezilla-project.org/svn/libfilezilla/trunk"
+      ],
+      "exclusions": [
+        "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/storj/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\filezilla_h1c-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "filezilla_h1c",
+  "name": "FileZilla (European Commission - DIGIT)",
+  "url": "https://hackerone.com/filezilla_h1c",
+  "policy": "# Introduction\r\n\r\nThis project has been sponsored by the European Commission as part of the EU-Free and Open Source Software Auditing (EU-FOSSA) project designed to improve the security of free software.\r\nThis program will be open for submissions for 8 weeks, though rewards may be processed beyond the 8 week period in order to allow for full evaluation of the impact of valid vulnerability reports.\r\n\r\n**Note: This program has now been extended for a further two months to 21 July 2019.**\r\n\r\n# Disclosure Policy \r\n* Follow HackerOne's disclosure guidelines.\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Please provide detailed reports with reproducible steps demonstrating a plausible exploitation scenario. * If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* The project maintainers have final decision on which issues constitute security vulnerabilities. We will respect their decision, and we ask that you do as well.\r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Denial of service \r\n* Spamming \r\n* Social engineering (including phishing) of euf_demo staff or contractors \r\n* Any physical attempts against euf_demo property or data centers \r\n\r\n# Scope\r\n\r\nThe bug bounty program will test only the fully free open source version of FileZilla as found on https://filezilla-project.org/download.php?type=client&show_all=1  and the source code repository described on https://filezilla-project.org/sourcecode.php which includes the libfilezilla library. Other versions of the program are not in the scope of this testing.\r\n\r\n# Out of Scope\r\n\r\n* Exploits which rely on the assumption that the attacker already has access to the victims system.\r\n\r\nThe following components are also explicitly not in the scope:\r\n* The src/storj sub-directory of FileZilla and the libstorj dependency\r\n* The src/putty sub-directory of FileZilla contains a modified code from PuTTY.  Issues inherited from PuTTY are not in scope. **Note:** Issues in the modifications specific to FileZilla still are in scope.\r\n\r\n# POC\r\nVulnerabilities are to be evaluated given contemporary computer architectures.\r\n\r\nThe PoC must work on the respective repository trunk heads or the latest released version. Older builds are explicitly out of scope.\r\n\r\n# FileZilla technical overview\r\n\r\n## Building FileZilla\r\n\r\nFileZilla uses the GNU autotools as build system.\r\n\r\nIt, as well as almost all its dependencies, can be built using the familiar `configure && make && make install` trinity.\r\n\r\nThe following two guides have reently been updated and can be used to build FileZilla:\r\n\r\n* Debian and derived: <https://wiki.filezilla-project.org/Compiling_FileZilla_3_and_Getting_Dependencies_on_Linux>\r\n* Windows: <https://wiki.filezilla-project.org/Cross_Compiling_FileZilla_3_for_Windows_under_Ubuntu_or_Debian_GNU/Linux>\r\n\r\n## Dependencies\r\n\r\nFileZilla directly depends on the following libraries:\r\n\r\n* **libfilezilla**: base library for many things such as file i/o, string utilities and the main event system\r\n* **wxWidgets**: GUI framework\r\n* **GnuTLS**: TLS\r\n* **Nettle**: Various cryptographic functions used e.g. for the master password functionality\r\n* **pugixml**: DOM-style XML parser. XML is used to store settings\r\n* **SQlite**: SQL database, used to persist the transfer queue\r\n\r\n\r\n## Architecture\r\n\r\nFileZilla is organized in different components. The most important components are, identified by subdirectory:\r\n\r\n* `src/engine`: The protocol implementations\r\n* `src/engine/ftp`: FTP specific functionality\r\n* `src/engine/sftp`: SFTP specific functionality, wraps around fzsftp\r\n* `src/engine/http`: Everything specific to HTTP specific functionalit\r\n* `src/interface`: The user interface and controlling logic such as the transfer queue\r\n* `src/putty`: Source for fzsftp, a heavily modified version of PuTTY's psftp\r\n* `src/fzshellext`: The Windows shell extension to facilitate Drag&drop from Explorer into FileZilla.\r\n\r\n\r\n## Interesting places\r\n\r\n### FileZilla:\r\n* `src/engine/directorylistingparser.cpp`: The directory listing parser in \r\n* `CTlsSocketImpl::VerifyCertificate` in `src/engine/tlssocket_impl.cpp`: Certificate verification\r\n* `src/interface/updater.cpp`: The update mechanism\r\n* `src/engine/http/request.cpp`: The HTTP state machine capable of request pipelining\r\n\r\n### libfilezilla\r\n\r\n* `lib/encryption.cpp`: The asymmetric encryption scheme used for the master password functionality\r\n\r\n\r\n# Rewards\r\n\r\n**A bonus structure is in place from the 14th of June - 14th of July 2019**\r\n\r\nOur rewards are based on the severity of a vulnerability. HackerOne uses CVSS 3.0 (Common Vulnerability Scoring Standard) to calculate severity. We will update the program over time based on feedback, so please give us feedback on any part of the program you think we can improve on.\r\n\r\nOur rewards are based on the severity of a vulnerability. HackerOne uses CVSS 3.0 (Common Vulnerability Scoring Standard) to calculate severity. We will update the program over time based on feedback, so please give us feedback on any part of the program you think we can improve on.\r\n\r\n| SEVERITY | CVSS SCORE | REWARD | Temporary Bonus Structure |\r\n| ------------- |:-------------:| -----:| -----:|\r\n| critical | 9.0 - 10.0 | ~~€5000~~ | €7500 |\r\n| High | 7.0 - 8.9 | ~~€2500~~ | €3250\r\n| Medium | 4.0 - 6.9 | ~~€1000~~ | €1300\r\n| Low | 0.1 - 3.9 | ~~€250~~ | €325\r\n\r\n# Critical severity bugs - ~~€5000~~ €7500\r\n* Remote Code Execution\r\n\r\n# High severity bugs - ~~€2500~~ €3250\r\n* Code Execution without user intervention\r\n\r\n# Medium severity bugs - ~~€1000~~ €1300\r\n* Code Execution with user intervention\r\n* High-impact Crashes\r\n* Infinite loops\r\n\r\n# Low severity bugs - ~~€250~~ €325\r\n* Information leaks\r\n* Crashes\r\n* OOM\r\n\r\n## Bonus\r\nThere is a 20% bonus for including a fix in the report when accepted by the maintainers.\r\n\r\n**Note**: The 20% bonus is calculated off the new bonus structure. \r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nIf you have any questions or concerns on this challenge, please contact tpm-sl@hackerone.com.\r\n\r\nThank you for helping keep FileZilla and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/FileZilla3/trunk/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/libfilezilla/trunk",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/storj/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://svn.filezilla-project.org/svn/filezilla3/trunk/src/putty",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Note**: The code in this directory is based on PuTTY, with modifications specific to FileZilla. Only submissions concerning the FileZilla-specific code are accepted.",
+      "max_severity": "critical"
+    }
+  ]
+}

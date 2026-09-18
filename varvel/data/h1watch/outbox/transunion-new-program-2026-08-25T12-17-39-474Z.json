@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "transunion",
+      "name": "TransUnion LLC",
+      "offersBounties": false,
+      "assets": [
+        "*.chile.transunion.com",
+        "*.cibil.com",
+        "*.cibilcreditreport.in",
+        "*.neustar",
+        "*.neustar.biz",
+        "*.neustarcare.com",
+        "*.npac.com",
+        "*.transunion.ca",
+        "*.transunion.co.br",
+        "*.transunion.co.uk",
+        "*.transunion.co.za",
+        "*.transunion.com",
+        "*.transunion.do",
+        "*.transunion.hk",
+        "*.transunion.mx",
+        "*.transunion.ph",
+        "*.transunionafrica.com",
+        "*.transunioncentralamerica.com",
+        "*.transunioncibil.com",
+        "*.transuniondecisioncentre.co.in",
+        "*.tui.transunion.com"
+      ],
+      "exclusions": [
+        "*.security.neustar",
+        "http://customertest.drivershistory.com/dr3/api/dr30/getcombined",
+        "https://customertest.drivershistory.com/currentversion5/wsdhilookup.asmx",
+        "https://customertest.drivershistory.com/currentversion6/wssubjectprescreenplus.asmx"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\transunion-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "transunion",
+  "name": "TransUnion LLC",
+  "url": "https://hackerone.com/transunion",
+  "policy": "TransUnion LLC looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nTransUnion LLC will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* You may not be a current employee of TransUnion or its affiliates or subsidiaries, or an employee who has left TransUnion, or its affiliates or subsidiaries within the past 12 months.\n* You may not be an immediate family member of a person employed by TransUnion or its subsidiaries or affiliates\n* Do not use automated scanners. These tools could include payloads that trigger state changes or damage production systems or data.\n\n# Testing\n\n### There is a large amount of Web traffic to and from TransUnion LLC properties every day. When testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. Please do the following when participating in our VDP Program:\n\n* When submitting a report that is not explicitly defined in the program scope, please provide any relevant information that attributes the finding to TransUnion LLC.\n* Where possible, register accounts using your <username>+x@wearehackerone.com addresses. (see https://docs.hackerone.com/hackers/hacker-email-alias.html )\n* Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity. \n* Include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily.\n    - Identifier: Your Username\n    - User Agent: X-TRU-VDP-<username>\n    - Format: X-TRU-VDP: HackerOne-<username>\n    - Example: X-TRU-VDP: HackerOne-powerful\n\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Any activity that could lead to the disruption of our service (DoS, DDoS).\n* Social engineering of our employees or contractors.\n* Attacks against our physical facilities.\n* Attacks requiring physical access to a user's device, unless the device is in-scope and explicitly hardened against physical access.\n* Attacks requiring disabling Man In The Middle (MITM) protections.\n* Missing best practices (SSL/TLS configuration, Content Security Policies, cookie flags, autocomplete attribute, email SPF/DKIM/DMARC records), unless a significant impact can be demonstrated.\n* Cross-Site Request Forgery (CSRF) or Clickjacking/Tabnabbing with no security impact (e.g., unauthenticated/logout/login CSRF).\n* Open redirects, unless a significant impact can be demonstrated.\n* Self-exploitation (self XSS, self denial-of-service, etc.), unless a method to attack a different user can be demonstrated.\n* Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.\n* Software version disclosure / Banner identification issues / Descriptive error messages or stack traces.\n* Issues that require unlikely user interaction by the victim.\n* Testing that requires mass creation of accounts, rate limit testing, credential stuffing, etc.\n\n# Additional Notice\n\nPlease refer to the Privacy Notice for the applicable product or region being tested for more information on what personal information TransUnion and is companies collects about you and the rights you may have regarding your personal information. TransUnion privacy notices and policies, including for international regions, can be found at this link: https://www.transunion.com/privacy/transunion.\n\nThank you for helping keep TransUnion LLC and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "http://customertest.drivershistory.com/dr3/api/dr30/getcombined",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://customertest.drivershistory.com/currentversion6/wssubjectprescreenplus.asmx",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://customertest.drivershistory.com/currentversion5/wsdhilookup.asmx",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.transunion.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tui.transunion.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.co.za",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunionafrica.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunioncibil.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.hk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.ph",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.co.br",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.do",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.chile.transunion.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunioncentralamerica.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.mx",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transunion.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.neustar",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.neustar.biz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.neustarcare.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.npac.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cibil.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.security.neustar",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.cibilcreditreport.in",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.transuniondecisioncentre.co.in",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

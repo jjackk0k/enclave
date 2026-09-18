@@ -1,0 +1,251 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wordpress",
+      "name": "WordPress",
+      "offersBounties": true,
+      "assets": [
+        "*.buddypress.org,bbpress.org,profiles.wordpress.org",
+        "*.trac.wordpress.org, *.svn.wordpress.org, *.git.wordpress.org, github.com/WordPress",
+        "*.wordcamp.org",
+        "*.wordpress.net",
+        "*.wordpress.org",
+        "BuddyPress Core",
+        "GlotPress",
+        "Gutenberg",
+        "Official WordPress plugins",
+        "WP-CLI",
+        "WordPress Core",
+        "api.wordpress.org",
+        "bbPress Core",
+        "codex.wordpress.org,codex.bbpress.org,codex.buddypress.org",
+        "irclogs.wordpress.org",
+        "lists.wordpress.org",
+        "mercantile.wordpress.org",
+        "munin-*.wordpress.org",
+        "planet.wordpress.org",
+        "wordpressfoundation.org"
+      ],
+      "exclusions": [
+        "*.wordpress.com",
+        "335703880",
+        "https://github.com/wordpress-mobile/",
+        "org.wordpress.android",
+        "status.wordpress.org,glotpress.blog,wordpress.tv"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wordpress-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wordpress",
+  "name": "WordPress",
+  "url": "https://hackerone.com/wordpress",
+  "policy": "[WordPress](https://wordpress.org/) is an open-source publishing platform. Our HackerOne program covers the Core software, as well as a variety of related projects and infrastructure.\n\nOur most critical targets are:\n\n* WordPress Core [software](https://wordpress.org/download/source/), [API](https://codex.wordpress.org/WordPress.org_API), and [website](https://wordpress.org/).\n* Gutenberg [software](https://github.com/WordPress/gutenberg/) and Classic Editor [software](https://wordpress.org/plugins/classic-editor/).\n* WP-CLI [software](https://github.com/wp-cli/) and [website](https://wp-cli.org/).\n* BuddyPress [software](https://buddypress.org/download/) and [website](https://buddypress.org/).\n* bbPress [software](https://bbpress.org/download/) and [website](https://bbpress.org/).\n* GlotPress [software](https://github.com/glotpress/glotpress-wp) (but not the website).\n* WordCamp.org [website](https://central.wordcamp.org).\n* Supply chain and CI/CD workflows for the above.\n\nSource code for most websites can be found in [our GitHub account](https://github.com/WordPress/), or in the Meta repository (`git clone git://meta.git.wordpress.org/`). Many of the sites have Docker environments that will automatically provision a local copy for you to test against.\n\nFor more targets, see the `In Scope` section below.\n\n**All bounties are doubled** [if they're reported before the bug is released to users](https://make.wordpress.org/security/2019/02/13/doubling-bounties-for-vulnerabilities-discovered-before-release/).\n\n\n*Please note that __WordPress.com is a separate entity__ from the main WordPress open source project. Please report vulnerabilities for WordPress.com or the WordPress iOS and Android mobile apps through [Automattic's HackerOne page](https://hackerone.com/automattic).*\n\n## Qualifying Vulnerabilities\n\nAny reproducible vulnerability that has a severe effect on the security or privacy of our users is likely to be in scope for the program. Common examples include XSS, CSRF, SSRF, RCE, SQLi, and privilege escalation.\n\nWe generally **aren’t** interested in the following problems:\n\n* Any vulnerability with a [CVSS 3](https://www.first.org/cvss/calculator/3.0) score lower than `4.0`, unless it can be combined with other vulnerabilities to achieve a higher score.\n* Brute force, DoS, memory exhaustion, phishing, text injection, or social engineering attacks. Wikis, Tracs, forums, etc are intended to allow users to edit them.\n* Availability of XML-RPC file without PoC demonstrating a significant security impact. As noted above, this excludes DDoS and brute force attacks.\n* Security vulnerabilities in WordPress plugins not *specifically* listed as an in-scope asset. Out of scope plugins can be [reported to the Plugin Review team](https://developer.wordpress.org/plugins/wordpress-org/plugin-developer-faq/#how-can-i-send-a-security-report).\n* Reports for hacked websites. The site owner can [learn more about restoring their site](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#ive-been-hacked-what-do-i-do-now).\n* [Users with administrator or editor privileges can post arbitrary JavaScript](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-some-users-allowed-to-post-unfiltered-html)\n* Self-XSS issues **within wp-admin** requiring users with `unfiltered_html` capability are not under the scope of this program. For example, script execution within `/wp-admin` as an administrator or editor on a single-site installation. Only the cases where a less-privileged user is able to execute XSS attacks on a higher-privileged user will be under the bug bounty scope.\n* [Disclosure of user IDs](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue)\n* Weaknesses in WP-CLI that don't violate its threat model. Please ensure you have read and understand [the WP-CLI policy on report validity](https://make.wordpress.org/cli/handbook/contributions/security-vulnerability-reporting/).\n* Open API endpoints serving public data (Including [usernames and user IDs](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue))\n* [Path disclosures for errors, warnings, or notices](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-there-path-disclosures-when-directly-loading-certain-files)\n* WordPress version number disclosure\n* Mixed content warnings for passive assets like images and videos\n* Lack of HTTP security headers (CSP, X-XSS, etc.)\n* Output from automated scans - please manually verify issues and include a valid proof of concept.\n* Any non-severe vulnerability on `irclogs.wordpress.org`, `lists.wordpress.org`, or any other low impact site. For *.wordpress.net, please check the Scope section as only are limited number of subdomains are eligible.\n* Clickjacking with minimal security implications\n* Vulnerabilities in Composer/NPM `devDependencies`, unless there's a practical way to exploit it remotely.\n* Theoretical vulnerabilities where you can't demonstrate a significant security impact with a PoC.\n* Broken Links to external resources / social media accounts in documentation, profiles, or WordCamp sites, unless a significant security impact can be shown. Broken links in documentation should be reported to https://meta.trac.wordpress.org/.\n\n## Guidelines\n\nWe're committed to working with security researchers to resolve the vulnerabilities they discover. You can help us by following these guidelines:\n\n* You are free to use artificial intelligence (AI) tooling as part of your research and reporting, but you _must_ disclose what tooling you are using and to what extent a report has been authored by AI. It is your responsibility to review and take responsibility for what AI generates. See [the WordPress AI Guidelines](https://make.wordpress.org/ai/handbook/ai-guidelines/).\n* Follow [HackerOne's disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Pen-testing Production:\n  * Please **setup a local environment** instead whenever possible. Most of our code is open source (see above).\n  * If that's not possible, **limit any data access/modification** to the bare minimum necessary to reproduce a PoC.\n  * ***Don't* automate form submissions!** That's very annoying for us, because it adds extra work for the volunteers who manage those systems, and reduces the signal/noise ratio in our communication channels.\n * If you don't follow these guidelines **we will not award a bounty for the report.**\n* Be Patient - Give us a reasonable time to correct the issue before you disclose the vulnerability. We care deeply about security, but we're an open-source project and our team is mostly comprised of volunteers.  WordPress powers 40% of the Web, so changes must undergo multiple levels of peer-review and testing, to make sure that they don't break millions of websites when they're installed automatically.\n\nWe also expect you to comply with all applicable laws. You're responsible to pay any taxes associated with your bounties.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "WordPress Core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download source code from: https://wordpress.org/download/source/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "BuddyPress Core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download source code from: https://buddypress.org/download/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bbPress Core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download source code from: https://bbpress.org/download/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wordpress.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All wordpress.org domains that **are not listed in other assets**, including (but not limited to) the following:\n* login.wordpress.org\n* developer.wordpress.org\n* make.wordpress.org\n* translate.wordpress.org\n* global.wordpress.org, {locale}.wordpress.org (e.g., de.wordpress.org, es-mx.wordpress.org)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.wordpress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.buddypress.org,bbpress.org,profiles.wordpress.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wordcamp.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "codex.wordpress.org,codex.bbpress.org,codex.buddypress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "These are wikis, they're intended to be freely edited by anonymous users. We are not interested in vulnerabilities unless they have a severe impact.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "mercantile.wordpress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This site runs uses [the WooCommerce plugin](https://woocommerce.com/), but we don't accept reports for that. We only accept reports for our custom code. If you find any vulnerabilities that are also present in WooCommerce itself, please [report them to Automattic](/automattic).\n\nPlease don't submit",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.trac.wordpress.org, *.svn.wordpress.org, *.git.wordpress.org, github.com/WordPress",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Do _not_ pentest Trac instances**, it's very annoying to clean up after. Setup a local environment instead; the custom source code is available via the Git command below, in the `trac.wordpress.org` subfolder. **If you ignore this you'll forfeit any bounty.**\n\nThe projects here are kept mostly for",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "irclogs.wordpress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "These are public logs of very old conversations. We are not interested in vulnerabilities unless they have a severe impact (e.g., RCE, XSS, modifying the logs, etc). DoS is not severe in this case.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "lists.wordpress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are not interested in vulnerabilities unless they have a severe impact.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "planet.wordpress.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wordpress.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For bounty purposes, only the following *.wordpress.net sites are eligible:\n-jobs\n-playground",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.wordpress.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "All WordPress.com vulnerabilities should be reported to [Automattic's HackerOne program](https://hackerone.com/automattic). \n\n**WordPress.com vulnerabilities reported here will be marked as `Not Applicable`.**",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.wordpress.org,glotpress.blog,wordpress.tv",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are hosted on WordPress.com and we don't have access to modify the code, servers, etc. Check [Automattic's HackerOne program](https://hackerone.com/automattic) for details on reporting vulnerabilities with WordPress.com sites.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "335703880",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "org.wordpress.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/wordpress-mobile/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Gutenberg",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download source code from https://github.com/WordPress/gutenberg",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GlotPress",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All code located under [the GlotPress organization](https://github.com/GlotPress/) on GitHub.\n\nThe most important target is the `glotpress-wp` repository. Other repositories are in scope, but may have a lower importance.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "WP-CLI",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All code located under [the WP-CLI organization](https://github.com/wp-cli) on GitHub.\n\nThe most important targets are the main `wp-cli` repository, and any repositories for commands that are bundled with the distributed `wp-cli` source code, like `cache-command`, `scaffold-command`, etc.\n\nOther rep",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Official WordPress plugins",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only the following plugins that are officially maintained by WordPress.org are in scope.\n\n* [Classic Editor](https://wordpress.org/plugins/classic-editor/)\n* [Create Block Theme](https://wordpress.org/plugins/create-block-theme/)\n* [Secure Custom Fields](https://wordpress.org/plugins/secure-custom-f",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wordpressfoundation.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "munin-*.wordpress.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are not interested in vulnerabilities unless they have a severe impact (e.g., RCE, SSRF). Metrics data is intentionally made public.",
+      "max_severity": "low"
+    }
+  ]
+}

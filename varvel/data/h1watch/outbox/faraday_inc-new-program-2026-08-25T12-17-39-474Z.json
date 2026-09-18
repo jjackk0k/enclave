@@ -1,0 +1,112 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "faraday_inc",
+      "name": "Faraday, Inc.",
+      "offersBounties": true,
+      "assets": [
+        "api.faraday.ai",
+        "app.faraday.ai",
+        "buy.faraday.ai",
+        "gs://faraday-secret",
+        "gs://fdy-production-sdk-uploads",
+        "row.pro",
+        "s3://faraday-secret",
+        "s3://faraday-uploads",
+        "vault2.faraday.ai"
+      ],
+      "exclusions": [
+        "Support Live Chat"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\faraday_inc-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "faraday_inc",
+  "name": "Faraday, Inc.",
+  "url": "https://hackerone.com/faraday_inc",
+  "policy": "# Introduction\n\nFaraday, Inc. looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\nPlease see the \"Out of scope\" section - there are important exclusions.\n\n# Response targets\n\nFaraday, Inc. will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response: 2 business days\n* Time to triage: 2 business days\n* Time to bounty: 1 business day\n\nWe'll try to keep you informed about our progress throughout the process.\n\n# Disclosure policy\n\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's ​https://www.hackerone.com/disclosure-guidelines\n\n# Program rules\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test plan\n\nhttps://app.faraday.ai/signup\n\nThis will mostly give you access to the API (https://api.faraday.ai), but it will also give you a window into our web app (https://app.faraday.ai).\n\nOur test priorities are:\n\n* Nobody can break in\n* No cross-account leakage\n* We aren't leaving sensitive data publically accessible\n\n# Rewards\n\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Faraday, Inc..\n\n# In scope\n\n* Anything listed \"In scope\" below\n* BigQuery\n* Malicious action by authenticated users\n* CSRF/XSS\n* Content spoofing and text injection issues with showing an attack vector/with being able to modify HTML/CSS\n* Open redirect if an additional security impact can be demonstrated\n* Clickjacking on pages with sensitive actions\n* Previously known vulnerable libraries with a working Proof of Concept.\n* Uploaded file injection with demonstrating a vulnerability\n\n# Out of scope\n\nThese are OUT OF SCOPE:\n\n* The fact that you can use a single JWT to access multiple accounts. The JWT is tied to the user, so if the user changes account, the JWT does too.\n* The fact that https://vault2.faraday.ai is open to the world (no IP allowlist)\n* The fact that once you log out, your JWT token doesn't immediately expire.\n* Any vulnerability that requires a properly authorized user's credentials or secrets. In other words, if the first step of your attack is to be logged into a target account, then it's unlikely to be considered in scope.\n* Bypassing account limits e.g. ability to create many Connections if you send requests all at once (this is effectively DOS)\n* The fact that you can invite or remove anybody you want to an account. Do not report this.\n* The fact that API keys are shared among all users on an account.\n* The fact that API keys are included in GraphQL responses.\n* The fact that you can enumerate all traits in the system - they're public and shown on our website https://faraday.ai/catalog\n* Denial of Service (DOS)\n* Don't schedule a demo on https://faraday.ai. It is extremely distracting to our sales team.\n* Non-secret tokens on https://app.faraday.ai/api/environment.js. Do not report this.\n* Modifying what is \"enabled\" on the frontend in order to see \"hidden\" consoles on the UI - this is by design. Authoritative access control happens at the API layer.\n* https://faraday.atlassian.net/servicedesk/customer/user/signup - this is not associated with Faraday\n* Our public website https://faraday.ai\n* Rate limiting or bruteforce issues on non-authenticated endpoints\n* Rollbar (ff5ae6124c8b4a77ae60503f62f8f213) and Intercom (1pdrkobe) tokens found in our JS.\n* Attacks requiring MITM or physical access to a user's device.\n* Missing best practices in SSL/TLS configuration.\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Thank you for helping keep Faraday, Inc. and our users safe!\n\n# Copyright\n\nCopyright 2026 Faraday, Inc.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "s3://faraday-uploads",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "s3://faraday-secret",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.faraday.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.faraday.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gs://fdy-production-sdk-uploads",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gs://faraday-secret",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vault2.faraday.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Support Live Chat",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Support Live Chat is provided by Hubspot. If you have any security issues to report, use https://hackerone.com/hubspot",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "buy.faraday.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "row.pro",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

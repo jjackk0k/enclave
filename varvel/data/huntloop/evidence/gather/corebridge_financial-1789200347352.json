@@ -1,0 +1,88 @@
+{
+ "at": "2026-09-12T08:05:40.512Z",
+ "opportunity": "corebridge_financial",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "corebridgefinancial.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.myretirementmanager.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 3ca4092c9b04acdaf3be26181a6d5fb6.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "modeldsu-idp.dsu.corebridgefinancial.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "diy.corebridgedirect.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.corebridgefinancial.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 eb2c5f0c86b12f17138e3035fc4a0eb4.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000;",
+    "content-security-policy": "default-src 'self'; connect-src 'self' https://www.dmp.corebridgefinancial.com https://site2.corebridgefinancial.com htt",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

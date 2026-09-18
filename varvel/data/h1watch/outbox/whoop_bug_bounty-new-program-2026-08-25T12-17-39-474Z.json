@@ -1,0 +1,132 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "whoop_bug_bounty",
+      "name": "Whoop Bug Bounty",
+      "offersBounties": true,
+      "assets": [
+        "WHOOP 4.0 STRAP",
+        "WHOOP 5.0/MG STRAP",
+        "api.prod.whoop.com",
+        "app.whoop.com",
+        "com.whoop.android",
+        "com.whoop.iphone",
+        "join.whoop.com",
+        "shop.whoop.com"
+      ],
+      "exclusions": [
+        "Azure AD, Google Drive, Link Sharing Websites",
+        "Credit/Debit Card Testing",
+        "Support System",
+        "okta.whoop.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\whoop_bug_bounty-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "whoop_bug_bounty",
+  "name": "Whoop Bug Bounty",
+  "url": "https://hackerone.com/whoop_bug_bounty",
+  "policy": "At WHOOP, our mission is to unlock human performance.  We exist to improve the lives of our members, not invade their lives.  Like all companies providing wearable devices and health monitoring services, WHOOP manages personal and sensitive data of our members. We take privacy seriously, and understand that we have a responsibility to maintain the privacy of our members’ data. As part of our “Cybersecurity as a Product” mindset we recognize that security features earn and maintain trust of our members. This Responsible Disclosure Policy demonstrates our deep commitment to maintain the privacy of our members’ data. We encourage anyone who has discovered a potential vulnerability at WHOOP to report it to us, and we are committed to working with the reporter to validate and remediate vulnerabilities. \n\nBut our responsibility does not end there. As a beneficiary of open-source software (FOSS), we also recognize that security issues we find in the code, tools and software we use should be responsibly disclosed to the appropriate code maintainers and vendors.\n\n**We do not provide credentials. You are welcome to purchase or trial WHOOP in order to obtain an account.**\n\n# Program Rules\n* **Do not engage in attack attempts that involve Support systems such as Support Chat, Intercom, Iterable, Salesforce, etc. If you generate a ticket queue volume we may ban you from the program**.\n* **Any reports without demonstrated impact to Confidentiality, Availability and/or Integrity will not be accepted.**\n* Do not test with accounts you do not own.\n* Do not commit destructive actions to accounts you do not own, this includes writes/edits/deletes. \n* Do not randomly fuzz into our APIs, your testing should be methodical and reproducible \n* Please provide detailed reports with reproducible steps.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Response Targets\nWhoop will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Public keys found on web properties are generally not accepted unless you are able to demonstrate pulling non-public information\n* Bypassing web page sequencing without demonstrating a successful purchase/impact will not be accepted\n* Credentials and/or API keys of customers found on the internet (i.e: GitHub) will generally not be accepted unless they are a WHOOP employee’s credentials\n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF.\n* XSS without impact\n* Dangling DNS without impact\n* Subdomain takeover without impact\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Brute force attacks where the only valid submissions were the result of WayBack Machine research  - this will be marked as spam\n* “Leaked” credentials that are only found in the WayBack machine - this will be marked as spam\n* Scans for S3 buckets and other assets (GitHub, Netlify, etc.) on the internet that have the word “whoop” but do not actually prove WHOOP ownership - this will be marked as spam\n* User credentials for whoop posted publicly by the user themselves - this will be marked as N/A\n* Any claim of ordering free or heavily discounted WHOOP merchandise will be marked as spam without evidence of the order actually arriving to you and a valid oderId. Illegitimate orders can sometimes be placed in our system but our logistics process will flag and cancel the order if it is not meet our expectations for a valid order. \n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep WHOOP and our users safe",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.whoop.iphone",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.whoop.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "WHOOP 4.0 STRAP",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.prod.whoop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Destructive actions are prohibited. We will verify if a destructive action is possible. If you delete data or impact a user’s experience we will consider this as a destructive action. \n\nThis is the API that supports the WHOOP App. Successful submissions must demonstrate unauthorized access to data b",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Support System",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any submission to a support system such as Live Chat, Intercom, Iterable, Salesforce, etc., will not be accepted. If you flood a support queue we will consider this to be a destructive action and we may ban you from the program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "okta.whoop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope to test Okta IdP. Any issues should be submitted to Okta’s BPB.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.whoop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "join.whoop.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shop.whoop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Azure AD, Google Drive, Link Sharing Websites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This program does not accept issues related to internal tools or systems at this time. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Credit/Debit Card Testing",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Card testing, enumeration, and any related fraud simulation attempts are strictly prohibited. These activities pose real financial risks.\nhttps://docs.stripe.com/disputes/prevention/card-testing",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "WHOOP 5.0/MG STRAP",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

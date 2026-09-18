@@ -1,0 +1,79 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rebellion-defense",
+      "name": "Rebellion Defense",
+      "offersBounties": false,
+      "assets": [
+        "*.mooch.rip",
+        "*.moochirp.io",
+        "*.rebellion.dev",
+        "*.rebelliondefence.com",
+        "*.rebelliondefense.com",
+        "www.rebelliondefense.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rebellion-defense-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rebellion-defense",
+  "name": "Rebellion Defense",
+  "url": "https://hackerone.com/rebellion-defense",
+  "policy": "# Introduction\r\n\r\nRebellion Defense is a new kind of defense company, built on the conviction that national defense is a shared responsibility. We take an unconventional approach to empower the mission of defense and national security through continual delivery of critical technology --- because conventional methods aren't working.\r\n\r\nThe security and safety of our products and our customers' data is paramount.  We work in an open partnership with the security community, and we recognize the critical work that white-hat hackers bring to securing the internet as a whole.  To that end, this policy contains our guidelines and promises to you, the community, about how we will cooperate with good-faith security researchers that are providing us such critical support.\r\n\r\n# Scope\r\n\r\nThis vulnerability disclosure policy covers all systems created or operated by Rebellion Defense on the internet.  This includes not only our publicly facing websites but also our development, staging, and production environments.\r\n\r\nIn addition, this vulnerability disclosure policy covers all exposure of code, documentation, or data marked \"REBELLION INTERNAL\", except information shared with you or your company under NDA.\r\n\r\nThis vulnerability disclosure policy *excludes* any services run entirely by our customers, or third-party vendors (such as e-mail providers, marketing providers, etc.).  If you are unsure whether a particular item is in scope, please contact us prior to testing it at <security@rebelliondefense.com>.\r\n\r\n**Please do not send emails to the form on our Contact Us page (https://rebelliondefense.com/contact) unless 100% necessary for a PoC.**\r\n\r\nThe scope is also limited to technical vulnerabilities in Rebellion Defense owned and operated systems only; please do not try to social engineer or phish our staff, break into our offices, send us threatening letters cut from magazines, etc.  (Though if you have a video of a particularly cool lockpicking technique, we'd love to see it!)\r\n\r\nFor your target list, our second-level domains are as follows:\r\n- moochirp.io\r\n- mooch.rip\r\n- rebellion.dev\r\n- rebelliondefence.com\r\n- rebelliondefense.com\r\n\r\n# Our Promises To You\r\n\r\nRebellion Defense, and its subsidiaries, will not engage in legal action against individuals who submit vulnerability reports in accordance with this policy.\r\n\r\nTo the extent legally possible, if you abide by this policy we promise to:\r\n- Extend Safe Harbor for your vulnerability research that is related to this policy;\r\n- Work with you to understand and validate your report, including a timely initial response to the submission;\r\n- Work to remediate discovered vulnerabilities in a timely manner; and\r\n- Recognize your contribution to improving our security if you are the first to report a unique vulnerability, and your report triggers a code or configuration change.\r\n\r\nWhen conducting vulnerability research according to this policy, we consider this research to be:\r\n- Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy;\r\n- Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls;\r\n- Exempt from restrictions in our Terms & Conditions that would interfere with conducting security research, and we waive those restrictions on a limited basis for work done under this policy; and\r\n- Lawful, helpful to the overall security of the Internet, and conducted in good faith.\r\n\r\n# Guidelines\r\nYou are expected, as always, to comply with all applicable laws.  Complying with this policy means obeying certain guidelines.  If you are not sure whether something you want to try is covered, reach out to us at <security@rebelliondefense.com> and we'll give you guidance. \r\n\r\nYou promise to:\r\n- Play by the rules. This includes following this policy, as well as any other relevant agreements. If there is any inconsistency between this policy and any other relevant terms, the terms of this policy will prevail;\r\n- Report any vulnerability you’ve discovered promptly;\r\n- Avoid violating the privacy of others, disrupting our systems, destroying data, and/or harming user experience;\r\n- Use only the Official Channels to discuss vulnerability information with us;\r\n- Keep the details of any discovered vulnerabilities confidential until they are fixed, according to the Disclosure Policy;\r\n- Perform testing only on in-scope systems, and respect systems and activities which are out-of-scope;\r\n- If a vulnerability provides unintended access to data: \r\n  - Limit the amount of data you access to the minimum required for effectively demonstrating a Proof of Concept; and \r\n  - Cease testing and submit a report immediately if you encounter any user data during testing, such as Personally Identifiable Information (PII), Personal Healthcare Information (PHI), credit card data, or proprietary information;\r\n- Only interact with test accounts you own or with explicit permission from the account holder;\r\n- Do not engage in extortion;\r\n- Publicly disclose the details of the vulnerability only after receiving permission to do so from us, OR after 30 days from the last communication from us, whichever is sooner.\r\n\r\n# Reporting Details and Process\r\n\r\nWe will triage submitted reports based on the [CVSSv3.1](https://www.first.org/cvss/calculator/3.1) score as determined by the security team, prioritizing fixes for higher scoring issues.\r\n\r\nAll issues should receive a response within 3 days (excluding US federal holidays and weekends) that includes our estimated CVSSv3.1 score, and our timeline for remediation.  We will remain in communication with you throughout the entire remediation process, as well as coordinate any public disclosure you wish to make after the remediation is complete.\r\n\r\nIf we are unable to resolve communication issues, or you are not satisfied with the quality of our response, we will bring in a neutral third-party ([CERT/CC](https://www.kb.cert.org/vuls/)) to assist.\r\n\r\nReports will ideally:\r\n- be in well-written English\r\n- explain how you found the bug, your guess at the impact, and any recommendations for remediation\r\n- include proof-of-concept code, if possible\r\n- indicate whether you would like public credit\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.moochirp.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.mooch.rip",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.rebelliondefence.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rebelliondefense.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.rebelliondefense.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Main public website, managed through Squarespace",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.rebellion.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": {
+    "name": "WordPress",
+    "handle": "wordpress",
+    "url": "https://hackerone.com/wordpress"
+  },
+  "policy": "[WordPress](https://wordpress.org/) is an open-source publishing platform. Our HackerOne program covers the Core software, as well as a variety of related projects and infrastructure.\n\nOur most critical targets are:\n\n* WordPress Core [software](https://wordpress.org/download/source/), [API](https://codex.wordpress.org/WordPress.org_API), and [website](https://wordpress.org/).\n* Gutenberg [software](https://github.com/WordPress/gutenberg/) and Classic Editor [software](https://wordpress.org/plugins/classic-editor/).\n* WP-CLI [software](https://github.com/wp-cli/) and [website](https://wp-cli.org/).\n* BuddyPress [software](https://buddypress.org/download/) and [website](https://buddypress.org/).\n* bbPress [software](https://bbpress.org/download/) and [website](https://bbpress.org/).\n* GlotPress [software](https://github.com/glotpress/glotpress-wp) (but not the website).\n* WordCamp.org [website](https://central.wordcamp.org).\n* Supply chain and CI/CD workflows for the above.\n\nSource code for most websites can be found in [our GitHub account](https://github.com/WordPress/), or in the Meta repository (`git clone git://meta.git.wordpress.org/`). Many of the sites have Docker environments that will automatically provision a local copy for you to test against.\n\nFor more targets, see the `In Scope` section below.\n\n**All bounties are doubled** [if they're reported before the bug is released to users](https://make.wordpress.org/security/2019/02/13/doubling-bounties-for-vulnerabilities-discovered-before-release/).\n\n\n*Please note that __WordPress.com is a separate entity__ from the main WordPress open source project. Please report vulnerabilities for WordPress.com or the WordPress iOS and Android mobile apps through [Automattic's HackerOne page](https://hackerone.com/automattic).*\n\n## Qualifying Vulnerabilities\n\nAny reproducible vulnerability that has a severe effect on the security or privacy of our users is likely to be in scope for the program. Common examples include XSS, CSRF, SSRF, RCE, SQLi, and privilege escalation.\n\nWe generally **aren’t** interested in the following problems:\n\n* Any vulnerability with a [CVSS 3](https://www.first.org/cvss/calculator/3.0) score lower than `4.0`, unless it can be combined with other vulnerabilities to achieve a higher score.\n* Brute force, DoS, memory exhaustion, phishing, text injection, or social engineering attacks. Wikis, Tracs, forums, etc are intended to allow users to edit them.\n* Availability of XML-RPC file without PoC demonstrating a significant security impact. As noted above, this excludes DDoS and brute force attacks.\n* Security vulnerabilities in WordPress plugins not *specifically* listed as an in-scope asset. Out of scope plugins can be [reported to the Plugin Review team](https://developer.wordpress.org/plugins/wordpress-org/plugin-developer-faq/#how-can-i-send-a-security-report).\n* Reports for hacked websites. The site owner can [learn more about restoring their site](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#ive-been-hacked-what-do-i-do-now).\n* [Users with administrator or editor privileges can post arbitrary JavaScript](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-some-users-allowed-to-post-unfiltered-html)\n* Self-XSS issues **within wp-admin** requiring users with `unfiltered_html` capability are not under the scope of this program. For example, script execution within `/wp-admin` as an administrator or editor on a single-site installation. Only the cases where a less-privileged user is able to execute XSS attacks on a higher-privileged user will be under the bug bounty scope.\n* [Disclosure of user IDs](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue)\n* Weaknesses in WP-CLI that don't violate its threat model. Please ensure you have read and understand [the WP-CLI policy on report validity](https://make.wordpress.org/cli/handbook/contributions/security-vulnerability-reporting/).\n* Open API endpoints serving public data (Including [usernames and user IDs](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue))\n* [Path disclosures for errors, warnings, or notices](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-there-path-disclosures-when-directly-loading-certain-files)\n* WordPress version number disclosure\n* Mixed content warnings for passive assets like images and videos\n* Lack of HTTP security headers (CSP, X-XSS, etc.)\n* Output from automated scans - please manually verify issues and include a valid proof of concept.\n* Any non-severe vulnerability on `irclogs.wordpress.org`, `lists.wordpress.org`, or any other low impact site. For *.wordpress.net, please check the Scope section as only are limited number of subdomains are eligible.\n* Clickjacking with minimal security implications\n* Vulnerabilities in Composer/NPM `devDependencies`, unless there's a practical way to exploit it remotely.\n* Theoretical vulnerabilities where you can't demonstrate a significant security impact with a PoC.\n* Broken Links to external resources / social media accounts in documentation, profiles, or WordCamp sites, unless a significant security impact can be shown. Broken links in documentation should be reported to https://meta.trac.wordpress.org/.\n\n## Guidelines\n\nWe're committed to working with security researchers to resolve the vulnerabilities they discover. You can help us by following these guidelines:\n\n* You are free to use artificial intelligence (AI) tooling as part of your research and reporting, but you _must_ disclose what tooling you are using and to what extent a report has been authored by AI. It is your responsibility to review and take responsibility for what AI generates. See [the WordPress AI Guidelines](https://make.wordpress.org/ai/handbook/ai-guidelines/).\n* Follow [HackerOne's disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Pen-testing Production:\n  * Please **setup a local environment** instead whenever possible. Most of our code is open source (see above).\n  * If that's not possible, **limit any data access/modification** to the bare minimum necessary to reproduce a PoC.\n  * ***Don't* automate form submissions!** That's very annoying for us, because it adds extra work for the volunteers who manage those systems, and reduces the signal/noise ratio in our communication channels.\n * If you don't follow these guidelines **we will not award a bounty for the report.**\n* Be Patient - Give us a reasonable time to correct the issue before you disclose the vulnerability. We care deeply about security, but we're an open-source project and our team is mostly comprised of volunteers.  WordPress powers 40% of the Web, so changes must undergo multiple levels of peer-review and testing, to make sure that they don't break millions of websites when they're installed automatically.\n\nWe also expect you to comply with all applicable laws. You're responsible to pay any taxes associated with your bounties.",
+  "safeHarbor": null,
+  "rewards": null,
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "api.wordpress.org",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "mercantile.wordpress.org",
+        "note": "This site runs uses [the WooCommerce plugin](https://woocommerce.com/), but we don't accept reports for that. We only accept reports for our custom code. If you find any vulnerabilities that are also present in WooCommerce itself, please [report them to Automattic](/automattic).\n\nPlease don't submit",
+        "maxSeverity": "medium"
+      },
+      {
+        "asset": "irclogs.wordpress.org",
+        "note": "These are public logs of very old conversations. We are not interested in vulnerabilities unless they have a severe impact (e.g., RCE, XSS, modifying the logs, etc). DoS is not severe in this case.",
+        "maxSeverity": "low"
+      },
+      {
+        "asset": "lists.wordpress.org",
+        "note": "We are not interested in vulnerabilities unless they have a severe impact.",
+        "maxSeverity": "medium"
+      },
+      {
+        "asset": "planet.wordpress.org",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "wordpressfoundation.org",
+        "maxSeverity": "medium"
+      }
+    ],
+    "wildcards": [
+      {
+        "asset": "*.wordpress.org",
+        "suffix": "wordpress.org",
+        "note": "All wordpress.org domains that **are not listed in other assets**, including (but not limited to) the following:\n* login.wordpress.org\n* developer.wordpress.org\n* make.wordpress.org\n* translate.wordpress.org\n* global.wordpress.org, {locale}.wordpress.org (e.g., de.wordpress.org, es-mx.wordpress.org)",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "*.wordcamp.org",
+        "suffix": "wordcamp.org",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "*.wordpress.net",
+        "suffix": "wordpress.net",
+        "note": "For bounty purposes, only the following *.wordpress.net sites are eligible:\n-jobs\n-playground",
+        "maxSeverity": "low"
+      }
+    ],
+    "other": [
+      {
+        "asset": "WordPress Core",
+        "note": "Download source code from: https://wordpress.org/download/source/ · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "BuddyPress Core",
+        "note": "Download source code from: https://buddypress.org/download/ · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "bbPress Core",
+        "note": "Download source code from: https://bbpress.org/download/ · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "*.buddypress.org,bbpress.org,profiles.wordpress.org",
+        "note": "wildcard with a non-domain suffix — not signable",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "codex.wordpress.org,codex.bbpress.org,codex.buddypress.org",
+        "note": "These are wikis, they're intended to be freely edited by anonymous users. We are not interested in vulnerabilities unless they have a severe impact. · asset_type URL is not a network asset",
+        "maxSeverity": "medium"
+      },
+      {
+        "asset": "*.trac.wordpress.org, *.svn.wordpress.org, *.git.wordpress.org, github.com/WordPress",
+        "note": "**Do _not_ pentest Trac instances**, it's very annoying to clean up after. Setup a local environment instead; the custom source code is available via the Git command below, in the `trac.wordpress.org` subfolder. **If you ignore this you'll forfeit any bounty.**\n\nThe projects here are kept mostly for · wildcard with a non-domain suffix — not signable",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "Gutenberg",
+        "note": "Download source code from https://github.com/WordPress/gutenberg · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "GlotPress",
+        "note": "All code located under [the GlotPress organization](https://github.com/GlotPress/) on GitHub.\n\nThe most important target is the `glotpress-wp` repository. Other repositories are in scope, but may have a lower importance. · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "WP-CLI",
+        "note": "All code located under [the WP-CLI organization](https://github.com/wp-cli) on GitHub.\n\nThe most important targets are the main `wp-cli` repository, and any repositories for commands that are bundled with the distributed `wp-cli` source code, like `cache-command`, `scaffold-command`, etc.\n\nOther rep · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "Official WordPress plugins",
+        "note": "Only the following plugins that are officially maintained by WordPress.org are in scope.\n\n* [Classic Editor](https://wordpress.org/plugins/classic-editor/)\n* [Create Block Theme](https://wordpress.org/plugins/create-block-theme/)\n* [Secure Custom Fields](https://wordpress.org/plugins/secure-custom-f · asset_type SOURCE_CODE is not a network asset",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "munin-*.wordpress.org",
+        "note": "We are not interested in vulnerabilities unless they have a severe impact (e.g., RCE, SSRF). Metrics data is intentionally made public. · wildcard with a non-domain suffix — not signable",
+        "maxSeverity": "low"
+      }
+    ]
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "org.wordpress.android",
+        "note": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "github.com",
+        "note": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n · URL scoped to its host only — the path (/wordpress-mobile/) is not expressible in a CIDR scope",
+        "maxSeverity": "none"
+      }
+    ],
+    "wildcards": [
+      {
+        "asset": "*.wordpress.com",
+        "suffix": "wordpress.com",
+        "note": "All WordPress.com vulnerabilities should be reported to [Automattic's HackerOne program](https://hackerone.com/automattic). \n\n**WordPress.com vulnerabilities reported here will be marked as `Not Applicable`.**",
+        "maxSeverity": "none"
+      }
+    ],
+    "other": [
+      {
+        "asset": "status.wordpress.org,glotpress.blog,wordpress.tv",
+        "note": "These are hosted on WordPress.com and we don't have access to modify the code, servers, etc. Check [Automattic's HackerOne program](https://hackerone.com/automattic) for details on reporting vulnerabilities with WordPress.com sites. · asset_type URL is not a network asset",
+        "maxSeverity": "none"
+      },
+      {
+        "asset": "335703880",
+        "note": "**Please, report vulnerabilities for the WordPress mobile apps through the [Automattic HackerOne page](/automattic).**\n · asset_type APPLE_STORE_APP_ID is not a network asset",
+        "maxSeverity": "none"
+      }
+    ]
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [
+    {
+      "asset": "api.wordpress.org",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wordpress.org"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "mercantile.wordpress.org",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wordpress.org"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "irclogs.wordpress.org",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wordpress.org"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "lists.wordpress.org",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wordpress.org"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "planet.wordpress.org",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.wordpress.org"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    }
+  ],
+  "gaps": [
+    "HackerOne adapter: modeled on the documented structured-scope export — entries in structured_scopes[] with eligible_for_submission:false treated as OUT-of-scope; a top-level out_of_scope[] list, when present, is honored verbatim",
+    "no bounty_table/rewards in the export — HackerOne reward ranges live on the program page; carry them by hand if the export omits them",
+    "wildcard *.wordpress.org NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.wordcamp.org NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.wordpress.net NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "6 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact",
+    "non-network asset 'WordPress Core' carried as metadata only — not expressible in a CIDR engagement scope (Download source code from: https://wordpress.org/download/source/ · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'BuddyPress Core' carried as metadata only — not expressible in a CIDR engagement scope (Download source code from: https://buddypress.org/download/ · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'bbPress Core' carried as metadata only — not expressible in a CIDR engagement scope (Download source code from: https://bbpress.org/download/ · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset '*.buddypress.org,bbpress.org,profiles.wordpress.org' carried as metadata only — not expressible in a CIDR engagement scope (wildcard with a non-domain suffix — not signable)",
+    "non-network asset 'codex.wordpress.org,codex.bbpress.org,codex.buddypress.org' carried as metadata only — not expressible in a CIDR engagement scope (These are wikis, they're intended to be freely edited by anonymous users. We are not interested in vulnerabilities unless they have a severe impact. · asset_type URL is not a network asset)",
+    "non-network asset '*.trac.wordpress.org, *.svn.wordpress.org, *.git.wordpress.org, github.com/WordPress' carried as metadata only — not expressible in a CIDR engagement scope (**Do _not_ pentest Trac instances**, it's very annoying to clean up after. Setup a local environment instead; the custom source code is available via the Git command below, in the `trac.wordpress.org` subfolder. **If you ignore this you'll forfeit any bounty.**\n\nThe projects here are kept mostly for · wildcard with a non-domain suffix — not signable)",
+    "non-network asset 'Gutenberg' carried as metadata only — not expressible in a CIDR engagement scope (Download source code from https://github.com/WordPress/gutenberg · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'GlotPress' carried as metadata only — not expressible in a CIDR engagement scope (All code located under [the GlotPress organization](https://github.com/GlotPress/) on GitHub.\n\nThe most important target is the `glotpress-wp` repository. Other repositories are in scope, but may have a lower importance. · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'WP-CLI' carried as metadata only — not expressible in a CIDR engagement scope (All code located under [the WP-CLI organization](https://github.com/wp-cli) on GitHub.\n\nThe most important targets are the main `wp-cli` repository, and any repositories for commands that are bundled with the distributed `wp-cli` source code, like `cache-command`, `scaffold-command`, etc.\n\nOther rep · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'Official WordPress plugins' carried as metadata only — not expressible in a CIDR engagement scope (Only the following plugins that are officially maintained by WordPress.org are in scope.\n\n* [Classic Editor](https://wordpress.org/plugins/classic-editor/)\n* [Create Block Theme](https://wordpress.org/plugins/create-block-theme/)\n* [Secure Custom Fields](https://wordpress.org/plugins/secure-custom-f · asset_type SOURCE_CODE is not a network asset)",
+    "non-network asset 'munin-*.wordpress.org' carried as metadata only — not expressible in a CIDR engagement scope (We are not interested in vulnerabilities unless they have a severe impact (e.g., RCE, SSRF). Metrics data is intentionally made public. · wildcard with a non-domain suffix — not signable)",
+    "out-of-scope non-network asset 'status.wordpress.org,glotpress.blog,wordpress.tv' carried verbatim — never dropped, never contacted",
+    "out-of-scope non-network asset '335703880' carried verbatim — never dropped, never contacted"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "autodesk",
+      "name": "Autodesk",
+      "offersBounties": false,
+      "assets": [],
+      "exclusions": [
+        "app.formit.autodesk.com/",
+        "http://quote.oc.autodesk.com/",
+        "http://www.gcpay.com/",
+        "https://amart.oc.autodesk.com",
+        "https://checkoutservice-stg.autodesk.com",
+        "https://gcpay.com/",
+        "https://payment-profile-gateway.oc.autodesk.com",
+        "https://payment-profile-gateway.ocstg.autodesk.com/v1",
+        "https://profile-stg.autodesk.com/security",
+        "https://stg-manage.autodesk.com/usage-report-v2"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use high volume scanners or automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\autodesk-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "autodesk",
+  "name": "Autodesk",
+  "url": "https://hackerone.com/autodesk",
+  "policy": "Autodesk is dedicated to ensuring the security of our products and services. We welcome the security community’s contributions to help safeguard Autodesk and customer data. This policy outlines how vulnerabilities can be reported and how Autodesk handles submissions.\n\n**Table of Content**\n\n1.\tResponse Targets\n2.\tOur Process\n3.\tProgram Rules\n4.\tPriority\n5.\tScope\n6.\tProgram Exclusion\n7.\tEligibility\n8.\tDisclosure\n9.\tRewards\n10.\tSafe Harbor\n\n**Response Targets**\n\nAutodesk targets the following SLAs for researchers participating in our program:\n\n|**Type of Response**|**SLA in business days**|\n| :- | :- |\n|**First Response**|2 days|\n|**Time to Triage**|2 days|\n|**Time to Resolution**|depends on severity and complexity of the vulnerability|\n\nYou will receive updates throughout the resolution process.\n\n**Our Process**\n\n1. **Submission**: Researchers submit reports via HackerOne, providing:\n- Detailed reproduction steps\n- Proof-of-concept code or screenshots, where applicable\n2. **Validation**: Autodesk’s Product Security Incident Response Team (PSIRT) or HackerOne will validate and assess the vulnerability.\n3. **Tracking**: If multiple systems are impacted, include all affected systems in the report.\n4. **Recognition**: Duplicate reports will be marked accordingly, but the first valid submission will receive recognition. \n\n**Program Rules**\n\nTo ensure efficient and ethical testing, researchers must adhere to the following rules:\n\n1. Employees of Autodesk and their immediate family members are not eligible to participate. \n2. Social engineering tactics (e.g. phishing, vishing, smishing) are strictly prohibited.\n3. Avoid privacy violations, destruction of data, or service interruption or degradation. Only test with accounts you own or have legal authorization to use and in compliance with the Autodesk [Terms of Use](https://www.autodesk.com/company/terms-of-use/en/general-terms).￼\n4. Do not use high volume scanners or automated testing tools, as these may be flagged as malicious and result in suspension of your account or banning your IP address.\n5. Do not publicly disclose vulnerabilities identified in the Autodesk VDP program until Autodesk has remediated the vulnerability and validated that the remediation was successful.\n6. Ensure your testing does not negatively impact other users or systems.\n\n**User Data Handling** \n \n7. Do not access data beyond what is necessary to demonstrate the vulnerability. Whenever possible, please use methods that demonstrate vulnerabilities without exposing personal data. \n8. In the course of testing or reporting, researchers may encounter limited user data such as usernames, profile images, or email addresses. If you encounter this or other user data, report the issue to help us assess the impact. In some situations, user data may be visible to other users based on our services' design (for example, see the \"Is the personal data you give us ever displayed publicly?\" section of Autodesk's Privacy Statement and \"Your Content\" section of our Terms of Use) and as such, may not qualify for researcher rewards.\n\n\n**Priority**\n\nWe prioritize vulnerabilities based on their severity, impact, and exploitability. Specifically, we focus on:\n\n- Critical and high-severity vulnerabilities that impact confidentiality, integrity or availability of offerings or data stored in them. \n- Common security risks, including:\n  - Remote Code Execution\n  - SQL Injection\n  - Buffer Overflows\n  - Cross Site Scripting (XSS) in sensitive contexts\n  - Authentication Bypasses\n  - OWASP Top 10 Vulnerabilities\n- Lower-severity vulnerabilities, while appreciated, may receive lower prioritization.\n\n**Scope**\n\nAutodesk welcomes report of vulnerabilities affecting any Autodesk-owned system, application, or service. This includes but is not limited to:\n\n- Web applications\n- Desktop and mobile applications\n- API and cloud services\n\nAll public-facing assets directly owned by Autodesk are open for testing under this policy. However, some assets are considered **out-of-scope,** including:\n\n\n- Third-party sites that reference Autodesk branding but are not owned or operated by Autodesk (e.g., partner or reseller websites). Vulnerabilities in such third-party sites should be reported to the respective third-party.\n- Versions of desktop applications that are either not officially supported or do not have the latest patch versions installed. For information about deprecated versions, please visit [Autodesk available product versions](https://www.autodesk.com/support/account/manage/versions/previous-versions). Patches are delivered through Autodesk Access or available for download on the [Autodesk Accounts Portal](https://manage.autodesk.com/).\n- Some assets are considered **out-of-scope** for this program due to their association with third-party services, staging environments, or non-production endpoints. Please refer to the [Out-of-Scope Asset List](https://hackerone.com/autodesk/policy_scopes) for the most current set of URLs, APIs and domains that should not be targeted. This list may be updated independently of this policy.\n\n**Important:** \nPlease do **not** target any of the assets listed in the Out-of-Scope Asset List as part of your security testing activities.\n\n\n**Program Exclusions**\n\nThe following reports or activities will not be accepted:\n\n- Denial of service attacks (including DoS, DDoS).\n- Spamming or flooding systems with automated requests.\n- Physical attack against Autodesk properties, data centers, or facilities.\n- Reports from web crawlers or archivers such as URLs in Wayback Machine.\n\n\n**Eligibility**\n\nTo ensure effective collaboration, researchers must:\n\n- Notify us promptly upon discovering a potential vulnerability to allow timely resolution.\n- Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or third-party.\n- Follow Autodesk’s and HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines) when reporting vulnerabilities.\n- Submit detailed, reproducible reports, including proof-of-concept if applicable. \n- Limit reports to one vulnerability unless multiple issues must be reported together to demonstrate impact.\n- Proof-of-Concept (PoC) submissions must be designed to simulate impact without causing real damage. Malicious or destructive payloads are not permitted and will disqualify the submission. \n\n**Disclosure**\n\nAutodesk is committed to working with researchers to responsibly disclose reported vulnerabilities. For the protection of our customers, we request that researchers refrain from disclosing vulnerabilities until fixes are available and any potentially affected customers are notified.\n\nAutodesk is a registered CNA (CVE Numbering Authority) and may issue a CVE (Common Vulnerabilities and Exposures) if a vulnerability is confirmed to be in scope, meets Autodesk criteria, and is ready for public disclosure or release. This criteria includes, but is not limited to:\n-\tThe vulnerability is within scope of Autodesk products or services and does not belong to a third party or another registered CNA.\n-\tThe vulnerability is not publicly known or is not confidential.\n-\tThe vulnerability requires user interaction to patch or remediate.\n\nAll CVEs issued will be posted on the Autodesk Trust Center as part of a Security Advisory as well as published to the National Vulnerability Database (NVD). Autodesk will work with the researcher to ensure that their work is acknowledged as part of the advisory.\n\n**Rewards**\n\nSubmissions to Autodesk’s VDP are ***not eligible*** for monetary rewards. However, researchers will receive acknowledgement for their contributions. Additionally, in ***select cases**,* swag items may be provided as a token of appreciation for outstanding efforts. Researchers also gain **reputation points** within the HackerOne platform for valid submissions.\n\n# Gold Standard Safe Harbor\n\nAutodesk supports the protection of organizations and hackers engaged in Good Faith Security Research. “Good Faith Security Research” is accessing a computer solely for purposes of good-faith testing, investigation, and/or correction of a security flaw or vulnerability, where such activity is carried out in a manner designed to avoid any harm to individuals or the public, and where the information derived from the activity is used primarily to promote the security or safety of the class of devices, machines, or online services to which the accessed computer belongs or those who use such devices, machines, or online services. \nWe consider Good Faith Security Research to be authorized activity that is protected from adversarial legal action by us. We waive any relevant restriction in our Terms of Use(“TOU”) and/or Acceptable Use Policies (“AUP”) that conflicts with the standard for Good Faith Security Research outlined here. \nThis means that for Good Faith Security Research conducted with a good faith effort to comply with our program policy and while this program is active, we: \nWill not bring legal action against you or report you, including for bypassing technological measures we use to protect the applications in scope; and, \nWill take steps to make known that you conducted Good Faith Security Research if someone else brings legal action against you. \nYou should contact us for clarification before engaging in conduct that you think may be inconsistent with Good Faith Security Research or unaddressed by our policy. \nKeep in mind that we are not able to authorize security research on third-party infrastructure, and a third party is not bound by this safe harbor statement. \n\n\n\n**Thank you for helping keep Autodesk and our users safe!**",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "http://quote.oc.autodesk.com/",
+      "asset_type": "API",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://amart.oc.autodesk.com",
+      "asset_type": "API",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://checkoutservice-stg.autodesk.com",
+      "asset_type": "API",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://payment-profile-gateway.oc.autodesk.com",
+      "asset_type": "API",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://payment-profile-gateway.ocstg.autodesk.com/v1",
+      "asset_type": "API",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://profile-stg.autodesk.com/security",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://stg-manage.autodesk.com/usage-report-v2",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.formit.autodesk.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://gcpay.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.gcpay.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

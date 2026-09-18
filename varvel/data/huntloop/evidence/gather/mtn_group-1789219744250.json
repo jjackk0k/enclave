@@ -1,0 +1,119 @@
+{
+ "at": "2026-09-12T13:28:41.556Z",
+ "opportunity": "mtn_group",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "mtn.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "php",
+     "label": "PHP",
+     "version": null,
+     "evidence": "PHPSESSID="
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-powered-by": "WordPress VIP <https://wpvip.com>",
+    "x-cache": "BYPASS",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mtn.co.za",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to mtn.co.za:443 refused: TTL expired"
+  },
+  {
+   "host": "mtn.bj",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mtn.cm",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-CB6MS8YMWP",
+     "evidence": "googletagmanager.com/gtag/js?id=G-CB6MS8YMWP"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "upgrade-insecure-requests; object-src 'none'; base-uri 'self'; frame-ancestors 'self';",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mtncameroon.net",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "upgrade-insecure-requests; object-src 'none'; base-uri 'self'; frame-ancestors 'self';",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "target": "zomato.com web order-flow writes",
+ "date": "2026-08-31",
+ "operator": "varvel",
+ "window": "writes allowed only to own accounts A uid 447585412 / B uid 447585565",
+ "transport": "ghost socks5 + X-HackerOne: varvel, fail-closed",
+ "lead1_cart_user_id": {
+  "endpoint": "POST /webroutes/order/cart (multipart)",
+  "matrix": {
+   "A_own_uid": "200 Something went wrong",
+   "B_own_uid": "200 Something went wrong",
+   "B_session_with_A_uid": "200 Something went wrong (identical \u2014 DECISIVE no-op)",
+   "B_garbage_uid": "200 Something went wrong",
+   "B_missing_uid": "200 Something went wrong",
+   "unauth_A_uid": "401 Unauthorized request!"
+  },
+  "verdict": "CLEAN \u2014 no baseline establishable (app-only ordering); user_id never observably honored; auth enforced",
+  "residual": "fully-itemized app-flow cart with swapped user_id untestable from web"
+ },
+ "lead2_address_edit": {
+  "endpoint": "POST /webroutes/order/address",
+  "matrix": {
+   "A_edit_own_1037093544": "200 \u2014 recreated as id 1037153399 on A",
+   "B_session_edit_A_id": "200 \u2014 created NEW address 1037153411 on B's OWN book; A readback unchanged (DECISIVE)",
+   "B_garbage_id": "200 \u2014 silently created 1037153424 on B; no error",
+   "unauth": "401"
+  },
+  "verdict": "CLEAN \u2014 endpoint is session-scoped; supplied address_id never honored for targeting",
+  "informational_quirk": "foreign/garbage address_id silently ignored rather than rejected"
+ },
+ "findings": [],
+ "submission_drafted": false,
+ "novelty_gate": "not applicable \u2014 no draft",
+ "cleanup": {
+  "deleted": {
+   "B": [
+    1037153411,
+    1037153424
+   ],
+   "A": [
+    1037153399
+   ]
+  },
+  "method": "POST /webroutes/order/deleteAddress {address_id}",
+  "final_state": "both accounts' address books empty (verified via GET /webroutes/order/address)",
+  "left_behind": "MCP OAuth tokens for A and B remain valid (~30d); no carts/orders/third-party objects ever created"
+ },
+ "captures": [
+  ".tmp/cart-userid-matrix.json",
+  ".tmp/dote-cart-probe.json",
+  ".tmp/addr-edit-matrix.json",
+  ".tmp/addr-cleanup.json"
+ ],
+ "generated": "2026-08-31T15:04:12Z"
+}

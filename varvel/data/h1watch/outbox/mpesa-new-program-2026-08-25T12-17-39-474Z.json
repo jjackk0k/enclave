@@ -1,0 +1,177 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mpesa",
+      "name": "M-Pesa Africa Limited",
+      "offersBounties": true,
+      "assets": [
+        "*.m-pesa.com",
+        "1442121355",
+        "1502222766",
+        "com.vodafone.mpesa.drc",
+        "com.vodafone.mpesa.ls",
+        "com.vodafone.mpesa.mozambique",
+        "m-pesa.africa",
+        "mpa.ekyc.backoffice.m-pesa.com",
+        "mpa.ekyc.selfregister.m-pesa.com",
+        "mpa.qr.web.m-pesa.com",
+        "openapi.m-pesa.com",
+        "openapiportal.m-pesa.com"
+      ],
+      "exclusions": [
+        "business.m-pesa.com",
+        "com.vodacom.mpesa.ls.business",
+        "mz.m-pesa.com",
+        "ra.ls.m-pesa.com",
+        "sso.m-pesa.vm.co.mz",
+        "sso.pr.m-pesa.vm.co.mz"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mpesa-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mpesa",
+  "name": "M-Pesa Africa Limited",
+  "url": "https://hackerone.com/mpesa",
+  "policy": "If you believe you have found a security vulnerability on any of our Mpesa products or services, we encourage you to let us know right away. We will investigate all legitimate reports and do our best to quickly fix the problem.\nPlease be aware that we do not permit any reports to be publicly disclosed.\nThank you.\n\nBug Bounty Program Rules\n\n•       Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n•       Submit one vulnerability per the report, unless you need to chain vulnerabilities to provide impact.\n•       When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n•       Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n•       Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n•       Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n•       Only interact with accounts you own or with explicit permission of the account holder.\n•       Any tests done that violate the above conditions will not be eligible for a bounty reward.\n•       You are free to report a vulnerability for any of our assets that are out of scope, but they may not be eligible for a bounty. However, we will review them on a case-by-case basis.\n•      Employees and Contractors (or former employees\\contractors who have not completed 3 years after leaving the organization) of Safaricom, Vodacom, and Vodafone Markets are not eligible to participate in the bug bounty program. However, they can disclose the vulnerabilities to mpabugbounty@safaricom.co.ke.\n\n\nOut-of-scope vulnerabilities (mobile-specific): \n•  Exported Components Without Proper Permissions\n•  Sensitive Information in Memory Dumps in Cleartext\n•  Insecure Data Storage\n•  No Session Timeout Mechanism\n•  Lack of Root/Jailbreak Detection or Protection\n•  SSL Certificate Pinning Issues\n•  Ability to Copy Sensitive Information to Clipboard/Pasteboard\n•  Insecure WebView Implementation (e.g., JavaScript Enabled)\n•  Excessive Application Permissions\n•  Sensitive Information Exposed in UI Snapshots\n•  Lack of Code Obfuscation\n•  Mini Applications or Embedded Applets\n\nOut-of-scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) the attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n•       Any activity that could lead to the disruption of our service e.g., denial of service attacks.\n•       Clickjacking / UI Redressing attacks on pages with no sensitive actions.\n•       Unauthenticated/logout/login CSRF.\n•       0-day vulnerabilities less than 30/60/90 days from patch release are ineligible for bounty\n•       Attacks requiring MITM or physical access to a user's device.\n•       Previously known vulnerable libraries without a working Proof of Concept.\n•       Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n•       Missing best practices in SSL/TLS configuration.\n•       Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n•       Issues in third-party services/platforms that are beyond our control \n•       Vulnerabilities as reported by automated tools without additional analysis as to how they are an issue. If an IP address is discovered to persistently and constantly use automated tools, that IP address shall be blocked\n•       All brute-force attacks\n•       Self-XSS and XSS that affects only outdated browsers\n•       Host header and banner-grabbing issues\n•       Missing HTTP security headers and cookie flags on insensitive cookies\n•       Open redirects - unless they can be used for actively stealing tokens\n•       User enumeration such as User email, User ID, etc.\n•       Phishing / Spam (including issues related to SPF/DKIM/DMARC)\n•       Missing security best practices (e.g. account lockout, captcha..)\n•       Session fixation and session timeout\n•       Theoretical security issues with no realistic exploit scenario(s) or attack surfaces, or issues that would require complex end-user interactions to be exploited\n•       Any bugs or issues related to third parties or vendors e.g. Cisco, Oracle, Microsoft, etc...\nDomains.\n•  \tSubdomain Takeover\n•  \tFirebase API exposure\n•  \tGoogle map API exposure\n•      Self-XSS involving a payload in headers or in the body of the request\n•       Vulnerabilities that are disclosed to any party other than MPESA, including vulnerability brokers, will not qualify for the reward. This includes both public disclosure and limited private release.\n\n\n\n\nLeaked Credentials Policy\nWe encourage security researchers to responsibly disclose any discovered credentials that could lead to unauthorized access or exposure of sensitive data. Below are the guidelines outlining which types of credential leaks are considered in-scope or out-of-scope for reporting purposes.\n Cases Considered In-Scope (Significant Impact)\nReports will be accepted if the leaked credentials meet any of the following criteria:\n•\tCredentials granting administrative or high-privilege access to:\no\tNetwork infrastructure\no\tServers\no\tCritical business applications\n•\tCredentials with admin-level access to high-priority web applications within AS M-Pesa’s defined attack surface\n•\tCredentials exposing sensitive data related to a large number of employees or customers\n•\tLeaked service account credentials with broad access or elevated privileges Cases Considered Out-of-Scope (Low or No Impact)\n•  Reports involving the following types of credential exposure are generally not eligible:\n•\tPersonal user credentials for non-critical systems (e.g., learning platforms, internal blogs, or corporate social media)\n•\tCredentials that are external to M-Pesa’s infrastructure or domains (e.g., personal Gmail accounts used to sign in to M-Pesa-related services)\n•\tLeaked credentials that are effectively protected by multi-factor authentication (MFA) and cannot be misused\n•\tIndividual customer account credentials\n(Note: While not in scope for bounty, we encourage you to report any such findings so we can notify and advise the affected customer appropriately.)\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "mpa.qr.web.m-pesa.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mpa.ekyc.backoffice.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mpa.ekyc.selfregister.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "openapiportal.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sso.m-pesa.vm.co.mz",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sso.pr.m-pesa.vm.co.mz",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "business.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "openapi.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vodafone.mpesa.ls",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vodacom.mpesa.ls.business",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.vodafone.mpesa.mozambique",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vodafone.mpesa.drc",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1442121355",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/ke/app/my-m-pesa-mozambique/id1442121355",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1502222766",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.m-pesa.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "There are subdomains that are out of scope \nAny subdomain containing uat, oat , mat , dev , jenkins , sandpit , nonprodss",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m-pesa.africa",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ra.ls.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mz.m-pesa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

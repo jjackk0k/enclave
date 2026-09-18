@@ -1,0 +1,78 @@
+{
+ "at": "2026-09-12T07:02:45.308Z",
+ "opportunity": "bitwarden",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "bitwarden.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31557600",
+    "content-security-policy": "default-src 'self';base-uri 'self';child-src blob:;connect-src 'self' wss: https: https://*.algolia.net https://*.algoli",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.bitwarden.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "identity.bitwarden.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31557600",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.8bit.bitwarden",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.8bit.bitwarden:443 refused: host unreachable"
+  },
+  {
+   "host": "com.x8bit.bitwarden",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.x8bit.bitwarden:443 refused: host unreachable"
+  }
+ ]
+}

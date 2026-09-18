@@ -1,0 +1,139 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tinder",
+      "name": "Tinder",
+      "offersBounties": true,
+      "assets": [
+        "*.gotinder.com",
+        "*.tinder.com",
+        "*.tinderops.net",
+        "*.tinderwebstaging.com",
+        "*.tstaging.com",
+        "*.tstaging.tools",
+        "547702041",
+        "com.tinder"
+      ],
+      "exclusions": [
+        "AppsFlyer Subdomains",
+        "console.gotinder.com",
+        "go.tinder.com",
+        "gotinder.imgix.net",
+        "www.help.tinder.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tinder-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tinder",
+  "name": "Tinder",
+  "url": "https://hackerone.com/tinder",
+  "policy": "Tinder Bug Bounty Program Terms \n====\nSecurity is a top priority at Tinder. If you believe you've found a security bug in our in-scope applications or infrastructure, we are happy to work with you to resolve the issue promptly and ensure you are fairly rewarded for your discovery.\n\nYour participation in our Bug Bounty Program is voluntary. By participating in our Bug Bounty Program, submitting a report or otherwise disclosing a vulnerability to us (\"Submission\"), you are indicating that you have read and agree to follow the rules set forth on this page (\"Program Terms\").\n\nIf (i) you do not meet the eligibility requirements below; (ii) you breach any of these Program Terms or any other agreements you have with Tinder or its affiliates; or (iii) we determine that your participation in our Bug Bounty Program could adversely impact us, our affiliates or any of our users, employees or agents, we, in our sole and absolute discretion, may remove you from our Bug Bounty Program and disqualify you from receiving any benefit of our Bug Bounty Program.\n\n# Confidentiality\nAny information you receive, collect or otherwise obtain about us, our services, our affiliates or any of our users, employees or agents in connection with our Bug Bounty Program (whether after or before you participate in the Bug Bounty Program, notably as a result of you finding and/or investigating a security bug in our in-scope applications or infrastructure) (\"Confidential Information\") must be kept confidential, only used in connection with the Bug Bounty Program and not disclosed to any third party. You may not use, disclose or distribute any such Confidential Information, including without limitation any information regarding your participation in our Bug Bounty Program and any Submission.\n\nBy participating in our Bug Bounty Program, you represent and warrant that you have not used and will not use Confidential Information for any purpose other than in connection with the Bug Bounty Program and that you have not shared and will not share such Confidential Information with any third party.\n\nOnce a Submission is made, Tinder reserves the right to request from you, and you already accept to abide by this request, to securely and irreversibly delete any data related to such Submission, including, without limitation, any data about us, our services, our affiliates or any of our users, employees or agents. Additionally, you agree to securely and irreversibly delete any data related to the Submission immediately upon it no longer being reasonably necessary to retain for the purposes of conveying the impact or scope of the reported issue, after verifying with Tinder that it is no longer necessary, and/or if the Submission is closed, regardless of outcome.\n\n\n# Eligibility to Participate\n\nTo participate in our Bug Bounty Program, you must:\n- Register and participate using a `@wearehackerone.com` email address.\n- Include the HTTP header `x-hackerone: <your_hackerone_username>` on all testing traffic. This allows us to attribute requests to your testing activity.\n- Be at least 18 years of age if you test using a Tinder account, and otherwise be the age of majority in your jurisdiction of residence or have the consent of your parent or guardian to participate in our Bug Bounty Program. In any event, you must be over the age of 13.\n- Not be a resident of, or make a Submission to our Bug Bounty Program from, a country against which the United States has issued export sanctions or other trade restrictions.\n- Not be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to our Bug Bounty Program.\n- Not be employed by Tinder or any of its affiliates or an immediate family member of a person employed by Tinder or any of its affiliates.\n\nYou are responsible for any tax implications of a reward from our Bug Bounty Program depending on your country of residency and citizenship.\n\n# Program Ground Rules\n- Don't mass create accounts to perform testing against our applications and services.\n- No destructive automated testing - under no circumstance should automated testing cause intentional damage to Tinder systems.\n- Don't engage in social engineering (e.g. phishing, vishing, smishing).\n- Don't attempt to extort us.\n- Don't leave any system in a more vulnerable state than you found it.\n- Don't publicly disclose vulnerabilities without our explicit consent.\n- Don't leak, manipulate, or destroy any user data. Please only test against accounts you own yourself or with explicit permission of the account holder.\n- Do respect our users' privacy.\n- Do research vulnerabilities and disclose vulnerabilities to us in good faith.\n- Do be respectful when interacting with our team.\n- Participation in this program does not grant you any special privileges or exceptions to our standard Terms of Use. You remain subject to the terms of service of the applicable application(s) at all times.\n\n# Bounty Eligibility\nTinder reserves the right to decide if the minimum severity threshold is met and whether it was previously reported.\n\nTo qualify for a reward under this program, you must:\n\n- Send a clear textual vulnerability description of the bug along with the steps to reproduce the vulnerability.\n- Include attachments such as screenshots and proof of concept code as necessary. A clear description and proof of concept helps you prove that the security bug is legitimate and speeds up the reward process.\n- Be the first to report a specific vulnerability.\n- Disclose the vulnerability report directly and exclusively to us. Reminder: you are not permitted to disclose vulnerabilities to third parties — including vulnerability brokers.\n- Stay in scope.\n- Do not attempt to elevate privileges, or explore a system beyond the minimum necessary to prove access or attempt to pivot in any way. This will disqualify you from receiving a bounty.\n\n#Areas of Interest\n\nThe following are examples of the types of vulnerabilities we are most interested in. We place particular emphasis on vulnerabilities that affect user privacy and data security. Premium feature or paywall bypasses are of lower priority relative to findings that expose or compromise user data.\n\n* Non-public sensitive user data exposed\n* Account takeover\n* Editing another user's data\n* Forcing a match with a user\n* Precise user location exposure\n\nVulnerabilities impacting third-party software, libraries, or services will be reviewed on a case-by-case basis. In general, eligibility will depend on whether the issue has a demonstrable impact on our core applications and primary user experiences versus ancillary services, subdomains, or less-used applications. Reports that only affect third-party components without meaningful impact to our assets are typically not eligible for bounty.\n\n\nIn general, the following would not meet the threshold for inclusion:\n-------------------------------------------------------------------\n* Vulnerabilities on sites hosted by third-parties unless they lead to a vulnerability on the main website / application\n* Broken link hijacking\n* Denial of service\n* Social engineering\n* Spamming\n* Homographs, RTLO, or other types of UI issues\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Click-jacking, or issues only exploitable via click-jacking\n* Disclosure of known public files or directories (.htaccess, robots.txt, etc)\n* Third-party vulnerabilities (e.g. Wordpress) that have recently become publicly known will generally be out of scope for a period of 30 days from the public release of an official patch or workaround. \n* Missing or misconfigured security headers which do not lead directly to a vulnerability\n* Overly verbose responses (errors, banners, etc.), which cannot be directly used in an exploit\n* Software version disclosure without proof of exploitability\n* Reports from automated tools or scans\n* Lack of certificate pinning, or HSTS\n* TLS/SSL version, configuration, weak ciphers or expired certificates\n* Lack of Secure, or HTTPOnly flags on cookies\n* Lack of, or weak, Captcha, or rate-limiting\n* Tap-jacking\n* Tab-nabbing\n* SPF/DKIM/DMARC related issues, including missing SPF records on subdomains\n* Scenarios that require unlikely user interaction and/or outdated OS or software version\n* Self-XSS\n* Login/Logout CSRF\n* Unrestricted file uploads without a clear impact, beyond resource consumption, DoS, undesirable content, etc.\n* Third-party API Keys/Secrets embedded in mobile applications, without a clear impact, as many third-parties require this for their own client attribution purposes.\n* The ability to obtain multiple promotional items by opening multiple accounts\n* Most GPS spoofing related issues\n* Attacks against corporate IT infrastructure (e.g. firewalls and their software)\n* Attacks against employees (phishing, stealing laptops, physical security issues, etc.)\n* Host header injection without a clearly exploitable condition\n* Mobile client issues requiring a rooted device and/or outdated OS version\n* Attacks requiring MITM or physical access to a user's device.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n\n# Program Updates and Licenses\nWe may modify the Program Terms or cancel our Bug Bounty Program at any time in our sole and absolute discretion.\n\nAs a condition of participation in the our Bug Bounty Program, you hereby grant Tinder and its affiliates a perpetual, irrevocable, worldwide, royalty-free, transferrable, sublicensable and exclusive license to use, reproduce, adapt, modify, publish, distribute, publicly perform, create derivative work from, make, use, sell, offer for sale and import the Submission, as well as any materials submitted to Tinder in connection therewith, for any purpose. You should not send us any Submission that you do not wish to license to us. You hereby represent and warrant that the Submission is original to you and you own all right, title and interest in and to the Submission. \n\nThank you for helping keep the Tinder community safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.tinder.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gotinder.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "547702041",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.tinder",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "go.tinder.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "`go.tinder.com` is an asset belonging to Branch.io. - You can submit reports directly to Branch here: https://branch.io/security/",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.help.tinder.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "`www.help.tinder.com` is an asset belonging to Zendesk - You can submit reports directly to Zendesk here: https://hackerone.com/zendesk",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "gotinder.imgix.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tinderops.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tstaging.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.tstaging.tools",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.tinderwebstaging.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "console.gotinder.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is not owned by us.\n```\ndig console.gotinder.com\n... CNAME app6.creatoriq.com.\n```",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "AppsFlyer Subdomains",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The following assets are managed by AppsFlyer and are considered out of scope: \n* party.tinder.com\n* open.tinder.com\n* matchmaker.tinder.com\n* invite.tinder.com\n* click.tinder.com",
+      "max_severity": "none"
+    }
+  ]
+}

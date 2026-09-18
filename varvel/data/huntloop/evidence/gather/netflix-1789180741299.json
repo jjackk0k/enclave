@@ -1,0 +1,79 @@
+{
+ "at": "2026-09-12T02:38:54.930Z",
+ "opportunity": "netflix",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.netflix.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "via": "1.1 i-032379c139ce70c5f (eu-west-1), 1.1 c000.lhr004.ix.nflxvideo.net (FTL-L4-KXeR)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "beacon.netflix.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "UNABLE_TO_GET_ISSUER_CERT_LOCALLY: unable to get local issuer certificate"
+  },
+  {
+   "host": "customerevents.netflix.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "via": "1.1 i-0e72b5c0e5f3a07cf (eu-west-1)",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "secure.netflix.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "UNABLE_TO_GET_ISSUER_CERT_LOCALLY: unable to get local issuer certificate"
+  },
+  {
+   "host": "help.netflix.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "via": "1.1 i-07626c250e8d2bbc3 (eu-west-1)",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

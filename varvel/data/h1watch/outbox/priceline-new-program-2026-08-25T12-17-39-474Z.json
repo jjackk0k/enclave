@@ -1,0 +1,239 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "priceline",
+      "name": "Priceline",
+      "offersBounties": true,
+      "assets": [
+        "336381998",
+        "com.priceline.android.negotiator",
+        "cruises.priceline.com",
+        "flyiin.com",
+        "press.priceline.com",
+        "priceline.com",
+        "www.bookingholdings.com",
+        "www.getaroom.com",
+        "www.priceline.com"
+      ],
+      "exclusions": [
+        "*.roomvaluesteam.com",
+        "*.testaroom.cloud",
+        "*.testaroom.com",
+        "admin.rezserver.com",
+        "api.rezserver.com",
+        "availability.getaroom.com",
+        "breadcrumb.getaroom.com",
+        "extranet.getaroom.com",
+        "groupdeals.priceline.com",
+        "reservations.rezserver.com",
+        "secure.rezserver.com",
+        "stockroom.production.getaroom.com",
+        "supply.getaroom.com",
+        "weatherstatus.priceline.com",
+        "www.airportrentalcars.com",
+        "www.priceline.com/vp-web/* "
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\priceline-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "priceline",
+  "name": "Priceline",
+  "url": "https://hackerone.com/priceline",
+  "policy": "# Welcome to Priceline's Bug Bounty Program\nPriceline is committed to collaborating with security experts across the globe to stay up-to-date with the latest security developments. If you have discovered a security issue that you believe requires our attention, please submit a report, and our team will make every effort to resolve the vulnerability. We look forward to working with you. \n\n---\n##\n# Announcement\n* Priceline has a brand new AI assistant called Penny, who is there to help our customers with their travel-related bookings. You can find Penny on `https://www.priceline.com/penny`, and on many other pages (located at the bottom-right corner) where the bot performs page-specific functions. Help us test it out, we're happy to accept any vulnerability found within our [Policy Guidelines for Penny](#user-content-guidelines-for-penny).\n* Any security issues that could be escalated or exploited due to missing security flags for sessions or cookies are already known to us, as we are addressing them internally. As a result, you might see a change in the severity of such reported issues or find them listed as known issues (Informative).\n* `*.priceline.com` is in scope. However, the decision of the program to reward any reported asset under it will be dependent on the impact of the reported issue and the purpose of the reported asset.\n* Presence of `X-Bug-Bounty:your-HackerOne-username` header in your request is must to avoid possible blocking since priceline has WAF and necessary security measures in place.\n\n---\n##\n# Rules of Engagement\n\n# Program Rules\nWhile we want our hackers to perform at their best, we also want to ensure that there is minimal disruption to our business. On that note, please observe the following:\n* Submit only one vulnerability per report, unless multiple vulnerabilities need to be chained together to highlight the overall impact.\n* The severity of the issue will be determined based on its final impact and will be evaluated and adjusted by the Priceline team as needed.\n* Public disclosure of submitted report(s) is strictly not allowed.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder. You must adhere to [HackerOne's Disclosure Guidelines](https://docs.hackerone.com/organizations/disclosure.html#gatsby-focus-wrapper).\n* We cannot reward or do business with any individual on any U.S sanction lists or any individual residing in any country on any U.S. sanctions lists. This includes residents of Russia, Cuba, Sudan, North Korea, Iran or Syria.\n* Severity level is based on the CVSS scoring model; exceptions are granted at the sole discretion of the Priceline security team. Here is some more information on the [CVSS scoring system](https://docs.hackerone.com/organizations/environmental-score.html#how-the-calculation-works).\n* Subdomain takeover reports for out-of-scope Priceline assets will be accepted. However, the bounty reward might differ from the bounty table, as this is at our discretion. Third-party assets will not be eligible for bounty, although we may award a bonus at our discretion.\n\n# Testing Rules\n* Do not attempt to access private customer information. If you have accessed such information to support a finding, please do not misuse it. Instead, report it so we can address the issue.\n* Never attempt to view, modify, or damage information that belongs to other customers. If you need to test a vulnerability that involves accessing / modifying data of other users, create two accounts on Priceline.\n* Do not attempt to affect our availability (Denial of Service, spam).\n* Do not attempt to affect a product's (hotel, flight, rental car) availability by making unintended reservations and blocking the inventory for valid customers.\n* Please avoid making multiple reservations. If you submit a reservation, please make sure you cancel it.\n* Do not send reports exported from automated scanners. If it's a real bug, provide a detailed working PoC.\n\n## To help us identify you:\n* Please use a custom HTTP header and mention that in your report. For example, a header that includes your username: `X-Bug-Bounty:your-HackerOne-username`. If the custom header is not used, your report may not be considered.\n* Please use your HackerOne Email Alias (e.g., your-HackerOne-username@wearehackerone.com) when making an account or a reservation on Priceline.\n* Please provide your IP address in the bug report.\n\n---\n##\n# Guidelines for Penny\n\n## Acceptable Findings:\n1. **Business logic bypass flaws.**\nExamples (listing a few):\n* Ability to view or modify bookings of other customers using Penny\n* Authentication bypass\n* Pricing manipulation\n* Bypassing critical service restrictions\n2. **Access to Personally Identifiable Information (PII) of other customers**\n3. **Prompt Injection, specifically those leading to the disclosure of sensitive internal information** (such as proprietary data, backend raw source code, API keys, credentials, etc.)\n4. **Security issues that affect our infrastructure or can compromise our systems.**\nExamples (listing a few):\n* Code Execution\n* Server Side Request Forgery (SSRF)\n* Injections leading to data exfiltration or unauthorized data modification\n* Cross-Site Scripting (XSS)\n5. **Data Poisoning** (that is, modifying Penny's training data or input in such a way that corrupts its responses or functionality)\n6. **Safety Violations** (issues where Penny generates harmful, inappropriate, or misleading responses).\nThese will be reviewed on a case-by-case basis and will only be rewarded if the vulnerability is novel, significant, and can be exploited in a meaningful way. The default risk rating for issues from this category will be low.\n\n## Important Note\n1. All valid submissions must include detailed steps to reproduce the issue, accompanied by screenshots or videos, as well as the user prompts that were used to identify the issue.\n2. **Denial of Service (DoS) attempts that disrupt the chatbot service and make it inaccessible to others, is strictly forbidden. Any hackers attempting this will be banned from the program and will not be entitled to any bounties, regardless of the findings.**\n\n## Known Issues about Penny\n1. It is possible to jailbreak Penny and get the bot to respond to non-travel related queries, often involving controversial or malicious topics.\n2. Penny discloses system prompts / instructions / guidelines.\n3. Penny discusses competitors.\n\n---\n##\n# Response Targets\nPriceline will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 2 business days\n* Time to triage (from report submit) - 2 business days \n* Time to bounty (from triage) - 1 business days (Max 2 weeks)\n* Time to resolution - 30 days\n\nAll times indicated are in business days.\n\n---\n##\n#  Non-Qualifying Vulnerabilities and Exclusions\n\n* Issues that are already known to the Priceline team will not be eligible for bounty.\n* Denial of Service (DOS), Distributed Denial of Service (DDOS), or other availability attacks.\n* Rate-limiting issues.\n* Session token in URL. `We know about the session token in the URL in some legacy portions of the site.`\n* Any resolved report that has been accidentally closed as resolved will not be eligible for a bounty if resubmitted by the same / different researcher.\n* Self XSS.\n* Web Browser XSS Protection not enabled.\n* Similar weaknesses/reports will not be paid out as separate bounties. For example, XSS in multiple parameters on the same endpoint.\n* Technology Name & Version disclosure.\n* Loading mixed content.\n* Missing HTTP security headers.\n* Missing cookie flags on non-sensitive cookies.\n* Weak Password Policy.\n* Clickjacking.\n* Physical attacks against any Priceline office or data center.\n* Social engineering (for example, phishing or phone calls targeting Priceline employees, contractors, or agents); leaked credentials in third-party software breaches.\n* Email notification for user profile changes.\n* Content Spoofing due to error pages or text injection.\n* Information disclosure through Referer header (e.g., Reset password token).\n* Vulnerable version of libraries (for example 'jquery') unless they can be demonstrated to be exploitable by an attacker.\n* Email/user enumeration.\n* Reports containing offer number disclosure will not be taken into consideration.\n* Google Maps API Key Leakage.\n* Publicly accessible xmlrpc.php files.\n* Browsable files that do not contain confidential data such as yarn.lock, package.json, client.js, or similar files.\n* Reiterating - please don't send us vulnerability scanner reports. If it's a real bug, you must provide steps to reproduce and/or a proof of concept.\n\n**Note: If you submit a report from the above category, your report will be closed as informative and will not be eligible for a bounty.**\n\n---\n##\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.rezserver.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "reservations.rezserver.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cruises.priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.airportrentalcars.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "\nAirportrentalcars.com is current *not* in scope. Please do not test it. \n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.bookingholdings.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "336381998",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Priceline iOS App](https://apps.apple.com/us/app/priceline-hotel-travel-deals/id336381998)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.priceline.android.negotiator",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.priceline.com/vp-web/* ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Path www.priceline.com/vp-web/* will be decommissioned soon so it is not eligible for bounty",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.rezserver.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Rezserver API**\n_Policy Guidance_\nWe are not currently providing credentials for this asset.\n\n_Rules_\n- Don't use automated tools or scanners\n- Don't DDoS\n\n_Out of scope vulnerabilities_\n- Missing best practices in HTTP header configuration.\n- Any activity that could lead to the disruption of our ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "admin.rezserver.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Policy Guidance**\nWe are not currently providing credentials for this asset.\n\n**Rules of Engagement**\n- In request headers use 'hackerone-{your username}' for user-agent\n- Keep low volume of requests - Automated testing is not permitted\n- Do not Fuzz Contact forms\n- Do not Fuzz \"Request Account Ac",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "press.priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "www.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "availability.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "extranet.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "breadcrumb.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "supply.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "stockroom.production.getaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.roomvaluesteam.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Everything under roomvaluesteam.com is current not in scope. Please do not test anything in or under this domain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.testaroom.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Everything under testaroom.com is current not in scope. Please do not test anything in or under this domain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.testaroom.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Everything under testaroom.cloud is current not in scope. Please do not test anything in or under this domain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "flyiin.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "groupdeals.priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "weatherstatus.priceline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

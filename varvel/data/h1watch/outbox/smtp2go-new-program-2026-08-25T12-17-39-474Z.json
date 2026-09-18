@@ -1,0 +1,66 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "smtp2go",
+      "name": "SMTP2GO BBP",
+      "offersBounties": true,
+      "assets": [
+        "api.smtp2go.com",
+        "app.smtp2go.com",
+        "smtp2go.com"
+      ],
+      "exclusions": [
+        "support.smtp2go.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\smtp2go-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "smtp2go",
+  "name": "SMTP2GO BBP",
+  "url": "https://hackerone.com/smtp2go",
+  "policy": "SMTP2GO is a fast and scalable email service provider, for sending transactional and marketing emails and viewing reports on email delivery.\n\nSMTP2GO has previously run a Vulnerability Disclosure Program (VDP) and made the switch to a Bug Bounty Program in order to further enhance our product security. We look forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nSMTP2GO will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 5 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n--------------\n\n# Test Plan\n\n## Type of Accounts\n\n**Free trial**: You may register up to two test accounts on the SMTP2GO website (https://www.smtp2go.com/pricing/). However, please make sure to use your Hacker Email Alias - [username]`@wearehackerone.com` and [username+test]`@wearehackerone.com` when creating accounts for our tracking purposes.\n\n**Paid accounts**: There are additional permissions that are not accessible to free accounts like Email Archiving, Email Testing and the addition of Dedicated IP Addresses.\n\n## Access to Paid Accounts (upon request)\n\nFor those who wish to conduct testing with our paid Professional accounts, we will be providing access upon request. \n\nTo request the paid account access, please email ticket@smtp2go.com with the subject title “***H1 - SMTP2GO Paid account request***”. In the email, please provide the following information:\n* Your HackerOne username\n* The email you have used to register on SMTP2GO (this should be your Hacker Email Alias as instructed previously)\n\nRequests will be approved in two working days and you will be informed once the access is provided. \n\n--------------\n\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* App login rate limiting\nOur login endpoints use non-visible server-side protections, including rate limiting and temporary IP blocking. The application may continue to return a generic authentication error after a limit has been reached.\nReports claiming that login rate limiting is absent solely because no CAPTCHA, lockout message, or HTTP 429 response is displayed are not eligible. Reports must demonstrate a practical bypass that permits materially unrestricted authentication attempts.\n* Sending more emails than your plan technically allows, due to a race condition.\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Denial of Service (DoS) testing is permitted only where it can be demonstrated using a single source and does not cause a material impact to service availability. Distributed Denial of Service (DDoS) testing, or any testing involving multiple systems or excessive traffic volumes, is prohibited. If you believe a vulnerability could result in denial of service, please provide a proof of concept that does not impact production systems.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Publicly-leaked customer credentials on LeakRadar or a similar third-party database.\n\n* User enumeration, unless you can demonstrate that a brute force attack is likely to succeed. This includes Wordpress user enumeration.\n* Issues with notification emails, as the notification system is currently being overhauled.\n\n--------------\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep SMTP2GO and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "smtp2go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Standard Wordpress site hosted with WPEngine, scripting is all custom JQuery based.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.smtp2go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Flask based app running on Python 2.7, some pages are VueJS but most are scripted with custom JQuery.\nCreate a free account in order to gain login access.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.smtp2go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.smtp2go.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Most of the endpoints are handled by Flask on Python3 with Postgres as a main database.\nNewer endpoints use Go on Gin framework.\nRedis is mostly used for cache and ratelimitting.\n\nInstructions and documentations can be found here:\nhttps://apidoc.smtp2go.com/documentation/",
+      "max_severity": "critical"
+    }
+  ]
+}

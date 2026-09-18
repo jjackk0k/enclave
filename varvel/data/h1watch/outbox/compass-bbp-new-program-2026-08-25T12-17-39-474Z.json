@@ -1,0 +1,242 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "compass-bbp",
+      "name": "Compass",
+      "offersBounties": true,
+      "assets": [
+        "com.compass.compass",
+        "https://apps.apple.com/us/app/compass-real-estate-homes/id692766504",
+        "www.compass.com"
+      ],
+      "exclusions": [
+        " @properties",
+        "*.anywhere.re",
+        "*.attorneyskeytitle.com",
+        "*.chartwellescrow.com",
+        "*.ctccal.com",
+        "*.firstalliancetitle.com",
+        "*.kvstitle.com",
+        "*.legacytexastitle.com",
+        "*.realogy.com",
+        "*.sothebysrealty.com",
+        "*.sqstitle.com",
+        "*.trgc.com",
+        "Chartwell",
+        "Christie’s International Real Estate",
+        "Consumer’s Title of California ",
+        "Glide ",
+        "KVS Title ",
+        "LegacyTexas Title",
+        "SQS Square Settlements",
+        "glide.com",
+        "http://www.compass.com/api/v3/lead_forms/agent_profile",
+        "http://www.compass.com/contact/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\compass-bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "compass-bbp",
+  "name": "Compass",
+  "url": "https://hackerone.com/compass-bbp",
+  "policy": "# Compass Bug Bounty Policy\nCompass is committed to protecting the data that drives our marketplace. If you’re an independent security expert or researcher and believe you’ve discovered a security-related issue on our platform, or other assets owned by Compass that are in scope, we appreciate your help in disclosing the issue to us responsibly. \n\n# Our Pledge To You\nWe are committed to working with you to verify and address any potential vulnerabilities that are reported to us. We follow the [Gold Standard Safe Harbor](https://hackerone.com/security/safe_harbor).\n \nTo report a security issue or vulnerability, please include a detailed description of the issue, how it was discovered, and steps we can take to reproduce what you have observed. A member of the HackerOne Triage Team will review your submission, and we will pay a bounty upon confirmation of validity and severity. \n\nCompass will do its best to provide an updated list of known vulnerabilities to the HackerOne triage team. However, Compass maintains the right to consider any vulnerability submitted by researchers a duplicate report, whether or not it has been reported to HackerOne. This generally occurs when an issue has been previously identified from an internal process outside of HackerOne.\n\n# Scope\nAll assets not listed as in scope on our [Scope page](https://hackerone.com/compass-bbp/policy_scopes) are out-of-scope. We may consider out-of-scope submissions, however, they are assessed on a case-by-case basis. We reserve the right to reduce severity for out-of-scope submissions.\n\nAll vulnerabilities for Anywhere Real Estate must be submitted to their program - https://hackerone.com/anywhererealestate\n\n## Out of scope vulnerabilities\nIn addition to H1’s [Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings), the following issues are considered out of scope:\n* Any vulnerabilities for our agent-marketing sites on Squarespace/Wiz/etc.\n* Github Wiki pages\n* Public/exposed google calendars\n* https://www.compass.com/notifications/emails/*\n* Agent PII Data. Agent information such as Names, Emails, Phone, Addresses are all intended to be public. Even if their profiles are set to \"private\"\n* Iorad links\n* Attacks requiring MITM or physical access to a user's device.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n\n## Out of scope for Mobile\nThe following vulnerability types will be closed as Not Applicable:\n* **Physical access to the device** Any issue in a mobile application that can only be exploited on a rooted or jailbroken device, that depends on debug access being enabled, or that depends on a vulnerability in the operating system.\n* **Mobile application biometrics bypass**\n* **Lack of mobile binary protection or SSL pinning**\n* **Lack of mobile application encryption**\n* **Issues that can only be exploited on an emulated device**\n\n## Do not use any of the following methods, as they are prohibited:\n* Take any actions that will affect the integrity or availability of our systems. If you notice performance interruption or degradation, immediately suspend all use of automated tools.\n* Denial of service attacks\n* Phishing or spear phishing\n* Social engineering\n* Physical attacks against our data centers or property (including servers or networks)\n\n# Response Timeline\nCompass will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days\n* Time to bounty (from triage) - 5 business days\n\nWe peer review reports once a week unless it's a Critical or High. Please be patient with submissions. We’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Express consent from Compass is required to discuss the program or any vulnerabilities (even resolved ones) outside the program. You can request to disclose a vulnerability in [HackerOne’s platform](https://docs.hackerone.com/programs/disclosure.html)\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Some principles to keep in mind\nAs you conduct your research we ask that you make a good faith effort to protect the privacy of our users and their data. To that end, please:\n* Valid reports need to be reproducible, have impact, and generally need to be able to be improved. Things like showing vulnerable versions for dependencies are not valid submissions by themselves without proving the vulnerability actually exists.\n* Stop and notify us immediately if you encounter any sensitive information or Personally Identifiable Information (PII) outside the scope of your test accounts or intended authorization.\n* Only view information to the extent required to identify the vulnerability and report the vulnerability directly to us.\n* Refrain from saving and/or sharing information.\n* Provide sufficient information, in English, so that we can replicate the vulnerability. Failure to provide steps to reproduce and a working PoC may result in your report being ineligible for bounty. \n* Only interact with accounts you own or have permission to access. Feel free to create your own accounts for testing purposes.\n* To the extent you access any confidential or proprietary information of Compass, any personally identifiable information, or any information that is not accessible through publicly available channels, you agree to keep any such information in strict confidence and not to disclose to any third parties.\n\n# Test Plan\nPlease only test on the accounts you own. To do this, you can self-register an account with your `@wearehackerone.com` email account. Please see this [article](https://docs.hackerone.com/hackers/hacker-email-alias.html) on HackerOne to learn about your wearehackerone.com email alias.\n\nWhen registering an account, please be aware that only Buyer/Seller accounts have the ability to register their own accounts. Do not use social engineering or pose as a legitimate real-estate agent in order to create an Agent account.\n\nWeb traffic to and from Compass properties produces terabytes of data every day. When testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. \n\nPlease include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests. Report to us what header you set so we can identify it easily. Please see the following table as an example of what headers we are expecting.\n\n| Identifier | Format | Example |\n| ------------- | ------------- | ------------- | ------------- |\n| Your Username | `X-Bug-Bounty: HackerOne-<username>` | `X-Bug-Bounty: HackerOne-otr` |\n\n# Testing Tips\nThe following tips may help save you time when testing:\n* There are roughly three classes of accounts on compass.com: Consumer(Buyer/Seller), Agent, and Staff\n* personIDs are not considered secret\n* Do not test any functionality that may create support tickets or require support staff to respond.\n* Do not test any functionality that may email or notify an Agent. For example, do not attempt to \"work with an Agent\".\n* Manual testing ONLY on the search box. Do not automate or send large amounts of requests to the search functionality.\n* **Leaked Credentials** - Our agents are our customers and not employees. While they have `@compass.com` email addresses, they are responsible for their own endpoint or credential handling security practices. This may make leaked credentials Informational since we do not control how our customers treat their own credentials.\n* **Leaked Credentials** - We are only interested in employee accounts on any service, Okta accounts, agent or employee accounts on compass.com. Agent credentials on non-compass assets will not be accepted. Reminder that agents also get a @compass.com email address, but they are not employees of Compass.\n* **Leaked Credentials** - Untested credentials dumps are not desired. \n* **OSINT findings** - Since Compass does not control the security of agent’s personal accounts. This may lead to false positive OSINT findings such as exposed google docs, calendars, leaked credentials, and more. Please be cautious when reporting these findings as there is a high likelihood it is not a Staff member and therefore out of scope. Do not touch, or tamper, with customer data.\n* **OSINT findings** - Compass employs some OS intel tooling of our own, so common or public dumps may already have been found and not be eligible for payout.\n* **Subdomain takeovers**  - requires proof of takeover. Showing that it might be possible is insufficient since in many cases there are additional controls you might not be aware of.\n* **Collections** - it is expected that users invited to a collection can remove anyone from the collection.\n* **Collections** - it is expected that users invited to a collection can remove listings.\n* **Collections** - it is expected that a user can invite a user to a collection without invitation.\n* Certain API keys (such as google maps) are intended to be accessible to the end client. The only submissions which will be accepted have to show *both* how a key can be abused *and* how handling of the client key can be improved.\n* Vulnerabilities on other Compass properties - Reminder that real-estate agents can use our branding. If you find a vulnerability on an agent website, it will not be accepted since Compass does not own or operate agent assets.\n\n#Thank you for helping keep Compass and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.compass.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.compass.compass",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/compass-real-estate-homes/id692766504",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.compass.com/contact/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.compass.com/api/v3/lead_forms/agent_profile",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Christie’s International Real Estate",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": " @properties",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "glide.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.ctccal.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Consumer’s Title of California ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.chartwellescrow.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Chartwell",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.legacytexastitle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "LegacyTexas Title",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.firstalliancetitle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.sqstitle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "SQS Square Settlements",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.attorneyskeytitle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.kvstitle.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "KVS Title ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Glide ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset owned by this company is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.anywhere.re",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submit to the Anywhere Program - https://hackerone.com/anywhererealestate",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.trgc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submit to the Anywhere Program - https://hackerone.com/anywhererealestate",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.sothebysrealty.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submit to the Anywhere Program - https://hackerone.com/anywhererealestate",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.realogy.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submit to the Anywhere Program - https://hackerone.com/anywhererealestate",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+ "at": "2026-09-18T00:05:36.148Z",
+ "opportunity": "faraday_inc",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.faraday.ai",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": "1.30.4",
+     "evidence": "server: nginx/1.30.4"
+    }
+   ],
+   "headers": {
+    "server": "nginx/1.30.4",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "child-src https://faraday.auth0.com https://faradaydev.us.auth0.com https://login.faraday.ai https://www.google.com; con",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api.json",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "api.faraday.ai",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "frame-ancestors 'none'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "vault2.faraday.ai",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "Google Frontend",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "row.pro",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "server": "Vercel",
+    "x-powered-by": "Next.js",
+    "strict-transport-security": "max-age=63072000; includeSubDomains",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.row.pro",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "via": "1.1 google"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

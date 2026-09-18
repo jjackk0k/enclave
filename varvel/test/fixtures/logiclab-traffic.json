@@ -1,0 +1,1374 @@
+{
+  "at": "2026-08-30T03:29:57.142Z",
+  "observations": [
+    {
+      "seq": 0,
+      "session": "anon",
+      "method": "GET",
+      "path": "/docs",
+      "status": 200,
+      "req": null,
+      "res": null
+    },
+    {
+      "seq": 1,
+      "session": "anon",
+      "method": "POST",
+      "path": "/login",
+      "status": 403,
+      "req": null,
+      "res": {
+        "error": "bad credentials"
+      }
+    },
+    {
+      "seq": 2,
+      "session": "anon",
+      "method": "POST",
+      "path": "/login",
+      "status": 302,
+      "req": null,
+      "res": null
+    },
+    {
+      "seq": 3,
+      "session": "anon",
+      "method": "POST",
+      "path": "/api/payments",
+      "status": 401,
+      "req": {
+        "amount": 1
+      },
+      "res": {
+        "error": "authentication required"
+      }
+    },
+    {
+      "seq": 4,
+      "session": "anon",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 401,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "error": "authentication required"
+      }
+    },
+    {
+      "seq": 5,
+      "session": "anon",
+      "method": "PATCH",
+      "path": "/api/rides/RIDE1/status",
+      "status": 401,
+      "req": {
+        "status": "accepted"
+      },
+      "res": {
+        "error": "authentication required"
+      }
+    },
+    {
+      "seq": 6,
+      "session": "anon",
+      "method": "PATCH",
+      "path": "/api/safe/rides/RIDE1/status",
+      "status": 401,
+      "req": {
+        "status": "accepted"
+      },
+      "res": {
+        "error": "authentication required"
+      }
+    },
+    {
+      "seq": 7,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 100
+      }
+    },
+    {
+      "seq": 8,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/payments",
+      "status": 200,
+      "req": {
+        "amount": 10
+      },
+      "res": {
+        "ok": true,
+        "balance": 90,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 9,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 90
+      }
+    },
+    {
+      "seq": 10,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/payments",
+      "status": 200,
+      "req": {
+        "amount": 5
+      },
+      "res": {
+        "ok": true,
+        "balance": 85,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 11,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 85
+      }
+    },
+    {
+      "seq": 12,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1001"
+      }
+    },
+    {
+      "seq": 13,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 14,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders/ORD-1001/pay",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "ORD-1001"
+      }
+    },
+    {
+      "seq": 15,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "paid",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 16,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/checkout/confirm",
+      "status": 200,
+      "req": {
+        "orderId": "ORD-1001"
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1001",
+        "status": "confirmed",
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 17,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "confirmed",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 18,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM2",
+        "qty": 1,
+        "price": 40
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1002"
+      }
+    },
+    {
+      "seq": 19,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 20,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders/ORD-1002/pay",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "ORD-1002"
+      }
+    },
+    {
+      "seq": 21,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "paid",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 22,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders/ORD-1002/ship",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "ORD-1002"
+      }
+    },
+    {
+      "seq": 23,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "shipped",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 24,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders/ORD-1002/deliver",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "ORD-1002"
+      }
+    },
+    {
+      "seq": 25,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "delivered",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 26,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1003"
+      }
+    },
+    {
+      "seq": 27,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1003",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1003",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 28,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders/ORD-1003/cancel",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "ORD-1003",
+        "refunded": 25,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 29,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1003",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1003",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "cancelled",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 30,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 0,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 31,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/bookings",
+      "status": 200,
+      "req": {
+        "rideId": "RIDE1",
+        "seats": 2
+      },
+      "res": {
+        "ok": true,
+        "rideId": "RIDE1",
+        "bookedSeats": 2,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 32,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 2,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 33,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/bookings",
+      "status": 200,
+      "req": {
+        "rideId": "RIDE1",
+        "seats": 1
+      },
+      "res": {
+        "ok": true,
+        "rideId": "RIDE1",
+        "bookedSeats": 3,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 34,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 3,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 35,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1004"
+      }
+    },
+    {
+      "seq": 36,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1004",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1004",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 37,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/coupons/apply",
+      "status": 200,
+      "req": {
+        "orderId": "ORD-1004",
+        "code": "SAVE10"
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1004",
+        "coupons": [
+          "SAVE10"
+        ],
+        "total": 15,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 38,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1004",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1004",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 15,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [
+          "SAVE10"
+        ],
+        "couponCount": 1,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 39,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/coupons/apply",
+      "status": 409,
+      "req": {
+        "orderId": "ORD-1004",
+        "code": "SAVE10"
+      },
+      "res": {
+        "error": "already applied"
+      }
+    },
+    {
+      "seq": 40,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM2",
+        "qty": 1,
+        "price": 40
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1005"
+      }
+    },
+    {
+      "seq": 41,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/coupons/apply",
+      "status": 200,
+      "req": {
+        "orderId": "ORD-1005",
+        "code": "SAVE20"
+      },
+      "res": {
+        "ok": true,
+        "id": "ORD-1005",
+        "coupons": [
+          "SAVE20"
+        ],
+        "total": 20,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 42,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/orders/ORD-1005",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "ORD-1005",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 20,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [
+          "SAVE20"
+        ],
+        "couponCount": 1,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 43,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/me",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "role": "passenger",
+        "email": "alice@logiclab.example",
+        "refCode": "REF-ALICE"
+      }
+    },
+    {
+      "seq": 44,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/referrals",
+      "status": 200,
+      "req": {
+        "code": "REF-BOB"
+      },
+      "res": {
+        "ok": true,
+        "bonus": 10,
+        "marker": "LOGIC-CANARY-3e9b77"
+      }
+    },
+    {
+      "seq": 45,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/referrals",
+      "status": 200,
+      "req": null,
+      "res": {
+        "uses": 1,
+        "selfUse": false
+      }
+    },
+    {
+      "seq": 46,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 100
+      }
+    },
+    {
+      "seq": 47,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/payments",
+      "status": 200,
+      "req": {
+        "amount": 10
+      },
+      "res": {
+        "ok": true,
+        "balance": 90
+      }
+    },
+    {
+      "seq": 48,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 90
+      }
+    },
+    {
+      "seq": 49,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/payments",
+      "status": 200,
+      "req": {
+        "amount": 5
+      },
+      "res": {
+        "ok": true,
+        "balance": 85
+      }
+    },
+    {
+      "seq": 50,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/wallet",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "balance": 85
+      }
+    },
+    {
+      "seq": 51,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5001"
+      }
+    },
+    {
+      "seq": 52,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 53,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders/SAFE-5001/pay",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "SAFE-5001"
+      }
+    },
+    {
+      "seq": 54,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "paid",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 55,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/checkout/confirm",
+      "status": 200,
+      "req": {
+        "orderId": "SAFE-5001"
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5001",
+        "status": "confirmed"
+      }
+    },
+    {
+      "seq": 56,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5001",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5001",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "confirmed",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 57,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM2",
+        "qty": 1,
+        "price": 40
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5002"
+      }
+    },
+    {
+      "seq": 58,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 59,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders/SAFE-5002/pay",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "SAFE-5002"
+      }
+    },
+    {
+      "seq": 60,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "paid",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 61,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders/SAFE-5002/ship",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "SAFE-5002"
+      }
+    },
+    {
+      "seq": 62,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "shipped",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 63,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders/SAFE-5002/deliver",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "SAFE-5002"
+      }
+    },
+    {
+      "seq": 64,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5002",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5002",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 40,
+        "status": "delivered",
+        "paymentStatus": "paid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 65,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5003"
+      }
+    },
+    {
+      "seq": 66,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5003",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5003",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 67,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders/SAFE-5003/cancel",
+      "status": 200,
+      "req": {},
+      "res": {
+        "ok": true,
+        "id": "SAFE-5003"
+      }
+    },
+    {
+      "seq": 68,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5003",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5003",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "cancelled",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 69,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 0,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 70,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/bookings",
+      "status": 200,
+      "req": {
+        "rideId": "RIDE1",
+        "seats": 2
+      },
+      "res": {
+        "ok": true,
+        "rideId": "RIDE1",
+        "bookedSeats": 2
+      }
+    },
+    {
+      "seq": 71,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 2,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 72,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/bookings",
+      "status": 200,
+      "req": {
+        "rideId": "RIDE1",
+        "seats": 1
+      },
+      "res": {
+        "ok": true,
+        "rideId": "RIDE1",
+        "bookedSeats": 3
+      }
+    },
+    {
+      "seq": 73,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/rides/RIDE1",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "RIDE1",
+        "driver": "dave",
+        "seats": 4,
+        "bookedSeats": 3,
+        "status": "open"
+      }
+    },
+    {
+      "seq": 74,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM1",
+        "qty": 1,
+        "price": 25
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5004"
+      }
+    },
+    {
+      "seq": 75,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5004",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5004",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 25,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [],
+        "couponCount": 0
+      }
+    },
+    {
+      "seq": 76,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/coupons/apply",
+      "status": 200,
+      "req": {
+        "orderId": "SAFE-5004",
+        "code": "SAVE10"
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5004",
+        "coupons": [
+          "SAVE10"
+        ],
+        "total": 15
+      }
+    },
+    {
+      "seq": 77,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5004",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5004",
+        "user": "alice",
+        "itemId": "ITEM1",
+        "qty": 1,
+        "unitPrice": 25,
+        "total": 15,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [
+          "SAVE10"
+        ],
+        "couponCount": 1
+      }
+    },
+    {
+      "seq": 78,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/coupons/apply",
+      "status": 409,
+      "req": {
+        "orderId": "SAFE-5004",
+        "code": "SAVE10"
+      },
+      "res": {
+        "error": "coupon limit reached"
+      }
+    },
+    {
+      "seq": 79,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/orders",
+      "status": 200,
+      "req": {
+        "itemId": "ITEM2",
+        "qty": 1,
+        "price": 40
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5005"
+      }
+    },
+    {
+      "seq": 80,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/coupons/apply",
+      "status": 200,
+      "req": {
+        "orderId": "SAFE-5005",
+        "code": "SAVE20"
+      },
+      "res": {
+        "ok": true,
+        "id": "SAFE-5005",
+        "coupons": [
+          "SAVE20"
+        ],
+        "total": 20
+      }
+    },
+    {
+      "seq": 81,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/orders/SAFE-5005",
+      "status": 200,
+      "req": null,
+      "res": {
+        "id": "SAFE-5005",
+        "user": "alice",
+        "itemId": "ITEM2",
+        "qty": 1,
+        "unitPrice": 40,
+        "total": 20,
+        "status": "pending",
+        "paymentStatus": "unpaid",
+        "coupons": [
+          "SAVE20"
+        ],
+        "couponCount": 1
+      }
+    },
+    {
+      "seq": 82,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/me",
+      "status": 200,
+      "req": null,
+      "res": {
+        "user": "alice",
+        "role": "passenger",
+        "email": "alice@logiclab.example",
+        "refCode": "REF-ALICE"
+      }
+    },
+    {
+      "seq": 83,
+      "session": "alice",
+      "method": "POST",
+      "path": "/api/safe/referrals",
+      "status": 200,
+      "req": {
+        "code": "REF-BOB"
+      },
+      "res": {
+        "ok": true,
+        "bonus": 10
+      }
+    },
+    {
+      "seq": 84,
+      "session": "alice",
+      "method": "GET",
+      "path": "/api/safe/referrals",
+      "status": 200,
+      "req": null,
+      "res": {
+        "uses": 1,
+        "selfUse": false
+      }
+    }
+  ]
+}

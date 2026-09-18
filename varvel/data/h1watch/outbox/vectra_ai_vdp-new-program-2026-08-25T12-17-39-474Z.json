@@ -1,0 +1,119 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "vectra_ai_vdp",
+      "name": "Vectra AI, Inc. (Response)",
+      "offersBounties": false,
+      "assets": [
+        "*.vectra-svc.ai",
+        "*.vectra.ai",
+        "api.vectranetworks.com",
+        "https://203074349567.uw2.portal.vectra.ai/api",
+        "metadata.vectranetworks.com",
+        "rp.vectranetworks.com",
+        "update2.vectranetworks.com",
+        "vectra.ai",
+        "vpn.vectranetworks.com"
+      ],
+      "exclusions": [
+        "partners.vectra.ai"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\vectra_ai_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "vectra_ai_vdp",
+  "name": "Vectra AI, Inc. (Response)",
+  "url": "https://hackerone.com/vectra_ai_vdp",
+  "policy": "# Vectra AI Vulnerability Disclosure Policy\n\n## Introduction\nAt Vectra AI, we consider the security of our systems a top priority. Despite our best efforts to ensure the security of our systems, vulnerabilities may still exist. We appreciate the efforts of security researchers who invest their time and skills to help us identify and address these vulnerabilities, thereby enhancing our security posture.\n\nThis Vulnerability Disclosure Policy outlines how you can report vulnerabilities to us, what we expect from security researchers, and what you can expect from us in return.\n\n---\n\n## Response Targets\nVectra AI, Inc. (Disclosure Program) will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| **Type of Response** | **SLA (Business Days)** |\n|-----------------------|--------------------------|\n| First Response        | 2 days                   |\n| Time to Triage        | 2 days                   |\n| Time to Resolution    | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n---\n\n## Program Scope\nWe encourage the submission of the following types of web application vulnerabilities including but not limited to:\n\n- Cross-site scripting  \n- Cross-site request forgery in a privileged context  \n- Server-side code execution  \n- Authentication or authorization flaws  \n- Injection Vulnerabilities  \n- Directory Traversal  \n- Information Disclosure  \n- Significant Security Misconfiguration (please follow best practice when reporting subdomain takeovers - A Guide To Subdomain Takeovers | HackerOne )\n\n---\n\n## Program Rules\n- Please provide **detailed reports** with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will be closed.  \n- Submit **one vulnerability per report**, unless you need to chain vulnerabilities to provide impact.  \n- **Social engineering** (e.g. phishing, vishing, smishing) is prohibited.  \n- Make a **good faith effort** to avoid privacy violations, destruction of data, and interruption or degradation of our service.  \n- Only interact with **accounts you own** or with **explicit permission** of the account holder.  \n- **Current or former employees** of Vectra AI are not eligible for the program.  \n- **Add an identifying HTTP header to your traffic where possible:**  \n  - To help us quickly and reliably match web requests to your HackerOne/portal submission, please include an identifying HTTP header when reproducing an issue on our public-facing systems.  \n  - **Header name:** `X-Bug-Bounty`  \n  - **Recommended contents:** a short non-PII identifier issued by the disclosure portal (for example a portal username or one-time submission token).  \n  - **Examples:**  \n    - `X-Bug-Bounty: portal-username=alice123`  \n    - `X-Bug-Bounty: token=H1-abc123`  \n  - **Important notes:**  \n    - Do **not** send personal data (email, phone number, real name, passwords, or other PII) in this header.  \n    - Always use **HTTPS** when sending the header.  \n    - Including the header is **strongly encouraged** and will help speed tracking and triage, but it will **not be the sole proof of report ownership** — always also file the report on our HackerOne/portal.\n\n---\n\n## Out of Scope\nWhen reporting potential vulnerabilities, please consider (1) realistic attack scenarios, and (2) the security impact of the behavior. Below, you will find the most common false positives we encounter. The following issues will be closed as invalid except in rare circumstances demonstrating clear security impact.\n\n### Theoretical vulnerabilities that require unlikely user interaction or circumstances\n- Vulnerabilities only affecting users of unsupported or End of Life browsers  \n- Broken link hijacking  \n- Open redirects (unless you can demonstrate additional security impact)  \n- Tabnabbing  \n- Content spoofing and text injection issues  \n- Attacks requiring MITM or physical access to a user's device  \n\n### Theoretical vulnerabilities that do not demonstrate real-world security impact\n- Clickjacking on pages with no sensitive actions  \n- Cross-Site Request Forgery (CSRF) on forms with no sensitive actions (e.g., Logout)  \n- Permissive CORS configurations without demonstrated security impact  \n- Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)  \n- Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.  \n\n### Optional security hardening steps / Missing best practices\n- SSL/TLS Configurations  \n- Lack of SSL Pinning  \n- Lack of jailbreak detection in mobile apps  \n- Cookie handling (e.g., missing HttpOnly/Secure flags)  \n- Content-Security-Policy configuration opinions  \n- Optional email security features (e.g., SPF/DKIM/DMARC configurations)  \n- Most issues related to rate limiting and brute force behaviors  \n\n### Additional exclusions\n- Known CVEs are excluded for a reasonable period of time following the public availability of a patch (typically 30 days).  \n- Any activity that could lead to the disruption of our service (DoS, DDoS).  \n- Social engineering of our employees or contractors, unless explicitly authorized.  \n- Attacks against our physical facilities, unless explicitly authorized.  \n- Attacks requiring physical access to a user's device, unless the device is in-scope and explicitly hardened against physical access.  \n- Attacks requiring disabling Man In The Middle (MITM) protections.  \n- Attacks only affecting obsolete browsers or operating systems.  \n- Missing best practices (SSL/TLS configuration, Content Security Policies, cookie flags, tabnabbing, autocomplete attribute, email SPF/DKIM/DMARC records), unless a significant impact can be demonstrated.  \n- Self-exploitation (self XSS, self denial-of-service, etc.), unless a method to attack a different user can be demonstrated.  \n- Issues that require unlikely user interaction by the victim.  \n- Portals that are operated by 3rd parties: we'll not reward 3rd party vendor vulnerabilities (ie. those in their apps), but we will accept any misconfigurations that is responsibility of Vectra, leading to vulnerabilities, data leaks, etc.\n\n---\n\n## Reporting Guidelines\n\n### Reporting Process\nSubmit your findings via HackerOne or through our reporting email at disclosure@vectra.ai  \n\nInclude detailed information to help us reproduce and validate the issue.\n\n### Report Requirements\nA high-quality report should include:\n- Clear description of the vulnerability  \n- Step-by-step reproduction instructions  \n- Impact assessment  \n- Supporting materials (screenshots, proof-of-concept code, etc.)  \n- Any ideas for remediation  \n\n---\n\n## Safe Harbor Provisions\nSecurity researchers who:\n- Make a good faith effort to comply with this policy  \n- Report a vulnerability directly to us  \n- Avoid privacy violations, service disruption, data destruction, or harm to others  \n\nwill receive:\n- No legal action related to the research  \n- No legal action from Vectra for accidental violations of this policy  \n- Authorization under the Computer Fraud and Abuse Act (and similar laws) for your security research  \n\n> Note: This safe harbor applies only to legal claims under Vectra AI's control and does not bind third parties.\n\n---\n\n## Our Commitments\n\n### Communication Timeline\n- **Initial Acknowledgement:** We will acknowledge your report within 2 business days  \n- **Assessment:** We will assess and validate reports within 2 business days  \n- **Regular Updates:** We will provide status updates throughout the remediation process  \n\n### Remediation Timeline\nWe strive to resolve vulnerabilities within the following timeframes although can vary based on severity and complexity:\n\n| **Severity** | **Resolution Target** |\n|---------------|-----------------------|\n| Critical | 15 days |\n| High severity | 30 days |\n| Medium severity | 90 days |\n| Low severity | 180 days |\n\n---\n\n## Disclosure Policy\n\n### Coordinated Disclosure\nWe request that all vulnerabilities remain confidential during the remediation period.  \n\nPublic disclosure may occur 30 days after remediation is complete, subject to:\n- Approval of such disclosure by a member on the Vectra AI Team  \n- Vectra AI confirming remediation is complete  \n- Disclosure not including sensitive information or details that could harm our users  \n- A draft of the disclosure being shared with Vectra AI at least 7 days prior to publication  \n\n### Extensions\nWe may request additional time for complex vulnerabilities requiring extensive remediation. In such cases:\n- We will clearly communicate the reasons for the extension  \n- We will provide a revised timeline for resolution  \n- We will continue to provide regular status updates  \n\n### Joint Disclosure\nFor significant findings, we welcome the opportunity to coordinate joint disclosure announcements that highlight both the researcher's discovery and Vectra AI's remediation efforts.  \n\nVectra AI reserves the right to request confidentiality for vulnerabilities that could pose significant risk if disclosed prematurely.\n\n---\n\n## Recognition Program\n\n### Researcher Acknowledgment\nWith your permission, we will:\n- Provide a public acknowledgment of your contribution when appropriate\n\n---\n\n## Legal Considerations\n\n### Data Protection and Privacy\n- Do not access, modify, or store personal data you may encounter  \n- Immediately delete any personal data inadvertently collected  \n- Report any potential privacy violations immediately  \n\n### Prohibited Activities\nThe following activities are strictly prohibited:\n- Accessing, modifying, or destroying data belonging to other users  \n- Executing or attempting Denial of Service attacks  \n- Social engineering of Vectra AI employees or contractors  \n- Physical attempts to access Vectra AI facilities  \n- Automated or excessive scanning causing service degradation  \n\n---\n\n## Contact Information\nFor any questions about this policy:  \n📧 **hackeroneteam@vectra.ai**\n\nTo report security vulnerabilities:  \n📧 **disclosure@vectra.ai**\n\n---\n\n## Policy Updates\nThis policy may be updated from time to time. We will announce significant changes through our website and direct communication with active researchers.\n\n**Last Updated:** November 12th, 2025\n\n---\n\n**Thank you for helping keep Vectra AI, and our users safe!**\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "vectra.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vectra-svc.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Vectra domain used for various services, if you have identified something interesting or impactful on this primary domain or on one of the subdomians let us know!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vectra.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Found something interesting or impactful on our primary or subdomains let us know!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.vectranetworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "api.vectranetworks.com - blackbox no authentication\n\nThe api.vectranetworks.com (TCP 443) is used for cloud API queries, i.e.VirusTotal summaries of domain names.\n\nCognito brain appliances upload health information to the Vectra cloud using the existing connection to https://api.vectranetworks.com/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "metadata.vectranetworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "For Vectra customers who have opted-in to sharing detection metadata with Vectra (for the purpose of improving overall detection efficacy), Cognito will connect to metadata.vectranetworks.com to send the detection metadata.\n\nMetadata shared with Vectra over the connection includes anonymized detecti",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rp.vectranetworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "rp.vectranetworks.com - blackbox\n\nUsed only for Brains deployed in IaaS clouds. Used for authentication and verification (integrity check of the file system).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "update2.vectranetworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The update2.vectranetworks.com (TCP 443) is used by the appliance to verify the current version number and, if appropriate, download new versions.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vpn.vectranetworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "vpn.vectranetworks.com - blackbox no auth\n\nThe vpn.vectranetworks.com is used by the appliances to connect back to Vectra when the appliance VPN is enabled. VPN tries to connect both TCP on port 443 and UDP on port 9970. Either can be successful for the VPN to work. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partners.vectra.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "OUT OF SCOPE",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://203074349567.uw2.portal.vectra.ai/api",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

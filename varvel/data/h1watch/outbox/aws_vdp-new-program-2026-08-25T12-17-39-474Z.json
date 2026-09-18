@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "aws_vdp",
+      "name": "AWS VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.agscollab.com",
+        "*.agslauncher.com",
+        "*.amazongames.com",
+        "*.aws.dev",
+        "*.cloudendure.com",
+        "*.gaming.amazon.com",
+        "*.lambda-url.*.on.aws",
+        "*.lostark.games.aws.dev",
+        "*.newworld.com",
+        "*.people.aws.com",
+        "*.people.aws.dev",
+        "*.sa.aws.dev",
+        "*.tsologic.com",
+        "*.workshops.aws.dev",
+        "1023499075",
+        "AWS Databases",
+        "AWS WAF",
+        "AWS WorkDocs",
+        "AWS WorkMail",
+        "AWS-Owned and Operated Thick Clients",
+        "Alexa For Business ",
+        "All API's called by the AWS CLI",
+        "Anything not in scope",
+        "Devices",
+        "https://*.aws.amazon.com/*"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\aws_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "aws_vdp",
+  "name": "AWS VDP",
+  "url": "https://hackerone.com/aws_vdp",
+  "policy": "Amazon Web Services is committed to collaborating with the security community to identify and address vulnerabilities, ensuring the safety of our businesses and customers. We deeply value your contributions and take all security reports with utmost seriousness. If you would like to report a concern with Amazon Retail and Devices, please visit Amazon's Public Bug Bounty Program https://hackerone.com/amazonvrp.\n\nThis page outlines our practices for investigating and resolving potential vulnerabilities within our cloud services. Thank you for helping us maintain a secure environment. \n \n# What is AWS? \n\n Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally. Millions of customers—including the fastest-growing startups, largest enterprises, and leading government agencies—are using AWS to lower costs, become more agile, and innovate faster. \n\nQuestions about getting started with AWS services? [Connect with an expert »](https://aws.amazon.com/contact-us/sales-support-wi/) \n\n# Disclosure Policy \n\nAWS requests that researcher's follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines) and once the report has been submitted, AWS will work to validate the reported vulnerability. If additional information is required to validate or reproduce the issue, AWS will work with you to obtain it. When the initial investigation is complete, results will be delivered to you along with a plan for resolution and discussion of public disclosure. \n\nA few things to note about the AWS process: \n\n1. **Third-Party Products:** Many vendors offer products within the AWS cloud. If the vulnerability is found to affect a third-party product, AWS will notify the owner of the affected technology. AWS will continue to coordinate between you and the third party. Your identity will not be disclosed to the third party without your permission. \n\n2. **Confirmation of Non-Vulnerabilities:** If the issue cannot be validated, or is not found to originate in an AWS product, this will be shared with you. \n\n3. **Vulnerability Classification:** AWS uses version 3.1 of the Common Vulnerability Scoring System (CVSS) to evaluate potential vulnerabilities. The resulting score helps quantify the severity of the issue and to prioritize our response. For more information on CVSS, please reference the [NVD site](https://nvd.nist.gov/vuln-metrics/cvss). \n\n## Additional Program Policies\n\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged and we will request additional information. \n\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact. \n\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced). \n\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report. \n\n## Submission Guidelines for Scanning Campaigns: \nWhen conducting scanning campaigns targeting AWS resources, please consolidate all related findings into a single report. Submitting a high volume of individual reports for similar findings in quick succession can lead to a deduction in points. Repeated failure to follow this guideline can result in disqualification from the program.\n\n## AWS S3 related submissions:\nAWS S3 related submissions to this program are limited to vulnerabilities specifically impacting the Amazon S3 service itself. Any other security concerns or issues related to the Amazon S3 service are out of the scope of the VDP and should be reported directly to the AWS security team at their dedicated inbox: aws-security@amazon.com. Please ensure that all non-S3-related reports are directed accordingly.\n\n##  Public Notification \n\nIf applicable, AWS will coordinate public notification of any validated vulnerability with you. Where possible, we prefer that our respective public disclosures be posted simultaneously. \n\nIn order to protect our customers, AWS requests that you not post or share any information about a potential vulnerability in any public setting until we have researched, responded to, and addressed the reported vulnerability, and informed customers if needed. Also, we respectfully ask that you do not post or share any data belonging to our customers. Addressing a valid reported vulnerability will take time, and the timeline will depend upon the severity of the vulnerability and the affected systems. \n\nAWS makes public notifications in the form of [Security Bulletins](https://aws.amazon.com/security/security-bulletins/), which are posted in the AWS Security website. Individuals, companies, and security teams typically post their advisories on their own websites and in other forums and when relevant, we will include links to those third-party resources in AWS Security Bulletins. \n\n## Vulnerability Reporting Scope\n\nWhen reporting potential vulnerabilities, please consider (1) realistic attack scenarios and (2) the security impact of the behavior. The following activities are out of scope for the AWS Vulnerability Reporting Program. Conducting any of the activities below will result in disqualification from the program permanently.\n\n### Core Ineligible Findings (but not limited to)\n\n1. Theoretical vulnerabilities requiring unlikely user interaction or circumstances:\n\n    *    Vulnerabilities only affecting users of unsupported or End-of-life browsers or operating systems.\n    *    Broken link hijacking.\n    *    Tabnabbing.\n    *    Content spoofing and text injection issues.\n    *    Attacks requiring physical access to a device (without prior written authorization).\n    *    Self-exploitation, such as self-XSS or self-DoS (unless it can be used to attack a different account).\n\n2. Theoretical vulnerabilities without real-world security impact:\n\n    *    Clickjacking on pages with no sensitive actions.\n    *    Cross-Site Request Forgery (CSRF) on forms with no sensitive actions (e.g., Logout).\n    *    Permissive CORS configurations without demonstrated security impact.\n    *    Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application, or server errors).\n    *    Comma Separated Values (CSV) injection.\n    *    Open redirects (unless you can demonstrate additional security impact).\n\n3. Optional security hardening steps / Missing best practices:\n\n    *    SSL/TLS Configurations.\n    *    Lack of SSL Pinning.\n    *    Lack of jailbreak detection in mobile apps.\n    *    Cookie handling (e.g., missing HttpOnly/Secure flags).\n    *    Content-Security-Policy configuration opinions.\n    *    Optional email security features (e.g., SPF/DKIM/DMARC configurations).\n    *    Most issues related to rate limiting.\n\n4. Vulnerabilities requiring hazardous testing (must not be attempted unless explicitly pre-authorized):\n\n    *    Issues relating to excessive traffic/requests (e.g., DoS, DDoS).\n    *    Any other issues where testing may affect the availability of systems.\n    *    Social engineering of AWS employees, contractors, vendors, or service providers. (e.g., phishing, opening support requests).\n    *    Attacks that are noisy to users or admins (e.g., spamming notifications or forms).\n    *    Physical attacks against AWS employees, offices, and data centers.\n    *    Targeting assets of AWS customers or non-AWS sites hosted on our infrastructure.\n    *    Any vulnerability obtained through the compromise of AWS customer or employee accounts.\n    *    Knowingly posting, transmitting, uploading, linking to, or sending malware.\n    *    Pursuing vulnerabilities which send unsolicited bulk messages (spam).\n\n## Advisory Scope\n\nThis section defines the requirements necessary to issue a security advisory (e.g. CVE, GHSA).\n\n### In Scope for a CVE\n\nThe [Amazon CNA](https://www.cve.org/PartnerInformation/ListofPartners/partner/AMZN) will issue CVEs that support customers in addressing valid security vulnerabilities within the following classes:\n\n- **AWS Services** delivered by AWS and publicly available to customers. (e.g. Amazon EC2, Amazon RDS).\n- **Amazon Services** delivered by Amazon and publicly available to customers. (e.g. Amazon[.]com Seller API Service).\n- **Open-source software** within a GitHub organization managed by Amazon or AWS.\n- **Client software published by Amazon or AWS** and available for download from a website or download location owned and operated by us (e.g. Amazon Appstore SDK, Amazon Input SDK, Amazon Kindle App, Amazon MShop App, Amazon WorkSpaces client).\n- **Devices manufactured by Amazon or AWS** and available to customers for purchase and use (e.g. Amazon Fire TV, Amazon Echo devices, Amazon Kindle, AWS Outpost).\n\nAdditionally, all of the requirements below must be met:\n\n- **Customer Impacting:** The issue must exist within an Amazon or AWS-owned class which is publicly available to customers; AND\n- **Customer Agency:** Remediation of supported or EOL/EOS product issues requires customer action, including making a risk-based decision on handling the remediation (OR customers need to assess possible impact) OR when a valid security vulnerability will become public (OR has the potential of becoming public); AND\n- **CVSS score:** 4.0 (MEDIUM) or higher.\n\n### Out of Scope for a CVE\n\nServices, software, or hardware issues that are deemed not a vulnerability include but are not limited to:\n\n*    Non-default configuration or changes made using valid credentials that were correctly authorized\n*    Targeting assets of Amazon or AWS customers (or non-AWS sites hosted on AWS infrastructure)\n*    Any vulnerability obtained through the compromise of Amazon or AWS customer or employee accounts\n*    Any Denial of Service (DoS) attack against Amazon or AWS products (or Amazon or AWS customers)\n*    Physical attacks against Amazon or AWS employees, offices, and data centers\n*    Social engineering of Amazon or AWS employees, contractors, vendors, or service providers\n*    Knowingly posting, transmitting, uploading, linking to, or sending malware \n*    Pursuing vulnerabilities which send unsolicited bulk messages (spam)\n\n# Good Faith Security Research\n\nAll vulnerability research must be conducted in good faith.  This means:\n\n* You will follow this policy, and any other relevant agreements you have with us\n* Your research must consist exclusively of good faith testing, investigation, or correction of a security flaw, with the primary goal of promoting the safety of the class of devices, machines, or online services to which any accessed computers belong\n* You will not violate AWS customers’ security and privacy, and will not harm individuals or the public\n* Your research will proceed only as far as necessary to demonstrate or clarify the security issue, and no further\n* If a vulnerability provides unintended access to data, you will limit the amount of data you access to the minimum required for effectively demonstrating a proof of concept.  Stop the research and submit a report immediately if you encounter any user data during testing, such as personal information, financial information, or proprietary information\n* You will report the findings of your research to us within 72 hours of determining a potential security concern via our Vulnerability Disclosure Program on HackerOne (https://hackerone.com/aws_vdp) or by emailing aws-security@amazon.com [(PGP Key)] [20].\n* You will provide us with a reasonable amount of time to resolve the issue before you disclose it publicly\n* You may only interact with accounts you own or with explicit written permission from AWS or the account owner\n* No stunt hacking\n* No extortion or harassment\n\n# Safe Harbor\n\nWe consider Good Faith Security Research to be authorized activity that is protected from adversarial legal action by us.  This means that, for activity conducted while this program is active, we:\n\n* **Will not** bring legal action against you or report you for Good Faith Security Research, including for bypassing technological measures we use to protect the applications in scope; and,\n* **Will** take steps to make known that you conducted Good Faith Security Research if someone else brings legal action against you.\n\nNote that for the purposes of safe harbor, AWS does **NOT** waive a right to pursue remedies against security research activities targeting other AWS customers’ resources, operations, or end users, including but not limited to:\n\n* unauthorized cross-customer environment access\n* manipulation, monitoring/collection\n* spoofing\n* social engineering, including but not limited to phishing\n* impersonating AWS, AWS employees, AWS services, or AWS products\n* impersonating AWS or customer marketplace offerings (eg. AMIs, container images, templates, models, etc)\n* impersonating any other company, their employees, services, products or offerings\n* provisioning resources to mimic AWS infrastructure or AWS customer resources\n* Denial of Service, Distributed Denial of Service, simulated DoS, simulated DDoS\n* port, protocol, or request flooding\n* any type of brute forcing\n* IP or Resource cycling/churning\n* DNS hijacking, Pharming, or zone walking via Amazon Route 53\n* stunt hacking\n\nAn explicit authorization or permission granted by any single AWS customer for the purposes of their continuous vulnerability scanning, penetration testing, security configuration validation, or vulnerability rewards program (VRP) cannot exceed the bounds of the specific customers’ accounts and resources and does NOT grant authorization for abusive activities via any AWS service.\n\nIndividuals or companies conducting security research are strongly encouraged to contact AWS Security (via HackerOne (https://hackerone.com/aws_vdp) or by emailing aws-security@amazon.com [(PGP Key)] [20]) to review their planned methodology and seek guidance or operational support prior to any activities.  Security research that is not conducted in good faith may subject your AWS account(s) to active response measures, such as offending resource isolation, account suspension, resource / account termination, legal remedies, or relevant law enforcement referral.\n\n[20]: https://aws.amazon.com/security/aws-pgp-public-key/\n\nKeep in mind that we are not able to authorize security research on third-party infrastructure, and a third party is not bound by this safe harbor statement.\n\n# Engagement SLA\n\nAWS is committed to being responsive and keeping you informed of our progress. You will receive a non-automated response confirming receipt of your initial report within 24 hours, timely updates, and monthly check-ins throughout the engagement. You may request updates at any time, and we welcome dialogue that clarifies any concern or disclosure coordination. \n\n# Program Eligibility and Compliance \n\nAt AWS, we’re committed to maintaining a secure and compliant Vulnerability Disclosure Program while adhering to global regulations. Please review these important guidelines: \n\n## Eligibility Requirements:  \n\n* Participation is subject to compliance with applicable sanctions and trade regulations in conformity with the AWS Customer Agreement https://aws.amazon.com/agreement/#:~:text=11.6%20Trade%20Compliance,applicable%20government%20authority . \n* Non-monetary Rewards such as merch store credits and physical swag cannot be issued to individuals in sanctioned countries/regions.  \n* Participants are responsible for compliance with local tax laws and regulations. ",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://*.aws.amazon.com/*",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.agscollab.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.agslauncher.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amazongames.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aws.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cloudendure.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gaming.amazon.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lambda-url.*.on.aws",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lostark.games.aws.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.newworld.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.people.aws.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.people.aws.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.sa.aws.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tsologic.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.workshops.aws.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "1023499075",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS Databases",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS WAF",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS WorkDocs",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS WorkMail",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "AWS-Owned and Operated Thick Clients",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Alexa For Business ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "All API's called by the AWS CLI",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Anything not in scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Devices",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

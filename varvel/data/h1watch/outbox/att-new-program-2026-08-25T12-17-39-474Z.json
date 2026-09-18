@@ -1,0 +1,248 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "att",
+      "name": "AT&T",
+      "offersBounties": true,
+      "assets": [
+        "Other Assets"
+      ],
+      "exclusions": [
+        "*.sky.com.mx",
+        "*tworks-att.com",
+        "12.0.1.28",
+        "40.233.66.139",
+        "DirecTV Owned Assets",
+        "accbusinesspricing.att.com",
+        "att.com/acctmgmt/*/chunks/*",
+        "att.com/acctmgmt/*/stub*/*",
+        "att.suppliergateway.com",
+        "attdashboard.wireless.att.com",
+        "attpurchasing.com",
+        "attsuppliers.com",
+        "authkeysmx01.att.com.mx",
+        "c2m-projectone.att.com",
+        "http://dna-uat.az.cloud.att.com/",
+        "https://40.233.66.139",
+        "https://clec.att.com/clec/",
+        "plasma-coreapi.att.com",
+        "plasma.att.com",
+        "prod-taxexempt.att.com",
+        "projectone.att.com",
+        "rcloud.social",
+        "thedirectvmarketingzone.com",
+        "wf-projectone.att.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\att-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "att",
+  "name": "AT&T",
+  "url": "https://hackerone.com/att",
+  "policy": "#AT&T Bug Bounty Program Policy\nWelcome to the AT&T Bug Bounty Program! We now use a pay per vulnerability model and utilize the HackerOne platform! \n\nThe Program encourages and rewards contributions by developers and security researchers who help make AT&T's public-facing online environment more secure. Through the Program AT&T provides monetary rewards and/or public recognition for security vulnerabilities responsibly disclosed to us.\n\nThe following explains the details of the Program. If you are new to our Program, please be sure to review the Program Guidelines, Program Exclusions, and Terms and Conditions, as well as the Reporting and Payment Process prior to making a submission.\n\n# Recent Updates: \n- 5/28/26: Vulnerabilities related to dangling or misconfigured IDE/editor extension identifiers (including VS Code, Windsurf, Cursor, or similar development environments) that could lead to extension confusion attacks are currently excluded from the program.\n- The endpoint plasma.att.com (plasma-coreapi.att.com) is temporarily out of scope while AT&T performs internal updates. Reports submitted for this asset during this time will be marked as 'Informative' and will not be eligible for bounties until further notice as of Wed Mar 25 at 3:17 PM CDT.\n- The following asset has been removed from scope as of 1/2/2025: SupplierGateway.\n- Removed from scope as of 11/16/2021 DIRECTVLA (Vrio Corp, SKY)\n\n#Program Guidelines\nThe Program applies to security vulnerabilities found within AT&T's Environment, which includes, but is not limited to, AT&T’s websites, exposed APIs, mobile applications, and devices. At this time, any vulnerabilities submitted that are specific to SupplierGateway, Xandr, DIRECTVLA (Vrio Corp, SKY), WarnerMedia assets, including HBO, are out-of-scope of the AT&T program and are therefore ineligible for bounty rewards. A security vulnerability is generally an error, flaw, mistake, failure, or fault in a computer program or system that impacts the security of a device, system, network, or data. Any security vulnerability may be considered for the Program; however, it must be a new, previously unreported, vulnerability in order to be eligible for reward or recognition. \n\nTypically, in-scope submissions will include high impact vulnerabilities. However, any vulnerability that could realistically place the online security of AT&T, our customers, or the public at large at risk is in scope and might be rewarded. Vulnerabilities which directly or indirectly affect the confidentiality or integrity of user data or privacy are prime candidates for a reward. Some characteristics that are considered when \"qualifying\" vulnerabilities include those that:\n\n* Directly or indirectly affect the confidentiality or integrity of user data or privacy;\n* Compromise the integrity of the system;\n* Enable unauthorized access to significant data or resources;\n* Enable the running of unauthorized code;\n* Increase privileges or access beyond that which is intended;\n* Interfere with or bypass security controls or mechanisms;\n* Are exploitable (i.e. not purely theoretical);\n* Can be launched remotely; and\n* Could cause damage to a user's system.\n\n#Focus Assets in scope. \n* att.com/msapi\n* att.com/buy/\n* att.com/acctmgmt/\n* myattwg.att.com/olam/ \n* myATT mobile apps\n* signin.att.com\n* identity.att.com\n\n#Informative Reports\nSubmissions against the following assets are accepted but are not eligible for an award and will be closed as Informative.\n* Credential Stuffing\n* Authorized Resellers\n* Authorized Retailers\n* Preferred Dealer\n\n#Program Exclusions\nThe following categories of vulnerabilities are excluded from reward in the Program unless otherwise directed by AT&T:\n\n* Attacks against AT&T infrastructure;\n* Social engineering and physical attacks;\n* Distributed Denial of Service attacks that require large volumes of data;\n* 0-day vulnerabilities less than 30/60/90 days from patch release are ineligible for bounty;\n* Provisioning and/or usability issues;\n* Violations of licenses or other restrictions applicable to any vendor's product;\n* Security vulnerabilities in third-party products or websites that are not under AT&T’s direct control;\n* Duplicate reports of security issues, including security issues that have already been identified internally;\n* Tenant/cloud systems executing in an Internet Data Center (IDC), where AT&T is simply acting as the site host;\n* Employee Resource Group (ERG) websites;\n* Clickjacking reports against unauthenticated pages and/or static content resources;\n* Reports of missing SPF records for domains with no MX record;\n* Vulnerabilities that are a result of malware;\n* Theoretical security issues with no realistic exploit scenario(s) or attack surfaces, or issues that would require complex end user interactions to be exploited, or\n* Issues determined to be low impact.\n* Self-XSS involving a payload in headers or in the body of the request\n* POST based Reflected XSS\n* Vulnerabilities which require a social engineering component are excluded. i.e. presenting injected data to a user and expecting the user to click on an external link to complete the compromise\n* Login/logout CSRF\n* Content spoofing which depends on a social engineering element to succeed (such as an error page suggesting that a user take an action) is excluded\n* Abandoned CNAME records require a social engineering component to successfully exploit, they are excluded unless there is an existing link from a company resource to the invalid CNAME\n* Vulnerabilities related to dangling or misconfigured IDE/editor extension identifiers (including VS Code, Windsurf, Cursor, or similar development environments) that could lead to extension confusion attacks are currently excluded from the program\n\nIn addition, the submitter:\n\n* Must not be the author of the code with the vulnerability or\n* Must not be employed by AT&T directly or indirectly.\n\nVulnerabilities that are disclosed to any party other than AT&T, including vulnerability brokers, will not qualify for reward. This includes both public disclosure and limited private release.\n\n\n* Documents on Third-Party Repositories: \nWhile we appreciate submissions identifying AT&T documents or information hosted on third-party repository sites, reports will only be accepted if the researcher demonstrates a clear security impact beyond the mere presence of the documents as well as provides an attachment of the document in question. Simply discovering AT&T-related content on external platforms does not constitute a valid security vulnerability without proof of exploitable risk or actual security implications. In addition, a classification marking on a document by itself does not constitute risk or exposure. For example, very old document may no longer have any risk or exposure even though at creation time, the document was deemed necessary to require a specific classification marking. As indicated above, there needs to be a clear security impact or risk demonstrated by the researcher. Social engineering, phishing, etc. risk will not be considered significant impact\n\n\n\n** DIRECTV Assets Exclusion Notice **\nEffective June 12 at 9 AM CST, all assets owned or operated by DIRECTV are no longer in scope for this bug bounty program. Any vulnerabilities discovered in DIRECTV assets should be reported directly to the DIRECTV security team at directv-bbp@mydirectv.com.\n\nPlease note:\n- Do not submit reports related to DIRECTV assets to this AT&T program\n- DIRECTV maintains a separate security process for handling vulnerability reports\n- All DIRECTV-related security concerns should be directed exclusively to directv-bbp@mydirectv.com\n\n**LevelBlue Assets Exclusion Notice**\nEffective October 23 at 11:15 AM CST, all assets owned or operated by LevelBlue are no longer in scope for this bug bounty program. Any vulnerabilities discovered in LevelBlue assets should be reported directly through the LevelBlue Vulnerability Disclosure Program at https://levelblue.com/levelblue-vulnerability-disclosure-program. Any previously submitted findings will be processed as usual.\n\nLevelBlue domains include but are not limited to:\n- levelblue.com\n- aveng.net\n- aveng.me\n- alienvault.cloud\n- alienvault.us\n- levelblue.cloud\n- levelblue.us\n- levelblue.me\n\nPlease note:\nDo not submit reports related to LevelBlue assets to this AT&T program\nLevelBlue maintains a separate vulnerability disclosure process for handling security reports\nAll LevelBlue-related security concerns should be directed exclusively to their VDP: https://levelblue.com/levelblue-vulnerability-disclosure-program\n\n\n\n#Program Terms and Conditions\nThe following Terms and Conditions apply to the Program:\n\n* \"AT&T\" refers to AT&T Services, Inc., and its affiliates.\n* You must comply with the Program and abide by the law.\n* AT&T employees, contractors, and their families are not eligible for rewards.\n* You must submit your report as soon as you have discovered a potential vulnerability. By submitting the vulnerability, you affirm that you have not disclosed and agree that you will not disclose the vulnerability or your submission to anyone other than AT&T following the process set forth in the Program.  Absent AT&T's prior written consent, any disclosure would violate the Program. It is understood and agreed that money damages would not be a sufficient remedy for any breach of this paragraph by you or your representative(s) and that AT&T shall be entitled to specific performance as a remedy for any such breach, including injunctive relief. Such remedy shall not be deemed to be the exclusive remedy for any such breach but shall be in addition to all other remedies available at law or equity to AT&T.\n* Submissions selected for rewards, and the individuals who submitted the vulnerabilities will receive recognition at the sole discretion of AT&T.\n* By submitting information about a potential vulnerability, you agree to all Program Terms and Conditions and grant AT&T a worldwide, royalty-free, non-exclusive license to use your submission. Only the first submission of a given potential vulnerability that AT&T has not yet identified is eligible. In the event of a duplicate submission, only the earliest received is considered.\n* Eligibility for rewards, including the determination of the recipients and reward amount is left up to the sole discretion of AT&T.\n* Out of scope vulnerabilities submitted are generally less likely to receive recognition or rewards under the Program.\n* You are responsible for all taxes associated with and imposed on any reward you may receive in connection with your submission. HackerOne handles all bounty payments through the HackerOne platform. Please refer to HackerOne’s relevant policies [here](https://docs.hackerone.com/hackers/tax-forms.html#___gatsby).                                                                                                                                              \n* You may only exploit, investigate, or target vulnerabilities against your own accounts. Testing must not violate any law, or disrupt or compromise any data or access data that is not yours; intentional access of customer data other than your own is expressly prohibited.\n* If you inadvertently access customer, employee, or business related information during your testing, you must immediately notify AT&T and the information must not be used, disclosed, stored, or recorded in any way. Inadvertent access of the data must be declared within your submission.\n* Your testing activities must not negatively impact AT&T, or AT&T's Environment availability or performance.\n* AT&T reserves the right of non-remediation in its sole discretion.\n* The Program constitutes the entire agreement and understanding of the parties with respect to the items listed herein. The Program may be amended or modified any time without notice in AT&T’s sole and absolute discretion. \n* If any portion of the Program is found to be illegal or unenforceable, then the parties shall be relieved of their responsibilities arising under such portion, but only to the extent that such portion is illegal or unenforceable.\n\n#Reporting Process\nWhen reporting vulnerabilities, you must first register or log on to your account on HackerOne. In describing the vulnerability it is important to include all necessary details required for reproducing the vulnerability as well as the tools required to reproduce the vulnerability. Please note that the vulnerability should be treated in accordance with the terms of the Program.\n* Reports for Critical and High severity findings must include a video proof of concept (POC) demonstrating the vulnerability; reports without video POC will not be moved forward for triage.\n* Each submission will typically receive a reply within one (1) business day acknowledging that the report was successfully received. \n* Duplicate submissions (where the vulnerability has already been reported to AT&T are not eligible for rewards. In most instances, you will not be notified of a duplicate report condition until after the vulnerability has been remediated.\n* Please recognize that AT&T operates a complex Environment and the amount of time required to address a reported issue can vary from a few hours to several months. You will receive notification of the final outcome of our remediation efforts once the Program is notified by AT&T internal support team. AT&T cannot provide updates on remediation efforts that are in progress.\n\n#Awarding Process\n* Only vulnerabilities will be considered for an award.  Only those vulnerabilities that have been resolved will receive an award. The bounties range from $50 to $3,000 depending on criteria such as the type/severity of the vulnerability, impacted domain(s), potential vulnerability exploits, and vulnerability report submission quality.\n* Retesting previously resolved vulnerabilities to confirm fixes carries a flat $50 fee per retest request.\n* In general, Reflected XSS will be considered low severity and awarded with minimum bounty unless other impact is shown.\nTHE CRITERIA USED TO DETERMINE THE PAYOUT FOR A VULNERABILITY IS SOLELY AT THE DISCRETION OF AT&T.\n\n#Change to Program Terms\nAT&T reserves the right to discontinue the Program at any time without notice in its sole discretion.\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "prod-taxexempt.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "projectone.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "c2m-projectone.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wf-projectone.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.sky.com.mx",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "accbusinesspricing.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "rcloud.social",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "attdashboard.wireless.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://clec.att.com/clec/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "12.0.1.28",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "attsuppliers.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "attpurchasing.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is out of scope for submission",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "authkeysmx01.att.com.mx",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Other Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "40.233.66.139",
+      "asset_type": "IP_ADDRESS",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://40.233.66.139",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thedirectvmarketingzone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "att.suppliergateway.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "DirecTV Owned Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "DIRECTV Assets Exclusion Notice\n\nEffective June 12 at 9 AM CST, all assets owned or operated by DIRECTV are no longer in scope for this bug bounty program. Any vulnerabilities discovered in DIRECTV assets should be reported directly to the DIRECTV security team at bugbounty@mydirectv.com.\n\nPlease no",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "att.com/acctmgmt/*/stub*/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any subdomain under att.com/acctmgmt/ with \"stub\" anywhere in the URL is out of scope as of 6/14/25 at 10:30 AM CT.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "att.com/acctmgmt/*/chunks/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any subdomain under att.com/acctmgmt/ with \"chunks\" anywhere in the URL is out of scope as of 6/14/25 at 10:30 AM CT.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*tworks-att.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "plasma.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The endpoint plasma.att.com (plasma-coreapi.att.com) is temporarily out of scope while AT&T performs internal updates. Reports submitted for this asset during this time will be marked as 'Informative' and will not be eligible for bounties until further notice as of Wed Mar 25 at 3:17 PM CDT.  This i",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "plasma-coreapi.att.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The endpoint plasma.att.com (plasma-coreapi.att.com) is temporarily out of scope while AT&T performs internal updates. Reports submitted for this asset during this time will be marked as 'Informative' and will not be eligible for bounties until further notice as of Wed Mar 25 at 3:17 PM CDT. This in",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://dna-uat.az.cloud.att.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

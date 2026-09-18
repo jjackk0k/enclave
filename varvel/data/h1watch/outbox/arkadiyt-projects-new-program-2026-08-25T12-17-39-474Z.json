@@ -1,0 +1,102 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "arkadiyt-projects",
+      "name": "arkadiyt-projects",
+      "offersBounties": false,
+      "assets": [
+        "*.arkadiyt.com",
+        "https://github.com/arkadiyt/aws_public_ips",
+        "https://github.com/arkadiyt/bounty-targets",
+        "https://github.com/arkadiyt/ddexport",
+        "https://github.com/arkadiyt/free-ft",
+        "https://github.com/arkadiyt/protodump",
+        "https://github.com/arkadiyt/ssrf_filter",
+        "https://github.com/arkadiyt/zoom-redirector"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\arkadiyt-projects-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "arkadiyt-projects",
+  "name": "arkadiyt-projects",
+  "url": "https://hackerone.com/arkadiyt-projects",
+  "policy": "Please note that this program only offers thanks for bug submissions - it is a vulnerability disclosure program for my personal projects and source code.\r\n\r\n## Program Rules\r\nInclude a PoC and complete steps to reproduce your report. Reports must be practical and have demonstrable security implications, not just be a theoretical scenario or a missing best practice.\r\n\r\n## Disclosure Policy \r\nAfter a report is resolved, you are welcome to disclose it, blog about it, etc.\r\n\r\n## Safe Harbor \r\n\r\nI will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. I consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act. I will not bring a DMCA claim against you for circumventing the technological measures I have used to protect the applications in scope.\r\n\r\nIf legal action is initiated by a third party against you and you have complied with this bug bounty policy, I will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nPlease understand that if your security research involves the networks, systems, information, applications, products, or services of another party (which is not me), that third party may determine whether to pursue legal action. I cannot and do not authorize security research in the name of other entities.\r\n\r\nI will not share your report with a third-party without your permission and/or gaining their commitment they will not pursue legal action against you. Please note again that I can’t authorize out-of-scope testing in the name of third parties and such testing is beyond the scope of the program.\r\n\r\nIn order to encourage the adoption of bug bounty programs and promote uniform security best practices across the industry, I reserve no rights in this bug bounty policy and so you are free to copy and modify it for your own purposes.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.arkadiyt.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is my personal website.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/ssrf_filter",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a ruby gem for protecting against server side request forgery attacks. I'm particularly interested in anything that can bypass this protection.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/bounty-targets",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This project crawls Hackerone & Bugcrowd for all scope data and publishes it to https://github.com/arkadiyt/bounty-targets-data.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/aws_public_ips",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a ruby gem for fetching all public ip addresses associated with an AWS account. I'm interested in any vulnerabilities that affect the invoking user or target AWS account.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/zoom-redirector",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a browser extension for redirecting Zoom meetings.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/protodump",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This cli recovers gRPC/protobuf definitions from binary/executable files.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/ddexport",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This cli downloads datadog logs and spans.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/arkadiyt/free-ft",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a browser extension to get free access to the Financial Times (ft.com).",
+      "max_severity": "critical"
+    }
+  ]
+}

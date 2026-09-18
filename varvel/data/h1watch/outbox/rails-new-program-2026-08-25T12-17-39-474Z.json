@@ -1,0 +1,47 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rails",
+      "name": "Ruby on Rails",
+      "offersBounties": false,
+      "assets": [
+        "https://github.com/rails/rails"
+      ],
+      "exclusions": [
+        "*.rubyonrails.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rails-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rails",
+  "name": "Ruby on Rails",
+  "url": "https://hackerone.com/rails",
+  "policy": "Rails is used to power some of the most important sites on the web and its increasing popularity has made it a critical piece of internet infrastructure. If you've found a security bug that could potentially impact the security of these sites, you have our thanks and might be eligible for a cash reward.\n\n## General eligibility\n\nThe scope of the Rails project's HackerOne program is limited to the source code under https://github.com/rails. Please take a look at [our scope page](https://hackerone.com/rails/policy_scopes).\n\n### Out of scope\n\nSome types of issues are out of scope, and may be closed as N/A if a report is opened:\n\n- Regular expression denial of service attacks (ReDOS)\n  - Ruby 3.2's [Regexp.timeout](https://docs.ruby-lang.org/en/master/Regexp.html#method-c-timeout-3D) allows Rails to mitigate these types of attacks.\n- Obviously unsafe sanitizer configurations, such as allowing a default-disallowed tag and/or attribute that is documented to allow javascript\n  - Out-of-scope tags include (but are not limited to) `iframe`, `embed`, `frame`, `frameset`, and `form`.\n  - Out-of-scope attributes include (but are not limited to) `onload`, `animate`, `onfocus`, and `srcdoc`.\n  - Complex combinations of disallowed tags and attributes _may_ be eligible but will be evaluated on a case-by-case basis and will be closed if we deem the combination to be unlikely or obviously insecure.\n\nIn addition, HackerOne's [Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings) are out of scope and will be closed as N/A.\n\n## Bounty Qualification\n\nAs of March 27, 2026 the Internet Bug Bounty (IBB) is no longer accepting new submissions. This means that any vulnerabilities submitted from that date forward are not eligible for a bounty.\n\nYou can learn more about how to contribute to Ruby on Rails [here](https://guides.rubyonrails.org/contributing_to_ruby_on_rails.html#contributing-to-the-rails-code).\n\n## Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/rails/rails",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rubyonrails.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

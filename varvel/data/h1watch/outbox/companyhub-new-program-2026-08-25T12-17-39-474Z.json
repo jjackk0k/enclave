@@ -1,0 +1,54 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "companyhub",
+      "name": "CompanyHub",
+      "offersBounties": false,
+      "assets": [
+        "*.companyhub.com",
+        "com.companyhub.crm"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\companyhub-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "companyhub",
+  "name": "CompanyHub",
+  "url": "https://hackerone.com/companyhub",
+  "policy": "# Introduction\r\n\r\nThe information on this page is intended for security researchers interested in responsibly reporting security vulnerabilities to the CompanyHub security team.\r\n\r\nSecurity requires transformation and there is no better way to transform a security program than to engage directly with our customers and users. It is that engagement, along with a strong belief in the collaboration with the security community, that is the key to maintaining a secure environment for all of our users. If you believe you've discovered a security vulnerability on or within CompanyHub, we strongly encourage you to inform us as quickly as possible. We ask that such vulnerability reports be kept private and researchers not make those public until we have resolved the issue.\r\n\r\nIn return, we will work to review reports and respond in a timely manner. We will invite you to our disclosure program at Hackerone, to triage your submission. CompanyHub will not seek judicial or law enforcement remedies against you for identifying security issues, so long as you (1) comply with the policies set forth herein; (2) comply with Hackerone’s Standard Disclosure Terms; (3) do not compromise the safety or privacy of our users; and (4) do not destroy any sensitive data you might have gathered from CompanyHub as part of your research once issues are resolved.\r\n\r\nThanks for your help!\r\n\r\n# Committed to Co-ordination\r\nCompanyHub believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you have information related to security vulnerabilities of CompanyHub, we want to hear from you. Please submit a report in accordance with the guidelines below.We value the positive impact of your work and thank you in advance for your contribution.\r\n\r\n# Guidelines\r\nCompanyHub agrees to not pursue civil claims against researchers related to the disclosures submitted through this website who:\r\n\r\n* do not cause harm to CompanyHub, our customers, or others;\r\n* provide a detailed summary of the vulnerability, including the target, steps, tools, and artifacts used during discovery (the detailed summary will allow us to reproduce the vulnerability);\r\n* do not compromise the privacy or safety of our customers and the operation of our services. Specifically;contact us immediately if you inadvertently encounter user data;\r\n* do not view, alter, save, store, transfer, or otherwise access the data, and immediately purge any local information upon reporting the vulnerability to CompanyHub;\r\n* act in good faith to avoid privacy violations, destruction of data, and interruption or degradation of our services (including denial of service);\r\n* comply with all applicable laws;\r\n* do not violate any other law (other than those that would result only in claims by CompanyHub), or disrupt or compromise any data that is not their own;\r\n* publicly disclose vulnerability details only after CompanyHub confirms completed remediation of the vulnerability and not publicly disclose vulnerability details if there is no completion date or completion cannot be ascertained;\r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Reports from automated tools or scans \r\n* Issues without clearly identified security impact (such as clickjacking on a static website), missing security headers, or descriptive error messages\r\n* Missing best practices, information disclosures, use of a known-vulnerable libraries or descriptive / verbose / unique error pages (without substantive information indicating exploitability)\r\n* Speculative reports about theoretical damage without concrete evidence or some substantive information indicating exploitability\r\n* Forms missing CSRF tokens without evidence of the actual CSRF vulnerability\r\n* Self-exploitation (e.g., cookie reuse)\r\n* Reports of insecure SSL / TLS ciphers (unless you have a working proof of concept, and not just a report from a scanner such as SSL Labs)\r\n* Our policies on presence/absence of SPF / DMARC records\r\n* Password complexity requirements, account/e-mail enumeration, or any report that discusses how you can learn whether a given username or email address has a CompanyHub-related account\r\n* Missing security-related HTTP headers which do not lead directly to a vulnerability\r\n* Self Cross-site Scripting vulnerabilities without evidence on how the vulnerability can be used to attack another user\r\n* Social engineering of CompanyHub-related employees or contractors\r\n* Any physical attempt against CompanyHub-related property or data center\r\n* Presence of autocomplete attribute on web forms\r\n* Missing secure cookie flags on non-sensitive cookies\r\n* Denial of Service Attacks\r\n* Banner identification issues (e.g., identifying what web server version is used)\r\n* Open ports which do not lead directly to a vulnerability\r\n* Open redirect vulnerabilities\r\n* Publicly accessible login panels\r\n* Clickjacking\r\n* Content spoofing / text injection\r\n\r\n#Terms and Conditions\r\n\r\n* Please use your own account for testing or research purposes. Do not attempt to gain access to another user’s account or confidential information.\r\n* Please do not test for spam, social engineering or denial of service issues.\r\n* Your testing must not violate any law, or disrupt or compromise any data that is not your own.\r\n* Please contact support@companyhub.com to report security incidents such as customer data leakage or breach of infrastructure.\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy and and HackerOne’s policies regarding this vulnerability disclosure program will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nBy clicking Submit Report, you consent to Your Information being transferred to and stored in the United States and acknowledge that you have read and accepted the Terms, Privacy Policy and Disclosure Guidelines presented to you when you created your account.\r\n\r\nThank you for helping keep CompanyHub and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.companyhub.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All app related issues fit in this. The exclusions are any other domains than accounts, t & user subdomain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.companyhub.crm",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "com.companyhub.crm",
+      "asset_type": "OTHER_IPA",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    }
+  ]
+}

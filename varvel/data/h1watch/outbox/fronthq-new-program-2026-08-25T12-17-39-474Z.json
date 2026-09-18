@@ -1,0 +1,82 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fronthq",
+      "name": "Front",
+      "offersBounties": true,
+      "assets": [
+        "Front for Mac",
+        "Front for Windows",
+        "api2.frontapp.com",
+        "app.frontapp.com",
+        "com.frontapp.mobile"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fronthq-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fronthq",
+  "name": "Front",
+  "url": "https://hackerone.com/fronthq",
+  "policy": "**Front** is a customer operations platform used by over 8,000 teams to streamline communication.\nIt combines the efficiency of a help desk and the familiarity of email so teams can deliver exceptional service at scale.\nSee [here](https://front.com/product) for a quick overview of our product!\n\nOur customers trust us with their private communications, and we are especially interested in reports of vulnerabilities that would disclose cross-company/cross-tenant data.\n\n# Program Rules\n1. By submitting reports or otherwise participating in this program, you agree that you have read and understand our bug bounty policies. Violation may result in ineligibility for bounty payout and/or removal from our program.\n2. Do not disclose information about vulnerabilities you discover publicly, or to any 3rd party without prior written authorization from Front. This includes not uploading or storing evidence or information about your findings on external platforms outside of your report on HackerOne (e.g. exploit videos on YouTube).\n3. Only test on accounts you own, or accounts you have permission from the owner to test on.\n4. If sensitive or private data is found, do not store, transfer, process, or otherwise retain any copy or information derived from the data for other purposes than reporting your finding to us. \n5. Do not engage in disruptive or damaging activities that would affect Front or otherwise degrade service to our customers.\n    1. Do not download/modify customer data or otherwise interact with Front's customers. For example, posting comments/messages in customer accounts.\n    2. This includes phishing/social engineering attacks, physical security breaches, spamming, and general resource exhaustion/denial of service attacks.\n    3. Please be aware that your access may be blocked without advance warning or explanation if such activity is detected.\n    4. When in doubt, report your findings and request additional permission to continue testing.\n6. **DO  NOT** test any website that is out of scope or not listed in assets.\n7. We will accept and reward credential reports exclusively for instances where valid and previously unknown Front.com employee credentials are found. Submissions must include the source of the leaked credentials, and hackers are strictly prohibited from testing credential validity. We will no longer be accepting credential reports for non-front.com credentials. If credentials (e.g. username & password files, urls containing tokens) are found on 3rd party web sites, please report them to us but do not attempt to validate them by logging in or accessing a URL. Delete any artifacts after submitting a report to us. \nCredentials should be submitted in 1 CSV file in the following format:\n```\nemail,password\nvictim@example.com,password123\n```\n\nWe reserve the right to modify the terms of our program at any time without notice.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n# How to Test\n1. Sign up for an account here: [https://front.com/signup?affiliate=partners](https://front.com/signup?affiliate=partners) \n2. Ensure that you include the `[Bug Bounty] SomeCompanyName` pattern as a company name and that you use your `@wearehackerone.com` alias email address. Any accounts that don't adhere to this will be terminated without prior notice.\n3. **DO NOT** test any website that is out of scope or not listed in assets.\n\n- [API Documentation](https://dev.frontapp.com/)\n- [Changelog](https://changelog.frontapp.com/)\n- [Product Roadmap](https://portal.productboard.com/gf59pkqrbumehmcn7ueixwbu/tabs/3-released)\n\nTo learn more about how Front is used, check out [Front Academy](https://academy.front.com/app)! \n\n# Rewards\n\nThe following table is a guide for how we determine the severity of a vulnerability, assuming no mitigating factors:\n\n| **Vulnerability**                                          | **Severity** |\n| ------------------------------------------------------------------------------------------------------------------- | -------- |\n| Server-side RCE on core Front application                                                                                                                                                                                     | Critical   |\n| Cross-company full message/discussion disclosure                                                                                                                                                               | Critical   |\n| Message/Discussion disclosure of personal inbox of any user of attacker’s choice with no/unprivileged credentials            | Critical   |\n| Client-side RCE without user interaction                                                                                                                                                                                         | High         |\n| XSS exploitable by an external party                                                                                                                                                                                                    | High         |\n| Cross-company sensitive data disclosure  (non-message/discussion)                                                                                                                     | High         |\n| Low privilege user able to execute sensitive admin actions through API (e.g. granting/revoking access)                                                                     | High         |\n| Intra-company XSS against another teammate                                                                                                                                                                          | Medium |\n| Low-privilege user able to view sensitive admin-only data (e.g. message snippets)                                                                                        | Medium |\n| Client-side denial of service (e.g. HTML message rendering bugs) without workaround                                                                              | Medium |\n| Low-privilege user able to execute non-sensitive admin actions (please read **Non-sensitive API Data** section below)                                                                                                                                   | Low   |\n| Low-privilege user able to view non- sensitive admin-only data  (please read **Non-sensitive API Data** section below)                                                                                                                                  | Low  |\n| XSS with high user interaction                                                                                                                                                                                                                  | Low        |\n| Credentials found on 3rd party sites                                                                                                                                                                                                                 | Low        |\n\nFinal determination of severity and payout is at the discretion of Front.\n- We may choose to increase bounties for well-written reports providing more details and evidence of impact.\n- Similarly, bounties may be decreased for reports of vulnerabilities with mitigating factors or requiring complex interaction or additional contingencies to exploit.\n\nReports of vulnerabilities in third-party or vendor services are not eligible for bounties, although we may choose to award a token payout for the information at our discretion.\n\nIf you find a vulnerability in an asset owned by Front but not explicitly mentioned in our program scope, please report it and we will consider its addition to our program.\n\n# Bounty Eligibility Clarification\n**All  cross-company/cross-tenant access is of security concern** to us.\nBelow clarifies what we consider to be intra-company security issues.\n\n**Global Admin Access**\nAs a general rule, we believe companies own their Front data, and Global Admins are expected to have high levels of access to this data **(including even reading another teammate’s personal message)**.\n- This is also true of Workspace Admins and teammates in that workspace.\n- However, we would not expect a non-privileged teammate to be able to read personal messages of others.\n \n**Non-sensitive API Data**\nIt is common and expected for an API to return information that is not necessarily available in the UI, and this may not constitute a security issue. Here are some examples:\n- Within a company, all teammates are visible to all. This includes teammates in different workspaces, invited teammates, as well as teammates who have left the company.\n- Within a company, all inboxes' metadata are visible to all. This includes \"private\" inboxes and deleted inboxes.\n- Within a company, all channels associated with any inbox are visible to all. This includes channels attached to private inboxes.\n- Within a company, rules, macros, and workflows may be visible to teammates who cannot modify them.\n- Forwarding addresses\n\nWhile the above may be surprising, this is currently how our product works. We do not consider these a security issue.\n\n**Teammate Configuration Data**\nTeammates are expected to be able to view (not modify) another’s configuration data (e.g. vacation settings), even if the victim teammate has left the company.\n\n**Topics**\nTopics, also known as links (e.g. from Asana, Todoist integrations), are a separate feature from Tags, and do not have user-defined access control. Anyone within a company can add/edit/remove topics from a conversation.\n\n**Plugins**\nPlease do not report Admins adding unapproved malicious plugins to attack their own company’s teammates.\n\n# Non-qualifying Reports\nPlease do not report the following:\n- Missing security best practices, HTTP(S) security headers, DNS or SSL/TLS or server configs without proof of exploit\n- Use of 3rd-party library/package/middleware with known vulnerability without proof of exploit\n- Content spoofing/text injection without showing attack vector\n- Clickjacking on pages with no sensitive actions\n- Login CSRF\n- Missing CSRF tokens without proof of exploit\n- Physical/Social engineering (e.g. phishing, vishing, smishing, spoof/impersonation) attacks, whether on Front staff or other victim accounts\n- Automated scan results\n- Attacks requiring MITM or physical access to a user's device\n - Comma Separated Values (CSV) injection without proof of exploit\n- Insufficient/Missing password strength policy\n- Self-XSS (non persisted)\n- Accessing features outside of plan\n- Bypassing plan limits to invite extra teammates\n- Spam",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.frontapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api2.frontapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This scope is our public API documented at https://dev.frontapp.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.frontapp.mobile",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/frontapp/id983808769",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.frontapp.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.frontapp.mobile",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Front for Mac",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download here: https://front.com/download",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Front for Windows",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download here: https://front.com/download",
+      "max_severity": "high"
+    }
+  ]
+}

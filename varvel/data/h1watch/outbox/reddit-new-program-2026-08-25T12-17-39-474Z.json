@@ -1,0 +1,255 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "reddit",
+      "name": "Reddit",
+      "offersBounties": true,
+      "assets": [
+        "*.reddit.com",
+        "*.redditblog.com",
+        "*.reddithelp.com",
+        "*.redditinc.com",
+        "*.redditmedia.com",
+        "*.snooguts.net",
+        "*.spiketrap.io",
+        "Android App",
+        "Core Assets",
+        "accounts.reddit.com",
+        "ads.reddit.com",
+        "amp.reddit.com",
+        "api.reddit.com",
+        "gateway.reddit.com",
+        "gql.reddit.com",
+        "iOS App",
+        "m.reddit.com",
+        "matrix.redditspace.com",
+        "meta-api.reddit.com",
+        "mod.reddit.com",
+        "new.reddit.com",
+        "redditforbusiness.com",
+        "sh.reddit.com",
+        "strapi.reddit.com"
+      ],
+      "exclusions": [
+        "reddit.secure.force.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate-limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\reddit-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "reddit",
+  "name": "Reddit",
+  "url": "https://hackerone.com/reddit",
+  "policy": "# Reddit Policy\n\n## Program Terms\n\nReddit's responsible disclosure and bug bounty program is focused on protecting our users' private data, accounts, and identities. The vast majority of data posted to Reddit every day is intended to be public, however Reddit does host private data including messages, chats, voting records for accounts without the public voting option enabled, subreddit subscriptions (when tied to a user), and (optional) email addresses.\n\nIn addition to user posted content, it is important that Reddit maintain the confidentiality of user identities and the integrity of discussions in Reddit's communities and private spaces. It is with these things in mind that Reddit evaluates the impact and severity of each reported vulnerability.\n\nThe scope for Reddit's program includes most of our assets---if it's not explicitly out-of-scope, and has meaningful security impact, it's fair game. This includes all subdomains of reddit.com and snooguts.net.\n\n## Good Faith\n\nTo be eligible to participate in Reddit's bug bounty program we ask that all hackers act in good faith, which means:\n\n- Don't try to access other users' accounts or data --- respect their privacy.\n- Don't publicly disclose a vulnerability without Reddit's explicit consent.\n- Don't discuss vulnerability details with anyone other than Reddit staff before we can patch the vulnerability.\n- Don't leverage internal access to continue testing. For example, if you have gained remote command execution on a server do not use that access to start scanning or exploring our internal systems. We will assess what, if anything, you could pivot to from your initial report and assess the impact based on that, even if you don't identify the possibility yourself.\n- Don't upload rootkits, malware, or otherwise go beyond what is necessary to prove a vulnerability exists.\n- Don't leave systems in a more vulnerable state.\n- Don't take any action that could impact the performance or availability of Reddit.\n- Don't make copies of Reddit's private production data as \"proof\". The report should suffice as proof of impact.\n- Be respectful of our team.\n\nFailure to follow these rules will result in your reports being ineligible for bounty awards.\n\n## Eligibility to Participate\n\n- Must abide by Reddit's User Agreement if testing with a Reddit account.\n- Must utilize HackerOne platform for all submissions to receive any payout, thereby abiding by HackerOne's terms of service and privacy policy.\n- Reddit employees, contractors who are currently working with Reddit, or have worked with Reddit in the previous 6 months, or immediate family members of either are not eligible for bug bounties.\n\n## Report Quality\n\nReports are expected to be thorough and contain enough information that Reddit's security team can easily duplicate any findings. If specially crafted files are required they should be submitted as attachments. Screenshots and Test account IDs are encouraged while videos are discouraged, unless necessary.\n\nReports are welcome for issues that cannot be proven but still suggest a serious impact. We trust reporters to make that determination and will assist in clarifying impact and adjusting the severity as needed. It is better to report a vulnerability early while we help determine the impact rather than waiting days or weeks to create proof.\n\nTesting Guidelines\n\nWe encourage the use of [HackerOne email](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias) aliases `<username>@wearehackerone.com` when creating Reddit accounts for testing purposes. This will help differentiate your testing activities from regular traffic.\n\n## Severity Determination\n\nReddit determines the severity of issues based on the asset's criticality, the impact of the issue, and data sensitivity. Reddit will categorize valid submissions in one of the following categories at its sole discretion. Vulnerabilities are primarily rated by their impact on the confidentiality of private data and safety using the Reddit platform.\n\n### Critical\n\nCritical severity vulnerabilities are those that result in the bulk compromise of user data such as password hashes, private messages, private chats, and email addresses, the ability to bypass authentication and gain access to targeted accounts, or compromise of Reddit infrastructure.\n\nExamples of critical severity vulnerabilities include:\n\n- Remote Command Execution (RCE)\n- SQL Injection (SQLi)\n- Authentication bypass resulting in access to a user's account and private data.\n- Access to production secrets such as access tokens that can be used to copy sensitive data.\n- Unauthorized elevation of a regular Reddit account to admin privileges.\n- Authentication bypass that exposes payment information and payment limits of Reddit Ads clients.\n- Reddit's private financial information, like future quarterly reports and company deals.\n- Authentication bypass resulting in unlimited access to Reddit Awards.\n\n### High\n\nHigh severity vulnerabilities are those that allow impersonating other users or bypassing authorization to gain access to private groups or subreddits.\n\nExamples of high severity vulnerabilities include:\n\n- Cross-site Scripting (XSS), that bypasses our Content Security Policy (CSP), on reddit.com and ads.reddit.com.\n- Bypassing authorization to read or post to private subreddits.\n- Cross-site Request Forgery (CSRF) or similar attacks provided they result in access to another user's account or data.\n- Bypassing two-factor authentication (2FA) in the Reddit application.\n- The ability to assign arbitrary users as moderators to existing subreddits or taking moderator actions without appropriate permissions.\n- Performing limited admin actions without authorization.\n- Ability to identify real users who are using Anonymous Browsing Mode (ABM) in native apps.\n\n### Medium\n\nMedium severity vulnerabilities allow an attacker to conduct actions on behalf of another user without their permission, or access to less sensitive information.\n\nExamples of medium severity vulnerabilities include:\n\n- Cross-site Scripting (XSS) without a CSP bypass.\n- Cross-site Request Forgery (CSRF) or similar attacks to make a user take an authenticated action they didn\\'t intend, such as subscribing or unsubscribing to subreddits or voting on posts/comments.\n- Disclosing the titles of posts or the usernames of all members in private subreddits.\n- A mod performing an action they don't have permissions for with larger impact (Removing a moderator from a subreddit where you are not a moderator with \"access\" permissions, removing users, etc)\n- Unbanning a user that has been banned from a subreddit without appropriate permissions.\n- Cache Poisoning.\n- Server-side Request Forgery (SSRF), with sensitive data exposure.\n- Open Redirects on in-scope domains.\n- LLM prompt injection with sensitive data exposure.\n\n### Low\n\nLow severity vulnerabilities are typically vulnerabilities that allow a user to do something they shouldn\\'t, but with limited security implications.\n\nExamples of low severity vulnerabilities include:\n\n- Self-XSS\n- A mod doing performing an action they don't have permissions for, but with limited risk/impact to the subreddit (changing wiki settings, etc)\n- Forcing users to use, or not use, the redesign or other early-access features.\n- Password brute-forcing that circumvents rate limiting.\n- Functionality or features that are accessible through the API but not available via the UI, which have security implications.\n- Functionality that is either undocumented or functions differently from its documentation, with a security impact.\n- Server-side Request Forgery (SSRF), without sensitive data exposure.\n- Open redirects in non-core assets.\n\n## Rewards by Severity\n\nWe will determine rewards for reports based on the **criticality of the asset, the impact of the issue, and the sensitivity of any leaked data**. Each report will be evaluated individually by our security team. We may offer higher rewards for unique, hard-to-discover bugs. We may also pay less for bugs with complex prerequisites that lower risk of exploitation.\n\n## Out-of-Scope\n\nWe generally do not accept logic bugs unless they result in the disclosure of security information or financial data, escalate privileges, or cause disruption to our services.\n\n### Reddit specific\n- Security issues on third-party hosted event properties operated for Reddit, such as modevents.reddit.com, are out of scope when the issue is confined to the third-party application and requires remediation by the provider rather than Reddit. However if they directly impact Reddit accounts, Reddit authentication, Reddit sessions, or non-public Reddit user data then we want to know.\n- Bypassing domain restrictions on posted content, unless it chains into real security impact (XSS, SSRF, etc).\n-  Suspended/banned/deleted accounts taking actions they still have permissions for (e.g., a suspended mod performing a mod action they already have perms for) unless it chains into real security impact like privilege escalation, impersonation, or access to data/permissions they don't legitimately hold.\n- LLM/Snoo prompt injection or system-prompt exposure without sensitive data exposure.\n- Web cache poisoning on any of our domains that host Zendesk or HubSpot content (redditinc.com, reddithelp.com, etc)\n- Mobile app hardcoded secrets that are Sentry, Twitter, Crashlytics, Firebase, or Branch. On Dubsmash, the Kinesis AWS key is out of scope as it's non-vulnerable.\n- Functionality available through the API but not present in the UI, without any impact on security.\n- Commenting on removed / deleted posts (explicitly allowed unless a post is locked).\n- Enabling predictions/tournaments on subreddits for communities which are not qualified to the above 10000 subscribers.\n- https://*.reddit.com/etc/passwd.\n- Sessions not being invalidated on logout (they are invalidated on password change, 2FA being enabled, etc.).\n- Bypassing rate-limits or the non-existence of rate-limits that have no platform impact. Example: <https://vpn.snooguts.net/login>.\n- Exposure of internal domains on public domains.\n- Enabling a setting early but not being able to use the early feature in practice.\n- Reddit.com password length issue (Reddit uses bcrypt which is capped at 72 characters) [https://hackerone.com/reports/1168804](https://hackerone.com/reports/1168804).\n\n### Reddit agnostic\n\n- Attacks requiring physical access to, root privileges on, or MITM of a user's device.\n- Account Oracles - the ability to determine if an email address or username is in use.\n- Attacks targeting outdated browsers or browsers other than Firefox, Chrome, or Safari.\n- Insecure cookie settings / flags on non-login cookies.\n- Missing HTTP security headers (CSP, HSTS, etc.).\n- Weak SSL/TLS/SSH algorithms or protocols.\n- Lack of certificate pinning (improper certificate validation still eligible)\n- CSRF with no security impact (unauthenticated/logout/login CSRF).\n- Best practices violations (password complexity, expiration, re-use, etc.).\n- Clickjacking on pages with no sensitive actions.\n- Component version disclosure without accompanying proof of vulnerability.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- 0-days in open source / vendor products - give us a chance to fix it on our own, if we missed it then it's fair game.\n- Disclosure of internal tracebacks (unless sensitive environment data is also leaked).\n- Comma Separated Values (CSV) injection.\n- Reflected file download.\n- Content spoofing and text injection issues without being able to modify HTML/CSS.\n- Re-usage of passwords from public dumps.\n- Homograph links.\n- Mobile app crashes.\n- Tabnabbing / window.origin not being cleared on new tabs or windows.\n- Deep links for Android missing autoVerify=true due to current Google limitation with AMP (may change in future).\n- XSS from copying/pasting in code into DevConsole or the like.\n- LLM Model Hallucinations.\n- Security issues with SaaS applications that require fixes from the SaaS provider, rather than Reddit configurations, should be reported directly to the respective SaaS provider.\n\n## Denial of service attacks\n\nReddit does not allow denial of service attacks, and they are considered out of scope for our bug bounty program. This includes any attack that is designed to disrupt or disable the normal operation of our website or services.\n\n## In-scope domains (inclusive of all subdomains)\n\nCheck the Scope tab.\n\n## Out-of-scope domains\n\n- spell.ml.\n- [www.meaningcloud.com](http://www.meaningcloud.com).\n- Any SaaS or other service provider domains that are not mentioned in the Scope tab.\n\nIf you think it's something owned by Reddit, you can send it along - we'll decide if it's out-of-scope.\n\n## Confidentiality\n\nAny information you receive or collect about Reddit, Reddit's systems, or any of our users, employees, or agents in connection with the Bug Bounty Program (\"Confidential Information\") must be kept confidential and only used in connection with the Bug Bounty Program. You may not use, disclose, or distribute any such Confidential Information, including without limitation any information regarding your Submission, without our prior written consent. You must get written consent by submitting a disclosure request through the HackerOne platform. Please note, not all requests for public disclosure can be approved.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "new.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nThe Reddit redesign. Follow the same rules as `www.reddit.com`.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.redditinc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]\nVendor hosted and managed CMS for corporate / marketing site. It is domain whitelisted for reddit.com functionality so if you can string an attack together with reddit.com then this becomes super interesting.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.redditblog.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.reddithelp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "api.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nThe Reddit API is used for programmatic access. Please use your own test accounts and do not try to access the private data of other users/mods/admins or Reddit employees. Authentication ([OAUTH](https://github.com/reddit-archive/reddit/wiki/OAuth2)) and authorization are especially imp",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mod.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nThe Reddit modmail interface is used by moderators to take moderator actions and view reports. Please test against your own subreddits and not those belonging to other users/mods/admins.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ads.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gql.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nGraphQL implementation for Reddit accessing all our internal things requiring OAuth.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nAuthentication / authorization service for reddit.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gateway.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nFrontdoor service that handles dispensation to backend microservices. Relies on oauth authentication",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "strapi.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nOur streaming api.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nMobile webapp (we call mweb) for Reddit. Use a mobile UA to access. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "amp.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nThis service houses our AMP generated pages for search engine optimization. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "meta-api.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nHouses Reddit's smart contracts based on Ethereum, which is called Community Points and ties in with the Vault functionality within Reddit's official mobile apps.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.snooguts.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\nThis is our internal domain for \"intranet\" related services. Accessible to the internet should be either 1) an OAuth proxy that gates access to backend services (SCM, admin tooling, CI/CD, etc.) or 2) k8s public ingresses. \n\nThis domain isn't necessarily \"private\" so leaking the domain ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "reddit.secure.force.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "[Non-core asset]\nReddit maintains a SFDC tenant for customer management for our advertisers. SFDC bugs aren't eligible for payout, but misconfigurations that are Reddit's responsibility are. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.redditmedia.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "sh.reddit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.reddit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "redditforbusiness.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]\nThird party hosted CMS platform on WebFlow",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "matrix.redditspace.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.spiketrap.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Android App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "iOS App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Core Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

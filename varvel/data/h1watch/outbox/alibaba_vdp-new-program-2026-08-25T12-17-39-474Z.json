@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "alibaba_vdp",
+      "name": "Alibaba VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.1688.com",
+        "*.alibaba-inc.com",
+        "*.alibaba.com",
+        "*.alibabagroup.com",
+        "*.alibabapictures.com",
+        "*.aliexpress.com",
+        "*.aligames.com",
+        "*.alimama.com",
+        "*.alios.cn",
+        "*.alisports.com",
+        "*.aliyun.com",
+        "*.cainiao.com",
+        "*.damai.cn",
+        "*.dingtalk.com",
+        "*.fliggy.com",
+        "*.shuqi.com",
+        "*.shuqireader.com",
+        "*.sm.cn",
+        "*.taobao.com",
+        "*.tmall.com",
+        "*.tudou.com",
+        "*.uc.cn",
+        "*.ucweb.com",
+        "*.youku.com",
+        "www.lazada.*sixcountry"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\alibaba_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "alibaba_vdp",
+  "name": "Alibaba VDP",
+  "url": "https://hackerone.com/alibaba_vdp",
+  "policy": "# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Access\nResearchers are free to create their own seller, buyer, etc., accounts on the in-scope applications. No credentials or privileged access will be provided by Alibaba, so accounts are limited to what users can create on their own.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Scope\nOnly listed targets are in scope. Other domains/assets owned by Alibaba but not listed, are not in scope.\n\n## _Things to note about the Scope_\n\n** Most of our assets have a bypass honeypot system that detects all suspected attack behaviors and randomly spoofs them. There is a high possibility the \"vulnerability\" you find may be the result of a honeypot spoof. This includes: RCE, XXE, SQL Injection, SSRF, Arbitrary file reading, sensitive file/conetent leakage, and so on.**\n\n**Please note that if an IP belongs to Alibaba Cloud external customer, it's not in scope.**\nIf an IP's description contains 'Alicloud' or 'Aliyun' in the search result here: http://wq.apnic.net/static/search.html, there is a high chance this IP belongs to our external Alibaba Cloud external customer, which is not in scope. But please note that this is only a reference, not a hard and fast rule. Unless you are absolutely sure that the IP is within the program scope, do not make any testing on it.\n\n**Vulnerabilities in:**\n*.anydomain.com|cn/[*/]login.htm *.anydomain.com|cn/[*/]mini[*]login.htm\n*.anydomain.com|cn/[*/]icbu[*]login.htm\nor patterns like above URLs,\nwill consider as only ONE valid report because of the same back-end service. Also, vulnerabilities on different params of the same URL are consider as ONE valid report.\nSame vulnerabilities on different country sites are consider as ONE valid report.\n\n**Aliyuncs.com**\nFront-end vulnerabilities on aliyuncs.com is not a 'trust' domain in our business. So the XSS, CSRF, Open Redirection etc. are not in scope. But server-end vulnerabilities are in scope.\n\n**RCE**\nRCE on  non-production environment, such as a cloud server, will no higher than High severity.\nRCE on test environment, such as testing webservers, demo sites, etc., will no higher than Medium severity.  (We have many testing severs running online, those server are used only for testing purpose. RCE on those servers dosen't have significant impact.)\n\n**Stored XSS**\nOnly stored XSS (without user interaction) on main shop page, item detail page or chatting page (buyer to Seller) can be High severity, all other kinds of stored XSS will be no higher than Medium severity.\n**Please note that following type vulnerabilities severity will not be assessed higher than Medium severity:**\nVulnerabilities that requires user visit certain URL or attacker controlled URL, for example:\n\n* Reflected XSS\n* Stored XSS that need to visit certain URL or need a user interaction\n* CSRF\n* CORS\n* Jsonp Hijacking\n* OAuth Hijacking\n* Privilege Escalation\n* Unused or abandoned subdomain takeover\n* Arbitrary file upload that only leads to Stored XSS etc.\n\n**Assessment Guidelines for SSRF Vulnerability Severity**\nAlibaba has identified four main types of SSRF for its businesses: \n1.SSRF on Production Network Services\n2.Blind SSRF on Production Network Services\n3.SSRF on Cloud Server\n4.Blind SSRF on Cloud Server\n\nPlease note that the severity of SSRFs may range from low to critical. \n\n**Open source project of Alibaba**\nOpen source project of Alibaba and Aliyun on Github is NOT in this program's scope. \n\n\n# Out of scope vulnerabilities\nThe following finding types are specifically excluded: \n* Vulnerabilities affecting users of outdated browsers or platforms\n* Account brute force\n* Account takeover via CSRF/OAUTH etc.\n* CRLF\n* Self-XSS\n* Flash-based XSS\n* Tabnabbing\n* Email Spoof\n* Session fixation\n* Cache Poisoning\n* Content Spoofing\n* Supplychain attack\n* Credential Leakage\n* Missing cookie flags\n* Best practices/issues\n* HTML content injection\n* Mixed content warnings\n* Clickjacking/UI redressing\n* HTTPS/SSL/TLS Related Issues\n* Physical or social engineering attacks\n* Reflected file download attacks (RFD)\n* Issues that require unlikely user interaction\n* Login/logout/unauthenticated/low-impact CSRF\n* Unverified Results of automated tools or scanners\n* No SPF/DMARC in non-email domains/subdomains\n* Attacks requiring MITM or physical access to a user's device\n* Issues related to networking protocols or industry standards\n* Carriage Return Line Feed injection without direct impact (CRLF)\n* Error information disclosure that cannot be used to make a direct attack\n* Missing security-related HTTP headers which do not lead directly to a vulnerability\n* Reports of credentials exposed by other data breaches / known credential lists\n\n\nThank you for helping keep Alibaba VDP and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.1688.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alibaba-inc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alibaba.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alibabagroup.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alibabapictures.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliexpress.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aligames.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alimama.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alios.cn",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alisports.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliyun.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cainiao.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.damai.cn",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.dingtalk.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fliggy.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.shuqi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.shuqireader.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sm.cn",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.taobao.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tmall.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tudou.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.uc.cn",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ucweb.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.youku.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.lazada.*sixcountry",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "smule",
+      "name": "Smule",
+      "offersBounties": false,
+      "assets": [
+        "*.smule.com",
+        "com.smule.autorap.*",
+        "com.smule.magicpiano.*",
+        "com.smule.sing.*",
+        "com.smule.singandroid.*"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\smule-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "smule",
+  "name": "Smule",
+  "url": "https://hackerone.com/smule",
+  "policy": "Smule welcomes working with the security community to resolve security vulnerabilities in order to keep our customers safe! We will make a best effort to respond to incoming reports and keep you informed about our progress toward resolving any issues.\r\n\r\n# Vulnerability Disclosure\r\n* If you have identified a potential security vulnerability in our technology, please submit us a detailed report with reproducible steps.\r\n* Follow HackerOne's [disclosure guidelines](https://hackerone.com/disclosure-guidelines).\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Scope\r\nAny production public-facing website owned & operated by Smule. Any application published on the Apple App Store or Google Play Store published by Smule.\r\n\r\n# Restrictions & Exclusions\r\n**The use of automated scanning against the web or API are strictly prohibited and will result in IP bans along with rejection of any findings**\r\n\r\nThe following issues fall outside the scope of our VDP:\r\n* No Social engineering attacks (e.g. phishing, vishing, smishing) \r\n* No physical attacks of Smule’s office or data centers are permitted\r\n* No Denial-of-Service attacks\r\n* Brute force attacks\r\n* No beta or other pre-production/testing environments\r\n* No 3rd party party hosted applications (ex: status pages, customer support systems)\r\n* Outdated TLS configurations which remain to support legacy Android\r\n* Clickjacking attacks without a documented series of clicks that produce a vulnerability\r\n* Email (including SPF/DKIM/DMARC)\r\n* Missing HTTP headers, unless a vulnerability can be demonstrated\r\n* Assumed vulnerabilities based upon version numbers only\r\n* Insecure cookie settings for non-sensitive cookies\r\n* Bugs requiring exceedingly unlikely user interaction\r\n* Smule reserves the right to make the final decision on the  classification of all vulnerability reports. We may mark reports as duplicate, non-applicable or otherwise, at our own discretion.\r\n\r\n# Rewards\r\n* We do not offer a bug bounty at this time, but certain vulnerabilities with a working proof of concept on some of our Android mobile app(s) may qualify for a bounty through the [Google Play Security Rewards Program](https://hackerone.com/googleplay). To see which apps and vulnerabilities may qualify for a bounty, please refer to the [Google Play Security Rewards Program’s Scope and Vulnerability Criteria](https://hackerone.com/googleplay).\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.smule.singandroid.*",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.smule.sing.*",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.smule.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.smule.magicpiano.*",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.smule.magicpiano.*",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.smule.autorap.*",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.smule.autorap.*",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

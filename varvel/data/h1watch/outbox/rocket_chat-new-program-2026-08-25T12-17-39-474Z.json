@@ -1,0 +1,74 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rocket_chat",
+      "name": "Rocket.Chat",
+      "offersBounties": false,
+      "assets": [
+        "cloud.rocket.chat",
+        "https://github.com/RocketChat/Rocket.Chat",
+        "https://github.com/RocketChat/Rocket.Chat.Electron",
+        "https://github.com/RocketChat/Rocket.Chat.ReactNative",
+        "rocket.chat"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rocket_chat-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rocket_chat",
+  "name": "Rocket.Chat",
+  "url": "https://hackerone.com/rocket_chat",
+  "policy": "#About  Rocket.Chat\r\n\r\nRocket.Chat is committed to delivering an awesome and secure chat solution for, and aided by, our community. Given the nature of chat, we understand each person using Rocket.Chat has some expectation about their data being secure and private. It's clear how important this is to everyone, and we work to the best of our abilities to ensure your expectations are met. If you believe you've found a security issue in our [apps](https://github.com/RocketChat/) and cloud environment, we encourage you to notify us. Our security team will respond to confirm receipt of your message, review and plan the mitigation of the issue appropriately, as well as set a timeline for a new release or patch.\r\n\r\n#Disclosure Policy\r\n\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. **Please do not conduct testing against Rocket.Chat demo or customers server** and do not use it to develop Proof-of-Concept code for submitting reports. **Please use your own Rocket.Chat installation** for screen captures, logs, and videos showing vulnerabilities.\r\n\r\n# How to make sure that we will triage accept your report\r\n* You must be the first reporter of a vulnerability associated with a participating service.\r\n* You must have personally discovered the vulnerability and you may not report a vulnerability that was discovered by another person.\r\n* You must not be employed by Rocket.Chat or any related entities, currently or in the last 12 months.\r\n\r\n**Provide as many relevant details as you can, in particular:**\r\n\r\n**1.** What versions of software are involved; Make sure to us the last version.\r\n**2.** What steps someone can follow to go from an initial installation of that software to a point where they see the vulnerability. \r\n**3.** Any patches or steps to mitigate the problem.\r\n**4.** Videos reproducing the issue or screenshots of each step.\r\n\r\nHere is an example of good report that we received: https://hackerone.com/reports/1446767.\r\n\r\n#Our Commitment to Researchers\r\n\r\nIf you submit a vulnerability report, the Rocket.Chat security team and associated development organizations will use reasonable efforts to:\r\n* Respond in a timely manner, acknowledging receipt of your vulnerability report.\r\n* Investigate and consider your vulnerability report for eligibility under our swags.\r\n* Notify you when the remediation or other action regarding the vulnerability has been implemented.\r\n\r\n**Our SLA to Researchers:**\r\n* First Response: 24 hours.\r\n* Triage: 1 - 2 weeks (Depending of complexity and backlog).\r\n* General Interactions: 2 days.\r\n* Time to close the vulnerability: Currently we’re evaluating our SLA and we will update as soon as we improve it.\r\n \r\n#Non-Qualifying Vulnerabilities (Out of Scope)\r\n\r\nWhile researching, we'd like to ask you to refrain from:\r\n\r\n* Vulnerabilities in the old version. Please, always test the last version.\r\n* Customers' workplace. Eg: {customer}.rocket.chat.\r\n* Denial of service that only affects yourself.\r\n* Distributed Denial of Service.\r\n* Spamming.\r\n* Unconfirmed reports from automated vulnerability scanners.\r\n* Rocket.Chat Community Server (https://open.rocket.chat).\r\n* Missing Security Headers (eg. HSTS, CSP).\r\n* Missing Secure Flags on Cookies.\r\n* SSL issues (weak ciphers/key-size/BEAST/CRIME).\r\n* CSRF without any security impact.\r\n* Rate Limiting (unless it constitutes a significant risk).\r\n* Email sending checks.\r\n* Social engineering (including phishing) of Rocket.Chat staff or contractors.\r\n* Any physical attempts against Rocket.Chat property or data centers.\r\n* Open Redirects without demonstrating additional security impact.\r\n* Self-XSS without a reasonable attack scenario.\r\n* Admin to Admin or Admin to User XSS. In these cases, a higher privileged user is attempting to attack the lower privileged user. As an admin, such script execution is considered a feature due to the nature of the platform.\r\n* Submissions regarding product deficiencies, as opposed to exploitable vulnerabilities.\r\n* XSS in our cloud file upload (AWS S3).\r\n* Bugs in content/services that are not owned/operated by Rocket.Chat.\r\n* Vulnerabilities affecting users of outdated or unsupported browsers or platforms.\r\n* Disclosure of known public files or directories, (e.g. robots.txt).\r\n\r\n#CVE Release Policy\r\n\r\n* We only release CVE for our products that resides in our [codebase](https://github.com/RocketChat/Rocket.Chat).\r\n* The CVE release is mandatory when the vulnerability is related to our apps.\r\n* The disclosure of the report is mandatory to ask the CVE.\r\n* We will disclosure the report as soon as we release the patches and close the vulnerability.\r\n* We don’t release CVE for dependencies and infra products that are not created by Rocket.Chat.\r\n* The CVE release process can take 30 - 60 days because of hackerone analysis and MITRE analysis.\r\n\r\n#Swag Policy\r\n\r\nWe currently give compensation to our researchers by sending them some really cool swags from Rocket.Chat depending on the severity of the vulnerability. Currently we’re only sending swags to **High** and **Critical** vulnerabilities.\r\n\r\n#Hall of Fame\r\n\r\nFor every vulnerability that we release a patch, we will insert your name in our Hall of Fame: https://docs.rocket.chat/contributors/how-can-i-help/security#whitehat-hall-of-fame.\r\n\r\n\r\n#Thank you\r\n\r\nRocket.Chat is very grateful for your help in responsibly disclosing vulnerabilities and keeping our users safe! If your work helps us improve the security of our service. \r\n\r\n\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "rocket.chat",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Today we're using a third-party company to host our rocket.chat static website but if you find anything that could compromise us based in our configuration, feel free to report.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/RocketChat/Rocket.Chat",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Here is the document in how to install rocket.chat: https://www.rocket.chat/install",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/RocketChat/Rocket.Chat.Electron",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "You can build it or download from: https://www.rocket.chat/install#Apps",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/RocketChat/Rocket.Chat.ReactNative",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cloud.rocket.chat",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This app is responsible for our customers SaaS management.",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+ "at": "2026-09-12T11:35:38.023Z",
+ "opportunity": "ion",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "iongroup.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e9c2289b188cb-LHR",
+    "x-cache": "HIT: 17",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: iongroup.wpengine.com * www.googletagmanager.com maps.googleapis.c",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "iontrading.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e9c2b0ee42968-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "fidessa.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e9c368950ef07-LHR",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "acuris.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "x-cache": "MISS",
+    "via": "1.1 varnish"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "openlink.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e9c48ba2acc1d-LHR",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "at": "2026-09-16T20:40:56.515Z",
+ "opportunity": "files",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.files.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "files.com",
+    "strict-transport-security": "max-age=631139040; includeSubdomains; preload;",
+    "content-security-policy": "base-uri 'self'; block-all-mixed-content ; child-src brickftp.com go.oncehub.com 'self'; connect-src 'self' *.files.com ",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "your-assigned-subdomain.files.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "files.com",
+    "strict-transport-security": "max-age=631139040; includeSubdomains; preload;",
+    "content-security-policy": "base-uri 'self'; block-all-mixed-content ; child-src brickftp.com go.oncehub.com 'self'; connect-src 'self' *.files.com ",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.files.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000",
+    "content-security-policy": "base-uri 'none';              connect-src 'self' https:;              default-src 'self';              font-src 'self'; ",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/debug-slices",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "your-assigned-subdomain.hosted-by-files.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "files.com"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

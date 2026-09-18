@@ -1,0 +1,62 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "algolia",
+      "name": "Algolia",
+      "offersBounties": true,
+      "assets": [
+        "*.algolia.net",
+        "*.algolianet.com",
+        "dashboard.algolia.com",
+        "www.algolia.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "DO NOT use automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\algolia-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "algolia",
+  "name": "Algolia",
+  "url": "https://hackerone.com/algolia",
+  "policy": "Algolia is committed to working with security experts across the globe to stay up to date with the latest security techniques. If you have discovered a security issue that you believe we should know about, we'd welcome working with you. Please let us know about it and we'll make every effort to quickly correct the issue.\n\n**DO NOT use automated scanning tools**\n\n# Scope\n- Website related endpoints on www.algolia.com or dashboard.algolia.com\n- API related endpoints on *.algolia.net or *.algolianet.com\n\n# Bounty\nMinimum reward is $100 for security vulnerabilities. The reward depends on the vulnerability severity and will be paid via HackerOne only. Every researcher with accepted vulnerability will be mentioned on http://hackerone.com/algolia/thanks\nIssues without security impact are not eligible for a bounty, yet still welcomed and will be treated like any other report.\n\n# Eligibility\n- You must be the first reporter of the vulnerability.\n- You follow https://hackerone.com/disclosure-guidelines\n- You do not access data of other users and solely use your created accounts.\n- You may not publicly disclose the vulnerability prior to our resolution.\n- You are not an individual on, or residing in any country on, any U.S. sanctions lists.\n- You provide a working proof of concept that exploits the security issue\n\n# Exclusion\n- Login/Logout CSRF\n- DDoS\n- Social engineering on customers or employees of Algolia\n- Self-XSS (we require evidence on how the XSS can be used to attack another Algolia user)\n- Miss of rate limits\n- Report from automated tools and scans\n- Vulnerabilities sending spam or unauthorised messages\n- Bugs in 3rd party software\n- X-Frame-Options related\n- Customer's sites\n- Relating to HSTS\n- DNSSEC\n- Missing security headers which do not lead directly to a vulnerability\n- Physical attack on the infrastructure\n- Theoretical attacks\n- Breaking of SSL/TLS trust\n- Compromising of browser/device (ex. computer sharing, physical access to a user's device, ...)\n- Vulnerabilities only affecting users of outdated or unpatched browsers and platforms\n- Password and account recovery policies, such as reset link expiration or password complexity\n- Vulnerabilities without solution on our side (HEIST, ...)\n- Outdated DNS record pointing to system which does not belong to Algolia\n- Any DNS record outdated for less than 48 hours\n- Broken links",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.algolia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.algolia.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.algolianet.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.algolia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "irccloud",
+      "name": "IRCCloud",
+      "offersBounties": true,
+      "assets": [
+        "*.irccloud-cdn.com",
+        "*.irccloud.com",
+        "api.irccloud.com",
+        "blog.irccloud.com",
+        "com.irccloud.IRCCloud",
+        "com.irccloud.android",
+        "https://github.com/irccloud/android",
+        "https://github.com/irccloud/ios",
+        "irc.irccloud.com",
+        "irccloud.com",
+        "team-irc.irccloud.com",
+        "www.irccloud.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\irccloud-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "irccloud",
+  "name": "IRCCloud",
+  "url": "https://hackerone.com/irccloud",
+  "policy": "# Reporting Security Vulnerabilities\n\nThis page is intended for security researchers. To find out more about IRCCloud's security, please visit our [privacy information](https://www.irccloud.com/privacy) page.\n\nIf you believe you have found a security vulnerability on IRCCloud, we encourage you to let us know right away. We will investigate all legitimate reports and do our best to quickly fix the problem.\n\nPlease submit your report here and our security team will respond as soon as possible.\n\n# Responsible Disclosure Policy\n\nIf you give us a reasonable time to respond to your report before making any information public and make a good faith effort to avoid privacy violations, destruction of data and interruption or degradation of our service during your research, we will not bring any lawsuit against you or ask law enforcement to investigate you.\n\n# Automated Testing\n\nAutomated testing against IRCCloud is not allowed. If you use automated testing, your account will be banned and we will not award any bounties.\n\n# Bug Bounty Info\n\nTo show our appreciation for security researchers, we offer a monetary bounty for certain qualifying security bugs. Here is how it works:\n\n# Eligibility\n\nTo qualify for a bounty, you must:\n\n* Follow the [HackerOne Disclosure Guidelines](https://hackerone.com/guidelines)\n* Adhere to our Responsible Disclosure Policy (above)\n* Be the first person to responsibly disclose the bug\n* Report a bug applicable to our main web application on www.irccloud.com, and our open-source [Android](https://github.com/irccloud/android) and [iOS](https://github.com/irccloud/ios) apps.\n* Report a bug that could compromise the integrity of our user data, circumvent the privacy protections of our user data, or enable access to a system within our infrastructure, such as:\n * Cross-Site Scripting (XSS)\n * Cross-Site Request Forgery (CSRF/XSRF)\n * Broken Authentication\n * Circumvention of our Privacy policy\n * Remote Code Execution\n * Privilege Escalation\n * Provisioning Errors\n* Please use a test account instead of a real account when investigating bugs. When you are unable to reproduce a bug with a test account, it is acceptable to use a real account, except for automated testing. Do not interact with other IRC users or channels without the consent of their owners.\n* Reside in a country not under any current U.S. Sanctions (e.g., North Korea, Libya, Cuba, etc.)\n\nWe will assess each bug to determine if it qualifies.\n\n# Rewards\n\n* Our minimum reward is $50 USD for minor issues, while we expect to reward $500+ USD for major vulnerabilities\n* There is no maximum reward: each bug is awarded a bounty based on its severity and creativity\n* Only 1 bounty per security bug will be awarded\n\n# Exclusions\n\nThe following bugs are generally not eligible for a bounty (and we do not recommend testing for these):\n\n* Denial of Service Vulnerabilities\n* Spam or Social Engineering techniques\n* \"Best practice\", e.g. missing CSP headers.\n* Attacks requiring root access to a user device.\n* E-mail impersonation/SPF/DMARC issues.\n\n\"Leaked\" credentials are generally the result of endpoint compromise or credential stuffing - we welcome reports of these and will invalidate reported credentials, but we will not pay a bounty for reports which do not represent a security vulnerability in the IRCCloud service itself.\n\n# Reporting Bugs\n\nPlease only report one bug per HackerOne issue. If you submit a bug report containing a video, you must also clearly describe the issue in the text of the report.\n\nPlease note that we are a small company with no dedicated security engineers. High-priority issues will be dealt with swiftly, but lower-priority issues may take some time to be fixed. We won't issue any rewards until fixes are deployed.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.irccloud.IRCCloud",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The iOS app is open source, decompilation issues are not eligible https://github.com/irccloud/ios\nVulnerabilities requiring local or root access to a device are also not eligible.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.irccloud.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Android app is open source, decompilation issues are not eligible https://github.com/irccloud/android\nVulnerabilities requiring local or root access to a device are also not eligible.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.irccloud-cdn.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note that this domain hosts user-uploaded files which are intentionally public for sharing on IRC. These do not constitute an information disclosure vulnerability and reports will be closed as \"Not Applicable\".",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/irccloud/ios",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/irccloud/android",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.irccloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "In particular IRC connection hosts listed here: https://www.irccloud.com/networks",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "irc.irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Support IRC network.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "team-irc.irccloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Private team IRC servers",
+      "max_severity": "critical"
+    }
+  ]
+}

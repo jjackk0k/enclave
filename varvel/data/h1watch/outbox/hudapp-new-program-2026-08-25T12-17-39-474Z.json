@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hudapp",
+      "name": "Hud App",
+      "offersBounties": false,
+      "assets": [
+        "1042814349",
+        "cdn.hookupdating.mobi",
+        "co.hud.app",
+        "console.huddatingapp.com",
+        "https://haveafling.s3.amazonaws.com/",
+        "prod-cloud.hookupdating.mobi",
+        "prod-realtime.hookupdating.mobi",
+        "www.hudapp.com"
+      ],
+      "exclusions": [
+        "blog.hudapp.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hudapp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hudapp",
+  "name": "Hud App",
+  "url": "https://hackerone.com/hudapp",
+  "policy": "Hud™ app is a casual dating and hookup app with 8 million users that is honest about the realities of online dating.\r\n\r\nHud™ looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n-------------- \r\n\r\n# Response Targets\r\nHud™ will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n-------------- \r\n\r\n# Disclosure Policy\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n-------------- \r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n* You should be able to prove that there is a vulnerability using your own test account and your own data.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n-------------- \r\n\r\n# Test Plan and Guidance \r\n\r\n## Registering an account on Hud App\r\n* Account registration is free, which will give you access to a BASIC account. However, the premium account requires a subscription.\r\n* You may register free accounts on the Hud App with Apple ID, phone number or Facebook, When signing up with either Apple ID or Facebook will be asked to bind your phone number to the account. Each phone number will be only allowed to create ONE account on the Hud App. However, you may choose to create two accounts if you have two separate phone numbers. \r\n* If you would like a premium account for testing purposes, you can request it from us at hackerone@hudapp.com and we will grant you one. Note: Your Hackerone account username and your HUD account username MUST be included in your request email.\r\n* If your account gets suspended during the course of your testing, please contact us at hackerone@hudapp.com to un-suspend your account. Note: If you wish to contact support regarding your account and you are NOT a Hackerone member, please contact us at support@hudapp.com\r\n* Please make sure you are NOT doing any types of DOS testing on our service, otherwise, your account will be suspended permanently.\r\n* Please do NOT use noticeably fake pictures, celebs, or famous people on your account.\r\n* Please deactivate your account after your testing.\r\n\r\n## Testing Focus Areas \r\nWe are happy to receive any in-scope vulnerabilities reports from our frontend App and backend services. In particular, we are concerned with: \r\n* Vulnerabilities that expose our customers’ personally identifiable information \r\n* Vulnerabilities that may allow for an attacker to take over another user’s account\r\n\r\n## Priority Assets\r\nWe have included all of our assets within the scope. However, we are primarily concerned with the following key assets associated with Hud App, which is our primary application.  \r\n* Hud App on Apple App Store: https://apps.apple.com/app/hud-1-hookup-app/id1042814349\r\n* Hud App on Android Play Store Store: https://play.google.com/store/apps/details?id=co.hud.app\r\n* Primary API: https://prod-cloud.hookupdating.mobi/ \r\n* Real Time API: https://prod-realtime.hookupdating.mobi/ \r\n\r\n-------------- \r\n\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able * to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n* Absence of certificate pinning\r\n* Lack of obfuscation\r\n* Exposure of Hud Android App AWS Key (ending with KDV4Q)\r\n\r\n-------------- \r\n\r\n# Contact us for questions\r\nIf you have any specific questions pertaining to the program scope and vulnerabilities, or face challenges while testing, please reach out to the Hud App Team at hackerone@hudapp.com. Please also CC the HackerOne Program Manager (muchfimuchfeelz@wearehackerone.com) in your email.\r\n\r\n-------------- \r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Hud™ and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "blog.hudapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "1042814349",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[**Hud™ | #1 Hookup & Casual Dating App** on the Apple App Store](https://apps.apple.com/app/hud-1-hookup-app/id1042814349)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "co.hud.app",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[**Hud™ | #1 Hookup & Casual Dating App** on the Google Play Store](https://play.google.com/store/apps/details?id=co.hud.app)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hudapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is Hud’s website, which previously hosted a web version of our application. This has since been removed.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "prod-cloud.hookupdating.mobi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is the primary API of the Hud app, the v1 version is the latest version. (Currently, we do not plan on providing documentation for this API)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "prod-realtime.hookupdating.mobi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is the realtime API of the Hud app for chatting, messages and application events. (Currently, we do not plan on providing documentation for this API)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdn.hookupdating.mobi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "A CDN used for serving in-app multimedia. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console.huddatingapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is the admin panel of the Hud app for custom relationship management.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://haveafling.s3.amazonaws.com/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is the S3 bucket for storing customers’ photos.",
+      "max_severity": "critical"
+    }
+  ]
+}

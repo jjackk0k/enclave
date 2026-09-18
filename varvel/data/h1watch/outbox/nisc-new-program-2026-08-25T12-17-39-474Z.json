@@ -1,0 +1,165 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "nisc",
+      "name": "NISC-VDP",
+      "offersBounties": false,
+      "assets": [
+        "NISC Cloud Portal",
+        "NISC Community",
+        "NISC Payment Gateway",
+        "NISC SmartHub",
+        "iVUE ABS",
+        "iVUE AppSuite",
+        "iVUE CC&B",
+        "iVUE Connect",
+        "iVUE Document Vault",
+        "iVUE E&O",
+        "iVUE Launcher / Frameworks"
+      ],
+      "exclusions": [
+        "*.capturis.com",
+        "*.igear.coop",
+        "*.nisc-mic.coop",
+        "*.nisc.coop"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\nisc-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "nisc",
+  "name": "NISC-VDP",
+  "url": "https://hackerone.com/nisc",
+  "policy": "#Policy\r\nThis Vulnerability Disclosure Program (Program) is limited to security vulnerabilities in web applications owned by NISC, as set forth in this policy. This Program does not provide bounties/rewards for reported vulnerabilities.\r\n\r\nYour participation in our Program is voluntary.  By submitting a report or otherwise disclosing a vulnerability to us, you are indicating that you have read and agree to follow the guidelines set forth on this page.\r\n\r\n# About NISC\r\nNational Information Solutions Cooperative (NISC) is an information technology company that develops and supports software and hardware solutions for our Member-Owners who are primarily utility cooperatives and telecommunications companies across the nation. NISC is an industry leader providing advanced, integrated IT solutions for consumer and subscriber billing, accounting, engineering & operations, as well as many other leading-edge IT solutions.\r\n\r\nAt NISC, our focus is service excellence and innovative information technology solutions that enable our Member-Owners to excel in customer service, maximize diversification opportunities, and compete effectively in the changing utility and telecommunications industries.\r\n\r\n#Disclosure Guidelines\r\n•\tBe the first to report a specific vulnerability.\r\n•\tSend a clear textual description of the report along with steps to reproduce the vulnerability. Include attachments such as screenshots or proof of concept code as necessary.\r\n•\tSubmit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact. \r\n•\tSocial engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n•\tMake a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\r\n•\tAs this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n•\tFollow HackerOne's [Vulnerability Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n#General Rules\r\n•\tThis Program is limited strictly to technical vulnerabilities of NISC products and services.\r\n•\tDo not exploit or target vulnerabilities in any NISC accounts, applications, or products.\r\n•\tDo not cause harm to NISC, our customers/member-owners, or third parties.\r\n•\tDo not compromise the privacy or safety of our customers/member-owners and the operation of our services. Any activity that would disrupt, damage or adversely affect any NISC or third-party data, account or equipment is not allowed.\r\n•\tDo not violate any criminal law or other applicable laws.\r\n•\tYou must not be the author of the code with the vulnerability or bug.\r\n•\tNever leave a system or user in a more vulnerable state than when you found them. This means that you should not engage in testing or related activities that degrades, damages, or destroys information within our systems, or that may impact our users.\r\n•\tIf at any point while researching a vulnerability, you are unsure whether you should continue, immediately engage with our Bug Bounty team.\r\n\r\n# Response Targets\r\nNISC will make a best effort to meet the following response targets for hackers participating in our program:\r\n* Time to first response - 2 business days\r\n* Time to triage  - 2 business days \r\n* Time to resolution - depends on severity and complexity.\r\n\r\n#Testing on Third-Party Assets\r\nNISC has included third-party assets in scope but has limited control over ultimate resolution. NISC will resolve any vulnerabilities we control, and we will work with our third-parties when necessary to report issues and encourage their participation in resolving any vulnerabilities that fall outside of NISC control. Thank you for understanding.\r\n\r\n#Excluded Vulnerabilities  \r\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\r\n•\tClickjacking on pages with no sensitive actions.\r\n•\tUnauthenticated/logout/login CSRF.\r\n•\tAttacks requiring MITM or physical access to a user's device.\r\n•\tPreviously known vulnerable libraries without a working Proof of Concept.\r\n•\tComma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n•\tMissing best practices in SSL/TLS configuration.\r\n•\tAny activity that could lead to the disruption of our service (DoS).\r\n•\tContent spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\r\n* Rate limiting or brute-force issues on non-authentication endpoints.\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies.\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\r\n* Open redirect - unless an additional security impact can be demonstrated.\r\n* Issues that require unlikely user interaction.\r\n\r\n#Confidentiality\r\nAny information you receive or collect about us, our affiliates, our customers/member-owners, or any of their respective users, employees or agents in connection with Program must be kept confidential and only used in connection with the Program. You may not use, disclose or distribute any such confidential information, including without limitation any information regarding your submission, without our prior written consent. You must get written consent by submitting a disclosure request through the HackerOne platform.\r\n\r\n#Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\nWe reserve the right to modify or cancel the Program at any time.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.nisc.coop",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.capturis.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.nisc-mic.coop",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.igear.coop",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "iVUE AppSuite",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE ABS",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE CC&B",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE Connect",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE E&O",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE Document Vault",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NISC Cloud Portal",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NISC Community",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NISC Payment Gateway",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "NISC SmartHub",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Submissions for noncredentialed access only. NISC does not issue credentials for its public vulnerability disclosure program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iVUE Launcher / Frameworks",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

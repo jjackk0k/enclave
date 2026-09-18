@@ -1,0 +1,38 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wakatime",
+      "name": "WakaTime",
+      "offersBounties": false,
+      "assets": [
+        "wakatime.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wakatime-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wakatime",
+  "name": "WakaTime",
+  "url": "https://hackerone.com/wakatime",
+  "policy": "# In Scope\n\n* wakatime.com\n* api.wakatime.com (web only, not used for email)\n\n# Out of Scope Vulnerabilities\n\nReport leaked user api keys, user passwords, and other sensitive user data using this form:\nhttps://wakatime.com/leaks\nDo NOT report leaked user api keys, user passwords, user app secrets, or other user secrets here. They will be marked NA!\n\nVulnerabilities below will be marked NA or Informative.\n\n* Session Fixation/Replay (We use session cookies and we like them http://bit.ly/2tw19Gd)\n* Insufficient Session Expiration\n* Weak Password Policy (See http://bit.ly/2uFjwXt)\n* Password Reuse (We allow any password, even passwords used previously)\n* CSRF Cookie Without 'HttpOnly' Flag\n* Beast Attack (Fixed in browsers not sever)\n* Username Enumeration\n* Software version disclosure\n* Denial of service\n* Spamming\n* Phishing\n* Social engineering\n* status.wakatime.com is NOT in scope. Submit vuln reports to support@uptimerobot.com for our status page subdomain.\n\nPlease consolidate the same vulnerability reports when only the page/url/params changes.\n\n[View changes to this policy](https://hackerone.com/wakatime/policy_versions)",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "wakatime.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

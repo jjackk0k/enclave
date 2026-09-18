@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hex",
+      "name": "Hex",
+      "offersBounties": false,
+      "assets": [
+        "https://*.hex.tech",
+        "https://app.hex.tech",
+        "https://hex.tech"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hex-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hex",
+  "name": "Hex",
+  "url": "https://hackerone.com/hex",
+  "policy": "# Program Rules\n- Do not test on production (https://app.hex.tech). For access to the bug bounty instance, please email `bug-bounty` at our domain, and provide your HackerOne handle.\n- Do not message support chat on https://app.hex.tech. \n- Please provide [detailed reports](https://docs.hackerone.com/en/articles/8475116-quality-reports), along with [attack scenario](https://bughunters.google.com/learn/improving-your-reports/how-to-report/6379261818306560/write-down-the-attack-scenario). If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n- Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n- Only interact with accounts you own or with explicit permission of the account holder.\n\n# Focus Areas\n- Cross-tenancy (cross-workspace) data leakages\n- Broken access controls\n- AuthN/AuthZ on all interfaces - web, API, CLI, MCP, etc\n- AuthZ within AI agent interfaces\n- Container escapes\n- Remote code execution (excluding kernel environments)\n- XSS on core app domain (not in cell outputs)\n- AI security impacting customer data\n- Input sanitization\n- [Hex API](https://learn.hex.tech/docs/develop-logic/hex-api/overview)\n\n# Out-of-Scope\n- [HackerOne Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings)\n- Within kernel environments (e.g. in Python or SQL cells): remote code execution, arbitrary SQL execution, or filesystem access\n- JavaScript execution on cell output domains (*.hexoutputs.tech)\n- Access to product features from a different tier\n- User subscription upgrade or cancel flow\n- Non-security bugs, or bugs without practical impact to confidentiality, integrity, or availability\n\nNote: The app allows you to be logged into multiple user accounts and orgs at the same time. To properly test cross-org authorization, you need to start with two separate browsers or profiles, ensure you're fully logged out on both, then on each browser log in with a different email address. Ensure that the attacker's email address isn't a member of the target org.\n\nThank you for helping keep Hex Technologies and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://app.hex.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core production application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://hex.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Marketing site",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://*.hex.tech",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    }
+  ]
+}

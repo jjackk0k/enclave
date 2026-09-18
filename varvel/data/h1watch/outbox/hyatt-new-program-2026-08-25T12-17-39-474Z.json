@@ -1,0 +1,233 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hyatt",
+      "name": "Hyatt Hotels",
+      "offersBounties": true,
+      "assets": [
+        "140.95.0.0/16",
+        "213.139.133.32/28",
+        "476639005",
+        "assets.hyatt.com",
+        "book.cheapcaribbean.com",
+        "com.Hyatt",
+        "confluence.hyattdev.com",
+        "ebsext.oft.hyatt.com",
+        "hyatt.com",
+        "meetings.hyatt.com",
+        "mobileapp.hyatt.com",
+        "newsroom.images.hyatt.com",
+        "plannerrequest.hyatt.com",
+        "public.hyatt.com",
+        "res.vacations.buschgardens.com",
+        "res.vacations.sesameplace.com",
+        "roominglist.hyatt.com",
+        "salesportal.hyatt.com",
+        "scapegoat.hyatt.com",
+        "soaext.oft.hyatt.com",
+        "sso.oft.hyatt.com",
+        "upsell.hyatt.com",
+        "world.hyatt.com",
+        "www.hyatt.com",
+        "www.hyattconnect.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "100 requests per minute"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hyatt-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hyatt",
+  "name": "Hyatt Hotels",
+  "url": "https://hackerone.com/hyatt",
+  "policy": "## Keeping Guests Safe\n\nHyatt takes the security of our guests and colleagues very seriously. By being the first organization in the hospitality industry to embrace the collaborative efforts of global security researchers, we hope to continue to raise our already high level of security standards as well as learn from and collaborate with security researchers. If you have information about a qualified security vulnerability that is within our predetermined scope, we would love to hear from you! \n\nIn-scope vulnerabilities will be rewarded based on severity following remediation. The Hyatt Bug Bounty program will only accept HackerOne vulnerability reports containing original and validated vulnerabilities that a potential attacker could use to compromise the confidentiality, integrity, and or availability of the services in scope. \n\nBy participating in the Hyatt Bug Bounty program you agree to follow all of the requirements below.\nWe look forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe. \n\n## SLA\nHyatt will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business day\n* Time to triage (from report submit) - 1 business day \n* Time to bounty (from triage) - Bounty payouts will be issued upon confirmation that the vulnerability is slated for remediation\n\n*Critical = 30 days\n*High = 60 days\n*Medium = 90 days\n*Low = N/A\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n## Disclosure Policy\n* Do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Hyatt.\n* Follow HackerOne's disclosure guidelines.\n\n## Program Rules and Bounty Eligibility\n* Do not collect any personally identifiable information, authentication information, or credit card information from other Hyatt guests.\n* Do not destroy or alter discovered data.\n* Do not inappropriately store Hyatt information in public locations i.e., GitHub.\n* Do not intentionally harm other guests as well as their experience.\n* Do not publicly or privately disclose any vulnerabilities belonging to Hyatt - existing or remediated – to anyone other than Hyatt and HackerOne.\n* Do not contact Hyatt directly about questions regarding HackerOne vulnerabilities or bounties.\n* Current Hyatt colleagues and contractors cannot participate in this program.\n* You cannot participate in this program if you have been a Hyatt colleague or contractor in the past six months.\n* Only submit vulnerability reports through the HackerOne platform.\n* A bounty is only eligible for payout if the exploited vulnerability is not known and can be reproduced. \n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Limit automation/rate scraping to 100 requests per minute.\n* Cancel all reservations created by test accounts.\n* Researchers are prohibited from using, completing, or staying on any booking obtained through an exploit, including bookings that result in free, discounted, or otherwise unauthorized stays.\n\n## Submission Requirements\n* All vulnerability reports must be filed through the HackerOne platform.\n* Vulnerability reports must meet all of HackerOne’s requirements.\n* https://docs.hackerone.com/programs/submit-report-form.html\n\n## Testing Requirements - Hyatt Hotels\n### Test Accounts\nCreate World of Hyatt test accounts to these specifications:\n* First name: <HackerOne handle> (for multiple accounts - <handle>one, <handle>two, etc.).\n* Last name: \"Test\".\n\n### Reservation Requirements\nIf you must create bookings for testing purposes, follow these rules:\n* Test bookings should be made a minimum of four months into the future.\n* All test bookings should be canceled as soon as possible.\n* Do not book New York City or Chicago properties for testing purposes.\n* If possible, add \"HackerOne\" to the comments section in bookings.\n\n## Testing Requirements – ALG Properties \nReview this document for all testing requirements: \n•\tPlease review the F2216536\n\n## Fraud and Privacy Testing - Hyatt Assets Only\nWe created three accounts you may target to discover privacy and fraud vulnerabilities. These target accounts contain bookings, personal information -- and lots of points. We encourage using these accounts in your testing – but unfortunately, **you cannot keep any points stolen**. Can you discover any PII of these accounts? Stay details? Can you elevate their tier status? Can you steal the points!? \n\n### Target these World of Hyatt accounts for fraud and privacy-related tests:\n* 540795125Y\n* 535322656B\n* 540941865E\n\n## Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Hyatt.\n\n## Hyatt Hotels In Scope Assets\n* hyatt.com (no additional subdomains unless explicitly mentioned).\n* 140.95.0.0/16.\n* 213.139.133.32/28.\n* assets.hyatt.com.\n* confluence.hyattdev.com.\n* ebsext.oft.hyatt.com.\n* jira.hyattdev.com.\n* meetings.hyatt.com.\n* mobileapp.hyatt.com.\n* newsroom.images.hyatt.com (not newsroom.hyatt.com).\n* plannerrequest.hyatt.com.\n* public.hyatt.com.\n* roominglist.hyatt.com.\n* salesportal.hyatt.com.\n* soaext.oft.hyatt.com.\n* sso.oft.hyatt.com.\n* upsell.hyatt.com.\n* world.hyatt.com.\n* www.hyatt.com.\n* www.hyattconnect.com.\n* Hyatt Hotels Mobile Application (Android & iOS).\n\n##ALG In Scope Assets\n**No additional subdomains unless explicitly mentioned.**\n* booking.cheapcaribbean.com\n* book.cheapcaribbean.com\n* res.vacations.buschgardens.com\n* res.vacations.sesameplace.com\n* vacations.travelimpressions.com\n* www.blueskytours.com\n* www.cheapcaribbean.com\n* www.triseptsolutions.com\n* blueskytours.globalbookingsolutions.com\n* book.beachbound.com\n* res.funjet.com\n* res.secretsresorts.com\n* res.vacations.discoverycove.com\n* res.vacations.seaworld.com\n* vacations.universalstudioshollywood.com\n* www.funjet.com\n* www.universalorlandovacations.com\n* www.wynnvacations.com\n* www.beachbound.com\n* booking.beachbound.com\n* book.applevacations.com\n* book.booktandl.com\n* login.www.vaxvacationaccess.com\n* new.www.vaxvacationaccess.com\n* res.blueskytours.globalbookingsolutions.com\n* res.universalorlandovacations.com\n* res.vacations.united.com\n* res.vacations.universalstudioshollywood.com\n* reservations.wynnvacations.com\n* rezagent.triseptsolutions.com\n* shop.wyndhamvacationownership.trisept.travel\n* www.triseptapi.com\n* www.triseptdemo.com\n* vacations.united.com\n* www.applevacations.com\n* 199.66.248.0/22\n* res.hyattinclusivecollection.com\n* www.hyattinclusivecollection.com\n* booking.applevacations.com\n\n### Vulnerabilities\n* Access to another guest’s reservation or account.\n* Application bugs that result in unintended room rate changes.\n* Authentication bypass.\n* Back-end system access via front-end systems.\n* Business logic bypass resulting in financial gain to an attacker (e.g., forced rate change).\n* Bypassing account recovery systems at scale.\n* Container escape.\n* Discovery of Hyatt data on Hyatt-managed public cloud storage services.\n* Elevating membership tier.\n* Gaining or using World of Hyatt points inappropriately.\n* Highly creative means of automating account checking or rate scraping (e.g., botting).\n* Highly creative means of discovering origin IP.\n* Highly creative means of spoofing email messages.\n* Online name changes on an account or award reservation.\n* Publicly available cloud systems that may host Hyatt information.\n* SQL Injection.\n* Cross-Site Request Forgery.\n* Exploitable Cross-Site Scripting.\n* WAF bypass.\n* Personal information of particular interest (e.g., full payment card information, passport information, precise geolocation, etc.).\n    * A combination of multiple data elements can increase the severity.\n\n## Out of Scope\n### Assets\n* Any other Hyatt/ALG assets not specifically listed as in-scope.\n* Any communication with Hyatt or ALG colleagues.\n* Attacks against any account other than the specified target accounts.\n* Data breaches or credential dumps.\n* Hotel properties and their physical and networks infrastructure.\n* Hyatt corporate information systems.\n* Third-party companies that perform business transactions for Hyatt employees and contractors.\n* Using stolen points for personal use.\n* Exploitation of our membership partners:\n    * American Airlines AAdvantage®\n    * FIND experiences\n    * Lindblad Expeditions\n    * M life Rewards destinations\n    * Small Luxury Hotels of the World properties\n    * UrCove properties\n    * Any other organization associated with the World of Hyatt\n\n### Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. **The following issues are considered out of scope:**\n\n* Any activity that could lead to the disruption of our service (DoS).\n* Attacks requiring MITM or physical access to a user's device.\n* Attacks requiring physical access to a user’s device.\n* Attacks requiring physical access to a Hyatt employee, contractor or guest device.\n* Autocomplete on web forms.\n* Clickjacking on pages with no sensitive actions.\n* Clickjacking, unless an effective exploit can be demonstrated.\n* Client browser vulnerabilities.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Data entry-based room rate errors.\n* Denial of inventory.\n* Denial of Service attacks on Hyatt infrastructure.\n* Limited content reflection or content spoofing.\n* Missing best practices\n    * This includes reports revealing vulnerabilities and exploits disclosed within a standard 30-day patching window.\n* Password and account recovery policies.\n* Password policies, i.e., complexity.\n* Phishing or spear phishing attacks.\n* POST-Based reports requiring a victim to request files hosted on out-of-scope assets.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Rate-limiting issues on endpoints that do not disclose PII or other relevant information.\n* Reports originating from automated tools or scanners (e.g., Burp, sqlmap, Acunetix, etc.).\n* Self-exploitation.\n* Social engineering attacks.\n* Software version disclosure.\n* SSL / TLS best practices.\n* Unauthenticated/logout/login CSRF.\n* Vulnerabilities that cannot be reproduced.\n* Vulnerabilities without discernible impact on Hyatt IT systems or guest privacy.\n* Zero-day vulnerabilities and exploits in vendor software.\n\n## SQL Injection Policy\n* Do not alter any data.\n* Do not change or interrupt server or database functionality.\n* Do not destroy any data.\n* Do not read or save sensitive data belonging to guests other than yourself.\n* Blindly counting rows and columns of databases is permissible.\n* Generating outbound DNS requests is permissible.\n* Listing database names and columns is permissible.\n* Logic responses are permissible.\n\n## XSS Policy\n* Stored XSS is classified as Medium-severity.\n* Reflected XSS is classified as Low-severity.\n* XSS on IE only is classified as Informational.\n* POST-Based XSS is classified as Not Applicable.\n\n## Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \nThank you for helping keep Hyatt and our guests safe!\nThe term “Hyatt” is used in these materials for convenience to refer to Hyatt Hotels Corporation and/or one or more of its affiliates.\n\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "476639005",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.Hyatt",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "world.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "assets.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are adding this subdomain to our program as our main domain pulls images and other assets from this site.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "140.95.0.0/16",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "newsroom.images.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only test newsroom.images.hyatt.com; newsroom.hyatt.com is not hosted by Hyatt (do not test).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "213.139.133.32/28",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "salesportal.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "meetings.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ebsext.oft.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mobileapp.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "plannerrequest.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "public.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "roominglist.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "soaext.oft.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sso.oft.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "upsell.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hyattconnect.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "confluence.hyattdev.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "scapegoat.hyatt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "book.cheapcaribbean.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Do not target additional subdomains.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "res.vacations.buschgardens.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "res.vacations.sesameplace.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

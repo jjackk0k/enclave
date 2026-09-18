@@ -1,0 +1,111 @@
+{
+ "at": "2026-09-12T02:25:30.815Z",
+ "opportunity": "marriott",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "homes-and-villas.marriott.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "activities.marriott.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 d19a309213e108dd59feb1e9cce6c160.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "careers.marriott.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "img-src 'self' data: dy5f5j6i37p1a.cloudfront.net d2xra9v1z0mbwm.cloudfront.net * pixel.quantserve.com olivia.paradox.ai",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sso.marriott.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to sso.marriott.com:443 refused: host unreachable"
+  },
+  {
+   "host": "mgs.marriott.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "x-powered-by": "CrafterCMS",
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

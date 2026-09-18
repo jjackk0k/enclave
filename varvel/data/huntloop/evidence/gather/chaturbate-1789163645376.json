@@ -1,0 +1,138 @@
+{
+ "at": "2026-09-11T21:53:50.706Z",
+ "opportunity": "chaturbate",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 15,
+  "delayMs": 1200,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "chaturbate.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "django",
+     "label": "Django",
+     "version": null,
+     "evidence": "csrfmiddlewaretoken"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-GX0FLQH21P",
+     "evidence": "googletagmanager.com/gtag/js?id=G-GX0FLQH21P"
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a399e854997ccd0a-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self';  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.mmcdn.com https://*.highwebmedia.com http",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "m.chaturbate.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a399e866ec53fd92-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self';  script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.mmcdn.com https://*.highwebmedia.com http",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "billingsupport.chaturbate.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a399e8788a77f662-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "secure.chaturbate.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a399e88a1dc5ef46-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "highwebmedia.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to highwebmedia.com:443 refused: host unreachable"
+  }
+ ]
+}

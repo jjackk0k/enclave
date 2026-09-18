@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tesco",
+      "name": "Tesco",
+      "offersBounties": false,
+      "assets": [
+        "*.itesco.cz/*",
+        "*.itesco.sk/*",
+        "*.ourtesco.com/*",
+        "*.tesco-europe.com/*",
+        "*.tesco.com/*",
+        "*.tesco.hu/*",
+        "*.tesco.ie/*",
+        "*.tesco.org/*",
+        "*.tesco.sk/*",
+        "*.tescocloud.com/*",
+        "389581236",
+        "857834425",
+        "API Assets",
+        "Cloud Assets",
+        "Domain, Subdomain & Zone Takeovers",
+        "Exposed Sensitive Documents",
+        "Leaked & Default Credentials",
+        "Medium, High and Critical Severity Issue on Out-Of-Scope Assets",
+        "Third-Party Managed Assets",
+        "com.tesco.grocery.view",
+        "https://www.booker.co.uk/*",
+        "https://www.onestop.co.uk/*"
+      ],
+      "exclusions": [
+        "Dunnhumby (Non-Critical)",
+        "Tesco Bank",
+        "com.tescobank.mobile"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tesco-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tesco",
+  "name": "Tesco",
+  "url": "https://hackerone.com/tesco",
+  "policy": "Tesco looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nTesco will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organisation.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n*  Where possible, use the custom HTTP header:\r\n\r\n### Mozilla/5.0 (IE 11.0; Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko TescoHackerOneTesting\r\n\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorised conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Tesco and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.tesco.sk/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco.sk/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "389581236",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "iOS mobile application for Tesco groceries.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "857834425",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "iOS mobile application for Tesco Bank.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "API Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Assets which include any Tesco API endpoints.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Cloud Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Assets which include any Tesco cloud asset which is hosted on cloud infrastructure which is not explicitly listed within the program scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Domain, Subdomain & Zone Takeovers",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Domain, subdomain & zone takeovers only. Please see the \"Domain, Subdomain & Zone Takeovers\" section for more details.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Dunnhumby (Non-Critical)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please report any low/medium/high vulnerabilities here: https://www.dunnhumby.com/security.txt",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Exposed Sensitive Documents",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Exposure of sensitive documents only. Please see the “Exposed Sensitive Documents” section for more details.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Leaked & Default Credentials",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Leaked & default credentials only. Please see the \"Leaked & Default Credentials\" section for more details.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Medium, High and Critical Severity Issue on Out-Of-Scope Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "We allow Medium, High and Critical findings to be submitted on any asset which is explicitly not listed in the program scope. Please note that only valid critical OOS reports should be submitted.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tesco Bank",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "As defined in the \"Tesco Bank\" section. Please report any vulnerabilities here: https://tescobank.responsibledisclosure.com/hc/en-us",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Third-Party Managed Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Assets which include any Tesco asset which is managed by third party providers & vendors. Please see the “Third Party Managed Assets” section for more details.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.booker.co.uk/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subsidiary Asset. This asset includes any subdirectory from https://booker.co.uk/. This does not include any other subdomains.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.tesco.grocery.view",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Android mobile application for Tesco groceries.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.tescobank.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Android mobile application for Tesco Bank.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.itesco.cz/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.itesco.cz/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.itesco.sk/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.itesco.sk/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.onestop.co.uk/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Subsidiary Asset. This asset includes any subdirectory from https://onestop.co.uk/. This does not include any other subdomains.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ourtesco.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.ourtesco.com/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tesco-europe.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco-europe.com/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tesco.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco.com/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tesco.hu/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco.hu/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tesco.ie/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco.ie/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tesco.org/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Core Asset. This asset includes any subdirectory from https://www.tesco.org/.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tescocloud.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Cloud Asset. This asset includes any subdirectory from https://www.tescocloud.com/.",
+      "max_severity": "critical"
+    }
+  ]
+}

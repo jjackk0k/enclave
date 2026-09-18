@@ -1,0 +1,132 @@
+{
+ "at": "2026-09-12T02:37:28.468Z",
+ "opportunity": "nba-public",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.nba.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=86400",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "gleague.nba.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Next.js",
+    "strict-transport-security": "max-age=86400"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "bal.nba.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-C5S5SK8P0N",
+     "evidence": "googletagmanager.com/gtag/js?id=G-C5S5SK8P0N"
+    }
+   ],
+   "headers": {
+    "server": "envoy",
+    "x-powered-by": "Next.js",
+    "strict-transport-security": "max-age=86400"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "content-api-nextgen-prod.nba.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-bad-response: response arrived content-encoding 'gzip' — we never offered it; refusing to guess"
+  },
+  {
+   "host": "content-api-prod.nba.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-bad-response: response arrived content-encoding 'gzip' — we never offered it; refusing to guess"
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "temu",
+      "name": "Temu",
+      "offersBounties": true,
+      "assets": [
+        "1641486558",
+        "ads.temu.com",
+        "com.einnovation.temu",
+        "seller.temu.com",
+        "www.temu.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\temu-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "temu",
+  "name": "Temu",
+  "url": "https://hackerone.com/temu",
+  "policy": "Temu looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\nTemu will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with explicit permission of the account holder.\n\n# Test Plan\n* Users are able to sign up for a free account through our website.\n* Please use your hacker email alias when testing (h1username@wearehackerone.com).\n* Claim credentials (when applicable) for additional testing.\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as:\n“X-HackerOne-Research: [H1 username]”\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) potential security impact of the bug. The following issues are considered out of scope:\n\n* CRLF\n* ==Self-XSS==\n*  Tabnabbing\n* Email Spoofing\n* Session fixation\n* Content Spoofing\n* Account brute force\n* Missing cookie flags\n* Best practices/issues\n* HTML content injection\n* Clickjacking/UI redressing\n* ==DOM Cross-site Scripting (XSS)== \n* ==Reflected Cross-site Scripting (XSS)==\n* HTTPS/SSL/TLS Related Issues\n* Physical or social engineering attacks\n* Issues that require unlikely user interaction\n* Login/logout/unauthenticated/low-impact CSRF\n* Unverified Results of automated tools or scanners\n* No SPF/DMARC/DKIM in non-email domains/subdomains\n* Attacks requiring MITM or physical access to a user's device\n* Any activity that could lead to the disruption of our service (DoS)\n* Vulnerabilities affecting users of outdated browsers or platforms \n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Error information disclosure that cannot be used to make a direct attack\n* Previously known vulnerable libraries without a working Proof of Concept\n* Open redirect - unless an additional security impact can be demonstrated\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing security-related HTTP headers which do not lead directly to a vulnerability\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Public Zero-day vulnerabilities that have had an official disclosure less than 1 month before are on a case by case\n* Information leakage that cannot be used to make a direct attack,like server IP, server version, path, error message, internal IP, etc\n\n# Out of Scope vulnerabilities for Mobile Apps (Android & iOS)\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) potential security impact of the bug. The following issues are considered out of scope:\n\n* Hardware attacks\n* Path disclosure in the binary\n* Absence of certificate pinning\n* Lack of obfuscation and binary protection\n* Intent or URL Redirection leading to phishing\n* User data stored unencrypted on the file system\n* Shared links leaked through the system clipboard\n* Clickjacking/UI redressing with minimal security impact\n* Lack of Exploit mitigations ie PIE, ARC, or Stack Canaries\n* Any kind of sensitive data stored in app private directory\n* Attacks requiring MITM or physical access to a user's device\n* Reports on outdated version/builds of in-scope Mobile Apps\n* Vulnerabilities requiring a rooted, jailbroken, or otherwise modified device\n* Scenarios requiring excessive user interaction or tricking users like phishing\n* Any URIs leaked because a malicious app has permission to view URIs opened\n* Vulnerabilities on third-party libraries without showing specific impact to the target application\n* App logging (logcat, console logs) sensitive information unless you can provide a proof with a malicious app stealing the data from logs\n* Third-party API Keys/Secrets embedded in mobile applications, without a clear impact, as many third- parties require this for their own client attribution purposes\n* Crashes due to malformed Intents sent to exported Activity/Service/BroadcastReceive (exploiting these for sensitive data leakage is commonly in scope) and due to malformed URL Schemes\n\n\n\n\n\nThank you for helping keep Temu and our users safe! ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.temu.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.einnovation.temu",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1641486558",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "seller.temu.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ads.temu.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

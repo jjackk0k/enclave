@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lichess",
+      "name": "Lichess",
+      "offersBounties": false,
+      "assets": [
+        "HP5YLVDU97.org.lichess.mobileapp.official",
+        "burke.lichess.ovh",
+        "butch.lichess.ovh",
+        "database.lichess.org",
+        "explorer.lichess.ovh",
+        "https://github.com/lichess-org/lichobile",
+        "https://github.com/lichess-org/lila",
+        "https://github.com/lichess-org/lila-ws",
+        "https://lichess.org/source",
+        "lichess.org",
+        "lichess1.org",
+        "monitor.lichess.ovh",
+        "oauth.lichess.org",
+        "org.lichess.mobileapp",
+        "rubik.lichess.ovh",
+        "socket.lichess.org",
+        "socket1.lichess.org",
+        "socket2.lichess.org",
+        "socket3.lichess.org",
+        "socket4.lichess.org",
+        "socket5.lichess.org",
+        "syrup.lichess.ovh",
+        "tablebase.lichess.ovh",
+        "taffy.lichess.ovh",
+        "uluru.lichess.ovh"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lichess-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lichess",
+  "name": "Lichess",
+  "url": "https://hackerone.com/lichess",
+  "policy": "lichess.org is a free and open source chess server powered by volunteers and donations. Up to 140,000 concurrent people around the world play up to 6 million chess games on lichess.org every day. [Read more about Lichess here.](https://lichess.org/about)\n\nWe are a non-profit and don't answer to any shareholders, only our users. That is reflected in our discussions and decisions every day. We care deeply about the security of our platform and the data of our users. We continue to invest time and effort into improving our security, and we believe engaging the HackerOne community will help us further that goal.\n\nIf you believe you've found a security issue in our platform, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \n\n# HTTP throttling\n\n* We have a non-trivial system of rate limiting in place \n* If you receive HTTP 429 Too Many Requests, slow down\n* Up to 180 requests per minute is fine for most endpoints, except for those that test passwords and send emails\n* If your IP is banned, email contact@lichess.org with your IP and refer to this program to get unbanned (this may take some time so try hard to avoid it)\n\n# Rewards\n\nThis program does not provide monetary rewards for bug submissions.\n\nLichess is a non-profit, and our only income is from user donations. [Here](https://lichess.org/costs) is our budget. This is the first time we're running a vulnerability disclosure program, and we're not sure what to expect. We will try to react to incoming reports as quickly and professionally as we can. For valid reports, we would be happy to add your name (or a pseudonym) and a thank you on our [Thank you! page](https://lichess.org/thanks).\n\n# Response Targets\n\nLichess aims to meet the following response targets:\n\n* Time to first response: 1 day after report submission\n* Time to triage: 2 days after report submission\n* Time to resolution: 30 days\n\n# Disclosure\n\n* We aim to disclose all valid vulnerabilities through the HackerOne platform once the issue has been confirmed and resolved\n* Vulnerabilities may be partially disclosed through GitHub activity in our public repository\n\n# Program Rules\n\nThis bug bounty program is for a production environment. It is therefore extremely important to be aware of, and follow, the rules below, in addition to using common sense.\n\n* Perform testing only on assets that are included in the defined scope of the program\n* Make good faith efforts to avoid privacy violations, destruction of data, interruption or degradation of service, and any annoyance or inconvenience to Lichess users\n* Do not create more than 5 user accounts unless you get explicit and individual permission to do so\n* If a vulnerability provides unintended access to data, limit the amount of data you access to the minimum required for effectively demonstrating a Proof of Concept\n* Cease testing and submit a report immediately if you encounter any private user data during testing\n* All publicly released 0 day exploits have a blackout period of 7 days before they will be accepted in this program\n* Do not publicly discuss or publish any vulnerability before we have disclosed the report in HackerOne\n* Provide an appropriate level of detail with reproducible steps so that the issue can be reproduced\n* Please include relevant HTTP requests/responses in the report. This will help us to triage reports more effectively\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to show impact\n* All forms of social engineering (e.g. phishing, vishing, smishing) are strictly prohibited\n* Do not perform any infrastructure Denial of Service attacks\n\n# Exclusions \n\nPlease do not submit issues regarding:\n\n* Theoretical vulnerabilities without any proof or demonstration of the real presence of the vulnerability\n* Findings from automated tools without providing a Proof of Concept\n* (D)DoS\n* Missing X-Content-Type-Options, Referrer-Policy or Feature-Policy headers\n* Non-sensitive data disclosure, including software version information, confirmation that a specific email address is in use, confirming the existence (but not content) of sensitive information\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Previously known vulnerable software or libraries without a working Proof of Concept\n* Vulnerabilities requiring access to a user’s browser, or a smartphone, or email account\n* CSRF from local files (file://) using https://bugzilla.mozilla.org/show_bug.cgi?id=1608391\n* Cheating at puzzles, including /training, /racer, /storm, /streak and /learn. There are no leaderboards so we don't need to moderate those.\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Lichess and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/lichess-org/lila",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/lichess-org/lila-ws",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket1.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket2.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket3.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket4.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket5.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lichess1.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "database.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "explorer.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "tablebase.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "monitor.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "syrup.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "taffy.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "rubik.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "butch.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "burke.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "uluru.lichess.ovh",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://lichess.org/source",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/lichess-org/lichobile",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "org.lichess.mobileapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "HP5YLVDU97.org.lichess.mobileapp.official",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "oauth.lichess.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

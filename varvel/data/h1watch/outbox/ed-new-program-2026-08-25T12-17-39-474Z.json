@@ -1,0 +1,133 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ed",
+      "name": "Ed",
+      "offersBounties": false,
+      "assets": [
+        "BBAC",
+        "bugbountyguide.com",
+        "edoverflow.com",
+        "https://github.com/EdOverflow/*",
+        "https://github.com/securitytxt/*",
+        "securitytxt.org"
+      ],
+      "exclusions": [
+        "Personal email",
+        "Personal machine",
+        "edoverflow.keybase.pub",
+        "https://keybase.io/edoverflow",
+        "https://keybase.pub/edoverflow/",
+        "https://twitter.com/edoverflow"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ed-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ed",
+  "name": "Ed",
+  "url": "https://hackerone.com/ed",
+  "policy": "This is a vulnerability disclosure program for all of my personal projects and code that I publish.\r\n\r\n| ⏳ Disclosure policy |\r\n|-|\r\n\r\nI will investigate legitimate reports and make every effort to quickly resolve any vulnerability. Please make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of my services.\r\n\r\nI will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. I consider activities conducted consistent with this policy to constitute “authorised” conduct under the Computer Fraud and Abuse Act. I will not bring a DMCA claim against you for circumventing the technological measures I have used to protect the applications in scope of this program.\r\n\r\nIf legal action is initiated by a third party against you and you have complied with this security policy, I will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nIt is also important to note, I will not take legal action against you simply for providing me with a proof of concept of the security vulnerability. Please follow the guidelines listed in the *Proof of concepts* section below to ensure that your proof of concept is detailed enough to demonstrate the issue and still follows the guideline listed above.\r\n\r\nIf you have any questions or concerns about about my disclosure policy, please do not hesitate to contact me via [Twitter](https://twitter.com/edoverflow) or email (contact [a t] edoverflow [d o t] com).\r\n\r\n| 📋 Process |\r\n|-|\r\n\r\n{F241462}\r\n\r\n| 🏁 Service-level agreement (Performance expectations) |\r\n|-|\r\n\r\nI will make a best effort to meet the following expectations for hackers participating in this program:\r\n\r\n**Time to first response:** 2 business days or less.\r\n**Time to triage:** 3 business days or less.\r\n\r\n| 🔍 In-scope |\r\n|-|\r\n\r\nAll projects listed in the \"In Scope\" section at the very bottom of this page are in scope. **If an asset is not listed below, please always verify that the security.txt file points to this page.** If it doesn't, then that project does not belong to me.\r\n\r\n```\r\n$ curl http://example/.well-known/security.txt\r\n# This project is in scope!\r\nContact: https://hackerone.com/ed\r\n```\r\n\r\n| ⚠️ Exclusions |\r\n|-|\r\n\r\nThe following **test types** are excluded from the scope:\r\n\r\n* Findings from physical testing such as office access (e.g. open doors, tailgating).\r\n* Findings derived primarily from social engineering (e.g. phishing, vishing).\r\n* Findings from applications or systems not listed in the \"Scope\" section. **I do accept high-severity issues on out of scope assets if they directly affect me.**\r\n* Vulnerability reports with video only PoCs.\r\n* Reports that state that software is out of date or vulnerable without a proof of concept.\r\n* Highly speculative reports about theoretical damage. Be concrete.\r\n* Vulnerabilities as reported by automated tools without additional analysis as to how they’re an issue.\r\n* Issues in third-party services should be reported to the respective team.\r\n\r\nThe following **issue types** are excluded from scope:\r\n\r\n| Description | Reason |\r\n|-------------|--------|\r\n| Network-level Denial of Service (DoS/DDoS) vulnerabilities. | I do not want you to disrupt any of my services and to be honest with you if I want to take down a service I will always find a way. |\r\n| Low severity issues that can be detected with tools such as [Hardenize](https://www.hardenize.com/) and [Security Headers](https://securityheaders.io/). | I run regular scans with these services and try to improve my score gradually. |\r\n| Content injection issues. | The severity of this issue is so low that it does not warrant a report. |\r\n| Cross-site Request Forgery (CSRF) with minimal security implications (Logout CSRF, etc.). | In order for CSRF to be a valid issue it must affect some important action such as deleting one's account. |\r\n| Missing cookie flags. | These type of issues do not present a major risk and are usually picked up by scanners. |\r\n| UI and UX bugs (including spelling mistakes). | No comment. |\r\n| 401 injection. | This is usually an accepted risk.  |\r\n| Stack traces that disclose information. | Most of my projects are open-source therefore this information is usually public knowledge. **That said, if you discover a stack trace that discloses information which is not located in my GitHub repositories, please do submit a report.** |\r\n| Host header issues without an accompanying proof-of-concept demonstrating vulnerability. | PoC or GTFO. |\r\n| Open ports without an accompanying proof-of-concept demonstrating vulnerability. | Same as above. |\r\n| Banner grabbing issues (figuring out what web server I use, etc.). | I will happily share what web servers I am running. |\r\n| Missing `X-Frame-Options` header (Clickjacking) | The lack of `X-Frame-Options` does not always indicate that a security vulnerability is present. This is an optional header that is only necessary on endpoints where the UI is rendered to invoke state changing actions. |\r\n| Cross-site tracing | In order for Cross-Site Tracing (XST) to really be a significant issue you would need to find an endpoint vulnerable to Cross-site Scripting (XSS). |\r\n| CSP uses `unsafe-inline` | The fact that a CSP includes `unsafe-inline` is not an issue in itself. In order for you to demonstrate the actual impact of this value, I highly recommend you look for an XSS vulnerability. Try to trigger `alert(document.domain)`. |\r\n| Disclosure of robots.txt file | I am aware that in some cases robots.txt files have been known to disclose sensitive information. In my case I have determined that my robots.txt files do not contain any information that poses a potential security risk. |\r\n| Email spoofing (SPF misconfigurations) | I have accepted the risk that this issue poses and do not believe that it warrants an immediate fix. |\r\n| Open redirect using `Host` header | Open redirects in the `Host` header are not exploitable. |\r\n| Proving me wrong on Twitter. |  |\r\n\r\n| 📎 Proof of concepts |\r\n|-|\r\n\r\n| Issue type | When to report the issue |\r\n|------------|--------------------------|\r\n|  XSS      |     For XSS, a simple `alert(document.domain)` should suffice. Bonus points for `alert('🐸')`. |\r\n|  RCE     |  Please only execute harmless code. Simply printing something or evaluating an expression should be enough to demonstrate the issue.  |\r\n|   SQLi         |   Report it as soon as you have a SQL error that indicates SQL injection or you are able to disclose the SQL server's version number.       |\r\n| Unvalidated redirect | Set the redirect endpoint to http://example.com. |\r\n| Information disclosure | If your report contains sensitive data, please use my [PGP key](https://edoverflow.com/key.asc) to encrypt it. |\r\n| CSRF | Either attach a file to demonstrate the issue or paste the code in a code block in your report. |\r\n| SSRF | Do not go playing around on any internal networks. Leave the fun bit to me. If you feel the necessity to retrieve an internal file, please only request the internal security.txt file. |\r\n| LFI | The same applies here — please do not go against the guideline listed in the *Disclosure policy* section. There should be a security.txt file located in the root directory. Being able to retrieve that file should be enough to demonstrate the issue. |\r\n\r\n| 📝 Advice |\r\n|-|\r\n\r\n* I encourage hackers to read [Web Hacking 101](https://leanpub.com/web-hacking-101) and [Breaking into Information Security: Learning the Ropes 101](https://leanpub.com/ltr101-breaking-into-infosec) to get a good idea of the type of issues that I am looking for.\r\n* If you have a question, please do not hesitate to include it in the report. I am always here to help. You may also contact me directly via [Twitter DMs](https://twitter.com/EdOverflow) or email (contact [a t] edoverflow [d o t] com). If your messages contain sensitive information, I would prefer you use the latter with my PGP key:\r\n\r\n```\r\n$ curl https://edoverflow.com/key.asc | gpg --import\r\n```\r\n\r\n| 📚 Terminology |\r\n|-|\r\n\r\nThe term \"severity\" is frequently used interchangeably with \"impact\" or \"priority\". This section defines my terminology in order to prevent any potential confusion. I use the *Oxford Dictionaries'* definition [2] of \"severity\" and *Information Technology Infrastructure Library's* definitions [3] of the two latter terms.\r\n\r\n**Severity**\r\n\r\n> The fact or condition of being severe.\r\n\r\n**Impact**\r\n\r\n>  A measure of the effect of an incident, problem or change on business processes. Impact is often based on how service levels will be affected. Impact and urgency are used to assign priority.\r\n\r\n**Priority**\r\n\r\n> A category used to identify the relative importance of an incident, problem or change. Priority is based on impact and urgency, and is used to identify required times for actions to be taken.\r\n\r\nWhenever I triage a report, a *CVSS v3.0 Base Score* metric [4] is set which evaluates the technical severity of the reported issue and allows me to prioritise the fix. Once a patch has been submitted and verified, I will then evaluate the total CVSS score by including the *Environmental Score*. [5]\r\n\r\n| 🍺 Rewards |\r\n|-|\r\n\r\nI am not currently offering financial rewards as my software is free and open-source, but if we ever meet in person drinks are on me. Please note that this section may change in the future.\r\n\r\n{F240600}\r\n\r\nThank you for helping me keep my projects safe!\r\n\r\n---\r\n\r\n| References |\r\n|-|\r\n\r\n1. Cover image courtesy of HackerOne.\r\n2. *ITIL glossary and abbreviations* https://www.axelos.com/corporate/media/files/glossaries/itil_2011_glossary_gb-v1-0.pdf\r\n3. *Oxford Dictionaries* https://www.oxforddictionaries.com/\r\n4. *Base Metrics*: https://www.first.org/cvss/specification-document#2-Base-Metrics\r\n5. *Environmental Metrics*: https://www.first.org/cvss/specification-document#4-Environmental-Metrics\r\n\r\n```\r\n          _,-.     --------------------\r\n  ,-. ,--'  o ) -(   Frogs find bugs!   )\r\n  \\(,' '  ,,-'     --------------------\r\n ,-.\\-.__,\\\\_\r\n \\('--'    '\\\r\n```",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/EdOverflow/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any GitHub projects created by \"EdOverflow\" are in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/securitytxt/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Any GitHub projects by the \"securitytxt\" organization are in scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "securitytxt.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The source code for this project can be found here: https://github.com/securitytxt/securitytxt.org",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "edoverflow.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is my personal website.\n\nhttps://edoverflow.com uses https://gitalk.github.io/ to allow readers to comment on posts. The comment section supports [Markdown](https://daringfireball.net/projects/markdown/) and also requires a GitHub secret token to be embedded in the source code. If you are able ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://twitter.com/edoverflow",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Personal email",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please do not report issues concerning my personal email addresses unless the severity is very high.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://keybase.io/edoverflow",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://keybase.pub/edoverflow/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "edoverflow.keybase.pub",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bugbountyguide.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The source code can be found here: [https://github.com/EdOverflow/bugbountyguide](https://github.com/EdOverflow/bugbountyguide).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Personal machine",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "BBAC",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

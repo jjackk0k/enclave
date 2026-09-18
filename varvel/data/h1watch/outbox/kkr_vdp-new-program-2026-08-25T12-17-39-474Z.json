@@ -1,0 +1,134 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "kkr_vdp",
+      "name": "KKR-VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.kkr.cloud",
+        "*.kkr.com",
+        "advisortimetracker.kkr.com",
+        "kinfra.com",
+        "kkr.com",
+        "kkrpec.com",
+        "ksam.com",
+        "portal.kkr.com",
+        "processaccess.kkr.com",
+        "www.fskkradvisor.com",
+        "www.kkresg.com",
+        "www.kkrfunds.com",
+        "www.kkrreit.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\kkr_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "kkr_vdp",
+  "name": "KKR-VDP",
+  "url": "https://hackerone.com/kkr_vdp",
+  "policy": "**BY CLICKING “SUBMIT REPORT” ABOVE,  SUBMITTING ANY REPORTS OR OTHERWISE           PARTICIPATING IN THIS PROGRAM, YOU ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND AND ACCEPT THE TERMS OF THIS POLICY.**\r\n\r\n**KKR Responsible Disclosure Policy**\r\n\r\nKohlberg Kravis Roberts (KKR) looks forward to working with the security community on finding security vulnerabilities to help keep our businesses and users safe.\r\n\r\nYour participation in the KKR vulnerability disclosure program is voluntary and subject to the terms and conditions set forth in this Policy and the HackerOne Finder Terms and Conditions, including the HackerOne Disclosure Guidelines.\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 5 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n**Program Eligibility**\r\n\r\nTo participate in our program, you must be a security researcher who is at least eighteen (18) years of age. You are not eligible to participate in our program if:\r\n\r\n* You are a KKR employee or service provider or are an immediate family member of one of our employees or service providers;\r\n* You or someone you work for is a person or entity who appears on any sanctions list maintained by the U.S., EU or UK government or United Nations; or\r\n* You reside or are otherwise located in a jurisdiction on those sanctions lists.\r\n\r\n**Disclosure Policy**\r\n\r\n* All information disclosed to us about vulnerabilities (including resolved ones) is intended to be provided privately to KKR.\r\n* You agree to treat all information about vulnerabilities disclosed to us through the program as confidential and not share the information with others, unless we have provided our prior written consent to allow you to disclose the information to a third party or the public.\r\n* KKR will determine, in its sole discretion, whether public recognition for resolved vulnerabilities will be provided.  In doing so, we will take into consideration, among other factors, whether you complied with this Policy and the contribution to the security community.\r\n\r\n**Program Rules and Conditions**\r\n\r\nAs with most vulnerability disclosure programs, there are some requirements and restrictions that apply to our program:\r\n\r\n* Follow HackerOne's [Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines).  Please note that this Policy supersedes these guidelines in the event of a conflict.\r\n* Please provide detailed reports with reproducible steps.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to show their impact.\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n* Do not disrupt, damage or harm  us, our users or any third party, including doing any of the following:\r\n  * engaging in social engineering (e.g., phishing, vishing, smishing);\r\n  * impersonating or misrepresenting your affiliation with another person or entity;\r\n  * sending unsolicited or unauthorized junk mail or spam;\r\n  * Sending or spreading any malicious software or other materials that could cause harm, disruption or compromise;\r\n  * engaging in activity that results in unauthorized access to or destruction of data or systems or interrupts or degrades services, (such as denial of service attacks); or\r\n  * accessing another user’s account or device without authorization, trading stolen user credentials, intercepting or eavesdropping on communications, or engaging in any form of other privacy violations.\r\n* Only use or interact with your own accounts for testing purposes. Do not attempt to compromise or otherwise gain access to an account you do not own. \r\n* Do not use illegal software.  Finders are solely responsible for the tools they use.\r\n* Do not attempt to gain physical access to any of our offices or facilities.\r\n* Comply with applicable federal, state, local, and international laws in connection with your participation in this program. Do not engage in any activity that constitutes a criminal offense, infringes intellectual property rights, or violates any law or contract, including our Terms of Use available at https://www.kkr.com/terms-use.\r\n* Use a proof of concept only to demonstrate an issue. Do not exploit a vulnerability you discovered for any reason, including accessing, modifying, deleting, copying, downloading, acquiring or otherwise processing any confidential, propriety or personal information accessible as a result of a vulnerability. If you inadvertently engage in any such activity, please stop testing and contact us immediately.  If you obtain a copy of any KKR data inadvertently or in violation of this Policy, you agree to return all such copies to us and not retain any copy thereof.\r\n\r\n**Out of scope vulnerabilities**\r\n\r\n**When reporting vulnerabilities, please consider the (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:**\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device\r\n* Previously known vulnerable libraries without a working Proof of Concept\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\r\n* Missing best practices in a SSL/TLS configuration\r\n* Any activity that could lead to the disruption of our service (DoS)\r\n* Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (e.g., invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers (e.g., less than 2 stable versions behind the latest released stable version)\r\n* Software version disclosure problems, banner identification issues, or descriptive error messages or headers (e.g., stack traces, application or server errors)\r\n* Tabnabbing\r\n* Open redirect, unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n**Ownership**\r\n\r\nAs described in the HackerOne Finder Terms and Conditions, you grant us a perpetual, irrevocable, non-exclusive, transferable, sublicensable, worldwide, royalty-free license to use, copy, reproduce, display, modify, adapt, transmit, and distribute copies of any information made available to us in connection with our program for any purpose.\r\n\r\nThis program is not an offer of employment.  Nothing in this Policy is intended to render KKR and you as joint venturers, partners, or employer and employee.\r\n\r\n**Modification and Termination**\r\n\r\nKKR reserves the right to change or modify this Policy, as well as any aspect of the program, at any time and in our sole discretion.  Once the updated Policy has been posted, your continued participation in our program will constitute your acceptance of any modification or update made by us.\r\n\r\nWe may, in our sole discretion, terminate or suspend your participation in the program for any reason and without prior notice to you.\r\n\r\n**Limitation of Liability**\r\n\r\nIN NO EVENT WILL WE BE LIABLE TO YOU FOR ANY DIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL DAMAGES, OR LOST REVENUES OR PROFITS, ARISING OUT OF OR RELATED TO YOUR PARTICIPATION IN THE PROGRAM, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY AND WHETHER OR NOT WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  BECAUSE SOME JURISDICTIONS DO NOT ALLOW FOR THE EXCLUSION OF DAMAGES, OUR LIABILITY IN SUCH JURISDICTIONS WILL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY THE LAWS OF SUCH JURISDICTION.\r\n\r\n**Safe Harbor**\r\n\r\nThe intent of this program is to encourage coordinated and responsible disclosure.  Unless required by law or law enforcement authorities, we do intend to  initiate any  legal action  against you if you comply with this Policy.  KKR reserves all legal rights in the event of any noncompliance.\r\n\r\nIf your security research involves the networks, systems, data, products or services of another party, that third party may determine whether to pursue legal action.  We cannot and do not authorize security research involving other entities.\r\n\r\nThank you for helping keep KKR and our users safe\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "portal.kkr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.kkr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kkr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.fskkradvisor.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.kkrfunds.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.kkr.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.kkrreit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.kkresg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "processaccess.kkr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "advisortimetracker.kkr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kkrpec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kinfra.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ksam.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

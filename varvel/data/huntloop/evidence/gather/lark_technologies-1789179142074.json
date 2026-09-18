@@ -1,0 +1,84 @@
+{
+ "at": "2026-09-12T02:12:08.054Z",
+ "opportunity": "lark_technologies",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "larksuite.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "TLB"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "lark-frontier.byteoversea.com",
+   "kind": "domain",
+   "status": 400,
+   "techs": [],
+   "headers": {
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "file.larksuite.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "TLB"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "open.larksuite.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "TLB",
+    "content-security-policy": "script-src 'unsafe-eval' 'strict-dynamic' 'nonce-UfcTVZUtuBAs6jRRFgpzS';report-uri https://slardar-bd-sg.larksuite.com/m",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.larksuite.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "server": "TLB",
+    "x-cache": "TCP_MISS from a2-20-49-150.deploy.akamaitechnologies.com (AkamaiGHost/22.6.3-3e6da3dfbe26c674604cf393ddf1b015) (-)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

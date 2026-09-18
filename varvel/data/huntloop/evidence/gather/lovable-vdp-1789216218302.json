@@ -1,0 +1,84 @@
+{
+ "at": "2026-09-12T12:30:12.806Z",
+ "opportunity": "lovable-vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "lovable.dev",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39eec16aef64e9a-LHR",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-QAwxegMUPQle84tgNFeaLl' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "oauth.lovable.dev",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "via": "1.1 google",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.lovable.dev",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mcp.lovable.dev",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39eec314e45005f-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

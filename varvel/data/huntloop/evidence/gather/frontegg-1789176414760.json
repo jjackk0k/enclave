@@ -1,0 +1,58 @@
+{
+ "at": "2026-09-12T01:26:51.271Z",
+ "opportunity": "frontegg",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api.au.frontegg.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 8118e4598aac4892a3dfbc36812e88d4.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "portal.au.frontegg.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "react",
+     "label": "React",
+     "version": null,
+     "evidence": "__REACT_DEVTOOLS"
+    },
+    {
+     "id": "express",
+     "label": "Express (Node.js)",
+     "version": null,
+     "evidence": "x-powered-by: Express"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Express",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 76a2ca53c94ecdb2669e24612a611a48.cloudfront.net (CloudFront)",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

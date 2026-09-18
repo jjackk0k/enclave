@@ -1,0 +1,141 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "yoti",
+      "name": "Yoti",
+      "offersBounties": true,
+      "assets": [
+        "983980808",
+        "api.yoti.com",
+        "ccloud.yoti.com",
+        "code.yoti.com",
+        "com.yoti.mobile.android.live",
+        "core.yoti.com",
+        "hub.yoti.com",
+        "identity.yoti.com",
+        "www.yotisign.com"
+      ],
+      "exclusions": [
+        "Yoti Password Manager browser extension",
+        "Yoti liveness detection campaign",
+        "developers.yoti.com",
+        "www.yoti.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\yoti-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "yoti",
+  "name": "Yoti",
+  "url": "https://hackerone.com/yoti",
+  "policy": "## SIGNUP / Hackerone identification\n- **SIGNUP**: when registering an organisation, page, application or any \"service\" within our various services, can you please prepend **[Hackerone]** to the names you use! For example, when register a business or organisation within the Yotisign service, you should use: **[Hackerone] Whatever name you like here**   \n\n---\n\n**Important Notices**\n- **Free Trial Endpoint**: Please refrain from testing the rate limiting or anti-automation capabilities of the [Yoti Sign free trial service](https://www.yotisign.com/app/free-trial/). We're already addressing this issue, so no automated requests, please.\n- **Developer Documentation Site**: Testing on [DEVELOPERS.YOTI.COM](https://developers.yoti.com) is strictly prohibited, as it's a third-party hosted site and not part of our security concerns.\n- **Mail Security Features**: SPF/DKIM/DMARC are optional and not within our program's scope, unless a major issue with the configuration exists. We acknowledge their importance but won't reward findings related to these.\n- **IAM Layer**: An identity and access control layer sits in front of a number of our services. Please note that a vulnerability discovered within the IAM layer on one website e.g. health.yoti.com, is highly likely to extend to other services that rely on IAM e.g. hub.yoti.com. Vulnerabilities within IAM will not be rewarded multiple times across services, unless there is a clear and obvious difference between reported vulnerabilities.\n\n---\n#\n# Program Overview\nYoti aims to enhance security through collaboration with the security community. We prioritize the safety of our business and customers by encouraging the discovery of vulnerabilities.\n\n- **Response Times**: Expect a response within 3 business days and a bounty decision within 10 days after a legitimate issue is validated.\n- **App Focus**: Yoti's primary product is our mobile app (Android and iOS) alongside hosted backend services and the e-signing platform, Yoti Sign. These are key areas of interest for our bug bounty program.\n- **Eligibility & Disclosure**: Report issues promptly following HackerOne's guidelines, with detailed, reproducible steps. Only the first unique report received will be rewarded.\n\n---\n#\n# Program Rules\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n- Provide us a reasonable amount of time - 90 days - to resolve the issue before any disclosure to the public or a third-party.\n\n---\n#\n# Scope\nA list of assets is included in the Structured Scope Section. For detailed guidance on how to use Yoti services and applications, please see: [developers.yoti.com](https://developers.yoti.com/). Please note that any vulnerabilities discovered within services listed on our Developer documentation site will be considered for reward.\n\n---\n#\n# Rewards\nRewards vary by the severity of vulnerabilities, at Yoti's discretion. We aim to reward innovative and severe vulnerabilities.\n\n# Critical severity bug examples\n* Remote code execution on production systems housing sensitive data or functionality\n* Arbitrary access to any user’s profile or sensitive data\n\n# High severity bug examples\n* Remote code execute on a non-critical system\n* Arbitrary access to a single user’s profile or sensitive data\n* Remote code execution in mobile client (Android, iOS)\n\n# Medium severity bug examples\n* Significant authentication or authorisation bypass\n* Cross Site Scripting on www.yoti.com working on all browsers\n* Cross Site Request Forgery on critical actions\n* Leakage of personally-identifiable information\n* Insecure data storage\n\n# Low severity bug examples\n* Leakage of technical information that has a demonstrable impact\n* Debug functionality\n\n---\n#\n# Qualifying Vulnerabilities\n\nAny design or implementation issue that is reproducible and substantially affects the security of Yoti users is likely to be in scope for the program. When in doubt, consider what an attack scenario would look like. How would the attacker benefit? What would be the consequence to the victim? The [Google Bug Hunters University guide](https://sites.google.com/site/bughunteruniversity/improve/writing-the-perfect-attack-scenario) may be useful in considering whether something has impact.\n\n---\n#\n# Exclusions\n* The website www.yoti.com is currently out of scope as it is a marketing website\n* The form at www.yoti.com/business/esignatures/free-trial is strictly out of scope\n* Clickjacking on pages with no sensitive actions\n* Unauthenticated/logout/login CSRF\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS, or other high-rate attacks)\n* Resource exhaustion type attacks\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Spamming, email spoofing, or phishing attacks\n* Social engineering of Yoti staff or customers\n* Any physical attempts against Yoti property or data centers\n* Rooted mobile devices are not in scope\n* Self-XSS (tricking someone to running scripts in their console)\n* Bugs that cause the application to not function, but that are not security-related. For instance, modifying the  data sent to our servers and causing your account to get into an unusable state might be possible but is not in scope\n* Web bugs that only affect outdated versions of Chrome, Firefox, Safari, IE10 or Edge\n\n---\n#\n# Known Issues\nThe following issues are known about and are not eligible for bounties:\n* Lack of rate limiting via our APIs. This is a known issue and something we are working towards resolving.\n\n---\n#\n# Yoti SICAP Liveness detection service campaign (March 2024)\n\n### Scope:\nWe are inviting research to test Yoti's end-to-end Secure Capture Liveness detection software [here](https://datacollection.scan.yotiai.algorath.com).  The service ingests a live video/image stream and returns an age estimation to end-users. That's it! \n\nThe entire purpose of this specific campaign is to test injection attacks against our end-to-end service.\n\nIn order to be successful, researchers will need to bypass the camera capture step, replace the camera's real-time stream using a prerecorded video or image and finally, receive a valid age or liveness response from the back-end service (200 OK).\n\nRemember,  **Liveness detection** uses your camera in real-time, whereas an attack uses pre-recorded video or images to trick the back-end service!\n\n### Reward\n\nWe'll be paying a flat rate of $1000 per legitimate vulnerability!\n\n{F3118074}\n\n### Attack examples:\n* Man in the middle:\n  * Successfully Intercept and modify a secure request changing the image captured by the Yoti Client-side Web Face Capture Module and get a model estimation from the back-end service.\n* Replay attacks:\n  * Reuse of a previously valid payload request to perform a second request, receiving a second estimation over the same image.\n* Software attack: \n  * Use any software program to simulate a real camera device and use it to inject a pre-captured image.\n* Hardware attack: \n  * Use any hardware to simulate a real camera device and inject a prerecorded video.\n* Other:\n  * Be creative! Any unknown attack type that allows you to send a pre-capture image bypassing the SICAP capture and get a valid model estimation in a secure request.\n\n### In scope\n* Purely injection style attacks that are successful against the e2e service are in scope. \n* Tricking the SICAP back-end into believing what you have uploaded is a genuine image.\n\n### NOT in scope\n* modifications to the front-end response (through response capture), this is not considered a successful \"end-to-end\" attack as it has not passed through our back-end.\n* the service itself that is used to facilitate the test; this website has been quickly propped up for Campaign purposes:\n  * Google Oauth, DNS, SSL, certificate issues, headers, XSS, SQL etc are not what we're concerned about. This is not a traditional type of test!\n* NOTE: simply changing the `?secure=true` from true to false (or removing it) is not considered a bypass and won't be accepted as a find, unfortunately\n\n\n### Guidance: \n1. Login to our [SICAP Liveness scan demo service](https://datacollection.scan.yotiai.algorath.com) with a valid **Gmail** account.\n2. Feel free to select any of the **metadata** options on the Settings page; it doesn't matter which option you choose.\n3. Test some injection attacks! The guidance on this page is a good place to start.\n\n### Additional:\n* There are multiple tutorials and YouTube videos on “how to inject videos” on webcams, please see them for inspiration and ideas!\n* Software programs such as **FakeCam** and **ManyCam**, or any other virtual camera should provide an idea of what we're looking for.\n\n\nYou'll need to log in using a valid Gmail account:\n{F3118078}\n\nYou'll then want to \"perform the scan\" via the **Scan** tab:\n{F3118087}\n\nA successful injection attack will be a situation whereby you are able to successfully manipulate the system to receive a model estimation response back from the server side, calling **/v1/age** or **/v1/age-antispoofing**  with an altered image or secure payload, and receiving a **200 OK** response.\n\nYou may try as many times as you wish, but please note that rate limiting is not in effect, so brute forcing attempts are not wanted and will not be rewarded.\n\n#\n## SICAP Privacy notice\n\nThis is very important, so please read carefully:\n\n>the \"secure\" parameter within the GET URI is not something we are concerned about and are well aware of - simply changing or removing this parameter is not a valid find. \n> All end-to-end attempts will be recorded within our back-end.  This will include the request ID, the associated email address and the images and/or videos that are used as part of the attempted injection attack(s).\n> Data is kept entirely separate from other Yoti data, stored securely within Google Cloud and access restricted to certain members of Yoti. All data will be removed at the end of the campaign.\n> All images, video and metadata will be removed at the end of the campaign, **unless we specifically reach out to those successful** and **explicitly ask you for permission** to retain the data that relates to a successful attempt (images and/or video).\n> Please note that you do not need to use your own self as the subject within the images/video that you upload, a successful attack could consist of data that contains any image/video you so choose, as long as it returns a successful response.\n\nAs outlined above, Yoti may use your information to improve this specific technology. All data will be permanently deleted at the end of the campaign period (maximum 28 days after completion of campaign). For more information please contact privacy@yoti.com\n\n\nIn summary, please visit our [Liveness detection service](https://datacollection.scan.yotiai.algorath.com), log in using a Gmail account and attempt to upload a pre-recorded video or image to our back-end. A successful 200 response (for \"injected images\") will be rewarded! \n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.yoti.mobile.android.live",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.yoti.mobile.android.live",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "983980808",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://itunes.apple.com/us/app/yoti/id983980808",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "core.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ccloud.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "code.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.yotisign.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You must use \"[Hackerone] ORG_NAME\" when registering an organisation!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please DO NOT report items from this website, unless you deem them to be critical in nature. WPSCAN findings will not be accepted.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "developers.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please DO NOT test this domain - it is a third party hosted documentation site for developers, and not of concern to us. The third-party service DO NOT want this site tested. Thank you!",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "hub.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "you must use \"[Hackerone] <whatever name here>\" when creating any organisation/application/service within Hub!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "identity.yoti.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Yoti Password Manager browser extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Yoti liveness detection campaign",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "netflix",
+      "name": "Netflix",
+      "offersBounties": true,
+      "assets": [
+        "*.nflxext.com",
+        "*.nflximg.net",
+        "*.nflxso.net",
+        "*.nflxvideo.net",
+        "*.prod.cloud.netflix.com",
+        "*.prod.dradis.netflix.com",
+        "*.prod.ftl.netflix.com",
+        "Content Authorization Targets",
+        "Corporate Assets",
+        "Microsites",
+        "Open Source - Atlas",
+        "Open Source - Spectator",
+        "Open Source - Zuul",
+        "Secondary Assets",
+        "api*.netflix.com",
+        "beacon.netflix.com",
+        "customerevents.netflix.com",
+        "help.netflix.com",
+        "ichnaea.netflix.com",
+        "nmtracking.netflix.com",
+        "presentationtracking.netflix.com",
+        "secure.netflix.com",
+        "www.netflix.com"
+      ],
+      "exclusions": [
+        "Open Source - Consoleme",
+        "Open Source - Weep"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\netflix-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "netflix",
+  "name": "Netflix",
+  "url": "https://hackerone.com/netflix",
+  "policy": "# Netflix Program Policy\n\nNetflix’s goal is to deliver joy to our members around the world, and it is the security team's job to keep our members, partners, and employees secure. We have been engaging with the security community to achieve this goal through programs like responsible disclosure and private bug bounty for a number of years. Our bug bounty program aims to continue improving the security of our products and services while strengthening our relationship with the community.\n\n# Program Guidelines\n___\n### We require that all researchers:\n- Do not access customer or employee personal information, pre-release Netflix content, or Netflix confidential information. If you accidentally access any of these, please stop testing and submit the vulnerability.\n- Stop testing and report the issue immediately if you gain access to any non-public application or non-public credentials.\n- Do not degrade the Netflix user experience, disrupt production systems, or destroy data during security testing.\n- Perform research only within the scope set out below.\n- Use the HackerOne report submission form to report vulnerability information to us.\n- Collect only the information necessary to demonstrate the vulnerability.\n- Submit any necessary screenshots, screen captures, network requests, reproduction steps, or similar using the HackeOne submission form (do not use third-party file-sharing sites). \n- When investigating a vulnerability, please only target your own account and do not attempt to access data from anyone else’s account.\n- Securely delete Netflix information that may have been downloaded, cached, or otherwise stored on the systems used to perform the research.\n   \n\n### If you fulfill these requirements, Netflix will:\n- Work with you to understand and attempt to resolve the issue quickly (confirming the report within 7 days of submission)\n- Pay you for your research for unique vulnerabilities that meet the guidelines listed below if you are the first to report the issue to us using the HackerOne portal.\n\nTo encourage responsible disclosure, Netflix will not bring a lawsuit against you or ask law enforcement to investigate you if we determine that your research and disclosure meet these requirements and guidelines. If you have questions about responsible disclosure of results for a submission, please reach out to us via the submission page.\n\nPlease collect all relevant information related to your research and provide sufficient details, including proof of concept, videos, and screenshots. Reach out to us through the submissions page, and feel free to include any questions in your report.\n\n# Reward Guidelines\n___\nNetflix wishes to incentivize broad, information-rich vulnerability submissions to our program, particularly for the Targets we have listed. \n\nPlease note that Netflix generally only issues a reward (points and/or bounty) if we pursue a change based on the researcher's submission, and we retain the sole discretion to reward (points and/or bounty) any such submission even if it relates to a target that isn’t listed below. \n\nFor certain vulnerabilities that may be present in different parts of a web application or view, Netflix may provide, at its discretion, an additional reward for those reports that detail multiple vectors for injections, XSS, or similar. This reward is in addition to the award ranges detailed below.\n\n## Primary Target\nPrimary targets make up the Netflix.com user experience.\n\n| Severity | Maximum Bounty | Minimum Bounty |\n| -------- | -------------- | -------------- |\n| Critical | 25,000          | 5,000           |\n| High     | 5,000           | 2,000           |\n| Medium   | 2,000           | 600            |\n| Low      | 600            | 300            |\n\n## Secondary Targets\nSecondary targets are systems that have less impact on the primary Netflix experience, and so will be paid at a lower rate than primary targets (see “Secondary Reward Guidelines” below). \n- Public Netflix web applications not related to the web browser www.netflix.com experience are secondary targets.\n- In addition, valid vulnerabilities for these submissions will only be considered for risks of medium severity or higher.\n\n| Severity | Maximum Bounty | Minimum Bounty |\n| -------- | -------------- | -------------- |\n| Critical | $5,000         | $2,000         |\n| High     | $2,000         | $600           |\n| Medium   | $600           | $300           | \n\n## Mobile Target\nNetflix Mobile application for IOS and Android\n\n| Severity | Maximum Bounty | Minimum Bounty |\n| -------- | -------------- | -------------- |\n| Critical | $5,000         | $2,000         | \n| High     | $2,000         | $600           |\n\n## Corporate Targets\nFor targets listed in the \"Corporate Targets Overview\" section, we only reward for the bugs that are critical or High based on the CVSS.\n- We do accept submissions of overly exposed Google documents (as described in Corporate Targets above), which start at Low severity. \n- Submissions must meet other applicable requirements (e.g. not an Excluded Submission Type). \n- Medium and Low severity reports will be accepted but will not be eligible for a bounty. \n\nThese are the ranges of rewards we typically choose to provide:\n\n| Severity | Maximum Bounty | Minimum Bounty |\n| -------- | -------------- | -------------- |\n| Critical | $10,000        | $2,000         |\n| High     | $2,000         | $500           | \n\n## Content Authorization Targets\nHigh severity targets include methods of subverting content authorization or obtaining private keys. Medium targets include leaked private keys for content decryption. Submissions of hardware-backed private keys (i.e. from a TEE) & key exfiltration methods will have higher payouts than submissions of software-backed private keys & key exfiltration methods.\n\n| Severity | Maximum Bounty | Minimum Bounty |\n| -------- | -------------- | -------------- |\n| High     | $5,000         | $1,000         |\n| Medium   | $1,000         | $300           | \n\n\n\n\n# Scope & Target Overview\n___\n\n# Primary Targets Overview\nPrimary targets make up the Netflix.com user experience. Valid vulnerabilities submitted against primary targets will result in higher payouts than secondary applications (see “Primary Target Reward Guidelines” below).\n\n| Primary Target                                                                                                            | Details                                                                                                                                                                                                                               |\n| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `api-*.netflix.com`, `api.netflix.com`, `*.prod.ftl.netflix.com`, `*.prod.cloud.netflix.com`, `*.prod.dradis.netflix.com` | The primary of the Netflix experience is driven by microservices that are hosted and called through our API. You may see the API referenced as `api*.netflix.com` as well as `www.netflix.com/api/*`.                                 |\n| `www.netflix.com`                                                                                                         | The primary Netflix experience is hosted on this top-level domain. The UI uses a combination of React JS and Node.                                                                                                                    |\n| `Secure.netflix.com`                                                                                                      | Secure static assets are hosted on this domain.                                                                                                                                                                                       |\n| `ichnaea.netflix.com`                                                                                                     | Ichnaea is a logging endpoint used to collect client information.                                                                                                                                                                     |\n| `beacon.netflix.com`                                                                                                      | Beacon is a logging endpoint used to collect client information from member's browsers and streaming devices.                                                                                                                         |\n|                                                                                                                           | Please note that `customerevents.netflix.com`, `nmtracking.netflix.com`, and `presentationtracking.netflix.com` are all alias of beacon.netflix.com. Submissions containing variations of the URL ==will not== be treated as unique._ |\n| `*.nflxvideo.net`                                                                                                         | Our Open-Connect CDN serves video content over this domain.                                                                                                                                                                           |\n| `*.nflxext.com`                                                                                                           | Static content is served over this domain.                                                                                                                                                                                            |\n| `*.nflximg.net`                                                                                                           | Static content is served over this domain.                                                                                                                                                                                            |\n| `*.nflxso.net`                                                                                                            | Static content is served over this domain.                                                                                                                                                                                            |\n| `help.netflix.com`                                                                                                        | Our help site provides a knowledge base and customer service chat.                                                                                                                                                                    |\n| `meechum.netflix.com`                                                                                                     | Netflix partner page                                                                                                                                                                                                                  |\n\n# Mobile Targets Overview\n| Mobile Target                           | Download                                                                                                                                                                                                                              |\n| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Netflix Mobile Application for iOS:     | Can be downloaded [here](https://itunes.apple.com/us/app/netflix/id363590051?mt=8).                                                                                                                                                   |\n| Netflix Mobile Application for Android: | Can be downloaded [here](https://play.google.com/store/apps/details?id=com.netflix.mediaclient&hl=en).                                                                                                                                |\n\n# Corporate Targets Overview **(Netflix.com Google G Suite)**\n\nInsecure usage or misconfiguration of the G Suite instance associated with ONLY the netflix.com, netflixcontractors.com, and netflixanimation.com domains (NOT any subdomains such as subdomain.netflix.com or ANY OTHER domains such as netflixcs.com). Please note that this is limited to a vulnerability in Netflix’s usage and configuration of G Suite, and not G Suite itself.\n\n**Corporate target submissions must include information to help us understand root cause.**\n\n*Publicly accessible Google Document or Drive Links:*\n- Individual Google documents that are publicly exposed can create risk, but we value root causes over reports of individual documents. -- Maximum payouts will come from reporting addressable root causes, not individual documents. \n- Multiple documents that *share a common root cause for their exposure* will be paid out on the appropriate Target matrix based on the change necessary to address the root cause (payout amount may be higher or lower than simply based on the sensitivity & the number of exposed documents) Individual documents with no common root cause typically will be low severity under “Corporate Targets”. We will reward only where we choose to make a change.\n\nFor **documents that contain particularly sensitive information** (typically personal information or active credentials), we may choose a higher priority and associated payout range, based on impact. We expect this to be rare and on a case-by-case basis, and this determination is made by Netflix. \n\nPlease remember: **our Guidelines require you to not access customer or employee personal information or Netflix confidential information**. If you accidentally access any of these within exposed Google documents, please stop testing and submit the vulnerability.\n\n# Device & Content Authorization Targets Overview\n\nMethods of subverting Netflix content authorization systems to achieve video playback on unauthorized devices are in scope. Examples include circumventing the content authorization systems, obtaining private keys used for authorization, etc. \n- Only playback of full content is `in scope`.\n- Supplemental content such as trailers, images etc. is `not in scope`.\n\nPrivate keys used for video content decryption are `in scope`. \n- Reports must contain private key material that enables the decryption of video streams at the time reported. \n- Groups of keys discovered at the same time (e.g. leaked together) or using the same methods (shared vulnerability across multiple devices) will only qualify for a single reward. \n- Submissions related to screenshots or screen recording are not in scope. Submissions must include actual private key material.\n\n*Reports must contain specific, clearly articulated and actionable details relating to how the keys were discovered or extracted to qualify for a reward.*\n\n# Secondary Targets Overview\n\nSecondary targets are systems that have less impact on the primary Netflix experience, and so will be paid at a lower rate than primary targets (see “Secondary Reward Guidelines” below). In addition, valid vulnerabilities for these submissions will only be considered for risks of medium severity or higher.\n\n_Public Netflix web applications not related to the web browser www.netflix.com experience are secondary targets._\n\n**Microsites** \nMicrosites are sites that Netflix typically publishes for promotion or in support of Netflix titles.\n\n**Third-party microsites:**\nNot all microsites are hosted by Netflix. Some are hosted by vendors or partners. \n- We cannot authorize you to test these sites as we do not own the computers that host them. It is critical that you confirm that Netflix is the owner of a particular microsite before testing. \n- When in doubt, please reach out to the Netflix or HackerOne team(s) to confirm.\n\n# Open Source Targets Overview\n\n**Scoping Guidelines:**\nNetflix publishes many projects as open source, but only some projects are in scope. Vulnerabilities will be rewarded as primary or secondary targets as specified below:\n\n| Primary Targets    | URL                                  |\n| --------- | ------------------------------------ |\n| Zuul      | https://github.com/Netflix/zuul      | \n\n\n| Secondary Targets    | URL                                  |\n| --------- | ------------------------------------ |\n| Atlas     | https://github.com/Netflix/atlas     |\n| Spectator | https://github.com/Netflix/spectator |\n\nAll other Netflix open source projects are not in scope for reward at this time. Please familiarize yourself with the README and SECURITY files (if present) in each project before testing. They will contain more details about the scope, security model, and a list of any excluded issues.\n\n**Open Source Reward Guidelines :**\nOpen source targets listed above will be paid out on the Primary or Secondary reward scales as specified above. Open Source projects which are not explicitly listed above are not eligible for reward at this time. The priority for these vulnerabilities will be assigned based on the impact to Netflix.\n\n# Non-Rewardable Targets\n\nOur reward philosophy is that we reward (points and/or bounty) when we make a change based on sufficient impact to Netflix. However, to ensure that we are incentivizing impactful findings we have a few areas of submissions that are generally not eligible for payments. These will be rewarded with Kudos points only.\n\nSpecific areas include:\n- Affiliates or entities such as recently acquired companies\n- Content authorization vulnerabilities affecting only the in-browser player\n- Low-impact, individually exposed Google Docs with no common root cause (see “Publicly accessible Google Document or Drive Links” in the “Corporate Targets” section)\n- Netflix gaming targets\n- Dependency Confusion via Package Takeover\n\t- We are aware of certain dependency confusion issues caused by package ownership in package managers and are working on a long-term scalable solution. While we are working on the solution, reports submitted sharing the same root cause will be marked as Duplicate of the original report which brought this issue to our attention. However, if you are able to demonstrate clear evidence of taken-over packages affecting or executing from Netflix infrastructure, please submit a report to us. Additionally, we would also incentivize reports that provide net new learnings and bypass our controls.\n\n\nWe may, at our sole discretion, choose to reward particularly impactful and informative submissions on otherwise non-reward-eligible targets. However maximum payouts will come from the explicitly listed targets.\n\n# Out-of-Scope (Please Read)\n___\n- Third-party websites or systems hosted by non-Netflix entities\n- ir.netflix.com / ir.netflix.net\n- Netflixinvestor.com\n- Set-top-boxes, smart TVs, streaming sticks\n-  Dispatch OSS (https://github.com/Netflix/dispatch) \n- ConsoleMe OSS (https://github.com/Netflix/consoleme)\n- Weep OSS (https://github.com/Netflix/weep)\n- ReadyPlayerMe and any assets associated with ReadyPlayerMe\n\nIn addition, findings that fall into the “Excluded Submission Types” listed below will also be flagged as out of scope.\n\nIf you have a concern about whether a potential submission is in-scope, please first validate that it is demonstrably owned by Netflix, and carefully read the \"Out of Scope\", \"Excluded Submission Types\", and the \"Targets\" sections. If it is still unclear but you believe it should still be considered, please submit via the program ONLY (instead of alternate channels like email), and include a few sentences describing your judgment regarding scope. Submissions that demonstrate thoughtful consideration for scope but that we ultimately do not act on will receive a \"Not Applicable\" status, rather than \"Out Of Scope\" with negative points.\n\n# Focus Areas\n___\nWe encourage researchers to focus their efforts in the following areas:\n- Cross-Site Scripting (XSS)\n- Cross-Site Request Forgery (CSRF)\n- SQL Injection (SQLi)\n- Server Side Request Forgery(SSRF)\n- Authentication related issues\n- Authorization related issues\n- Data Exposure\n- Redirection attacks\n- Remote Code Execution\n- Business Logic\n- MSL Protocol (https://github.com/Netflix/msl)\n- Particularly clever vulnerabilities or unique issues that do not fall into explicit categories\n- Mobile-specific API vulnerabilities\n\n# Excluded Submission Types\n___\nVulnerability reports which do not include careful manual validation - for example, reports based only on results from automated tools and scanners or which describe theoretical attack vectors without proof of exploitability - will be closed as Not Applicable.\n\nSome of the vulnerability classes we consider to be excluded below:\n\n- Cookie valid after logout\n- Cookie valid after password change/reset\n- Cookie expiration\n- Cookie migration/sharing\n- Forgot password autologin\n- Autologin token reuse\n- Static content over HTTP\n- Free trials\n- Home Location Mis-detection\n- Borrower VPN bypass\n- Same Site Scripting\n- Physical Testing\n- Social Engineering\n\t- For example, attempts to steal cookies, fake login pages to collect credentials\n\t- Phishing\n- Denial of service attacks\n- Resource Exhaustion attacks\n- Mail Server Domain Misconfiguration (including email spoofing, missing DMARC, SPF/DKIM, etc.)\n- Issues related to rate limiting\n- Login or Forgot Password page brute force and account lockout not enforced\n- Services listening on port 80\n- Internal IP address disclosure\n- Issues related to cross-domain policies for software such as flash, silverlight etc. without evidence of an exploitable vulnerability\n- Username / Email Enumeration\n\t- via Login Page error message\n    - via Forgot Password error message\n    - via Registration\n- Weak password policies\n- Weak Captcha / Captcha bypass\n- Vulnerabilities impacting only old/end-of-life browsers/plugins including:\n\t- Issues that have had a patch available from the vendor for at least 6 months\n\t- Issues on software that is no longer maintained (announced as unsupported/end-of-life or no patches issued in at least 6 months)\n- Vulnerabilities primarily caused by browser/plugin defects and not representative of defects in the security of Netflix systems or software (e.g. UXSS)\n- Reports relating to Symantec root certificates\n- Vulnerability reports related to the reported version numbers of web servers, services, or frameworks\n- Vulnerability reports relating to sites or network devices not owned by Netflix\n- Vulnerability reports that require a large amount of user cooperation to perform, unlikely or unreasonable actions which would be more symptomatic of a social engineering or phishing attack and not an application vulnerability (e.g. disabling browser security features, sending the attacker critical information to complete the attack, guiding the user through a particular flow and requiring them to enter malicious code themselves, etc.)\n- For Device & Content Authorization Targets: Vulnerabilities from already publicly broken protocols (e.g. HDCP v1.4)\n\n\n\n# Disclosure Stance\n___\nThis program or engagement ==does not== allow disclosure. You may ==not== release information about vulnerabilities found in this program or engagement to the public.\n\n#Data Deletion\nAny data cached or stored during the testing activities must be immediately deleted after report submission. Additionally, any data entered or stored in third-party applications or services as part of the testing process must also be completely deleted. Researchers are responsible for confirming the deletion of all such data and may be required to provide evidence of such deletion.\n\n# Additional Terms\nYour testing must comply with applicable laws. This program is not an offer of employment. Whether to pay a reward and in what amount is at Netflix’s discretion. You are responsible for any taxes associated with a reward you receive. We may modify or cancel this program at any time.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.nflxext.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nStatic content is served over this domain",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## Primary Target\nThe primary Netflix experience is hosted on this top level domain. The UI uses a combination of React JS and Node.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api*.netflix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nThe primary Netflix experience is driven by microservices that are hosted and called through our API. \n\nYou may see the API referenced as` api*.netflix.com` as well as `www.netflix.com/api/*`\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.prod.ftl.netflix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nThe primary Netflix experience is driven by microservices that are hosted and called through our API. \n\nYou may see the API referenced as` api*.netflix.com` as well as `www.netflix.com/api/*`\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.prod.cloud.netflix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nThe primary Netflix experience is driven by microservices that are hosted and called through our API.\n\nYou may see the API referenced as `api*.netflix.com` as well as `www.netflix.com/api/*`",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Open Source - Atlas",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## https://github.com/Netflix/atlas\n**Secondary Target**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Corporate Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "** Netflix.com Google G suite **\n**For targets listed in the \"Corporate Targets Overview\" section, we only reward for the bugs that are critical or High based on the CVSS.** \n\n- We do accept submissions of overly exposed Google documents (as described in Corporate Targets above), which start at Low ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.nflxvideo.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.prod.dradis.netflix.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nThe primary Netflix experience is driven by microservices that are hosted and called through our API. \n\nYou may see the API referenced as` api*.netflix.com` as well as `www.netflix.com/api/*`\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "beacon.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nBeacon is a logging endpoint used to collect client information from member's browsers and streaming devices.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "customerevents.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\n`customerevents.netflix.com`, `nmtracking.netflix.com`, and `presentationtracking.netflix.com` are all alias of `beacon.netflix.com`. \n\nSubmissions containing variations of the URL will not be treated as unique.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nSecure static assets are hosted on this domain",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.nflximg.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nStatic content is served over this domain",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.nflxso.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nStatic content is served over this domain",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nOur help site provides a knowledge base and customer service chat",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ichnaea.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\nIchanaea is a logging endpoint used to collect client information",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "presentationtracking.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\n`customerevents.netflix.com`, `nmtracking.netflix.com`, and `presentationtracking.netflix.com` are all alias of `beacon.netflix.com`. \n\nSubmissions containing variations of the URL will not be treated as unique.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nmtracking.netflix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary Target**\n`customerevents.netflix.com`, `nmtracking.netflix.com`, and `presentationtracking.netflix.com` are all alias of `beacon.netflix.com`. \n\nSubmissions containing variations of the URL will not be treated as unique.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Open Source - Consoleme",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://github.com/netflix/consoleme\n\n**As of Feb 2026: out of scope**",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Open Source - Weep",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://github.com/netflix/weep\n\n**As of Feb 2026: out of scope**",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Open Source - Zuul",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## https://github.com/Netflix/zuul\n\n**Primary Target**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Microsites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## Secondary Target\nMicrosites are sites that Netflix typically publishes for promotion or in support of Netflix titles.\nNot all microsites are hosted by Netflix. Some are hosted by vendors or partners. We cannot authorize you to test these sites as we do not own the computers that host them. It is ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Open Source - Spectator",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## https://github.com/Netflix/spectator\n\n**Secondary Target**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Secondary Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Content Authorization Targets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Device & Content Authorization Findings**\n\nHigh severity targets include methods of subverting content authorization or obtaining private keys. Medium severity targets include leaked private keys for content decryption. Submissions of hardware-backed private keys (i.e. from a TEE) & key exfiltrati",
+      "max_severity": "critical"
+    }
+  ]
+}

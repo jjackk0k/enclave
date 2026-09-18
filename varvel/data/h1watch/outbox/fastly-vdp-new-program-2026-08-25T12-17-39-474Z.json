@@ -1,0 +1,103 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fastly-vdp",
+      "name": "Fastly VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.fanout.io",
+        "*.signalsciences.com",
+        "api.fastly.com",
+        "docs.fastly.com",
+        "https://*.fastly.com/",
+        "manage.fastly.com"
+      ],
+      "exclusions": [
+        "*.fastly.net",
+        "community.fastly.com",
+        "connect.fastly.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fastly-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fastly-vdp",
+  "name": "Fastly VDP",
+  "url": "https://hackerone.com/fastly-vdp",
+  "policy": "\n#About Fastly\nFastly helps people stay connected with the things they love. Fastly’s edge cloud platform enables customers to create great digital experiences quickly, securely, and reliably by processing, serving, and securing our customers’ applications as close to their end-users as possible — at the edge of the Internet. The platform is designed to take advantage of the modern internet, to be programmable, and to support agile software development. Fastly’s customers include many of the world’s most prominent companies, including Vimeo, Pinterest, The New York Times, and GitHub.\nWe're building a more trustworthy Internet.\nFastly looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\nWe're building a more trustworthy Internet.\n\nFastly looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Fastly Vulnerability Disclosure Program Terms\nYour participation in the Fastly Vulnerability Disclosure Program is voluntary. By submitting a report or otherwise disclosing a vulnerability to us (a “Submission”), you are indicating that you have read and agree to follow the rules set forth on this page (“Program Terms”).\n\n# Ground Rules\nDuring security research, user privacy must be maintained and respected. Testing should be performed only on assets explicitly stated as in-scope for the vulnerability disclosure program. Testing must be performed in accordance with the Program Terms and Fastly’s Terms of Service. Testing should not degrade, damage, or destroy our systems - research which includes actions that result in denial of service is strictly prohibited. If a vulnerability is found, report it without any conditions attached. Any vulnerabilities found that are disclosed for purposes other than for fixing the issue will not qualify for a reward. Only interact with accounts you own or with explicit permission of the account holder. Fastly reserves the right to end the vulnerability disclosure program at any time.\n\n* By participating in this program, you agree not to share publicly or privately any details or descriptions of your findings with any third party. As this is a private program, do not discuss this program, a Submission, or any vulnerabilities (even resolved ones) outside of the program without express consent from Fastly.\n\n# Response Targets\nFastly will make a best effort to meet the following SLAs for security researchers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n|First response| 3 days|\n|Time to Triage| 7 days|\n|Time to Swag| 30 days|\n|Time to resolution| Dependent on severity and complexity of the issue.|\n\n\nThe following issues are what the Fastly team is most interested in seeing:\n* Server Side Request Forgery (SSRF)\n* Remote Code Execution (RCE)\n* Ability to modify other customer accounts\n* Ability to obtain sensitive information \n* Stored Cross-Site Scripting (XSS) resulting in ability to obtain or modify customer data\n* Reflected XSS resulting in ability to obtain or modify customer data\n\nThe following activities are prohibited: \n\n* Denial of service or similar attacks which could cause system unavailability \n* Social Engineering (including phishing attacks against Fastly employees)\n\nThe following issues are out of scope:\n* Clickjacking on pages with no sensitive actions.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Rate limiting or bruteforce issues on non-authentication endpoints.\n* Missing best practices in Content Security Policy.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n\n# Submissions and Report Quality\nBefore beginning your report, ensure that the issue is in scope for this program and shows security impact. \n\nNotes: \n* We will not accept video-only proof of concepts.\n* We will not accept reports containing only automated scan reports, such as BurpSuite output and nmap scan reports.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be accepted as one issue.\n\nOnly vulnerabilities that are verifiable and reproducible are considered in-scope. Reports should have the following qualities:\n\n* A clear description of the attack scenario.\n* A clear description of the vulnerability.\n* A clear description of the steps to be able to reproduce the issue, and if it improves clarity of the report, include screenshots.\n* A clear description and detail about your understanding of the security impact of the issue.\n* Minimized test case.\n* Demonstrate that the exploit is likely\n* Report should be brief and well written with only necessary detail and commentary.\n* Be responsive to questions from the engineers working to fix the bug.\n* If available, adding a suggested patch will increase the clarity of the report.\n\nVulnerability Reports should avoid: \n* Only a crash dump or stack trace without symbols\n* Not having a Proof of Concept (PoC) or poor quality PoC (e.g. a large fuzz file dump with no attempt at reduction) that is later verified to be a legitimate issue.\n* SSL/TLS scan reports, including output from sites like SSL Labs\n\n# Confidentiality\nAny information you receive or collect about us, our services, our customers, our affiliates or any of our users, employees or agents in connection with the Vulnerability Disclosure Program (“Confidential Information”) must be kept confidential and only used in connection with the Vulnerability Disclosure Program. You may not use, disclose or distribute any such Confidential Information, including without limitation any information regarding your Submission, without our prior written consent. You must get written consent by submitting a disclosure request through the HackerOne platform. Please note, not all requests for public disclosure can be approved.\n\n# Rights and Licenses\nWe may modify the Program Terms or cancel the Vulnerability Disclosure Program at any time in our sole discretion. By making a Submission, you represent and warrant that the Submission is original to you and you have the right to submit the Submission. By making a Submission, you give us the right to use your Submission and any materials submitted with your Submission for any purpose.\n\n# Safe Harbor\nFastly will not pursue legal action against any security researcher who complies with all of the Program Terms, and who also cooperates fully with Fastly's reasonable requests for assistance in reproducing a vulnerability.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://*.fastly.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "manage.fastly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.fastly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.fastly.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.fastly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.signalsciences.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fanout.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.fastly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "connect.fastly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

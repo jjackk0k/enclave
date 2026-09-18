@@ -1,0 +1,66 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "quora",
+      "name": "Quora",
+      "offersBounties": true,
+      "assets": [
+        "*.quora.com",
+        "com.quora.android",
+        "com.quora.app.mobile",
+        "poe.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\quora-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "quora",
+  "name": "Quora",
+  "url": "https://hackerone.com/quora",
+  "policy": "## Update Highlights: [Poe.com](http://poe.com/)\n\nWe highly encourage all researchers who are interested in AI products to test it and help us maintain the highest possible levels of security for our users.\n\n## Introduction\n\nWe are committed to the safety and security of users on both Quora and Poe. To recognize the importance of independent security researchers who help keep our platforms secure, we offer the following bug bounty program to reward the reporting of certain qualifying security vulnerabilities. Please make sure you review the following information before reporting a vulnerability. We welcome your feedback at ([hackerone@quora.com](mailto:hackerone@quora.com)) as we continue to improve our bug bounty programs.\n\nBy participating in these programs, you agree to the following rules described below.\n\n# Program Rules\n\n- Our rewards are based on the impact of a vulnerability and how we classify the severity of bugs. For more details, please see Issue Severity below. While CVSS calculator can be useful to get an assumption of the severity we can’t guarantee that our assessment will match its results.\n- When duplicates occur, we award the first report that we can completely reproduce.\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- Amounts below are the maximum we will pay per category. We aim to be fair, but all reward amounts are at our discretion.\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for bounty.\n- Follow HackerOne's disclosure guidelines here: https://www.hackerone.com/disclosure-guidelines.\n- Localize all your tests to the accounts you are using to test so you don’t affect other users.\n- Automated security testing against the site or APIs are not allowed.\n- Vulnerabilities in third-party libraries without proof of exploitation will not be rewarded.\n- Report product-related issues by following the instructions https://www.quora.com/How-can-I-report-a-bug-on-Quora.\n- Employees and contractors who have worked for Quora in the last 6 months are not eligible for a bounty.\n\n# Focus Areas\n\n- Currently we’re focused on critical vulnerabilities and personal data leaks\n- [poe.com](http://poe.com/)\n    - Android, iOS, web, and desktop apps (MacOS/Windows) are all included\n    - User information, PII, Poe account information\n    - bot chats\n    - poe subscriptions\n    - IDOR\n\n# Issue Severity\n\n### Critical severity bugs\n\nVulnerabilities that cause a privilege escalation on the platform from unprivileged to admin, allows remote code execution, financial theft, etc.\n\nExamples:\n\n- Remote Code Execution\n- Remote Shell/Command Execution\n- SQL Injection that leaks targeted data\n- Vulnerabilities in access control to our AWS resources\n- Misconfigured firewall in our AWS environment\n- **Jailbreaking poe server sandbox**\n\n### High severity bugs\n\nVulnerabilities that affect the security of the platform including the processes it supports.\n\nExamples:\n\n- Lateral movement\n- Authentication bypass\n- Stored XSS for another user\n- Local file inclusion\n- Insecure handling of authentication cookies\n- **PII leakage through Poe Protocol**\n\n### Medium severity bugs\n\nVulnerabilities that affect multiple users, and require little or no user interaction to trigger.\n\nExamples:\n\n- Reflective XSS\n- Insecure Direct Object References\n\n### Low severity bugs\n\nIssues that affect singular users and require interaction or significant prerequisites (MitM) to trigger.\n\nExamples:\n\n- Information leaks\n\n# Exclusions\n\nThe following bugs are unlikely to be eligible for a bounty:\n\n- Missing HTTP security headers, like:\n    - Strict-Transport-Security\n    - X-Frame-Options\n    - X-XSS-Protection\n- Non-existent or weak captcha / captcha bypass\n- Brute-forcing, lack of rate limits, or the ability to bypass rate limits, unless there is a demonstrable security impact\n- Lack of binary protection or obfuscation of the mobile app\n- Lack of SSL certificate pinning in mobile apps\n- Lack of jailbreak detection\n- Non-sensitive user data stored unencrypted on external storage by the mobile app\n- Blind SSRF\n- Any CSRF that can’t trigger state change to the user’s account\n- Vulnerabilities that require physical access to the device, email address or related oauth account compromised (facebook, google)\n- Phishing/spam attacks against users on the platform or Quora employees, and other findings derived from social engineering\n- Self-XSS\n- Tapjacking on mobile app\n- DoS\n- Crashes of the mobile app due to malformed URL schemes or intents\n- quora.com/cdn-cgi/, [poe.com](http://poe.com)/cdn-cgi/ endpoints as they are managed by cloudflare\n- Brute-forcing email enumeration\n\n# Exclusions for [Quora.com](http://quora.com/)\n\n- Our Help Site ([https://help.quora.com](https://help.quora.com/hc/en-us)) is run by a third party is therefore excluded from the bounty program.\n- Our Careers Site (https://www.careers.quora.com/) is run by a third party is therefore excluded from the bounty program.\n- Our Business Site ([https://business.quora.com/](http://business.quora.com/)) is run by a third party is therefore excluded from the bounty program.\n- Race conditions bypassing product usage limits such as\n    - voting, spam reports, thanking, space urls/names\n- Paywalled content. Quora+ content is out of scope for the program.\n- Space invite links\n\n# Exclusions for [Poe.com](http://poe.com/)\n\n- Bot Hallucinations: As testing AI is tricky make sure results from bots are real findings and not bot Hallucinations.\n- Unofficial bots: As bots are created by third parties we will only triage official bots.\n    - This is the list of official bots to test: https://poe.com/explore?category=Official\n- Help Site ([https://help.poe.com/](https://help.poe.com/hc/en-us/requests/new))\n\n# Additional Terms & Safe Harbor\n\nYou must comply with all applicable laws in connection with your participation in this program. You are also responsible for any applicable taxes associated with any reward you receive.\n\nWe may modify the terms of this program or terminate this program at any time. We won’t apply any changes we make to these program terms retroactively.\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nPlease note we do not reimburse independent security researchers for the cost of any subscriptions.\n\nThank you for helping keep Quora and Poe users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.quora.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Except for subdomains managed by third parties, such as help.quora.com, careers.quora.com, and business.quora.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.quora.app.mobile",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The latest version of iOS app installed from the official store at:\nhttps://itunes.apple.com/us/developer/quora-inc/id456034440",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.quora.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The latest version of Android app installed from the official store at:\nhttps://play.google.com/store/apps/details?id=com.quora.android\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "poe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " ",
+      "max_severity": "critical"
+    }
+  ]
+}

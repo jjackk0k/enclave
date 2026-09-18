@@ -1,0 +1,128 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "truecaller",
+      "name": "Truecaller ",
+      "offersBounties": true,
+      "assets": [
+        "*-asia-south1.truecaller.com",
+        "*-eu.truecaller.com",
+        "*-noneu.truecaller.com",
+        "448142450",
+        "business-resources.truecaller.com",
+        "business.truecaller.com",
+        "com.truecaller",
+        "web.truecaller.com",
+        "www.truecaller.com"
+      ],
+      "exclusions": [
+        "adsmanager.truecaller.com",
+        "community.truecaller.com",
+        "support.truecaller.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\truecaller-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "truecaller",
+  "name": "Truecaller ",
+  "url": "https://hackerone.com/truecaller",
+  "policy": "# General rules\n\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n\n# Unauthorized activity\n\n* Physical attacks against Truecaller offices and data centers.\n* Any vulnerability obtained through the compromise of a Truecaller employee or contractor, or Truecaller user: if you need to test a vulnerability, create another account; don’t take someone else’s. This type of activity will result in disqualification from the program permanently.\n* Any vulnerability found through the use of a botnet, compromised site, or a denial-of-service (DoS) tool (any tool  whose purpose is to  generate a lot of traffic in order to test for DoS).\n* Disrupting or negatively impacting Truecaller users, e.g. accessing or modifying Truecaller users' data or denying users access to Truecaller services.\n\nMoreover, make an effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. In case there is any privacy violation or a vulnerability test that may lead to interruption of Truecaller services, immediately inform us either here or on our security email address.\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n# Out of scope\n\nWe are interested in reports about security-related bugs, vulnerabilities, misconfigurations with security impact (including exposure of secrets). We are not interested in reports about missing best-practice configuration.\n\n*We will be closing reports about issues that have already been identified by our internal code scanning as \"Duplicate\".* \n\n*Please consider that the lists below are not exhaustive and that they will be updated continuously.*\n\n## Recurring non-vulnerabilities\n\n* Exposure of Razorpay API key\n* Exposure of Google Ads APP_ID\n* Exposure of Shopify client id\n* Exposure of VITALLY_TOKEN\n* Exposure of CLEVERTAP_ID\n\n*When submitting a report about the exposure of an alleged secret, you must demonstrate that it not intended to be public and can provide access to sensitive information or actions.*\n\nAlso consider that even if a service uses a truecaller.com domain, it could be an external service that is not managed by us, i.e. we have not developed it and are not responsible for its code or its vulnerabilities.\n\n##  Non-impactful vulnerabilities and non-vulnerabilities\n\n* Issues that require unlikely user interaction\n* Software version disclosure\n*  Descriptive error messages (e.g. stack traces, application or server errors)\n* Vulnerabilities that only affect users of outdated  browsers\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Missing best practices in TLS configuration (use of phase-out ciphers etc.)\n* Missing best-practice DNS records (DANE, CAA, MTA-STS, SPF, DKIM, DMARC, e.g.)\n* Missing best-practice HTTP headers (Content-Security-Policy, Referrer-Policy, Strict-Transport-Security, e.g.)\n* Missing HttpOnly or Secure flags on cookies, unless it concerns a cookie that stores sensitive information such as an authentication token. SameSite is excluded too.\n* Unauthenticated Cache Purge\n* Clickjacking or tabnabbing on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Leaked credentials from leaks services; if credentials are  exposed in our infrastructure or are clearly obtained from employee workstations (via info stealers)  they are of interest though!\n* Exposure of the default dashboard in Jira\n* Existence of indexed unsubscription links and search results in Wayback Machine and similar services\n\n# Test account\n\nTruecaller can grant you premium access to test certain features of the app. \n\nPlease send an email with the following information  to start the process.\n\n| Field | Content |\n| ------------- | ------------- |\n| To | support@truecaller.com |\n| From | <your-hackerone-email>@wearehackerone.com |\n| Subject | HackerOne Tester Premium Request |\n| Body (must contain)  | **Phone Number: number incl. country code** |\n\nWhen signing up using an email address, please  use your @wearehackerone.com alias.\n\n# Miscellaneous\n\nWe may modify the terms of this program or terminate this program at any time. We won’t apply any changes we make to these program terms retroactively.\n\n## Bounty ineligibility\n\nReports from individuals who we are prohibited by law from paying are ineligible for rewards. Truecaller employees and their family members are not eligible for bounties.\n\n## Taxes\n\nYou are responsible for paying any taxes associated with rewards. \n\n## Swag\n\nAll successful submissions will be granted a three-month subscription to Truecaller Premium upon request.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.truecaller",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "448142450",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "iOS Application ID",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "business.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "web.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "www.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "adsmanager.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "business-resources.truecaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*-asia-south1.truecaller.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*-eu.truecaller.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*-noneu.truecaller.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

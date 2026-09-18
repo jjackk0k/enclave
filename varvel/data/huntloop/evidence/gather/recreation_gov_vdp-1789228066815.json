@@ -1,0 +1,110 @@
+{
+ "at": "2026-09-12T15:47:39.217Z",
+ "opportunity": "recreation_gov_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "manage.recreation.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 1014ff80261d365548482ae1130a7842.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'self' https://recreation.gov https://manage-cdn.recreation.gov blob: ; script-src https://*.recreation.gov ",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "recreation.gov",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 7d0ec98df40b051ab78125e7ee343694.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.recreation.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "r1s",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 e8dea66a0552f5a79279b6b611472546.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src https://*.recreation.gov 'self' blob:; script-src https://*.recreation.gov https://recaptcha.net https://*.g",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/api/*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "cdn.recreation.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 cce660f54bb55cc2998fcce800916b88.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "manage-cdn.recreation.gov",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 643f3a19739b50ef1fffa170c9395e24.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

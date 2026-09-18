@@ -1,0 +1,103 @@
+{
+ "at": "2026-09-12T05:12:56.307Z",
+ "opportunity": "urbancompany",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.urbancompany.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "express",
+     "label": "Express (Node.js)",
+     "version": null,
+     "evidence": "x-powered-by: Express"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "Express",
+    "cf-ray": "a39c6b8a8d4c2aca-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/*",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/adminlogin",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/admin/*",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/api/v1/locations/customerCities",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "com.urbanclap.provider",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.urbanclap.provider:443 refused: host unreachable"
+  },
+  {
+   "host": "com.urbanclap.urbanclap",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.urbanclap.urbanclap:443 refused: host unreachable"
+  },
+  {
+   "host": "www.urbanclap.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c6babdd57edf4-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

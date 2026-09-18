@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "valve",
+      "name": "Valve",
+      "offersBounties": true,
+      "assets": [
+        "Steam Client",
+        "Steam Servers",
+        "api.steampowered.com",
+        "com.valvesoftware.Steam",
+        "developer.valvesoftware.com",
+        "help.steampowered.com",
+        "https://github.com/valvesoftware",
+        "partner.steamgames.com",
+        "partner.steampowered.com",
+        "playartifact.com",
+        "steamcommunity.com",
+        "store.steampowered.com",
+        "storefront.steampowered.com",
+        "support.steampowered.com",
+        "wiki.teamfortress.com",
+        "www.counter-strike.net",
+        "www.dota2.com",
+        "www.teamfortress.com",
+        "www.valvesoftware.com"
+      ],
+      "exclusions": [
+        "list.valvesoftware.com",
+        "translation.steampowered.com",
+        "valvestore.forfansbyfans.com,store.valvesoftware.com",
+        "www.steamgames.com",
+        "www.steampowered.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\valve-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "valve",
+  "name": "Valve",
+  "url": "https://hackerone.com/valve",
+  "policy": "If you are a Steam user and have a security issue to report regarding your personal Steam account, please visit our support site https://help.steampowered.com/. This includes password problems, login issues, suspected fraud, and account abuse issues.\n\nPlease read the scope, bounty, and severity information carefully before submission. Our intent is to guide researcher attention to the most important areas and to reward the most actionable reports.\n\n# Scope\nThis program covers the Steam platform and current games developed and published by Valve. Please review the reward tables and scope descriptions below.\n\nThe Steam components in scope are:\n\n* Steam Client, Steam Client Service, and the SteamCmd command-line utility for Windows, Mac and Linux\n* Steamworks SDK\n* Steam mobile apps on iOS and Android\n* Steam Servers\n* Websites as noted on the Scope section of the program. Subdomains of listed websites are not in scope unless mentioned.\n\nFor games developed and published by Valve, if the game is in scope as noted on the Scope section of the program, then we accept reports against the following components:\n\n* Game client and server binaries.\n* First-party, unmodified, game servers.\n* Game coordinators.\n\nGame bugs, glitches and gameplay exploits are not in scope for the bug bounty program.\n\nNo authorization is given to test any other websites, servers, game titles, or mobile applications. No bounties will be given for any disclosures relating to any applications outside the scope of this program.\n\n## Exclusions\n\nThe following items are considered out-of-scope for all Valve offerings:\n\n* Hypothetical issues that do not have any practical impact. Examples include:\n  * Vulnerabilities reported by use of automated tools/scanners, without accompanying validation / POC.\n  * User enumeration without any further impact.\n  * Clickjacking without a well-defined security/privacy risk.\n  * Disclosure of software version numbers (we maintain forks of several tools, and apply security patches accordingly).\n* Attacks that require social engineering/phishing.\n* Attacks that require physical access to the user’s device.\n* Attacks that involve the user running malware that then places or modifies content on the target machine, which Steam could later run as the local user.\n  * However, any case that allows malware or compromised software to perform privilege elevation through Steam, without providing administrative credentials or confirming a UAC dialog, is in scope.\n  * Additionally, any unauthorized modification of the privileged Steam Client Service is also in scope.\n* Open redirects or linkfilter bypasses that cannot be leveraged to programmatically exfiltrate sensitive information (e.g., cookies, OAuth tokens, etc.).\n* Content Spoofing / Text Injection that cannot be leveraged for XSS or sensitive data disclosure.\n* Host header injection without a specific proof of concept.\n* Self XSS, or XSS that only affects out-of-date browsers.\n* Denial of Service Attacks.\n* Broken links to third party sites.\n\nAdditionally, the following items are out-of-scope for issues with Valve games and related components:\n\n* Attacks that only affect or are only triggered in single-player games that are not caused by a previous multiplayer session (e.g., game files or resources downloaded by a game server).\n* Reports against Source Engine tools, e.g. Hammer, Source Filmmaker.\n* Reports that require the user to open crafted game content: demo files, BSPs, etc not delivered as part of the exploit.\n\nWhile researching, we'd like to ask you to refrain from:\n\n* Denial of service.\n* Spamming.\n* Social engineering (including phishing) of Valve staff or contractors.\n* Any physical attempts against Valve property or data centers.\n\n## Dependencies\n\nValve services make use of a number of open source and commercial packages. If you discover a vulnerability in a library or OS component, we strongly advise you to follow responsible disclosure procedures directly with the vendor. We will not pay bounties on undisclosed vulnerabilities in dependent components.\n\nPatches to dependent libraries are generally rolled out by our internal change management systems. Reports will not be accepted if they refer to vulnerabilities that have been fixed upstream, and scheduled, but not yet applied to our software or production systems.\n\nWe welcome reports that identify Valve systems that have fallen out of date (indicating a problem with our update or change management procedures).\n\n## Special Note for Valve Websites\n\nMany Valve websites use a cookie called 'sessionid.' This is used only as an anti CSRF token and is not used for user authentication. Please do not report attacks resulting in leaking the value of this cookie as account takeover vulnerabilities.\n\n# Assessing Severity and Rewards\n\nPlease carefully review our guidelines for remote-code-execution exploits in Valve games.\n\n## IDOR for unreleased applications\n\nWe take unintentional leaking of unreleased applications on Steam seriously. If you are reporting an insecure object reference that can leak private details about an unreleased game (name, artwork, pricing, etc.), please make sure your report includes the relevant details for appid 3717370.\n\nIf the vulnerability only exists for applications with specific configuration conditions, please carefully describe the configuration as well as the insecure reference. Severity of this type of leak will depend on the type and complexity of the required configuration as well as the scope of any potential exposure.\n\n## IDOR for profile data\n\nInsecure object references for information that Steam marks Private are in scope. For non-personally-identifying player data, severity is generally capped at Low.\n\n\n## Remote Code Execution reports - Severity\nRemote code execution attacks can be complex to triage and assess. We place a premium on reports that can clearly demonstrate impact to users, and which are faster to technically validate. \n\nYour report must meet the following requirements to be accepted:\n\n* Actual RCE must be demonstrated. Your report should include clear steps that reliably launch another application - e.g. Calculator - on the target machine.\n* The payload must be delivered over the network - not loading resource files already on the target computer.\n\n### Valve Games: Highest priority\nFor vulnerabilities in Valve games, the following are our highest priority for assessment, reward, and resolution:\n\n* Exfiltration of sensitive data from a Game Coordinator.\n* Client-to-client: malicious payload transmitted from one game client to another when playing peer-to-peer or connected to an unmodified game server.\n* Client-to-client: malicious clients that can crash other connected game clients with or without demonstrated RCE behavior.\n* Communication from malicious clients that can crash a vanilla dedicated server (i.e. no mods; using only default game assets).\n\n### Valve Games: Reduced priority\nReports of the following types may have their severity, and therefore reward, reduced one or more levels from the initial CVSS score:\n\n* Community server-to-client - malicious content including maps and textures, delivered from a community server.\n* User interaction required - reports that require victim to execute unusual console commands.\n* Client vulnerabilities that cannot be demonstrated against Windows game clients.\n\n### Ineligible for Bounty\nReports of any of the following types may be accepted as in-scope, but will not be eligible for a reward:\n\n* Reports that require crafted content (maps, sounds, mods, etc.) delivered via the Steam Workshop.\n* Techniques not specifically mentioned above that cause a game-client crash without demonstrated RCE behavior.\n* Techniques that require information from the target machine in order to function - for example, returning an address offset in memory in order to craft the payload.\n* Techniques that require the game to be run in a non-standard way - for example, with a debugger attached or with unusual startup parameters.\n\n\n# Responsible Disclosure and Guidelines\nWhen submitting potential vulnerabilities, we ask that you follow HackerOne's general guidelines for disclosure as well as the following additional guidelines. A submission that does not meet these requirements may not qualify for a bounty.\n\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third party.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Only interact with accounts you own or with explicit permission of the account holder.\n\nValve embraces transparency in our security. We will generally disclose the details of vulnerabilities found, upon request. We will generally permit external discussions of them (such as blog posts), with our permission. We reserve the right to make exceptions to this policy at our discretion.\n\nPlease note that we will not consent to disclose reports if they have been marked out-of-scope or inapplicable, or where Valve has not taken a specific corrective action / mitigation.\n\n# The Fine Print\nYou must comply with all applicable laws in connection with your participation in this program. You are also responsible for any applicable taxes associated with any reward you receive.\n\nWe may modify the terms of this program or terminate this program at any time. We won’t apply any changes we make to these program terms retroactively.\n\nValve will have the right to determine CVSS classification, report validity, duplications, exclusions and out-of-scope bugs in its sole discretion.\n\nReports received through other channels prior to being received through the bug bounty program are not eligible for bounty.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.dota2.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Steam Servers",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partner.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "valvestore.forfansbyfans.com,store.valvesoftware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This site is run by a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.valvesoftware.Steam",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.valvesoftware.Steam",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "store.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.valvesoftware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partner.steamgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is out of scope pending code cleanup",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "steamcommunity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "storefront.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This site is out of scope pending engineering cleanup. We are only interested in reports on this domain with a CVSS score above 8 at this time.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "translation.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.teamfortress.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.counter-strike.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.steamgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Pending cleanup from engineering.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wiki.teamfortress.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is a community run site, not part of Valve or its infrastructure. Reports about issues for this domain are appreciated and will be passed along to the volunteers that run the site.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/valvesoftware",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "We are happy to receive reports on code assets, but to be eligible for bounty they must be accompanied by a working POC against a shipping product.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.valvesoftware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "playartifact.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.steampowered.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "list.valvesoftware.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This site is run by a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Steam Client",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

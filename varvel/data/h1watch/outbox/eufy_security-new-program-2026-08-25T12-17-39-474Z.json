@@ -1,0 +1,173 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "eufy_security",
+      "name": "eufy Security",
+      "offersBounties": true,
+      "assets": [
+        "Anker",
+        "Solarbank 2 E1600 Pro",
+        "com.anker.AnkerMake",
+        "com.anker.charging",
+        "com.eufylife.EufyHome",
+        "com.oceanwing.FDMPrint",
+        "com.oceanwing.battery.cam",
+        "com.oceanwing.care.cam",
+        "com.security.BatteryCam",
+        "com.security.care",
+        "eufyMake E1",
+        "eufyMake Studio(2D UV)",
+        "https://us.eufy.com/products/e8213181",
+        "https://us.eufy.com/products/t8410121",
+        "https://us.eufy.com/products/t88511d1",
+        "https://us.eufy.com/products/t88711w1"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\eufy_security-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "eufy_security",
+  "name": "eufy Security",
+  "url": "https://hackerone.com/eufy_security",
+  "policy": "**We have recently identified WebView JS Bridge vulnerabilities in multiple eufy apps and will no longer accept new reports of such issues.Thank you for your understanding. **\n\n** We’ve recently noticed new CVEs related to Node.js, Dify and n8n, which have already been identified and are being addressed internally. During this period, we’re temporarily not accepting vulnerability reports related to these infrastructures, so we can focus on resolving the issues. Thank you for your understanding. **\n** Please be advised that vulnerability reviews will be paused during the Chinese New Year holiday from 14th Feb to 23rd Feb and all reports will be processed upon our return on 24th Feb.  **\nThe security and privacy of your data are our utmost concern. eufy abides by rigorous security policies, and implements\nrobust systems to protect user data. We encourage security research individuals as well as teams to test our security, and\nwe offer rewards for valid reported vulnerabilities. As we keep on adding new features, we encourage community\nresearchers to keep working on our projects to find new vulnerabilities.\n\n# Response Targets\nEufy will make a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 7 days |\n| Time to Bounty | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\neufy will make best efforts to keep you informed throughout the process.\n\n# Disclosure and Confidentiality Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n* Eufy supports public recognition and disclosure of contributions and findings for in-scope reports closed as resolved. We\nwill seek to allow participants to be publicly recognized whenever possible.\n* Retention, copying, or disclosure of eufy information gained as a result of participation is not permitted.\n* Eufy may redact any sensitive information prior to disclosure.\n* If requesting beyond a HackerOne disclosure (e.g. in a blog or at a conference):\n* Request approval before commencing a write up.\n* Share your final blog edits and where the content is to be hosted with eufy for approval.\n* Do not publicly disclose information until you have explicit written consent to do so from eufy. Contact ** dpo@anker.com** from your @wearehackerone.com email alias for approval of the above\n\n\n# Program Rules\n* You must be the first reporter to report the issue to us. We will only reward the first reporter.\n* When submitting a vulnerability, please provide us with enough information so that we could reproduce and verify it.\n* Please use your own account for testing purposes. Do not gain access to another users account or their confidential\ninformation.\n* Please do not test for denial of service, spam, social engineering issues.\n* All of the tests must not violate any law, or compromise any data that is not your own.\n* Please contact **dpo@anker.com** to report security incidents such as customer data leakage or breach of infrastructure\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the\nissue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Please note that during the testing process, if there is a genuine need to interact with customer service, ensure to clearly mark your communication with \"security testing from HackerOne\".\n\n# Test Plan\n* Web and mobile assets are self sign up. Note that you will not have full feature functionality unless you have a hardware device.\n* We recommend starting your research within the web and mobile assets, moving into hardware devices once you are familiar with our systems\n* We can provide a discount code to researchers to purchase hardware devices. Please reach out to **dpo@anker.com**  from your @wearehackerone.com email alias to request a discount code. You must be a participant in this program in order to obtain a discount code. Share with us your country or area, for applying the discount code.\n* Purchase of hardware devices depends on location. Our sales networks are distributed in North America, Europe, Oceanic, and Middle East Africa. In some areas, we may not have all the products.\n\n# Bug Bounty Rewards Assessment\nTypical bug bounty rewards range from $100 to $2.500, depending on their severity and asset tier.\nRewards Range:\n\nCritical vulnerabilities examples:\n* SQL Injection, which could get massive customer information\n* Remote code execution on server side\n* Remote code execution on client app\n* Remote user sensitive information disclosure on client app\n* Privilege escalation affecting all users\n* Broken authentication affecting all users\n* SSRF to eufy internal service, with extremely critical impact, such as being able to access internal sensitive data\n* And other critical severity issues\n\nHigh vulnerabilities examples:\n* Privilege escalation affection part users\n* Broken authentication affection part users\n* SSRF to internal services of eufy\n* And other high severity issues\n\nMedium vulnerabilities examples:\n* Privilege escalation affecting single user\n* Broken authentication affecting single user\n* XSS which could attack other eufy users\n* Logical vulnerabilities affecting sensitive operations\n* Remote denial of service or app crash\n* Information disclosure of service(with customer data)\n* Remote information disclosure on client app, like program memory, log, etc\n* Insecure storage of sensitive information on client app\n* And other medium severity issues\n\nLow vulnerabilities examples:\n* Information leakage(without customer data)\n* Server misconfiguration or errors\n* Local denial of service or app crash\n* Local information disclosure on client app, like program memory, log, etc\n* And other low severity issues\n\nSubmitted reports must be related to the ‘eufy’ brand. We are not able to process reports for other companies listed under the ‘Anker’ organisation. Please ensure your reports are limited to ‘in scope’ assets listed on our scope page.\nWhile we appreciate all reports, ‘out of scope’ issues will not be rewarded at this time.Our bounty table provides general guidelines, and all final decisions are at the discretion of eufy.\nWe reserve the right to accept and review any security report, including out of scope issues. This will be true regardless of the severity of the vulnerability.\n\n# Known Issues\nPlease note that these known issues will **not be eligible for bounties**:\n* Cross-Site Request Forgery (CSRF)\n* Cross-Origin Resource Sharing (CORS)\n* Clickjacking\n* Shopify sub-domain takeover\n* AWS IP sub-domain takeover\n* APP Webview activity hijacking or XSS\n\nWe are working on a fix for the above issues and seek your kind patience.\n\n# Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The\nfollowing issues are considered out of scope:\n\n*Reports from automated tools or scans\n* False positive SQL Injection\n* To avoid submitting a false positive, please ensure that you are able to provide a working PoC that demonstrates the\nability to retrieve the current database / current user name\n* Spam vulnerability, mail spoofing, mail bomb, etc.\n* Self-XSS\n* Use of known-vulnerable library or component\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a users device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest\nreleased stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces,\napplication or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case\nbasis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Vulnerabilities that are already known (e.g. discovered by an internal team)\n* Best practice reports are not eligible for bounties but are appreciated.\n* Exposure of Google Maps API Key.\n* Notes about IDOR Vulnerabilities\n* Researchers must be able to prove a feasible way to gain an ID as an attacker and we will not accept reports where IDs\nare being brute forced.\n* Example: An ID is 19 characters long. To guess this ID, an attacker will have to calculate 10^19 combinations which is not\nin the range of an online brute force attack. IDOR vulnerabilities with access to unimportant data will also not be eligible\nfor bounty.\n\nOut of Scope bugs for Android apps:\n* Any URIs leaked because a malicious app has permission to view URIs opened\n* Sensitive data in URLs/request bodies when protected by TLS\n* Lack of obfuscation and binary protection\n* Any kind of sensitive data stored in app private directory\n* Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken\nenvironment &amp; root permission)\n* Shared links leaked through the system clipboard.\n* Intent or URL Redirection leading to phishing\n* Third party library 0day\n\nOut of Scope bugs for iOS apps:\n* Lack of Exploit mitigations i.e., PIE, ARC, or Stack Canaries\n* Absence of certificate pinning\n* Path disclosure in the binary\n* User data stored unencrypted in the app private directory\n* Lack of obfuscation is out of scope\n* Lack of jailbreak detection is out of scope\n* OAuth &amp; app secret hard-coded/recoverable in IPA\n* Crashes due to malformed URL Schemes\n* Lack of binary protection (anti-debugging) controls\n* Snapshot/Pasteboard leakage\n* Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken\nenvironment)\n* Third party library 0day is out of scope\n* URL Redirection leading to phishing\n\n# Contacting the eufy Team\nIf you require any clarifications regarding the scope of the program (eg: potential eufys user data leaking in one of our\nthird-party vendors) or face specific challenges when testing, you may email the eufy Team at **dpo@anker.com**.\nHowever, please do not escalate questions about the validity or bounties of your existing reports. Such emails will not be\nresponded to and discussions should be done within the report itself. If you are unsure about a potential vulnerability,\nplease submit the report to us and we will assess it accordingly.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not\ninitiate legal action against you. If legal action is initiated by a third party against you in connection with activities\nconducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this\npolicy.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://us.eufy.com/products/t88711w1",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://us.eufy.com/products/t88511d1",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "eufyCam 2 Pro",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://us.eufy.com/products/t8410121",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S220 Indoor Cam",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.security.BatteryCam",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The major features shall connect with the hardware devices of eufy Security.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://us.eufy.com/products/e8213181",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "S330 Video Doorbell-Battery",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oceanwing.battery.cam",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Most features shall use the eufy Security hardware devices.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.security.care",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the iOS version App works for eufy baby monitor, mainly working offline.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oceanwing.care.cam",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the Android version App works for eufy baby monitor, mainly working offline.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.eufylife.EufyHome",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The eufy Clean/eufy Home App for roboVac",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "com.anker.AnkerMake",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The App for AnkerMake 3D Printer",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.oceanwing.FDMPrint",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Android App for AnkerMake 3D Printer",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "eufyMake E1",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "A Personal 3D-Texture UV Printer made by eufyMake.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Solarbank 2 E1600 Pro",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All-in-One Home Balcony Solar System with Power Storage",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.anker.charging",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Android App to connect, control, view, and update supported Anker products.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Anker",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The App to connect, control, view, and update supported Anker products.\nhttps://apps.apple.com/us/app/anker/id1635029057\n",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "eufyMake Studio(2D UV)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.eufymake.com/eufymake-studio:\nDownload for Windows (UV)\nDownload for MacOS (UV)",
+      "max_severity": "critical"
+    }
+  ]
+}

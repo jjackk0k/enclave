@@ -1,0 +1,240 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tiktok",
+      "name": "TikTok",
+      "offersBounties": true,
+      "assets": [
+        "*.tiktok.com",
+        "*.tiktokv.com",
+        "1235601864",
+        "1591003012",
+        "641062073",
+        "835599320",
+        "academy-outbound-ads.tiktok.com",
+        "ads.tiktok.com",
+        "business.tiktok.com",
+        "careers.tiktok.com",
+        "com.ss.android.ugc.now",
+        "com.ss.android.ugc.trill",
+        "com.tiktok.tv",
+        "com.tiktokshop.seller",
+        "com.zhiliao.musically.livewallpaper",
+        "com.zhiliaoapp.musically",
+        "creatormarketplace.tiktok.com",
+        "developers.tiktok.com",
+        "effecthouse.tiktok.com",
+        "fp-sg.tiktokv.com",
+        "live-backstage.tiktok.com",
+        "partner.tiktokshop.com",
+        "shop.tiktok.com",
+        "tiktok.com",
+        "www.pangleglobal.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tiktok-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tiktok",
+  "name": "TikTok",
+  "url": "https://hackerone.com/tiktok",
+  "policy": "# TikTok Bug Bounty Program Policy\n\nTikTok values security feedback from the global research community. This program invites external researchers to find and responsibly disclose security vulnerabilities in our products and services. Before submitting a report, review this policy in full. Reports that do not follow this policy may not be eligible for a reward.\n\n---\n\n# General Program Terms\n\nBy participating in this program, you agree to be bound by this policy.\n\nBy submitting a vulnerability report, you grant TikTok and its subsidiaries and affiliates, and TikTok USDS Joint Venture LLC (TikTok USDS JV) and its subsidiaries and affiliates, a perpetual, irrevocable, royalty-free license to all intellectual property rights in or related to the submitted material. You represent that no third-party rights are involved and that you have full authority to submit the report.\n\nPlease note vulnerabilities that require the same fix across both the TikTok and TikTok USDS JV programs will be treated as a single vulnerability report. Only the first valid submission — regardless of which program it was submitted to — will be eligible for a bounty. Any subsequent submissions for the same issue on either program will be marked as duplicates. If you believe a finding affects both TikTok and TikTok USDS JV, submit to the program whose scope most closely matches the affected asset.\n\nTikTok may modify or terminate this policy at any time. If you violate this policy, act in bad faith, or if your participation could adversely affect TikTok, its affiliates, business partners, or their users, employees, or contractors, TikTok may remove you from the program and disqualify you from receiving any reward.\n\n# Program Rules\n\n- **One vulnerability per report.** Only chain vulnerabilities together when the chain is necessary to demonstrate impact.\n- **Provide clear reproduction steps.** Reports that cannot be reproduced are not eligible for a reward. Include request/response data, screenshots, or video where relevant.\n- **First reporter wins.** If multiple researchers report the same vulnerability, the reward goes to the first valid submission. We may make exceptions on a case-by-case basis.\n- **One root cause, one bounty.** Multiple vulnerabilities caused by a single underlying issue may receive a single reward.\n- **No social engineering.** Phishing, vishing, smishing, and any other form of social engineering targeting TikTok employees, contractors, or users is prohibited.\n- **No harm to users or services.** Do not cause privacy violations, data destruction, or service disruption.\n- **Use test accounts only.** Create your own test accounts and test content. Do not test against accounts you do not own or control. Do not generate fraudulent engagement (likes, follows, views) even on your own accounts.\n- **Stop and report if you find user data or internal resources.** If you encounter real user data or internal systems during research, do not proceed further. Report the issue immediately via HackerOne. We will evaluate impact and reward accordingly.\n- **Do not enumerate internal infrastructure for SSRF.** Use only the SSRF Sheriff service described below.\n- **Follow TikTok policies.** All testing must comply with our [Community Guidelines](https://www.tiktok.com/community-guidelines), Terms of Service, and Privacy Policy.\n- **Communicate through HackerOne.** All questions about a specific report should go through the corresponding HackerOne ticket.\n\n# Report Requirements\n\nEvery report must include enough detail for our team to reproduce the issue independently. At minimum, include:\n\n- **Affected asset:** the specific URL, endpoint, app version, or component where the vulnerability exists.\n- **Step-by-step reproduction instructions:** numbered steps starting from an unauthenticated state or a clean test account. Do not assume familiarity with prior steps.\n- **Proof of Concept:** working PoC code, HTTP requests (with headers and parameters), or a video walkthrough demonstrat@ing the vulnerability. Screenshots alone are usually not sufficient and we strongly prefer video PoCs which will help us triage reports faster.\n- **Observed vs expected behavior:** what happened, and what should have happened instead.\n- **Impact statement:** who is affected and what an attacker could achieve. Be specific. \"This could be used to steal user data\" is not sufficient. \"An unauthenticated attacker can read any user's email address and phone number by iterating over sequential user IDs\" is.\n\nReports that lack reproduction steps or require us to guess at the attack scenario may be closed without reward.\n\n## Testing Notes\n\n- Register test accounts using `<your_username>+x@wearehackerone.com` addresses where possible.\n- Include your IP address or test domain in the report so we can correlate log activity. This information will be kept private.\n- For Proof of Concept files, include your HackerOne username in the filename and as a comment within the file content.\n- Reports must include both a video demonstration and a written, step-by-step reproduction guide. Please include the full Proof of Concept (such as raw HTTP requests or scripts) to ensure the report contains sufficient detail for independent verification.\n\n## SSRF Testing Rules\n\nAll SSRF testing must use TikTok's SSRF Sheriff service. Do not target internal infrastructure directly.\n\n**Step 1: Send your SSRF payload**\n\n- Full-read SSRF (returns a flag to you): `https://ssrf-bait.byted.org/full-read-ssrf`\n- Blind SSRF (you provide your own flag): `https://ssrf-bait.byted.org/blind-ssrf/YOUR_OWN_FLAG`\n\n**Step 2: Verify your flag**\n\nCheck `https://sf-ssrf-sheriff.tiktokcdn.com/obj/ssrf-detector-us/YOUR_OWN_FLAG`. A response of **True** confirms the SSRF was successful. A \"flag\" is a 32-character lowercase hex string that serves as a unique identifier for validation.\n\n**Do not attack or exploit the SSRF Sheriff service itself.** It exists solely for PoC validation.\n\n---\n\n# Reward Guidelines\n\nBounty amounts depend on two factors: the **severity of the vulnerability** and the **tier of the affected asset**. Severity is assessed by the TikTok security team based on real-world exploitability and impact, not solely on vulnerability class.\n\nWe prioritize vulnerabilities based on the real-world security impact to TikTok users, creators, advertisers, partners, employees, and our platform and not solely on the vulnerability class.\n\nResearchers should demonstrate realistic exploitability and clearly explain the security impact. Reports that show meaningful compromise of user data, account integrity, platform trust, or internal systems are generally prioritized over theoretical or best-practice issues.\n\nNote that the list below functions as a guide and is non-exhaustive and not limited to the examples below. As always, final decision on severity will be determined by the TikTok security team.\n\n## Definitions of Sensitive User Information\n\n1. Name + Identification Number + Address + Mobile (Combined)\n2. Passport numbers + Identification Number + Name (Combined)\n3. Payment card info e.g., credit card numbers, bank account numbers.\n\nThe above defines sensitive user information in vulnerabilities which apply to personal information and not from corporate context.\n\n## Severity Assessment\n\n**Critical Severity**\n\nCritical reports demonstrate the ability to compromise core platform security or large numbers of users.\n\nExamples include:\n\n- Remote code execution on TikTok production infrastructure.\n- Access to production databases or internal services containing sensitive user information.\n- Authentication bypass allowing access to user accounts without user interaction. Vulnerabilities enabling mass account takeover.\n- Ability to execute arbitrary RCE code in mobile apps that include a robust proof of concept using latest versions of Android or an iOS version. A valid exploit must achieve arbitrary code execution, not just trigger an application crash.\n\n**High Severity**\n\nHigh severity reports demonstrate the ability to compromise user accounts under certain preconditions, privileged functionality, or sensitive data.\n\nExamples include:\n\n- Account takeover requiring limited user interaction (for example, a single click or link visit).\n- Ability to access another user's private messages, private videos, or non-public profile information.\n- IDORs crossing tenant boundaries exposing sensitive user data (mass PII exfiltration) or allowing modification of another user's resources.\n- Exposure of sensitive credentials, access tokens, signing keys, or production secrets.\n\n**Medium Severity**\n\nMedium severity reports typically require additional conditions, have limited impact, or affect a smaller number of users.\n\nExamples include:\n\n- Most types of Cross-Site Scripting issues.\n- Vulnerabilities allowing limited modification of user preferences or profile settings.\n- Access Control/IDORs limited to a tenant's scope with high impact on confidentiality/integrity.\n- Bypass of existing security controls (MFA, 2SV, moderation, etc.).\n\n**Low Severity**\n\nLow severity reports demonstrate limited security impact, require significant preconditions, or affect only low-sensitivity data or non-critical functionality.\n\nExamples include:\n\n- Access control/IDOR issues limited to a tenant's scope, including viewing or modification of non-sensitive content, or higher-impact confidentiality/integrity issues where the identifier is not enumerable or otherwise difficult to discover.\n- Blind SSRFs without any additional impact.\n- Business logic flaws that allow access to restricted features, content, or benefits.\n- Limited information disclosure issues that expose non-sensitive data and does not materially increase the risk of further exploitation.\n\n## Other Notes\n\n**Bonuses**\n\nHigh-quality reports may receive a bonus. A high-quality report includes a working proof of concept, root cause analysis, a suggested fix, and any other relevant context. We also value researchers who are responsive and collaborative during the remediation process.\n\n**Discretion**\n\nAll reward decisions, including amounts, bonuses, and eligibility, are made at TikTok's sole discretion.\n\n---\n\n# Program Exclusions\n\nAny asset not listed in the scope section and not owned by TikTok or its subsidiaries is out of scope. If you are unsure whether an asset is in scope, ask via HackerOne before testing.\n\nThe following issues are out of scope regardless of the affected asset:\n\n**Vulnerabilities with no demonstrated impact:**\n\n- Clickjacking on pages with no sensitive actions\n- Content spoofing or text injection without demonstrated impact\n- HTML injection without demonstrated impact\n- Self-XSS (payloads that require the victim to enter the payload themselves)\n- CSV injection without a demonstrated vulnerability\n- Missing security headers (CSP, Referrer-Policy, SRI, X-Frame-Options, cookie attributes) without demonstrated exploit\n- Missing email security records (SPF, DKIM, DMARC) without demonstrated exploit\n- Software version disclosure, banner identification, or verbose error messages\n- Tabnabbing\n\n**Testing constraints:**\n\n- Attacks requiring man-in-the-middle positioning or physical access to a device\n- Rate limiting or brute force on non-authentication endpoints\n- Denial-of-service attacks or any activity that degrades service availability\n- Vulnerabilities that only affect browsers more than two major versions behind the current stable release\n- Previously known vulnerable libraries without a working proof of concept specific to TikTok\n\n**Recently disclosed zero-days:**\n\n- Public zero-day vulnerabilities disclosed less than one month prior will be evaluated on a case-by-case basis.\n\n**Duplicate or known issues:**\n\n- Vulnerabilities already known to TikTok through prior reports or internal discovery (see Known Issues below). Reports for these issues will be closed as known without a reward.\n\n# Disclosure and Confidentiality\n\nTikTok supports public recognition and disclosure for in-scope reports that are closed as resolved.\n\n**HackerOne disclosure:**\n\n- Public disclosure (full or partial) requires a Disclosure Request through the HackerOne platform and explicit approval from the TikTok security team.\n\n**External disclosure (blog posts, conference talks, etc.):**\n\n- Request approval from TikTok before writing.\n- Share your final draft and the intended publication venue with TikTok for review before publishing.\n- Do not publish until you have received explicit written approval.\n\n**Data handling:**\n\n- Do not retain, copy, or disclose any TikTok information obtained during your research.\n- TikTok may redact sensitive information before approving any disclosure.\n\n---\n\n# Good Faith Guidelines\n\nTo encourage responsible security research, TikTok will not pursue legal action against researchers who we determine acted in accidental or good-faith violation of this policy. This includes claims under the DMCA for circumventing technological measures to protect services and applications covered by this program.\n\nWhere your research activities conflict with restrictions in TikTok's site policies but comply with this bug bounty program, TikTok may waive those restrictions for the sole purpose of permitting good-faith security research.\n\nIf your research involves networks, systems, information, applications, products, or services of a third party, including TikTok users, TikTok cannot bind that third party. Third parties may independently pursue legal action or involve law enforcement. TikTok does not authorize research in the name of other entities and cannot defend, indemnify, or protect you from third-party action.\n\nYou must comply with all applicable laws and must not access or compromise data beyond what this program permits.\n\nIf you are unsure whether a planned action falls within this policy, contact us through HackerOne before proceeding. TikTok retains sole discretion to determine whether a violation is accidental or in good faith.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.zhiliaoapp.musically",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Play Store Download](https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically&hl=en_US)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "835599320",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[iOS Store Download](https://apps.apple.com/us/app/tiktok-make-your-day/id835599320)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "business.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1235601864",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[iOS Store Download](https://apps.apple.com/sg/app/tiktok-%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%BA%E9%83%BD%E5%9C%A8%E9%80%99%E8%A3%A1/id1235601864)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ss.android.ugc.trill",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Play Store Download](https://play.google.com/store/apps/details?id=com.ss.android.ugc.trill&hl=en_US)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ads.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "careers.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "creatormarketplace.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tiktokv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developers.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "effecthouse.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ss.android.ugc.now",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Play Store Download][link].\n\n[link]: https://play.google.com/store/apps/details?id=com.ss.android.ugc.now",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "641062073",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[iOS Store Download][link].\n\n[link]: https://apps.apple.com/be/app/tiktok-now/id1641062073",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partner.tiktokshop.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.tiktok.tv",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TikTok TV app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "shop.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TikTok Shop",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.zhiliao.musically.livewallpaper",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "live-backstage.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "academy-outbound-ads.tiktok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.pangleglobal.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1591003012",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TikTok Shop Seller Center\n[iOS Store Download][link].\n\n[link]: https://apps.apple.com/my/app/tiktok-shop-seller-center/id1591003012",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.tiktokshop.seller",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TikTok Shop Seller Center\n[Play Store Download][link].\n\n[link]: https://play.google.com/store/apps/details?id=com.tiktokshop.seller&hl=en_US&gl=US",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fp-sg.tiktokv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

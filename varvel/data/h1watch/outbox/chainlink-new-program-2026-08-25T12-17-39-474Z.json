@@ -1,0 +1,225 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "chainlink",
+      "name": "Chainlink",
+      "offersBounties": true,
+      "assets": [
+        "*.smartcontract.com",
+        "Faucets",
+        "chain.link",
+        "https://github.com/smartcontractkit/chainlink",
+        "https://github.com/smartcontractkit/chainlink-evm/tree/develop/contracts",
+        "https://github.com/smartcontractkit/chainlink-solana/tree/develop/contracts",
+        "https://github.com/smartcontractkit/external-adapters-js/",
+        "https://github.com/smartcontractkit/staking-v0.1/tree/master/contracts"
+      ],
+      "exclusions": [
+        "Intercom",
+        "blog.chain.link",
+        "chainlinklabs.com",
+        "create.smartcontract.com",
+        "docs.chain.link",
+        "github.com/smartcontractkit/chainlink/contracts/src/*/dev",
+        "github.com/smartcontractkit/chainlink/examples",
+        "https://github.com/smartcontractkit/chainlink",
+        "https://github.com/smartcontractkit/chainlink-evm/tree/develop/contracts/.../dev",
+        "https://github.com/smartcontractkit/chainlink-solana/tree/develop/contracts/.../dev",
+        "https://github.com/smartcontractkit/chainlink/tree/master/contracts",
+        "https://github.com/smartcontractkit/chainlink/tree/master/core/internal",
+        "https://github.com/smartcontractkit/chainlink/tree/master/core/sgx",
+        "https://github.com/smartcontractkit/chainlink/tree/master/integration",
+        "https://github.com/smartcontractkit/chainlink/tree/master/tools"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\chainlink-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "chainlink",
+  "name": "Chainlink",
+  "url": "https://hackerone.com/chainlink",
+  "policy": "SmartContract looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nSmartContract will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n|----------|--------------------|\r\n|  First Response | 3 day |\r\n| Time to Triage   | 5 days |\r\n| Time to  Bounty   | 30 days |\r\n|  Time to Resolution   | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Information & Resources\r\n\r\nThe Chainlink node is a part of a decentralized oracle network used to feed data to smart contracts. [Job Specifications](https://chainlink.readme.io/docs/job-specifications) are added to the node through a [REST API](https://docs.chain.link/reference) so that it knows what tasks to perform. The Chainlink node utilizes a websocket connection (for pubsub) to an Ethereum client (Geth or Parity) in order to watch for new blocks containing specific event logs. Once the external data is retrieved, the Chainlink node will sign the transaction, and broadcast it through the Ethereum client (the wallet is stored on the Chainlink node, not the Ethereum client). An overview of the architecture is available [here](https://docs.chain.link/docs/architecture-overview).\r\n\r\n# Scope\r\n\r\n## Core Node: github.com/smartcontractkit/chainlink/core\r\n\r\nThe [Chainlink](https://github.com/smartcontractkit/chainlink) node and its smart contracts are the core focus of this program. Issues related to a loss of funds for the node operator or requester will take the highest bounty reward. There are a few areas of this code base that are out of scope, see the Scope section at the bottom of this page for details.\r\n\r\nWe also have a [project tracker](https://www.pivotaltracker.com/n/projects/2129823) where existing bugs are kept. Be sure to check there for issues that we already know about.\r\n\r\n## Solidity Smart Contracts: github.com/smartcontractkit/chainlink/tree/master/contracts\r\n\r\nThe smart contracts residing on the [Github repository](https://github.com/smartcontractkit/chainlink/tree/master/contracts)  are in scope and will be awarded with bonuses if a vulnerability is found through creating Chainlink requests.\r\n\r\nAlso the contracts for [Staking](https://github.com/smartcontractkit/staking-v0.1/tree/master/contracts) are in scope.\r\n\r\n## LINK Testnet Faucets: ropsten.chain.link, rinkeby.chain.link, & kovan.chain.link\r\n\r\nThe faucets provide users with the ability to receive test LINK on test networks. Since they are test networks, we are more concerned with vulnerabilities that would cause a loss of service.\r\n\r\n## Feeds UI: feeds.chain.link (github.com/smartcontractkit/chainlink/feeds)\r\n\r\nThe application and source code driving the [Decentralized Price Reference Data](https://feeds.chain.link/) page.\r\n\r\n# Installation & Setup\r\n\r\nWe have guides available for how to get a Chainlink node running locally. See the links below for step-by-step walk-throughs. Feel free to reach out on our [Discord](https://discord.gg/aSK4zew) for help.\r\n\r\n- [The Complete Setup Guide for a Chainlink Development Environment](https://github.com/smartcontractkit/chainlink/wiki/Development-Setup-Guide)\r\n- [Running a Chainlink Node](https://docs.chain.link/docs/running-a-chainlink-node)\r\n- [Fulfilling Requests](https://docs.chain.link/docs/fulfilling-requests)\r\n\r\n# Testnet Chainlink Nodes\r\n\r\nUse our [Decentralized Oracles on Testnet](https://docs.chain.link/docs/any-api/testnet-oracles/#:~:text=test) documentation page for existing Chainlink nodes running on the Ethereum test networks. Vulnerabilities found with the official Chainlink nodes (noted by being ran by Chainlink) on this page are considered in scope.\r\n\r\n# Disclosure Policy\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n#Out of scope vulnerabilities\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Mentions of secrets, access tokens, API keys, private keys, etc. in Github, will be considered out of scope without proof that they are in-use in production\r\n* create.smartcontract.com and testnet.smartcontract.com\r\n* Any subdomain of *.smartcontract.com\r\n* Any repository outside the smartcontractkit Github organization \r\n* Intercom add-on on any asset (the in-browser chat application)\r\n* SGX-related issues or vulnerabilities\r\n* Issues/bugs/vulnerabilities specific to the given Ethereum client (Geth or Parity)\r\n* OS-related vulnerabilities\r\n* Clickjacking on pages with no sensitive actions.\r\n* Unauthenticated/logout/login CSRF.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Email or DNS configurations\r\n* Site or domain configuration\r\n* Any activity that could lead to the disruption of our service (DoS; please set up POCs on a private chain).\r\n* Executing brute force attempts to perform actions beyond a proof of concept\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Chainlink and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "chain.link",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The focus of this program should be on the code residing on our Github repository. While reports on the domain and email are useful, we will no longer reward bounties for these reports.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "create.smartcontract.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.chain.link",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink/tree/master/core/sgx",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Chainlink SGX directory contains tools and private keys in order to test the Chainlink's SGX compatibility in an end-to-end, deterministic way. It contains private keys and passwords which are only for use in development.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Intercom",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Intercom is a 3rd party add-on and is not in scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink/tree/master/contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Faucets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chainlink Testnet Faucet is available at the following URL: https://faucets.chain.link/\n",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink/tree/master/tools",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Chainlink Tools directory contains tools and private keys in order to test the Chainlink client in an end-to-end, deterministic way. It contains private keys and passwords which are only for use in development.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink/tree/master/integration",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Chainlink Integration directory contains tools and private keys in order to test the Chainlink client in an end-to-end, deterministic way. It contains private keys and passwords which are only for use in development.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "github.com/smartcontractkit/chainlink/examples",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Chainlink Examples directory contains tools and private keys in order to test the Chainlink client in an end-to-end, deterministic way. It contains private keys and passwords which are only for use in development.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "github.com/smartcontractkit/chainlink/contracts/src/*/dev",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The contracts in the chainlink/contracts/src/*/dev directory are currently in development and not considered production-ready.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.smartcontract.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "chainlinklabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The asset chainlinklabs.com is out of scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink/tree/master/core/internal",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The internal directory contains tools and private keys in order to test the Chainlink client in an end-to-end, deterministic way. It contains private keys and passwords which are only for use in development.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.chain.link",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/staking-v0.1/tree/master/contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/external-adapters-js/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink-evm/tree/develop/contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink-solana/tree/develop/contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink-evm/tree/develop/contracts/.../dev",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/smartcontractkit/chainlink-solana/tree/develop/contracts/.../dev",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

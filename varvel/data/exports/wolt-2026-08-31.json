@@ -1,0 +1,77 @@
+{
+ "date": "2026-08-31",
+ "mission": "fresh-target H1 hunt (launched<=90d or scope-updated, API/staging surface, bounty-paying)",
+ "ghostExitVerified": "45.66.219.208",
+ "h1Scan": {
+  "tool": "tools/h1watch.mjs scan --emit-intake (live, VARVEL_H1_TOKEN, Basic auth under /v1/hackers/*)",
+  "at": "2026-08-31T17:14:12.289Z",
+  "scanned": 587,
+  "events": 12,
+  "outboxDir": "data/h1watch/outbox/",
+  "notable": [
+   "matomo scope-added (2 GitHub repos) + policy-changed",
+   "okg scope-added (github.com/okx/go-wallet-sdk) + EXCLUSIONS (web3.okx.com/onchainos etc.)",
+   "tbs-sct scope-added (Canada login hosts) — VDP, no bounties",
+   "kkr_vdp scope-added — VDP, no bounties",
+   "policy-changed: airbnb, mongodb, mozilla, ui"
+  ]
+ },
+ "candidates": [
+  {
+   "rank": 1, "handle": "wolt", "launched": "2026-07-23", "bounties": true,
+   "automationVerdict": "human-cadence (policy-text: rate-limits)",
+   "scope": "authentication.wolt.com, corporate/drive/merchant/ops.wolt.com, restaurant-api.wolt.com, wolt.com, *.wolt.com, mobile apps — all max_severity critical, all bounty-eligible",
+   "targetscore": { "restaurant-api.wolt.com": 80, "merchant.wolt.com": 49, "authentication.wolt.com": 45, "wolt.com": 12 },
+   "filters": { "a_selfSignup": "policy allows free self-registration at wolt.com — BUT see blocker", "b_apiSurface": true, "c_automation": "human-cadence OK (concurrency 1 + delays)", "d_bounties": true },
+   "status": "BLOCKED at provisioning"
+  },
+  {
+   "rank": 2, "handle": "vercel_sandbox", "launched": "2026-08-18", "bounties": true,
+   "window": "2026-08-18 → 2026-09-01 23:59 UTC (closes tomorrow), $1M pool, $50k max/report",
+   "scope": "single OTHER asset 'Vercel sandbox' — Firecracker microVM escape / cross-tenant only",
+   "rejected": "stack mismatch — no web/API surface for the campaign lanes (oracle/jsminer/oob/browseragent); sandbox-escape is a systems-sec lane the engine does not have; window <2 days"
+  },
+  {
+   "rank": 3, "handle": "matomo", "event": "scope-added 2026-08-31 (2 GitHub repos)",
+   "rejected": "policy 'don't run automated [scans]' → automation PROHIBITED (fails filter c); findings must be validated in a real running Matomo instance (self-hosted lane)"
+  },
+  {
+   "rank": 4, "handle": "okg", "event": "scope-added 2026-08-31 (go-wallet-sdk source)",
+   "rejected": "added asset is a Go SDK source repo; OKX account creation needs phone/KYC (fails filter a)"
+  },
+  {
+   "handle": "agoda-public", "launched": "2026-06-18",
+   "rejected": "already hunted by us 2026-08-30 (data/exports/agoda-*) — not fresh ground"
+  },
+  { "handle": "tbs-sct / kkr_vdp", "rejected": "VDP — no bounties (fails filter d)" }
+ ],
+ "provisioning": {
+  "target": "wolt", "attempted": true, "accountsCreated": 0,
+  "flowObserved": "wolt.com Sign up → email input → POST https://authentication.wolt.com/v3/users/email_login (200, includes_code:false → magic-link flow)",
+  "blocker": "Wolt server-side suppresses ALL disposable email domains — 200 responses are anti-enumeration; no verification email ever arrived",
+  "evidence": {
+   "mail.tm": "varvel-wolt-a-n2s0@emalupe.com — 0 msgs over ~40 min (mail.tm delivered Zomato mails fine same day → Wolt-side suppression)",
+   "guerrillamail": "spbujsez@ guerrillamailblock.com / sharklasers.com / grr.la / spam4.me / pokemail.net — 0 Wolt msgs",
+   "tempmail.lol": "auria7d1ecc@t1j.firegameplay.com — 0 msgs",
+   "maildrop.cc": "varvelwolta9648@maildrop.cc — 0 msgs",
+   "audienceProbe": "audience wolt-app / wolt-consumer-app / ios all return identical email_hash, includes_code:false — no code-based variant exists"
+  },
+  "policyPath": "program asks testers to use h1username@wearehackerone.com alias (forwards to Jack's real inbox — not readable by the pipeline)",
+  "unblock": "Jack: create the Wolt account(s) with the wearehackerone.com alias (or any real inbox), forward the magic link, OR hand over a mailbox the pipeline can poll; then .tmp/wolt-signup.mjs completes the flow (consent → Sign up → email → link)"
+ },
+ "sessionsRegistered": 0,
+ "campaignsRun": [],
+ "findings": [],
+ "bountyline": {
+  "intake": "data/bountyline/wolt-program.json (unsigned — signing is Jack's)",
+  "roster": "wolt state=imported, automation=human-cadence (policy-text: rate-limits)",
+  "signedScope": null
+ },
+ "artifacts": {
+  "signupScript": ".tmp/wolt-signup.mjs (+ .tmp/guerrilla-helper.mjs)",
+  "signupEvidence": ".tmp/wolt-signup-a-result.json, .tmp/wolt-a-01..04-*.png",
+  "h1dirDump": ".tmp/h1dir/ (6 directory pages, 591 structured scopes, scopediff.json)",
+  "scanLog": ".tmp/h1scan-2026-08-31.log"
+ },
+ "honesty": "No accounts provisioned, no campaign launched, no findings. Bare-200 email_login responses were NOT counted as delivery — delivery was the bar and it never happened."
+}

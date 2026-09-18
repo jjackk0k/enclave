@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "circle-bbp",
+      "name": "Circle BBP",
+      "offersBounties": true,
+      "assets": [
+        "api.circle.com",
+        "app.circle.com",
+        "console.circle.com",
+        "http://github.com/circlefin/noble-cctp",
+        "https://github.com/circlefin/aptos-cctp",
+        "https://github.com/circlefin/arc-node",
+        "https://github.com/circlefin/buidl-wallet-contracts",
+        "https://github.com/circlefin/evm-cctp-contracts",
+        "https://github.com/circlefin/evm-cpn-contracts",
+        "https://github.com/circlefin/evm-gateway-contracts",
+        "https://github.com/circlefin/evm-xreserve-contracts",
+        "https://github.com/circlefin/malachite",
+        "https://github.com/circlefin/noble-fiattokenfactory",
+        "https://github.com/circlefin/solana-cctp-contracts",
+        "https://github.com/circlefin/solana-gateway-contracts",
+        "https://github.com/circlefin/stablecoin-aptos",
+        "https://github.com/circlefin/stablecoin-evm",
+        "https://github.com/circlefin/stablecoin-near",
+        "https://github.com/circlefin/stablecoin-starknet",
+        "https://github.com/circlefin/stablecoin-sui",
+        "https://github.com/circlefin/starknet-cctp",
+        "https://github.com/circlefin/sui-cctp",
+        "rpc.drpc.testnet.arc.network"
+      ],
+      "exclusions": [
+        "x.com",
+        "youtube.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\circle-bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "circle-bbp",
+  "name": "Circle BBP",
+  "url": "https://hackerone.com/circle-bbp",
+  "policy": "At Circle, our [mission](https://www.circle.com/blog/circle-mission-and-values#:~:text=Our%20mission%20is%20to%20raise,efficient%20and%20integrated%20world%20economy.) is to raise global economic prosperity through programmable internet commerce. In support of our mission, keeping our customers’ information safe is a top priority. We recognize and appreciate the work of those in the security community who identify security vulnerabilities in our products and encourage responsible disclosure of potential security vulnerabilities as part of our Bug Bounty Program (the “Program”).\n\n**Before submitting a report to Circle, please carefully review the Program Terms and Conditions set forth below.** Your participation in our Program is voluntary and subject to the below terms and conditions.\n\n# Terms and Conditions\n### By submitting a security bug or vulnerability to Circle, you acknowledge that you have read and agreed to the Program Terms and Conditions set forth below. By making any submission under the Program, you agree that you may not publicly disclose your findings or the contents of your submission to any third parties without Circle’s prior written consent.\n\n# Response Targets\nCircle Technology Services, LLC will endeavour to meet the following response targets for ethical hackers participating in our Program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| Time to first response (from report submit) | 5 days |\n| Time to triage (from report submit) | 10 days |\n| Time to bounty (from triage) | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\nIf our team determines the report is valid and within the scope of our guidelines, we will make efforts to keep you informed as we work toward mitigation. \n\n# Disclosure Policy\n* Do not discuss this Program or any vulnerabilities (even resolved ones) outside of the Program without express written consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Testing should be done on app-sandbox.circle.com and api-sandbox.circle.com.\n* Please provide detailed reports and replicable steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is strictly prohibited.\n* Make a reasonable, good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* You need to show that you could exploit a vulnerability, but you must not actually exploit it. You must not: access, modify, copy, download, delete, compromise or otherwise misuse others’ data; access non-public information without authorization; degrade, interrupt or deny services to our users; and/or incur loss of funds that are not your own.\n* You must be at least 18 years old.\n* If you are performing research, please use your own accounts and do not interact with others’ accounts or data.\n* Your participation in this Program must not violate any applicable laws or regulations.\n* You must not leverage the existence of a vulnerability or access to sensitive or confidential data to make threats, extortionate demands, or ransom requests.\n* You will be responsible for any tax implications related to any payment you receive under the Program, as determined by the laws of your jurisdiction.\n* You must not be (i) employed by Circle or any of its affiliates or (ii) an immediate family member of someone employed by Circle or any of its affiliates.\n* By reporting a bug, you grant Circle and its affiliates a perpetual, irrevocable, worldwide, royalty-free license to use, copy, adapt, develop, create derivative work from, or share your submission for any purpose.\n* By reporting a bug, you agree to allow HackerOne to share with Circle the personal information that you provide to HackerOne relating to your tax forms so Circle can perform compliance checks.\n* Whether Circle provides any payment for, and the amount of any such payment, is solely at Circle’s discretion.\n* You are prohibited from participating in the Program if you are a resident of any U.S. embargoed jurisdiction, including but not limited to Iran, North Korea, Cuba, the Crimea region, and Syria; or if you are on the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Persons List or Entity List. By participating in the Program, you represent and warrant that you are not located in any such country or on any such list.\n* We are only able to accept reports written in English.\n\n# Test Plan\n1. Signup a new account on [sandbox](https://app-sandbox.circle.com)\n2.  You must only use email addresses that you own and control.\n3. During signup, append \"\\_h1\" to the \"First Name\" and \"Last Name\" fields. i.g. First name:`<first_name>_h1`; Last name: `<last_name>_h1`.\n4. Once the account is ready, you can get your Sandbox API Key and interact with api-sandbox.circle.com\n\nPlease refrain from testing on the Production environment.\n\n### Documents\n* [The Sandbox Environment](https://developers.circle.com/docs/circle-apis-production-sandbox-environments)\n* [API Reference](https://developers.circle.com/reference)\n* https://www.circle.com/en/multichain-usdc\n* https://developers.circle.com/stablecoin/docs\n\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Vulnerabilities only affecting outdated versions of mobile applications [any version that is not the current stable version] or mobile applications not directly downloaded from the Apple or Google Play App Store.\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n\n# Safe Harbor\nAny activities conducted in a manner consistent with these Terms and Conditions will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under these Terms and Conditions, we will take steps to make it known that your actions were conducted in compliance with these Terms and Conditions.\n\n​​We may modify these Terms and Conditions or end the Program at any time without notice.\n\nThank you for helping keep Circle and our community safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.circle.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Testing should be done on api-sandbox.circle.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.circle.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Testing should be done on app-sandbox.circle.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/evm-cctp-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://github.com/circlefin/noble-cctp",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/solana-cctp-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "youtube.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Anything discovered with any of Circle's published media is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "x.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Anything discovered with any of Circle's published media is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "console.circle.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only the web2 portion of console.circle.com is in scope. Anything smart contract/smart contract platform or otherwise web3 related is not in scope. \n\nResearchers should make it clear they're HackerOne researchers in their username and email domain, and must be using testnet. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/stablecoin-sui",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/buidl-wallet-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/stablecoin-evm",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/noble-fiattokenfactory",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/stablecoin-aptos",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/sui-cctp",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/evm-gateway-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/stablecoin-starknet",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/evm-xreserve-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/aptos-cctp",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/starknet-cctp",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/evm-cpn-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/stablecoin-near",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/solana-gateway-contracts",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/malachite",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "only part of this repo is in scope for our program:\n\n- out of scope: Everything that is not in code/crates and also code/crates/starknet and code/crates/test\n\n- in scope:  code/crates (minus starknet and test folders)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/circlefin/arc-node",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rpc.drpc.testnet.arc.network",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "yelp",
+      "name": "Yelp",
+      "offersBounties": true,
+      "assets": [
+        "*.yelp.com",
+        "*.yelpwifi.com",
+        "284910350",
+        "542767785",
+        "936983378",
+        "com.yelp.android",
+        "com.yelp.android.biz",
+        "yelptop100.com"
+      ],
+      "exclusions": [
+        "*.yelp-support.com",
+        "blog.yelp.com",
+        "cloud.e.yelp-business.com",
+        "engineeringblog.yelp.com",
+        "www.yelp-ir.com",
+        "yelp-press.com",
+        "yelp.careers"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\yelp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "yelp",
+  "name": "Yelp",
+  "url": "https://hackerone.com/yelp",
+  "policy": "There’s no such thing as a perfect technology — not since they put the finishing touches on the wheel — but here at Yelp we are committed to getting as close as we can. It’s a big world and we believe that working with skilled security researchers from all corners is the key to identifying the weaknesses in any technology. If you think you have found a security issue in our product, it could be your lucky day. Let us know via our bug-bounty program on HackerOne and we’ll work with you to fix it. Yes, there’s a reward in it for you, too. \n\n\nScope\n=====\nWe’d love to have you muck around with our web apps, mobile apps, and infrastructure. Hit us with your best shot. We also put together a [bug-bounty map](https://engineeringblog.yelp.com/2016/09/yelp-public-bug-bounty-map.html) to help you hit the ground running.\n\n\nPayouts\n======\nOur vulnerability-reward payouts will go up to $10,000 USD for the most impactful exploits. Reward structure above is only valid for reports submitted on or after September 19, 2022. Reports submitted priory to this date would be treated with the old reward structure. \n\n\nWe'll Be Nice To You\n================\nThe security team at Yelp is all about keeping our users, our data, our employees, and our sites safe and sound. We are committed to working with security experts from all over the world to stay up-to-date with the latest security techniques. If you have found a security issue and you think we should know about it, we are ready to work with you. Let us know about it and we will make every effort to fix the issue. \n\nWe believe in recognizing everyone’s work. If your work helps us improve the security of our platform and services, we are happy to acknowledge your contribution. Rest assured, there are cash rewards, too. \n\n\nPlease Be Nice To Us\n=================\nWe want you to bring out your big guns, but hold off on actually breaking anything. Please avoid DDoS’ing us or breaking our systems and services while you are testing. If you are testing a feature that involves an email component, use an `@wearehackerone.com` account as per the [Hackerone email alias](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias), where possible, to make your tests easily filterable.\n\n\nExclusions\n========\nIssues related to software not under Yelp’s control are out of scope. If you have found a vulnerability in systems managed externally, we can’t make any guarantees about when we can fix those issues.\n\nWe don’t need help running automated vulnerability scanners. We’ve got those covered. We need your brainpower, not your processing power.\n\nReporting unrestricted Github wikis, as we don't consider them to be a security concern.\n\nOut-of-scope Bugs\n==============\n* Hypothetical issues that do not have any practical impact.\n* Vulnerabilities that require social engineering/phishing.\n* Attacks that require physical access to the user’s device.\n* User enumeration without any further impact.\n* Clickjacking that doesn't result in account compromise.\n* Open redirects that cannot be leveraged to programmatically exfiltrate sensitive information (e.g., cookies, OAuth tokens, etc.).\n* Disclosure of software version numbers (we maintain forks of several tools, and apply security patches accordingly).\n* Unvalidated vulnerabilities reported by automated tools/scanners.\n* Content Spoofing/Text Injection that cannot be leveraged for XSS or sensitive data disclosure.\n* Host header injection without a specific proof of concept.\n* Reflected File Download, consult this [article](https://sites.google.com/site/bughunteruniversity/nonvuln/reflected-file-download).\n* Self XSS or XSS that affects only out-of-date browsers.\n* Denial of Service Attacks.\n* IDN homograph attacks against one of our domains.\n* Issues related to mapping user profiles to their respective email addresses which do not bypass the 'Let others find my profile using my name or email address.' privacy setting.\n* Dependency confusion or supply chain attacks that do not comply with the respective package manager's (e.g. PyPi, npm, etc.) Terms of Service (ToS). This includes claiming Yelp's package names on public package managers and/or uploading malicious scripts.\n* Vulnerabilities that require the user's device to be jailbroken/rooted.\n* User credentials that were stolen by malware, etc. We will work to resolve affected user accounts, however, valid reports will be closed as Resolved and awarded reputation points in lieu of a bounty and/or bonus.\n* Rate limiting bypass with no clear security impact. We will close the report as Informative.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.yelp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "284910350",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Yelp Mobile",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "936983378",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Yelp for Business Owners",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "542767785",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Restaurant Manager iOS app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "engineeringblog.yelp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.yelp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.yelp-support.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a product provided by Salesforce. Please report bugs to the Salesforce Security Team\nhttps://www.salesforce.com/company/disclosure/",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.yelp.android.biz",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Yelp for Business Owners\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.yelp.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Yelp Mobile for Android ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.yelp-ir.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cloud.e.yelp-business.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a product provided by Salesforce. Please report bugs to the Salesforce Security Team\nhttps://www.salesforce.com/company/disclosure/",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.yelpwifi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "yelp-press.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yelp.careers",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yelptop100.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    }
+  ]
+}

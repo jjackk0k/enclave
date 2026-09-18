@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "epicgames",
+      "name": "Epic Games",
+      "offersBounties": true,
+      "assets": [
+        "*.rocketleague.com",
+        "EOS C# SDK",
+        "FortniteClient-Android-Shipping-arm64-es2.apk",
+        "FortniteClient-Win64-Shipping.exe",
+        "FortniteLauncher-Win64-Shipping.exe",
+        "FortniteLauncher-Win64-Shipping_BE.exe",
+        "FortniteLauncher-Win64-Shipping_EAC.exe",
+        "FortniteLauncher.exe"
+      ],
+      "exclusions": [
+        "Adobe Flash related submissions",
+        "FortniteClient-Mac-Shipping.app",
+        "answers.unrealengine.com",
+        "communityportal.epicgames.com",
+        "damascushelp.epicgames.com",
+        "docs.unrealengine.com",
+        "eoshelp.epicgames.com",
+        "epicsupport.force.com",
+        "issues.unrealengine.com",
+        "learn.unrealengine.com",
+        "marketplacehelp.epicgames.com",
+        "merch.fortnite.com",
+        "mithrilhelp.epicgames.com",
+        "stadiahelp.epicgames.com",
+        "twinmotionhelp.epicgames.com",
+        "udn.unrealengine.com",
+        "watch.fortnite.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\epicgames-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "epicgames",
+  "name": "Epic Games",
+  "url": "https://hackerone.com/epicgames",
+  "policy": "_____________________________________________________________________________________________________________________\nProgram Rules\n============\n______________________________________________________________________________________________________________________\n###Program Eligibility\n* You are not a resident of, and will not make your submission from, a country against which the United State has issued export sanctions or other trade restrictions (eg: Cuba, Iran, North Korea, Sudan, and Syria)\n* Employees, former employees that separated from the company within the prior 18 months, interns, contingent workers, contractors and their personnel, or consultants of Epic Games or its subsidiaries, as well as persons living in the same household and their immediate family members, are not eligible to receive bounties or rewards of any kind under the Epic Games program \n\n###What's allowed/permitted\n* You will comply with all applicable laws and regulations\n* You will let us know as soon as possible following the discovery of a vulnerability\n* You will follow the disclosure guidelines defined below\n\n###What's not allowed/not permitted\n* You will not maliciously exploit any vulnerabilities\n* You will not in any way access any private or confidential information pertaining to Epic, our users, and/or any third parties\n* You will not conduct Denial of Service testing nor any other actions that disrupt services\n* You may not do any testing that could: result in a system that is more vulnerable than it was when discovered, degrade performance, or destroy information.\n* You will not conduct social engineering of any Epic employees and/or contractors\n* You will not conduct physical attempts against Epic Games property or data centers\n\n###Legal\n* We reserve the right to exclude vulnerabilities for reasons that may not be included in the above list. \n* The Epic Games HackerOne program will not remove or modify any bans placed on an account.\n* Failure to comply with any or all of these rules may, at our sole discretion, result in ineligibility for bounties and/or removal from the program.\n______________________________________________________________________________________________________________________\nReport Submissions\n=============\n______________________________________________________________________________________________________________________\n\n**What's required**\n* You will only use an account you own that has been created for security testing when demonstrating a vulnerability. ==Your test account must include the phrase “**sectest**” in the username.==\n* Where applicable, you should use the following custom HTTP header during testing: X-Bug-Bounty: Hackerone-<username> to  differentiate your requests from those from normal users. Example:  X-Bug-Bounty: Hackerone-FlyingToasters. Additional custom headers may be added to differentiate between tests or reports.\n* Whenever possible, your reports should include as much information as possible regarding your tests and environment. For example: AccountID, IP, SessionID, Client Version, Client Log File, Date and Time, etc.\n* When reporting vulnerabilities, you will consider (1) attack scenario/exploitability, and (2) security impact of the bug. These are crucial when determining the severity of your finding.\n* You will provide detailed reports with reproducible steps. Reports which are not detailed enough to reproduce will be closed as NA.\n* You may only submit one vulnerability per report unless multiple vulnerabilities are required to provide an impact.\n* Testing of vulnerabilities like cheats or exploits must be done using minimal proofs of concept and without disrupting gameplay for other users.\n* When testing vulnerabilities in community-driven material, like forums or profiles, you may only test on content you've created. **Do not** attempt to discover findings on any community content other than your own. Where possible delete any comments/posts after confirmation of findings as to not pollute pages. \n* You may not use any Epic created content (such as Megascans) when performing testing on any of our digital marketplace products (Such as Fab).\n*  ==When testing for findings, you will not flood email forms, public forums, publish insensitive or illegal content, or any other publicly consumable content in a way that may have an adverse affect on user experience.==\n* Payment bypass and/or price bypass findings will only be accepted if you are able to successfully purchase the corresponding item(s). Where applicable, the price may only be changed by 5% and changes must be limited to a single purchase. The purchase price will be reimbursed as part of your bounty if a bounty is granted.\n* Any content obtained during the POC of a finding must be deleted from systems within your control upon notice of your finding being rejected or validated by Epic. \n* ==In case any potentially harmful action is required to test or validate a vulnerability or bug, submit your potential finding and ask for permission prior to taking the potentially harmful action. Do not take any potentially harmful actions without the explicit permission of the Epic Games team.==\n\n______________________________________________________________________________________________________________________\nDisclosure Guidelines\n=============\n______________________________________________________________________________________________________________________\nYou understand that you may not disclose, or permit disclosure of, your findings or contents of your submission to anyone other than Epic or the HackerOne team without prior written approval from Epic Games.\n\nYou understand that any media used to support your report should only be shared through HackerOne, and that the use of any public hosting service will be considered as unpermitted disclosure and could cause the report to be considered ineligible for bounties. If there is a need for use of a separate hosting service, please reach out to the program team for further instructions.\n\nIf you violate this agreement you will be ineligible for bounty payments, swag or any other rewards.\n\n______________________________________________________________________________________________________________________\nBounty Examples\n=============\n______________________________________________________________________________________________________________________\nPlease review the table below for examples of severity categories. These examples don't guarantee any bounties or severity ratings for any reports, and should only be considered as a guideline:\n\n###General\n|Description|Potential Bounty|Notes|\n|--|--|--|\n|Remote code execution on in-scope Epic Games game, store, other core infrastructure endpoints, or another player’s computer|$25,000||\n|Authentication bypass on Epic Games Store Accounts|$25,000|Does not include credential stuffing|\n|Authentication bypass on Epic-owned in-scope assets/services|$15,000|Does not include credential stuffing and/or brute force|\n|Remote code execution on Epic-owned in-scope assets outside of the Epic Games core infrastructure|$15,000| |\n|Payment process bypass|$15,000|Complete purchases in-store or in-game without payment|\n|Privilege escalation on in-scope Epic services|$7,500|\n|Product price altering|$5,000|Complete purchases in-store or in-game with a modified price. Ex. Buy a $10 item for $1|\n|Web Cache Poisoning|$500|Denial of service through cache poisoning|\n  \n\n###Fortnite\n|Description|Potential Bounty|Notes|\n|--|--|--|\n|Being able to enumerate the server IP address of another player in real-time.|$15,000|Online game modes, primarily ranked modes.|\n|Being able to crash a server that you are not a member of|$10,000||\n|Being able to modify a game characteristic in a previously unknown and unique way to give you a considerable gameplay advantage|$10,000|* non-custom Solo BR match|\n|Being able to crash other people|$15,000|Severity will be assessed based on if they are part of your social party, friends or strangers.|\n|Being able to crash a server you are a member of|$5,000||\n  \n###Easy Anti Cheat\n|Description|Potential Bounty|Notes|\n|--|--|--|\n|Local privilege escalation using the anti-cheat service or driver|$10,000||\n|Implementation details of a previously unknown and unique method for injecting cheats or otherwise accessing the game’s memory|$5,000||\n|Implementation details of a previously unknown and unique method for preventing anti-cheat detections|$5,000||\n|Implementation details of a previously unknown and unique method for spoofing or hiding hardware identifiers|$5,000||\n\n____________________________________________________________________________________________________________\nDenial of Service\n=============\n____________________________________________________________________________________________________________\nMost DoS findings will be assessed at ==Medium or lower== unless there is a significant, direct impact from simple requests. We are most interested in **simple requests** that cause **significant service disruption to players or customers.**\n\nTo be eligible, a DoS submission must:\n- Affect users beyond the attacker's own session, party, private server, or island\n- Be triggered via public-facing endpoints\n- Do not rely on volumetric traffic or sustained requests\n\n### Out of Scope\n- Distributed denial of service (DDoS) using multiple source IPs or botnets\n- Volumetric attacks\n- Self-inflicted DoS (crashing your own session, party, private server, or island)\n- DoS requiring privileged access\n- Theoretical DoS without demonstrated customer impact\n\n###  Severity Guidelines\nAll severity determinations are at Epic's discretion based on actual customer impact; **CVSS scores may not be used to evaluate DoS submissions.**\n\n\n| Severity | Criteria | Example |\n|-------------|-----------|-------------|\n| Critical/High |A single unauthenticated request causes a widespread customer-facing outage|A single malformed request crashes matchmaking or game services regionally|\n|Medium / Low|Moderate complexity or limited customer impact|Unauthenticated request degrades service; localized disruption|\n|Informational|No demonstrated customer impact|Theoretical finding: self-only impact, services requiring authentication, internal-only services|\n\n______________________________________________________________________________________________________________________\nScope\n=====\n______________________________________________________________________________________________________________________\n\nWe generally follow the OWASP Top 10 Application Security Risks, however, we would still love to hear from you in the event that you discover a vulnerability that is out of scope. \nEligibility and bounties for any finding that is not explicitly in scope will be defined by the Epic Games team. This includes any acquisition, affiliate, or subsidiary that is not under the in-scope list.\n\n______________________________________________________________________________________________________________________\nOut of Scope\n============\n______________________________________________________________________________________________________________________\n* Vulnerabilities from automated scanners without additional analysis\n* Vulnerabilities relying on out of date browsers/software\n* Clickjacking/UI-redressing\n* XSS only affecting old browser versions\n* Missing or misconfigured security-related HTTP headers that do not directly lead to a vulnerability\n* Mixed content warnings\n* Missing cookie flags that do not directly lead to a vulnerability\n* All types of brute-force and/or credential stuffing attacks (with the exception of faulty or missed rate-limiting)\n* Credentials to individual end-user accounts (Eg: Epic Games Store accounts)\n* Distributed Denial of Service attacks\n* Fortnite UEFN Live Edit Session Crashes are considered out of scope\n* Social engineering (e.g. phishing, vishing, smishing) attacks\n* Physical security attacks\n* SPF, DKIM, and DMARC records and flags\n* Text-only injection\n* Password stuffing attacks\n* Bugs/Attacks requiring extremely unlikely actions by a victim (eg: Self-XSS) \n* Adobe Flash related submissions\n* Assets not owned by Epic Games (third party assets)  \n____________________________________________________________________________________________________________\nUnreal Revision Control (URC), Unreal Engine Projects, and other User Generated Projects\n======================================================================\n____________________________________________________________________________________________________________\n* Issues which rely on the victim to join a project/organization are not considered valid unless:\n     * You are able to publish code to an organization you are not a member of\n     * You are able to add users to an organization without their consent\n* Issues relying on maintainers of projects sabotaging their own projects are not considered in scope\n     * Similarly, issues relying on hijacking a high privilege account and subsequently sabotaging a project are also out of scope. The method by which ATO is achieved may be considered in scope.\n* Findings due to modifications of the underlying URC framework via URC projects are considered in scope\n     * Eg: Replacing executables explicitly used by URC via a project, or a project which causes it to behave in unintended ways\n* Timing attacks which may briefly allow access to new organizations are out of scope\n* Security issues specific to underlying IDEs are out of scope, unless the issue is unique to how URC integrates with the IDE\n* Vulnerabilities caused by end of life IDEs are out of scope\n\n______________________________________________________________________________________________________________________\nHackerOne Platform Standards Deviations:\n============\n______________________________________________________________________________________________________________________\n\n* Vulnerable Network Connection in Client Applications: Vulnerabilities that require being on the same network as a victim (“Man-In-The-Middle” -MITM- attack) will be considered on a case by case basis.\n\n* Insecure Direct Object Reference (IDOR) vulnerability reports will be accepted only if the researcher is able to demonstrate a way to reliably obtain/guess/craft target IDs, or when demonstrating a High severity Impact.\n\n______________________________________________________________________________________________________________________\nAdditional Notes\n============\n______________________________________________________________________________________________________________________\n* For different attack vectors that result in the same mitigation, we reserve the right to reward the first report that is validated for that fix. All subsequent reports addressed by that mitigation will be considered duplicates, regardless of the attack vector.\n\n* Missing or faulty Rate-limit issues will only be considered valid when affecting login or critical account related requests, and these do not include any form of 2FA. In case the 2FA control in place is also vulnerable, the issue will be assessed on a case by case basis.\nA valid PoC will also be required to contain:\n      * Proof of at least 1000 accepted requests by the server in a very short time-frame.\n      * Proof of successful login or completion of operation after said 1000+ requests.\n\n* Web Cache Poisoning/Deception issues will only be considered valid when:\n     * You’ll be able to prove that exploitation of the issue impacts other users (different IP, browser, etc.)\n     * It's possible to make this attack persistent for multiple targets\n\n* Any exploitable Zero Day vulnerabilities will only be valid if also reported to the corresponding maintainer or owner of said software/service. Zero day findings are not eligible for awards unless discovered on an in-scope asset more than 30 days after the zero day has been disclosed to the public.\n\n* ==Cache poisoning-based denial of service attacks will be classified as low severity.== If the resulting impact causes a significant service disruption for our players and/or creators then the severity will be re-evaluated.\n\n* Services which directly correlate to game services and game functionality generally have a higher impact than other services that would have little impact on player experience. Backend services which do not immediately impact the operation of game sessions will be considered a lower impact than those which have a direct impact on player/game experience.\n* Dependency confusion submissions are only valid for first party dependencies. These submissions will receive a maximum severity rating of \"Informative\" unless evidence is provided which shows download attempts on Epic owned infrastructure.\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "FortniteClient-Win64-Shipping.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FortniteLauncher-Win64-Shipping.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FortniteLauncher-Win64-Shipping_BE.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FortniteLauncher-Win64-Shipping_EAC.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FortniteLauncher.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FortniteClient-Mac-Shipping.app",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "FortniteClient-Android-Shipping-arm64-es2.apk",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "EOS C# SDK",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[C# SDK] (https://dev.epicgames.com/portal/api/v2/services/sdk/download/?sdkType=c_sharp)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "epicsupport.force.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "learn.unrealengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.unrealengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is generally considered out of scope. In some rare instances we may accept submissions for this asset if the finding is highly critical. \n\nExamples of severe findings:\n- Personal Data Exposure\n- Data Integrity Issues\n- RCE",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "udn.unrealengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is generally considered out of scope. In some rare instances we may accept submissions for this asset if the finding is highly critical. \n\nExamples of severe findings:\n- Personal Data Exposure\n- Data Integrity Issues\n- RCE",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "watch.fortnite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "merch.fortnite.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is generally considered out of scope. In some rare instances we may accept submissions for this asset if the finding is highly critical. \n\nExamples of severe findings:\n- Personal Data Exposure\n- Data Integrity Issues\n- RCE",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "eoshelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "answers.unrealengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is generally considered out of scope. In some rare instances we may accept submissions for this asset if the finding is highly critical. \n\nExamples of severe findings:\n- Personal Data Exposure\n- Data Integrity Issues\n- RCE",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Adobe Flash related submissions",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "communityportal.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "marketplacehelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "twinmotionhelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "issues.unrealengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "damascushelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mithrilhelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "stadiahelp.epicgames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.rocketleague.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "***Note:*** This asset may contain endpoints not hosted by Epic Games (third party endpoints). These third party endpoints are not eligible for bounty. \nIf you are unsure whether or not an asset is considered third party please submit a preliminary finding for confirmation.\n\n**==The white hat is no ",
+      "max_severity": "critical"
+    }
+  ]
+}

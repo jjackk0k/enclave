@@ -19,7 +19,8 @@ import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, basename, delimiter } from 'node:path';
 import { homedir } from 'node:os';
-import { runGovernedAgent } from './agent-backend.mjs';
+import { runGovernedAgent, normalizeKimiModel } from './agent-backend.mjs';
+import { labUp, labDown, cleanupOrphans, vmLabAvailable, kaliShellEnv, vmLabTargetIp, labStatus } from './vm-lab.mjs';
 
 const ROOT   = process.env.ENCLAVE_ROOT || dirname(fileURLToPath(import.meta.url));
 const PORT   = Number(process.env.PORT) || 8977;
@@ -38,7 +39,7 @@ const send = (res, code, body, type='application/json') => { res.writeHead(code,
 
 // locate the claude CLI (native exe on Windows, script elsewhere)
 function findClaude() {
-  const r = spawnSync(WIN ? 'where' : 'which', ['claude'], { encoding: 'utf8' });
+  const r = spawnSync(WIN ? 'where' : 'which', ['claude'], { encoding: 'utf8', windowsHide: true });
   if (r.status === 0) { const line = (r.stdout || '').split(/\r?\n/).map(s => s.trim()).find(Boolean); if (line) return line; }
   return null;
 }
@@ -60,7 +61,13 @@ function readKimiConfig() {
   if (cfg.subscription)  { base = 'https://api.kimi.com/coding'; type = 'anthropic'; model = (cfg.models && cfg.models.main) || 'k3'; }
   else if (cfg.freeTier) { base = 'https://openrouter.ai/api/v1'; type = 'openai'; model = (cfg.models && cfg.models.main) || 'qwen/qwen3-coder:free'; }
   const key = process.env.KIMI_API_KEY || process.env.MOONSHOT_API_KEY || process.env.OPENROUTER_API_KEY || process.env.ENCLAVE_KIMI_KEY || process.env.ANTHROPIC_AUTH_TOKEN || cfg.apiKey || '';
-  return { baseUrl: process.env.KIMI_BASE_URL || base, apiType: process.env.KIMI_APITYPE || type, model: process.env.KIMI_MODEL || model, apiKey: key, source: cfg.subscription ? 'kimi-subscription' : (cfg.freeTier ? 'k3-free-tier' : 'k3-config') };
+  // Kimi's raw coding API wants the BASE id (`k3`), never the k3 config's display id
+  // (`kimi-k3[1m]`) — normalize so logs/readiness/downstream all see the wire id. For
+  // OpenAI-shape backends (moonshot platform / OpenRouter) only the [1m] tag is stripped.
+  const effType = process.env.KIMI_APITYPE || type;
+  model = process.env.KIMI_MODEL || model;
+  model = effType === 'anthropic' ? normalizeKimiModel(model) : model.replace(/\s*\[1m\]\s*$/i, '').trim();
+  return { baseUrl: process.env.KIMI_BASE_URL || base, apiType: effType, model, apiKey: key, source: cfg.subscription ? 'kimi-subscription' : (cfg.freeTier ? 'k3-free-tier' : 'k3-config') };
 }
 const KIMI = readKimiConfig();
 const KIMI_OK = !!KIMI.apiKey;
@@ -100,8 +107,15 @@ async function ensureBin() {
   await mkdir(BIN, { recursive: true });
   await writeFile(join(BIN, 'enclave-shell'),
     '#!/usr/bin/env bash\n' +
-    '# Enclave — run a command inside this enclave\'s sealed workload container (workspace at /work).\n' +
+    '# Enclave — run a command inside this enclave\'s sealed workload container, OR the VM-lab Kali attacker.\n' +
     'export MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL=\'*\'\n' +
+    'if [ -n "$ENCLAVE_KALI_VMX" ]; then\n' +
+    '  # VM-LAB tier: run the command INSIDE the Kali attacker VM via VMware guest-ops, capture output.\n' +
+    '  "$ENCLAVE_VMRUN" -T ws -gu "$ENCLAVE_KALI_USER" -gp "$ENCLAVE_KALI_PASS" runScriptInGuest "$ENCLAVE_KALI_VMX" /bin/bash "{ $*; } >/tmp/.eshell 2>&1" >/dev/null 2>&1\n' +
+    '  rm -f "$ENCLAVE_KALI_OUT" 2>/dev/null   # vmrun refuses to overwrite an existing host file → delete first\n' +
+    '  "$ENCLAVE_VMRUN" -T ws -gu "$ENCLAVE_KALI_USER" -gp "$ENCLAVE_KALI_PASS" copyFileFromGuestToHost "$ENCLAVE_KALI_VMX" /tmp/.eshell "$ENCLAVE_KALI_OUT" >/dev/null 2>&1\n' +
+    '  cat "$ENCLAVE_KALI_OUT" 2>/dev/null; exit 0\n' +
+    'fi\n' +
     'if [ -z "$ENCLAVE_CONTAINER" ]; then echo "enclave-shell: no sealed container for this workload (host tier)" >&2; exit 3; fi\n' +
     '# exec the tool + args DIRECTLY (no intermediate shell) so quoting is preserved and a\n' +
     '# tool argument cannot inject into the local shell. For pipes/redirects: enclave-shell bash -lc "..."\n' +
@@ -139,6 +153,44 @@ function ensureBrokerNet() {
 const LAB_NET = 'enclave-lab', LAB_TARGET = 'enclave-range-target', LAB_IMAGE = 'enclave-range-target:latest';
 const LAB_SUBNET = '10.10.0.0/16', LAB_IP = '10.10.5.20';
 const LAB_WORKLOADS = new Set(['red-team', 'tool-dev']);
+// ---- HIGH-FIDELITY VMware tier: a real Win11 target + Kali attacker, EPHEMERAL (see vm-lab.mjs) ----
+const VM_LAB_WORKLOADS = new Set(['vm-range']);        // workload that uses the VMware lab instead of Docker
+let vmLabSession = null;                               // the ONE ws currently holding the lab
+let vmLabTimer = null;                                 // idle watchdog → tears the lab down if the browser vanishes
+// Lab HOLDs: auto-expiring leases (per-owner) that defer EVERY Enclave-side teardown
+// (watchdog, session churn) while a test/verification is mid-flight. The self-clean
+// design is preserved: holds expire on read (max 60min), so a forgotten hold never
+// wedges the lab. Per-owner map: a consumer's release never eats someone else's hold.
+const vmLabHolds = new Map();                          // owner -> { owner, until }
+function labHoldActive() {
+  const now = Date.now();
+  for (const [k, h] of vmLabHolds) if (h.until <= now) { console.log('[vm-lab] hold expired (' + k + ')'); vmLabHolds.delete(k); }
+  return vmLabHolds.size ? [...vmLabHolds.values()][0] : null;
+}
+function holdLab(owner, minutes) {
+  const mins = Math.max(1, Math.min(60, Number(minutes) || 15));
+  const h = { owner: String(owner || 'unknown').slice(0, 60), until: Date.now() + mins * 60000 };
+  vmLabHolds.set(h.owner, h);
+  console.log('[vm-lab] hold set by ' + h.owner + ' for ' + mins + 'min');
+  return h;
+}
+function armLabWatchdog(ws) {
+  clearTimeout(vmLabTimer);
+  vmLabTimer = setTimeout(() => { if (vmLabSession === ws) { console.log('[vm-lab] idle timeout → teardown'); disarmLab(ws); } },
+    Number(process.env.ENCLAVE_VMLAB_IDLE_MS) || 12 * 60 * 1000);
+}
+function disarmLab(ws) {                               // revert-to-clean + power-off the lab (idempotent)
+  if (vmLabSession && (!ws || ws === vmLabSession)) {
+    const h = labHoldActive();
+    if (h) { console.log('[vm-lab] teardown DEFERRED — hold active (' + h.owner + ', ' + Math.round((h.until - Date.now()) / 60000) + 'min left)'); return; }
+    const s = vmLabSession; vmLabSession = null; clearTimeout(vmLabTimer);
+    labDown().then(() => console.log('[vm-lab] ' + s + ' torn down — reverted to clean + powered off'));
+  }
+}
+function vmLabBriefing(lab) {
+  const ip = (lab && lab.targetIp) || vmLabTargetIp();
+  return `\n\nVM RANGE — HIGH-FIDELITY LAB (INSIDE your signed scope): a REAL, disposable Windows 11 Pro box with live Microsoft Defender is booted at ${ip} on the sealed lab net. Your attacker is Kali — your Bash runs THERE. Fire tools from Kali AT ${ip} and read results back:  enclave-shell nmap -sV ${ip}  ·  enclave-shell arping -c3 ${ip}  ·  enclave-shell whoami . Build a payload, drop it, see if it survives Defender. This is the realistic tier the container range can't be. The whole lab reverts to a clean snapshot and powers off when the session ends.`;
+}
 let labReady = null;
 function ensureLab() {
   if (!DOCKER_OK) return null;
@@ -188,11 +240,12 @@ function ensureContainer(ws, workload, wsDir) {
 // ---- session lifecycle: ONE ephemeral workspace + container per browser session ----
 // A fresh page load / new AI session gets a fresh workspace (last session's files are
 // gone) and a fresh container; the previous one is torn down. Sandboxes are ephemeral.
-const EFFORTS = ['low', 'medium', 'high'];
+const EFFORTS = ['low', 'medium', 'high', 'xhigh', 'max'];   // Opus 4.6+/5 accept all five (verified against the CLI)
 const sessions = new Map();                                    // base workspace -> current physical wsName
 const sane = s => String(s || '').replace(/[^\w.-]/g, '_');
 const wsNameFor = (baseWs, token) => token ? sane(baseWs) + '__' + sane(token).slice(0, 24) : sane(baseWs);
 function teardownSession(wsName) {
+  disarmLab(wsName);                                           // if this session held the VM lab, revert + power it off
   try {                                                        // all toolchain containers for this session
     const ps = spawnSync('docker', ['ps', '-aq', '-f', 'name=^enclave-' + sane(wsName) + '-'], { encoding: 'utf8' });
     const ids = (ps.stdout || '').split(/\s+/).filter(Boolean);
@@ -236,7 +289,19 @@ const SEAL_DISALLOW = [
   'TaskCreate', 'TaskList', 'TaskGet', 'TaskUpdate', 'TaskStop', 'TaskOutput',
   'ListMcpResourcesTool', 'ReadMcpResourceTool', 'ReadMcpResourceDirTool',
 ];
-const MODEL_ALIAS = { opus: 'opus', sonnet: 'sonnet', haiku: 'haiku' };
+// picker value -> the exact string handed to `claude --model`. Generic aliases resolve to the
+// latest of each tier; the explicit IDs let the operator pin a specific Opus for testing.
+const MODEL_ALIAS = {
+  sonnet: 'sonnet', haiku: 'haiku', opus: 'opus',
+  'opus-5':   'claude-opus-5',
+  'opus-4-8': 'claude-opus-4-8',
+  'opus-4-7': 'claude-opus-4-7',
+  'opus-4-6': 'claude-opus-4-6',
+  // Kimi coding models — VARVEL runs these through its governed direct-API backend
+  // (claude -p hangs on Kimi). Effort is passed separately as VARVEL_EFFORT.
+  'k3': 'k3', 'kimi-k3': 'k3', 'kimi-k2.7-code': 'kimi-k2.7-code', 'kimi-2.7': 'kimi-k2.7-code',
+};
+const KIMI_EFFORTS = ['low', 'medium', 'high'];
 
 // a sealed per-operator workspace whose settings.json wires in the PreToolUse hook
 function settingsPath(ws) { return join(LIVE, '.settings', ws + '.json'); }
@@ -268,8 +333,18 @@ function callClaudeCLI({ message, persona, resumeId, system, model, workload, se
     const dir = await ensureWorkspace(wsName);
     await ensureBin();
     const wl = workload || P.workload;
-    const container = ensureContainer(wsName, wl, dir);  // sealed per-session container (null → host tier)
+    const isVmLab = VM_LAB_WORKLOADS.has(wl) && vmLabAvailable();
+    const container = isVmLab ? null : ensureContainer(wsName, wl, dir);  // sealed per-session container (null → host/VM-lab)
     let sysAug = system || '';
+    // A held lab is someone's mid-test work: DON'T revert it under them — hand the
+    // session the running lab instead (logged); normal clean-boot behavior otherwise.
+    if (isVmLab) {
+      const h = labHoldActive();
+      const st = h ? await labStatus() : null;
+      const lab = (h && st && st.targetRunning) ? st : await labUp();
+      if (h && st && st.targetRunning) console.log('[vm-lab] hold active (' + h.owner + ') — session joined the RUNNING lab, no revert');
+      vmLabSession = wsName; armLabWatchdog(wsName); sysAug += vmLabBriefing(lab);
+    }
     if (container) sysAug += `\n\nRUNTIME — CONTAINER TIER: a sealed ${wl} container ("${container}", non-root, your workspace mounted at /work) is live. Its network egress is restricted to an allowlist broker — approved research sources (CVE/NVD, MITRE ATT&CK, GitHub, package registries, docs) reach out; everything else is refused. Run any provisioned security tool INSIDE it via:  enclave-shell <command>  — e.g.  enclave-shell nmap -sV 10.0.0.5  ·  enclave-shell vol -f /work/mem.raw windows.pslist  ·  enclave-shell nuclei -u https://target . Those tools are NOT on the host; your plain Bash runs on the host, confined to the workspace. Use enclave-shell for the workload toolchain.`;
     const labIp = (container && LAB_WORKLOADS.has(wl)) ? ensureLab() : null;
     if (labIp) sysAug += `\n\nRANGE — SAFE PRACTICE TARGET: a disposable, deliberately-vulnerable lab box is live at ${labIp} on your engagement network, INSIDE your signed scope — so you may freely scan and exploit IT (and only it) to test what you build. It serves a web app on :8080 with a command-injection bug at GET /ping?host=. Try:  enclave-shell nmap -sV ${labIp}  ·  enclave-shell curl "http://${labIp}:8080/ping?host=127.0.0.1;id"  (that ;id is the injection → runs on the target). Nothing else on the range is reachable; this is where you test offensive tooling instead of a real system.`;
@@ -285,7 +360,7 @@ function callClaudeCLI({ message, persona, resumeId, system, model, workload, se
     if (resumeId) args.push('--resume', resumeId);
     const child = spawn(CLAUDE, args, { cwd: dir, windowsHide: true,
       env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: dir,
-             ENCLAVE_CONTAINER: container || '', PATH: BIN + delimiter + (process.env.PATH || ''), NODE_NO_WARNINGS: '1' } });
+             ENCLAVE_CONTAINER: container || '', ...(isVmLab ? kaliShellEnv() : {}), PATH: BIN + delimiter + (process.env.PATH || ''), NODE_NO_WARNINGS: '1' } });
     let out = '', err = '';
     const killer = setTimeout(() => { child.kill(); reject(new Error('claude timed out (180s)')); }, 180000);
     child.stdout.on('data', d => (out += d));
@@ -358,6 +433,119 @@ function recentAudit(n = 25) {
   return out.slice(-n);
 }
 
+// ---- VARVEL launcher --------------------------------------------------------
+// Open the governed red-team platform FROM the console, bound to the current
+// operator. Identity handoff is identical to every other governed module: the SIGNED
+// session token via ENCLAVE_SESSION. VARVEL reads it, shows who you are, and sources
+// its engagement scope from the signed engagementScope — nothing is typed or faked.
+// One instance; re-bound when a different persona opens it.
+const VARVEL_PORT  = Number(process.env.VARVEL_PORT) || 8971;
+const VARVEL_ENTRY = join(ROOT, 'varvel', 'server.mjs');
+let varvelProc = null, varvelBound = null, varvelModel = null, varvelEffort = null, varvelBrain = null;
+
+// Brain passthrough (the local-brain seam, varvel/engine/brain-provider.mjs): when the
+// open body carries a `brain` object, forward its fields to the spawned VARVEL as
+// VARVEL_BRAIN_* env — the SAME precedence layer that module documents (env sits between
+// per-request and engagement settings). Only the five known fields cross; apiKeyEnv is an
+// env-var NAME (a key VALUE never crosses this boundary). Absent brain => the kimi default
+// open is byte-identical to before — the forced {"persona":"red","model":"k3","effort":"high"}
+// behavior is load-bearing (open would otherwise default to sonnet) and is NOT touched.
+function normalizeBrain(brain) {
+  if (!brain || typeof brain !== 'object') return null;
+  const out = {};
+  if (brain.provider !== undefined) out.provider = String(brain.provider);
+  if (brain.baseUrl !== undefined) out.baseUrl = String(brain.baseUrl);
+  if (brain.model !== undefined) out.model = String(brain.model);
+  if (brain.apiKeyEnv !== undefined) out.apiKeyEnv = String(brain.apiKeyEnv);
+  if (brain.timeoutMs !== undefined) out.timeoutMs = String(Math.floor(Number(brain.timeoutMs) || 0));
+  return Object.keys(out).length ? out : null;
+}
+const brainEnvOf = (b) => !b ? {} : {
+  ...(b.provider !== undefined ? { VARVEL_BRAIN_PROVIDER: b.provider } : {}),
+  ...(b.baseUrl !== undefined ? { VARVEL_BRAIN_BASE_URL: b.baseUrl } : {}),
+  ...(b.model !== undefined ? { VARVEL_BRAIN_MODEL: b.model } : {}),
+  ...(b.apiKeyEnv !== undefined ? { VARVEL_BRAIN_API_KEY_ENV: b.apiKeyEnv } : {}),
+  ...(b.timeoutMs !== undefined ? { VARVEL_BRAIN_TIMEOUT_MS: b.timeoutMs } : {}),
+};
+
+const varvelAlive = () => !!(varvelProc && varvelProc.exitCode === null && !varvelProc.killed);
+
+// Free the VARVEL port from any stale/foreign instance so the one we spawn (bound to the
+// picked identity) actually binds — otherwise the console would open an old, unbound
+// VARVEL that shows "standalone" instead of the operator you selected.
+function freePort(port) {
+  try {
+    if (WIN) {
+      const r = spawnSync('netstat', ['-ano'], { encoding: 'utf8' });
+      const pids = [...new Set((r.stdout || '').split(/\r?\n/)
+        .filter((l) => /LISTENING/.test(l) && new RegExp(':' + port + '\\b').test(l))
+        .map((l) => l.trim().split(/\s+/).pop())
+        .filter((p) => /^\d+$/.test(p) && p !== '0' && Number(p) !== process.pid))];
+      for (const pid of pids) spawnSync('taskkill', ['/PID', pid, '/F'], { stdio: 'ignore' });
+    } else {
+      const r = spawnSync('bash', ['-c', `lsof -ti:${port} 2>/dev/null`], { encoding: 'utf8' });
+      for (const pid of (r.stdout || '').split(/\s+/).filter(Boolean)) if (Number(pid) !== process.pid) spawnSync('kill', ['-9', pid], { stdio: 'ignore' });
+    }
+  } catch { /* best effort */ }
+}
+const pingVarvel = () => new Promise((resolve) => {
+  const req = http.get({ host: '127.0.0.1', port: VARVEL_PORT, path: '/api/phases', timeout: 800 }, (r) => { r.resume(); resolve(r.statusCode === 200); });
+  req.on('error', () => resolve(false));
+  req.on('timeout', () => { req.destroy(); resolve(false); });
+});
+async function waitForVarvel(ms = 6000) {
+  const deadline = Date.now() + ms;
+  while (Date.now() < deadline) { if (await pingVarvel()) return true; await new Promise((r) => setTimeout(r, 200)); }
+  return false;
+}
+function killVarvel() { if (varvelAlive()) { try { varvelProc.kill(); } catch {} } varvelProc = null; varvelBound = null; varvelBrain = null; }
+
+async function openVarvel(personaKey, model, effort, brain) {
+  const key = PERSONA[personaKey] ? personaKey : 'red';   // VARVEL is a red-team console; default to the red persona
+  const P = PERSONA[key];
+  const sessionFile = join(SEAM, 'session', P.session);
+  if (!existsSync(sessionFile)) throw new Error('no signed session for persona ' + key);
+  if (!existsSync(VARVEL_ENTRY)) throw new Error('VARVEL not installed at ' + fwd(VARVEL_ENTRY));
+  const useModel = MODEL_ALIAS[model] || model || MODEL;   // the AI VARVEL runs — matches the model picked in the console
+  const useEffort = KIMI_EFFORTS.includes(effort) ? effort : 'high';   // Kimi effort (xhigh/max → high); ignored by Claude models
+  const useBrain = normalizeBrain(brain);                // local-brain passthrough (null = the unchanged kimi default)
+  const brainKey = useBrain ? JSON.stringify(useBrain) : '';
+
+  // Reuse only if OUR child is up, bound to this persona AND running this model + effort + brain.
+  if (varvelAlive() && varvelBound === key && varvelModel === useModel && varvelEffort === useEffort && (varvelBrain || '') === brainKey && await pingVarvel()) {
+    return { ok: true, url: `http://localhost:${VARVEL_PORT}`, operator: key, model: useModel, effort: useEffort, ...(useBrain ? { brain: useBrain } : {}), reused: true };
+  }
+  killVarvel();                 // stop our own child if any
+  freePort(VARVEL_PORT);        // and evict any stale/foreign VARVEL so ours binds + shows the picked identity
+  await new Promise((r) => setTimeout(r, 350));
+
+  varvelProc = spawn(process.execPath, [VARVEL_ENTRY], {
+    cwd: join(ROOT, 'varvel'),
+    env: { ...process.env, ENCLAVE_SESSION: sessionFile, ENCLAVE_WORKSPACE_DIR: join(LIVE, P.ws), VARVEL_PORT: String(VARVEL_PORT), VARVEL_MODEL: useModel, VARVEL_EFFORT: useEffort,
+      // Local-brain passthrough (additive): VARVEL_BRAIN_* when the open body carried a
+      // brain object — nothing at all when it did not (the kimi default stays untouched).
+      ...brainEnvOf(useBrain),
+      // VM-range channel defaults (overridable): the governed callback channel binds the
+      // lab interface on a stable port so range agents can reach it and keep their config
+      // across restarts; the scope ring still gates every check-in.
+      VARVEL_CHANNEL_BIND: process.env.VARVEL_CHANNEL_BIND || '192.168.50.1',
+      VARVEL_SCOPE_CIDRS: process.env.VARVEL_SCOPE_CIDRS || '127.0.0.0/8,192.168.50.0/24',
+      VARVEL_CHANNEL_PORT: process.env.VARVEL_CHANNEL_PORT || '49561',
+      VARVEL_DNS_PORT: process.env.VARVEL_DNS_PORT || '5335',
+      // DNS-over-HTTPS transport (gap#2): TLS-carried governed wire on 4453, lab cert
+      // unless VARVEL_DOH_CERT/KEY point at operator PEMs.
+      VARVEL_DOH: process.env.VARVEL_DOH || '1',
+      // Native ICMP fallback: the bridge self-probes and reports honestly if the host
+      // can't move raw frames, so arming it here is safe on any host.
+      VARVEL_ICMP: process.env.VARVEL_ICMP || '1' },
+    stdio: 'ignore', windowsHide: true,
+  });
+  varvelBound = key; varvelModel = useModel; varvelEffort = useEffort; varvelBrain = brainKey;
+  varvelProc.on('exit', () => { if (varvelBound === key) { varvelProc = null; varvelBound = null; varvelModel = null; varvelEffort = null; varvelBrain = null; } });
+  const up = await waitForVarvel();
+  return { ok: up, url: `http://localhost:${VARVEL_PORT}`, operator: key, model: useModel, effort: useEffort, ...(useBrain ? { brain: useBrain } : {}), reused: false, up };
+}
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
 
@@ -370,6 +558,57 @@ const server = http.createServer(async (req, res) => {
   }
   if (url.pathname === '/api/audit') {
     return send(res, 200, JSON.stringify({ decisions: recentAudit(Number(url.searchParams.get('n')) || 25) }));
+  }
+  // VM-lab HOLD API: auto-expiring leases that defer Enclave-side teardowns while a
+  // test/verify flow is mid-flight (the range still self-cleans — holds lapse, max 60min).
+  if (url.pathname === '/api/vm-lab') {
+    return (async () => {
+      const st = await labStatus();
+      labHoldActive(); // sweep expired so the listing is honest
+      send(res, 200, JSON.stringify({ ...st, holds: [...vmLabHolds.values()].map((h) => ({ owner: h.owner, until: new Date(h.until).toISOString(), minutesLeft: Math.max(0, Math.round((h.until - Date.now()) / 60000)) })) }));
+    })();
+  }
+  if (url.pathname === '/api/vm-lab/hold' && req.method === 'POST') {
+    let body = '';
+    req.on('data', c => (body += c));
+    req.on('end', () => {
+      try { const { owner, minutes } = JSON.parse(body || '{}'); const h = holdLab(owner, minutes); send(res, 200, JSON.stringify({ ok: true, owner: h.owner, until: new Date(h.until).toISOString() })); }
+      catch (e) { send(res, 400, JSON.stringify({ error: e.message })); }
+    });
+    return;
+  }
+  if (url.pathname === '/api/vm-lab/release' && req.method === 'POST') {
+    let body = '';
+    req.on('data', c => (body += c));
+    req.on('end', () => {
+      let owner = null;
+      try { owner = JSON.parse(body || '{}').owner || null; } catch {}
+      labHoldActive(); // sweep first
+      if (owner) { const had = vmLabHolds.delete(owner); if (had) console.log('[vm-lab] hold released (' + owner + ')'); return send(res, 200, JSON.stringify({ ok: true, released: had ? owner : null })); }
+      const n = vmLabHolds.size; vmLabHolds.clear();
+      if (n) console.log('[vm-lab] all holds released (' + n + ')');
+      return send(res, 200, JSON.stringify({ ok: true, released: n }));
+    });
+    return;
+  }
+  if (url.pathname === '/api/varvel/status') {
+    return send(res, 200, JSON.stringify({ running: varvelAlive(), boundTo: varvelBound, model: varvelModel, url: `http://localhost:${VARVEL_PORT}` }));
+  }
+  if (url.pathname === '/api/varvel/stop' && req.method === 'POST') {
+    const was = varvelBound;
+    killVarvel();
+    freePort(VARVEL_PORT); // evict even a foreign/stale instance
+    console.log(`[varvel] stopped (was ${was || 'none'})`);
+    return send(res, 200, JSON.stringify({ ok: true, stopped: was || null }));
+  }
+  if (url.pathname === '/api/varvel/open' && req.method === 'POST') {
+    let body = '';
+    req.on('data', c => (body += c));
+    req.on('end', async () => {
+      try { const { persona, model, effort, brain } = JSON.parse(body || '{}'); const r = await openVarvel(persona, model, effort, brain); console.log(`[varvel] open as ${r.operator} · ${r.model}${r.effort ? '/' + r.effort : ''}${r.brain ? ' · brain=' + (r.brain.provider || 'openai-compatible') : ''} · reused=${!!r.reused} · up=${r.up !== false}`); send(res, 200, JSON.stringify(r)); }
+      catch (e) { send(res, 502, JSON.stringify({ error: e.message })); }
+    });
+    return;
   }
   if (url.pathname === '/api/chat' && req.method === 'POST') {
     let body = '';
@@ -432,8 +671,9 @@ const server = http.createServer(async (req, res) => {
 
 ensureDeps();
 cleanupAllContainers();                                        // wipe any enclave containers left by a prior run
-for (const sig of ['SIGINT', 'SIGTERM']) process.on(sig, () => { cleanupAllContainers(); process.exit(0); });
-process.on('exit', () => cleanupAllContainers());              // best-effort teardown when the server stops
+cleanupOrphans().then(r => { if (r && r.swept) console.log(`[vm-lab] startup sweep: powered off ${r.swept} orphaned lab VM(s)`); }); // backstop: no lab VM survives a crash
+for (const sig of ['SIGINT', 'SIGTERM']) process.on(sig, () => { killVarvel(); cleanupAllContainers(); const bye = () => process.exit(0); const t = setTimeout(bye, 15000); labDown().finally(() => { clearTimeout(t); bye(); }); });
+process.on('exit', () => { killVarvel(); cleanupAllContainers(); });   // best-effort teardown when the server stops
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`\n  ◈ Enclave console — live at  http://localhost:${PORT}/app.html\n`);
   if (BACKEND === 'kimi')     console.log(`  ATTACHED TO KIMI via your k3 login · ${KIMI.model} @ ${KIMI.baseUrl} (${KIMI.apiType}, ${KIMI.source}) · governed by the Enclave hook · no cyber-content classifier`);

@@ -1,0 +1,241 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "insightly",
+      "name": "Insightly",
+      "offersBounties": true,
+      "assets": [
+        "accounts.insightly.com",
+        "crm.na1.insightly.com",
+        "http://api.insightly.com/v3.1/",
+        "http://api.na1.insightly.com/v3.1/",
+        "login.insightly.com",
+        "mobileapi.insightly.com",
+        "mobileapi.na1.insightly.com",
+        "outlook.insightly.com"
+      ],
+      "exclusions": [
+        "*.insight.ly",
+        "563017797",
+        "blog.insightly.com",
+        "chloe.insightly.com",
+        "com.insightly.droid",
+        "frontdoorproxy.insightly.com",
+        "gmailaddon.insightly.com",
+        "help.insightly.com",
+        "insight.ly",
+        "insightly.com",
+        "my.insightly.com",
+        "newsletter.insightly.com",
+        "podapi.na1.insightly.com",
+        "support.insightly.com",
+        "webhook.insightly.com",
+        "www.insight.ly",
+        "www.insightly.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\insightly-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "insightly",
+  "name": "Insightly",
+  "url": "https://hackerone.com/insightly",
+  "policy": "# Introduction\r\nNo technology is perfect, and Insightly believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Single vs. Multi-tenant Overview\r\n\r\nWhen you sign up for a free trial, you are creating a new tenant of Insightly. In the real world this translates to a single company purchasing a tenant of Insightly and allowing their entire user base to access it. When you sign up for two different free trials, you are essentially creating two different tenants of Insightly - or what would be used by two different organizations that aren't affiliated. \r\n\r\n* Single-tenant vulnerabilities rely on a malicious user attacking their own organization, which we feel has a much lower liklihood. \r\n\r\n* Multi-tenant vulnerabilities allow a malicious user to attack another organization, which is the threat model we are most concerned about.\r\n \r\nAccordingly, we have split up our bounty tables, to reward multi-tenant vulnerabilities at a higher scale.\r\n\r\nOut of scope\r\nPermission escalations within a single tenant unless security impact can be proven. \r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Insightly staff or contractors\r\n* Any physical attempts against Insightly property or data centers\r\n\r\n# Out of scope\r\nWe generally do not accept reports that are simply the output from an automated security scanner (even lightly annotated). Feel free to use security scanners, but please don't copy-paste their output into our program without additional insight.\r\n\r\nIf a report is a duplicate, we won't award a bounty or reputation. A report is a duplicate if we have another HackerOne report for the issue or if our other security review processes have already identified the issue.\r\n\r\nA specific vulnerable behavior found in one part of Insightly's platform is not necessarily eligible for a bounty if an identical problem is uncovered in another part of the Insightly platform, though we'll assess this on a case-by-case basis. If the same vulnerability affects multiple parts of the product, please let us know in a single report—we'll take that into consideration when assessing severity (such a vulnerability might be eligible for a higher reward), and when marking reports as resolved. For example, if we fail to sanitize URLs in five parts of the platform, that should probably be one report, not five.\r\n\r\n\r\n**Attacks that are beyond Insightly's control are generally out of scope. These include:**\r\n* Man-in-the-middle (MITM) attacks outside of Insightly's control (for example, modifying traffic by controlling a wireless router)\r\n* Attacks requiring access to a user's device (such as physical access or remote access)\r\n* Attacks requiring the user's credentials\r\n* Exported CSV files that can execute commands in Excel, Numbers, Google Sheets, or other CSV programs\r\n* Exploits requiring users to modify code running on their own device (opening up browser developer tools and running commands, for example)\r\n\r\nWe also ask for an exploit or proof of concept for reports. If you can't produce an attack, even a hypothetical one, we are unlikely to award a bounty. For example, here are some areas we generally consider to be out of scope:\r\n\r\n* Mis-adherence to best practices that does not lead to an exploit\r\n* Vulnerabilities in third-party code or services that do not lead to an exploit\r\n* Generic information disclosure, such as the Server or X-Powered-By headers\r\n* Missing HTTP security headers, such as:\r\n * Content-Security-Policy\r\n * Feature-Policy\r\n * HTTP Strict Transport Security\r\n * HTTP Public Key Pinning\r\n * X-Content-Type-Options\r\n * X-XSS-Protection\r\n * Referrer Policy\r\n * P3P\r\n * Certificate Transparency (Expect-CT)\r\n * X-Download-Options\r\n * X-DNS-Prefetch-Control\r\n\r\nWe also consider the following areas to be out of scope, though there may be some exceptions:\r\n\r\n* Social engineering (phishing) of Insightly staff or users\r\n* Username or email enumeration\r\n* Denials of service scoped to a single user or workspace\r\n* Invitation abuses (to accumulate credits or send spam)\r\n* API key disclosure for third-party services\r\n* Changing the Host header to cause redirects\r\n* Missing subresource integrity\r\n* Email security: DMARC, DKIM, SPF\r\n* DNSSEC\r\n* Session cookie duration\r\n* Issues related to password policies\r\n* Disclosure of non-sensitive internal IDs (such as user IDs)\r\n* Two-factor authentication (2FA) bypass with third-party sign-ins like Google\r\n* Submissions on api.insightly.com/v3.0 and older.\r\n\r\nIf you're not sure whether an issue is in scope, we'd appreciate it if you file a report anyway!\r\n\r\n# Third party issues\r\nInsightly uses several third party services. If they have vulnerabilities, we'd like to know. We can't guarantee bounty for those but we encourage you to report issues to both us and to them.\r\n\r\nIf the vulnerability might reasonably affect our users, we'll likely grant a bounty. The bounty amount will be determined on a case-by-case basis due to possible difficulties assessing the true severity of the issue. As such, vulnerabilities in third-party services are not eligible for the default bounty amounts listed in the \"Areas in scope\" section above, and the bounty amount will be determined on a case-by-case basis.\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Insightly and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "563017797",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is the Insightly mobile app.  Download it from the AppStore and login with your @wearehackerone.com email alias.  ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.insight.ly",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "insight.ly",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "my.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "newsletter.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Third-party service/hosting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "crm.na1.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.insightly.droid",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is the Insightly mobile app.  Download it from play.google.com and login with your @wearehackerone.com email alias.  ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "outlook.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gmailaddon.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.insight.ly",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mobileapi.na1.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "podapi.na1.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://api.insightly.com/v3.1/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "api.insightly.com/v3.1/ operates as a proxy, interacting with api.na1.insightly.com/v3.1/\n\nSubmissions on api.insightly.com/v3.0 and older will not be accepted.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "chloe.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "frontdoorproxy.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "login.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mobileapi.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "webhook.insightly.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://api.na1.insightly.com/v3.1/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

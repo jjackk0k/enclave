@@ -1,0 +1,165 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "exness",
+      "name": "EXNESS",
+      "offersBounties": true,
+      "assets": [
+        "Any subdomain application issue",
+        "Any subdomain infrastructure issue",
+        "Exness Investor",
+        "Exness Trade: Online Trading",
+        "External service data leakage ",
+        "api.excalls.mobi",
+        "com.exness.android.pa",
+        "exness.com",
+        "exnessaffiliates.com",
+        "https://my.exness.com/pa/pim/manager",
+        "https://my.exness.com/webtrading/",
+        "my.exness.com",
+        "pay.ibex.exchange",
+        "pwapi.ex2b.com"
+      ],
+      "exclusions": [
+        "stat.* (e.g. stat.exnessaffiliates.com)"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\exness-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "exness",
+  "name": "EXNESS",
+  "url": "https://hackerone.com/exness",
+  "policy": "# HOW TO SUBMIT BUG REPORT?\nA bug report must have the following (**including mobile reports**):\n- **Impact** - it should describe the REAL impact of vulnerability that may affect our users and company funds or reputation\n- **Highly detailed description** of the discovered vulnerability\n- **Steps to reproduce**\n- **A working proof-of-concept**:\n  * Exploit code\n  * Video\n  * Screenshots\n  * Web/API requests and responses / traffic logs\n  * Email address or user ID involved in PoC\n  * IP address used during testing\n  * CVSS if applicable\n\n*Note: We can close submission as Informative or N/A in cases where we cannot confirm the existence of reported issues (including financial reports).*\n\n## In case of RCE, SQLi, LFI\n### Allowed Actions:\n - Directly injecting benign commands via the web application or interface (e.g. whoami, hostname, ifconfig)\n - Uploading a file that outputs the result of a hard-coded benign command\n\nPlease provide the following information:\n - Source IP address\n - Timestamp, including time zone\n - Full server request and responses\n - Filenames of any uploaded files, which must include “bugbounty” and the timestamp\n - Callback IP and port, if applicable\n - Any data that was accessed, either deliberately or inadvertently\n\n## Avoid any harmful actions and post-exploitation:\n - Uploading files that allow arbitrary commands (i.e. a webshell)\n - Modifying any files or data, including permissions\n - Deleting any files or data\n - Interrupting normal operations (e.g. triggering a reboot)\n - Creating and maintaining a persistent connection to the server\n - Intentionally viewing any files or data beyond what is needed to prove the vulnerability\n - Failing to disclose any actions taken or applicable required information\n\n## CVSS Score\nWhen reporting a vulnerability, you can either choose a severity level based on your own judgment of the vulnerability, or you can use the CVSS calculator to give more information about the vulnerability and calculate an exact CVSS score. However, the final severity level will depend on business impact which is defined by Exness.\n\n\n\n# OUT OF SCOPE VULNERABILITIES:\nWe do not accept/review reports with/from\\*:\n - Reports from automatic security scanners without real impact\n - Attacks requiring physical access to a user's device\n - Any physical attacks against Exness property or data centers\n - Password and account recovery policies, such as reset link expiration or password complexity\n - Invalid or missing SPF / DKIM records\n - Content spoofing / text injection\n - Issues related to software or protocols not under Exness control\n - Reports based on product/protocol version without demonstration of real vulnerability presence\n - Reports of missed protection mechanism / best current practice (e.g. no CSRF token, framing/clickjacking protection) without demonstration or explanation of real security impact for user or system\n - Login/Logout CSRF\n - Using components with known vulnerabilities without an exploit or impact\n - Vulnerabilities of partner products or services if EXNESS users / accounts are not affected directly\n - Open redirects (except cases with additional impact, e.g. token hijacking)\n - Client DOS (regexp/cookie/..)\n - Same site scripting and similar attacks with questionable impact\n - Any kind of self attacks (self-xss, self-takeover..)\n - Clickjacking\n - Reverse Tabnabbing without XSS\n - Any theoretical vulnerabilities and design principles without real provided impact\n - API key leaks with no security impact (e.g. Google Maps API key disclosure such as AIza*)\n - Customer’s username bruteforce\n - Email verification skip, using legit functionality\n - Host header injection with no security consequences\n - Wordpress vulnerabilities without PoC\n - External service interaction / DNS Lookup to the domain in the Host header - it's standard behavior of Imperva WAF (former Incapsula)\n- ###Email enumeration in registration endpoints (only there)\n- ### Client passwords are not accepted for leaks; only employee passwords are allowed.\n\n\n## Out of scope mobile vulnerabilities:\n- Deeplink hijacking\n- Vulnerabilities requiring a rooted, jailbroken, or otherwise modified device\n- Exposure of non-sensitive data on the device\n- Vulnerabilities on third party libraries without showing specific impact to the target application (e.g. a CVE with no exploit)\n-  Mobile applications’ authentication credentials storage scheme\n - Mobile applications’ local authentication flow implementation\n\n*\\* other vulnerabilities may be added in this section later*\n\n## Public 0-day/1-day vulnerabilities\nPublic 0-day/1-day vulnerabilities may be considered as Informative within a few days after vulnerability details or exploit publication, if the vulnerability is known to our team from public sources and we are working to mitigate or patch it.\n\n## PLEASE DO NOT EVER USE THESE TECHNIQUES WHEN CONDUCTING YOUR TESTS:\n - Physical tampering with EXNESS data centers or offices\n - Social engineering directed at the company's employees\n - Breaking into the company's infrastructure and using the information obtained to report vulnerabilities\n - DoS on EXNESS infrastructure\n - Brute Forcing or social engineering directed to our clients\n\n\n\n## VULNERABILITY DISCLOSURE\nVulnerability must be disclosed only in accordance with HackerOne disclosure policy.\nRequest for vulnerability disclosure must be filed via HackerOne report interface.\nNo vulnerability disclosure, including partial, is allowed before vulnerability is disclosed on HackerOne.\nIf any sensitive information including (but not limited to) infrastructure and implementation details, internal documentation procedures and interfaces, source code, user and employees data accidentally obtained during vulnerability research or demonstration must not be disclosed. Intentional access to this information is strongly prohibited.\n\n## PROGRAM SCOPE\nThe program's scope is strictly limited to technical and logical vulnerabilities and issues in the company's services. We are currently offering a reward for finding vulnerabilities in services according to an asset table.\n\nBugs that are common to all of these domains are always accepted as one bug.\nIf multiple attack scenarios are caused by a single vulnerability, we will review report, but can decline it due to duplication.\nWhat if I found vulnerability in EXNESS services that  is not within the scope?\nIf you find a vulnerability that does not concern one of the projects listed below, we will be glad to accept and investigate it, but only if it is related to EXNESS. In this case, a reward is granted on a case by case basis for most critical vulnerabilities only.\nExness employees, the employees in any of Exness companies group can’t participate in the Exness Bug Bounty Program.\n\n### RESPONSE TARGETS\nTime to first response (from report submit) - 2 business day\nTime to triage (from report submit) - 5 business days\nTime to bounty (from triage) - 1 to 15 business days\n\n### HOW ARE BUG REPORTS EXAMINED?\nReports about vulnerabilities are examined by our security analysts.  Our analysis is always based on worst case exploitation of the vulnerability, as is the reward we pay.\nIf you prefer to remain anonymous, we recommend using an alias when submitting bug reports.\nPlease remain patient after you submit the report and do not ask for bounties before we investigate the report and resolve bug described in it.\n\n### BE ETHICAL WHEN HACKING\nPlease use your own accounts to conduct your research. Do not try to gain access to others' accounts or any confidential information.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Any subdomain infrastructure issue",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any subdomain application issue",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Exness subdomains of exness.(tld)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "External service data leakage ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Feel free to search secrets on github/pastebin and other services, but keep in mind, that such issues could be posted earlier and are ineligible for a bounty for now",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.exness.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Personal Area for Web Trading",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pay.ibex.exchange",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Payments Services",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://my.exness.com/webtrading/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Web Terminal For Trading",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "exnessaffiliates.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Partnership programs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://my.exness.com/pa/pim/manager",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Portfolio Management",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "pwapi.ex2b.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Public Web API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "exness.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Public Area for Web Trading",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "api.excalls.mobi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mobile API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Exness Trade: Online Trading",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/id/app/exness-trader-trade-on-the-go/id1359763701",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Exness Investor",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/id/app/exness-investor/id1579331769",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.exness.android.pa",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Exness Trade: Online Trading\nhttps://play.google.com/store/apps/details?id=com.exness.android.pa",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stat.* (e.g. stat.exnessaffiliates.com)",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Deprecated",
+      "max_severity": "none"
+    }
+  ]
+}

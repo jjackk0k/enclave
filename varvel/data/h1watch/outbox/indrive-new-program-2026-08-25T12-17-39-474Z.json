@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "indrive",
+      "name": "inDrive",
+      "offersBounties": true,
+      "assets": [
+        "*.indrive.com",
+        "*.indriver.com",
+        "*.indriverapp.com",
+        "ab-platform-api.eu-east-1.indriverapp.com",
+        "alternativa.film",
+        "auroratechaward.com",
+        "cargo.indrive.com",
+        "debug.clairvoyance.indrive.tech",
+        "external.indrive.dev",
+        "file-storage-front.eu-east-1.indriverapp.com",
+        "https://*.indriver.io",
+        "https://cas-cf.euce1.indriverapp.com/api/passkey",
+        "ingest.clairvoyance.indrive.tech",
+        "intercity-*.eu-east-1.indriverapp.com",
+        "messenger.eu-east-1.indriverapp.com",
+        "new-order.eu-east-1.indriverapp.com",
+        "priority.eu-east-1.indriverapp.com",
+        "profile-api.eu-east-1.indriverapp.com",
+        "truck-api.eu-east-1.indriverapp.com",
+        "volans.tech",
+        "watchdocs.indriverapp.com",
+        "wga.volans.tech"
+      ],
+      "exclusions": [
+        "servicos.indrive.com",
+        "sinet.startup.inDriver",
+        "super-services.indriverapp.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "5 request per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\indrive-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "indrive",
+  "name": "inDrive",
+  "url": "https://hackerone.com/indrive",
+  "policy": "Security is a top priority at inDrive. If you believe you've found a security bug in our in-scope applications or infrastructure, we are happy to work with you to resolve the issue promptly and ensure you are fairly rewarded for your discovery.\n\nAlso, subscribe to our news channel on [Telegram](https://t.me/indrive_bbp).\n\nAt these links [[1]](https://t.me/indrive_bbp/68),[[2]](https://t.me/indrive_bbp/86) you will find a CSV files containing the endpoints to be scanned. \n\nThe scope of this inDrive’s Vulnerability Disclosure Program Policy is limited to searching for technical vulnerabilities in the company's services and official mobile applications.\n\n#Update to the Scope Policy (from 09/09/2025)\n\ninDrive is not only about ride-hailing - we also contribute to education, sports, environmental initiatives, and other social projects.\nTo make our bug bounty program clearer, we divide the scope into Core and Non-core services:\n- **Core services** are directly connected to our main app infrastructure (backend, frontend resources). E.g., `no-gw-cf.<region>.aws.indriverapp.com, couriers.indrive.com`. They can be identified by using the filter `Technology: Core` in the [Scope page](https://hackerone.com/indrive/policy_scopes). Rewards for vulnerabilities are listed in the **“Price (for Core services)”** column in the Reward payment section.\n- **Non-core services** are additional projects of inDrive, such as web resources related to social, non-profit, experimental initiatives and partner integrations. They can be identified by using the asset filter `Technology: Non-core` in the [Scope page](https://hackerone.com/indrive/policy_scopes). Rewards for vulnerabilities are listed in the **“Price (for Non-core services)”** column in the Reward payment section.\n\nIf you are unsure, or cannot find the relevant asset in our scope, please submit your report anyway. Our team will review it during triage and clarify whether the service belongs to Core or Non-core.\n\n#We will not pay a reward (and we will be really upset) if we detect:\n\n* Social engineering directed at the company's employees\n* Attempt to access arbitrary user's account or data or another vulnerability post- exploitation not required to demonstrate the bug presence\n* Distributed network/request flooding and other resource exhaustion attacks. Automated scanning tools must be limited to 5 request per second (300 requests per minute) to one target host summing up all tools and threads running in parallel and must not exceed 5 parallel requests at the same time (5 threads).\n\nPlease use your own accounts, phone numbers, etc to conduct your research. Do not try to gain access to others' accounts or any confidential information. When testing the feedback functionality, sending a message to technical support, etc., be sure to specify the subject `Test` and use [hacker email alias](https://docs.hackerone.com/hackers/hacker-email-alias.html)\n\n#We do not initiate security investigations regarding:\n\n* Messages from security scanners and other automated systems without clear PoC and impact;\n* Vulnerability reports based on software/protocol versions not indicating the actual usage/exploitation;\n* Reports about the absence of a protection mechanism or non-compliance with recommendations (for example, the absence of a CSRF token) without indicating real negative consequences;\n* Self-XSS;\n* Framing;\n* Social engineering;\n* Clickjacking;\n* SPF/DKIM/DMARC issues;\n* Man-in-the-Middle attacks\n* Vulnerabilities in partner services and products that do not directly affect the security of the company's services.\n* Infrastructure vulnerabilities, including:\n      * Server configuration issues (e.g. open ports, TLS versions, etc.)\n      * Issues related to SSL certificates\n      * DNS configuration issues\n* Google API key(for google maps)\n\n#Strictly prohibited actions:\n\n* DoS / DDoS attacks;\n* Threats/harm to company employees.\n\n#How do I submit a bug report?\n\nA bug report must give a detailed description of the discovered vulnerability and brief steps to reproduce it, or a working proof-of-concept. Video and screenshots can illustrate bug report, but can not replace it.\n\nIf you do not describe the vulnerability in sufficient detail, the discovery process is significantly prolonged and that doesn't help anybody. It's also very desirable if researcher can explain how exactly he or she found a given vulnerability.\n\n#How are bug reports examined?\n\nReports about vulnerabilities are examined by our security analysts. Our analysis is always based on worst case exploitation of the vulnerability, as is the reward we pay.\n\nReports are reviewed within 15 days (this is a maximum period - we'll probably respond sooner). If you prefer to remain anonymous, we recommend using an alias when submitting bug reports.\n\n#Participating reports\n\nOnly reports reported via bug bounty platform interface may be considered for a bounty. A date/time of report on bug bounty platform is considered as a date/time of the report.\n\n#Duplicate reports\n\nDifferent exploitation vectors for the same bug or similar bugs may be considered duplicating if the security team believes information provided for a single vector/bug is enough to fix all vectors or bugs reported.\n\nReport for known or duplicating vulnerability is considered as Duplicate. Duplicate reports are not eligible for monetary reward. Report can be either a duplicate of another report from any bug bounty platform or a duplicate of the problem internally tracked by inDrive security team. Usually, access to the original report or some information from the internal task tracker is provided to the reporter of Duplicate. In some cases information may not be provided, if a Duplicate contains less information or less critical exploitation vector than the original report.\n\nThe report is considered as a duplicated to another report from any bug bounty platform, if there is original report is in \"New\" or \"Triaged\" state with an earlier report date/time or lower report number of if it updates the report in \"N/A\" or \"Need more info\" state and original report is in \"N/A\" or \"Need more info\" state for less than 1 week or sufficient information is provided in original report by researcher since the report is transferred to \"N/A\" or \"Need more info\" state.\n\nThe report is considered as a duplicate to an internal task if there is a task in the internal task tracker which is tracked by the inDrive security team at the time of the duplicate report.\nAlso, public 0-day/1-day vulnerabilities may be considered as a duplicate within a few days after vulnerability details publication, if the vulnerability is known to our team from public sources and we are working to mitigate or patch it.\n\n#Invalid reports\n\nReport in \"N/A\" or \"Need more info\" state which is stale in this state for more than a week without sufficient new information provided is considered as invalid and does not participate in bug bounty.\n\n#Reward payment\n\nWe will pay you a reward if you are the first person to report a given vulnerability.\n\nThe bounty decision will be made within 30 days after triage (this is a maximum period - we'll probably award sooner). A message will appear in your bug report, indicating that the vulnerability you reported has been confirmed and a reward has been granted.\n\nPayments are made through [HackerOne](https://docs.hackerone.com/hackers/payments.html).\n\n| Vulnerability      | Price (for Core services) | Price (for Non-core services) | Severity|\n| ----------- | ----------- |----------- |----------- |\n| Remote code execution (RCE) in not isolated environment| 15000 | 8000 |Critical|\n| Remote code execution (RCE) in an isolated environment| 8000 | 4000 |High|\n| Injections (SQLi or equivalent)| 4000-8000 | 2000-4000 |High-Critical|\n|Local files access and manipulation (LFR, RFI, XXE) without jail/chroot/file type restrictions| 4000 | 2000| High-Critical|\n|SSRF, non-blind (with ability to read reply text), except dedicated proxies|4000|1000-2000|High|\n|SSRF, blind, except dedicated proxies|1500|750|High|\n|Serverside vulnerability with information disclosure (e.g. memory Leaks / IDORs) of application critical or highly confidential data (e.g. sessions, accounts, passwords, 1000 credit cards)|5000|2500|High|\n|Serverside vulnerability with information disclosure (e.g. memory Leaks / IDORs) of sensitive client/infrastructure data(Automated bulk collection of available information requiring no complex operation/user interaction)|2000|1000|High|\n|Serverside vulnerability with information disclosure (e.g. memory Leaks / IDORs) of sensitive client/infrastructure data (non-covered by other categories)|1000|500|High|\n|Serverside vulnerability with information disclosure (e.g. memory Leaks / IDORs) of low-sensitivity client/infrastructure data (non-covered by other categories)|500|250|Medium|\n|Admin / support interface authentication bypass|3000|1000-1500|High|\n|Admin / support interface blind XSS|2000|500-1000|Medium-High|\n|Account takeover of customer accounts (without user interaction)|2000|500-800|Medium-High|\n|Account takeover of customer accounts (with user interaction)|1000|400|Medium-High|\n|Authorization/Authentication bypass (e.g., issues with JWT/passkey/OTP/OAuth)|1000|500|High|\n|Cross-Site Scripting (XSS)*|300-400|150-200|Medium|\n|Subdomain takeover**|100|50|Low|\n\n\\*self-XSS, XSS specific to non-common browsers (e.g. IE), blocked by CSP and another vectors without proven script execution are usually accepted without bounty. Unused subdomain takeover is considered under same severity / conditions as parent domain XSS.\n\n\\**We temporarily do not accept reports on Social Media links(instagram, twitter, facebook)  ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "new-order.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sinet.startup.inDriver",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "watchdocs.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "super-services.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "intercity-*.eu-east-1.indriverapp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "priority.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "profile-api.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "messenger.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ab-platform-api.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "truck-api.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "file-storage-front.eu-east-1.indriverapp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.indriverapp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.indriver.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.indrive.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "servicos.indrive.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cargo.indrive.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.indriver.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "volans.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wga.volans.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "external.indrive.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "debug.clairvoyance.indrive.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ingest.clairvoyance.indrive.tech",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alternativa.film",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "auroratechaward.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://cas-cf.euce1.indriverapp.com/api/passkey",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+ "date": "2026-08-31",
+ "mission": "semrush deep pass — fresh angles only (JS-bundle secrets/sourcemaps, missing-auth staging/internal APIs, authenticated IDOR/BOLA). Prior: DUPLICATE #2666357 (CORS reflection on Google IAP gate) — edge/header-hygiene classes hard-blocked by novelty gate.",
+ "ghostExitVerified": "45.66.219.208",
+ "session": "sess-1021 (marcus, workspace semrush, 270-CIDR signed scope from 2026-08-26 passive enum)",
+ "policyConstraints": {
+  "snapshot": "data/bountyline/h1sync/semrush.json (fetched 2026-08-29, diff: no policy/scope change)",
+  "header": "X-HackerOne: varvel on ALL target traffic (jsminer patched to carry extraHeaders — it previously sent none; test/jsminer.test.mjs 9/9 + test/campaign-tools.test.mjs 11/11 green after patch)",
+  "accounts": "program asks for @wearehackerone.com signup 'whenever possible' (fraud-team friendliness, NOT a hard gate like hubspot); automated scans risk account/IP block — human cadence used throughout",
+  "notAccepted": "scanner output without manual PoC; CSRF w/o impact; SSL/TLS best-practice w/o PoC; missing security headers / cookie flags / descriptive errors (no clear impact); brute force; self-XSS; third-party software (except misconfig)",
+  "waf": "error 445 = WAF block",
+  "outOfScope": ["advocates.semrush.com", "email.semrush.com"]
+ },
+ "laneA_jsminer": {
+  "hostsSwept": 25,
+  "reachable": 22,
+  "unreachable": ["app.semrush.com (connection failure via ghost)", "app.staging-a.prowly.com", "api.staging-b.prowly.com"],
+  "pass2_suffixScopes": ["www.semrush.com +semrush.com suffix (pulled static.semrush.com/ajst/ajst.js)", "www.semrush.com/login/", "account.berush.com +berush.com", "portal.myinsights.io +myinsights.io"],
+  "scriptsMined": {"www.semrush.com": 23, "www.semrush.com/login/": 22, "ai-visibility-index.semrush.com": 16, "portal.myinsights.io": 1},
+  "sourcemaps": "ZERO advertised (no sourceMappingURL in any mined bundle) — nothing to reconstruct; no .map finding claimed",
+  "secrets": "1 candidate, generic-high-entropy 32-hex (same value on www + login pages, entropy 3.64 — page-embedded token shape, NOT an AWS/Google credential); no verifier exists for the type → stays candidate, NOT a finding",
+  "secretsVerified": 0,
+  "endpointsHarvested": {"www.semrush.com": 109, "www.semrush.com/login/": 35, "ai-visibility-index.semrush.com": 28, "portal.myinsights.io": 9},
+  "oracleProbes": [
+   "portal.myinsights.io/graphql POST introspection → 400 INTROSPECTION_DISABLED (Apollo production hardening — expected, CLEAN)",
+   "portal.myinsights.io /api/v1/report + /api/v1/portal → 404 identical to garbage-path /api/v1/varvel-nonexistent-9f2k → no missing-auth signal (CLEAN)",
+   "www.semrush.com /back-wt/v1/billing_subscription → 401 vs garbage-path 404 → properly gated (CLEAN)",
+   "www.semrush.com /search-bar/api/search/suggestions?query= → 400 (param validation, no data); /smrwv/v1/webvitals → 405 (CLEAN)"
+  ],
+  "verdict": "CLEAN — no verified secret, no reconstructable sourcemap, no missing-auth endpoint"
+ },
+ "laneB_provisioning": {
+  "attempted": true,
+  "accountsCreated": 0,
+  "sessionsRegistered": 0,
+  "blocker": "reCAPTCHA image challenge ('Select all images with bridges') after 'Create account' on BOTH attempts (inboxes varvel-semrush-a-c3zu@emalupe.com / varvel-semrush-b-io3d@emalupe.com). Evidence: .tmp/sem-signup-a-3-after-submit.png (visual confirmation), semrush-acct-a.json corrected to ok:false (first-run script counted anonymous PHPSESSID/SSO-JWT as a session — downgraded), semrush-acct-b.json CAPTCHA-WALL step. Disposable domain + datacenter exit almost certainly drove the fraud score; the program explicitly asks for @wearehackerone.com signups 'whenever possible' for exactly this reason.",
+  "idorOracle": "NEVER RAN — zero accounts, no account pair exists; not 'degraded', absent. authzSweep: null in the campaign record corroborates.",
+  "unblock": "Jack: sign up with his @wearehackerone.com alias (fraud-whitelisted path per policy) and hand over a session, OR solve the captcha interactively once — then .tmp/semrush-signup.mjs + tools/sessionbroker.mjs complete the pair and the 4-role IDOR oracle runs against /api/v1/* (myinsights), /graphql (mcp/myinsights), and the 538-endpoint www.semrush.com surface."
+ },
+ "laneC_campaign": {
+  "port": 8992,
+  "session": "sess-1021",
+  "targets": ["www.semrush.com", "mcp.semrush.com", "portal.myinsights.io", "ai-search.semrush.com"],
+  "status": "done (phase 5), COVERAGE-INCOMPLETE (509 endpoints queued / 10 tested — stated, not hidden)",
+  "gates": "exploit countersigned after 60s+ park; postex countersigned after 60s+ park (POST /api/approve, owner-delegated)",
+  "targetScore": {"www.semrush.com": 100, "portal.myinsights.io": 77, "mcp.semrush.com": 74, "ai-search.semrush.com": 57},
+  "hunting": {
+   "jsminer": "4 bases, 0 endpoints, 0 secrets (campaign-lane pass; the standalone deep sweep above was the real Lane A)",
+   "domxss": "6 pages / 7 reflected params canaried, 0 proven (execution-only oracle)",
+   "aisurface": "1 surface (MCP-shaped /mcp/ on mcp.semrush.com), 1 cross-session probe, 0 proven — inventory note only",
+   "oob": "DISARMED — trycloudflare edge :7844 unreachable on BOTH direct egress and ghost (verified 2026-08-31; QUIC + HTTP/2 prechecks hard-fail, cloudflared restart attempted twice). Loopback 'auto' seam refused: canaries an external target could never call back would be noise without possible signal. OOB lane = honest skip, zero callbacks claimable."
+  },
+  "surfacedButBlocked": "29 engine notes, ALL in hard-blocked classes: TLS wildcard ×4, cookie flags ×8, missing CSP/Referrer-Policy/X-Content-Type-Options ×8, nginx/Tengine version disclosure ×5, soft-404-baselined misc ×4 — 0 oracle-validated; policy lists every one as no-impact/unlikely-bounty; novelty gate blocks the class outright. NONE drafted.",
+  "governance": "2 holds (Write enclave-denied) — platform blocked in-flight; nothing landed on target",
+  "opsec": "noise 376/300 (EXHAUSTED, 6 HITL-authorized over-ceiling), peak loudness 5/5 within ceiling",
+  "autonomyIntegrity": "engine flagged 2 hallucinated agent claims and downgraded them (honesty rate 50% model-side; platform-side record remains accurate)"
+ },
+ "findings": [],
+ "noveltyGate": "not run — zero drafts exist; there was nothing real to check",
+ "replaybind": "not run — zero evidence bundles exist",
+ "bountyline": {
+  "intake": "data/bountyline/semrush-program.json + semrush-scope-signed.json (pre-existing)",
+  "h1sync": "data/bountyline/h1sync/semrush.json — no policy/scope drift at fetch time",
+  "recordStep": "this export is the 2026-08-31 deep-pass record; no draft submitted (DRAFT-only rule moot — nothing met the bar)"
+ },
+ "artifacts": [
+  ".tmp/semrush-jsminer-2026-08-31.json (Lane A pass 1 rollup)",
+  ".tmp/semrush-jsminer-2026-08-31-pass2.json (Lane A suffix-scope pass)",
+  ".tmp/semrush-jsminer-2026-08-31.mjs / -pass2.mjs (scripts)",
+  ".tmp/semrush-signup.mjs + semrush-acct-a.json + semrush-acct-b.json + sem-signup-*.png (Lane B evidence)",
+  ".tmp/semrush-campaign-8992-final.json (full campaign state)",
+  ".tmp/semrush-campaign-8992-report.md (engine report)",
+  ".tmp/serve-semrush.mjs + .tmp/relaunch-semrush-v1.py + .tmp/watch-semrush.py + .tmp/mksession-semrush.mjs",
+  "poc/enforcement-seam/session/marcus-semrush.json (signed sess-1021)"
+ ],
+ "honesty": "Honest CLEAN. No verified secrets, no reconstructable sourcemaps, no missing-auth differential, no authenticated oracle (accounts blocked by reCAPTCHA), no OOB (tunnel network-dead, disarmed rather than faked). 29 hygiene notes surfaced by the engine were NOT promoted — blocked classes. The one secret candidate is a page-embedded hex token with no live-use verifier; it is named as a candidate, not a finding."
+}

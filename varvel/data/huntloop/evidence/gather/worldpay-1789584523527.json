@@ -1,0 +1,61 @@
+{
+ "at": "2026-09-16T18:48:35.934Z",
+ "opportunity": "worldpay",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.accessmyiq.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.virtualterminal.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "content-security-policy": "default-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://transcend-cdn.com https://t",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "docs.worldpay.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=15768000 ; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

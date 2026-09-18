@@ -100,11 +100,6 @@ class Repl:
         self._shutdown()
 
     def _chat_turn(self, text: str) -> None:
-        # Heal first: if the Spark went dark between turns (WiFi flap, laptop
-        # sleep, tunnel death), bring the lane back before spending a turn on it.
-        # Fast no-op when already up; never raises - a failed heal just means the
-        # request below reports the tunnel-down error honestly instead of hanging.
-        self.tunnel.heal()
         stats = self.agent.run_turn(text)
         self.last_tok_s = stats.tok_per_s
         if stats.prompt_tokens:
@@ -146,8 +141,6 @@ class Repl:
             self._cmd_effort(arg)
         elif cmd in ("/fast", "/reasoning"):
             self._cmd_effort(cmd[1:])
-        elif cmd == "/standard":
-            self._cmd_effort("standard")
         elif cmd == "/thinking":
             self._cmd_thinking(arg)
         elif cmd == "/think":
@@ -348,17 +341,16 @@ class Repl:
         self.ui.info(f"  model is now {friendly_model_name(self.client.model)}")
 
     def _cmd_effort(self, arg: str) -> None:
-        tiers = "/".join(config.EFFORT_MODES)
         if not arg:
             cfg = self.agent.mode_cfg
             self.ui.info(f"  mode is {self.agent.mode_label} "
                          f"(thinking {'on' if cfg['thinking'] else 'off'}, "
                          f"max_tokens={cfg['max_tokens']:,}); "
-                         f"usage: /effort {tiers}")
+                         "usage: /effort fast|reasoning")
             return
         arg = arg.lower()
         if arg not in config.EFFORT_MODES:
-            self.ui.warn(f"  unknown mode '{arg}' - use {tiers}")
+            self.ui.warn(f"  unknown mode '{arg}' - use fast or reasoning")
             return
         self.agent.set_mode(arg)
         cfg = self.agent.mode_cfg

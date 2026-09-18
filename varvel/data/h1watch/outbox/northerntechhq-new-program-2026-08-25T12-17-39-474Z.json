@@ -1,0 +1,85 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "northerntechhq",
+      "name": "Northern.tech",
+      "offersBounties": true,
+      "assets": [
+        "\t https://github.com/cfengine/core",
+        "CFEngine Enterprise",
+        "https://github.com/mendersoftware/mender",
+        "https://github.com/mendersoftware/mender-server",
+        "staging.hosted.mender.io"
+      ],
+      "exclusions": [
+        "hosted.mender.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\northerntechhq-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "northerntechhq",
+  "name": "Northern.tech",
+  "url": "https://hackerone.com/northerntechhq",
+  "policy": "Northern.tech makes software products to secure the world's connected devices. We are interested in real and exploitable vulnerabilities which could damage us and our customers.\n\nFor examples of previously discovered, accepted and fixed security vulnerabilities, see our websites:\n\n[mender.io/blog/tag/cve](https://mender.io/blog/tag/cve)\n[cfengine.com/tags/cve/](https://cfengine.com/tags/cve/)\n\n# Area of focus\n\nWe are interested in security bugs with real world impact, such as:\n\n* Bypassing authentication / login screen and taking over someone's account.\n* Bypassing access control to gain access to resources you should not have access to.\n* Privilege escalation.\n* Taking over control of the Mender Server or CFEngine Hub from a device / host.\n* Bypassing the signature check for verifying signed artifacts in Mender.\n\n# Disclosure policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Ask the program team **before submitting vulnerabilities on unscoped subdomains**\n* Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Report submission\n\nSubmitting good reports helps us efficiently read and understand your reports.\n\n* Please try to keep reports short and to the point. Utilizing AI can generate very long reports for no benefit, for an issue that could be explained in a couple of sentences.\n* We welcome submissions from hackers who do not have English as their native language. We recommend submitting a report which you wrote, instead of using AI to try to make it \"better\". Spelling and grammar mistakes are okay! Submitting a report in your native language is also okay.\n* Screenshots and video recordings are great to illustrate a point.\n    * When working with staging.hosted.mender.io please make sure you show these relevant settings pages in your screen recording:\n    * https://staging.hosted.mender.io/ui/settings/my-profile\n    * https://staging.hosted.mender.io/ui/settings/organization\n    * https://staging.hosted.mender.io/ui/settings/user-management\n\n## Common reasons why reports are rejected\n\nAvoid making these mistakes:\n\n * AI source code hallucinations - Commands and source code with syntax errors, generated / hallucinated by AI and never tested by the user.\n * AI factual hallucinations - The reports contains sentences and facts that are simply wrong, showing that the user / AI does not know what they are talking about.\n * Working as intended - The report describes an API, feature, or functionality working exactly as intended. There is no security impact.\n * Out of scope - The report describes something which is explicitly mentioned under the scope exlcusions, or HackerOne's Core Ineligible Findings \n * Suggestion for improvement - The report does not describe a vulnerability, but rather a security-related suggestion. This includes suggestions to reduce token expiration time, adding additional authentication steps, and similar.\n\n# Test plan - Hosted Mender (Saas)\n* Users are able to sign up for a free account through our website; [staging.hosted.mender.io](https://staging.hosted.mender.io)\n* Please use your **hacker email alias** when testing (h1username@wearehackerone.com)\n* **Do not** test on the [production instance](https://hosted.mender.io)\n* **Do not** perform testing which generates excessive network traffic (such as password brute-forcing, DoS, DDoS)\n* Researchers should add headers to requests such as: “X-HackerOne-Research: [H1 username]”\n\n# Test plan - Open Source repositories\n\nWe have open source repositories where you can read the source code to find issues:\n\n* [Mender Server](https://github.com/mendersoftware/mender-server)\n* [Mender Client](https://github.com/mendersoftware/mender)\n* [CFEngine Community](https://github.com/cfengine/core)\n\n# Test plan - CFEngine Enterprise\n\nCFEngine Enterprise can be downloaded from our website and run locally or on a cloud VM:\n\nhttps://cfengine.com/downloads/cfengine-enterprise/\n\nInstructions for getting started are available in our documentation:\n\nhttps://docs.cfengine.com/docs/3.24/getting-started.html\n\nThank you for helping keep Northern.tech and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "staging.hosted.mender.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our staging instance (not production). Self sign-up is available.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hosted.mender.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our production instance. Please test on staging.hosted.mender.io instead.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/mendersoftware/mender",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the source code repo of our Mender Client for over-the-air (OTA) software updates.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/mendersoftware/mender-server",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the source code repo for the open source version of Mender Server. Our hosted Mender Saas service runs this backend with additional proprietary code for Enterprise and Saas-specific features.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "\t https://github.com/cfengine/core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the source code for CFEngine community. Please note that it includes an old protocol (classic), which is known to be insecure and disabled by default.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "CFEngine Enterprise",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Follow our getting started tutorial to set up CFEngine Enterprise locally / on a VM for testing; https://docs.cfengine.com/docs/3.24/getting-started.html",
+      "max_severity": "high"
+    }
+  ]
+}

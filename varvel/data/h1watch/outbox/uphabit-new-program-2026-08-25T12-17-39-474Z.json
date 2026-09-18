@@ -1,0 +1,76 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "uphabit",
+      "name": "UpHabit",
+      "offersBounties": false,
+      "assets": [
+        "1335632832",
+        "api.uphabit.com",
+        "com.uphabit.android",
+        "web.uphabit.com"
+      ],
+      "exclusions": [
+        "uphabit.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\uphabit-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "uphabit",
+  "name": "UpHabit",
+  "url": "https://hackerone.com/uphabit",
+  "policy": "No technology is perfect, and UpHabit believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Denial of service \r\n* Spamming \r\n* Social engineering (including phishing) of UpHabit staff or contractors \r\n* Any physical attempts against UpHabit property or datacenters\r\n* User access to the users own data including access tokens (including, but not limited to: device backups, export functionality)\r\n* Access to mobile device secrets such as API keys without extra proof of using the key to create an otherwise eligible vulnerability\r\n\r\nThe following classes are also considered ineligible\r\n* SPF/DMARC/DKIM records issues without verifiable proof of spoofing to a major mail client (e.g. gmail).\r\n* Email or user enumeration / account oracles\r\n* CSP Weaknesses\r\n* Open Redirects\r\n* Descriptive error messages or headers (e.g. Stack Traces, application or server errors, banner grabbing) .\r\n* Use of a known-vulnerable library without a description of an exploit specific to our implementation\r\n* Password or account recovery policies, such as reset link expiration or password complexity.\r\n* Publicly accessible login panels.\r\n* Lack of email address verification during account registration .\r\n* Rate-limiting issues.\r\n* Issues related to active sessions after password changes or logout.\r\n* \"Scanner output\" or scanner-generated reports\r\n* Publicly-released bugs in internet software within 7 days of their disclosure\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep UpHabit and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.uphabit.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "### Android Application\nReported issues must be reproducible on a phone that is not rooted or modified and that is where the Google Attestation API returns true for both `ctsProfileMatch` and `basicIntegrity`",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "1335632832",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "### iOS Application\nReported issues must be reproducible on a phone that is not jailbroken or modified",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "uphabit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "### Company website\nonly the root domain `uphabit.com` is defined for the website, subdomains are listed seperately",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.uphabit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "### Client Api\n\nThis main client api devices communicate with",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "web.uphabit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "### Web App\n",
+      "max_severity": "critical"
+    }
+  ]
+}

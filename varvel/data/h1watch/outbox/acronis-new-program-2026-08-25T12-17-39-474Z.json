@@ -1,0 +1,229 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "acronis",
+      "name": "Acronis",
+      "offersBounties": true,
+      "assets": [
+        "*-api-*.acronis.com",
+        "*.5nine.com",
+        "*.acronis.com",
+        "*.acronis.work",
+        "*.devicelock.com",
+        "1118448159",
+        "1192506963",
+        "978342143",
+        "Acronis Agent",
+        "Acronis Cloud Manager",
+        "Acronis Cyber Infrastructure",
+        "Acronis Cyber Protect",
+        "Acronis DeviceLock DLP",
+        "Acronis Snap Deploy",
+        "Acronis True Image (formerly Acronis Cyber Protect Home Office)",
+        "Other Acronis Domains",
+        "Other Acronis executables",
+        "account.acronis.com",
+        "beta-cloud.acronis.com",
+        "com.acronis.abc",
+        "com.acronis.acronistrueimage"
+      ],
+      "exclusions": [
+        "learn.acronis.com",
+        "training.acronis.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "5 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\acronis-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "acronis",
+  "name": "Acronis",
+  "url": "https://hackerone.com/acronis",
+  "policy": "Acronis looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\n\n# Rules for us\n\n* We respect the time and effort of our researchers\n* We aim to respond within 5 business days\n* We aim to process reports within 10 business days\n* We aim to determine bounty amount within 10 business days after triage\n* We will do our best to keep you informed about our progress throughout the process\n* Reports that meet the Report Quality Requirements below are prioritized. Reports that do not may take longer to review or be closed as Not Applicable\n\n# Rules for you\n\n* Be an ethical hacker and respect other users' privacy\n* Register accounts using your [[username]+x@wearehackerone.com](https://docs.hackerone.com/hackers/hacker-email-alias.html) addresses\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service\n* If you do any automated scanning against Web resources and API-s make sure to place your [@wearehackerone](https://docs.hackerone.com/hackers/hacker-email-alias.html) email into User-Agent header\n* Automated scanning tools must be limited to 5 requests per second to one target host summing up all tools and threads running in parallel\n* We kindly ask researchers to avoid testing on production systems whenever possible\n\n**Violation of these rules might result in ineligibility for a bounty or permanent ban**\n\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited\n* Only interact with accounts you own or with the explicit permission of the account holder\n* If any sensitive information is accessed as a part of exploitation, it must not be stored, transferred or otherwise processed after the initial discovery. All copies of sensitive information must be returned to Acronis and may not be retained\n* Always limit exploitation to minimal proof of concept required to demonstrate the vulnerability. Do not attempt to access Acronis or other users' accounts or data or post-exploitation of other vulnerabilities. Stop, report what you have found and request additional testing permission\n* Use the following commands to demonstrate command execution vulnerabilities\n\n|           Non-root           |                Root              |\n|:-----------------------------|:---------------------------------|\n| `id`                         | `id`                             |\n| `cat /etc/hosts`             | `cat /proc/1/maps`               |\n| `touch ~/[your H1 username]` | `touch /root/[your H1 username]` |\n\n\n# Report Quality Requirements\n\n* Manually validate each finding before submission, including findings produced with automated or AI-assisted tools. Output produced solely by your proof of concept code or testing tool is not sufficient evidence\n* Reports must contain clear steps to reproduce and sufficient evidence for initial validation without requiring the security team to execute researcher-provided scripts or tools. Provide relevant requests/responses or other evidence from the affected system\n* Keep reports concise and focused on information needed to validate the vulnerability. Avoid lengthy vulnerability background, generic security explanations, hypothetical attack scenarios, AI-generated analysis, or repeated descriptions of the same issue\n\n\nReports that do not meet these requirements may be closed as Not Applicable without further investigation.\n\n# Recommendations\n\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact\n* If you are submitting DLL files as part of your exploit, be sure to include the source code for them as well. Doing so helps us verify your proof of concept more accurately and quickly\n\n# Quickstart Guide\n\n* Acronis Cyber Protect Cloud documentation is available at [developer.acronis.com](https://developer.acronis.com/doc)\n* You can find quickstart guides and more information about Acronis products and services at [care.acronis.com](https://care.acronis.com)\n* Note that some vulnerabilities may already be fixed in the beta versions (check assets description)\n\n\n# Rewards\n\n* When duplicates occur, we only award the first report that we receive\n* If a vulnerability is fixed in the beta version we will consider it as duplicate\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty\n\n\n# Public Disclosure\n\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n* No vulnerability disclosure is allowed without express consent from Acronis. This rule applies to any vulnerability details as well as information obtained during exploitation even for resolved issues\n* We may request up to 180 days of additional time after disclosure request or report resolution to remediate the issue. This time is usually required to distribute the fixed version among our customers\n* Besides disclosing reports on HackerOne, we also publish details about discovered vulnerabilities and corresponding security updates in [Acronis Advisory Database](https://security-advisory.acronis.com)\n\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorised conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n# Contact Us\n\nIf you have a technical issue or a question related to Acronis bug bounty program, feel free to reach out to us at security-bounty-accounts@acronis.com.\n\nThank you for helping keep Acronis and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "beta-cloud.acronis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cyber Cloud beta environment. To request an account, please follow HackerOne [Credentials](https://docs.hackerone.com/en/articles/8466488-credentials) guide and select `beta-cloud.acronis.com` asset.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*-api-*.acronis.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Acronis Domains",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Acronis Agent",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Agent is a client-side application for Acronis Cyber Protect that incorporates backup and cyber protection mechanisms. You may download versions for all supported platforms from [here](https://mc-beta-cloud.acronis.com/download/u/baas/4.0/).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1118448159",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cyber Protect for [iOS](https://apps.apple.com/app/acronis-cyber-backup/id1118448159).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "978342143",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Mobile for [iOS](https://apps.apple.com/app/acronis-true-image-mobile/id978342143).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.acronis.acronistrueimage",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Mobile for [Android](https://play.google.com/store/apps/details?id=com.acronis.cyberb2c).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.acronis.abc",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cyber Protect for [Android](https://play.google.com/store/apps/details?id=com.acronis.cyberb2b).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis Cyber Protect",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cyber Protect is an on-premises cyber protection solution designed for business environments. You may request a trial by completing [registration](https://www.acronis.com/en-us/business/cyber-protect/trial/#/registration).\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.acronis.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "account.acronis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Customer Portal.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1192506963",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Files Cloud for [iOS](https://apps.apple.com/us/app/files-cloud/id1192506963).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis Cyber Infrastructure",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cyber Infrastructure unites software-defined compute, network and storage in a single, scalable product, designed for building private or public clouds. You can read more about it at [kb.acronis.com](https://kb.acronis.com/acronis-cyber-infrastructure).\n\nPlease note that this asset is only a",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.5nine.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.devicelock.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis DeviceLock DLP",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis DeviceLock DLP provides comprehensive endpoint data loss prevention. You may request a trial by completing [registration](https://www.acronis.com/en-us/products/devicelock/trial/).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis Snap Deploy",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Snap Deploy is designed to deploy and provision all of your servers and workstations at once. You may request a trial by completing [registration](https://www.acronis.com/en-us/products/snap-deploy/trial/).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.acronis.work",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Acronis executables",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis Cloud Manager",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis Cloud Manager provides advanced monitoring, management, migration, and recovery for Microsoft Cloud environments. You may request a trial by completing [registration](https://www.acronis.com/en-eu/products/cloud-manager/trial/).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Acronis True Image (formerly Acronis Cyber Protect Home Office)",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Acronis True Image is designed for protection of home computers. [Download a trial](https://www.acronis.com/en-us/products/true-image/trial/).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "learn.acronis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "training.acronis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

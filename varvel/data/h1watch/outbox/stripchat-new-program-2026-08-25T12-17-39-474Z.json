@@ -1,0 +1,120 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "stripchat",
+      "name": "Stripchat",
+      "offersBounties": true,
+      "assets": [
+        "*.stripchat.com",
+        "go.stripchat.com"
+      ],
+      "exclusions": [
+        "ext.stripchat.com",
+        "extensions.stripchat.com",
+        "https://stripchat.com/page*",
+        "https://stripchat.com/wiki",
+        "mta*.stripchat.com",
+        "pxl.stripchat.com",
+        "support.stripchat.com",
+        "websocket-apps.sc-apps.com",
+        "wiki.stripchat.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\stripchat-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "stripchat",
+  "name": "Stripchat",
+  "url": "https://hackerone.com/stripchat",
+  "policy": "# Stripchat Bug Bounty Program Policy (“Program Policy”)\nAt Stripchat, we take the security and privacy of our platform very seriously.\nWe highly value collaboration with skilled security researchers who help us improve the protection of our users, data, and services.\n\nYou (herein referred to as the “Finder”) are invited to identify and responsibly report potential security vulnerabilities, as defined by HackerOne’s Vulnerability Disclosure Guidelines\n\nBy participating in this program, you agree to act in good faith, avoid service disruption, and comply with all terms outlined in this Program Policy and on the HackerOne platform. Public disclosure of any vulnerability details without Stripchat’s prior written approval is strictly prohibited.\n\n# Scope of the Stripchat Bug Bounty Program (“Scope”).\nThe Scope of this Program is limited to vulnerabilities found within the assets explicitly listed in the Scope section on HackerOne. Only vulnerabilities affecting assets within that list will be considered for review and potential reward.\n\nVulnerabilities discovered on any other domains, applications, or third-party services not owned or operated by Stripchat are considered out of scope and not eligible for rewards.\n\nPlease ensure that you confirm target eligibility before reporting.\n\n# Important Note\nAll communication regarding vulnerability reports must occur exclusively through the HackerOne platform.\nContacting Stripchat’s customer support, staff, or contractors directly- including through chat, email, or social media regarding the status of a report will result in immediate disqualification from receiving a reward and may lead to permanent removal from the program.\n\n# Program Rules\n* If you have used AI in the creation of the vulnerability report, you must disclose this fact in the report and you should do so clearly. We will of course doubt all \"facts\" and claims in reports where an AI has been involved. You should check and double-check all facts and claims any AI told you before you pass on such reports to us. You are normally much better off avoiding AI.\n* Reports must be detailed and include clear, reproducible steps. If the issue cannot be reproduced based on the provided information, it will not be eligible for a reward.\n* Submit one vulnerability per report, unless multiple vulnerabilities must be chained to demonstrate a single exploitable impact.\n* In the case of duplicates, only the first valid and reproducible report received will be eligible for a reward.\n* Multiple vulnerabilities caused by the same underlying issue will be rewarded as a single bounty.\n* Tests that degrade, disrupt, or interfere with Stripchat’s services in any way are strictly prohibited.\n* You are not allowed to access, exfiltrate, modify, or destroy any real user data. This includes, but is not limited to, user information, metadata, preferences, and other proprietary configurations (“User Data” and/or “Proprietary Data”).\n* Testing is only permitted on accounts that you have created yourself or for which you have explicit permission from the account holder.\n* Automated tools or scripted testing are permitted only under a strict rate limit of 100 requests per second (100 rps). Automated testing must be avoided during maintenance periods or when site-wide technical issues occur.\n* Physical attacks against Stripchat offices or data centers are strictly prohibited.\n* Social engineering of Stripchat’s employees, contractors, or support staff is strictly prohibited.\n* Compromising, taking over, or attempting to gain access to another user’s or employee’s account is strictly prohibited.\n\n# Changes to Program Rules\nThe Stripchat Bug Bounty Program, including its policies, may be modified, suspended, or terminated at any time without prior notice.  \nBy continuing to participate in the program after changes have been posted, you agree to the modified Program Rules and associated policies.\n\n# Eligibility\nTo qualify for a reward under the Stripchat Bug Bounty Program, you must be the first Finder to identify and responsibly report an unknown vulnerability in accordance with this Policy.  \nPublishing, discussing, or otherwise sharing details of a vulnerability report, internal communication, or any confidential information about the program without authorization will result in immediate removal from the program and loss of “Safe Harbor” protection.\n\n* You must be the first person to report the vulnerability.\n* The reported vulnerability must demonstrate a clear security impact to a Stripchat asset as defined in the Scope.\n* Rewards are granted at Stripchat’s sole discretion and are not legally guaranteed.\n* Vulnerabilities must be reported within 24 hours of discovery.\n* Each valid report must include:\n      * A clear description of the issue and steps to reproduce it (Proof of Concept or PoC).\n      * The affected URL(s) and parameters.\n      * Browser, operating system, and/or app version details.\n      * An explanation of the potential impact (e.g., “How could this vulnerability be exploited?”).\n* Screenshots, logs, or PoC attachments are highly recommended to support the report.\n* Reports that include only a video PoC without written reproduction steps will not be accepted.\n\n# Duplicates\nStripchat will reward only the first validated and reproducible report that leads to a fix.\nIf multiple reports describe the same root cause or are resolved by the same mitigation, they will be considered duplicates, regardless of the attack vector.  \n\nStripchat will make reasonable efforts to inform the Finder if a report is determined to be a duplicate.\nIf your report is closed as a duplicate, you will not be invited to the original report to preserve program confidentiality.\n\n# Disclosure Guidelines\n* Do not discuss this program or any vulnerabilities (even if resolved) outside the HackerOne platform without explicit written consent from Stripchat.\n* Even informative or duplicate reports are not eligible for public disclosure under any circumstances.\n* You must follow [HackerOne’s Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Unauthorized public disclosure of any vulnerability, report, or related communication, including posting technical details, screenshots, or proof-of-concept code will result in permanent removal from the program and immediate loss of Safe Harbor protection.\n\n# Response Times (“Response”)\nStripchat will make the best effort to adhere to the following response targets:\n\n| Type of Response | Business days |\n| ------------- | ------------- |\n| First Response | up to 2 days |\n| Time to Triage | up to 10 days |\n| Time to Bounty | up to 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Test Plan\n* Testing may be performed by both unauthorized (guest) users and authorized users (regular users or models).\n* All testing must be conducted using accounts that you have created yourself, in accordance with Stripchat’s Terms of Service and platform rules.\n* Every HTTP request sent during testing must include the following header:  \n**`HackerOne: <your_handle>`**  \nThis helps us identify legitimate testing traffic and prevents automated defenses from being triggered.\n* If necessary, Stripchat can provide internal testing currency (tokens) for research purposes. To request test tokens, please contact us through the HackerOne platform and include the username of your test account.\n\n# Out of scope vulnerabilities\n\n### When reporting, please consider both an attack scenario (exploitability) and the real security impact to Stripchat. The items below are out of scope for the Stripchat Bug Bounty Program and are not eligible for rewards unless an explicit exception is stated.\n\n### Non-security or low-impact issues\n* Bugs with no realistic security impact or that do not lead to unauthorized access, data exposure, privilege escalation, or other meaningful risk.\n* Broken links, typos, content/UX issues, SEO or accessibility problems, and general product/feature feedback. Please report these to support.\n* Reports of spam, unsolicited messages, or content moderation issues, unless they demonstrate a security control bypass or enable mass abuse.\n* Content spoofing, minor text injection, or UI formatting issues that do not lead to XSS, credential theft, privilege escalation, or another demonstrable security impact.\n\n###Configuration, best-practice, and informational issues\n* Missing security best practices by themselves (e.g., weak or outdated SSL/TLS configuration, missing HSTS header, missing CAA records, incomplete Content Security Policy) unless they can be chained to a clear, reproducible exploit.\n* Missing “HttpOnly” or “Secure” cookie flags, missing or incomplete email records (SPF/DKIM/DMARC), and other similar configuration items unless a practical exploit is demonstrated.\n* Software version disclosure, banner information, descriptive error messages, stack traces, or other informational disclosures that are not accompanied by a working exploit.\n\n###Client/browser-specific and weak/edge cases\n* Issues that only affect outdated or unpatched browsers, obsolete platforms, or unsupportable client configurations.\n* Self-XSS, reflected XSS with no impact, or XSS that cannot be exploited in the context of Stripchat (no sensitive action, no users targeted).\n* CSRF on forms that perform no sensitive action and have no realistic exploitation scenario.\n* Clickjacking on static pages with no clear impact.\n* Tabnabbing and other UI tricks with no demonstrated security impact.\n* Open redirects that cannot be turned into a phishing/abuse scenario or chained to a significant security impact.\n\n###Authentication, rate limiting, and session management\n* Password policy guidance, account recovery policies, or other authentication best-practice suggestions without a demonstrated security exploit.\n* Rate limiting or brute force issues on non-authenticated endpoints (unless a clear end-to-end exploit is shown).\n* Session timeout or other purely operational session management details without accompanying exploitability.\n\n###Availability / DoS\n* Reports that result in denial of service (DoS) to Stripchat servers at network or application layers are out of scope. \n* DoS testing against production is prohibited. \n* If you can demonstrate a novel vector that does not rely on heavy load but produces a reliable availability impact, contact us first via HackerOne to discuss- such cases are reviewed on a case-by-case basis.\n* Server errors (5XX) or other errors that occur only because of the attacker’s crafted request are out of scope unless they can be demonstrated to enable information disclosure, privilege escalation, or other direct security impact.\n\n###Physical, social, and out-of-band\n* Physical attacks against offices or data centers, attempts to gain physical access to user devices, and MITM attacks requiring physical access are out of scope.\n* Social engineering of Stripchat employees, contractors, or support staff is strictly prohibited and out of scope.\n* Issues limited to confirmation email content, formatting, or delivery, unless they enable account takeover, session hijacking, or disclosure of sensitive information.\n\n###Third-party services and non-Stripchat assets\n* Vulnerabilities in third-party software, services, or protocols that are not controlled by Stripchat are out of scope unless a direct, reproducible impact on Stripchat’s systems or users is demonstrated.\n* Tests against cloud provider infrastructure, third-party payment processors, analytics platforms, or other external services should be reported to the respective vendor unless there is a clear and exploitable effect on Stripchat.\n\n###Known issues, duplicates, and missing PoC\n* Previously patched public zero-day vulnerabilities with an official vendor patch released less than 30 days ago will be considered case-by-case.\n* Reports that reproduce a vulnerability that has already been reported, fixed, or otherwise mitigated are considered duplicates and are not eligible for any reward, even if discovered independently after the fix was applied.\n* However, if a previously fixed vulnerability reappears due to code regression or the mitigation is bypassed through a new method, such reports may be considered new valid findings and rewarded at Stripchat’s discretion.\n* Reports based solely on automated scan output without manual verification or a working Proof of Concept (PoC) are considered low quality and are out of scope for rewards.\n\n###Other common exclusions\n* Leaks of data cached in search engines or public web archives.\n* Issues that require unrealistic or unlikely user interaction to exploit.\n* Accessing content that is already publicly accessible via a known URL (e.g., restricted content reachable only by guessing a published URL) unless exploitation demonstrates a security control bypass.\n* Misconfigured CORS policies or weak CORS findings, unless they can be exploited to exfiltrate data, steal sessions or credentials, or otherwise impact user security.\n* Tests performed against environments or services for which no Vulnerability Disclosure Policy exists (e.g., some cloud providers) — confirm scope before testing.\n\n# Safe Harbor\nAll security testing activities conducted in good faith and in accordance with this Policy are considered authorized under Stripchat’s Bug Bounty Program.  \nStripchat will not initiate legal action against you for research performed within these guidelines.\n\nIf a third party initiates legal proceedings in connection with your authorized research, Stripchat will take reasonable steps to make it known that your actions were conducted in compliance with this Safe Harbor policy.\n\nPlease note that Safe Harbor applies only when testing is performed responsibly and within scope.  \nActivities that intentionally violate this Policy- such as accessing, modifying, or destroying data without permission, testing out-of-scope systems, or disclosing vulnerabilities publicly without authorization- will result in immediate loss of Safe Harbor protection and potential removal from the program.\n\n# Miscellaneous\n* All rewards are issued exclusively through the HackerOne platform in accordance with its payment policies.  \nYou can review HackerOne’s payout documentation in the HackerOne Platform Documentation Portal\n\n* Participation in this program is governed by this Program Policy as well as the following HackerOne agreements:  \nFinder Terms and Conditions, General Terms and Conditions, Code of Conduct for Finders, and Vulnerability Disclosure Guidelines (collectively referred to as the “Agreements”).  \nAny terms used but not defined herein shall have the meanings set forth in those Agreements.\n\n* Current and former employees of Stripchat, its affiliates, subsidiaries, agencies, partners, and their respective employees, as well as immediate family members, may report vulnerabilities responsibly but are not eligible for monetary rewards.  \nFor the purposes of this Policy, Immediate Family includes spouses, partners, siblings, parents, children, grandparents, grandchildren, in-laws, adopted relatives, and any individuals residing in the same household, whether related or not.\n\n* All participants must comply with applicable local and international laws and regulations related to vulnerability research and disclosure.\n\nOn behalf of the entire security and engineering team- thank you for helping keep Stripchat safe.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.stripchat.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pxl.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://stripchat.com/page*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://stripchat.com/wiki",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wiki.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mta*.stripchat.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "go.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only at least High Severity vulnerabilities are eligible for this subdomain. Open endpoints are not eligible for bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ext.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "extensions.stripchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "websocket-apps.sc-apps.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

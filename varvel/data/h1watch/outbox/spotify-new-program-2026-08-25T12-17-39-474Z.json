@@ -1,0 +1,253 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "spotify",
+      "name": "Spotify",
+      "offersBounties": true,
+      "assets": [
+        "Anchor",
+        "Android SDK",
+        "Core Backstage source code",
+        "Megaphone",
+        "Other Spotify websites",
+        "Spotify SDKs",
+        "Spotify desktop application (Windows and Mac)",
+        "Web Playback SDK",
+        "assets.spotify.com",
+        "backstage.io",
+        "com.anchorfminc.Anchor",
+        "com.spotify.client",
+        "com.spotify.kids",
+        "com.spotify.music",
+        "com.spotify.s4a",
+        "com.spotify.tv.android",
+        "fm.anchor.android",
+        "iOS SDK"
+      ],
+      "exclusions": [
+        "Preact",
+        "Soundtrap",
+        "The Ringer",
+        "com.soundtrap.studioapp"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not run automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\spotify-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "spotify",
+  "name": "Spotify",
+  "url": "https://hackerone.com/spotify",
+  "policy": "We're big believers in **protecting** your **privacy** and **security**. As a company, we not only have a vested interest, but also a deep desire to see the Internet remain as safe as possible for us all.\nSo, needless to say, we take security issues **very** seriously.\n\nIn our opinion, the practice of 'responsible disclosure' is the best way to safeguard the Internet. It allows individuals to notify companies like Spotify of any security threats **before going public** with the information. This gives us a fighting chance to resolve the problem before the criminally-minded become aware of it.\n\nResponsible disclosure is the **industry best practice**, and we recommend it as a procedure to anyone researching security vulnerabilities.\n\n## Targets\n\nWe are interested in hearing about security issues on all Spotify properties, including our client software, SDKs and web services hosted on domains owned by Spotify.\n\nYou can find more details under the Scope tab. **Unless specified on the scope page, companies acquired by Spotify are not in scope.**\n\nWe classify our assets as core versus non-core. The core assets were defined by the disruption to our customers and sensitivity level of exposed information in the event of successful exploitation. We would like for you to please prioritize searching for bugs on those assets since we feel it will improve the security of our organization. \n\nWe are particularly interested in the following categories of security bugs on our core-assets:\n\n| Severity | Vulnerability |\n|-----|-----|\n| Critical | Remote code execution used to exfiltrate sensitive Spotify customer data OR SQL Injection that leads to exposure of sensitive information like Spotify customer phone numbers, home addresses, or payment information. |\n| High | Authentication bypass that allows a user to authenticate and escalate privileges without proper credentials, SSRF that reveals authorization credentials or content available in configuration files, OR Denial of Service that will disrupt the playback experience. |\n| Medium | Broken authentication and session management that are performed via unencrypted connections or the session does not properly terminate. |\n\nWe're also interested in security vulnerabilities in our AI products and AI-enabled features. These include, but are not limited to: prompt injection, sensitive data disclosure, system prompt leakage, improper output handling with a demonstration of how it can impact other users, etc.\n\nWe encourage researchers to report leaked credentials pertaining to our corporate/internal assets, such as ==<spotify.okta.com>==, while adhering to the guidelines outlined below:\n\n* Reports must focus solely on credentials for Spotify's corporate/internal systems; credentials for consumer or end-user accounts are strictly out of scope and will not be considered for rewards.\n* Researchers are expected to obtain leaked credentials through ethical means only. Engaging in unauthorized activities, such as phishing, attacking end users, or trading in stolen credentials, is strictly prohibited. Every report must include the source of the leak (e.g., the specific website, forum, or repository where the credentials were discovered).\n* Researchers may test the validity of credentials solely to the extent of confirming authentication, followed by immediate deauthentication, without accessing or utilizing any functionality of the system. Credentials purchased from illegal sources or obtained through unethical practices will result in disqualification from the program.\n* We offer a flat bounty of $100 per unique source of leaked credentials. However, credentials that grant administrative access or access to sensitive information, such as mass PII, may warrant additional rewards based on the criticality of the issue. The severity of such reports will be evaluated on a case-by-case basis to determine an appropriate reward amount.\n\n### Rules of engagement\nWe are interested in hearing about security issues on all Spotify properties, including our client software, SDKs and web services hosted domains owned by Spotify.\n\nTo be eligible for a reward, note that we typically require the issue report to have some actual security impact in a realistic scenario. This does not mean you need to fully exploit issues. Simply provide the information you have, and we will analyze your report and draw conclusions on the impact. If you have found multiple vulnerabilities to report, report each one separately, for tracking and payment purposes. If you have a vulnerability to report that depends on chaining, report each link in the chain separately, and then a report for the whole chain. Expect that we will use reports to search for other instances of the same vulnerability class. Reports are not eligible for additional or higher payment when we find and fix other, unreported instances. If you found a vulnerability that affects multiple instances, bundle those instances and submit as one report.\n\nWe accept research on DRM issues that demonstrate a vulnerability in Spotify’s implementation. See Scope for the version requirements. For issues with DRM systems/vendors that Spotify uses, please see the section on Third Party Dependencies.\n\n***Note on UUID's***\nWhile we understand that UUID's obfuscate and do not protect data, we consider access control vulnerabilities that rely on UUID's to be too low of a risk due to the entropy of such ID's. Examples of reports we do accept in this space include:\n1. Poorly generated ID's that are easily predictable\n2. UUID's that are enumerated elsewhere in the Spotify platform and accessible publicly in bulk, which can then be used to bypass access controls (e.g. via an IDOR)\n\n***HackerOne reporters should only upload personal data to the HackerOne platform if the personal data is necessary for the investigation and resolution of the vulnerability. HackerOne should never store Spotify `user_id` following the resolution of an incident.***\n\n##Third Party Dependencies\n \nA critical element of security of a software package is the security of dependencies, so we maintain that vulnerabilities in 3rd-party dependencies are within scope for this program. That being said, we ask that bug reports are sent directly to the owner of the vulnerable package first and that you ensure that the issue is addressed upstream before letting us know of the issue details. We believe that the source code authors should have the advantage of learning about the vulnerabilities first. \n\nSubmissions of vulnerabilities through 3rd-party dependencies should:\n* Demonstrate that the vulnerability manifests within our projects. Meaning you must be able to show that the vulnerability can be exploited within Spotify applications.\n* Must be shared no earlier than 30 days after the issue was fixed upstream (e.g. a patched software package had been released greater than 30 days ago and we are still vulnerable).\n* Vulnerabilities within 3rd-party services or platforms used to maintain and build Spotify applications are out of scope for this program. We cannot authorize the security testing and research of assets that belong to other users and companies. However, we welcome reports on vulnerabilities in our configuration or integration of those 3rd-party services.\n\nPlease understand that, while we can authorize your research on Spotify’s systems and services, we cannot authorize your efforts on third party products or guarantee they won’t pursue legal action against you.\n\n##Third Party Managed Websites\n\nPlease note that there is a multitude of third party managed sites under the Spotify name and brand. If a bug you have submitted affects a site managed by a third party we will award you a $100 bonus payment and close the report as informational. third party sites are usually found under the following domains:\n- *.withspotify.com\n- *.byspotify.com\n- *.atspotify.com\n\nThere can be third party assets under various domains not listed here and we ask for your patience as we determine their status.\n\n\n### There are some things we explicitly ask you not to do:\n\n* When experimenting, please only target accounts belonging to you. Do not use leaked or compromised accounts belonging to other users. Vulnerabilities that were discovered using leaked or compromised accounts will be disqualified.\n* **Do not run automated scans.** They are often very noisy.\n* Do not test the physical security of Spotify offices, employees, equipment, et.c.\n* Do not test using social engineering techniques (phishing, vishing, et.c.)\n* Do not perform DoS or DDoS attacks.\n* In any way attack our end users, or engage in trade of stolen user credentials.\n\n**The following finding types are specifically excluded from the bounty:**\n\n* Reports of compromised accounts, accounts exposed in data breaches, or publicly accessible password dumps are not in scope for the bug bounty program, but can be reported through our support site or support@spotify.com.\n* Open redirect vulnerabilities which use a Spotify subdomain and the /mellon/logout URL to implement a redirect (Other redirect vulnerabilities that *don't* rely on Mellon should still be reported).\n    * Note: we are not interested in Open Redirect reports on Third Party Managed Websites unless they demonstrate an impact beyond phishing.\n* Descriptive error messages (e.g. Stack Traces, application or server errors).\n* HTTP 404 codes/pages or other HTTP non-200 codes/pages.\n* Fingerprinting / banner disclosure on common/public services.\n* Disclosure of known public files or directories, (e.g. robots.txt).\n* Clickjacking and issues only exploitable through clickjacking.\n* CSRF on forms that are available to anonymous users (e.g. the contact form).\n* Logout Cross-Site Request Forgery (logout CSRF).\n* Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality.\n* Lack of Secure/HTTPOnly flags on non-sensitive Cookies.\n* Lack of Security Speedbump when leaving the site.\n* Weak Captcha / Captcha Bypass\n* Absence of brute force countermeasures (e.g. rate limiting, account lockout), unless a successful attack can be demonstrated.\n* OPTIONS HTTP method enabled\n* Username / email enumeration\n    * via Login Page error message\n    * via Forgot Password error message\n* Missing HTTP security headers, specifically (https://www.owasp.org/index.php/List_of_useful_HTTP_headers), e.g.\n  * Strict-Transport-Security\n  * X-Frame-Options\n  * X-XSS-Protection\n  * X-Content-Type-Options\n  * Content-Security-Policy, X-Content-Security-Policy, X-WebKit-CSP\n  * Content-Security-Policy-Report-Only\n* SSL Issues, e.g.\n  * SSL Attacks such as BEAST, BREACH, Renegotiation attack\n  * SSL Forward secrecy not enabled\n  * SSL weak / insecure cipher suites\n* Content spoofing / text injection without HTML/CSS\n* Weak password policies\n* Mail configuration issues including SPF, DKIM, DMARC settings\n* Host header injection without exploitation\n* DNSSEC configuration\n* Vulnerabilities that utilize unique IDs (e.g. UUIDs) without the demonstration of an effective enumeration technique to obtain them\n* Reports on Spotify's AI products or AI-enabled product features that do not demonstrate a security concern, such as offensive language, explicit content, and other safety violations.\n* Hijacking of public RSS feeds\n* Authorization bypasses involving Spotify's TOTP implementation are internally known and improvements are being worked on. We will remove this statement once they are available publicly.\n\n**Out of Scope bugs for Android apps**\n* Shared links leaked through the system clipboard.\n* Any URIs leaked because a malicious app has permission to view URIs opened\n* Absence of certificate pinning\n* Sensitive data in URLs/request bodies when protected by TLS\n* User data stored unencrypted on external storage\n* Lack of obfuscation\n* oauth \"app secret\" hard-coded/recoverable in apk\n* Crashes due to malformed Intents sent to exported Activity/Service/BroadcastReceive (exploiting these for sensitive data leakage is commonly in scope)\n* Any kind of sensitive data stored in app private directory\n* Lack of binary protection control in android app\n\n**Out of Scope bugs for iOS apps**\n* Lack of Exploit mitigations ie PIE, ARC, or Stack Canaries\n* Absence of certificate pinning\n* Path disclosure in the binary\n* User data stored unencrypted on the file system\n* Lack of obfuscation\n* Lack of jailbreak detection\n* oauth \"app secret\" hard-coded/recoverable \n* Crashes due to malformed URL Schemes\n* Lack of binary protection (anti-debugging) controls\n* Snapshot/Pasteboard leakage\n* Runtime hacking exploits (exploits only possible in a jailbroken environment)\n\n## Disclosure Guidelines\n\nHackerOne's Disclosure Guidelines shall not apply when participating in a Spotify program. Instead, we ask you to abide by the following Spotify Disclosure Guidelines:\n\n* Unless Spotify gives you permission, do not disclose any issues to the public, or to any third party. \n* Unless Spotify gives you permission, do not disclose any report submitted in relation to a Spotify program.\n* If you have questions on timelines (to remediation, to bounty, etc.), please ask directly in the relevant report.\n\n## Ethical Code\n\nWhen retesting, we expect researchers to provide best effort validation to ensure the mitigation implemented by the Spotify team is sufficient. Any regression or bypass of the fix must be submitted as a new report and referenced as a bypass or regression of report # as per the platform policy. Attempts to game the policy and resubmitting the same issue with a slight tweak that should have reasonably been caught in retesting will not be considered for additional bounty and will be closed as “Not Applicable” (-5 reputation).",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "assets.spotify.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* Do not run automated scans against this target. They are often very noisy.\n~~~\nassets.spotify.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.soundtrap.studioapp",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Soundtrap \n\nhttps://itunes.apple.com/us/app/soundtrap/id991031323",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.spotify.client",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify - Music and Podcasts\n\n[Core asset]\n\nhttps://itunes.apple.com/us/app/spotify-music-and-podcasts/id324684580",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spotify.s4a",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify for Artists\n\n[Core asset]\n\nhttps://itunes.apple.com/us/app/spotify-for-artists/id1222021797",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spotify.tv.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify Music - for Android TV\n\nhttps://play.google.com/store/apps/details?id=com.spotify.tv.android\n\n[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spotify.s4a",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify for Artists\n\n[Core asset]\n\nhttps://play.google.com/store/apps/details?id=com.spotify.s4a",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.soundtrap.studioapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Soundtrap - Make Music Online\n\nhttps://play.google.com/store/apps/details?id=com.soundtrap.studioapp",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Spotify SDKs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For Spotify SDK (note: there is a specific scope for Web, Android and iOS SDK)\nhttps://developer.spotify.com/\n\n[Core asset]\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Spotify websites",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use this asset for non *.spotify.com websites. This includes sites associated with Spotify, but aren't otherwise listed as a separate asset.\n[Non-core asset]\nFind below a list of in-scope targets. Note that it is continuously updated:\n\n```\neyeofthestormers.com\nlifeatspotify.com\nsonalytic.com\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spotify.music",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify - Music and Podcasts\n\nhttps://play.google.com/store/apps/details?id=com.spotify.music\n\n[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Spotify desktop application (Windows and Mac)",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Anchor",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Anchor was acquired by Spotify in 2019.\n\n[Non-core asset]\n\n~~~\nanchor.fm",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Preact",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Preact was acquired by Spotify in 2016.\n\npreact.io is no longer owned by Spotify and is out of scope for this program",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Soundtrap",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Soundtrap was acquired by Spotify in 2017.\n\nSoundtrap is no longer owned by Spotify and is out of scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.spotify.kids",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify Kids\n\n[Core asset]\n\nhttps://apps.apple.com/ie/app/Spotify-Kids/id1470209570",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iOS SDK",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* https://developer.spotify.com/documentation/ios/ \n* https://github.com/spotify/ios-sdk \n\n[Core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Android SDK",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core asset]\n\n* https://developer.spotify.com/documentation/android/ \n* https://github.com/spotify/android-sdk ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Web Playback SDK",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* https://developer.spotify.com/documentation/web-playback-sdk/\n\n[Non-core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "The Ringer",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Ringer was acquired by Spotify in February 2020 but has not been onboarded to its Bug Bounty Program.\n~~~\n99music.theringer.com\n99music.theringer.com\nbesttv.theringer.com\nfantasyfootball.theringer.com\nfastfood.theringer.com\nheists.theringer.com\ninflight.theringer.com\nnbadraft.theringer.com\nnfldr",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "backstage.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Backstage is an open-source developer portal.\n\n[Non-core asset]\n\nFind below a list of in-scope targets. Note that it is continuously updated: \n\n~~~\nbackstage.io",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Core Backstage source code",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/backstage/backstage\n\n[Core asset]\n\nNote on severity - per Backstage's [threat model](https://backstage.io/docs/overview/threat-model/), Backstage is primarily designed to be deployed in a protected environment rather than being exposed to the public internet. We assume an **intern",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spotify.kids",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Spotify Kids\n\n[Core asset]\n\nhttps://play.google.com/store/apps/details?id=com.spotify.kids",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.anchorfminc.Anchor",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fm.anchor.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-core asset]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Megaphone",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Megaphone was acquired by Spotify in November 2020.\n\n[Core asset]\n\n** These targets are NOT in scope:**\n```\nsupport.megaphone.fm\n```",
+      "max_severity": "critical"
+    }
+  ]
+}

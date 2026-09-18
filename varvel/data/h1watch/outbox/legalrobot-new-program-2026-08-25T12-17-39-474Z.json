@@ -1,0 +1,66 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "legalrobot",
+      "name": "Legal Robot",
+      "offersBounties": true,
+      "assets": [
+        "app.legalrobot-test.com",
+        "app.legalrobot.com",
+        "www.legalrobot-test.com",
+        "www.legalrobot.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\legalrobot-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "legalrobot",
+  "name": "Legal Robot",
+  "url": "https://hackerone.com/legalrobot",
+  "policy": "If you believe you have found a security vulnerability in Legal Robot, we encourage you to let us know right away. We will investigate all legitimate reports and do our best to quickly fix the problem. As long as your research stays within the bounds of this policy, we welcome the dialogue, promise not to take legal action for covered activities, and hope that we can compensate you for your efforts to make our products more secure.\r\n\r\n##Rules\r\n* **Use good judgment.** If you find a vulnerability, don't run it in production. Instead, use our non-production environment at legalrobot-uat.com.\r\n* Again, **don't run tests against our production domain, legalrobot.com.**\r\n* Do not destroy or degrade our performance, or violate the privacy or integrity of users or their data. \r\n* **Never** attempt to view, modify, or damage data belonging to others in production (do this on legalrobot-uat.com).\r\n* Do not interact with other users.\r\n* Do not attempt a distributed denial-of-service (DDoS) attack. Targeted DoS attacks against a specific user account that you create *in our non-production environment* are likely OK as long as they don't degrade service or get us blacklisted with our service providers. If you're unsure, just ask us at hello@legalrobot.com.\r\n* Do not perform any research or testing in violation of law.\r\n* **Don't ask for updates on a report or cross-post.** Doing this just adds to the noise and annoys our team. Reports with excessive status request messages will be closed without a bounty or sent to mediation.\r\n\r\n## Helpful Hints\r\n* Our www subdomain is all static content, focus on the app subdomain.\r\n* Bounties for access to other users' data are worth the most. DO NOT ATTEMPT THIS IN PRODUCTION.\r\n* We don't use cookie-based authentication.\r\n* We use NoSQL databases (i.e. try NoSQL injection attacks, not SQL injection - it just won't work).\r\n* We use [Stripe](https://stripe.com) as our payment processor. See the [testing documentation](https://stripe.com/docs/testing) for test credit card numbers that will result in a successful transaction in our non-production environment.\r\n* Disputing a *live* Credit Card transaction will get you immediately banned and no longer exempted from legal action.\r\n* It's easier for us to research issues when you include the version number and build in your report (check the bottom left corner in our non-production environment).\r\n* When possible, we post about unresolved bugs here: [app.legalrobot.com/roadmap](https://app.legalrobot.com/roadmap). Check the \"Known Issues\" section before submitting a report.\r\n\r\n##Destructive/Invasive Attacks\r\nAll of the data in our non-production environment (legalrobot-uat.com) is non-sensitive, so have at it... just DO NOT do anything illegal, launch a DDoS attack, or anything else that could disrupt or get us blacklisted with our service providers. Because legalrobot-uat.com is not a full production environment, DMARC, SPF, and similar email issues will not be eligible there. Issues that *we* cannot reproduce in production (legalrobot.com) will not be accepted.\r\n\r\n##Ineligible Reports\r\n* Anything from an automated scan, anything that is already public, or anything not under our control (Intercom chat box, Disqus blog comments, Google Analytics, etc).\r\n* Version disclosure, unless it leads to a vulnerability.\r\n* Anything that requires physical access to a device or network, special permissions (e.g. tapjacking), rootkits, etc.\r\n* Anything requiring outdated browsers, platforms, or crypto (i.e. TLS BEAST, POODLE, etc).\r\n* Social engineering, phishing, spear phishing, etc. including attacks that require self-exploit.\r\n* Header injection, unless you can show how they can lead to stealing user data.\r\n* Login/logout CSRF, or lack of CSRF tokens.\r\n* Non-HTTPS links or links to dead websites.\r\n\r\n## Disclosure\r\nIn the interest of transparency, it is our policy to *at least* ask for disclosure on all reports, but it is not necessary for Informative/Not Applicable/Duplicate, only Resolved reports - even then, we're happy to do Limited Disclosure or delay for a good reason. In order to hold ourselves to a high standard, we'll also do Full Disclosure if there is a possibility that we've been unfair to a researcher (marked as Spam, Locked Report, etc).\r\n\r\n## Duplicates\r\nWe want to show that we respect your work, so we will only close a report as a Duplicate with a link to the original report or to a previous public disclosure.\r\n\r\n## Safe Harbor\r\nTo encourage responsible disclosures, we will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy by legitimate security researchers. We consider security research and vulnerability disclosure activities conducted consistent with this policy to constitute \"authorized\" conduct under the Computer Fraud and Abuse Act (CFAA), the Digital Millennium Copyright Act (DMCA) and applicable anti-hacking laws such as Cal. Penal Code 502(c). We waive any DMCA claim against legitimate security researchers for circumventing the technological measures we have used to protect the applications in scope.\r\n\r\nIn case of any conflict between the terms of this policy and our [Terms of Service](https://www.legalrobot.com/terms/), this policy will prevail.\r\n\r\nIf legal action is initiated by a third party against you and you are a legitimate security researcher that has complied with this policy, we will make it known that your actions were conducted in compliance with this policy. Contact us at [security@legalrobot.com](mailto:security@legalrobot.com) for assistance.\r\n\r\nPlease understand that if your security research involves the networks, systems, information, applications, products, or services of another party (which is not us), that third party may determine whether to pursue legal action. We cannot and do not authorize security research in the name of other entities.\r\n\r\nYou are expected, as always, to comply with all applicable laws. \r\n\r\nPlease submit a report to us before engaging in conduct that may be inconsistent with or unaddressed by this policy.\r\n\r\n## Questions\r\nAlways feel free to ping us at security@legalrobot.com if you have any questions or want to check if we already know about an issue before you go to the trouble of creating a full PoC and bug report on HackerOne.\r\n\r\n##Thanks & Compensation\r\nWe believe in recognizing the work of others. If your work helps us improve the security of our service, we will happily [acknowledge your contribution](/legalrobot/thanks). We also offer a monetary bounty of $20-$???? for legitimate, non-duplicate security issues reported through HackerOne, provided you follow these rules. More serious issues will be rewarded appropriately.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.legalrobot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Everything on our www subdomain is static and just hosts our blog and some other assets. So, there is very little opportunity for bugs here.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "app.legalrobot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "When possible, please avoid testing on this domain. In general, testing should occur on legalrobot-uat.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.legalrobot-test.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Everything on our www subdomain is static and just hosts our blog and some other assets. So, there is very little opportunity for bugs here.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.legalrobot-test.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "TEST HERE!",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "braze_inc",
+      "name": "Braze, Inc.",
+      "offersBounties": true,
+      "assets": [
+        "https://bug-bounty-api.k8s.tools-001.d-use-1.braze-dev.com/",
+        "https://bug-bounty-dashboard.k8s.tools-001.d-use-1.braze-dev.com/",
+        "https://bug-bounty-rest.k8s.tools-001.d-use-1.braze-dev.com/"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "No automated scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\braze_inc-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "braze_inc",
+  "name": "Braze, Inc.",
+  "url": "https://hackerone.com/braze_inc",
+  "policy": "**Quick summary**\n=====================\n* Test **only** the three *bug-bounty-*.braze-dev.com hosts listed below — **all other Braze domains are out of scope**  \n* No automated scanners, DoS, or large-scale discovery scans  \n* Use **one** test-account pattern: `h1-username[+N]@wearehackerone.com`  \n* Never contact Braze staff, customers, or vendors  \n* Questions about scope → security@braze.com  \n* All Tags-related findings are temporarily out of scope  \n* CORS Reports on the domain https://bug-bounty-api.k8s.tools-001.d-use-1.braze-dev.com will not be accepted, as this is explicitly ment to have an open CORS policy. Any reports on this will be closed as Not Applicable.\n\n** All SSRF vulnerabilities are currently out of scope while we work through the existing que and work on comprehensive fixes. Any SSRF that has been submitted prior to Monday April 6, 2026 will be validated, any net-new SSRF reports will be closed. An announcement will be made when SSRF is back in scope.\n\n---\n\n1 Program Overview\n--------------------------\n* Braze welcomes security researchers to help protect our customers and platform.  \n* This policy explains the rules of engagement, eligible targets, and reporting expectations.\n\n## Response Targets\n| Stage | Target (business days) |\n|-------|------------------------|\n| First response | 2 |\n| Time to triage | 2 |\n| Time to bounty | 90 |\n| Time to resolution | Varies by severity | \n\n---\n\n2 Eligibility Guidelines\n--------------------------\n* Be at least **18 years old** and **not** a Braze employee, contractor, or vendor.  \n* Use **one** HackerOne profile (duplicate accounts = program ban).  \n* Not reside in a country subject to comprehensive U.S. sanctions.  \n* Follow all program rules & HackerOne's Code of Conduct.  \n* Stop testing and report immediately if you encounter customer/employee data, pre-release content, or other confidential information.\n\n---\n\n3 Account Setup & Test Plan\n--------------------------\n1. **Register** your primary test account as ``<h1-username>`` on the signup page:  \n   <https://bug-bounty.k8s.tools-001.d-use-1.braze.com/>  \n   *This registration site is **not** in scope for testing.*  \n   Extra users: append `+1`, `+2`, … (e.g. `alice+1`). Confirmation arrives at your @wearehackerone.com email alias.  \n2. **Use headers:**\n\n    | Identifier | Format |\n    |-----------------|-------------------------------------------|\n    | Your Username | `X-Bug-Bounty: HackerOne-<username>` |\n    | Tool Identifier | `X-Bug-Bounty: <toolname>` |\n\n3. **Do not** submit Dashboard forms that reach Braze Support or other internal teams.  \n4. Keep request rates under **100 r/s** — this is a shared staging cluster.\n\n---\n\n4 In-Scope Assets\n--------------------------\n| Host | Purpose |\n|------|---------|\n| `https://bug-bounty-rest.k8s.tools-001.d-use-1.braze-dev.com` | REST API |\n| `https://bug-bounty-dashboard.k8s.tools-001.d-use-1.braze-dev.com` | Web UI |\n| `https://bug-bounty-api.k8s.tools-001.d-use-1.braze-dev.com` | GraphQL / misc API |\n\n==⚠ Links inside these hosts may point to production. Do *not*  follow or test them.==\n\n---\n\n5 Rules of Engagement\n--------------------------\n* **No automated scanners** (e.g., Nuclei) or bulk discovery scans.  \n* **No social engineering** or contact with Braze employees, customers, or vendors.  \n* **No DoS / DDoS / stress testing.**  \n* Test only with accounts you own; do not test on production sites.  \n* Submit one vulnerability per report unless chaining is needed to show impact.  \n* Stored XSS must execute on an in-scope domain **and** access that domain's DOM/cookies.  \n* Access-control reports must include the exact roles/permissions of every account used.  \n* Rate-limit bypass reports must demonstrate security impact, not just traffic volume. \n\n***⚠️ Enforcement***\n* Any violation of the Rules of Engagement—especially testing **outside the three bug-bounty \\*.braze-dev.com hosts** will result in **immediate removal from the Braze program and loss of future eligibility**.\n\n---\n\n6 Ongoing Exclusions\n--------------------------\n* All Access Control issues related to permissions are out of scope as of Feb 6, 2026. An announcement will be made when this comes back in-scope.\n* **Tags feature** – any vulnerability involving creation, deletion, or update of Tags is out of scope until systemic issues are resolved (we'll announce when they return).  \n* Org-local data only – user-data exposure that affects **only your own org** is out of scope; show cross-org impact to qualify.  \n* DMARC/SPF issues, localhost / `0.0.0.0` SSRF, cosmetic bugs, and rate-limit findings on this dev cluster.  \n* Discovery-only results (port scanning, subdomain enumeration, Google dorks, etc.).  \n* Tests requiring physical device access.\n\n---\n\n7 Known Issues (not bounty eligible)\n--------------------------\nThe items below are accepted risk or exist only in the test environment. Reports will be closed **duplicate** or **informative**:\n\n* **Dashboard breakage via invalid parameters** – Reports that only make a dashboard feature fail to load for users in your own org are considered product bugs (effective 15 May 2025). Eligible only if an unauthorized user can trigger it **or** it disrupts all orgs.  \n* Cross-Origin Request Trust when uploading users or user profile images.  \n* CSV injection on user upload.  \n* Several horizontal IDOR patterns currently under remediation — higher duplicate probability.  \n* Webhook SSRF reachable only to `0.0.0.0` / other localhost variants.  \n* Editor XSS – payloads that fire only on the separate editor domain and cannot access the dashboard's DOM/cookies are out of scope. Stored XSS must fire in the dashboard context to be eligible.  \n* Disclosure of Internal Groups/Test Users (this is just test data).\n\n---\n\n8 Documentation\n--------------------------\n* **User Docs** – <https://www.braze.com/docs/>  \n* **Role Management** – <https://www.braze.com/docs/user_guide/administrative/manage_your_braze_users/>  \n* **API Docs** – <https://www.braze.com/docs/api/basics/>\n\n---\nThank you for helping keep Braze and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://bug-bounty-dashboard.k8s.tools-001.d-use-1.braze-dev.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only test against accounts that you own, or have explicit permission to test against.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://bug-bounty-api.k8s.tools-001.d-use-1.braze-dev.com/",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is NOT the REST API and will have different endpoints and documentation that can be found on the Braze Public Docs.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://bug-bounty-rest.k8s.tools-001.d-use-1.braze-dev.com/",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the REST API, and can be used to manage the Dashboard. Documentation can be found on the public braze docs: https://www.braze.com/docs/api/basics",
+      "max_severity": "critical"
+    }
+  ]
+}

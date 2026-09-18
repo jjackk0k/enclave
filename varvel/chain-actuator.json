@@ -1,0 +1,43 @@
+{
+  "name": "localize-actuator-secrets",
+  "base": "https://localizestaging.com",
+  "steps": [
+    {
+      "id": "actuator-env",
+      "path": "/actuator/env",
+      "expect": { "status": 200, "contains": "\"propertySources\"" },
+      "note": "Spring Boot Actuator env endpoint — look for injected secrets"
+    },
+    {
+      "id": "actuator-configprops",
+      "path": "/actuator/configprops",
+      "expect": { "status": 200, "contains": "\"beans\"" },
+      "note": "Spring Boot Actuator configprops — look for datasource URLs, API keys"
+    },
+    {
+      "id": "actuator-info",
+      "path": "/actuator/info",
+      "expect": { "status": 200 },
+      "note": "Actuator info for version disclosure and build details"
+    },
+    {
+      "id": "actuator-health",
+      "path": "/actuator/health",
+      "expect": { "status": 200, "contains": "\"status\"" },
+      "note": "Health endpoint — may reveal backend dependency names"
+    },
+    {
+      "id": "actuator-metrics",
+      "path": "/actuator/metrics",
+      "expect": { "status": 200, "contains": "\"names\"" },
+      "note": "Metrics enumeration — confirms debug surface"
+    },
+    {
+      "id": "actuator-heapdump-check",
+      "path": "/actuator/heapdump",
+      "method": "HEAD",
+      "expect": { "status": 200 },
+      "note": "Check if heapdump is served (sensitive endpoint, DO NOT download fully)"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+ "_commitwatch": {
+  "note": "the commit-diff watcher's data-driven watch set (tools/commitwatch.mjs loadTargets). Default: the 14 >=50k AI-surface targets from varvel-kimi/research/ai-feature-target-list-2026-08-25.md §1 + madara-core. Edit slugs here or pass --targets <file> per scan. The watcher reads wordpress.org SVN only — a slug not hosted there records a named 404 error, never fabricated data.",
+  "source": "ai-feature-target-list-2026-08-25.md §1 (install counts are wp.org rounded buckets, snapshot 2026-08-25)",
+  "updated": "2026-08-25"
+ },
+ "targets": [
+  {
+   "slug": "angie",
+   "note": "Angie – Agentic AI (Elementor), 100k+, MCP server shipped 2026-08 — zero CVEs"
+  },
+  {
+   "slug": "sg-ai-studio",
+   "note": "AI Agent by SiteGround, 1M+ host-forced installs, zero CVEs"
+  },
+  {
+   "slug": "wpforms-lite",
+   "note": "WPForms, 5M+, AI form-generation surface unmined"
+  },
+  {
+   "slug": "seo-by-rank-math",
+   "note": "Rank Math, 4M, Content AI at cai.rankmath.com; CVE-2025-12714 missing-capability lineage"
+  },
+  {
+   "slug": "everest-forms",
+   "note": "Everest Forms, 90k+, v3.5.0 exposed CRUD abilities via Abilities API; changelog shows capability-check churn"
+  },
+  {
+   "slug": "all-in-one-seo-pack",
+   "note": "AIOSEO, 2M+, 2026 info-leak CVEs via localized data"
+  },
+  {
+   "slug": "astra-sites",
+   "note": "Starter Templates, 1M+, SSRF/missing-authz history"
+  },
+  {
+   "slug": "hostinger-reach",
+   "note": "Hostinger Reach, 1M+ host-bundled, 1 CVE (missing authorization)"
+  },
+  {
+   "slug": "sureforms",
+   "note": "SureForms, 500k+, AI form routes unmined"
+  },
+  {
+   "slug": "suretriggers",
+   "note": "SureTriggers/OttoKit, 100k+, CVE-2025-3102 auth-bypass lineage; AI-step handlers open"
+  },
+  {
+   "slug": "translatepress-multilingual",
+   "note": "TranslatePress, 400k+, AI translation channel untouched by the 2026 XSS cluster"
+  },
+  {
+   "slug": "wp-seopress",
+   "note": "SEOPress, 300k+, key-comparison authz-bypass history"
+  },
+  {
+   "slug": "tidio-live-chat",
+   "note": "Tidio, 70k+, thin server-side surface (mostly SaaS)"
+  },
+  {
+   "slug": "wordpress-seo",
+   "note": "Yoast SEO, 10M, most-audited codebase — watch last"
+  },
+  {
+   "slug": "madara-core",
+   "note": "Madara core companion (the wordfence-madara program target). UNVERIFIED wp.org presence — ThemeForest-bundled; a 404 head fetch is the honest record"
+  },
+  {
+   "slug": "ai-engine",
+   "note": "AI Engine (Meow), 100k+, MCP endpoint class anchor (,145) — watch for meta.mcp.public + bearer-token changes"
+  },
+  {
+   "slug": "gosmtp",
+   "note": "GoSMTP, 500k — ships mcp.public=true + show_in_rest=true abilities (send-test-mail); watch for permission_callback loosening (one flag-flip from unauth spam relay)"
+  },
+  {
+   "slug": "siteseo",
+   "note": "SiteSEO, 500k — mcp.public + show_in_rest abilities (seo-data-update); watch for permission_callback loosening (one flag-flip from content tamper)"
+  },
+  {
+   "slug": "woocommerce",
+   "note": "WooCommerce, 5M+ — top-ecosystem timing target; patch diffs here are highest-value in WP"
+  },
+  {
+   "slug": "elementor",
+   "note": "Elementor, 5M+ — top-ecosystem timing target; large ajax/rest surface, frequent security churn"
+  },
+  {
+   "slug": "contact-form-7",
+   "note": "Contact Form 7, 5M+ — top-ecosystem timing target; narrow but critical surface"
+  },
+  {
+   "slug": "jetpack",
+   "note": "Jetpack, 4M+ — top-ecosystem timing target; module surface changes ship often"
+  },
+  {
+   "slug": "wordfence",
+   "note": "Wordfence, 4M+ — security plugin itself; authz/firewall-bypass diffs are direct leads"
+  }
+ ]
+}

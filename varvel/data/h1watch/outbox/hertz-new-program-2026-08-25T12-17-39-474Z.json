@@ -1,0 +1,46 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hertz",
+      "name": "Hertz VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.hertz.com",
+        "*hertz.io"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hertz-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hertz",
+  "name": "Hertz VDP",
+  "url": "https://hackerone.com/hertz",
+  "policy": "Welcome to the Hertz Vulnerability Disclosure Program. As a global leader in vehicle rental services, Hertz is dedicated to providing exceptional customer experiences while safeguarding the security of our digital platforms. Our online systems and mobile applications power our operations across thousands of locations worldwide, making their protection a critical priority. We value the expertise of the security research community and invite you to help us strengthen our defenses by identifying vulnerabilities in our public-facing assets.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n* Only interact with accounts you own or with explicit permission of the account holder.\n\n# Test Plan\n* Users are able to sign up for a free account through our websites (https://www.hertz.com, https://www.dollar.com, https://www.thrifty.com)\n* Please use your **hacker email alias** when testing (h1username@wearehackerone.com)\n\n- **Session Layer: HTTP Headers**  \n  Researchers should add headers to requests such as:  \n  - `\"X-HackerOne-Research: [H1 username]\"`\n\nThanks for driving security with us—let’s keep the road safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.hertz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*hertz.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

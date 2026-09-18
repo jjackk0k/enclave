@@ -1,0 +1,232 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "deriv",
+      "name": "Deriv.com",
+      "offersBounties": true,
+      "assets": [
+        "*.deriv.cloud",
+        "*.deriv.com",
+        "*.derivws.com",
+        "api.deriv.com",
+        "app.deriv.com",
+        "cashier.deriv.com",
+        "core-api.deriv.com",
+        "ct.deriv.com",
+        "deriv.partners",
+        "derivws.com",
+        "github.com/binary-com",
+        "github.com/deriv-com",
+        "home.deriv.com",
+        "https://api-core.deriv.com",
+        "oauth.deriv.com",
+        "partners.deriv.com",
+        "secure-dfadmin.deriv.com",
+        "smarttrader.deriv.com"
+      ],
+      "exclusions": [
+        "Any 3rd party managed domain",
+        "community.deriv.com",
+        "deriv.ae",
+        "deriv.slack.com",
+        "https://deriv.atlassian.net/servicedesk/customer/user/signup",
+        "trade.mql5.com",
+        "tradingview.deriv.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\deriv-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "deriv",
+  "name": "Deriv.com",
+  "url": "https://hackerone.com/deriv",
+  "policy": "The security of our products is very important to us, and we constantly strive to guarantee our users' security. The deriv.com security team aims to raise the comprehensive security of our products by working closely with individuals, organisations, and companies. To protect the interests of our users, we thank and reward researchers who help us improve our security.\n\n# Contents\n- [Ground rules](#user-content-ground-rules)\n- [Test plan](#user-content-test-plan)\n- [Response targets](#user-content-response-targets)\n- [Disclosure policy](#user-content-disclosure-policy)\n- [Eiligibility policy](#user-content-eligibility-policy)\n- [Vulnerabilities and reward structure](#user-content-vulnerabilities-and-reward-structure)\n- [Out of scope vulnerabilities](#user-content-out-of-scope-vulnerabilities)\n- [Safe harbour](#user-content-safe-harbour)\n\n---\n# Ground rules\n1. Respect our users’ privacy. We oppose and condemn the actions of hackers who use vulnerability testing as an excuse, for example: \n    - exploiting vulnerabilities to steal user data \n    - intrusion into Deriv’s services \n    - changing, copying, or stealing data from related system services \n2. Do not cause more harm than good. You should never leave a system or users in a more vulnerable state than when you found them. You should not engage in testing or related activities that change, degrade, damage, or destroy information within our systems or that may impact or affect our users.\n3. Please provide detailed reports with reproducible steps. If the report is not precise enough to reproduce the issue, the issue will not be eligible for a reward.\n4. Do not mass create accounts, only create accounts necessary for your testing\n5. Only interact with accounts you own or with the explicit permission of the account holder.\n6. Do not incur loss of funds that are not your own\n7. No destructive automated testing. Under no circumstance should automated testing cause intentional damage to our systems\n8. Do not publicly disclose vulnerabilities without our explicit consent\n9. Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n10. Always be respectful when interacting with our team\n11. When conducting research always follow our guidelines set out in [Test plan](#user-content-test-plan)\n12. The final assessment of each vulnerability is determined by the impact, risk, and current mitigation measures. Whether to provide a reward for your submission, the amount of the reward, and your eligibility to participate in the Program are entirely at our discretion.\n13.  If one vulnerability source causes several vulnerabilities, we will consider it as one vulnerability. For example, multiple problems caused by a certain server configuration, the same file or template, generic domain name resolution, and the like will be considered as one vulnerability.\n14.  In the event of duplicate submissions, we will only award the first report received (provided that it can be fully reproduced).\n15. Regarding any 0-day vulnerabilities, we will only accept the report if it has been > 30 days since the relevant patch release.\n16. Vulnerabilities regarding information disclosure of cloud storage buckets (e.g., S3, KSS, FDS, and the like)：\n    - We will confirm internally whether the information or link should be publicly accessible/viewable.\n    - Confirmation of the valid vulnerability will be based on the sensitivity of information leakage and is at our sole discretion.\n\n---\n# Test plan\n1. In order for us to separate testing traffic from real user traffic, we ask that you include a unique HTTP header to each and every testing request. Please use format \"X-HackerOne-Research: [H1 username]\"\n2. Our assets are self sign up, please use your [username]@wearehackerone.com email alias for any accounts created on our assets\n\n---\n# Response targets\nWe will make our best effort to meet the following response targets for hackers participating in our program, however these are dependent on severity and complexity:\n- **Time to first response (from report submission)**: 2 business days\n- **Time to triage**: 2 business days\n- **Time to bounty (from triage)**: 2 business days\n\nWe will aim to  keep you informed throughout the process.\n\n---\n# Disclosure policy\nDo not publicly or privately disclose this program or any vulnerabilities (even resolved ones) outside the program without prior written consent from deriv.com. Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines). If you believe you have discovered a security vulnerability, please report it with a thorough explanation of the vulnerability in compliance with our bug bounty guidelines.\n\n---\n# Eligibility to Participate\nTo participate in our Bug Bounty Program, you must:\n - Abide by the terms and conditions of Deriv.com\n - Not be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to our Bug Bounty Program.\n - Not be employed by Deriv or any of its affiliates or an immediate family member of a person employed by Deriv or any of its affiliates.\n - You are responsible for any tax implications of a reward from our Bug Bounty Program depending on your country of residency and citizenship.\n\n---\n# Vulnerabilities and reward structure\nThe decision to grant a reward for a vulnerability report and the value of the reward is entirely within our discretion. We will reward based on the impact and severity of the reported vulnerability. \n\n## Categorisation\n### Important businesses:\n- cashier.deriv.com\n- oauth.deriv.com\n- Websocket API on deriv.com (see api.deriv.com)\n- https://app.deriv.com/bot (Deriv's trading bot functionality)\n- https://app.deriv.com\n- https://smarttrader.deriv.com\n- MetaTrader 5 (only functions handled by deriv.com)\n- *.deriv.cloud\n\n### General businesses:\n- github.com/deriv-com\n- github.com/binary-com\n- Deriv P2P: Our peer-to-peer payments app \n- Deriv GO: Our options trading app \n\n### Edge businesses: \n- *.deriv.com (excluding any deriv.com subdomains not mentioned above)\n- https://hub.docker.com/u/deriv\n- Any issues in 3rd party apps \n- https://ct.deriv.com/  trading app by ctrader (Android app, iOS app)\n- Some operation and maintenance monitoring, test pages, test environments, and open-source systems that lack access permissions\n- The list above is not exhaustive. We’ll update it according to business changes from time to time.\n\n---\n## Bounties for CRITICAL vulnerabilities\n\n| Business type      | Bounty        |\n|--------------------|---------------|\n| Important business | Up to $5,000 |\n| General business   | Up to $2,000  |\n| Edge business      | Up to $1,500  |\n\n**Examples of CRITICAL Vulnerabilities in WEB**\n- The ability to obtain sensitive user data and system permissions directly via command injection, order traversal, remote overflows, SQL injection, and the like\n- Payment vulnerabilities that could potentially lead to a critical logic error, causing loss to the company and our clients\n- The ability to exploit account-related vulnerabilities to obtain user details, bypass authentication, and the like\n\n**Examples of CRITICAL Vulnerabilities in MOBILE**\n- Severe logic vulnerabilities that could cause losses to our clients\n- Remote command execution\n- The ability to access and extract users’ data\n\n---\n## Bounties for HIGH Vulnerabilities\n  \n| Business type      | Bounty       |\n|--------------------|--------------|\n| Important business | Up to $2,500 |\n| General business   | Up to $1,500 |\n| Edge business      | Up to $500 |\n\n**Examples of HIGH Vulnerabilities for WEB**\n- Accessing read-only back-end code and manipulate our systems\n- Accessing internal session cookies and other sensitive information\n- Bypassing verification (OTP, 2FA), log in to client accounts, extract clients’ sensitive data, and perform actions without consent\n- Causing damage to critical functions via privilege escalation (horizontal and vertical)\n- Obtaining sensitive intranet information via server-side request forgery (SSRF)\n- Manipulating trade contracts to earn profit\n\n**Examples of HIGH Vulnerabilities for MOBILE**\n- Bypassing the lock screen (where applicable)\n- Exploiting interactive logic issues that can cause loss to clients\n- Gaining remote access to clients’ sensitive information\n- Installing malicious apps on clients’ devices, gain access to their accounts, and perform actions without their consent\n\n---\n## Bounties for MEDIUM Vulnerabilities\n\n| Business type      | Bounty     |\n|--------------------|------------|\n| Important business | Up to $500 |\n| General business   | Up to $250 |\n| Edge business      | Up to $100 |\n\n**Examples of MEDIUM Vulnerabilities for WEB**\n- The ability to access a limited portion of:\n    - client’s sensitive information\n    - our back-end code\n    - internal information on GitHub\n- Attacks via: \n    - cross-site and server-side request forgery (without access to our internal network)\n    - directory traversals\n    - privilege escalation (causing damage to functional properties of our systems)\n    - reflected and stored cross-site scripting with minimum impact (including unauthorised file uploads on our servers to enable phishing)\n    - subdomain takeovers\n\n**Examples of MEDIUM Vulnerabilities for MOBILE**\n- The ability to exploit interface logic vulnerabilities to deceive our clients or to enable phishing\n- Attacks via SQL injection with the ability to access sensitive information in local applications\n\n---\n## Bounties for LOW Vulnerabilities\n**__We will triage reports of low-severity vulnerabilities, and you will receive reputation points, but we will only reward important business issues.__**\n\n| Business type      | Bounty     |\n|--------------------|------------|\n| Important business | Up to $100 |\n| General business   | Up to $50 |\n| Edge business      | Up to $50 |\n\n\n**Examples of LOW Vulnerabilities for WEB**\n- Attacks via:\n    - cross-site request forgery (non-critical)\n    - ‘HTTP Host Header’ cross-site scripting\n    - mail/SMS bombing\n- The ability to access:\n    - non-sensitive information on third-party platforms like GitHub\n    - non-sensitive .svn or .git files\n     - phpinfo()\n    - temporary files and debug information\n\n**Examples of LOW Vulnerabilities for MOBILE**\n- The ability to:\n    - access low-risk back-end information\n    - exploit vulnerable app configurations\n    - exploit vulnerabilities in complex, unusual conditions\n    - hijack app upgrades\n    - load URLs arbitrarily through a component that’s exposed to phishing\n    - obtain clients’ data via social engineering\n    - obtain non-sensitive information from local apps via SQLite injection\n\n---\n# Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider the attack scenario/exploitability and the security impact of the bug.\nThe following issues are considered out of scope and will be closed as N/A:\n\n### Web\n- Issues in 3rd party app myaffiliates.\n- Issues in 3rd party support chatbox (Livechat).\n- Clickjacking without any impact\n- Jira service desk signup public allowed on https://deriv.atlassian.net/servicedesk/customer/user/signup (its not owned by deriv)\n- XMLRPC related brute-force/enumeration/DDoS Attacks\n - Firebase DB open without sensitive information \n- Design flaws and best practices that do not lead to security vulnerabilities\n- Vulnerabilities that are no threat to deriv.com or other users, for example, self XSS, having a user paste - JavaScript into the browser console etc.\n- Exposure of third-party API keys with no significant security impact\n- Theoretical vulnerabilities without a working proof of concept (PoC)\n- Theoretical subdomain takeovers\n- Minimal security implications such as low impact CSRF (login/logout), low-impact UI redressing, misconfiguration that lead to CORS bypass but without any sensitive information leak\n- Content spoofing/text injection that cannot be leveraged for XSS or sensitive data disclosure\n- Session not invalidated after logout\n- Insensitive disclosure of information such as error message, software version disclosure, IP address disclosure, etc.\n- Arbitrary file upload without any impact\n- Vulnerabilities that can only be reproduced by some low-level IE browsers\n- HTTP codes/pages, other HTTP non- codes/pages, or etc/insensitive information files\n- Public links, such as social media profile pictures, live videos, etc.\n- Reflected file download attacks\n- SSRF vulnerability that does not expose intranet server information (only DNS request without any impact)\n- Issues related to payment providers such as skrill.com, paypal.com etc.\n- Misconfigurations such as:\n    - DNS issues (e.g., MX records, SPF records, etc.)\n    - Reports of insecure SSL/TLS cyphers (unless you have a working proof of concept and not just a report from a scanner)\n    - Presence of autocomplete attribute on web forms\n    - Mixed content warnings\n    - Missing security-related HTTP headers that do not directly lead to a vulnerability\n\n### Mobile\n- Absence of certificate pinning\n- Sensitive data in URLs/request bodies when protected by TLS\n- Unencrypted user data stored on external storage (except for APP logs with sensitive information or user data for which encryption has been promised)\n- Lack of obfuscation\n- OAuth and app secrets that are hard-coded/recoverable in APK without proven impact\n- Any kind of sensitive data protected by the app’s private directory\n- App setting allowBackup: true\n- Local DoS attacks with limited impact\n- Malformed intents sent to exported components that only causes the app to crash\n- Any data leak because a malicious app has acquired the appropriate permissions\n- Runtime hacking exploits using tools like, but not limited to, Frida and Appmon\n- Exploits that are only possible in a jailbroken environment\n- Spoofing vulnerabilities\n- Attacks that are only available in lower versions of Android (< 6)\n\n---\n# Safe harbour\nAny activities conducted in a manner consistent with this policy will be considered authorised conduct, and we will not initiate legal action against you. If a third party initiates legal action against you in connection with activities conducted under this policy, we will make it known that your actions have complied with this policy. https://hackerone.com/deriv/safe_harbor\n\nFor any questions, please contact us at security@deriv.com. Thanks for keeping our business and our customers secure!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "github.com/binary-com",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.deriv.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "smarttrader.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.deriv.cloud",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "deriv.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tradingview.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "trade.mql5.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "oauth.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "github.com/deriv-com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "derivws.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.derivws.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure-dfadmin.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ct.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://deriv.atlassian.net/servicedesk/customer/user/signup",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The asset is not owned by Deriv Ltd",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Any 3rd party managed domain",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "deriv.ae",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "home.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "deriv.partners",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "core-api.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://api-core.deriv.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

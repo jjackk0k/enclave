@@ -1,0 +1,47 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "pubg",
+      "name": "PUBG",
+      "offersBounties": false,
+      "assets": [
+        "*.pubg.com",
+        "*.pubgesports.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\pubg-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "pubg",
+  "name": "PUBG",
+  "url": "https://hackerone.com/pubg",
+  "policy": " KRAFTON looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Response Targets\r\nKRAFTON will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| Time to Triage | 5 bussiness days |\r\n| Time to Issue resolved | depends on severity and complexity |\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Disclosure Policy\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact\r\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced)\r\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder\r\n* Do not use a discovered vulnerability to view, delete, alter, or publish user data\r\n* Disclosure, leaking and publication of any personal information accessed is also prohibited\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Private Bounty Program\r\n\r\nReports involving the PUBG/KRAFTON game client and servers are handled under a separate private program. To be invited to the private program simply submit your game client/server related report here and we'll invite you to resubmit it to the private program where it may be eligible for a bounty payment.\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### For \"event pages\" that are temporarily open within the site, only \"critical\" vulnerabilities are eligible for rewards.\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* The PUBG/KRAFTON game servers are currently outside the scope of this program\r\n* Exposing Session Tokens in URLs without proof of exploitability\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions (Include Login/Logout CSRF)\r\n* Script executions that do not affect Users\r\n* Attacks requiring MITM or physical access to a user's device\r\n* Using a rooted device\r\n* Previously known vulnerable libraries without a working Proof of Concept\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\r\n* Unsafe SSL/TLS cipher suites or protocol version\r\n* Any activity that could lead to the disruption of our service (DoS)\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy\r\n* Missing security header(s)\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc)\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors, etc)\r\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\r\n* Reporting vulnerabilities related to Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n* Exposure of API keys with no security impact\r\n* Information disclosure via Wordpress REST API (`/wp/v2/users`)\r\n\r\n## You may submit a report for below the issue and it will be resolved.\r\n\r\n* Broken link hijacking (e.g. social media account, etc)\r\n* Status monitoring page with no disclosure of sensitive data (e.g. apache server status and internal metrics, etc)\r\n* Subdomain Takeover is subject to reward only for domains currently in operation If a Subdomain Takeover problem\r\n    Occurs for an unused domain (or an unmanaged domain), it is not eligible for reward\r\n* Vulnerabilities only affecting a single browser or a single version only\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n\r\n──────────────────────────────────────────────────────────────────────────\r\n\r\n# Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Krafton and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.pubg.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pubgesports.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Includes language-specific TLDs:\n`*.pubgesports.kr`\n`*.pubgesports.eu`\n...etc.",
+      "max_severity": "critical"
+    }
+  ]
+}

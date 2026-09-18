@@ -1,0 +1,228 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-31T17:14:12.289Z",
+      "type": "policy-changed",
+      "handle": "airbnb",
+      "automation": {
+        "from": {
+          "policy": "prohibited",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+        },
+        "to": {
+          "policy": "human-cadence",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — operator rule 2026-08-29: gated, scoped, human-paced AI is human-equivalent, so silence maps to the conservative human-cadence ceilings (never exclusion)"
+        }
+      }
+    },
+    "scannedAt": "2026-08-31T17:14:12.289Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\airbnb-policy-changed-2026-08-31T17-14-12-289Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "airbnb",
+  "name": "Airbnb",
+  "url": "https://hackerone.com/airbnb",
+  "policy": "**Join us to secure our Airbnb community!** Have you discovered a potential security vulnerability? Your expertise is invaluable. Partner with us by responsibly disclosing the issue—your action is critical to protecting our global community.\n\n**Share your findings—we need the details!** To allow us to investigate effectively and protect our community, please submit a clear, detailed description of the issue and the exact steps required to reproduce what you've observed. Got a recorded repro? *Even better*.\n\nPlease also include the following details, ideally captured via Burp Suite (Proxy or Repeater) in your reports.  It helps ensure we are identifying potential security gaps.\n\n- **Full Request/Response Headers:** Complete set of request/response headers for a typical request/response flow. Please also include the DNS hostname if it does not match the value of the “Host” header. \n- **Omit active session cookies**\n- **Configure a custom header** in your BurpSuite project or scripts to be sent with all traffic, e.g. “X-HackerOne-Researcher: <H1 username>”\n- **Include your source IP Address** used when you were doing your testing.\n\n**Your commitment to privacy is essential:** As you conduct your research, please take the utmost care to protect our users’ privacy, data confidentiality, and integrity. We cannot partner with anyone who violates applicable laws or regulations, attempts to maliciously exploit a security issue, or accesses other users' data. Your assistance in preserving the trust of our community is something we value deeply.\n\n*Note: Abusing vulnerabilities in other websites in order to test Airbnb is prohibited. Provided that you’ve made a good faith effort to abide by this policy, we will not take legal action against you or ask law enforcement to investigate you.*\n\n**We Value Your Time**. Once your report is submitted, we'll share clear timelines for triaging the issue, processing your bounty payout, and answering your questions throughout the investigation. To ensure a prompt review, please provide a clear, detailed description of the vulnerability, its actual security impact, and complete reproduction steps — but keep write-ups focused; avoid unnecessary filler. **Reports lacking this required information, containing excessive filler including dense AI generated outputs, or failing to follow the [HackerOne Code of Conduct](https://www.hackerone.com/policies/code-of-conduct) will be closed as Not Applicable.**\n\n*Note: Timelines as shown below are based upon receipt of a fully detailed vulnerability with reproduction steps provided with the submitted report.*\n\n\nCommunication| SLA|\n|-------------------|-----------------|\n| Initial Communication | Upon receipt of new report |\n| Triage | 2-business days from receipt of new report |\n| Bounty Payout | 5-business days from Triage |\n| Response to Researcher questions | 3-business days from posted question |\n\n*If Triage SLAs, Bounty Payouts, and questions occur near US Holidays, please know there may be a delay in response and payout.*\n\nThis program is dedicated to perceived online security issues that may affect many people on Airbnb. If you're having issues related to your *individual account*, please visit https://www.airbnb.com/help.\n\nCertain vulnerabilities with a working proof of concept on some of our Android mobile app(s) may qualify for an additional bounty through the Google Play Security Rewards Program. To see which apps and vulnerabilities may qualify for a bounty, please refer to the [Google Play Security Rewards Program’s Scope and Vulnerability Criteria]https://bughunters.google.com/about/rules/5604090422493184/google-play-security-reward-program-rules\n\n\n# Table of Contents\n* Program Scope\n* Program Rules\n* Rewards\n* Eligibility\n* Special Testing Requirements\n    * HotelTonight Testing Requirements\n* Out of Scope Vulnerabilities (no reward)\n    * Applicable to HotelTonight\n* Other Information\n\n# Program Scope\nIn Scope assets are listed https://hackerone.com/airbnb/policy_scopes and are reviewed on a quarterly basis to ensure the most inclusive scope possible.\n\n# Program Rules\n\n- Do not mass create accounts to perform testing against Airbnb applications and services.\n- Do not perform brute force testing to determine whether rate limiting is in place for particular APIs or pieces of functionality.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n- Only interact with accounts you own or with explicit permission of the account holder.\n- Blocked Accounts: There are no guarantees we will be able to unblock any restricted account activity. You may submit a request for us to investigate and unblock your account through HackerOne. The Airbnb InfoSec team will review your request and notify you if any further action is taken.\n- No testing on real user data permitted for any HotelTonight assets.\n- 3rd Party assets are not covered in our program. Our program applies to components under our control.\n\n#Rewards\nOur maximum bounty is $25,000 USD.\n\nReward amounts are based on Severity and overall impact. We encourage you to use the CVSS calculator in HackerOne to calculate the severity you believe is adequate to your finding. If we believe the severity you calculated is different from our assessment, you will be provided with an explanation as this may impact payout. Please allow up to 5 business days from time of triage for bounty to be paid out. The following table outlines the typical bounty ranges by Severity. **All bounties are up to the discretion of Airbnb.**\n\nHigh Impact Scope Payout Range\n\nSeverity | Payout Range |\n|-------------------|-----------------|\n| Critical | $18,000 - $25,000 |\n| High | $10,000 - $17,999 |\n| Medium| $1000-$5000 |\n| Low| $250 |\n\nAI Customer Service Assistant Feature Scope Payout\n\nSeverity | Payout Range |\n|-------------------|-----------------|\n| Critical | $18,000 - $25,000 |\n| High | $5000 |\n| Medium| $2500 |\n| Low| $250 |\n\n\nLow Impact Scope Payout \n\nSeverity | Payout |\n|-------------------|-----------------|\n| Critical | $5000 |\n| High | $3000 |\n| Medium| $500-$1000 |\n| Low| $250 |\n\n\nVulnerability Type|Severity Range|\n|-------------------|-----------------|-----------------|\n| Remote Code Execution (RCE) | Critical |\n| SQL Injection | High - Critical |\n| Improper Direct Object Reference (IDOR) | Medium - Critical |\n| Sensitive Data Exposure| Medium - Critical |\n| Server Side Request Forgery (SSRF) | Low - Critical |\n| Local file Inclusion | Medium - High |\n| Stored Cross Site Scripting | Medium - High |\n| Significant Authentication Bypass | Medium - High |\n| Authorization Flaw | Medium - High |\n| Cross-Site Request Forgery (CSRF) | Low - Medium |\n| Open Redirect on Sensitive Parameter | Low - Medium |\n| Reflected/Other Cross Site Scripting | Low - Medium |\n| Open Redirect | Low - Medium |\n| DNS Subdomain Takeover | Low - Medium |\n\n##Highest Impact Scope\n* `*.airbnb.com`\n* `*.airbnb.org`\n* `*.musta.ch`\n* `*.airbnbpayments.com`\n* All localized airbnb sites (e.g., `es.airbnb.com`, `it.airbnb.com`)\n* [Airbnb iOS app](https://apps.apple.com/us/app/airbnb/id401626263)\n* [Airbnb Android app](https://play.google.com/store/apps/details?id=com.airbnb.android)\n\n## Lower Impact Scope\nThese properties are considered to have lower security impact on our users since they should not have access to Airbnb user sessions and generally cannot access user data. The bounties given for reports on these properties will therefore be significantly lower.\n\n* `*.atairbnb.com`\n* `*.withairbnb.com`\n* `*.airbnbcitizen.com`\n* `*.byairbnb.com`\n* `*.muscache.com`\n* `*.airbnb-aws.com`\n* `*.luxuryretreats.com`\n* `*.airbnbopen.com`\n* `hoteltonight-test.com`\n* `*.hoteltonight.com`\n* `api.hoteltonight-test.com`\n* `places.hoteltonight-test.com`\n\nPlease remember that reward decisions are up to the discretion of Airbnb. We do not reward duplicate reports. \n\n# Eligibility\nAirbnb reserves the right to decide the weakness and severity of a report and whether the vulnerability was previously reported. Rewards are granted entirely at the discretion of Airbnb.\n\nTo qualify for a reward under this program, you must:\n- Be the first to report a vulnerability.\n- Send a clear textual description of the report along with steps to reproduce the vulnerability.\n- Include attachments such as screenshots or proof of concept code as necessary.\n- Disclose the vulnerability report directly and exclusively to us.\n\n\nA good Bug Bounty report should include the following information at a minimum:\n- List the affected endpoints, URL(s), and any additional parameters\n- Step by step instructions so we can reproduce the finding to verify the vulnerability\n- Full written details of the finding \n- Account Configuration: User type (Guest, Host, ProHost, SuperHost) \n- Severity: Use the HackerOne calculator to calculate the severity you believe matches your report\n- Asset: Select the asset that is impacted by your finding \n- Weakness: Select the weakness associated with your report\n\n\n# Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider the attack scenario, exploitability, and security impact of the bug. The following issues are considered out of scope, and we will NOT accept any of the following types of attacks:\n\n- Denial of service attacks\n- Phishing attacks\n- Social engineering attacks\n- Reflected file download\n- Software version disclosure\n- Issues requiring direct physical access\n- Flaws affecting out-of-date browsers and plugins\n- Publicly accessible login panels\n- CSV injection\n- Email enumeration / account oracles that do not provide any extra information.\n- CSP Weaknesses\n- Email Spoofing\n- Content redaction bypasses where the redacted content is replaced by the string (Hidden by Airbnb) (other content redaction vulnerabilities are in scope)\n- Techniques allowing you to view user profile photos (these are considered public)\n- Broken links or unclaimed social media accounts (unless chained with an impactful exploit)\n- Exposed Google Maps API keys\n- Unvalidated or unreproducible scanner results\n- Any issue without clear security impact\n\nFor product related, non-security related issues, please use  https://www.airbnb.com/help\n\n## Applicable to HotelTonight\n* `hoteltonight.com`\n* `hoteltonight.build`\n* `hoteltonight-test.com`\n* Our partners site (`partners.hoteltonight.com`)\n* iOS mobile app\n* Single Sign On (Google or Facebook). \n* Do not send questions/requests to their customer support team for help with your testing. This is considered an interruption to the business. \n\nEnsure you use test accounts and data. Researchers can create test customer accounts and book hotel rooms (test bookings) using a fake credit card in our testing environment, which doesn’t send out any email notifications (activation or confirmation) to customers. Remember to only use test data when using these systems.\n\n**HotelTonight Mobile Web App**\n* Accessible from https://www.hoteltonight-test.com (if using a desktop browser, note that you will need to use a mobile user-agent or Chrome developer tools to view the mobile site)\n\n**HotelTonight Mobile APIs**\nMobile APIs that power our mobile apps are located at:\n* api.hoteltonight-test.com\n* places.hoteltonight-test.com\n\n**HotelTonight Cities and Inventory**\nIn our testing environment, you should search for following cities to look for hotels:\n* San Francisco\n* Las Vegas\n* New York City\n\n**HotelTonight Access**\nYou can create customer accounts using your emails (no activation emails will be sent) via a specific url: [https://www.hoteltonight-test.com/?client_loginWithOTPAndPhone=control](https://www.hoteltonight-test.com/?client_loginWithOTPAndPhone=control), and use the following credit card for test booking a hotel room: - 4111111111111111 (Visa) with any expiration date in the future. Additional test payment methods available at https://developers.braintreepayments.com/reference/general/testing/ruby#credit-card-numbers (use only American Express, Discover, JCB, Mastercard, or Visa). All test bookings are not real bookings. We also suppress all emails for test bookings, so no email receipts will be sent to whatever email address is entered.\n\n**HotelTonight Credentials**\nResearchers will need to self-provision the customer accounts by signing up using their email on our mobile web app. You will not get any activation email from our testing environment.\n\n# Other Information\n* [Researchers who have our thanks](https://hackerone.com/airbnb/thanks)\n* [Past versions of this policy](https://hackerone.com/airbnb/policy_versions)\n\n\n\n\n\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "next.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support-api.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "assets.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "one.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "open.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "callbacks.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.airbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Localized airbnb sites listed at the link below:",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**https://www.airbnb.com/sitemaps/localized**\nHigher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.airbnbcitizen.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.airbnb.app",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.airbnb.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Higher Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.atairbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.withairbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.byairbnb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.muscache.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.airbnb-aws.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luxuryretreats.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.luxuryretreats.ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Lower Impact Scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "luckeyhomes.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "luckey.fr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "luckey.app",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "luckey.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "doordash",
+      "name": "DoorDash",
+      "offersBounties": true,
+      "assets": [
+        "com.dd.doordash",
+        "doordash.DoorDashConsumer",
+        "www.doordash.com"
+      ],
+      "exclusions": [
+        "*.dashapi.com",
+        "*.doorcrawl.com",
+        "*.order.online",
+        "DoorDash Payments",
+        "careersatdoordash.com",
+        "consumer-mobile-bff.doordash.com",
+        "doordash.com/orders/drive/*",
+        "doordash.com/unified-gateway/*",
+        "http://help.doordash.com",
+        "https://doordash.com/merchant",
+        "internal.doordash.com",
+        "ir.doordash.com",
+        "merchant-mobile-bff.doordash.com",
+        "merchant-portal.doordash.com",
+        "track.doordash.com",
+        "unified-gateway.doordash.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not run automated security scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\doordash-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "doordash",
+  "name": "DoorDash",
+  "url": "https://hackerone.com/doordash",
+  "policy": "DoorDash welcomes the contributions of security researchers to help keep our consumers, Dashers, and merchants safe. Our Bug Bounty Program focuses on identifying vulnerabilities that could meaningfully impact the confidentiality, integrity, or availability of DoorDash systems or user data.\n\nWe evaluate submissions based on their demonstrated **security impact**, not just vulnerability class or affected domain. Reports without clear security relevance may be considered out of scope. By submitting a report you agree that you have read and are bound by the terms set forth below as well as any other DoorDash terms and conditions.\n\n---\n\n## General Terms\n\n---\n\n* **No disruptive testing**: Our mission is to connect consumers, Dashers, and merchants. Your testing should not disrupt this mission. Do not destroy data, degrade or interrupt our service, or leave a system or our users in more vulnerable states than you found them. Brute forcing credentials, performing denial of service (DoS) attacks or tests, or changing passwords of accounts that are not yours or which you don't have permission to change are all prohibited  \n* **Respect our users' privacy**: We respect our users' privacy and expect you to do so too. Only use or interact with DoorDash accounts you own or with explicit permission from the account holder. If you encounter our users' information during the course of your research: (1) stop at that point in your testing where you have adequate proof for your submission and (2) submit your report or disclosure at that point so DoorDash can investigate further. Any actions taken beyond that point are not authorized. Do not save, copy, store, transfer, disclose, or retain any user information.  \n* **Patience and cooperation:** We value the reports we receive and may have questions for you or seek clarification regarding your submission. It may take some time for us to remediate confirmed findings as we perform root cause analyses. Please be respectful and patient, and we will do likewise.  \n* **No public disclosure:** Public disclosure of vulnerabilities is not permitted unless explicitly approved by DoorDash.  \n* **No scanners:** Do not run automated security scanners against our systems.  \n* **No pivoting**: Report your findings as soon as you've discovered them. Do not attempt to pivot or extend the severity of observed security weaknesses, unless it is chained with another vulnerability to show impact.  \n* **No stockpiling**: If you're aware of variants of the bug or vulnerability you're reporting, then report all variants all at once.  \n* **No writes to AWS**: Do not conduct any testing of our AWS configuration that requires you to submit API changes that \"write\", \"create\", \"delete\", or \"change\" data or configuration.\n* **Third-party systems out of scope:** Vulnerabilities in third-party services, platforms, or software not owned or operated by DoorDash are out of scope, even if they integrate with DoorDash systems or appear within our applications.\n\n---\n\n## Eligibility to Participate\n\n---\n\nTo be eligible to participate in our Bug Bounty Program, you must:\n\n* Be at least 18 years of age if you test using a DoorDash account  \n* Not be employed by DoorDash or any of its affiliates or contractors, or be an immediate family member of a person employed by DoorDash or any of its affiliates or contractors  \n* Not be a resident of, or submit a report or disclosure from a country against which the United States or any other country in which DoorDash operates has issued export sanctions or other trade restrictions;  \n* Not be in violation of any national, state, or local law or regulation with respect to any activities directly or indirectly related to DoorDash's Bug Bounty Program.\n\nIf you do not meet the eligibility requirements above, breach any of the terms or rules herein or any other agreements you have with DoorDash or its affiliates, or we determine that your participation in the Bug Bounty Program could adversely impact DoorDash, our affiliates or any of our users, employees or agents, DoorDash, in its sole discretion, may remove you from the Bug Bounty Program and disqualify you from receiving any benefit of the Bug Bounty Program.\n\n---\n\n## Understanding Our Platform\n\n---\n\nThe DoorDash platform provides a **web interface for consumers** and **dedicated mobile applications** for consumers, dashers, and merchants on both **iOS and Android**.\n\nOriginally built as a **Python/Django monolith**, DoorDash has evolved into a **microservices-based architecture** leveraging multiple languages, including **Kotlin**, **Go**, and **Java**, across various services. The consumer-facing web front-end is developed using **React.js** and **HTML**, delivering a responsive and accessible user experience.\n\n- [https://doordash.engineering/2020/12/02/how-doordash-transitioned-from-a-monolith-to-microservices/](https://doordash.engineering/2020/12/02/how-doordash-transitioned-from-a-monolith-to-microservices/)\n\n---\n\n## Testing Instructions \n\n---\n\nTo help us identify your security testing activity, please follow the below instructions and inject the following header for all testing:\n\n|**Header Format** |\n| ----------------------------------------- |\n| X-Bug-Bounty: <your-hackerone-handle> |\n\n### How to set up your Consumer Account\n\n1. Go to https://www.doordash.com/ \n2. Click the Sign Up button and create a DoorDash account using your wearehackerone.com email address.\n3. If you want to create multiple test accounts, please use the \"plus addressing\" format with your HackerOne email as such: \n`<your-hackerone-handle>+1@wearehackerone.com`\n\n---\n\n## Vulnerabilities We Prioritize\n\n---\n\nWe prioritize reports that demonstrate a clear risk to the security or integrity of DoorDash users, systems, or data. The following categories are of particular importance to us, but not exhaustive:\n\n**1\\. Authentication & Authorization**\n\n* Flaws that allow unauthorized actions or account takeovers without user interaction (e.g., authentication bypasses or session hijacking).  \n* Authorization issues that expose or modify data belonging to other users or roles.\n\n**2\\. Code Execution & Injection**\n\n* Remote code execution (RCE), command injection, or database query injection (SQL/NoSQL).  \n* Cross-Site Scripting (XSS) or any injection vulnerabilities that result in arbitrary code execution in the browser (DOM-based or otherwise).\n\n**3\\. Platform & Infrastructure Security**\n\n* Exposure of credentials, API keys, or other secrets for internal systems or infrastructure (e.g., in GitHub repositories, DockerHub images, or other public assets).  \n* Open redirects or other flaws that can facilitate phishing or redirect attacks.\n\n---\n\n## Vulnerabilities Excluded\n\n---\n\nThe following kinds of vulnerabilities on our platform are **excluded** from this program. Please refrain from reporting and including them in your tests.\n\n| Category | Exclusion details |\n| :---- | :---- |\n| **Role-Based Access Control (RBAC) / Permissions Without Risk** | Findings where user roles (e.g., dasher vs. consumer vs. merchant) are restricted by business design and do not lead to a security risk or exposure of customer/PII are excluded. For example, a dasher not being able to access certain merchant-only dashboards is expected behavior.\u000b |\n| **Leaked User Credentials from External Sources** | Reports of leaked credentials from third-party breaches, password dumps, or OSINT scraping (GitHub, paste sites, etc.) are accepted for awareness but not eligible for bounties. Bounties only apply if the leak originates from DoorDash-owned systems. |\n| **Information Disclosure Without Exploitability** | Findings such as API version banners, verbose error messages in order flows, or generic stack traces that do not lead to access to sensitive data are out of scope. |\n| **Open Redirects Without Escalation** | Redirects (e.g., in referral links or promotions) that cannot be leveraged into phishing, account takeover, or token leakage are excluded. |\n| **Missing or Misconfigured Security Headers** | Absence of headers like HttpOnly, Secure, X-Frame-Options, or CSP in consumer-facing pages is not eligible unless a demonstrable exploit (e.g., XSS, clickjacking on payment/checkout) is shown. |\n| **Self-XSS / Self-DoS** | Bugs that only impact the reporter's own account/session, such as injecting JavaScript into your own profile description or locally exhausting API quota, are excluded. |\n| **CSRF / Clickjacking Without Sensitive Action** | Reports involving CSRF/clickjacking on non-critical functions (e.g., liking a restaurant, updating a delivery note) are excluded. Eligible examples would include payment method changes, dasher payout settings, or password resets. |\n| **Low-Impact Mobile Findings** | Reports of missing certificate pinning, jailbreak/root detection, or insecure local storage that don't lead to account compromise, data theft, or fraud are excluded. |\n| **Rate Limiting / Brute Force Without Impact** | Generic findings of missing rate limits, username/email enumeration during signup/login, or brute force attempts that don't result in credential compromise, payment fraud, or order manipulation are |\n\n---\n\n## Report Submissions and Quality\n\n---\n\nHigh-quality submissions help DoorDash's security team reproduce, validate, and fix issues efficiently. Reports that include complete, actionable information allow us to assess severity faster and reward accordingly.\n\nTo help ensure your report is triaged quickly and accurately:\n\n* **Confirm scope first:** Review our Scope section before submitting to make sure the asset and vulnerability type are in scope for this program.\n\n* **Be clear and reproducible:** Provide detailed steps to reproduce the issue, including request/response samples, screenshots, or short screen recordings where applicable.\n\n* **Explain the impact:** Describe how the vulnerability could affect DoorDash users, data, or systems. Our bounty payouts are based on demonstrated security impact, so please provide sufficient evidence to support severity.\n\n* **Provide full context:** Include relevant account types, environment details, and any preconditions needed to reproduce the issue.\n\n* **Submit complete reports:** Standalone videos or incomplete PoCs will not be accepted. Video proof-of-concepts are welcome **only** when accompanied by a clear, written report.\n\n* **Focus on verifiable findings:** Issues must be reproducible and demonstrate a measurable security impact to qualify for bounty consideration.\n\n* **Avoid duplicates:** Known vulnerabilities, or reports that stem from the same root cause as prior findings, will be marked as duplicates and ineligible for reward.\n\n* **When in doubt, submit responsibly:** If you're unsure of full impact but believe the finding is noteworthy, submit a detailed and responsible report. Our team will evaluate it for potential security implications.\n\n---\n\n## Other Notes\n\n---\n\nPlease note that many of these web application and API endpoints are deployed from the *same underlying codebase*.  If the same vulnerability affects more than one domain, **please file a single report.**  For example, reporting a web application vulnerability on our staging site that's identical to a vulnerability report on our production site will be considered a duplicate and will not receive a reward since any fix would be deployed to both as part of our normal release cycle.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.dashapi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.doorcrawl.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://help.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.order.online",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "DoorDash Payments",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "careersatdoordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ir.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "doordash.com/unified-gateway/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "unified-gateway.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "consumer-mobile-bff.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "merchant-mobile-bff.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "merchant-portal.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://doordash.com/merchant",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "track.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "internal.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "doordash.com/orders/drive/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.doordash.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.dd.doordash",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Consumer Android: https://play.google.com/store/apps/details?id=com.dd.doordash",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "doordash.DoorDashConsumer",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Consumer iOS: https://itunes.apple.com/us/app/doordash-food-delivery/id719972451",
+      "max_severity": "critical"
+    }
+  ]
+}

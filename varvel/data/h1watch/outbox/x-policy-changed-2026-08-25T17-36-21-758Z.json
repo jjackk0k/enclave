@@ -1,0 +1,200 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T17:36:21.758Z",
+      "type": "policy-changed",
+      "handle": "x",
+      "automation": {
+        "from": {
+          "policy": "prohibited",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+        },
+        "to": {
+          "policy": "prohibited",
+          "basis": "default-silent",
+          "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+        }
+      }
+    },
+    "scannedAt": "2026-08-25T17:36:21.758Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\x-policy-changed-2026-08-25T17-36-21-758Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "x",
+  "name": "X / xAI",
+  "url": "https://hackerone.com/x",
+  "policy": "# Program Rules\nThe scope of this program is limited to products under under X and xAI. Please make sure you review the following program rules before you report a vulnerability. By participating in this program, you agree to be bound by these rules.\n\n\n# Rewards\n* SpaceXAI may, at its sole discretion, provide rewards to eligible reporters of qualifying vulnerabilities.\n* Issue severity is calculated by an internal risk matrix based on company specific data and use cases. Severity is considered a combination of Impact and Likelihood, each assigned a value of Informative, Low, Medium, High, or Critical.\n* Payouts are determined by a panel of security experts. Previous bounty rewards are not considered as precedent for future rewards.\n\n# Legal Fine Print\n* You must comply with all applicable laws in connection with your participation in this program. You are also responsible for any applicable taxes associated with any reward you receive.\n* We may modify the terms of this program or terminate this program at any time. We won’t apply any changes we make to these program terms retroactively. \n\n# SLA\nSpaceXAI will make a best effort to abide by the following timelines:\nFirst Response: 2 business days\nTime to Triage: 10 business days\nTime to Bounty: 14 business days\nTime to Resolution: depends on severity and complexity\n\n# Rules of Engagement\nWhen researching security issues, especially those which may compromise the privacy of others, you must use test accounts in order to respect our users’ privacy. Accessing private information of other users, performing actions that may negatively affect SpaceXAI users (e.g., spam, denial of service), or sending reports from automated tools without verifying them will immediately disqualify the report and may result in additional steps being taken.\n\n\n# Report Eligibility\n\n## General\n* You must be the first reporter of the vulnerability.\n* The vulnerability must demonstrate security impact to a site or application in scope.\n* You must not have compromised the privacy of our users or otherwise violated the SpaceXAI Rules.\n* You must not have publicly disclosed the vulnerability prior to the report being closed, in compliance with the process described in the HackerOne Vulnerability Disclosure Guidelines.\n* We must not be legally prohibited from rewarding you.\n\n## Open-Source Code\nReports for the open-source SpaceXAI code have additional requirements. A working proof of concept is required for report acceptance. If a proof of concept is not provided, nor sufficient supporting documentation for SpaceXAI engineers to feasibly recreate and evaluate the issue, the report may not be accepted. Report quality for acceptance will be at the discretion of SpaceXAI's HackerOne program.\n\n\n# Ineligible/Known Issues\n* Attacks requiring physical access to a user's device.\n* Any physical attacks against SpaceXAI property or data centers.\n* Social engineering of SpaceXAI staff or contractors.\n* Highly speculative reports about theoretical damage.\n* Vulnerabilities as reported by automated tools that have not been validated.\n* SSL/TLS scan reports (ie: output from sites such as SSL Labs).\n* Banner grabbing issues (figuring out what web server we use, etc.)\n* Volumetric Denial of Service (DoS) attacks.\n* Issues without clearly identified security impact, such as clickjacking on a static website, missing security headers, or descriptive error messages.\n* Forms missing CSRF tokens (we require evidence of actual CSRF vulnerability).\n* Issues related to software or protocols not under SpaceXAI control.\n* Logout CSRF.\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms.\n* Reports of broken hyperlinks from X blog posts, Grokipedia pages, press releases, or support articles to unclaimed X Handles.\n* Password and account recovery policies, such as reset link expiration or password complexity.\n* Invalid or missing SPF (Sender Policy Framework) records.\n* Bypass of URL malware detection.\n* Issues relating to unlocking client-side features in modified SpaceXAI applications, rooted devices, or jailbroken devices.\n* Open redirects unless they can demonstrate a higher security risk than phishing.\n* Account oracles -- the ability to submit a phone number, email, UUID and receive back a message indicating an X/xAI account exists.\n* Reports that state that software is out of date/vulnerable without a proof-of-concept.\n\n\n## Grok\n* Model outputs that violate content moderation guardrails. These should be reported through safety@x.ai\n* Performing code execution on grok.com in the sandboxed environment.\n* CSRF with linked queries (grok.com?q=prompt) that only create a new grok chat.\n\n## Grok Build\n* Issues focusing on the client-side bypass of auto-approval for safe/trusted commands are ineligible for bounty.\n\n## X\n* Manipulation of \"likes/follows/views\" count due to caching issues. We are already aware that some statistics on our site may temporarily display inaccurate figures when many requests are sent in a brief period of time. However, that is because the numbers are cached, and the cache may take a bit of time to synchronize with the accurate backend data store.\n* Homoglyph attacks in URLs that can lead to phishing scenarios, unless the finding can demonstrate larger issues on our platform (e.g AuthN/AuthZ bypass)\n* Documents in the Ads Transparency Center do not disclose private account information. We intentionally disclose the advertising status of accounts to better inform our users of ads being run our platform.\n\n\n# Eligible Issues\nSome of the aforementioned guidelines may put your report in a gray area. Reports demonstrating the following might be considered valid :\n\n* Subdomain takeovers - please demonstrate that you are able to take over the page by leaving a non-offensive message, such as your username.\n* We only consider DoS issues that can be triggered by a single user with a single or few requests.\n* Valid employee credentials from data dumps.\n\n## Grok\n* Model interactions that cross the security boundary of chat responses and somehow affect Confidentiality, Integrity, Availability of other users or SpaceXAI.\n* CSRF with linked queries (grok.com?q=prompt) that can interact with user's account outside the single chat, interact with settings, connectors or exfiltrate memory.\n\n## Grok Build\n* Bypassing security controls baked into Grok Build binary - like escaping sandbox profiles.\n* Reports demonstrating command executions at Grok Build startup bypassing Trust gate may be considered for a bonus.\n\n# Report Disclosures\nWe currently don't disclose reports submitted to our program.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.twitter.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vine.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.twitter.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.atebits.Tweetie2",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.twimg.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "t.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "x.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "xadsacademy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "accounts.x.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console.x.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.x.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.x.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.grok.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "grok.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ai.x.GrokApp",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ai.x.grok",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "chat.x.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "grokipedia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "money.x.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console.x.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "X Pixel Helper (Chrome Extension)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pscp.tv",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "x.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "grok-build",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    }
+  ]
+}

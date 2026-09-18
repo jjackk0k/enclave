@@ -1,0 +1,70 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "intuit_rdp",
+      "name": "Intuit",
+      "offersBounties": false,
+      "assets": [
+        "*.intuit.com",
+        "*.mailchimp.com",
+        "*.mint.com",
+        "*.quickbooks.com",
+        "*.turbotax.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\intuit_rdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "intuit_rdp",
+  "name": "Intuit",
+  "url": "https://hackerone.com/intuit_rdp",
+  "policy": "Intuit is committed to ensuring the security of our services and customer information. As part of this commitment, we encourage security researchers to contact us to report any potential weaknesses identified in any product, system, or asset belonging to Intuit. This program isn’t intended to represent a monetary bug bounty program and we make no offers of monetary reward or compensation for submitting potential issues. We appreciate your commitment to improving Intuit services.\r\n\r\n# Program Policy\r\n\r\nSecurity Researchers will disclose potential weaknesses in compliance with the following guidelines:\r\n\r\n# Do\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* Understand when duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Understand multiple vulnerabilities caused by one underlying issue should be combined into a single report.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n* Provide a clear, concise description of the steps needed to reproduce any vulnerability you submit.\r\n* Provide the complete details related to the security issue, including proof-of-concept (POC) URL, as well as the details of the system(s) where tests have been conducted.\r\n\r\n# Don't\r\n* Don’t cause harm to Intuit, its customers, shareholders, partners or employees.\r\n* Don’t engage in any act that may cause an outage or stop any of Intuit’s services.\r\n* Don’t engage in illegal activities or any acts that violate any international laws or regulations, or federal or state laws or regulations.\r\n* Don’t store, share, compromise or destroy any Intuit data or customer data while conducting research activities. If personally identifiable information (PII) is encountered, you are required to stop and immediately notify Intuit.\r\n* Don’t conduct fraudulent activity or complete fraudulent financial transactions as part of your research.\r\n\r\n# Response Targets\r\nIntuit will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 |\r\n| Time to Triage | 2 |\r\n| Time to Award | 10 |\r\n| Time to Resolution | Aligned to impact and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n* Intuit does not allow disclosure at this time. Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Test Plan\r\n* When creating an account for testing, please use the following syntax for email: name+hackerone@domain.com, or use your @wearehackerone.com alias.\r\n* When researching for a vulnerability, only use accounts you own. Do not attempt to use another user's account.\r\n\r\nTo help accelerate our validation of reports, please tag your traffic and include identifiers in your reports. Some examples include:\r\n\r\n| Header | Value |\r\n| ------ | ----- |\r\n| X-Bug-Bounty: | HackerOne-&lt;username&gt; |\r\n| X-HackerOne: | &lt;sha256 value&gt; |\r\n| User-Agent: | &lt;product&gt; / &lt;product-version&gt; &lt;H1: username&gt; |\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug.\r\nThe following types of vulnerabilities are out of scope for this program:\r\n\r\n* Phishing\r\n* Social engineering\r\n* Physical security assessments\r\n* Any form of denial of service (DoS) attack\r\n\r\nThe following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues (we use various solutions to monitor and respond to anomalous traffic)\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n* Sessions not invalidated or devices not unlinked after password change.\r\n* Copy/pasting tool output (ex: WPScan results, SSL Labs links) as a report. A PoC and detailed description on how it can affect a user's data or Intuit data/infrastructure must be included.\r\n* Pursuing vulnerabilities which send unsolicited bulk messages (spam) or unauthorized messages\r\n* Arbitrary File Download\r\n* Mobile Apps\r\n  * Local access to user data when operating a rooted mobile device.\r\n  * Attacks that require an already compromised system and a malicious actor with escalated privileges\r\n  * Attacks that require physical access to or modification of the hardware\r\n  * Class and method name leak as a result of disassembly\r\n  * Jailbreak detection bypass\r\n  * Caching of application screenshot\r\n\r\n**Please note:**\r\n* Any testing that has a negative impact on the availability of our products and services can result in being blocked or banned.\r\n\r\n# Submission Guidelines\r\nAll potential weaknesses submitted must include enough information to reproduce and validate the issue. Documentation should include a detailed summary of the issue, targets, steps performed, screenshots, tools utilized, and any information that will help Intuit during triage.\r\n\r\nBy following these guidelines and responsibly disclosing any security weaknesses directly to Intuit, we agree not to pursue legal action against you. Intuit reserves its legal rights in the event of noncompliance with program guidelines.\r\n\r\n# Privacy and Security Notice\r\nIntuit is committed to leveraging technology in a way that provides you transparency on how we collect, process, and share personal information. In accordance with the terms of the Intuit [Privacy Statement](https://www.intuit.com/privacy/statement/) you understand and agree that, by providing us with an inquiry or a submission, we may collect certain information about you, your device, and your use of the Intuit Platform and sites.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.intuit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.turbotax.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mint.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.quickbooks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mailchimp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

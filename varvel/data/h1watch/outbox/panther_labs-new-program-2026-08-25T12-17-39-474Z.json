@@ -1,0 +1,174 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "panther_labs",
+      "name": "Panther Labs",
+      "offersBounties": true,
+      "assets": [
+        "*.panther.com",
+        "*.runpanther.com",
+        "*.runpanther.io"
+      ],
+      "exclusions": [
+        "*.hubspot.com",
+        "*.pantherlabs.club",
+        "*.runpanther.net",
+        "Chat (Drift)",
+        "Request a Demo Form",
+        "data.stats.runpanther.io",
+        "help.panther.com",
+        "https://github.com/panther-labs/panther",
+        "https://panther.com/request-a-demo/",
+        "https://portal.productboard.com/runpanther/",
+        "runpanther.zendesk.com",
+        "slack.runpanther.io",
+        "status.panther.com",
+        "status.runpanther.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\panther_labs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "panther_labs",
+  "name": "Panther Labs",
+  "url": "https://hackerone.com/panther_labs",
+  "policy": "Panther is a security data analytics platform used for log analysis, cloud security, and data analytics over a vast amount of data. Panther is designed for cloud-first environments and is backed by Serverless components written in Golang, Python, and React.\r\n\r\nNo technology is perfect, and we believe that working with skilled security researchers across the world is crucial in identifying improvements in any technology. If you have found a security issue, we encourage you to notify us to resolve the issue promptly. \r\n\r\n# Disclosure Policy\r\n\r\n* The vulnerability must result in material, security impact\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n\r\n# Bounty ranges\r\n\r\nBounty amounts are based on severity and will range from $100 to $1,337 USD.\r\n\r\nThe Panther Labs team reserves the right to make the final call on the specific bounty amount for any issue, but to give you an idea of our priorities, here are some rough ranges for bounties and the types of issues we expect would fall into each range:\r\n\r\n### Severe issues\r\n\r\nBounty: $500 - $1337\r\n* Remote Code Execution\r\n* SQL/NOSQL injection\r\n\r\n### Moderate issues\r\n\r\nBounty: $250 - $500\r\n* XSS\r\n* CSRF\r\n* Broken Authentication\r\n\r\n### Low severity issues\r\n\r\nBounty: $100 - $250\r\n* User data exposure\r\n* Broken session management\r\n* Unvalidated redirects/forwards\r\n* Issues requiring an uncommon configuration option\r\n\r\n### No Reward\r\n\r\nBounty: $0\r\n* Any behavior which is clearly documented\r\n* Any behavior which is the result of deliberate misconfiguration\r\n* Issues in third-party libraries (please report issues directly to the maintainers)\r\n* Issues discovered while scanning without permission\r\n* The OPTIONS header\r\n* SPF/DKIM/DMARC settings\r\n* Roadmap page (https://portal.productboard.com/runpanther)\r\n\r\n# Exclusions \r\n\r\nWhile researching, we'd like to ask you to refrain from: \r\n* Testing the embedded website Chat (this is managed by Drift and is out of scope)\r\n* Spamming through forms or any other avenue leading to spam\r\n* WAF bypasses (report to Cloudflare directly)\r\n* Denial of service\r\n* Social engineering (including phishing) of Panther Labs staff or contractors \r\n* Any physical attempts against Panther Labs property or data centers \r\n\r\n# Safe Harbor \r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Panther users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/panther-labs/panther",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.runpanther.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "When testing the website, please  note the following exclusions:\n\n* Website Chat (Hubspot)\n* Website Forms (Hubspot)\n\nNote: Our DMARC records have been set and are now out of scope.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.runpanther.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Note: Our DMARC records have been set and are now out of scope.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.runpanther.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.pantherlabs.club",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "runpanther.zendesk.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our support ticket system is hosted externally by @zendesk and must not be tested against. All care should be taken to prevent accidental creation of new support tickets. Testing against our @zendesk instance and social engineering of our support team is strictly out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hubspot.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://panther.com/request-a-demo/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Request a Demo Form",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Chat (Drift)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The bottom right \"bubble\" icon to chat with Panther Labs is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://portal.productboard.com/runpanther/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Roadmap page (https://portal.productboard.com/runpanther/) is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.runpanther.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "data.stats.runpanther.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Submit reports to Pendo.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "slack.runpanther.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.panther.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.panther.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.panther.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

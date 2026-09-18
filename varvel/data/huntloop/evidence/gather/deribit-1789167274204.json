@@ -1,0 +1,113 @@
+{
+ "at": "2026-09-11T22:54:28.393Z",
+ "opportunity": "deribit",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "test.deribit.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a41249f7b68c7-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.deribit",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.deribit:443 refused: host unreachable"
+  },
+  {
+   "host": "insights.deribit.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": "7.0.3",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 7.0.3\""
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a41326af3de7d-LHR",
+    "via": "1.1 varnish-v4",
+    "strict-transport-security": "max-age=15768000",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "pb.deribit.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 cf54e39fdf938a87a1497fc213cc7f94.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "deribit.com",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a4141993ab884-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "scopely",
+      "name": "Scopely",
+      "offersBounties": true,
+      "assets": [
+        "*.scopely.com",
+        "*.scopely.io",
+        "*.withbuddies.com",
+        "Games Tier 1",
+        "Games Tier 2",
+        "air.com.bitrhymes.bingo",
+        "com.foxnextgames.m3",
+        "com.gsn.android.casino",
+        "com.gsn.grandcasino",
+        "com.kitkagames.fallbuddies",
+        "com.pieyel.scrabble",
+        "com.scopely.monopolygo",
+        "com.scopely.startrek",
+        "com.scopely.yux",
+        "com.withbuddies.dice.free",
+        "id1427744264",
+        "id1541153375"
+      ],
+      "exclusions": [
+        "bamboo.scopely.io",
+        "confluence.scopely.io",
+        "jira.scopely.io",
+        "scopely.okta.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\scopely-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "scopely",
+  "name": "Scopely",
+  "url": "https://hackerone.com/scopely",
+  "policy": "# Scopely Bug Bounty Program\nWelcome to Scopely's Bug Bounty Program! This program encourages and rewards contributions by security researchers who help make Scopely's mobile games and communities more secure. To recognise your efforts and the important role you play, we offer bounties for reporting valid security vulnerabilities to us.\n\n\n# Program Rules \n\n## Reporting Checklist\nDo be aware that the quality of your report is critical to your submission. To ensure your report is triaged and awarded as quickly as possible, please ensure reports are detailed and clear. Please include:\n\n- The IP you are using for the testing\n- Your game user ID\n- All your traffic must contain the following header that will allow us to identify you:\n```X-Security-Testing: @hackerone_handler```.\n- Reproducible steps: Include detailed steps and any links you clicked on, pages you visited, URLs, user IDs, etc. If this contains more than a few steps, please create a video so we can attempt to perform the same steps\n- Impact\n- Use cases: Define the real-world scenarios where an attacker would be able to exploit this vulnerability\n- Fix suggestions where possible\n\nReports that do not include the required information, such as the testing IP address, GameID, or the required testing header, may be closed without a reward, even if the finding itself is valid.\nFailure to provide this information will be considered a policy violation.\n\n## Eligibility & Responsible Disclosure\nTo promote the discovery and reporting of vulnerabilities and increase user safety, we ask:\n\n- If you are researching security issues, especially those which may compromise the privacy of others, please use test accounts in order to respect our user's’ privacy.\n- Act in good faith not to degrade the performance of our services (including denial of service).\n\nWe are grateful to everyone who submits valid reports to help us improve the security of Scopely games, however only those that meet the following eligibility requirements may receive a monetary reward:\n\n- You must be the first reporter of the vulnerability\n- The vulnerability must be associated with an in-scope game or service\n- The report must adhere to the Reporting Checklist above\n- Follow HackerOne’s [Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines)\n\n#Our Games \n\n|Game Tier 2 ||\n|--- | --- | --- | --- |\n|{F2622775}| **Monopoly GO**|\n\n|Game Tier 3 ||\n|--- | --- | --- | --- |\n|{F2880698}|**Star Trek Fleet Command**|\n|{F1700748}| **MARVEL Strike Force: Squad RPG** |\n\n\n|No reward ||\n|--- | --- | --- | --- |\n|{F526847}   | **Dice With Buddies™ - The Fun Social Dice Game** |\n|{F3503721}| **Grand Casino: Slots & Bingo** |\n|{F3503722}| **GSN Casino: Slot Machine Games** |\n|{F3503709}| **Tiki Solitaire TriPeaks** |\n|{F3503723}| **Bingo Bash: Live Bingo Games** |\n|{F526865}| ** WWE Champions**|\n| {F578740} | **Scrabble® GO-Classic Word Game** | \n|{F526846} | **YAHTZEE® With Buddies Dice Game** | \n|{F2976747}| **StumbleGuys**|\n|{F526845}| ** Wheel of Fortune**\n\n\nSome of our games share a common framework, please only create one report if the same issue appears in several games as this would be considered one issue in the framework.\n\n\n\n## Rewards\n\nEach bug is awarded a bounty based on its severity and creativity. Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n\nScopely will determine whether a reward should be granted and the amount of the reward - in particular we may choose to pay higher rewards for unusually clever or severe vulnerabilities or lower rewards for vulnerabilities that require significant or unusual user interaction. \n\nAny vulnerability that affects the economy of a game or gives a player an unfair advantage over other players (cheating) is likely to qualify for the program. Vulnerabilities affecting the security of the company resources other than the live games service may qualify under the *additional services* category.\n\n> **Impacts the global game economy**\n> - Obtaining an In-App Purchase-backed item or currency illegally / outside of the intended design (usually an unlimited amount)\n> - Modifying another user's data (currencies, inventories, progress, etc)\n> - Giving or crediting illegal currencies to another user\n\n> **Impacts tournaments or leaderboards**\n> - Unfairly affecting leaderboard position (*Please do not place #1 - #10 if an issue is identified*).\n> - Unfairly affecting tournaments and outcomes\n\n> **Impacts individual's economy**\n> - Obtaining currencies for your user illegally (usually a limited amount)\n\n> **Impacts the group, club, or faction**\n> - Unfairly affecting the success of a group, club, or faction\n\n>**Impacts player privacy**\n>- Obtaining personally identifiable information of one or more players outside of the intended design of the game. \n\n> **Impacts player vs. player**\n> - Game rigging / forcing a win\n\n> **Impacts individual**\n> - Obtaining personal game items  illegally / outside of the intended design (experience, health, points, rank, rewards, other inventory systems)\n> - Unfairly affecting the game progression system in a way that violates the designed progression track (achievements, badges, character stats, leveling up, move upgrades, etc)\n> - Unfairly affecting time-based drops, rewards, or benefits\n\n> **Impacts the security of the game service**\n> - Any security bug that can materially impact the availability and integrity of our live games service (see exclusions)\n\n> **Impacts the security of additional services**\n> - Any security bug that can materially impact the availability, integrity and confidentiality of additional company services such as development resources, people management or data analytics (see exclusions)\n\n\n# No-Fix & Backlog Handling Policy\n- If upon review of a report we do not find the vulnerability high enough impact or probability, we may choose not to fix. Reports deemed No-Fix by the team will not be eligible for a bounty and will be closed.\n- If upon review of a report the team decides to postpone a fix by adding the issue to their backlog, we may pay the bounty and close the issue in HackerOne so that it does not get stuck in Open/Triage for long periods of time. Duplicate reports will be linked to the closed HackerOne issue previously reported. Once the backlog issue is fixed, we will follow up on the closed report notifying of the resolution.\n\n# Out of scope\n- \"Scanner output\" or scanner-generated reports\n- \"Advisory\", \"Informational\" or based on \"Best Practices\" reports\n- Server misconfigurations without a proof of concept of how they can lead to a real vulnerability\n- Vulnerabilities in 3rd-party software such as frameworks, plugins or libraries (Wordpress, Jira, Discourse, Okta, Unity, ...)\n- HTTP headers hardening and recommendations (Clickjacking, X-Frame-Options, CORS, ...)\n- Subdomain takeovers will be marked as informative as they are already being tracked internally with tools to prevent this from happening and clearing out the dangling DNS entries\n- Any type of Denial of service (DOS) attacks\n- Social engineering of Scopely staff or contractors\n- Any physical attempts against Scopely property\n- Rate limiting testing or brute force attacks against any asset\n- Reports on other Scopely-owned assets that are not explicitly marked in scope in the list below, such as games, websites, domains, applications or endpoints. Are currently ineligible for monetary rewards. As they come into scope, they will be added to the in scope section below.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.scopely.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Vulnerabilities reported on Scopely services additional to the games in scope are now eligible for monetary rewards. \n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.scopely.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Vulnerabilities reported on Scopely services additional to the games in scope are now eligible for monetary rewards. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.pieyel.scrabble",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Scrabble GO](https://apps.apple.com/nz/app/scrabble-go-new-word-game/id1215933788)\nThe world’s greatest word game, is all new and reimagined as a free to play mobile game!\n\n**Status:** Available worldwide.\n\nShared Framework: Yes",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.pieyel.scrabble",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Scrabble GO](https://play.google.com/store/apps/details?id=com.pieyel.scrabble)\nThe world’s greatest word game, is all new and reimagined as a free to play mobile game!\n\n**Status:** Available worldwide.\n\nShared Framework: Yes",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.withbuddies.dice.free",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Dice With Buddies: Social Game](https://apps.apple.com/us/app/dice-with-buddies-social-game/id432750508)\nDice With Buddies is a fun, new spin on your favorite classic dice game! Enjoyed by millions of players, you can play free multiplayer board games with family, friends, or new buddies! \n\n**Statu",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.withbuddies.dice.free",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Dice With Buddies: Social Game](https://play.google.com/store/apps/details?id=com.withbuddies.dice.free)\nDice With Buddies is a fun, new spin on your favorite classic dice game! Enjoyed by millions of players, you can play free multiplayer board games with family, friends, or new buddies! \n\n**Statu",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.scopely.yux",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Yahtzee with Buddies Dice Game](https://apps.apple.com/us/app/yahtzee-with-buddies-dice/id1206967173)\nRoll dice to play YAHTZEE® With Buddies! It is the fun, classic board game with a new look. Play dice with friends in this multiplayer game.\n\n**Status:** Available worldwide.\n\nShared Framework: Yes",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.scopely.yux",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Yahtzee with Buddies Dice Game](https://play.google.com/store/apps/details?id=com.scopely.yux)\nRoll dice to play YAHTZEE® With Buddies! It is the fun, classic board game with a new look. Play dice with friends in this multiplayer game.\n\n**Status:** Available worldwide.\n\nShared Framework: Yes",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.withbuddies.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Backend API servers included in scope.\nPlease take into account that any kind of DOS is totally forbidden.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "confluence.scopely.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jira.scopely.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "scopely.okta.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bamboo.scopely.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.foxnextgames.m3",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.foxnextgames.m3",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.scopely.monopolygo",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Monopoly GO! ](https://play.google.com/store/apps/details?id=com.scopely.monopolygo)\nHit GO! Roll the dice! Earn MONOPOLY money, interact with your friends, family members and fellow Tycoons from around the world as you explore the expanding universe of MONOPOLY GO! It’s the new way to play - board",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.scopely.startrek",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Star Trek Fleet Command ](https://play.google.com/store/apps/details?id=com.scopely.startrek)\nYou have the conn! Summon your skills in strategy, combat, diplomacy, and leadership to master the dangerous universe of Star Trek Fleet Command.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id1427744264",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Star Trek Fleet Command](https://apps.apple.com/us/app/star-trek-fleet-command/id1427744264)\nYou have the conn! Summon your skills in strategy, combat, diplomacy, and leadership to master the dangerous universe of Star Trek Fleet Command.\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.kitkagames.fallbuddies",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Stumbleguys](https://play.google.com/store/apps/details?id=com.kitkagames.fallbuddies)\nStumble Guys is a massive multiplayer party knockout game with up to 32 players online. Join millions of players and stumble to victory in this fun multiplayer knockout battle royale! Are you ready to enter the r",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id1541153375",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[StumbleGuys](https://apps.apple.com/es/app/stumble-guys/id1541153375)\nStumble Guys is a massive multiplayer party knockout game with up to 32 players online. Join millions of players and stumble to victory in this fun multiplayer knockout battle royale! Are you ready to enter the running chaos? Run",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Games Tier 1",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This asset was added for bounty table purposes.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Games Tier 2",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This asset was added for bounty table purposes.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.gsn.android.casino",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[GSN Casino: Slot Machine Games](https://play.google.com/store/apps/details?id=com.gsn.android.casino)\nYou're in the best place to play free online slots! Enjoy fun casino games online where you can find the best Vegas casinos",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.gsn.grandcasino",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Grand Casino: Slots & Bingo](https://play.google.com/store/apps/details?id=com.gsn.grandcasino)\nHey Spinner - what’s your favourite casino game of 2022? Slots, Video Poker, Video bingo? HERE & NOW more than 100 casino games to choose from!",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "air.com.bitrhymes.bingo",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Bingo Bash: Live Bingo Games](https://play.google.com/store/apps/details?id=air.com.bitrhymes.bingo)\nOver a decade of daubing & over 70 million online players: Bingo Bash featuring Monopoly is the best online bingo game on mobile. Now with MONOPOLY Bash room, better than ever! Ready to play and cal",
+      "max_severity": "critical"
+    }
+  ]
+}

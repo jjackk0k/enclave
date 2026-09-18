@@ -1,0 +1,38 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "impresscms",
+      "name": "ImpressCMS",
+      "offersBounties": false,
+      "assets": [
+        "https://github.com/impresscms/impresscms"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\impresscms-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "impresscms",
+  "name": "ImpressCMS",
+  "url": "https://hackerone.com/impresscms",
+  "policy": "# Scope\r\nWe track here: \r\n* Core ImpressCMS issues for ImpressCMS 1.4.x (the current production version) and 2.0 (in development)\r\n* addon issues\r\n* impresscms.org community site issues\r\n\r\n#Rewards\r\n* We can not promise swag or absolute resolution on a fixed timeline for every issue, but we're eager to hear about what you've found regardless.\r\n* Each fixed vulnerability will be mentioned in the release notes of a new version, along with the name of the person who notified us, as well as in the release announcement on our website.\r\n* We've got lots of honor for those who submit issues related to the core software, but no cash bounties.\r\n* We looked into a swag policy last year, but discovered that getting the swag to everyone's doorstep would cost significantly more than the value of the t-shirt itself, making it prohibitively expensive at the moment.\r\n\r\n# Testing arrangements\r\n* **PLEASE test on your own copy**. We're open source, so grab a copy from our site and install it locally. \r\n* Beating on impresscms.org or some other public site will not be well received.\r\n* If you find unclear, incorrect or missing documentation, don't hesitate to let us know via the forums or our Slack channel\r\n\r\n* Be clear. We totally get that you're not paid to do this. (Coincidence: neither are we :-) ) You spent the time finding the issue, please do the effort of an extra 2 minutes to spell out what you're able to do with it so we totally understand the severity of our screw up. ;) In our life's experience : if there is a some uncertainty about a report, be aware that Murphy will make sure that we understand it the wrong way.\r\n* Be responsible. We're here because we want to know vulnerabilities before the world does so we have a chance to provide a solution in a reasonable timeframe. We assume you're here for the same. Report issues directly to us here.\r\n* Addon's and Themes for ImpressCMS can be reported here, we will make every effort to forward information to the the author of the code. In cases where there is an 'open door' security issue we may get involved in issuing a fix ourselves. Please keep in mind that there are many add-ons and themes for ImpressCMS that we didn't write, we will do the best we can to keep communication open and release schedules of your vulnerability reports clear.\r\n* 3rd Party Stuff. We use jQuery, jQuery UI, TinyMCE, Smarty 2, etc.. If you find an issue entirely within one of our included solutions, we're of course interested, but likely only if they lead to severe/critical issues (below)\r\n\r\n# Levels of Severity\r\n* Open Door - A clear method where someone can immediately gain any type of unintended administrative access through a bug in the system. This would put a website at risk from an external attacker or a disgruntled editor with limited permissions. It is a clear documented attack that always grants access to someone who should not have it. This type of exploit would be considered a top priority and would likely force an immediate point release of the core to resolve.\r\n* External Attack Vector - A bug that an external attacker might use in conjunction with other techniques to gain access or get data. No administrative access is required to exploit the bug. The bug does not provide access on its own. It would have to be part of a larger attack, often involving some social engineering. These are considered a high priority and are typically patched immediately by the core team in github and launched in the next version of the core.\r\n* Internal Attack Vector - A bug that requires someone already have some type of administrative access to the CMS. This might just change the experience of the CMS, or be part of a more complicated attack that might hypothetically gain more access than they should have. These are considered important to clean up over time.\r\n\r\n# Response\r\n* We will try to respond to most reports within 5 business days.\r\n* Issues will be fixed within a reasonable timeline as determined after triage.\r\n* Feel free to propose fixes with Pull Requests on Github, we appreciate the help, and it saves you the effort from explaining to us :-)",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/impresscms/impresscms",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

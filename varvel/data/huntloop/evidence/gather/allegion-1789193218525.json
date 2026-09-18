@@ -1,0 +1,83 @@
+{
+ "at": "2026-09-12T06:06:43.525Z",
+ "opportunity": "allegion",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.specadsystems.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=63072000; includeSubdomains;"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.isonas.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39cba5dde4d60f3-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.krytonitelock.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "CERT_HAS_EXPIRED: certificate has expired"
+  },
+  {
+   "host": "www.republicdoor.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "HIT",
+    "strict-transport-security": "max-age=63072000; includeSubdomains;"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.schlage.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "HIT",
+    "strict-transport-security": "max-age=63072000; includeSubdomains;"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

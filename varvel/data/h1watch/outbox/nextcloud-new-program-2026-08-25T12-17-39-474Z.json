@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "nextcloud",
+      "name": "Nextcloud",
+      "offersBounties": true,
+      "assets": [
+        "apps.nextcloud.com",
+        "com.nextcloud.client",
+        "crm.nextcloud.com",
+        "customerupdates.nextcloud.com",
+        "docs.nextcloud.com",
+        "help.nextcloud.com",
+        "it.twsweb.Nextcloud",
+        "knowledge.nextcloud.com",
+        "lists.nextcloud.com",
+        "lookup.nextcloud.com",
+        "nextcloud/activity",
+        "nextcloud/files_accesscontrol",
+        "nextcloud/server",
+        "portal.nextcloud.com",
+        "projects.nextcloud.com",
+        "push-notifications.nextcloud.com",
+        "pushfeed.nextcloud.com",
+        "scan.nextcloud.com",
+        "static.apps.nextcloud.com",
+        "support.nextcloud.com",
+        "surveyserver.nextcloud.com",
+        "updates.nextcloud.com",
+        "usercontent.apps.nextcloud.com"
+      ],
+      "exclusions": [
+        "conf.nextcloud.com",
+        "drone.nextcloud.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\nextcloud-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "nextcloud",
+  "name": "Nextcloud",
+  "url": "https://hackerone.com/nextcloud",
+  "policy": "We're inviting researchers all over the globe to take a look at Nextcloud and bring its security to the next level. If you're interested in learning how we handle security you can read more about it on our [dedicated security page](https://nextcloud.com/security/).\n\n# Important notice ⚠️\n\n## No monetary bounties\n\nPlease note that Nextcloud does not offer monetary bounties for security reports submitted through this program.\n\nDue to the large amount of AI-generated illegitimate reports, we have *temporarily suspended* our paid bounty program and no financial rewards will be awarded for any submissions, regardless of severity.\nWe remain deeply committed to security and to working with the research community. Valid reports will still be triaged, fixed, and publicly acknowledged after disclosure, and reporters will continue to receive recognition through this platform. We greatly appreciate the time and effort that researchers invest in helping us keep Nextcloud secure.\n\nAs you are likely aware, this is an industry-wide challenge and like others, we have been unable to find ways to responsibly handle the massive increase of low quality reports. We hope to be able to restart the program once a reliable approach to filtering out the low-effort reports has been found. We have already engaged with HackerOne on this and will continue to do so.\n\n## AI-generated reports\n\nGiven the high number of generic AI security reports, we are emphasizing the following:\n\n- We accept only issues that you have reproduced yourself, proven by screenshots.\n- Do not submit a report before reproducing the issue.\n\nLow-effort AI-generated reports will be ignored and closed as Spam (-10 reputation) and may lead to your suspension from this program.\n\n# Program policy\n\n- Keep your reports short and concise, only include the relevant information about what the threat is and how to reproduce it. Do not overexaggerate your reports.\n- DO NOT include Personally Identifiable Information (PII) in your report and please REDACT/OBFUSCATE the PII that is part of your PoC (screenshot, server response, JSON file, etc.) as much as possible.\n- Same rule apply to with secrets, keys and credentials.\n- If you use large language models (LLMs), please disclose how you used LLMs, and carefully review and edit its output before you send it to us. Please double-check that your reproduction steps actually work and that all the information you include in the report is valid and correct.\n- Don't leak the contents of your report up front to any SaaS solutions, such as AI services like ChatGPT, search engines, browser plugins, or translation engines. If you use services, such as large language models, only use services that run locally on your own hardware to ensure our security information does not leak to the outside world.\n- All reports must be validated manually, submission from automated tools (code analysis tools, AI, …) won't be considered unless manually reviewed and validated from your side.\n- If your report mostly contains \"AI slop reports\" (in other words reports that are generated largely by LLMs) or is auto generated, without careful review from you and thus result in additional work on our side or even invalid reports, we consider the following actions a valid option:\n    - 🔒 Closing your reports as Spam\n    - ⛔ Block you from our program\n\nInstead of bothering you with a huge list of exclusions we're going to tell you what we're especially looking after:\n\n- Bugs within Nextcloud server and apps supported by Nextcloud GmbH (**Note:** see Scope list for all qualifying and packaged components. **Third-party apps from the AppStore are not part of our program.**)\n    - Please check the top of our wiki for **Current version** to see which Nextcloud Server versions are eligible: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule\n    - For Apps only the latest version compatible with those Nextcloud Server versions are eligible\n    - Reports that do not mention a Nextcloud Server version or the App version where applicable will be closed as N/A\"\n- Bugs within the mobile iOS and Android sync clients\n    - Only the latest version of each client available in the respective store is eligible\n- Bugs within the desktop clients for Mac, Windows, and Linux\n    - Only the latest version of each client is eligible\n\nFor us a bug is something that actively allows an attacker to escalate their privileges. Something like \"*Attacker can delete arbitrary files of other users*\" is fine to be reported, \"*Missing X-Frame-Options on the download servers*\" not so much. At the moment we are also considering \"*Denial of Service*\" out of scope, we will acknowledge you though!\n\nFound a security bug in one of the mentioned scopes? Awesome! Just report it here and we will get back to you. Bonus points if you check back with our [threat model](https://nextcloud.com/security/threat-model) before.\n\nFound a bug in one of our websites or app that is not in scope? We will acknowledge the issue and happily accept reports for it via this platform as well.\n\n- Please do not run any Denial of Service attacks against our infrastructure or extract user data.\n- Please do also refrain from using automated testing tools against our infrastructure.\n- Do not disclose bugs to other parties before we have published a patch.\n\nWe believe in transparency about our security, so any valid vulnerabilities discovered are always publicly disclosed after a grace period.\n\n# Disclosure guideline\n\nWe are committed to resolving reported vulnerabilities promptly. Our target is to provide a resolution within **90 days** of triage. We ask reporters not to disclose any details about the vulnerability until a fix has been released or the 90-day resolution window has elapsed. All communication regarding the vulnerability, including status updates, clarifications, and disclosure requests should happen within the HackerOne platform. Please do not reach out through other public or private channels.\n\n# Recognition\n\nWhile we no longer offer monetary rewards, we recognize the contributions of security researchers in the following ways:\n\n- Public acknowledgment on the HackerOne platform\n- Reputation points for valid reports\n- Credit in our security advisories upon disclosure (where applicable and with your consent)\n\nThank you for helping us keep Nextcloud and its users secure.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.nextcloud.client",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our official Android client from [https://play.google.com/store/apps/details?id=com.nextcloud.client](https://play.google.com/store/apps/details?id=com.nextcloud.client \"https://play.google.com/store/apps/details?id=com.nextcloud.client\")\n\n",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "it.twsweb.Nextcloud",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our official iOS client from [https://itunes.apple.com/app/nextcloud/id1125420102](https://itunes.apple.com/app/nextcloud/id1125420102 \"https://itunes.apple.com/app/nextcloud/id1125420102\")\n\n",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "nextcloud/server",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Code from [https://github.com/nextcloud/server](https://github.com/nextcloud/server \"https://github.com/nextcloud/server\") – Note that some folders such as tests and so on will not be packaged. Please make sure that the referenced file is thus also existent in our final releases.\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nextcloud/activity",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Code from [https://github.com/nextcloud/activity](https://github.com/nextcloud/activity \"https://github.com/nextcloud/activity\") – Note that some folders such as tests and so on will not be packaged. Please make sure that the referenced file is thus also existent in our final releases.\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is running Discourse, and as such reports of newly discovered vulnerabilities should be submitted to their program instead: [https://hackerone.com/discourse](https://hackerone.com/discourse \"https://hackerone.com/discourse\") – Please use this scope only for reporting missing security upda",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nextcloud/files_accesscontrol",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Code from [https://github.com/nextcloud/files\\_accesscontrol](https://github.com/nextcloud/files_accesscontrol \"https://github.com/nextcloud/files\\_accesscontrol\") – Note that some folders such as tests and so on will not be packaged. Please make sure that the referenced file is thus also existent i",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "drone.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our Drone server contains no sensitive data and we would ask you to not test against our development environments. If you discover a security issue in Drone please report this to [https://github.com/drone/drone](https://github.com/drone/drone \"https://github.com/drone/drone\") instead.\n\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pushfeed.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "pushfeed.nextcloud.com is used to push cryptographically signed announcements to administrators of all Nextcloud instances. The source code for the generation of said announcement feeds can be found at [https://github.com/nextcloud/announcer](https://github.com/nextcloud/announcer \"https://github.co",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "usercontent.apps.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Note that usercontent.apps.nextcloud.com serves potentially untrusted user content and is always setting a Content-Type of attachment. The source code for the software can be found at [https://github.com/nextcloud/usercontent.apps.nextcloud.com](https://github.com/nextcloud/usercontent.apps.nextclou",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "projects.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Internally used system behind SSO. We'd like to ask you to not actively test against our production SSO server. You can find the used software at [http://www.keycloak.org/](http://www.keycloak.org/ \"http://www.keycloak.org/\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lookup.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The Nextcloud lookup server source code can be found at [https://github.com/nextcloud/lookup-server/](https://github.com/nextcloud/lookup-server/ \"https://github.com/nextcloud/lookup-server/\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "knowledge.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Internally used system behind SSO. We'd like to ask you to not actively test against our production SSO server. You can find the used software at [http://www.keycloak.org/](http://www.keycloak.org/ \"http://www.keycloak.org/\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "surveyserver.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The survey server data processes and stores anonymous statistics about deployed Nextcloud instances. Source code of the server can be found at [https://github.com/nextcloud/survey\\_server](https://github.com/nextcloud/survey_server \"https://github.com/nextcloud/survey\\_server\") and source code of th",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "conf.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a legacy system now redirecting to our [eventyay page](https://eventyay.com/e/de88e486/). Please report issues within eventyay directly to [the responsible contacts](https://eventyay.com/imprint/).\n\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "static.apps.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Part of the Nextcloud app store which source code is available from [https://github.com/nextcloud/appstore](https://github.com/nextcloud/appstore \"https://github.com/nextcloud/appstore\"). Note that all apps are cryptographically signed by developers and reports thus usually don't qualify for monetar",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "apps.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Part of the Nextcloud app store which source code is available from [https://github.com/nextcloud/appstore](https://github.com/nextcloud/appstore \"https://github.com/nextcloud/appstore\"). Note that all apps are cryptographically signed by developers and reports thus usually don't qualify for monetar",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "updates.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This domain serves updates to Nextcloud server and the Nextcloud desktop client.\n\n- Client updater server:[https://github.com/nextcloud/client\\_updater\\_server](https://github.com/nextcloud/client_updater_server \"https://github.com/nextcloud/client\\_updater\\_server\")\n- Server updater server: [https:",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Static web server serving the generated documentation from [https://github.com/nextcloud/documentation](https://github.com/nextcloud/documentation \"https://github.com/nextcloud/documentation\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "crm.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Internally used system behind SSO. We'd like to ask you to not actively test against our production SSO server. You can find the used software at [http://www.keycloak.org/](http://www.keycloak.org/ \"http://www.keycloak.org/\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is running Zammad, and as such reports of newly discovered vulnerabilities should be submitted to them: [https://zammad.com/contact](https://zammad.com/contact \"https://zammad.com/contact\") – Please use this scope only for reporting missing security updates on our Zammad installation.\n\nPl",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "scan.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Runs the web interface for the software used by the Nextcloud security scanner.\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lists.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Internally used system behind SSO. We'd like to ask you to not actively test against our production SSO server. You can find the used software at [http://www.keycloak.org/](http://www.keycloak.org/ \"http://www.keycloak.org/\")\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Portal with support answers by the Nextcloud support team.\n\nPlease be extremely careful when testing this server as it is used by our customers as well.\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "push-notifications.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Backend behind the push notification proxy for our mobile apps. Our push notifications are End-To-End encrypted and thus an attacker would not be able to gain access to the content of push notifications.\n\nThe push notification proxy client can be found at [https://github.com/nextcloud/notifications]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "customerupdates.nextcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This domain serves updates to Nextcloud server and the Nextcloud desktop client.\n\n- Client updater server:[https://github.com/nextcloud/client\\_updater\\_server](https://github.com/nextcloud/client_updater_server \"https://github.com/nextcloud/client\\_updater\\_server\")\n- Server updater server: [https:",
+      "max_severity": "critical"
+    }
+  ]
+}

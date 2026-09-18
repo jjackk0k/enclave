@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bookingcom",
+      "name": "Booking.com",
+      "offersBounties": true,
+      "assets": [
+        "account.booking.com",
+        "admin.booking.com",
+        "autocomplete.booking.com",
+        "booking.com",
+        "careers.booking.com",
+        "cars.booking.com",
+        "chat.booking.com",
+        "distribution-xml.booking.com",
+        "experiences.booking.com",
+        "https://iphone-xml.booking.com/json/",
+        "https://secure-iphone-xml.booking.com/json/",
+        "indicative-pricing.taxi.booking.com",
+        "kyc-onboarding.booking.com",
+        "metasearch-api.booking.com",
+        "paybridge.booking.com",
+        "paymentcomponent.booking.com",
+        "paynotifications.booking.com",
+        "phone-validation.taxi.booking.com",
+        "secure.booking.com",
+        "supplier.auth.toag.booking.com",
+        "supply-xml.booking.com",
+        "taxi.booking.com",
+        "taxis.booking.com",
+        "webhooks.booking.com",
+        "widget.rentalcars.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bookingcom-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bookingcom",
+  "name": "Booking.com",
+  "url": "https://hackerone.com/bookingcom",
+  "policy": "**Please note when researching any vulnerability please use your @wearehackerone.com email address this will help us to know on our internal monitoring tools that its a researcher from hackerone and not a malicious actor**\n\n## Introduction\n\nBooking.com is committed to working with security experts across the globe. It’s a big world and we believe that working with skilled security researchers from all corners of the globe is the key to identify the weaknesses in any technology. If you think you have found a security issue in our applications let us know via our bug-bounty program on HackerOne and we’ll work with you to fix it.\n\nOur team of dedicated security professionals works vigilantly to help keep customer information secure. \nWe recognize the important role that security researchers and our user community play in helping to keep Booking.com and our customers secure. \n\n\nWe will investigate all legitimate reports and do our best to quickly fix the problem. Before reporting though, please review this page including our **Program Terms**, **Prohibited Actions**, **Reward and Payout Guidelines**, **Rules of Engagement**, **vulnerabilities and applications which are in and out of scope for rewards**.\n\n\n## Booking.Com Bug Bounty Updates\n* 15th November,2023 - Program is public with changed scope\n* 1st October,2019 - October Promotion launched for 2 weeks \n* 7th May,2019 - Bounty Policy Updated\n* 20th March,2019 - Bounty Payouts Updated\n* 20th March,2019 - March Promotion launched for 2 weeks \n\n*15h November 2023 - Program went public, in a phased approach.\n\n##Program Terms\n\nYour participation in the Bug Bounty Program is voluntary and subject to the terms and conditions set forth on this page **(“Program Terms”)**. By submitting a site or product vulnerability to **Booking.com B.V. (“Booking.com”)** you acknowledge that you have read and agreed to the program policy and guidelines.\n\nWe recognize and reward security researchers who help us keep our customer data secure by reporting vulnerabilities in our services. Monetary bounties for such reports are entirely at Booking.com’s discretion, based on risk, impact, and other factors. \n\nIf you inadvertently cause a privacy violation or disruption (such as accessing account data, service configurations, or other confidential information) while investigating an issue, you must disclose this in your report.\nUse test accounts when investigating issues. If you cannot reproduce an issue with a test account, you can use a real account (except for automated testing). Do not interact with other accounts without consent of the account owner.\n\nWhen researching security issues, especially those which may compromise the privacy of others, you must use only test accounts in order to respect our users’ privacy. \nAccessing private information of other users, performing actions that may negatively affect Booking.com users (e.g., spam, denial of service) will disqualify the report. Activity that is disruptive to Booking.com operations will result in account bans and disqualification from the bounty program. Please refer to **“Prohibited Actions”** section in the policy. \n\n**At this time Booking.com is not permitting public disclosure of submitted reports.**\n\n##Prohibited Actions\n* Exploiting a security issue with malicious payload which can result into but not limited to DOS, exposure \n  of sensitive information, business disruption, spamming customers, partners or Booking.com employees.  \n  (This includes demonstrating additional risk, such as attempted compromise of sensitive company data \n  or probing for additional issues.)\n* Interaction with an individual account (which includes modifying or accessing data from the account) if \n  the account owner has not consented to such actions.\n* Violation of any applicable laws or regulations, including (but not limited to) laws and regulations prohibiting the unauthorized access to data.\n* You are not authorized to access user data or company data, including (but not limited to) personally identifiable information and data relating to an identified or identifiable natural person.\n* Publicly disclosure of reported vulnerabilities. Disclosing a vulnerability, directly or indirectly (i.e. \n   posting it in public video streams, listed or not), will render the associated report ineligible for bounty. \n  All resources (PoC files, videos, etc.) required to reproduce an issue, must not go outside the \n  possession of the researcher, HackerOne.com, or Booking.com.\n* Do not attempt to affect a property's (hotel) availability by making unintended reservations\n* Do not send reports from automated tools without verifying a working PoC\n* Do not attempt to create properties for testing purposes\n* Do not book listed properties for testing purposes\n* Uploading files that allow arbitrary commands (i.e. a webshell)\n* Creation of test or fake properties\n* Modification of any files or data, including permissions\n* Deletion of any files or data\n* Interruption of  normal operations (e.g. triggering a reboot)\n* Creation  and maintenance of a persistent connection to the server\n* Intentionally viewing any files or data beyond what is needed to prove the vulnerability\n* Contacting Booking.com employees directly for support, sales, or requests related to a submitted report\n* Mass creation of users, groups, and projects\n* Typo-squatting or other name-squatting\n* Spam-like or other high volume activity\n* Using automated scanning tools to scan Booking.com assets\n* Using malicious payloads while confirming stored XSS\n\n*Please do not email the program team directly. All communications regarding submissions should be done via the HackerOne platform.**\n\n\n## Rules of Engagement\nTo potentially qualify for a bounty, you first need to meet the following requirements:\n\n* Adhere to our “Program Terms” and do not perform any of the “Prohibited actions” listed in this policy.  \n* Report a security bug: that is, identify a vulnerability in our services or infrastructure which creates a \n   security or privacy risk.\n* Your report must describe a problem involving one of the products or services listed under “In-Scope \n   Applications” \n* Your report must not be for a security issue listed under “Out of Scope and False Positives”.  \n* Your report includes all of the following:\n        - Full description of the vulnerability being reported, including the exploitability and impact \n            description. \n        - Evidence and explanation of all steps required to reproduce the submission, which may include:\n        - Videos\n        - Screenshots\n        - Exploit code/payload\n        - Web/API requests and responses\n        - Email address or user ID of any test accounts\n        - IP address used during testing\n\n\n\n##Payouts\n\nWe determine bounty amounts based on a variety of factors, including (but not limited to) \nImpact, classification and sensitivity of the data, ease of exploit and overall risk to Booking.com customers, partners, Booking.com brand. \n\n**Quality of the report** \nIf we pay a bounty, the minimum reward is $150. Note that extremely low-risk issues may not qualify for a bounty at all. We make consistent payout amounts for similar issues, but bounty amounts and qualifying issues may change with time. Past rewards do not necessarily guarantee similar results in the future.\nIn the event of duplicate reports, we award a bounty to the first person to submit an issue. (Booking.com determines duplicates and may not share details on the other reports.)\n For different attack vectors that result in the same mitigation, Booking.com reserves the right to reward the first report that is validated for that fix. All subsequent reports that are addressed by that mitigation will be considered as duplicates, regardless of the attack vector. We reserve the right to publish reports (and accompanying updates).\n\nAll determinations and decisions as to the amount of a bounty payout by Booking.com are final. \n\n## Promotions:\nFrom time to time, Booking.com offers promotions in connection with the Bug Bounty Program. Reports submitted for consideration may be subject to additional governing rules for that promotion as described in those rules, which are or will be made available here (in this section).\n\n##Scope\n\n##In Scope Assets\nFor in Scope Assets please refer to the Scope tab\n\n**Out-Of-Scope Applications**\nAny application whether owned by Booking.com or third-party vendor **not included as an in-scope asset** will be mentioned on the scope tab as out of scope.\n\nFor Out Of Scope Assets please refer to the Scope tab\n\n\n**In-scope Vulnerabilities**\n\n=====\n\nFor Fareharbor, We accept IDOR vulnerabilities only under the following conditions:\nPOST, PUT, or DELETE endpoints, or\nGET endpoints that expose sensitive data, such as personally identifiable information (PII), credit card details, or secrets.\nFor Fareharbor, we do not accept IDOR vulnerabilities on GET endpoints that do not involve the sensitive data categories listed above.\n\n=====\n\n\n**Accepted, in-scope vulnerabilities include, but are not limited to:**\n - Disclosure of sensitive or personally identifiable information\n - Cross-Site Scripting (XSS) - Please note, for XSS if the same issue is reported for the different subdomains but with the same root cause, it will be considered duplicate\n - Cross-Site Request Forgery (CSRF) for sensitive functions in a privileged context\n - Remote code execution (RCE)\n - Authentication or authorization flaws, including insecure direct object references and authentication \n    bypass\n - Injection vulnerabilities, including SQL and XML injection\n - Directory traversal\n - Significant security misconfiguration with a verifiable vulnerability\n - Account takeover by exploiting a vulnerability\n - SSRF\n - XXE\n - Subdomain takeover in *.booking.com domains\n\n**Out-Of-Scope Vulnerabilities**\nDepending on their impact, not all reported issues may qualify for a monetary reward. However, all reports are reviewed on a case-by-case basis and any report that results in a change being made will at a minimum receive recognition.\nPlease note that our **program terms and rules of engagement**  still apply. \n\n**The following issues are outside the scope of our vulnerability rewards program:**\n - Incorrect permission check for different roles at admin.booking.com\n - Any vulnerability which requires access to a compromised email account or Booking.com account for \n    successful exploitation\n - Vulnerabilities on Third Party Products\n - Attacks requiring physical access to a user's device or network.\n - Forms missing CSRF tokens (we require evidence of actual CSRF vulnerability)\n - Login/Logout CSRF\n - Missing security headers which do not lead directly to a vulnerability\n - Use of a known-vulnerable library (without evidence of exploitability)\n - Reports from automated tools or scans\n - Social engineering of Booking staff or contractors\n - Denial of Service attacks and/or reports on rate limiting issues\n - Not enforcing certificate pinning\n - Any issues that require a rooted or jailbroken device or a compromised device\n - Clickjacking\n - Improper session invalidation\n - User enumeration\n - Host header injections without a specific, demonstrable impact\n - Self-XSS, which includes any payload entered by the victim\n - Any vulnerabilities requiring significant and unlikely interaction by the victim, such as disabling browser \n    controls\n - Content spoofing without embedded HTML or JavaScript \n - Hypothetical issues that do not have any practical impact\n - Infrastructure vulnerabilities, including:\n - Issues related to SSL certificates\n - DNS configuration issues\n - Server configuration issues (e.g. open ports, TLS versions, etc.)\n-  Recently disclosed zero-day vulnerabilities\n\n\n\n## Thanks\n\nWe believe in recognizing the work of others.  If your work helps us improve the security of our service, we'll happily [acknowledge your contribution](/bookingcom/thanks).\n\n## Legal\n\nWe, of course, reserve the right to cancel or modify this program at any time. And the ultimate decision over an award --whether to give one and in what amount-- is a decision that lies entirely within our discretion.\n\nFinally, and needless to say, please do not violate any laws when conducting your tests.\nBooking.com is committed to working with security experts across the globe. We believe that working with skilled security researchers from all over the world is the key to identifying the weaknesses in any technology. If you think you have found a security issue in our applications let us know via HackerOne and we’ll work with you to fix it. Please submit your finding through www.hackerone.com/disclosure-assistance for review.\n\nOur team of dedicated security professionals works vigilantly to help keep customer information secure. We recognise the important role that security researchers and our user community play in helping to keep Booking.com and our customers secure. ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "careers.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://iphone-xml.booking.com/json/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://secure-iphone-xml.booking.com/json/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "account.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kyc-onboarding.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "taxi.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "widget.rentalcars.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cars.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "supplier.auth.toag.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paymentcomponent.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "metasearch-api.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "experiences.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "webhooks.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "taxis.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paybridge.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "phone-validation.taxi.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "indicative-pricing.taxi.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Incorrect permission check for different roles is out of scope.\n\nWe have recently run an internal pen-test on this asset, and we are working through the vulnerabilities found. There may be duplicates reported to us, so please be aware of this when submitting your report.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "chat.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "autocomplete.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "distribution-xml.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paynotifications.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "supply-xml.booking.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

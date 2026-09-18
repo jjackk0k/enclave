@@ -1,0 +1,103 @@
+{
+ "at": "2026-09-12T16:16:53.424Z",
+ "opportunity": "streak_com",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.streak.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3a038233ff2ef4a-LHR",
+    "via": "1.1 google",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.streak.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "via": "1.1 google",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mailfoogae.appspot.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "server": "Google Frontend",
+    "via": "1.1 google",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "streaklinks.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3a038420d21256d-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

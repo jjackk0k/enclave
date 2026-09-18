@@ -1,0 +1,233 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "six-group",
+      "name": "SIX Group",
+      "offersBounties": true,
+      "assets": [
+        "153.46.104.0/22",
+        "153.46.108.0/22",
+        "153.46.111.0/24",
+        "153.46.240.0/20",
+        "153.46.96.0/20",
+        "193.109.229.0/24",
+        "193.110.154.0/24",
+        "62.192.20.16/29",
+        "https://apps.apple.com/ch/app/debix/id1581440132?l=en-GB",
+        "https://apps.apple.com/mx/app/debix/id1581440132",
+        "https://apps.apple.com/mx/app/schweizer-finanzmuseum/id1225222871",
+        "https://apps.apple.com/mx/app/six-id/id1620496931",
+        "https://apps.apple.com/us/app/bme-conecta/id6443938949",
+        "https://play.google.com/store/apps/details?id=com.sixgroup.debixplus",
+        "https://play.google.com/store/apps/details?id=com.sixgroup.id&hl=en_US&pli=1",
+        "https://play.google.com/store/apps/details?id=es.grupobme.bmeconecta",
+        "https://play.google.com/store/search?q=Schweizer+Finanzmuseum&c=apps",
+        "https://web3.sdx.com",
+        "https://www.sdx.com/",
+        "www.bolsasymercados.es",
+        "www.six-group.com"
+      ],
+      "exclusions": [
+        "*.sixidmobile.com",
+        "153.46.254.150",
+        "193.109.229.71",
+        "saferpay.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\six-group-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "six-group",
+  "name": "SIX Group",
+  "url": "https://hackerone.com/six-group",
+  "policy": "SIX operates the infrastructure for the financial centers in Switzerland and Spain, thus ensuring the flow of information and money between financial market players. SIX offers exchange services, financial information and banking services with the aim of increasing efficiency, quality and innovative capacity along the entire value chain. SIX is also building a digital infrastructure for the new millennium.\n\nThe threat of cyberattacks is a major risk and one that SIX takes very seriously. With strict security guidelines and a strong cyber-defense, we protect assets such as data centers, confidential information and our property as well as that of third parties.\n\nThe collaboration with security researchers is an additional valued measure to identify and mitigate existing vulnerabilities in a timely manner. Thus, if you have information about a vulnerability in any of our systems or web applications, then we want to hear from you!\n\n# Eligibility Guidelines\n\n#General\n* You agree and adhere to the Program Rules and Legal terms as stated in this policy.\n* Do not engage in any activity that can potentially or actually cause harm to SIX, our customers, or our employees.\n* **Do not engage in any activity that can potentially or actually stop or degrade SIX services or assets.**\n* Social engineering (e.g. physical, phishing, vishing, smishing) is prohibited.\n* **Testing and/or research must be on in-scope systems only. If you’re not sure whether a system is in scope, please ask.**\n* Security researchers should refrain from disclosing issues publicly prior to a mutually agreed upon disclosure date.\n* Do not store, share, compromise or destroy SIX or customer data. If Personally Identifiable Information (PII) is encountered, you should immediately halt your activity, purge related data from your system, and immediately contact SIX. This step protects any potentially vulnerable data, and you.\n* SIX employees and third-party assets employees are not eligible for participation in this program.\n\n#Accounts\n* Only interact with accounts you own or granted by the program team. This also applies to password brute force attacks.\n\n#Tooling\n* Only use exploits to the extent necessary to confirm a vulnerability’s presence. Do not use an exploit to compromise or exfiltrate data, establish persistent command line access, or use the exploit to pivot to other systems.\n* Do not attempt to conduct post-exploitation, including modification or destruction of data, establishing persistence.\n* **Append the string “bugbounty” to your user agent for all HTTP/HTTPS traffic before performing any testing.**\n* **Do not perform any kind of automated scans (e.g., via Burp Suite, Nuclei, SqlMap, etc.) on SIX assets.**\n\n# Submission / Reporting Criteria\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact. \n* You are the first to submit a sufficiently reproducible report for an issue in order to be eligible for a bounty.\n* You are available to supply additional information, as needed by our team, to reproduce and triage the issue.\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* In case that a reported vulnerability was already known to the company from our own tests, it will be flagged as a duplicate.\n* If applicable, provide information about necessary cleanup steps (e.g., removal of uploaded files) to establish the targets initial state prior to testing.\n* For assets not explicitly listed in our scope, we will evaluate them on a case-by-case basis. Please note that acquisitions are considered outside of our scope. Many of these assets are not part of our core production infrastructure; therefore, we cannot guarantee the remediation of vulnerabilities. Such cases will not qualify for bounties. Since this is not our standard process, response times and the overall evaluation timeline may be longer than usual.\n\n#Rewards\nOur rewards are based on the severity of a vulnerability, please refer to the bounty table at the top of this policy page. HackerOne uses CVSS 3.0 (Common Vulnerability Scoring Standard) to calculate severity. Please note, however, that reward decisions are up to the discretion of SIX and reward amounts may be adjusted mid-Challenge. Examples of issues that may be considered to be lower severity given additional context include: a reflected XSS that has minimal impact (only works in some browsers, can’t be used to steal session information); or an RCE on an asset that doesn’t house production data.\n\nThank you for helping keep SIX Group and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.six-group.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.bolsasymercados.es",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "153.46.96.0/20",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "193.110.154.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/ch/app/debix/id1581440132?l=en-GB",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/mx/app/debix/id1581440132",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/mx/app/schweizer-finanzmuseum/id1225222871",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/mx/app/six-id/id1620496931",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/bme-conecta/id6443938949",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.sixgroup.debixplus",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.sixgroup.id&hl=en_US&pli=1",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=es.grupobme.bmeconecta",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/search?q=Schweizer+Finanzmuseum&c=apps",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://web3.sdx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://www.sdx.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "193.109.229.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## Known Issues\nThe following vulnerabilities have been identified and are currently being addressed. Reports of these issues will be closed as duplicates:\n- Cross-Site Scripting (XSS) vulnerabilities on `*.bmeinntech.es`.\n- This includes any reflected or stored XSS in input parameters on any endpoi",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "153.46.240.0/20",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "## Known Issues\n\nThe following vulnerabilities have been identified and are currently being addressed. Reports of these issues will be closed as duplicates:\n\n- Cross-Site Scripting (XSS) vulnerabilities on `secure.tkfweb.com`.\n- This includes any reflected or stored XSS in input parameters on any en",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "153.46.254.150",
+      "asset_type": "IP_ADDRESS",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "saferpay.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "193.109.229.71",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "153.46.108.0/22",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "62.192.20.16/29",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sixidmobile.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "153.46.111.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "153.46.104.0/22",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

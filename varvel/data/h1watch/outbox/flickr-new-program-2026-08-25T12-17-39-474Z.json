@@ -1,0 +1,210 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "flickr",
+      "name": "Flickr",
+      "offersBounties": true,
+      "assets": [
+        "*.flickr.com",
+        "328407587",
+        "com.yahoo.mobile.client.android.flickr",
+        "modefestival.com",
+        "www.whatismode.com"
+      ],
+      "exclusions": [
+        "*.flickr.net",
+        "Zero Day Vulnerabilities/Security Upgrades",
+        "amt.flickr.com",
+        "appletv.flickr.com",
+        "blog.flickr.com",
+        "blogtest.flickr.com",
+        "bluebird.flickr.com",
+        "code.flickr.com",
+        "csp.flickr.com",
+        "flickrhelp.com",
+        "guce.flickr.com",
+        "health.flickr.com",
+        "help.flickr.com",
+        "links.flickr.com",
+        "parkorbird.flickr.com",
+        "stage.guce.flickr.com",
+        "trunk.guce.flickr.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\flickr-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "flickr",
+  "name": "Flickr",
+  "url": "https://hackerone.com/flickr",
+  "policy": "Welcome to Flickr's Bug Bounty Program! We look forward to seeing your reports and working with you to improve our product. Please reach out with any questions, and feel free to share a link to your photostream on reports if you're a user of the product. Thanks!\n\n# Response Targets\nFlickr will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 3 business days\n* Time to triage (from report submit) - 3 business days\n* Time to bounty (from triage) - 14 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Please only submit bugs that show a clear exploit, not a theoretical vector\n\n# Rewards\nPlease see the structured bounty table above and report criteria below. Our bounty table provides general guidelines, and all final decisions are at the discretion of Flickr.\n\n# Report Criteria\nTo ensure proper assessment, all vulnerability reports must include reproducible steps and a working proof of concept. Demonstrate the vulnerability with specific examples rather than general statements. Reports without these elements will be classified as Informative or Not Applicable.\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* HTML listed at https://www.flickr.com/html.gne is legitimate usage in text inputs. Clickable links are legitimate usage. Any HTML that’s not outlined at that URL however is fair game.\n* Vulnerabilities that only work on our unsupported browser versions: Chrome, Firefox, Safari, and Edge that are older than the last 2 versions, or any other browser not already listed.\n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Self XSS\n* Spam\n* Vulnerabilities due to user generated content that don't result in access to private data or account takeover (i.e. Links in comments redirecting to a malicious site are out of scope)\n* We're not concerned with keeping our coupon codes secret, please use any you brute-force to buy a subscription :)\n* Reports of exposed hostnames or IPs without any actual exploit\n* Anything related to abuse reporting on our platform. Any Flickr accounts that interfere or submit erroneous abuse reports may be subject to deletion.\n* AWS resources that are not shown to be owned by Flickr\n* Any issue that results in users being logged out of Flickr, without exposing any PII or allowing for account takeover\n* Any issue related to circumventing free account restrictions (i.e. 1000 photo limit)\n* Anything related to SPF or email configuration\n* End-user Flickr API keys leaked on non-Flickr owned GitHub repos, search results, etc.\n* Anything related to the sending or receiving of emails, with the exception of email content (i.e. Email header bugs are out of scope)\n* Re-use of our public Weglot translation key\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Flickr and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.flickr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All flickr.com are in scope unless otherwise listed as specifically out of scope. All third-party assets are out of scope. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "328407587",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.yahoo.mobile.client.android.flickr",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "amt.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "appletv.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blogtest.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bluebird.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "code.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "csp.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "guce.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "stage.guce.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "trunk.guce.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "health.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "parkorbird.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "links.flickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is used for emails and is out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.flickr.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "flickrhelp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please don't research or file reports against our customer support features",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Zero Day Vulnerabilities/Security Upgrades",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.whatismode.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "modefestival.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

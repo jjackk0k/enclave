@@ -53,6 +53,58 @@ If you'd rather not build: `pythonw -m spark_code.menu` runs the same menu
 from source. Rebuild after changing `spark_code/` — the exes don't
 auto-update.
 
+## The VARVEL Ops Console (the menu IS the console)
+
+The menu window is the **VARVEL Ops Console** — a premium dark red-team
+console (customtkinter; logic in `spark_code/opsmenu.py`, headless-tested;
+the hunt engine is `../varvel/tools/huntloop.mjs` — see `../varvel/README.md`
+for the full doctrine). A stats bar (model / tok-s / lane activity / effort /
+context meter) sits over three tabs:
+
+**OPS — the 1-click hunt:**
+
+- **Left rail state cards** `[tunnel, lane, brain, ghost, pipeline]`. A lane
+  that is down for training shows as **"lane down / training"**, a
+  first-class state, not an error; the console NEVER starts the lane while
+  the GPU belongs to the training run.
+- **THE GHOST GATE**: START HUNT refuses unless the ghost chain (from
+  `varvel/data/settings.json` — `ghost.chain`, honoring `ghost.checkUrl` /
+  `ghost.expectExit` / `ghost.pinStrict`) is **verified live**: (a) the proxy
+  answers a SOCKS5 CONNECT to the echo host, (b) the IP echo THROUGH the
+  chain differs from the direct origin IP (equal = EXPOSED = refused; a
+  pinned expectExit must match, pinStrict = fail-closed), (c) DNS-leak
+  sanity (domain-form CONNECTs by construction + an `.invalid` canary the
+  proxy must refuse). Every failure blocks with its exact remediation on the
+  stream. Mid-hunt the console re-verifies every ~2 min; a drop **PAUSES the
+  hunt, loud** — it never continues exposed.
+- **START HUNT**: gate → tunnel (health-check `127.0.0.1:8080/health`) →
+  `VARVEL_BRAIN_*` export → the hunt loop as a **tracked child** (pid
+  recorded, cmdline-checked). **STOP HUNT** reverses it: `STOP` file → grace
+  → a SECOND cmdline check before `taskkill /T` — no orphans, no pid-reuse
+  murders. Closing the window stops the hunt first.
+- **Stage board** (center): rich cards for `watch → intake → scope-check →
+  recon → testing → vm-verification → evidence → report → ledger → cleanup`
+  with state pills colored by the loop's REAL last event — the board never
+  invents a state, and **"clean ✓" appears only on a verified no-residue
+  cleanup**. VM-test activity is its own chip (sandbox provider + ACTIVE).
+- **Live event stream** (right): mono-font tail of `events.jsonl` with
+  VERIFIED / UNVERIFIED / DRAFTED counters and Evidence / Outbox / Findings
+  ledger buttons that open the hunt's real directories.
+
+**CHAT — the lane model, in the console:**
+
+- Chat over the existing `SparkClient` (streaming, thinking toggle, effort
+  selector fast/standard/reasoning) with a live **context meter**
+  (tokens-used/262144 — the server's real prompt count once a turn has run,
+  the char/4 estimate before). **During HUNT ACTIVE the tab is sealed** with
+  the profit-first banner instead of sending — ALL model capacity goes to
+  the hunt (the SPARK tab's Launch/Load/Restore grey out too).
+- **PAUSE/RESUME** parks the loop at a stage boundary; the chat unseals
+  while paused (capacity is truly free).
+
+**SPARK** — the original menu features (working folder + REPL launch,
+tunnel connect/disconnect, lane model list/load/restore), unchanged.
+
 ## Interface (Claude Code / Kimi Code layout)
 
 - **Pinned bottom input bar.** Chat output scrolls above; the bottom of the

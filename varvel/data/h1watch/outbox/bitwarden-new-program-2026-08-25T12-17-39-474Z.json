@@ -1,0 +1,174 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bitwarden",
+      "name": "Bitwarden",
+      "offersBounties": false,
+      "assets": [
+        "9pjsdv0vpk04",
+        "api.bitwarden.com",
+        "bitwarden.com",
+        "com.8bit.bitwarden",
+        "com.bitwarden.authenticator",
+        "com.x8bit.bitwarden",
+        "docs.passwordless.dev",
+        "help.bitwarden.com",
+        "https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/",
+        "https://addons.opera.com/extensions/details/bitwarden-free-password-manager/",
+        "https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb?hl=en",
+        "https://github.com/bitwarden",
+        "https://safari-extensions.apple.com/details/?id=com.bitwarden.safari-LTZ2PFU5D6",
+        "https://www.npmjs.com/package/@bitwarden/mcp-server",
+        "identity.bitwarden.com",
+        "v4.passwordless.dev",
+        "vault.bitwarden.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bitwarden-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bitwarden",
+  "name": "Bitwarden",
+  "url": "https://hackerone.com/bitwarden",
+  "policy": "Bitwarden believes that working with security researchers across the globe is crucial to keeping our users safe. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. Thanks in advance!\n\n# Response targets\n\nBitwarden will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submission): 3 business days\n* Time to triage (from report submission): 5 business days\n* Time to bounty, if applicable (from triage or resolution, depending on the finding): 5 business days\n* Time to resolution (from triage): Varies by severity, anywhere from 1-90 business days\n\nWe'll keep you informed about our progress as appropriate throughout the process.\n\n# Disclosure policy\n\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. We may publicly disclose the issue before resolving it, if appropriate. \n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* If you would like to encrypt your report, please use the PGP key with long ID `0xDE6887086F892325FEC04CC0D847525B6931381F` (available in the public keyserver pool).\n\n# Program rules\n\n* Please provide detailed reports with reproducible steps and an accompanying proof-of-concept. If the report is not detailed enough to reproduce the issue, the issue will be closed.\n* Use the built-in calculator for the severity of your reported finding; do not submit findings with general or undefined severity values.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# In-scope\n\nSecurity issues in the current release of all Bitwarden products, including Bitwarden Password Manager, Bitwarden Secrets Manager, and Bitwarden Passwordless.dev. This encompasses all clients, including the web app, browser extension, mobile apps (iOS and Android), desktop app, CLI, and SDKs, as well as server-based code. Product downloads are available at https://bitwarden.com. Source code is available at https://github.com/bitwarden.\n\n# Out-of-scope\n\nThe following classes are out-of scope:\n\n* Authorization state and session expiration on bearer tokens e.g. using a still-valid token after authorization changes elsewhere\n* Bugs that are already reported on any of Bitwarden's issue trackers or that we already know of; note that some of our issue tracking is private\n* Issues in an upstream software dependency (e.g. ASP.NET) that are already reported to the upstream maintainer\n* Attacks requiring physical access to a user's device\n* Self-XSS\n* Username / email enumeration\n* Issues related to software or protocols not under Bitwarden's control\n* Vulnerabilities in outdated versions of Bitwarden\n* Missing security best practices that do not directly lead to a vulnerability\n* Missing HTTP security [headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers), e.g. `Strict-Transport-Security`, `X-Frame-Options`, `X-XSS-Protection`, `Content-Security-Policy`, etc.\n* CSV injection\n* Lack of `Secure` / `HTTPOnly` flags on non-sensitive cookies\n* Issues that do not have any impact on the general public\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Issues that require unlikely user interaction\n* Unencrypted authentication tokens\n* KDF count disclosure on the `/prelogin` server API\n* Race conditions affecting business logic\n* Exposing \"hidden\" passwords through client-side manipulation\n* Client manipulation or other techniques that lead to the use of premium features not otherwise enabled or allowed\n* DMARC, SPF, or other email server or DNS configuration settings and policies\n* Broken links \n* Recommendations or concerns over sweeping areas of the application’s architecture and/or design\n* Scenarios that are extremely complex, difficult, or unlikely when utilizing already compromised administrative accounts, self-hosted server, networks, or physical devices which would render much easier, and alternate means of compromising the data contained within Bitwarden\n\nWhile researching, we'd like to ask you to refrain from:\n\n* Denial of service\n* Spamming\n* Social engineering (including phishing) of Bitwarden staff or contractors\n* Any physical attempts against Bitwarden property or data centers\n\nAdditionally, if you have access to or are aware of leaked sets of credentials that may affect Bitwarden users, please [contact us](mailto:security@bitwarden.com) and we will work with you on remediation.\n\n## A note on rate limiting\n\nThere are rate limiting controls present on the application, so be careful in running scanners or anything that might send an excessive number of requests and add additional wait times to your testing. * If you exceed the rate limit too often your IP will be banned. For this program we request that you submit flaw hypotheses for any enumeration vulnerabilities you believe you have found.\n\n# Test plan\n\n* Please use your `@wearehackerone.com` email alias when signing up for an account. \n* For Enterprise access for testing, please create a test organization that is separate from any personal account, then [contact us](mailto:support@bitwarden.com) to upgrade.\n\n# We want to help you!\n\nIf you have something that you feel is close to exploitation, or if you'd like some information regarding the internal API, or generally have any questions regarding the app that would help in your efforts, please [contact us](mailto:support@bitwarden.com) and ask for that information. As stated above, Bitwarden wants to help you find issues, and is more than willing to help.\n\nIf you feel you have a history of quality reports under this program and should be invited to our private bounty program, please reach out.\n \nThank you for helping keep Bitwarden and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "bitwarden.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.bitwarden.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "identity.bitwarden.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.8bit.bitwarden",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.x8bit.bitwarden",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vault.bitwarden.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/bitwarden",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Archived repos are out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb?hl=en",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://addons.opera.com/extensions/details/bitwarden-free-password-manager/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.bitwarden.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://safari-extensions.apple.com/details/?id=com.bitwarden.safari-LTZ2PFU5D6",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "v4.passwordless.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bitwarden.authenticator",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bitwarden.authenticator",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "9pjsdv0vpk04",
+      "asset_type": "WINDOWS_APP_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.passwordless.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@bitwarden/mcp-server",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

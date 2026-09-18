@@ -1,0 +1,215 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "pagerduty",
+      "name": "PagerDuty",
+      "offersBounties": false,
+      "assets": [
+        "*.pagerduty.com",
+        "api.pagerduty.com",
+        "events.pagerduty.com",
+        "hackerone.stg.runbook.pagerduty.cloud",
+        "https://github.com/rundeck/rundeck",
+        "https://github.com/rundeck/rundeck-cli",
+        "https://hub.docker.com/r/rundeck/rundeck/",
+        "https://hub.docker.com/r/rundeckpro/enterprise",
+        "https://hub.docker.com/r/rundeckpro/runner",
+        "https://packagecloud.io/pagerduty/rundeck/packages/any/any/rundeck_4.14.1.20230622-1_all.deb/download.deb?distro_version_id=35",
+        "https://packagecloud.io/pagerduty/rundeck/packages/java/org.rundeck/rundeck-4.14.1-20230622.war/artifacts/rundeck-4.14.1-20230622.war/download ",
+        "https://packagecloud.io/pagerduty/rundeck/packages/rpm_any/rpm_any/rundeck-4.14.1.20230622-1.noarch.rpm/download.rpm?distro_version_id=227",
+        "https://packagecloud.io/pagerduty/rundeckpro/packages/any/any/rundeckpro-enterprise_4.14.1.20230622-1_all.deb/download.deb?distro_version_id=35 ",
+        "https://packagecloud.io/pagerduty/rundeckpro/packages/java/com.rundeck.enterprise/rundeckpro-enterprise-4.14.1-20230622.war/artifacts/rundeckpro-enterprise-4.14.1-20230622.war/download ",
+        "https://packagecloud.io/pagerduty/rundeckpro/packages/java/com.rundeck.sidecar/pd-runner-0.1.46.jar",
+        "https://packagecloud.io/pagerduty/rundeckpro/packages/rpm_any/rpm_any/rundeckpro-enterprise-4.14.1.20230622-1.noarch.rpm/download.rpm?distro_version_id=227",
+        "pentest-uat.pushbot.com",
+        "www.pagerduty.com"
+      ],
+      "exclusions": [
+        "community.pagerduty.com",
+        "http://www.pagerduty.com/support/",
+        "university.pagerduty.com",
+        "www.pagerduty.com/contact-us/"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\pagerduty-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "pagerduty",
+  "name": "PagerDuty",
+  "url": "https://hackerone.com/pagerduty",
+  "policy": "# Updates\nNovember 2024: The following domains have been excluded from our scope as they are hosted by third party vendors - community.pagerduty.com and university.pagerduty.com\nOctober 2023: Added Runbook Automation asset to our scope\nAugust 2023: Added several Rundeck assets to our scope\nJuly 2023: Added an asset to our scope - pentest-uat.pushbot.com\n\n# Overview\nThrough its SaaS-based platform, PagerDuty empowers developers, DevOps, IT operations and business leaders to prevent and resolve business-impacting incidents for exceptional customer experience. With hundreds of native integrations, on-call scheduling & escalations, machine learning, business-wide response orchestration, analytics, and much more, PagerDuty gets the right data in the hands of the right people in real time, every time. You can learn more about our product offerings and our business [here](https://support.pagerduty.com/docs/introduction).\n\nPagerDuty takes security vulnerabilities and concerns seriously. We encourage our users and members of the security community to privately and responsibly report possible vulnerabilities and incidents to us so that we can address these issues quickly. \n\n**We provide swag for valid reports. We do not provide any alternative or cash rewards at this time.**\n\nFor additional research into our products, good starting points include our [Developer and API documentation](https://developer.pagerduty.com/), the [PagerDuty Knowledge Base](https://support.pagerduty.com/), and any material on the [Community support forums](https://community.pagerduty.com/forum/).\n\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to comply with applicable laws and avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Out of scope vulnerabilities\n\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Entries on dehashed or haveibeenpwned \n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Rate limiting on login pages. Our rate limits on other endpoints do exist, please read about them on our [Developer Documentation site](https://developer.pagerduty.com/docs/rest-api-v2/rate-limiting/) to ensure you are not reporting expected behavior.\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n\nNote this is not an exhaustive list, just the most common. Just because something doesn’t appear on this list, it does not automatically make it a valid submission.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n# Thanks for Working With Us\nWe respect the talented people that locate security issues and appreciate all efforts to disclose responsibly.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.pagerduty.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our marketing website. There are no logins, but it hosts information about PagerDuty, and contains links to our Social Media accounts, Customer Testimonials, and Knowledge Base articles.\n\nBroken links are not considered a vulnerability unless the broken link points to a domain that is availa",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.pagerduty.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "We expressly forbid testing against customer subdomains, endpoints, or objects, in addition to using the account to target other users or individuals. You can stand up your own PagerDuty test account for free at pagerduty.com.\n\nThe product is complex. Things not in scope for this asset are:\n* Using ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "events.pagerduty.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our Events API is used to trigger either an alert or a change event to a PagerDuty service.  As always, test against your own account. Documentation and examples can be found [here](https://developer.pagerduty.com/docs/events-api-v2/overview/).  \n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.pagerduty.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Our Pagerduty REST API allows you to create, delete, and modify PagerDuty objects and resources, such as users, Escalation Policies, Schedules, Teams, Services, and more. \n\nAs always, test against your own account. Documentation and examples can be found [here](https://developer.pagerduty.com/docs/r",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.pagerduty.com/contact-us/",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The \"Contact Us\" form is operated by a third party. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.pagerduty.com/support/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Support Form and ticketing system is owned by a third party. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pentest-uat.pushbot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is connected to an account hosted in our UAT environment that has been created specifically for this type of security activity. The environment does not contain production customer data and any interruption to the environment's capacity will not impact production customer workloads.\n\nCla",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://hub.docker.com/r/rundeck/rundeck/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://hub.docker.com/r/rundeckpro/enterprise",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://hub.docker.com/r/rundeckpro/runner",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeckpro/packages/rpm_any/rpm_any/rundeckpro-enterprise-4.14.1.20230622-1.noarch.rpm/download.rpm?distro_version_id=227",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeckpro/packages/java/com.rundeck.sidecar/pd-runner-0.1.46.jar",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeckpro/packages/java/com.rundeck.enterprise/rundeckpro-enterprise-4.14.1-20230622.war/artifacts/rundeckpro-enterprise-4.14.1-20230622.war/download ",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeckpro/packages/any/any/rundeckpro-enterprise_4.14.1.20230622-1_all.deb/download.deb?distro_version_id=35 ",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeck/packages/rpm_any/rpm_any/rundeck-4.14.1.20230622-1.noarch.rpm/download.rpm?distro_version_id=227",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeck/packages/java/org.rundeck/rundeck-4.14.1-20230622.war/artifacts/rundeck-4.14.1-20230622.war/download ",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/rundeck/rundeck-cli",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://packagecloud.io/pagerduty/rundeck/packages/any/any/rundeck_4.14.1.20230622-1_all.deb/download.deb?distro_version_id=35",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/rundeck/rundeck",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hackerone.stg.runbook.pagerduty.cloud",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is a testing subdomain for Runbook Automation. Documentation can be found [here](https://docs.rundeck.com/docs/about/cloud/#runbook-automation). Claim credentials to get access to the test account.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "university.pagerduty.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.pagerduty.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

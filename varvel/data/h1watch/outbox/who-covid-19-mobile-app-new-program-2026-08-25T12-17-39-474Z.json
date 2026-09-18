@@ -1,0 +1,87 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "who-covid-19-mobile-app",
+      "name": "WHO COVID-19 Mobile App",
+      "offersBounties": false,
+      "assets": [
+        "*.whocoronavirus.org",
+        "hack.whocoronavirus.org",
+        "https://github.com/WorldHealthOrganization/app",
+        "int.who.WHOMyHealth",
+        "org.who.WHOMyHealth"
+      ],
+      "exclusions": [
+        "*.who.int",
+        "covid19app.who.int"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\who-covid-19-mobile-app-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "who-covid-19-mobile-app",
+  "name": "WHO COVID-19 Mobile App",
+  "url": "https://hackerone.com/who-covid-19-mobile-app",
+  "policy": "# World Health Organization (WHO) COVID-19 Mobile App\r\n\r\nThis program is for the WHO COVID-19 Mobile App and not for any of WHO's other infrastructure. WHO is grateful to the security researchers that have volunteered their time to keep the app safe and secure for everyone. Please do not test against the production infrastructure but instead use the dedicated hacking server:\r\n```\r\ngit clone https://github.com/WorldHealthOrganization/app\r\ncd app/client\r\nflutter run --flavor hack\r\n# `--flavor hack` targets dedicated `hack.whocoronavirus.org` server\r\n# Same command deploys on Android or iOS, simulator or device. iOS needs a few extra steps:\r\n# https://github.com/WorldHealthOrganization/app/blob/master/client/README.md\r\n```\r\n\r\nThis Vulnerability Disclosure Program (VDP) covers both the iOS and Android clients (Flutter / Dart) and the server (Google managed services: Firebase, Cloud Storage, Firestore and App Engine / Java).\r\n\r\n# Public disclosure\r\n\r\nWe believe in transparency about our security, so any valid vulnerabilities discovered have a presumption of public disclosure once confirmed and resolved. At the same time, we’re limited by volunteer capacity, so please be understanding when working with us. As the app is open source on [GitHub](https://github.com/WorldHealthOrganization/app), we would particularly welcome reports that provide a patch for any fix.\r\n\r\n# In Scope:\r\n* `hack.whocoronavirus.org` - dedicated server for penetration testing. This domain is maintained by Covantas, LLC on non-WHO infrastructure. This is the preferred system for hacking and you are welcome to break it but please be thoughtful in doing so. Please keep the data in confidence but by design it should not contain any private data. Please no DDOS or other attacks that would run up significant server costs (this requires prior written approval). Low scale fuzzing acceptable. Please see the “Safe Harbor” section below.\r\n* `*.whocoronavirus.org` - other subdomains include staging and QA for developer workflow. Please be more careful here so as not to disrupt ongoing development. All these domains are maintained by Covantas, LLC on non-WHO infrastructure.\r\n* Deployment configuration, including firewalls and access control.\r\n* 3rd party libraries, developer workflow and CI build, credential leaks.\r\n* Hardening suggestions. If there isn’t an active vulnerability, please consider sending a public pull request for the improvement. You can also file a report on HackerOne with a link to the Pull Request to receive credit for this.\r\n* Security issues that are in the open source codebase but which have not been pushed to a public server. For an active pull request that has not been merged, please publicly comment on the pull request, then post to HackerOne for credit.\r\n\r\n# Out of Scope:\r\n* **who.int website or any other subdomain (VDP is only for the WHO COVID-19 app)**\r\n* DDOS or similar that drive large server costs (except by prior written arrangement)\r\n* Targeted testing or compromise of accounts of WHO staff or open source contributors (e.g. spear phishing, social engineering or physical presence)\r\n* Attempted insertion of a vulnerability in the open source codebase of either the WHO COVID-19 app or any of its dependencies. Hardening against this would be welcome\r\n* Community engagement channels for the contributors, e.g. video chat, Slack, GitHub and others… except where the channel is meant to be private and security focused\r\n* Android and iOS operating systems vulnerabilities, _see the “Possible Bug Bounties” section below_\r\n* Google managed services: App Engine, Firebase and Google Cloud Platform, _see the “Possible Bug Bounties” section below_\r\n\r\n# Documentation\r\n- [Engineering](https://github.com/WorldHealthOrganization/app/blob/master/docs/devdesign/README.md)\r\n- [Security](https://github.com/WorldHealthOrganization/app/blob/master/SECURITY.md)\r\n- [Open Security Issues](https://github.com/WorldHealthOrganization/app/issues?q=is%3Aissue+is%3Aopen+label%3Asecurity)\r\n\r\n# Hacking Server\r\nBreaking the hack server - `hack.whocoronavirus.org` - should not cause a serious problem but please be thoughtful in doing so to avoid disruption for other hackers. Please treat any server data as confidential but by design it shouldn't contain any private data. Please be more careful with the other `*.whocoronavirus.org` servers as they're used for active development.\r\n\r\n# Possible Bug Bounties\r\nCertain vulnerabilities with a working proof of concept on the Android version of the WHO COVID-19 Mobile App may qualify for a bounty through the [Google Play Security Reward Program](https://www.google.com/about/appsecurity/play-rewards/). To see which vulnerabilities may qualify for a bounty, please refer to the [Google Play Security Reward Program’s Scope and Vulnerability Criteria](https://www.google.com/about/appsecurity/play-rewards/#rewards). Please report and resolve the vulnerability first through HackerOne. Given the shared Flutter codebase, a vulnerability on iOS could exist on Android also.\r\n\r\nFor Google managed services, such as App Engine, Firebase, Google Cloud Platform and others. Please report them to https://g.co/vulnz, where you may be eligible for a reward. For Android vulnerabilities, see the [Android Security Rewards Program](https://www.google.com/about/appsecurity/android-rewards/).\r\n\r\nFor iOS vulnerabilities, see the [Apple Bug Bounty](https://developer.apple.com/security-bounty/) program.\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct. The World Health Organization and Covantas, LLC (owners of the `*.whocoronavirus.org` servers) will not initiate legal action against you under applicable computer use laws on the basis of such activities. Your safest activity is to test only the hack.whocoronavirus.org servers.\r\n\r\nThe `covid19app.who.int` production domain is out of scope. No safe harbor applies to this or any other WHO infrastructure including `who.int` and all other subdomains.\r\n\r\nWe cannot bind or authorize any activities taken in relation to networks, systems, information, applications, products, or services of any third parties. For the Google Cloud Platform, see their [Reward Program](https://www.google.com/about/appsecurity/reward-program/. Under that program, you should consider `*.whocoronavirus.org` as an authorized “Third-party websites” subject to the limitations described above.\r\n\r\nIf legal action is initiated by a third party against you in connection with activities conducted under this policy, the World Health Organization and Covantas, LLC will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n# Responsible Disclosure\r\nWe encourage and respect the hacker community and ask that you act in good faith when working with us. Please abide by the following when participating in our program:\r\n \r\n**Follow the Guidelines.** Please read and follow the HackerOne [Vulnerability Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n \r\n**Respect user privacy.** The WHO COVID-19 app handles important and sensitive information, and we count on you to help keep everyone safe. Limit testing to accounts you own and do not impact other users. If you encounter any user or program data, including but not limited to usernames, passwords, or vulnerability information, please report it to us immediately and stop testing right away.\r\n \r\n**Bend, but not break.** When testing, use the minimal possible POC to validate a vulnerability; in cases when it may impact systems or users, ask permission first. No matter the case, do not damage or leave a system in a more vulnerable state than when you uncovered it. The hack.whocoronavirus.org server is the exception where breaking the server is acceptable but please do so in a thoughtful manner.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "hack.whocoronavirus.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.whocoronavirus.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.who.int",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/WorldHealthOrganization/app",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "int.who.WHOMyHealth",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "org.who.WHOMyHealth",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "covid19app.who.int",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

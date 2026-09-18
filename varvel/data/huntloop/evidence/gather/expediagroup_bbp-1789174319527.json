@@ -1,0 +1,104 @@
+{
+ "at": "2026-09-12T00:51:52.462Z",
+ "opportunity": "expediagroup_bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.hotels.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-bad-response: response arrived content-encoding 'gzip' — we never offered it; refusing to guess"
+  },
+  {
+   "host": "www.expedia.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-bad-response: response arrived content-encoding 'gzip' — we never offered it; refusing to guess"
+  },
+  {
+   "host": "www.expediapartnercentral.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.vrbo.com",
+   "kind": "domain",
+   "status": 429,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {},
+   "endpoints": [
+    {
+     "path": "/api/uisprime/track",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/api/ucs/shortlist/",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/api/v4/typeahead/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.hotwire.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

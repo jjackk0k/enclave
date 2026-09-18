@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": {
+    "name": "Sheer",
+    "handle": "sheer_bbp",
+    "url": "https://hackerone.com/sheer_bbp"
+  },
+  "policy": "While we are doing our best to keep Sheer as safe as possible, we know that some bugs can slip trough our scrutiny.\n\nIf you believe you've found a security issue in the services listed in our scope, we will work with you to resolve it promptly and ensure you are fairly rewarded for your discovery.\n\n# Scope\nThe scope of this program is limited to security vulnerabilities found on Sheer. Vulnerabilities reported on other properties or applications are currently not eligible for monetary reward. High impact vulnerabilities outside of this scope might be considered on a case by case basis.\n\n# Domains\nhttps://www.sheer.com/\nhttps://my.sheer.com/\nhttps://www.sheer.com/chat\n\n# Access\n\nTo get your creator account approved, please put a valid email, your login as first name and as last name : HackerOneBugBounty\n\n# Reward\n\nSheer may provide rewards to eligible reporters of qualifying vulnerabilities. Rewards amounts vary depending upon the severity of the vulnerability reported.\n\nSheer keeps the right to decide if the minimum severity threshold is met and whether the scope of the reported bug is actually already covered by a previously reported vulnerability. Rewards are granted entirely at the discretion of Sheer. To qualify for a reward under this program, you should respect all the below criterias.\n\n# Eligibility and Responsible Disclosure\n\nWe are happy to work with everyone who submits valid reports which help us improve the security of Sheer.\n\nHowever, only those that meet the following eligibility requirements may receive a monetary reward:\n\n* You need to be the first person to report an unknown issue\n* Any vulnerability found must be reported no later than 24 hours after discovery.\n* You are not allowed to disclose details about the vulnerability anywhere else.\n* You must avoid tests that could cause degradation or interruption of our service.\n* You must not leak, manipulate, or destroy any user data.\n* You are only allowed to test against accounts you own yourself.\n* The use of automated tools or scripted testing is not allowed\n* You must not be a former or current Sheer employee.\n* Send a clear textual description of the report along with steps to reproduce the vulnerability, include attachments such as screenshots or proof of concept code as necessary.\n* Disclose the vulnerability report exclusively through HackerOne.\n\n**Becareful**, if your report requires the use of **Burp Suite**, there is a high chance that it is invalid. To avoid receiving a heavy penalty for a report classified as Invalid, please double-check multiple times that it is not a local hack (self-hack).\n\nA good bug report should include the following information at a minimum:\n* List the URL and any affected parameters\n* Describe the browser, OS, and/or app version\n* Describe the perceived impact. How could the bug potentially be exploited?\n\nWe intend to respond and resolve reported issues as quickly as possible. This means that you will receive progress updates from us at least every five working days.\n\nNote that posting details or conversations about the report or posting details that reflect negatively on the program and the Sheer brand, will result in immediate disqualification from the program.\n\n# Qualifying vulnerabilities\n\nPlease note these are examples, and this list in non-exhaustive.\n\nVulnerabilities with a real security impact. Examples :\n* Easy (zero to one click) user account takeover\n* Backend interface takeover\n* Server takeover (or potential takeover)\nEtc ...\n\n# The following are strictly prohibited:\n* Network or simple Denial of Service attacks.\n* Physical attacks against offices and data centers.\n* Social engineering of our service desk, employees or contractors.\n* Compromise of a Sheer user's or employee's account.\n* Automated tools or scans, botnet, compromised site, end-clients or any other means of large automated exploitation or use of a tool that generates a significant volume of traffic.\n\n# Non-qualifying vulnerabilities\n\nThis type of issues can be accepted if they lead to a serious data leak.\n\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Account enumeration\n* Missing HTTP Headers\n* SSL/TLS best practices\n* Denial of Service and brute forcing attacks\n* Physical attacks against offices and data centers\n* Social engineering of our service desk, employees or contractors\n* Compromise of a Sheer users or employees accounts\n* Use of a tool that generates a significant volume of traffic\n* Any hypothetical flaw or best practices without exploitable POC\n* Session timeout\n* Session Hijacking (cookie reuse)\n* Click-jacking\n* DKIM/SPF/DMARC issues\n* Information leakage, data cached in search engines or the web archive\n* Software version disclosure\n* HttpOnly, SameSite and Secure cookie flags\n* Confirmation Email (anything related with)\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Sheer and our users safe!\n",
+  "safeHarbor": null,
+  "rewards": null,
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "www.sheer.com",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "my.sheer.com",
+        "maxSeverity": "critical"
+      }
+    ],
+    "wildcards": [],
+    "other": []
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [],
+    "wildcards": [],
+    "other": []
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [],
+  "gaps": [
+    "HackerOne adapter: modeled on the documented structured-scope export — entries in structured_scopes[] with eligible_for_submission:false treated as OUT-of-scope; a top-level out_of_scope[] list, when present, is honored verbatim",
+    "no bounty_table/rewards in the export — HackerOne reward ranges live on the program page; carry them by hand if the export omits them",
+    "2 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact"
+  ]
+}

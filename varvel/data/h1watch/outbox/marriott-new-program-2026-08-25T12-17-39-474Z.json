@@ -1,0 +1,235 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "marriott",
+      "name": "Marriott Bug Bounty Program",
+      "offersBounties": true,
+      "assets": [
+        "455004730",
+        "activities.marriott.com",
+        "all-inclusive.marriott.com",
+        "careers.marriott.com",
+        "cpp.marriott.com",
+        "dcfgateway*.marriott.com",
+        "editionhotels.com",
+        "gateway*.marriott.com",
+        "homes-and-villas.marriott.com",
+        "hotel-deals.marriott.com",
+        "jobs.marriott.com",
+        "lawmanager.marriott.com",
+        "marriottfranchisetransactions.marriott.com",
+        "marrtool.com",
+        "mgs.marriott.com",
+        "passwordchallenge.marriott.com",
+        "reservations.all-inclusive.marriott.com",
+        "sso.marriott.com"
+      ],
+      "exclusions": [
+        "*.ritzcarlton.com",
+        "Not-Listed Assets",
+        "apps.ritzcarlton.com",
+        "springhillsuites.marriott.com",
+        "towneplacesuites.marriott.com",
+        "vacations.marriott.com",
+        "www.travelagents.marriott.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\marriott-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "marriott",
+  "name": "Marriott Bug Bounty Program",
+  "url": "https://hackerone.com/marriott",
+  "policy": "#Welcome to the Marriott Bug Bounty Program !\n\nMarriott takes cybersecurity seriously. Individuals that participate in the Program by responsibly researching and reporting vulnerabilities help us to ensure the security and privacy of our customers and data.\n\n#Program Terms\n\nThis Policy governs your participation in Marriott’s Bug Bounty Program and supersedes any conflicting HackerOne terms. By submitting a vulnerability report through HackerOne, you agree to this Policy.\n\nResearchers must:\n\n•\tFollow [HackerOne’s Gold Standard Safe Harbor](https://docs.hackerone.com/en/articles/8494525-gold-standard-safe-harbor-statement?utm_source=chatgpt.com ) pledge  and [Community Code of Conduct](https://www.hackerone.com/policies/code-of-conduct) ;\n•\tAct within the defined rules published on HackerOne; and\n•\tAct within the defined scope published in the Program. \n\n Marriott supports good-faith security research and will honor Safe Harbor protections when rules are followed.\n\n#Scope\n\nPlease review the Scopes tab  to confirm which assets are in-scope and which are out-of-scope for the Marriott Bug Bounty Program.  Any asset not listed in-scope is ineligible for bounty and will be marked N/A.\n\n#Out-of-Scope Submissions \n\n•\t\"Zero Days\" Security flaws that  have released an official patch in the last 31 business days\n•\tWeb Cache Poisoning, DOM-Based XSS, Reflected XSS, UI redressing via custom .html files and HTML injection\n•\tContent spoofing, iframes, open redirects, CLRF or text injection without  persistent modification or require user interaction \n•\tLeaked tokens, IDs, or cookies without proof of account takeover (ATO)\n•\tNon-persistent DOM-based and Reflected XSS requiring user interaction (aka Phishing)\n•\tIntentional service disruption (e.g., DoS)\n•\t MITM attacks requiring access to the physical network or physical location like a hotel or office.\n• Leaked credentials from data stealing malware logs or 3rd party threat intelligence or from purchase cred buy packs.\n• Shadowboxing/User Spoofing - creating your own account to have a known victim resource to exploit . This escapes the full attack chain of discovering victim accounts to exploit.\n\n#Submission Requirements\nTo qualify for a bounty, you first need to meet all the following requirements:\n•\tAgree and adhere to the requirements and conditions outlined in the Program Terms, Scope, Confidentiality and Disclosure, and Legal Sections within this policy;\n•\tStore supporting evidence only within the Submission (i.e., you are prohibited from hosting files on your own device or on external hosting services); \n•\tProvide a detailed summary of the exploit or chain of exploits, including: (i) type of issue; (ii) validation of company that owns the asset (this can be done via WHOIS records by emailing: domain.administrator@marriott.com); (iii) product, version and configuration, where applicable; and (iv) list of impacted assets (i.e. websites, applications, software, etc);\n•\tProvide proof of the vulnerability (i.e. through screenshots, screen captures, etc);\n•\tSuggest mitigation or remediation actions; and\n•\tProvide your IP address, the dates you identified the potential vulnerability and performed testing, the web browser, testing tools, and mobile app version used during testing.\n\nFailure to adhere to the above minimum guidelines may result in a #reduced reward.\n\n#Rewards\n\nRewards are calculated based on the CVSS score assigned to the Submission and are at the sole discretion of Marriott. \nMarriott aims for consistent rewards, but previous reports or reward amounts should not be considered a precedent and should not be used to negotiate a higher reward. \n\nRecipients of rewards are responsible for the payment of all applicable taxes. \n\n#Response Times\n\nMarriott understands the importance of the efforts of Researchers reporting vulnerabilities, as they regularly make valuable contributions to Marriott and the broader community. We take each Submission seriously and will investigate and take appropriate steps to resolve reported vulnerabilities. \n\nMarriott will use its best efforts to meet the following timelines related to Submissions and to keep reporters informed throughout the process:\n\n| Marriott Response      | Estimated Response Time                     |\n|------------------------|----------------------------------------------|\n| First Response         | 2 days                                       |\n| Time to Triage         | 5 days                                       |\n| Time to Bounty         | 20 days                                      |\n| Time to Resolution     | Depends on severity and complexity           |\n\n#Confidentiality and Disclosure\n\nResearchers must immediately stop all activity and notify Marriott, through HackerOne, if Researchers:\n\n     • \tAccess any personal or confidential data related to Marriott, or its customers, employees, or other affiliated parties, or otherwise the data or accounts of others, except when Researchers have been provided express permission to access such accounts;\n\nUnless expressly provided in writing by Marriott, all Submissions and related information must be kept confidential and may not be shared outside of the Program. \nFor the protection of our customers, Marriott does not publicly disclose, discuss or confirm security matters before comprehensively investigating, diagnosing and fixing any known issues. \nMarriott does not permit any public disclosure about the Program or Submissions. Do not discuss or write about any potential, current or resolved vulnerabilities without express consent from Marriott.\n\n#Legal\n\nMarriott may be prohibited from issuing a reward if the reporter is: (i) a citizen or resident of an embargoed country; or (ii) on the US Treasury Department list of Specialty Designated Nations or the US Department of Commerce Denied Persons or Entity List, or any other restricted party list.\nMarriott reserves the right to update or terminate the Program at any time; changes are effective upon posting. Please review the Program page regularly for updates.\nMarriott employees and vendors are encouraged to participate in the Program, but they are not eligible for bounty payments.\n\nThank you for helping protect Marriott’s systems, data and customers.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.ritzcarlton.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "455004730",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "apps.ritzcarlton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "homes-and-villas.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "activities.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "vacations.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not own this site. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "towneplacesuites.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a vanity site ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "springhillsuites.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "careers.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sso.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mgs.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jobs.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "passwordchallenge.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This app is used for employees all over marriott to reset their passwords, for new employees to set their first password, and set up challenge questions.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gateway*.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dcfgateway*.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "marriottfranchisetransactions.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lawmanager.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.travelagents.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "hotel-deals.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Not-Listed Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "## Any asset *not* listed in-scope is *ineligible* for bounty and will be marked N/A",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "all-inclusive.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "reservations.all-inclusive.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "marrtool.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cpp.marriott.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "editionhotels.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

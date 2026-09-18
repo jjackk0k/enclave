@@ -1,0 +1,254 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "apnic",
+      "name": "APNIC",
+      "offersBounties": false,
+      "assets": [
+        "* IPv4 addresses",
+        "* IPv6 addresses",
+        "*.apidt.org",
+        "*.apnic.foundation",
+        "*.apnic.net",
+        "*.isif.asia",
+        "*.seedalliance.net",
+        "203.119.102.40/32",
+        "203.133.248.0/22",
+        "aso.apnic.net",
+        "ftp.apnic.net",
+        "nori.apnic.net",
+        "orbit.apnic.net",
+        "rsync.apnic.net",
+        "stats.labs.apnic.net",
+        "submission.apnic.net"
+      ],
+      "exclusions": [
+        "autodiscover.apnic.net",
+        "enterpriseenrollment.apnic.net",
+        "enterpriseregistration.apnic.net",
+        "help.apnic.net",
+        "info.apnic.net",
+        "login.apnic.net",
+        "lyncdiscover.apnic.net",
+        "sip.apnic.net",
+        "upload.apnic.net"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\apnic-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "apnic",
+  "name": "APNIC",
+  "url": "https://hackerone.com/apnic",
+  "policy": "APNIC (Asia Pacific Network Information Centre) is an open, membership-based, not-for-profit organization providing Internet addressing services to the Asia Pacific region.\n\nAs the Regional Internet Registry, our primary role is to provide Internet number resources (IPv4, IPv6 and ASNs) to our Members.\n\nAPNIC strives to support the security of its Members, but to do this APNIC must ensure it maintains strong security on its own network infrastructure.\n\nAPNIC looks forward to working with the security community towards these goals.\n\n# Response Targets\nAPNIC will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 2 business days\n* Time to triage (from report submit) - 5 business days\n* Time to Resolution - depends on severity and complexity\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Third-party services such as Lets Encrypt, Okta, Cloudflare, Zoom, or similar applications are not in-scope for the program and will not be accepted. \n\n# Test Plan\n\nSome services (e.g. academy.apnic.net and my.apnic.net) use an “APNIC Login” SSO account to access them. **To create an “APNIC Login”, please go to https://my.apnic.net/ and complete the new user registration using your HackerOne email alias: [H1username]@wearehackerone.com.**\n\n*Note: The user creation and profile editing are done on _login.apnic.net_ which is currently out of scope for this program (see Scope section below). You of course may use login.apnic.net as a user would for accessing other sites.*\n\n* **orbit.apnic.net** hosts live mailing lists.  Please only use the Testing list at https://orbit.apnic.net/postorius/lists/testing.lists.apnic.net/ which was created specifically for vulnerability testing.  We don't want testing messages going out to legitimate public subscribers. The testing list is accessible via email and WebUI.\n\n* **submission.apnic.net** hosts live conference events. Please use the \"Test Only\" event at https://submission.apnic.net/user/login.php?event=163 which was setup specifically for vulnerability testing.\n\n\n# Out of scope vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* FTP, HTTP, or rsync directory listing on the following: (working as intended)\n    * ftp.apnic.net\n    * rpki.apnic.net\n    * rsync.apnic.net (same server as ftp.apnic.net)\n    * nori.apnic.net (same server as ftp.apnic.net)\n    * submit.origin.apnic.net (same server as ftp.apnic.net)\n    * aso.apnic.net\n* Information disclosure and HTML injection vulnerabilities including XSS vulnerabilities for \\*.rand.apnic.net and \\*.labs.apnic.net\n* Any activity that could lead to the disruption of our service (DoS)\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Missing HttpOnly or Secure flags on cookies that don’t relate to user authentication/credentials\n* Missing email best practices (invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Self Cross Site Scripting (XSS)\n\n\n# Safe Harbor\n\nWhen conducting vulnerability research that is:\n* In scope as stipulated in the above; and\n* Subject to a report with the required information being submitted to us in a timely manner\n \nWe will consider this research conducted to be:\n* Authorized in view of any applicable anti-hacking and cybersecurity laws and regulations, and we will not initiate or support legal action against you for accidental, good faith violations of this program;\n* Authorized in view of relevant anti-circumvention and copyright laws, and we will not bring a claim against you for circumvention of access control technological protection measures; and\n* Lawful, helpful to the overall security of the Internet, and conducted in good faith.\nYou are expected, as always, to comply with all applicable laws.\n \nIf legal action is initiated by a third party against you and you have complied with this program, we will take steps to make it known that your actions were conducted in compliance with this program.\n \nThank you for helping keep APNIC and our Members safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.apnic.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Main APNIC domain used for core services. Websites use a combination of WordPress and in-house written applications.  \n\n**Out of Scope:**\nInformation disclosure and reflected Cross Site Scripting (XSS) vulnerabilities are out-of scope for the  following subdomains:\n\\*.rand.apnic.net\n\\*.labs.apnic.ne",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.apnic.foundation",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Benevolent arm of APNIC assisting developing economies in the region. Websites mostly use WordPress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.isif.asia",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Benevolent arm of APNIC assisting developing economies in the region. Websites mostly use WordPress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.seedalliance.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Benevolent arm of APNIC assisting developing economies in the region. Websites mostly use WordPress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.apidt.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Benevolent arm of APNIC assisting developing economies in the region. Websites mostly use WordPress.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "* IPv4 addresses",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "* 203.119.100.0/22\n* 203.119.104.0/21\n* 203.119.95.0/24\n* 203.119.86.0/24\n* 203.119.77.0/24\n* 203.119.76.0/24\n* 203.119.0.0/24\n* 202.12.31.0/24\n* 202.12.28.0/23\n* 203.133.248.0/22\n\nThese are all operational IP blocks that we use in production and testing. Hosts on IP addresses not listed here are no",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "* IPv6 addresses",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "* 2001:0DDD::/48\n* 2001:0DD8:0012::/48\n* 2001:0DD8:0008::/45\n* 2001:0DD8:0006::/48\n* 2001:0DC0::/32\n* 2401:2000::/32\n\nThese are all operational IP blocks that we use in production and testing. Hosts on IP addresses not listed here are not managed by APNIC, and are considered out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "login.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "upload.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "autodiscover.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "enterpriseenrollment.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "enterpriseregistration.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "info.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "lyncdiscover.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sip.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope because it's a CNAME to a 3rd party.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "submission.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Only use the \"Test Only\" event at https://submission.apnic.net/user/login.php?event=163\nThis was created specifically for vulnerability testing, to avoid real event organisers from receiving test submissions.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "orbit.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "==These are live mailing lists with external subscribers, so please only use the **Testing** list at https://orbit.apnic.net/postorius/lists/testing.lists.apnic.net/ which was created specifically for vulnerability testing. We *don't* want testing messages going out to legitimate public subscribers.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ftp.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "ftp.apnic.net (203.119.102.40) is **intentionally** accessible by anonymous FTP, HTTP and HTTPS. It contains publicly accessible information that is not confidential, but does have requirements for integrity and availability. This includes mailing list archives, copies of the WHOIS database and publ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats.labs.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Information disclosure and reflected Cross Site Scripting (XSS) vulnerabilities are out-of scope for this system. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "203.119.102.40/32",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "203.119.102.40 (ftp.apnic.net) is **intentionally** accessible by both anonymous FTP and HTTPS. It contains publicly accessible information that is not confidential, but does have requirements for integrity and availability. This includes mailing list archives, copies of the WHOIS database and publi",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "203.133.248.0/22",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Information disclosure (e.g. logs, metrics) and reflected Cross Site Scripting (XSS) vulnerabilities are out-of scope for this system. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aso.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "aso.apnic.net  (203.119.102.40) is **intentionally** accessible by anonymous FTP and HTTP. It contains publicly accessible information that is not confidential, but does have requirements for integrity and availability. This includes mailing list archives, copies of the WHOIS database and public for",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nori.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "nori.apnic.net  (203.119.102.40) is **intentionally** accessible by anonymous FTP and HTTP. It contains publicly accessible information that is not confidential, but does have requirements for integrity and availability. This includes mailing list archives, copies of the WHOIS database and public fo",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rsync.apnic.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "rsync.apnic.net  (203.119.102.40) is **intentionally** accessible by anonymous FTP and HTTP. It contains publicly accessible information that is not confidential, but does have requirements for integrity and availability. This includes mailing list archives, copies of the WHOIS database and public f",
+      "max_severity": "critical"
+    }
+  ]
+}

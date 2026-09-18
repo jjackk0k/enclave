@@ -13,7 +13,7 @@ const issue = (s) => { const signed = { ...s, sig: signSession(s) };
 issue({ session_id: 'sess-1001', principal: 'sam',    workspace: 'triage-queue' });
 issue({ session_id: 'sess-1002', principal: 'priya',  workspace: 'soc2-evidence-q3' });
 issue({ session_id: 'sess-1003', principal: 'dana',   workspace: 'incident-2231' });
-issue({ session_id: 'sess-1004', principal: 'marcus', workspace: 'pentest-northwind', engagementScope: '10.10.0.0/16' });
+issue({ session_id: 'sess-1004', principal: 'marcus', workspace: 'pentest-northwind', engagementScope: '10.10.0.0/16,192.168.50.0/24' });
 issue({ session_id: 'sess-1005', principal: 'ravi',   workspace: 'infra-prod' });
 issue({ session_id: 'sess-1006', principal: 'alex',   workspace: 'command-deck', engagementScope: '0.0.0.0/0' });
 

@@ -1,0 +1,139 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bill_vdp",
+      "name": "BILL VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.2go.com",
+        "*.bill.com",
+        "*.divvy.co",
+        "Other BILL assets",
+        "app.bill.com",
+        "app.divvy.co",
+        "com.bdc.bill",
+        "com.divvypay.Divvy",
+        "com.invoice2go.invoice2goplus",
+        "id1114962353",
+        "id980353334"
+      ],
+      "exclusions": [
+        "*.zipbooks.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bill_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bill_vdp",
+  "name": "BILL VDP",
+  "url": "https://hackerone.com/bill_vdp",
+  "policy": "# Program rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, it may not be accepted.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* In order to help us identify and validate security researcher activity, please do the following:\n  * Register any applicable test accounts using your `@wearehackerone.com` email address\n  * Include the following User Agent value in any testing-related activity: `UA-BugBounty-{your H1 username}`\n\n---  \n\n#\n# Scope\nOur core products/brands include the following:\n\n* BILL AP/AR\n* BILL Spend & Expense\n* Finmark\n* Invoice2go\n\nReports affecting the assets listed on our Scope page are generally considered eligible for submission. While we are primarily interested in reports affecting our core products, issues affecting other assets that are not explicitly listed may also be accepted. Report eligibility will ultimately be decided by the BILL security team based on internal review and investigation of asset ownership and security impact.\n\n---\n\n#  \n# Exclusions\nWe are unable to grant authorization to test third-party assets that we do not host or that are otherwise outside of our control (e.g., SaaS products or other third-party platforms/tools that we use). Reports related to such assets will only be accepted if significant security impact to BILL is demonstrated. In many cases, reporting the issue directly to the vendor would be most appropriate. That said, issues within our control to fix or mitigate are generally considered valid, including security misconfigurations and vulnerabilities/patching relating to self-hosted assets.\n\nUnless otherwise noted, reports for the following issues in [HackerOne's Core Ineligible Findings list](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings) are considered invalid for our program and will generally not be accepted except in rare circumstances demonstrating clear security impact:\n\n## Theoretical vulnerabilities that require unlikely user interaction or circumstances. For example:\n\n* Vulnerabilities only affecting users of unsupported or End-of-life browsers or operating systems\n* Broken link hijacking\n* Tabnabbing\n* Content spoofing and text injection issues\n* Attacks requiring physical access to a device\n* Self-exploitation, such as self-XSS or self-DoS (unless it can be used to attack a different account)\n\n## Theoretical vulnerabilities that do not demonstrate real-world security impact. For example:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on forms with no sensitive actions (e.g., Logout)\n* Permissive CORS configurations without demonstrated security impact\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Comma Separated Values (CSV) injection\n* Open redirects (unless you can demonstrate additional security impact)\n* Previously known vulnerable libraries without a working Proof of Concept\n\n## Optional security hardening steps / Missing best practices. For example:\n\n* SSL/TLS Configurations\n* Lack of SSL Pinning\n* Lack of jailbreak detection in mobile apps\n* Cookie handling (e.g., missing HttpOnly/Secure flags)\n* Missing or misconfigured Content-Security-Policy\n* Optional email security features (e.g., SPF/DKIM/DMARC configurations)\n* Most issues related to rate limiting\n\n## Vulnerabilities that may require hazardous testing. This type of testing must never be attempted unless explicitly authorized:\n* Issues relating to excessive traffic/requests (e.g., login brute-force, DoS, DDoS)\n* Any other issues where testing may affect the availability of systems\n* Social engineering attacks (e.g., phishing, opening support requests)\n* Attacks that are noisy to users or admins (e.g., spamming notifications or forms)\n* Attacks against physical facilities\n\n---  \n\n#  \n# Other expectations and clarifications\n* Unless otherwise noted, we adhere to HackerOne's [Platform Standards](https://docs.hackerone.com/en/articles/8369826-detailed-platform-standards) and Core Clarifications.\n* Reports for publicly disclosed Zero-day vulnerabilities that have had an official patch for less than one month will be accepted only on a case-by-case basis.\n\n---  \n\n#  \n# Response targets\nBILL will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| Time to first response (from report submission) | 5 days |\n| Time to triage (from first response) | 10 days |\n| Time to resolution (from triage) | Depends on report severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n---  \n\n#  \n# Disclosure policy\n* At this time, our program does not allow public disclosure. Please do not publish or discuss any discovered vulnerabilities (even resolved ones) outside of the program without express consent from BILL.\n* Please follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n---  \n\n#  \n# Safe harbor\nWe adhere to HackerOne's [Gold Standard Safe Harbor](https://hackerone.com/security/safe_harbor). Please see https://hackerone.com/bill/safe_harbor for more details.\n\nThank you for helping keep BILL and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.bill.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Other assets under `*.bill.com` that are not components of the main AP/AR web application. For example, the BILL marketing site (`www.bill.com`) and the BILL help center (`help.bill.com`).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.bill.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is intended to encompass all components of the main AP/AR web application, including those on other subdomains, e.g., `login.us.bill.com`, `app01.us.bill.com`, etc.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.divvy.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is intended to encompass all components of the main Spend & Expense web application, including those on other subdomains, e.g., `apply.divvy.co`, etc.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.divvy.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Other assets under `*.divvy.co` that are not components of the main Spend & Expense web application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id980353334",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "iOS app: [BILL AP & AR Business Payments](https://apps.apple.com/us/app/bill-ap-ar-business-payments/id980353334)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id1114962353",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "iOS app: [BILL Spend & Expense (Divvy)](https://apps.apple.com/us/app/bill-spend-expense-divvy/id1114962353)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bdc.bill",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Android app: [BILL AP & AR Business Payments](https://play.google.com/store/apps/details?id=com.bdc.bill)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.divvypay.Divvy",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Android app: [BILL Spend & Expense (Divvy)](https://play.google.com/store/apps/details?id=com.divvypay.Divvy)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.invoice2go.invoice2goplus",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Android app: [Invoice2go: Easy Invoice Maker](https://play.google.com/store/apps/details?id=com.invoice2go.invoice2goplus)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.2go.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Invoice2go related assets",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zipbooks.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Zipbooks related assets",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Other BILL assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Other assets owned/managed by BILL that are not otherwise listed.",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -42,9 +42,12 @@ RUN /opt/venv/bin/pip install --no-cache-dir angr 2>/dev/null || echo "angr skip
 RUN gem install --no-document one_gadget seccomp-tools 2>/dev/null || echo "gems skipped (optional)"
 
 # --- Ghidra (headless RE) + GEF (gdb enhancer) ---
+# Ghidra is a big pinned download — make it BEST-EFFORT so a stale release URL can't kill the
+# whole image (radare2 already covers RE; Ghidra can be added later if this is skipped).
 RUN set -eu; \
-    curl -fsSL https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.2_build/ghidra_12.1.2_PUBLIC_20260605.zip -o /tmp/ghidra.zip \
-    && unzip -q /tmp/ghidra.zip -d /opt && rm /tmp/ghidra.zip && mv /opt/ghidra_* /opt/ghidra; \
+    ( curl -fsSL https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.2_build/ghidra_12.1.2_PUBLIC_20260605.zip -o /tmp/ghidra.zip \
+      && unzip -q /tmp/ghidra.zip -d /opt && rm /tmp/ghidra.zip && mv /opt/ghidra_* /opt/ghidra ) \
+      || echo "Ghidra download/install SKIPPED (release URL may be stale) — radare2 covers RE; add Ghidra later"; \
     mkdir -p /etc/gdb && curl -fsSL https://raw.githubusercontent.com/hugsy/gef/main/gef.py -o /opt/gef.py 2>/dev/null \
       && echo 'source /opt/gef.py' > /etc/gdb/gdbinit || true
 

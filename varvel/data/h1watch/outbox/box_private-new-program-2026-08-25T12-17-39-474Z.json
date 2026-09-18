@@ -1,0 +1,147 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "box_private",
+      "name": "Box BB",
+      "offersBounties": true,
+      "assets": [
+        "Android Box Mobile App",
+        "Box Drive",
+        "account.box.com",
+        "api.box.com",
+        "app.box.com",
+        "cloud.app.box.com",
+        "dl.boxcloud.com",
+        "iOS Box Mobile App",
+        "m.box.com",
+        "notes.services.box.com",
+        "signrequest.com",
+        "sr-staging-1.com",
+        "upload.box.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\box_private-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "box_private",
+  "name": "Box BB",
+  "url": "https://hackerone.com/box_private",
+  "policy": "# Program Eligibility\n\nYou must:\n\n- Be the first to report an issue in order to be eligible for bounty on it (if a security bug is reported of which Box, Inc. is already aware, this will be treated as a duplicate and will not be eligible for bounty).\n- ***Not*** be a current employee of Box, Inc. or its affiliates or subsidiaries, or an employee who has left Box, Inc., or its affiliates or subsidiaries within the past 12 months.\n- ***Not*** be an immediate family member of a person employed by Box, Inc. or its subsidiaries or affiliates.\n- ***Not*** be a resident of, or make your submission from, a country against which the United States has issued export sanctions or other trade restrictions (e.g., Cuba, Iran, North Korea, Sudan, and Syria).\n- ***Not*** be in violation of any national, state, or local law or regulation.\n\n# Public Disclosure\n\nThis program does ***not*** allow public disclosure of reported vulnerabilities.\n\n# Rules and Exclusions\n\nWe seek to reward security researchers who help us keep people safe by reporting vulnerabilities in our services. Monetary bounties for such reports are entirely at Box's discretion, based on risk, impact, and other factors. \n\n- The use of automated scanners is prohibited.\n- Tax implications of any payouts are the sole responsibility of the reporter.  \n- The reports ***must*** include clear steps (Proof of Concept) to reproduce and re-validate the vulnerability. You can attach videos, images in standard formats.\n- Provide all details including the Box account username, IP address and the date/timestamp of the vulnerability to support validation and reproduction of the issue.\n- You may ***only*** test against your own Box accounts.  Do ***not*** interact with an enterprise and/or personal Box account that you don’t own (such as by modifying or accessing data from the account). \n- Do ***not*** access or attempt to access data that does not belong to you.\n- Do ***not*** exploit a security issue you discover for any reason. (This includes demonstrating additional risk, such as attempted compromise of sensitive data or probing for additional issues.)\n- Do ***not*** perform actions that may negatively affect Box or its users, such as: executing or attempting to execute any “Denial of Service” attack, posting, transmitting, uploading, linking to, sending or storing any malicious software and/or file, testing third-party applications, websites or services that integrate with or link to Box applications.\n- Do ***not*** conduct attacks such as social engineering, phishing or unauthorized infrastructure access to employees of Box and Box's customers.\n- Do ***not*** test the physical security of Box offices, employees, equipment, etc.  \n- Do ***not*** violate any law or disrupt or compromise any data that is not your own.\n- Chaining of multiple bugs is ok as long as it does not put Box and/or its customer data at risk. We will evaluate the severity of each bug and what they can do when combined into a chain and consider rewards accordingly. \n- Do ***not*** contact Box or any Box employees via email or any other means outside of the HackerOne platform\n- By reporting a security bug or vulnerability, you give us the right to use your report for any purpose.\n- Box is unable to issue rewards to individuals who are on sanctions lists, or who are in countries on sanctions lists. There may be additional restrictions on your ability to enter depending upon your local law.\n- If you stumble upon any customer data during testing, please stop testing, inform Box, and remove any customer data from your possession immediately.\n- Test accounts and related assets may only be used for good-faith security research under this program. They may not be used for personal storage, business use, collaboration unrelated to testing, app hosting, file hosting, or any non-testing purpose.\n- Researchers may test only against accounts, enterprises, applications, developers, files, folders, shared links, API tokens, workflows, forms, and recipients that they own or explicitly control for testing.\n- Researchers must not send collaboration invites, shared links, signature requests, notifications, workflow actions, emails, or other communications to third parties or non-controlled accounts.\n- Mass scanning, indiscriminate automation, high-volume enumeration, excessive API use, and use of automated vulnerability scanners are prohibited. Any limited automation must be low-volume, narrowly targeted, and non-disruptive.\n- Researchers must not use Box services in a way that consumes disproportionate shared resources, including storage, bandwidth, AI capacity, signing capacity, messaging, workflow execution, or compute.\n- Do not exploit a vulnerability beyond the minimum steps necessary to safely demonstrate it on assets you own and control.\n\n# Testing Instructions:\n\nWhen testing please keep in mind, automated scanners are prohibited. For us to better identify your Box accounts and your testing activity, please follow the instructions below.\n\n## Personal Box Account:\n\n1. When creating your [Box individual free account](https://account.box.com/signup/n/personal) in our environment, please use your `<hackeroneUsername>@wearehackerone.com` as the email.\n2. For any additional Box test accounts you create in our environment, do ***not*** use Gmail or any other email domain. Instead, use plus-addressing on your HackerOne email alias, following this format: `<hackeroneUsername>+<anyIdentifier>@wearehackerone.com`. You can put any identifier you want after the `+` sign. (See HackerOne's [Hacker Email Alias](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias) guidance.)\n  Example User:\n  - **Example HackerOne Username:** `boxH1`\n  - **Primary account:** `boxH1@wearehackerone.com`\n  - **Additional accounts:** `boxH1+test1@wearehackerone.com`, `boxH1+test2@wearehackerone.com`, etc.\n3. If you already have multiple Box accounts for testing under Gmail or other domains, please update your existing Box account emails to follow the above `wearehackerone.com` plus-addressing format so it may help us to identify you.\n\n## Developer Box Account:\n\nPlease limit to creating only two developer accounts for testing.\n\n1. When creating your [Box developer account](https://account.box.com/signup/n/developer) in our environment, please append the \"+dev\" keyword with your hackerone email.\n  For example: `<hackeroneUsername>+dev@wearehackerone.com`\n2. For any additional developer accounts you create, please append a numeric value after dev so we can best identify you testing in our environment.\n  For example: `<hackerone-username>+dev2@wearehackerone.com`\n\n## Accessing Advanced Features:\n\nAfter self-registering for a free Box account using your `<hackeroneUsername>@wearehackerone.com` email (per the Personal Box Account instructions above), you may request an account upgrade to access advanced features through our credential management feature on the program's Security Page.\n\nUpgrade Requirements:\n\n- Signal ≥ 5\n- Reputation ≥ 100\n\nRequests are typically processed within 24 hours.\n\n**Note:** This is an account upgrade — you will continue to use the same login credentials (email and password) you created at self-registration. No new credentials will be issued. \n\n**Important:** Upgraded accounts are monitored and must only be used for security research activities. Accounts used for any other purpose will be revoked and may result in program removal.\n\n## Personal SignRequest Test Account:\n\n1. When creating your Sign Request free account, please use your `<hackeroneUsername>@wearehackerone.com` as the email\n2. If additional accounts are needed, please utilize the following format:\n  `<hackeroneUsername>+SR@wearehackerone.com` \n   For example: `<hackeroneUsername>+SR1@wearehackerone.com`, `<hackeroneUsername>+SR2@wearehackerone.com`, etc.\n\n**Note:** Sign Request assets (sr-staging-1.com and signrequest.com) are *not eligible for bounty.*\n\n# Focus Areas:\n\nSome classes of vulnerabilities we would like to see in incoming reports:\n\n- Server-side Remote Code Execution (RCE)\n- Server-Side Request Forgery (SSRF)\n- Stored/Reflected Cross-site Scripting (XSS)\n- Cross-site Request Forgery (CSRF)\n- SQL Injection (SQLi)\n- Cross-Site Script Inclusion (XSSI)\n- XML External Entity Attacks (XXE)\n- XML Injection\n- Authorization Vulnerabilities (Privilege Escalation, Insecure Direct Object Reference issues, etc.)\n- Authentication Vulnerabilities (OAUTH, Session Hijacking, etc)\n- Path/Directory Traversal Issues\n- Information Disclosure - Customer PII and data, Box data\n\nBesides bugs around traditional web application vulnerabilities, we are also interested in bugs around [collaboration permissions](https://community.box.com/t5/Collaborate-By-Inviting-Others/Understanding-Collaborator-Permission-Levels/ta-p/144).\n\n# Targets:\n\nPlease check the scope section.\n\nTesting is limited to researcher-owned and researcher-controlled Box accounts, applications, and related assets created solely for the purpose of good-faith security testing under this program.\n\n# Out of scope:\n\n## Targets:\n\nAnything not declared as a target or in scope above should be considered out of scope for the purposes of this bug bounty. However, to clarify further, we are adding some examples of what is considered out of scope.\n\n- Customer instances (e.g., company.app.box.com) and data are explicitly out of scope. Please refrain from performing any testing against instance(s) you don't own.\n- Services other than the targets above are not eligible under our bug bounty program. For example, [www.box.com](http://www.box.com), community.box.com are not included. While we often care about vulnerabilities affecting services we use, these services are governed by other disclosure policies. For such issues, please report to our VDP at [https://www.box.com/about-us/security](https://www.box.com/about-us/security)\n- Production customer tenants, customer-managed enterprise accounts, managed users, and any accounts, enterprises, or data not owned and controlled by the researcher are out of scope.\n- Reports of credentials found in public breach databases, credential leak aggregators, paste sites, or similar OSINT sources.\n- Mobile application findings that are not exploitable without a jailbroken or rooted device are out of scope\n\n## Vulnerabilities:\n\nThe following finding types are specifically excluded from the bounty.\n\n- Stack Traces/Verbose error messages\n- HTTP 404 codes/pages or other HTTP non-200 codes/pages.\n- Fingerprinting / banner disclosure on common/public services.\n- Disclosure of known public files or directories, (e.g. robots.txt).\n- Clickjacking and issues only exploitable through clickjacking.\n- CSRF on forms that are available to anonymous users (e.g. the contact form). CSRF attacks that require knowledge of the CSRF token (e.g. attacks involving a local machine).\n- Logout Cross-Site Request Forgery (logout CSRF).\n- Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality.\n- Lack of Secure/HTTPOnly flags on non-sensitive Cookies.\n- Weak Captcha / Captcha Bypass.\n- Login or Forgot Password page brute force and account lockout not enforced.\n- OPTIONS HTTP method enabled.\n- Username / email enumeration.\n- Missing HTTP security headers, specifically \n  - X-Frame-Options.\n  - X-XSS-Protection.\n  - X-Content-Type-Options.\n  - Content-Security-Policy, X-Content-Security-Policy, X-WebKit-CSP.\n  - Content-Security-Policy-Report-Only.\n  - Cache-Control and Pragma\n- HTTP/DNS cache poisoning.\n- SSL/TLS Issues, e.g. SSL Attacks such as BEAST, BREACH, Renegotiation attack.\n  - SSL Forward secrecy not enabled.\n  - SSL weak/insecure cipher suites.\n- No Load testing (DoS/DDoS etc.) is allowed on the instance. This includes application DoS as well as network DoS.\n- Self-XSS reports will not be accepted. Similarly, any XSS where local access is required (i.e. User-Agent Header injection) will not be accepted. The only exception will be if you can show a working off-path MiTM attack that will allow for the XSS to trigger.\n- Vulnerabilities that are limited to unsupported browsers will not be accepted (i.e. \"this exploit only works in IE6/IE7\"). A list of supported browsers can be found [here](https://community.box.com/t5/How-to-Guides-for-Account/Understand-the-Box-Policy-For-Browser-And-OS-Support/ta-p/10).\n- Known vulnerabilities in used libraries, or the reports that a Box product uses an outdated third-party library (e.g. jQuery, Apache HttpComponents etc.) unless you can prove exploitability.\n- Missing or incorrect SPF/DKIM/DMARC records of any kind.\n- Information disclosure of non-confidential information (e. g. file id, folder id, user ID).\n- The ability to upload/download viruses or malicious files to the platform.\n- Subdomain takeovers will be investigated but are not bounty eligible\n- Vulnerabilities in which the only impact is access to higher-tier paid features\n\n## List of Commonly submitted False Positives:\n\nPlease make sure the issue(s) don't fall under one of the following commonly submitted False Positives:\n\n- Absence of clickjacking prevention on unauthenticated pages\n- Session not expiring after password change in another browser\n- Email bombing/Flooding/rate limiting. Abuse of platform for this purpose is specifically out of scope, please contact [Box Support](https://community.box.com/t5/custom/page/page-id/BoxSearchLithiumTKB).\n- Password Reset Token Not Expiring on Email Change\n- Tab-nabbing vulnerabilities\n- Malicious content hosted in Box.com\n- For compromised user accounts, please contact [Box Support](https://community.box.com/t5/custom/page/page-id/BoxSearchLithiumTKB).\n\n# Box AI Scope & Exclusions\n\nBox AI features are in scope where they involve Box-controlled systems, data, permissions, or integrations. Reports must demonstrate a clear security impact within Box’s environment.\n\n## In Scope\n\nThe following classes of vulnerabilities related to Box AI are eligible:\n\n- Unauthorized access to data via Box AI, including:\n  - Cross-user or cross-tenant data exposure\n  - Access to files, folders, metadata, or content not normally accessible to the user\n- Permission or access control bypass involving Box AI\n  - Violations of Box ACLs, shared link restrictions, classification policies (e.g., Shield), or governance controls\n- Prompt injection or manipulation that results in a security impact, such as:\n  - Unauthorized data access\n  - Execution of actions beyond the user’s permissions\n  - Bypass of security controls\n- Abuse of AI-powered actions, tools, or agents to perform unauthorized operations (e.g., file access, sharing, modification, or API actions)\n- Exposure of sensitive data through AI responses, including:\n  - Other users’ content\n  - Restricted enterprise data\n  - Sensitive metadata not normally visible to the user\n- Authentication, authorization, or token-scoping issues involving AI features\n  - AI acting outside the effective permissions of the authenticated user\n\n## Out of Scope\n\nThe following are not eligible for bounty:\n\n- Prompt injection or jailbreak techniques that do not demonstrate a security impact (e.g., no unauthorized data access, no privilege escalation, no control bypass)\n- Model hallucinations, incorrect responses, or fabricated information that do not expose sensitive or unauthorized data\n- Issues related to tone, alignment, safety behavior, or content moderation (e.g., the model produces disallowed or unexpected content without security impact)\n- Known or generic LLM attack techniques (e.g., jailbreaks, prompt injections) without demonstrated impact in the Box environment\n- Issues attributable solely to underlying third-party models (e.g., behavior inherent to models such as Anthropic Claude or other LLM providers) and not specific to Box’s implementation\n- Claims of data exposure where the data is already accessible to the reporting user under normal permissions\n- Attempts to extract system prompts, internal instructions, or model configuration that do not result in a security impact\n\n## Report Requirements for AI Findings\n\nReports involving Box AI must include:\n\n- Exact prompt(s) used\n- Relevant context (e.g., files, permissions, user role, shared links)\n- Step-by-step reproduction instructions\n- Clear demonstration of security impact (e.g., unauthorized data access, privilege escalation, or control bypass)\n\nReports that do not demonstrate a concrete security impact within Box-controlled systems may be closed as informational.\n\n# Public Acknowledgement Policy\n\nAt this time, Box does NOT maintain a public facing list of externally reported issues and reporters.\n\n# Privacy\n\nFor details on how Box uses, processes, and protects personal data, please see Box's Privacy Policy at: [https://www.box.com/legal/privacypolicy](https://www.box.com/legal/privacypolicy). \n\n# Rewards:\n\nBounty payouts and amount, if any, will be determined entirely in Box's sole discretion. We will consider the CVSS severity classification when deciding bounty amount for individual reports.\n\n*Note: Multiple issues with a single root cause will only be eligible for a single bounty.*\n\n# Policy Changes\n\nBox may cancel this program or change this policy at any time.  Please review the current version of this policy before performing any vulnerability testing or taking any other action based on the policy.\n\nPolicy last updated on this date: August 8, 2026",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Android Box Mobile App",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.box.android",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iOS Box Mobile App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/us/app/box-the-power-of-content-ai/id290853822",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Box Drive",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.box.com/resources/downloads/drive",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mobile web version of Box application. Separate rendering and session handling logic may expose unique vulnerabilities.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "notes.services.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Box Notes service backend. Includes real-time collaboration and content sync functionality.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sr-staging-1.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Staging environment for SignRequest, please test in this environment.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "signrequest.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Production for SignRequest, please refrain from disruptive tests in this environment. The /administrator is a honeypot endpoint, please do not visit or else you will be blocked from the site automatically.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Primary Box web application. Includes all end-user and admin functionality such as file storage, sharing, collaboration, Box AI, Box Shield, Box Governance, Hubs, Forms, Relay, Apps, Notes, Canvas, and Admin Console.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "account.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Authentication and identity plane. Includes login, OAuth flows, SSO, token issuance, and session management. High-value target for account takeover and auth bypass vulnerabilities.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Core Box API surface. Includes endpoints for files, folders, users, collaborations, shared links, search, metadata, governance, Shield, events, and AI-related functionality. Primary surface for authorization and data access vulnerabilities.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "upload.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "File upload pipeline. Includes file ingestion, processing, and storage entry points. Relevant for malware bypass, file parsing, and content validation vulnerabilities.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dl.boxcloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "File download and content delivery network. Includes signed URLs and file access mechanisms. Relevant for data exposure, token leakage, and access control issues.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cloud.app.box.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Box-hosted web surface use for certain content experiences such as Box Notes and other cloud-rendered or embedded application views. Represents a distinct frontend origin from app.box.com and may have unique session, rendering, and security behaviors.",
+      "max_severity": "critical"
+    }
+  ]
+}

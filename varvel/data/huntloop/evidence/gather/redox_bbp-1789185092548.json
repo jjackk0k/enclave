@@ -1,0 +1,101 @@
+{
+ "at": "2026-09-12T03:51:23.269Z",
+ "opportunity": "redox_bbp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "10x.redoxengine.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 3895b5e382ed47ef1004e2af83a14ac2.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubdomains;",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "testapp.redoxengine.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "default-src https:; style-src https: 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "testapi.redoxengine.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "default-src https:; style-src https: 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "docs.redoxengine.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    }
+   ],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 844daae35297258cfc5fedae89076642.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com ssl.google-analytics.com www.googletagman",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "fhir.redoxengine.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to fhir.redoxengine.com:443 refused: host unreachable"
+  }
+ ]
+}

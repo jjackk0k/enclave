@@ -1,0 +1,198 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "corebridge_financial",
+      "name": "Corebridge Financial",
+      "offersBounties": false,
+      "assets": [
+        "*.corebridgefinancial.com",
+        "*.valic.com",
+        "corebridgefinancial.com",
+        "https://agentportal.live.web.corebridgefinancial.com/im/ssagent/public/login#/",
+        "https://consultant.live.web.corebridgefinancial.com/valic/consultantdirect/public/login#/",
+        "https://diy.corebridgedirect.com/term/home",
+        "https://ica.live.web.corebridgefinancial.com/distribution/ica/public/login#/",
+        "https://live.fo.annuities.crbgf.net/",
+        "https://myaccount.valic.com/auth/public/login#/",
+        "https://myaccount.valic.com/enroll/public/get-started",
+        "https://myplan.myretirementmanager.com/participant/public/login#/",
+        "https://optout.life2.corebridgefinancial.com/optout/login.jsp",
+        "https://portal.annuities.corebridgefinancial.com/annuities/book-of-business/public/login#/",
+        "https://rsenablers.live.web.corebridgefinancial.com/valic/nonparticipant/auth/public/login?appname=pso#/",
+        "https://tools.valic.com/agilenet5",
+        "https://www.corebridgefinancial.com/rs/dropsolutions",
+        "modeldsu-idp.dsu.corebridgefinancial.com",
+        "rapid-rater.live.web.corebridgefinancial.com",
+        "www.connext.corebridgefinancial.com",
+        "www.corebridgedirect.com",
+        "www.myretirementmanager.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\corebridge_financial-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "corebridge_financial",
+  "name": "Corebridge Financial",
+  "url": "https://hackerone.com/corebridge_financial",
+  "policy": "Vulnerability Disclosure Program (VDP)\n===============================\nCorebridge Financial is proactively advancing our security to identify new threats and help ensure the safety of customer accounts and information.\n\nWe value the important role the security community plays in helping us mitigate information security risk, therefore we leverage the security community and value the researchers' time to bring these issues to our attention.\n\nIf you have information about possible security vulnerabilities in any Corebridge Financial product or service, please submit a report using these guidelines.  \n\nGuidelines\n========\n* Your report must meet all HackerOne’s Vulnerability Disclosure Guidelines.\n* When reporting vulnerabilities, consider (1) the attack scenario or exploitability, and (2) the security impact of the bug.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* Provide details with reproducible steps in your report.\n* Comply with applicable federal, state, local, and international laws in connection with your participation in this vulnerability disclosure program.\n* We may modify the terms of this policy or terminate the policy at any time.\n\nBy Submitting a Report:\n-----------------------\n* **You agree not to disclose vulnerability details to anyone other than Corebridge Financial or HackerOne without Corebridge Financial written permission.**\n* You represent you are not located in or a resident of a country under United States sanctions, nor a person on, or working on behalf of a party identified on, any restricted party list maintained by the United States government.\n* You consent to your information being stored and transferred to the United States and acknowledge you have read and accepted the terms of this policy and HackerOne’s Vulnerability Disclosure Guidelines.\n* You agree that any Corebridge Financial information that you may encounter, view, acquire, or access, is owned by Corebridge Financial or its customers, clients, or third-party providers. You have no rights, title, or ownership in any such information.\n* You agree that your research will be conducted for testing and research purposes only, and that you will not attempt to gain access to customer or user accounts or confidential information and will only interact with accounts you own;\n* You agree that if you unintentionally access a customer or user account that you, disconnect from the account, let Corebridge and HackerOne know immediately, and document your discovery.\n* You understand that nothing in this agreement, including submission of a report, shall be deemed to constitute the grant to you of any license or other right to or in respect of any Corebridge Financial or third-party product, service, patent, trademark, trade secret, or other intellectual property.\n* You hereby grant Corebridge Financial a perpetual, worldwide, exclusive, fully-paid-up license to sublicense, copy, distribute, display, perform, transmit, and publish the report.\n\n\nCreating Accounts for Vulnerability Research\n--------------------------------------------\n* **Please include a header X-Hackerone: <h1_username> when you test so we can identify your requests.** You can create match and replace the proxy rule in Burp by going to Proxy >> Options >> Match and Replace with the following options:\n\n```\nType: Request header\nMatch: ^User-Agent.*$\nReplace: `User-Agent: corebridgevdpresearcheryourh1username`\n```\n\nScope\n=====\nDomains where Corebridge Financial are listed as the Registrant Organization, Admin Organization, or Tech Organization are in scope. Domains maintained by third parties, other than Corebridge Financial, are not in scope for this program. Not sure what’s in scope? Send an email to support@hackerone.com.\nRegistrant Info\n--------------\nRegistrant Name: Domain Administrator\nRegistrant Organization: Corebridge Financial, Inc.\nRegistrant Street: 2919 Allen Parkway, Woodson Tower \nRegistrant City: Houston\nRegistrant State/Province: TX\nRegistrant Postal Code: 77019\nRegistrant Country: US\nRegistrant Phone: +1.8773752422\nRegistrant Phone Ext: \nRegistrant Fax: +1.8773752422\nRegistrant Fax Ext: \nRegistrant Email: crbgdomainadmin@corebridgefinancial.com \n\n\nVulnerabilities typically in scope include items from the OWASP Top 10 and vulnerabilities with a confirmed security impact.\n\nWe reserve the right to determine whether to accept a report. For example, we may not accept:\n* A report of a vulnerability resulting from a violation of the program guidelines\n* A report on a vulnerability with little security impact or exploitability\n* A vulnerability discoverable through automated scans that have not been verified manually\n\n\nCertain vulnerabilities are considered out of scope for our Vulnerability Disclosure Program. These include:\n--------------------------------------------------------------------------------------------------------\n* Clickjacking on pages with no sensitive actions\n* Unauthenticated/logout/login CSRF\n* Insecure Cookie Settings on non-sensitive cookies\n* Bugs requiring inordinate amounts of user interaction or prior knowledge of user secrets such as session tokens or CSRF values\n* Information regarding software versions or web server versions/banners where there is no evidence these versions are impacted by a security flaw\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Common Automated Tooling including but not limited to Acunetix, Nessus, and Qualys should be avoided; however, use of Burp Suite and other custom tools are allowed\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\n* Overly Permissive Google Maps API keys\n* Avoid privacy violations, destruction of data, and interruption or degradation of our services\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited *Missing SPF records.\n* Do not test the physical security of Corebridge Financial property\n\n\nSafe Harbor \n=========\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n\nThank you for assisting Corebridge Financial!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "corebridgefinancial.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.corebridgefinancial.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.valic.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.myretirementmanager.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "modeldsu-idp.dsu.corebridgefinancial.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://diy.corebridgedirect.com/term/home",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.corebridgefinancial.com/rs/dropsolutions",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://tools.valic.com/agilenet5",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://myplan.myretirementmanager.com/participant/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://portal.annuities.corebridgefinancial.com/annuities/book-of-business/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://live.fo.annuities.crbgf.net/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://myaccount.valic.com/auth/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://myaccount.valic.com/enroll/public/get-started",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.corebridgedirect.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "rapid-rater.live.web.corebridgefinancial.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://consultant.live.web.corebridgefinancial.com/valic/consultantdirect/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://agentportal.live.web.corebridgefinancial.com/im/ssagent/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.connext.corebridgefinancial.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ica.live.web.corebridgefinancial.com/distribution/ica/public/login#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://rsenablers.live.web.corebridgefinancial.com/valic/nonparticipant/auth/public/login?appname=pso#/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://optout.life2.corebridgefinancial.com/optout/login.jsp",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

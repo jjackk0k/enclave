@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "exodus",
+      "name": "Exodus",
+      "offersBounties": true,
+      "assets": [
+        "*.a.exodus.io",
+        "*.exodus.com",
+        "*.exodus.io",
+        "Exodus Desktop Wallet",
+        "exodus-movement.exodus",
+        "https://apps.apple.com/us/app/exodus-crypto-bitcoin-wallet/id1414384820",
+        "https://play.google.com/store/apps/details?id=exodusmovement.exodus&hl=en_IN",
+        "pay.exodus.io"
+      ],
+      "exclusions": [
+        "*.atp-exodus.com",
+        "*.grateful.me",
+        "Exodus Browser Extension",
+        "Passkey Wallet",
+        "exodus.atlassian.net",
+        "exodusstore.blob.core.windows.net",
+        "get.exodus.*",
+        "http://exodus.com/keybase.txt",
+        "http://www.exodus.com/contact-support",
+        "https://apps.apple.com/us/app/grateful-by-exodus/id6754093889",
+        "https://exodus.atlassian.net",
+        "https://play.google.com/store/apps/details?id=com.exodus.grateful",
+        "safeguard.a.exodus.io",
+        "slack-invite.exodus.com",
+        "support-helpers.a.exodus.io",
+        "support.exodus.com",
+        "www.exodus.com/job-application/*"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\exodus-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "exodus",
+  "name": "Exodus",
+  "url": "https://hackerone.com/exodus",
+  "policy": "Exodus is one of the top non-custodial crypto wallets. We value our customers wallet's security more than anything. We are looking forward to working with you.\n\n==Do NOT test Exodus contact form and do NOT create multiple support tickets via Exodus support features. Please read out-of-scope section before beginning the testing==\n\n==DO NOT test Exodus Exchange and XOSWAP features, endpoints and hosts or anything related to it, Do not conduct any testing that leads to creating an order, exchange or swap, Your report will be closed as Not Applicable==\n\n\n# Response Targets\nExodus will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | < 1 day |\n| Time to Triage | < 1 day |\n| Time to Bounty | < 3 days (We respect your time and don't hesitate to reward) |\n| Time to Resolution | depends on severity and complexity, typically pretty fast though |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Exodus.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Add **`h1-<Your-HackerOne-Username>`** in the **`User-Agent`** header to help us filter out traffic and whitelist your IP, otherwise your IP could be added to an explicit block rule.\n\n\n### Report submission\n* When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug/vulnerability. \n* Submit one vulnerability per report.  **WARNING:** If the same exploit occurs across multiple endpoints, please include those endpoints under your single submission.  Do **NOT** file multiple reports for the same exploit.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty (see above item).\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service (including denial of service). Only interact with accounts you own or with explicit permission of the account holder.  If you do accidentally cause some noticeable interruption of service, please immediately email us so we can handle it accordingly hack1@exodusmovement.opsgenie.net and please include the subject title \"HackerOne Outage: <description>\" for the alert to trigger.\n\n# Rewards\nReward decisions are up to the discretion of Exodus.\n* Minimum reward for a vulnerability report: $100\n* Maximum reward for a vulnerability report: $100,000 \n \n# In scope vulnerabilities\n* Technical vulnerabilities or security-related problems in any of our company's internet public surface (websites and subdomains underneath Exodus's control)\n* Technical vulnerabilities or security-related problems in our company's Desktop Wallet application. \n\n### External Dependencies\nExodus makes use of a number of open (and closed) source libraries. If you discover a vulnerability in\nan open source dependent library or OS component, we advise you to follow responsible disclosure procedures directly with the library or OS vendor.  We will not pay bounties on undisclosed vulnerabilities in dependent components.  However, if one of those libraries included you can demonstrate a serious vulnerability of any of our software/servers as a result of that library with a working Proof of Concept, we will on a case-by-case basis consider this in-scope and grant rewards.\n\n# Out of scope vulnerabilities\nIf you find a vulnerability that is not part of the **In scope vulnerabilities**, please report it and we will investigate it and depending on the severity of the vulnerability, you will be listed in our Hall of Fame and may be eligible for a reward. Any rewards for out of scope vulnerabilities will be granted on a case by case basis.\n\n# Note: We are aware of a few Browser Address Bar Spoofing vulnerabilities and are planning to patch them under upcoming releases with no definitive timeline, For the time being we will be not paying out for these. \n\n### The following issues are currently considered *out of scope*:\n\n* Weaknesses that would require Email Phishing or Social Engineering\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Sites/Software that is run entirely by another company that is simply subdomain-ed or linked to from our company.  Eg: Constant Contact, Zendesk, etc.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers or wallets [Less than 3 stable versions behind the latest released stable version]\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Package include/dependency vulnerabilities without demonstrating a vulnerability.\n* Issues that require unlikely user interaction\n* (KNOWN ISSUE) Disclosure of methods/endpoints/api keys involving 3rd party blockchain APIs (ex. bitcoin, tezos, waves etc) including known embedded API key, and known outdated swaggerhub / openapi issue. (also mentioned in specific scopes for increased awareness), 12W secret seed phrases found in source code within Exodus attack surface. \n\n### The following issues are currently considered *do not attempt without permission*:\n\n* Extended testing/attacks of Exodus servers or infrastructure\n* Rate limiting or brute-force attacks on exodus backend infrastructure\n* Any activity that could lead to the disruption of our service (DoS).\n\nTo request permission, please email `bugbounty@exodus.com` and mention the details of your test including what endpoint(s) you will be hitting, what type of scan/attack/etc you would like to try, and what you're trying to achieve.  We will respond within 2 working days, ideally less to your request.  As long as it is reasonably well thought out and we don't see a risk on our end, we will approve the request.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not report to any law enforcement agencies or initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, Exodus will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Exodus and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.exodus.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any domains or subdomains underneath exodus.io are considered our public \"face\" of our company, including our website, subdomains, download links, etc.  Please review our policy for things that are considered in-scope and will result in bounties.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.a.exodus.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Everything underneath the `*-s.a.exodus.io` is generally considered our staging environment and is okay/safe for performing simple/basic attack vectors against our wallet and our backends.  Add `-s` to any asset/service name to hit our staging environment, for example bitcoin-s.a.exodus.io.\n\n**KNOWN",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "exodus-movement.exodus",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "App Store: [Exodus Crypto Wallet](https://apps.apple.com/us/app/exodus-crypto-wallet/id1414384820)\n\nThis is the official Exodus Crypto Wallet, which itself stores and manages a user's cryptocurrency.  This has much higher Environmental Score and potential attack vectors.\n\nThe most critical thing we ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Exodus Desktop Wallet",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Desktop Download Link: [Exodus Crypto Wallet](https://exodus.io/download)\n\nThis is the official Exodus Crypto Wallet for the Desktop (Mac/Win/Linux) which itself stores and manages a user's cryptocurrency.  This has much higher Environmental Score and potential attack vectors especially due to its d",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.exodus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Domain is not in scope for testing",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "get.exodus.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is hosted on a 3rd party dataset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.exodus.com/contact-support",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support-helpers.a.exodus.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain points to our support and hiring services which are hosted on 3rd party dataset",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.exodus.com/job-application/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party service installed on the endpoint",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "slack-invite.exodus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Invite link to our public Slack, there are no vulnerabilities.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.exodus.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is basically a marketing site while our product API is still pointing to `*.exodus.io`, Some of `exodus.io` subdomains should be redirected to `exodus.com` such as `www.exodus.io`  --> `www.exodus.com` ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.atp-exodus.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not own atp-exodus.com assets hence it should be considered out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "exodus.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not own Atlassian instance at  https://exodus.atlassian.net . Any reports containing this out-of-scope asset will be marked as N/A\n\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "exodusstore.blob.core.windows.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This azure bucket does not belong to us please refrain from submitting.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Passkey Wallet",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://exodus.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not own this instance, Any report related to this will be marked as `Not-Applicable` ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://exodus.com/keybase.txt",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "intentionally public. Any report related to this will be marked Not-Applicable",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Exodus Browser Extension",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/exodus-crypto-bitcoin-wallet/id1414384820",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=exodusmovement.exodus&hl=en_IN",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.exodus.grateful",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/grateful-by-exodus/id6754093889",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.grateful.me",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "safeguard.a.exodus.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pay.exodus.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

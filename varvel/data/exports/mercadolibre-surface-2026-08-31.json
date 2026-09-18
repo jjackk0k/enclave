@@ -1,0 +1,2758 @@
+{
+ "scope": {
+  "engagement": "mercadolibre",
+  "signedBy": "marcus \u00b7 operator \u00b7 sess-1020",
+  "cidrs": [
+   "3.33.182.45/32",
+   "15.197.170.90/32",
+   "13.224.68.14/32",
+   "13.224.68.42/32",
+   "13.224.68.76/32",
+   "13.224.68.61/32"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "root-1",
+   "type": "root",
+   "label": "mercadolibre",
+   "sub": "marcus \u00b7 operator \u00b7 sess-1020"
+  },
+  {
+   "id": "host-2",
+   "type": "host",
+   "label": "api.mercadolibre.com",
+   "sub": "",
+   "ip": "api.mercadolibre.com",
+   "sweptAt": "2026-08-31T02:14:56.591Z",
+   "targetScore": {
+    "score": 56,
+    "reasons": [
+     "hostname:api-role +10 \u2014 hostname \"api.mercadolibre.com\" declares an API/gateway role \u2014 programmatic surface, not marketing pages",
+     "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+     "api-density +16 \u2014 70 endpoints harvested on the host \u2014 dense programmatic surface",
+     "edge-walled -20 \u2014 edge vendor fingerprinted: CloudFront \u2014 hardened perimeter; generic probing is burned budget here",
+     "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+    ],
+    "classes": [
+     "api-heavy",
+     "edge-walled"
+    ],
+    "at": "2026-08-31T02:15:37.839Z"
+   }
+  },
+  {
+   "id": "tech-3",
+   "type": "tech",
+   "label": "CloudFront",
+   "sub": "",
+   "name": "CloudFront"
+  },
+  {
+   "id": "service-4",
+   "type": "service",
+   "label": "http:80",
+   "sub": "",
+   "port": 80,
+   "proto": "tcp",
+   "host": "host-2"
+  },
+  {
+   "id": "endpoint-5",
+   "type": "endpoint",
+   "label": "/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-6",
+   "type": "endpoint",
+   "label": "/robots.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-7",
+   "type": "endpoint",
+   "label": "/sitemap.xml",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-8",
+   "type": "endpoint",
+   "label": "/.well-known/security.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-9",
+   "type": "endpoint",
+   "label": "/admin",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-10",
+   "type": "endpoint",
+   "label": "/administrator",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-11",
+   "type": "endpoint",
+   "label": "/login",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-12",
+   "type": "endpoint",
+   "label": "/dashboard",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-13",
+   "type": "endpoint",
+   "label": "/console",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-14",
+   "type": "endpoint",
+   "label": "/manager",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-15",
+   "type": "endpoint",
+   "label": "/api",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-16",
+   "type": "endpoint",
+   "label": "/api/v1",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-17",
+   "type": "endpoint",
+   "label": "/api/users",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-18",
+   "type": "endpoint",
+   "label": "/graphql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-19",
+   "type": "endpoint",
+   "label": "/swagger",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-20",
+   "type": "endpoint",
+   "label": "/swagger-ui",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-21",
+   "type": "endpoint",
+   "label": "/openapi.json",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-22",
+   "type": "endpoint",
+   "label": "/.git/HEAD",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-23",
+   "type": "endpoint",
+   "label": "/.git/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-24",
+   "type": "endpoint",
+   "label": "/.git/index",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-25",
+   "type": "endpoint",
+   "label": "/.git/logs/HEAD",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-26",
+   "type": "endpoint",
+   "label": "/.git/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-27",
+   "type": "endpoint",
+   "label": "/.svn/entries",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-28",
+   "type": "endpoint",
+   "label": "/.hg/store/00manifest.i",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-29",
+   "type": "endpoint",
+   "label": "/.env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-30",
+   "type": "endpoint",
+   "label": "/.env.local",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-31",
+   "type": "endpoint",
+   "label": "/.env.production",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-32",
+   "type": "endpoint",
+   "label": "/.aws/credentials",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-33",
+   "type": "endpoint",
+   "label": "/.aws/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-34",
+   "type": "endpoint",
+   "label": "/config.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-35",
+   "type": "endpoint",
+   "label": "/config.json",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-36",
+   "type": "endpoint",
+   "label": "/wp-config.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-37",
+   "type": "endpoint",
+   "label": "/wp-config.php.bak",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-38",
+   "type": "endpoint",
+   "label": "/web.config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-39",
+   "type": "endpoint",
+   "label": "/.htaccess",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-40",
+   "type": "endpoint",
+   "label": "/.DS_Store",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-41",
+   "type": "endpoint",
+   "label": "/backup",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-42",
+   "type": "endpoint",
+   "label": "/backup.zip",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-43",
+   "type": "endpoint",
+   "label": "/backup.tar.gz",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-44",
+   "type": "endpoint",
+   "label": "/backup.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-45",
+   "type": "endpoint",
+   "label": "/db.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-46",
+   "type": "endpoint",
+   "label": "/dump.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-47",
+   "type": "endpoint",
+   "label": "/database.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-48",
+   "type": "endpoint",
+   "label": "/phpinfo.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-49",
+   "type": "endpoint",
+   "label": "/info.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-50",
+   "type": "endpoint",
+   "label": "/server-status",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-51",
+   "type": "endpoint",
+   "label": "/server-info",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-52",
+   "type": "endpoint",
+   "label": "/actuator",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-53",
+   "type": "endpoint",
+   "label": "/actuator/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-54",
+   "type": "endpoint",
+   "label": "/actuator/health",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-55",
+   "type": "endpoint",
+   "label": "/actuator/env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-56",
+   "type": "endpoint",
+   "label": "/actuator/heapdump",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-57",
+   "type": "endpoint",
+   "label": "/actuator/threaddump",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-58",
+   "type": "endpoint",
+   "label": "/actuator/configprops",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-59",
+   "type": "endpoint",
+   "label": "/actuator/mappings",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-60",
+   "type": "endpoint",
+   "label": "/metrics",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-61",
+   "type": "endpoint",
+   "label": "/debug",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-62",
+   "type": "endpoint",
+   "label": "/status",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-63",
+   "type": "endpoint",
+   "label": "/health",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-64",
+   "type": "endpoint",
+   "label": "/wp-admin",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-65",
+   "type": "endpoint",
+   "label": "/wp-login.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-66",
+   "type": "endpoint",
+   "label": "/crossdomain.xml",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "service-67",
+   "type": "service",
+   "label": "https:443",
+   "sub": "",
+   "port": 443,
+   "proto": "tcp",
+   "host": "host-2"
+  },
+  {
+   "id": "tech-68",
+   "type": "tech",
+   "label": "TLS:*.mercadolibre.com",
+   "sub": "",
+   "name": "TLS:*.mercadolibre.com"
+  },
+  {
+   "id": "endpoint-69",
+   "type": "endpoint",
+   "label": "/robots.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-70",
+   "type": "endpoint",
+   "label": "/.env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-71",
+   "type": "endpoint",
+   "label": "/.env.production",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-72",
+   "type": "endpoint",
+   "label": "/.aws/credentials",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-73",
+   "type": "endpoint",
+   "label": "/.aws/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-74",
+   "type": "endpoint",
+   "label": "/wp-config.php.bak",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-75",
+   "type": "endpoint",
+   "label": "/web.config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-76",
+   "type": "endpoint",
+   "label": "/tracks*",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "finding-77",
+   "type": "finding",
+   "label": "TLS: overly broad wildcard certificate",
+   "sub": "",
+   "sev": "med",
+   "risk": "medium",
+   "ref": "TLS-WILDCARD-BROAD",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "host-78",
+   "type": "host",
+   "label": "www.mercadolibre.com.ar",
+   "sub": "",
+   "ip": "www.mercadolibre.com.ar",
+   "sweptAt": "2026-08-31T02:15:09.624Z",
+   "targetScore": {
+    "score": 100,
+    "reasons": [
+     "auth-surface +12 \u2014 login/auth surface observed: /login \u2014 an authenticated app behind it means object-level authorization to test",
+     "api-density +16 \u2014 116 endpoints harvested on the host \u2014 dense programmatic surface",
+     "parameterized +10 \u2014 2 parameterized endpoint(s) (?param= or {id} template): /clips?short_id=, /clips/?short_id=",
+     "idor-shape +6 \u2014 parameterized object endpoints AND a login surface \u2014 the exact two-account differential shape (idor-candidate)",
+     "non-cdn-origin +8 \u2014 live web service with no CDN/WAF vendor fingerprinted \u2014 responses come from the origin, probes reach the application",
+     "stack:laravel +10 \u2014 stack \"Laravel\" \u2014 a historically bug-dense stack scores UP",
+     "graphql +8 \u2014 GraphQL surface observed: \"/graphql\" \u2014 one schema drives BOLA tests across every query/mutation"
+    ],
+    "classes": [
+     "api-heavy",
+     "idor-candidate"
+    ],
+    "at": "2026-08-31T02:15:37.839Z"
+   }
+  },
+  {
+   "id": "tech-79",
+   "type": "tech",
+   "label": "awselb/2.0",
+   "sub": "",
+   "name": "awselb/2.0"
+  },
+  {
+   "id": "tech-80",
+   "type": "tech",
+   "label": "Tengine",
+   "sub": "",
+   "name": "Tengine"
+  },
+  {
+   "id": "service-81",
+   "type": "service",
+   "label": "http:80",
+   "sub": "",
+   "port": 80,
+   "proto": "tcp",
+   "host": "host-78"
+  },
+  {
+   "id": "endpoint-82",
+   "type": "endpoint",
+   "label": "/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-83",
+   "type": "endpoint",
+   "label": "/robots.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-84",
+   "type": "endpoint",
+   "label": "/sitemap.xml",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-85",
+   "type": "endpoint",
+   "label": "/.well-known/security.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-86",
+   "type": "endpoint",
+   "label": "/admin",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-87",
+   "type": "endpoint",
+   "label": "/administrator",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-88",
+   "type": "endpoint",
+   "label": "/login",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-89",
+   "type": "endpoint",
+   "label": "/dashboard",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-90",
+   "type": "endpoint",
+   "label": "/console",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-91",
+   "type": "endpoint",
+   "label": "/manager",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-92",
+   "type": "endpoint",
+   "label": "/api",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-93",
+   "type": "endpoint",
+   "label": "/api/v1",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-94",
+   "type": "endpoint",
+   "label": "/api/users",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-95",
+   "type": "endpoint",
+   "label": "/graphql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-96",
+   "type": "endpoint",
+   "label": "/swagger",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-97",
+   "type": "endpoint",
+   "label": "/swagger-ui",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-98",
+   "type": "endpoint",
+   "label": "/openapi.json",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-99",
+   "type": "endpoint",
+   "label": "/.git/HEAD",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-100",
+   "type": "endpoint",
+   "label": "/.git/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-101",
+   "type": "endpoint",
+   "label": "/.git/index",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-102",
+   "type": "endpoint",
+   "label": "/.git/logs/HEAD",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-103",
+   "type": "endpoint",
+   "label": "/.git/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-104",
+   "type": "endpoint",
+   "label": "/.svn/entries",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-105",
+   "type": "endpoint",
+   "label": "/.hg/store/00manifest.i",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-106",
+   "type": "endpoint",
+   "label": "/.env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-107",
+   "type": "endpoint",
+   "label": "/.env.local",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-108",
+   "type": "endpoint",
+   "label": "/.env.production",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-109",
+   "type": "endpoint",
+   "label": "/.aws/credentials",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-110",
+   "type": "endpoint",
+   "label": "/.aws/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-111",
+   "type": "endpoint",
+   "label": "/config.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-112",
+   "type": "endpoint",
+   "label": "/config.json",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-113",
+   "type": "endpoint",
+   "label": "/wp-config.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-114",
+   "type": "endpoint",
+   "label": "/wp-config.php.bak",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-115",
+   "type": "endpoint",
+   "label": "/web.config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-116",
+   "type": "endpoint",
+   "label": "/.htaccess",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-117",
+   "type": "endpoint",
+   "label": "/.DS_Store",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-118",
+   "type": "endpoint",
+   "label": "/backup",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-119",
+   "type": "endpoint",
+   "label": "/backup.zip",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-120",
+   "type": "endpoint",
+   "label": "/backup.tar.gz",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-121",
+   "type": "endpoint",
+   "label": "/backup.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-122",
+   "type": "endpoint",
+   "label": "/db.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-123",
+   "type": "endpoint",
+   "label": "/dump.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-124",
+   "type": "endpoint",
+   "label": "/database.sql",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-125",
+   "type": "endpoint",
+   "label": "/phpinfo.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-126",
+   "type": "endpoint",
+   "label": "/info.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-127",
+   "type": "endpoint",
+   "label": "/server-status",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-128",
+   "type": "endpoint",
+   "label": "/server-info",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-129",
+   "type": "endpoint",
+   "label": "/actuator",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-130",
+   "type": "endpoint",
+   "label": "/actuator/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-131",
+   "type": "endpoint",
+   "label": "/actuator/health",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-132",
+   "type": "endpoint",
+   "label": "/actuator/env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-133",
+   "type": "endpoint",
+   "label": "/actuator/heapdump",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-134",
+   "type": "endpoint",
+   "label": "/actuator/threaddump",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-135",
+   "type": "endpoint",
+   "label": "/actuator/configprops",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-136",
+   "type": "endpoint",
+   "label": "/actuator/mappings",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-137",
+   "type": "endpoint",
+   "label": "/metrics",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-138",
+   "type": "endpoint",
+   "label": "/debug",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-139",
+   "type": "endpoint",
+   "label": "/status",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-140",
+   "type": "endpoint",
+   "label": "/health",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-141",
+   "type": "endpoint",
+   "label": "/wp-admin",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-142",
+   "type": "endpoint",
+   "label": "/wp-login.php",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-143",
+   "type": "endpoint",
+   "label": "/crossdomain.xml",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "service-144",
+   "type": "service",
+   "label": "https:443",
+   "sub": "",
+   "port": 443,
+   "proto": "tcp",
+   "host": "host-78"
+  },
+  {
+   "id": "tech-145",
+   "type": "tech",
+   "label": "TLS:*.mercadolibre.com.ar",
+   "sub": "",
+   "name": "TLS:*.mercadolibre.com.ar"
+  },
+  {
+   "id": "endpoint-146",
+   "type": "endpoint",
+   "label": "/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-147",
+   "type": "endpoint",
+   "label": "/robots.txt",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-148",
+   "type": "endpoint",
+   "label": "/.env",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-149",
+   "type": "endpoint",
+   "label": "/.env.production",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-150",
+   "type": "endpoint",
+   "label": "/.aws/credentials",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-151",
+   "type": "endpoint",
+   "label": "/.aws/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-152",
+   "type": "endpoint",
+   "label": "/wp-config.php.bak",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-153",
+   "type": "endpoint",
+   "label": "/web.config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-154",
+   "type": "endpoint",
+   "label": "/*.js",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-155",
+   "type": "endpoint",
+   "label": "/*/jm/item",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-156",
+   "type": "endpoint",
+   "label": "/*attributes=",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-157",
+   "type": "endpoint",
+   "label": "/*itemid",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-158",
+   "type": "endpoint",
+   "label": "/*quantity=",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-159",
+   "type": "endpoint",
+   "label": "/*www.siteinfo.cf",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-160",
+   "type": "endpoint",
+   "label": "/adn/api*",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-161",
+   "type": "endpoint",
+   "label": "/afiliados/item/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-162",
+   "type": "endpoint",
+   "label": "/clips",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-163",
+   "type": "endpoint",
+   "label": "/clips/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-164",
+   "type": "endpoint",
+   "label": "/finditem.ml",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-165",
+   "type": "endpoint",
+   "label": "/gz/cart/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-166",
+   "type": "endpoint",
+   "label": "/gz/checkout/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-167",
+   "type": "endpoint",
+   "label": "/gz/menu",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-168",
+   "type": "endpoint",
+   "label": "/gz/merch/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-169",
+   "type": "endpoint",
+   "label": "/gz/navigation/searches/last",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-170",
+   "type": "endpoint",
+   "label": "/gz/referidos",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-171",
+   "type": "endpoint",
+   "label": "/gz/shipping-selector",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-172",
+   "type": "endpoint",
+   "label": "/gz/user-logged",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-173",
+   "type": "endpoint",
+   "label": "/gz/webdevice/config",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-174",
+   "type": "endpoint",
+   "label": "/HOME/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-175",
+   "type": "endpoint",
+   "label": "/home/recommendations",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-176",
+   "type": "endpoint",
+   "label": "/home/recommendations/pom",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-177",
+   "type": "endpoint",
+   "label": "/navigation/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-178",
+   "type": "endpoint",
+   "label": "/noindex/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-179",
+   "type": "endpoint",
+   "label": "/org-img/html/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-180",
+   "type": "endpoint",
+   "label": "/p/api/frontend-statsd*",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-181",
+   "type": "endpoint",
+   "label": "/pagina/*_id",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-182",
+   "type": "endpoint",
+   "label": "/pagina/*/clips",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-183",
+   "type": "endpoint",
+   "label": "/perfil/ALEXSETHMS",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-184",
+   "type": "endpoint",
+   "label": "/perfil/comprador/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-185",
+   "type": "endpoint",
+   "label": "/perfil/jm/profile",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-186",
+   "type": "endpoint",
+   "label": "/perfil/profile/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-187",
+   "type": "endpoint",
+   "label": "/perfil/vendedor/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-188",
+   "type": "endpoint",
+   "label": "/product-fe-recommendations/recommendations*",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-189",
+   "type": "endpoint",
+   "label": "/recommendations*",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-190",
+   "type": "endpoint",
+   "label": "/registration",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-191",
+   "type": "endpoint",
+   "label": "/social/",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-192",
+   "type": "endpoint",
+   "label": "/tienda/*_id",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-193",
+   "type": "endpoint",
+   "label": "/tienda/*/clips",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-194",
+   "type": "endpoint",
+   "label": "/clips?short_id=",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-195",
+   "type": "endpoint",
+   "label": "/clips/?short_id=",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "tech-196",
+   "type": "tech",
+   "label": "Laravel",
+   "sub": "",
+   "name": "Laravel",
+   "version": null
+  },
+  {
+   "id": "finding-197",
+   "type": "finding",
+   "label": "Missing clickjacking protection (X-Frame-Options / frame-ancestors)",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "VC-1",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "finding-198",
+   "type": "finding",
+   "label": "Cookie \"_d2id\" set without HttpOnly",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "VC-2",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "finding-199",
+   "type": "finding",
+   "label": "Cookie \"_mldataSessionId\" set without HttpOnly, SameSite",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "VC-3",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "finding-200",
+   "type": "finding",
+   "label": "Cookie \"in_app\" set without HttpOnly",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "VC-4",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "finding-201",
+   "type": "finding",
+   "label": "Version disclosure: Tengine",
+   "sub": "",
+   "sev": "info",
+   "risk": "info",
+   "ref": "VC-5",
+   "conf": 85,
+   "confidence": "confirmed"
+  },
+  {
+   "id": "endpoint-202",
+   "type": "endpoint",
+   "label": "/web/desktop",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-203",
+   "type": "endpoint",
+   "label": "/acessibilidade",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-204",
+   "type": "endpoint",
+   "label": "/current_location/navigation/pick",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "endpoint-205",
+   "type": "endpoint",
+   "label": "/home",
+   "sub": "",
+   "method": "GET"
+  },
+  {
+   "id": "finding-206",
+   "type": "finding",
+   "label": "TLS overly broad wildcard certificate",
+   "sub": "",
+   "sev": "med",
+   "risk": "medium",
+   "ref": "F-01",
+   "conf": 85,
+   "confidence": "confirmed",
+   "evidence": "Recon-phase indicator: wildcard cert covers *.mercadolibre.com.ar. Independent TLS handshake not observed; sealed container offline prevented active validation."
+  },
+  {
+   "id": "finding-207",
+   "type": "finding",
+   "label": "Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "F-02",
+   "conf": 69,
+   "confidence": "suspected",
+   "evidence": "Prior scan noted absence of X-Frame-Options and CSP frame-ancestors on scoped hosts. Active header re-check unavailable due to offline execution environment.",
+   "notes": [
+    "validator gate: no objective oracle cited"
+   ]
+  },
+  {
+   "id": "finding-208",
+   "type": "finding",
+   "label": "Cookie '_d2id' set without HttpOnly",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "F-03",
+   "conf": 85,
+   "confidence": "confirmed",
+   "evidence": "Prior scan flagged _d2id missing HttpOnly flag. Could not re-fetch Set-Cookie header via curl to confirm."
+  },
+  {
+   "id": "finding-209",
+   "type": "finding",
+   "label": "Cookie '_mldataSessionId' set without HttpOnly and SameSite",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "F-04",
+   "conf": 85,
+   "confidence": "confirmed",
+   "evidence": "Prior scan flagged _mldataSessionId missing HttpOnly and SameSite. Could not re-fetch Set-Cookie header via curl to confirm."
+  },
+  {
+   "id": "finding-210",
+   "type": "finding",
+   "label": "Cookie 'in_app' set without HttpOnly",
+   "sub": "",
+   "sev": "low",
+   "risk": "medium",
+   "ref": "F-05",
+   "conf": 85,
+   "confidence": "confirmed",
+   "evidence": "Prior scan flagged in_app missing HttpOnly flag. Could not re-fetch Set-Cookie header via curl to confirm."
+  },
+  {
+   "id": "finding-211",
+   "type": "finding",
+   "label": "Version disclosure: Tengine",
+   "sub": "",
+   "sev": "info",
+   "risk": "info",
+   "ref": "F-06",
+   "conf": 69,
+   "confidence": "suspected",
+   "evidence": "Recon noted Tengine server header on responses. Active request to re-verify Server header unavailable.",
+   "notes": [
+    "validator gate: no objective oracle cited"
+   ]
+  }
+ ],
+ "edges": [
+  {
+   "from": "root-1",
+   "to": "host-2",
+   "kind": "recon"
+  },
+  {
+   "from": "host-2",
+   "to": "tech-3",
+   "kind": "runs"
+  },
+  {
+   "from": "host-2",
+   "to": "service-4",
+   "kind": "svc"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-5",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-6",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-7",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-8",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-9",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-10",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-11",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-12",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-13",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-14",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-15",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-16",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-17",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-18",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-19",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-20",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-21",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-22",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-23",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-24",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-25",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-26",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-27",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-28",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-29",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-30",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-31",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-32",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-33",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-34",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-35",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-36",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-37",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-38",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-39",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-40",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-41",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-42",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-43",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-44",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-45",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-46",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-47",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-48",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-49",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-50",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-51",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-52",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-53",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-54",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-55",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-56",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-57",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-58",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-59",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-60",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-61",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-62",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-63",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-64",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-65",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-66",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "service-67",
+   "kind": "svc"
+  },
+  {
+   "from": "host-2",
+   "to": "tech-68",
+   "kind": "runs"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-69",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-70",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-71",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-72",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-73",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-74",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-75",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "endpoint-76",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-2",
+   "to": "finding-77",
+   "kind": "finding"
+  },
+  {
+   "from": "root-1",
+   "to": "host-78",
+   "kind": "recon"
+  },
+  {
+   "from": "host-78",
+   "to": "tech-79",
+   "kind": "runs"
+  },
+  {
+   "from": "host-78",
+   "to": "tech-80",
+   "kind": "runs"
+  },
+  {
+   "from": "host-78",
+   "to": "service-81",
+   "kind": "svc"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-82",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-83",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-84",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-85",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-86",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-87",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-88",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-89",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-90",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-91",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-92",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-93",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-94",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-95",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-96",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-97",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-98",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-99",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-100",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-101",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-102",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-103",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-104",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-105",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-106",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-107",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-108",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-109",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-110",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-111",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-112",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-113",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-114",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-115",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-116",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-117",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-118",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-119",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-120",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-121",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-122",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-123",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-124",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-125",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-126",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-127",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-128",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-129",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-130",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-131",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-132",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-133",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-134",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-135",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-136",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-137",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-138",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-139",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-140",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-141",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-142",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-143",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "service-144",
+   "kind": "svc"
+  },
+  {
+   "from": "host-78",
+   "to": "tech-145",
+   "kind": "runs"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-146",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-147",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-148",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-149",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-150",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-151",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-152",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-153",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-154",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-155",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-156",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-157",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-158",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-159",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-160",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-161",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-162",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-163",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-164",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-165",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-166",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-167",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-168",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-169",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-170",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-171",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-172",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-173",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-174",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-175",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-176",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-177",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-178",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-179",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-180",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-181",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-182",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-183",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-184",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-185",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-186",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-187",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-188",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-189",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-190",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-191",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-192",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-193",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-194",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-195",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "tech-196",
+   "kind": "runs"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-197",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-198",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-199",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-200",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-201",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-202",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-203",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-204",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "endpoint-205",
+   "kind": "exposes"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-206",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-207",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-208",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-209",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-210",
+   "kind": "finding"
+  },
+  {
+   "from": "host-78",
+   "to": "finding-211",
+   "kind": "finding"
+  }
+ ],
+ "holds": [
+  {
+   "action": "Read",
+   "rule": "enclave-denied",
+   "target": "mercadolibre",
+   "at": "2026-08-31T10:35:37.843Z"
+  }
+ ],
+ "phaseLog": [
+  {
+   "phase": "recon",
+   "summary": "jsminer: 1 UNVERIFIED secret candidate(s) in client-side JS (gcp-oauth-client:405396\u2026om) \u2014 candidates, NOT findings; live-use verification is opt-in (jsminerVerify:true)",
+   "at": "2026-08-31T02:15:37.835Z"
+  },
+  {
+   "phase": "recon",
+   "summary": "jsminer: 4 base(s) mined, 4 endpoint(s) surfaced, 1 secret candidate(s), 0 verified",
+   "at": "2026-08-31T02:15:37.835Z"
+  },
+  {
+   "phase": "recon",
+   "summary": "target scoring: 2 host(s) scored for expected yield \u2014 top: www.mercadolibre.com.ar (100/100, api-heavy/idor-candidate), bottom: api.mercadolibre.com (56/100); downstream per-host tool budgets order by score descending (reorder ONLY \u2014 no host skipped or hidden)",
+   "at": "2026-08-31T02:15:37.839Z"
+  },
+  {
+   "phase": "recon",
+   "summary": "tooled recon \u00b7 native scanner + content discovery",
+   "at": "2026-08-31T02:15:37.839Z"
+  },
+  {
+   "phase": "opsec",
+   "summary": "watchdog: budget-warn",
+   "at": "2026-08-31T02:22:20.408Z"
+  },
+  {
+   "phase": "validate",
+   "summary": "gate: \"Missing clickjacking protection (X-Frame-Options / CSP frame-ancestors)\" downgraded to suspected \u2014 validator gate: no objective oracle cited",
+   "at": "2026-08-31T02:22:20.412Z"
+  },
+  {
+   "phase": "validate",
+   "summary": "gate: \"Version disclosure: Tengine\" downgraded to suspected \u2014 validator gate: no objective oracle cited",
+   "at": "2026-08-31T02:22:20.412Z"
+  },
+  {
+   "phase": "validate",
+   "summary": "**Situation** \u2014 I am in the validate phase for the MercadoLibre targets (`www.mercadolibre.com.ar`, `api.mercadolibre.com`) against the six scoped IPs. I have a set of recon-phase candidate findings (TLS wildcard, missing cookie flags, miss",
+   "at": "2026-08-31T02:22:20.412Z"
+  },
+  {
+   "phase": "exploit",
+   "summary": "phase error \u2014 fetch failed",
+   "at": "2026-08-31T02:30:21.395Z"
+  },
+  {
+   "phase": "postex",
+   "summary": "artifact file @ workspace:clickjacking-poc.html -> cleanup: rm clickjacking-poc.html",
+   "at": "2026-08-31T10:35:37.844Z"
+  },
+  {
+   "phase": "postex",
+   "summary": "artifact file @ workspace:report.md -> cleanup: rm report.md",
+   "at": "2026-08-31T10:35:37.844Z"
+  },
+  {
+   "phase": "postex",
+   "summary": "",
+   "at": "2026-08-31T10:35:37.844Z"
+  },
+  {
+   "phase": "postex",
+   "summary": "artifact report @ www.mercadolibre.com.ar:client-report.md -> cleanup: rm client-report.md",
+   "at": "2026-08-31T10:40:32.369Z"
+  },
+  {
+   "phase": "postex",
+   "summary": "artifact poc @ www.mercadolibre.com.ar:clickjacking-poc.html -> cleanup: rm clickjacking-poc.html",
+   "at": "2026-08-31T10:40:32.370Z"
+  },
+  {
+   "phase": "report",
+   "summary": "**Situation** \u2014 The workspace contains a prior post-exploitation report (`report.md`) with six findings (1 medium, 4 low, 1 info) and one PoC artifact against MercadoLibre web properties. The sealed execution environment is currently unavai",
+   "at": "2026-08-31T10:40:32.370Z"
+  }
+ ],
+ "debunked": [],
+ "counts": {
+  "hosts": 2,
+  "subdomains": 0,
+  "svcs": 4,
+  "endpoints": 186,
+  "tech": 6,
+  "cves": 0,
+  "findings": 12,
+  "confirmed": 10,
+  "crit": 0,
+  "risk": {
+   "high": 0,
+   "medium": 10,
+   "info": 2
+  },
+  "exploits": 0,
+  "creds": 0,
+  "footholds": 0,
+  "routes": 0,
+  "holds": 1
+ },
+ "model": {
+  "nodeTypes": 16,
+  "edgeKinds": 20
+ }
+}

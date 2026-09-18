@@ -1,0 +1,70 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "informatica",
+      "name": "Informatica",
+      "offersBounties": false,
+      "assets": [
+        "*.informatica.com",
+        "*.informaticacloud.com",
+        "Any IP address reasonably attribute to Informatica ",
+        "Any Informatica on-premise software",
+        "Any other domain reasonably attributable to Informatica "
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\informatica-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "informatica",
+  "name": "Informatica",
+  "url": "https://hackerone.com/informatica",
+  "policy": "At **Informatica** we take the security of your information seriously. If you believe you've detected a vulnerability within our products, including their AI features, or experienced unexpected or abnormal responses or outputs, we'd like you to tell us about it via our Responsible Disclosure Program.\n\nIf you believe you have discovered a vulnerability or other abnormality or have a security incident to report, please submit a bug report and someone will contact you in a timely manner. Please include a detailed summary of the issue you discovered so that we can attempt to reproduce it and assess its severity and impact.\n \n## To be eligible for recognition, you must:\n\n- Be the first person to responsibly disclose the bug.\n- Report a bug that could compromise our users' private data, circumvent the system's protections, or enable access to a system within our infrastructure.\n\n## Types of Recognition:\n- Post on our Hall of Fame\n\n##Qualifying Properties:\n- Any other domains and IP addresses owned by/operated by Informatica\n\n## Qualifying Vulnerabilities:\nIn general, any implementation issue that is reproducible and significantly affects the security of Informatica customers is likely in scope for this program. Typical types of issues include:\n\n•\tCross-site Scripting (XSS)\n•\tCross-site Request Forgery\n•\tServer-Side Request Forgery (SSRF)\n•\tSQL Injection\n•\tServer-side Remote Code Execution (RCE)\n•\tXML External Entity Attacks (XXE)\n•\tAccess Control Issues (Insecure Direct Object Reference issues, etc)\n•\tExposed Administrative Panels that don't require login credentials\n•\tDirectory Traversal Issues\n•\tLocal File Disclosure (LFD)\n•\tBroken Authentication or authorization issues\n•\tBroken cryptographic implementation w/ working exploit\n•\tCircumvention of our framework's privacy and permission models\n•\tInformation leaks associated to Informatica data (say, github repo leaks)\n\n\n## Non-Qualifying Vulnerabilities will be closed as Not Applicable: \nThe following issues are outside the scope of our recognition program:\n\n•\tBest practices concerns\n•\tVulnerabilities affecting users of outdated or unsupported browsers or platforms\n•\tSelf-XSS that cannot be used to exploit other users\n•\tReports from automated tools or scans\n•\tDenial of Service Attacks\n•\tHost Header Injection\n•\tReflected File Download (RFD)\n•\tUsername Enumeration\n•\tPhysical or social engineering attempts (this includes phishing attacks against Informatica employees)\n•\tContent injection issues\n•\tCross-site Request Forgery (CSRF) with minimal security implications (Logout CSRF, etc.)\n•\tMissing autocomplete attributes\n•\tMissing cookie flags \n•\tIssues which require physical access to a victim’s computer\n•\tMissing security headers which do not present an immediate security vulnerability\n•\tSSL/TLS scan reports (this means output from sites such as SSL Labs)\n•\tBanner grabbing issues (figuring out what web server we use, etc)\n•\tOpen ports without an accompanying proof-of-concept demonstrating vulnerability\n•\tOpen Redirect Vulnerabilities\n•\tPublicly accessible login panels\n•\tRecently disclosed 0day vulnerabilities - please give us two weeks before reporting these types of issues.\n•\tidentification of Informatica data in OSINT sources in absence of a working exploit (i.e shadowserver,   rbl, etc).\n•       Email/SMS flooding attacks\n•\tIssues related to software or protocols not under Informatica control\n•\tPhysical attempts against Informatica personnel, property or data centers\n•\tClickjacking and the issues exploited only by clickjacking\n\nAny vulnerability reported for a particular domain cannot be reported as a new vulnerability for its associated domains. (say, if an vulnerability is reported for <sample>.com the same issue cannot be reported for <sample>test.com or <sample>uat.com or any similar ones). \n\n## Rules of Engagement:\nPlease refrain from accessing sensitive information (by using a test account and/or system), performing actions that may negatively affect other Informatica users (denial of service), exploiting any unexpected or inaccurate output or abnormality of an AI feature, or sending reports from automated tools. If classified, personal, or other non-public information is accessed, finders agree not to use or disclose the information for any purpose and to delete it promptly.\n\n**Informatica** reserves the right to assess each bug to determine if it qualifies.\n\n**Informatica** makes every reasonable effort to protect the information in our care from loss, misuse, alteration or destruction. Only authorized employees and clients have access to the data that we gather and that access is limited by need. All employees who have access to client data are enjoined to maintain the confidentiality of such information. No method of transmission over the Internet or method of electronic storage is 100% secure; therefore, while we strive to use all commercially reasonable means to protect client information, that cannot guarantee absolute security. Informatica does not guarantee the accuracy, completeness or reliability of any information or output provided by its products, including their AI features. Informatica makes every reasonable effort to test and identify abnormalities or unexpected results from its products.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.informatica.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.informaticacloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any Informatica on-premise software",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any other domain reasonably attributable to Informatica ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Any IP address reasonably attribute to Informatica ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    }
+  ]
+}

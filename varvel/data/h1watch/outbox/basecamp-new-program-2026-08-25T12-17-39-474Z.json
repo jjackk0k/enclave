@@ -1,0 +1,200 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "basecamp",
+      "name": "Basecamp",
+      "offersBounties": true,
+      "assets": [
+        "*.hey.com",
+        "Basecamp.app",
+        "HEY.app",
+        "HEY.exe",
+        "app.basecamp.com",
+        "basecamp-setup.exe",
+        "com.basecamp.bc3",
+        "com.basecamp.bc3-ios",
+        "com.basecamp.hey",
+        "com.hey.app.ios",
+        "fizzy.do",
+        "hey-mail",
+        "https://github.com/basecamp/once-campfire",
+        "https://github.com/basecamp/writebook",
+        "launchpad.37signals.com",
+        "world.hey.com"
+      ],
+      "exclusions": [
+        "*.basecamphq.com",
+        "*.highrisehq.com",
+        "basecamp.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\basecamp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "basecamp",
+  "name": "Basecamp",
+  "url": "https://hackerone.com/basecamp",
+  "policy": "**TL;DR** - Your insight and discoveries = our deep <3, and now $.\nWe're a small team born and bred on open source, so we look to the security community's lead for exploit patterns, best practices, top vulns, new research—everything. We've learned much and keep adapting. Thank you.\nWe push for the best in web security and it's your research that makes the big strides and reveals blind spots. We invite you to pursue and demonstrate your work here. We'll pair closely with you, respond to your findings speedily & thoroughly, and publicly share our appreciation.\n\n**Bounties range from USD $100 to $10,000** and scale according to impact and ingenuity, from an unlikely low-sensitivity XSS to a deep, novel RCE. One per bug; first discovery claims it; ties break toward the best report.\n\nWhere possible, use a `@wearehackerone.com` email address to create accounts and only test against accounts you create. Read the sections below carefully to avoid having your report closed as N/A. \n\n## Our focus is on\n- Strong auth (sign-in, sessions, OAuth, account recovery, MFA)\n- Access control (bypasses, faults, CSRF, etc)\n- Injection prevention (SQL, XSS, method args, etc)\n- For HEY only: potential privacy leaks, such as bypasses of our spy pixel blocking features or any other leak enabled by any of the HEY features. \nConcatenating bugs to increase the attack scenario is encouraged. \n\n## General eligibility\nThe scope of the bug bounty program is limited to the apps and domains listed [on our scope page](https://hackerone.com/basecamp/policy_scopes?type=team). Valid vulnerabilities on any domain or app not explicitly listed in scope may be accepted but are ineligible for a reward. \nAs a general rule:\n- Reports that do not demonstrate a relevant CVSS impact on any of the apps in scope will be closed as N/A. \n- In cases where multiple reports share _the same root cause_, these will be closed as Duplicate.\n- We will only award and triage reports when the root cause is under our control.\n- We do not consider it a vulnerability when the victim must deliver the attacker's payload themselves (e.g., importing a file, pasting input). This is self-XSS regardless of the resulting impact.\n\n## This is out of scope for all our apps\n- Hyperlink injection on emails\n- Existing sessions not being invalidated when 2FA is enabled\n- Enabling 2FA without verifying email address to prevent someone from signing up\n- Rate limiting\n- Best practices concerns (we require evidence of a security vulnerability)\n- Vulnerabilities only affecting users of outdated or unpatched browsers and platforms\n- Race conditions that don't compromise the security of any user or Basecamp. This includes race conditions that lead to bypassing the limits of your current plan\n- Reports about theoretical damage without a real risk\n- The output of automated scanners without explanation\n- CSRF with no security implications (like Login/logout/unauthenticated CSRF)\n- Broken links\n- Missing cookie flags on non-security sensitive cookies\n- Attacks requiring physical or console access to a user's device\n- Any issue in a mobile application that can only be exploited on a rooted or jailbroken device, that depends on debug access being enabled, or that depends on a vulnerability in the operating system\n- Hardcoded keys, tokens, or debug endpoints extracted from mobile app binaries (APK/IPA) that enable developer tools or internal features, unless chained with a demonstrated cross-user impact that does not require physical device access\n- Missing security headers not related to a security vulnerability\n- Reports of insecure SSL/TLS ciphers unless you have a working proof of concept\n- Banner grabbing issues to figure out the stack we use or software version disclosure\n- Open ports without a vulnerability\n- Password and account recovery policies, such as reset link expiration or password complexity\n- Disclosure of known public files or directories, (e.g. robots.txt)\n- Reports of spam\n- Username/email address enumeration\n- Presence of autocomplete attribute on web forms\n- DNSSEC and DANE\n- HSTS or CSP headers\n- Host header injection unless you can show how a third party can exploit it\n- Reflected File Download (RFD)\n- EXIF information not stripped from uploaded images\n- DoS targeting other users on the same account, e.g. using malformed inputs or crafted file uploads\n- DoS vulnerabilities based on submitting a large payload in an input field and triggering a 500 error\n- DoS vulnerabilities based on unlimited password length (hint: the password length is not unlimited)\n- DoS vulnerabilities based on lack of pagination or lots of user content slowing response times\n- Using product features like invitation/signup/forgot-password to deliver messages to any email address\n- Unrestricted file upload without a clear attack scenario or PoC\n- JavaScript code executed from a PDF within the browser's PDF viewer, where the attack surface is locked down (for example, [JavaScript support in PDF in Chrome's PDF viewer is an intentional feature](https://bugs.chromium.org/p/chromium/issues/detail?id=511295), so so long as it can't be used to mount an attack)\n- Clickjacking / UI redress (overlay or framing tricks)\n\nThese apply to all our in-scope assets. See each app below for more specific out-of-scope reports. \n\n## Disqualifiers\n- Attempting access to other customers' accounts or accessing other customers' accounts and data unless it's completely unintentional and accidental. \n- Denial of service: disrupting other customers' access to their own accounts.\n- Social engineering of any kind against other customers our staff, including spearphishing attempts or contacting our support team.\n- Overwhelming our support team with messages. Don't fuzz Contact Support forms.\n- Physical intrusion.\n- Automated scanning, mail bombing, spam, brute-forcing or automated attacks with programs like Burp Intruder.\n- Leaking, manipulating, or destroying any user data.\n\n## Guidelines\n- All reports **should include** a detailed step-by-step explanation of how to replicate the issue and an attack scenario to demonstrate the risk.\n- Practice responsible disclosure. That's a responsibility to users, not us. We strive to live up to the other end of this by resolving bugs in a timely manner.\n- If you sign up for an account for vulnerability testing, please include \"HackerOne\" somewhere in your email address or use a `@wearehackerone.com` address. \n- If you include any secrets or confidential information in your report, partially mask it, as far as possible, so you can still convey the severity of your findings without accidentally leaking information. \n\n## Bypasses of previously fixed vulnerabilities\nIf you discover a valid bypass of a previously resolved report:\n- We’ll award between 35% and 70% of the original bounty, depending on the impact, and quality of your report.\n- The bypass must be a genuine circumvention of the fix, not a minor variation of the original.\n\n## Note about reports with dumps of leaked credentials\nWe have mechanisms in place to check for leaked passwords on login, and we won't be awarding any bounties for reports with dumps of leaked credentials obtained from [stealer logs](https://www.troyhunt.com/begging-for-bounties-and-more-info-stealer-logs/) or other kind of data breaches. We'll accept other kinds of credential leaks, such as accidental exposure of tokens, administrative passwords or secrets. \n\n## HEY\n### In scope\n- HEY websites and native apps\n- Web: https://*.hey.com\n- Email: hey.com and custom domains hosted with HEY\n- Your own HEY accounts only\n\n### Out of scope\n- `stats.hey.com`, `stats.world.hey.com` and `stats.hey.science`.\n\n## Basecamp websites and native apps.\n### In scope\n- Web: https://3.basecamp.com.\n- API: As described by https://github.com/basecamp/bc3-api and https://github.com/basecamp/api.\n- Authentication: https://launchpad.37signals.com.\n- Basecamp access controls provided by the [Admin Pro Pack](https://3.basecamp-help.com/article/687-admin-pro-pack).\n- Your own Basecamp accounts only.\n\n### Out of scope\n- Email spoofing, including SPF/DKIM/DMARC policies. Email spoofing is in scope for HEY.\n- Vulnerabilities that presume users on the same account are untrusted. For example, uploading malware, embedding phishing URLs in comments, RTLO based attacks in URLs, IDN homograph attacks, modifying projects and member lists, etc.\n- Accepting an invitation with an email address different from the one the invitation was sent to. \n\n\n## Fizzy websites and native apps\n**Note**: Fizzy is not eligible for bounties as it's a free app. \n\n### In scope\n- Web: https://app.fizzy.do\n- Your own Fizzy accounts only.\n\n### Out of scope\n- Email spoofing, including SPF/DKIM/DMARC policies. Email spoofing is in scope for HEY.\n- Vulnerabilities that presume users on the same account are untrusted. For example, uploading malware, embedding phishing URLs in comments, RTLO-based attacks in URLs, IDN homograph attacks, etc. \n- A board member able to read, edit and publish another member's draft cards. [This is intentional](https://github.com/basecamp/fizzy/pull/2197). \n- Mass assignments of time-related fields (`created_at`, `last_active_at`) in cards. This is intentional for the JSON API to support imports and data preservation. \n\n\n## Open source\n\n### In scope\n- Fizzy: our open-source Kanban app. Used by the Fizzy SaaS app.\n- ONCE Campfire: our open-source, self-hosted group chat system. \n- ONCE Writebook: our open-source, self-hosted book publishing app.  \n- Trix: our rich-text editor. Used in HEY and Basecamp 3.\n- Stimulus: our client-side JavaScript framework. Used in HEY and Basecamp 3.\n- Other first-party open-source projects under the Basecamp org on GitHub.\n\nIn general, vulnerabilities in our open-source projects that don't translate into a vulnerability in our paid in-scope apps won't be eligible for a bounty. \n\n### Out of scope\n- Editable wiki pages in GitHub in open source projects\n- \"Leak\" of test and fixture data that appears to be personal identifiable information, but it's just test data\n\n## Questions?\nThis works because we work together.\nContact us with any questions: security@37signals.com\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.basecamphq.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Basecamp Classic",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "basecamp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Basecamp 2",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.basecamp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Basecamp 5",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "launchpad.37signals.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Launchpad",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "basecamp-setup.exe",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Basecamp for Windows: https://basecamp.com/via#basecamp-for-your-mac-or-pc",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Basecamp.app",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Basecamp for Mac: https://basecamp.com/via#basecamp-for-your-mac-or-pc",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.basecamp.bc3-ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Basecamp for iOS: https://basecamp.com/via#basecamp-for-ios-and-android-devices",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.basecamp.bc3",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Basecamp for Android: https://basecamp.com/via#basecamp-for-ios-and-android-devices",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.highrisehq.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Highrise",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hey.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.hey.app.ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "HEY for iOS: https://apps.apple.com/us/app/hey-email/id1506603805",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.basecamp.hey",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "HEY for Android: https://play.google.com/store/apps/details?id=com.basecamp.hey",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "HEY.app",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "HEY for macOS: https://hey.com/apps/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "HEY.exe",
+      "asset_type": "WINDOWS_APP_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "HEY for Windows: https://www.microsoft.com/en-us/p/hey-mail/9pf08ljw7gw2",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hey-mail",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "HEY for Linux: https://snapcraft.io/hey-mail/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "world.hey.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "fizzy.do",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Full source code is available at https://github.com/basecamp/fizzy and https://github.com/basecamp/fizzy-saas",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/basecamp/writebook",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Writebook](https://once.com/writebook) is an installable, self-hosted app to publish your own books on the web. \n\nhttps://once.com/writebook",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "https://github.com/basecamp/once-campfire",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "[Campfire](https://once.com/campfire) is an installable, self-hosted group chat system designed, built, and backed by 37signals.\n\nhttps://once.com/campfire",
+      "max_severity": "high"
+    }
+  ]
+}

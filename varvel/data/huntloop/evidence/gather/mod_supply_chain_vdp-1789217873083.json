@@ -1,0 +1,136 @@
+{
+ "at": "2026-09-12T12:57:44.938Z",
+ "opportunity": "mod_supply_chain_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.babcockinternational.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": null,
+     "evidence": "/wp-content/"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "WP Engine",
+    "cf-ray": "a39f146c29fb540e-LHR",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/wp-admin/",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/wp-admin/admin-ajax.php",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/wp-login.php",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.drumgrange.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "aspnet",
+     "label": "ASP.NET",
+     "version": null,
+     "evidence": "x-powered-by: ASP.NET"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "ASP.NET",
+    "cf-ray": "a39f14754cb563cb-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "vdp.kahootz.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "Occluded",
+    "content-security-policy": "frame-ancestors 'self';",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "autodiscover.thorntontomasetti.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to autodiscover.thorntontomasetti.com:443 refused: connection refused"
+  },
+  {
+   "host": "ballastcalc.thorntontomasetti.com",
+   "kind": "domain",
+   "status": 401,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=31536000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+{
+ "at": "2026-09-12T02:09:24.729Z",
+ "opportunity": "koho",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "web.koho.ca",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 198cbe09a940eff4bb21f2c143f15bcc.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=15768000",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.koho.ca",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b5ebd6e8050f1-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "content-security-policy": "frame-ancestors 'self' https://koho.sanity.studio https://www.sanity.io",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.koho.ca",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b5ec60f1be900-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "usercontent.koho.ca",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b5ed1ee581674-LHR",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 c6bb9cf9d8e0165f8ce421e143815966.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.koho.ca",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b5ed99868955c-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

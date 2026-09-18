@@ -1,0 +1,94 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "urbancompany",
+      "name": "Urban Company",
+      "offersBounties": true,
+      "assets": [
+        "1032480595",
+        "982922982",
+        "com.urbanclap.provider",
+        "com.urbanclap.urbanclap",
+        "www.urbanclap.com",
+        "www.urbancompany.com"
+      ],
+      "exclusions": [
+        "Other urbancompany.com subdomains except for the ones in-scope"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\urbancompany-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "urbancompany",
+  "name": "Urban Company",
+  "url": "https://hackerone.com/urbancompany",
+  "policy": "We take security seriously at Urban Company, and we’re committed to protecting our community. If you are a security researcher or expert and believe you’ve identified security-related issues with Urban Company’s website or apps, we would appreciate you disclosing it to us responsibly.\nOur team is committed to addressing all security issues in a responsible and timely manner, and we ask the security community to give us the opportunity to do so before disclosing them publicly. Please submit a detailed description of the issue to us, along with the steps to reproduce it. We trust the security community to make every effort to protect our users’ data and privacy.\n\n# Eligibility Requirements\nTo be eligible for the Bug Bounty Program, you must not:\n* Be in violation of any national, state, or local law or regulation\n* Be employed by Urban Company or its subsidiaries\n* Be an immediate family member of a person employed by Urban Company or its subsidiaries or affiliates\n* Be less than 14 years of age. If you are at least 14 years old, but are considered a minor in your place of residence, you must get your parent’s or legal guardian’s permission prior to participating in the program.\n* Former employees and contractors are eligible to participate in the program only if both the below conditions are met -\n    * You have left Urban Company more than 1 year prior to submission\n    * You are not making use of or referring to any non-public Urban Company information obtained when you were an employee or contractor.\n\nIf Urban Company discovers that you meet any of the criteria above, Urban Company will remove you from the Bug Bounty Program and disqualify you from receiving any Bounty Payments.\n\n# Disclosure Policy\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third party.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* If the UC's Security team has evidence of active exploitation or imminent public harm, they may immediately provide remediation details to the public so that users can take protective action.\n\n# Test Plan\n* Please include a header X-Hackerone: <h1_username> when you test so we can identify your requests easily.\n\n* In order to allow hackers outside of India to test on Urban Company, we have created a sample account. Please use the following details while logging in:\n    * Phone Number: +91 1029384756\n    * OTP: 1234\n\n# Program Rules\nTo promote the discovery and reporting of vulnerabilities and increase user safety, we ask that you:\n* Note that automated tools or scripts **are strictly prohibited**, and any POC submitted to us should have a proper step-by-step guide to reproduce the issue.\n* Do not access or modify data without the explicit permission of the owner.\n* Never use a finding to compromise/exfiltrate data or pivot to other systems. Use a proof of concept only to demonstrate an issue.\n* Due to complexity and other factors, some vulnerabilities might require longer than even 30 days to remediate.\n* Responsibility – Act in good faith not to degrade the performance of our services or the privacy of our users. Please do not attempt to compromise the safety or privacy of our users (so please use test accounts), or the availability of Urban Company through DoS attacks or spam. **We also request you do not use vulnerability testing tools that generate a significant volume of traffic**.\n* Reproducibility – Our engineers must be able to reproduce the security flaw from your report. Reports that are too vague or unclear are not eligible for a reward. Reports that include clearly written explanations, and working code are more likely to garner rewards. \n* We only reward the first reporter of a vulnerability. \n* Do not test the physical security of Urban Company offices, employees, equipment, etc.\n* Public disclosure of the vulnerability without express consent from the organization will result in disqualification from the program.\n\n# Scope\n## In-Scope Vulnerabilities\nAccepted, in-scope vulnerabilities include, but are not limited to: \n* Disclosure of sensitive or personally identifiable information\n* Cross-Site Scripting (XSS)\n* Cross-Site Request Forgery (CSRF) for sensitive functions in a privileged context\n* Server-side or remote code execution (RCE)\n* Authentication or authorization flaws, including insecure direct object references and authentication bypass\n* Injection vulnerabilities, including SQL and XML injection\n* Directory traversal\n* Significant security misconfiguration with a verifiable vulnerability\n* Exposed credentials, disclosed by UC or its employees, that pose a valid risk to an in-scope asset\n* Shell Upload vulnerabilities (only upload basic backend script that just prints some string, preferably try printing the hostname of the server and stop there!)\n* Ability to book UC services for free\n\n## Out-of-Scope Vulnerabilities\nCertain vulnerabilities are considered out-of-scope for the Bug Bounty Program. Those out-of-scope vulnerabilities include, but are not limited to:\n* Any physical attacks against Urban Company property or data centers\n* Reports that involve a secondary user account where an existing business relationship is being leveraged and the impact is limited solely to the parent account\n* Username enumeration on customer-facing systems (i.e. using server responses to determine whether a given account exists)\n* Scanner output or scanner-generated reports, including any automated or active exploit tool\n* Attacks involving payment fraud, theft, or malicious merchant accounts\n* Man-in-the-Middle attacks\n* Vulnerabilities involving stolen credentials or physical access to a device\n* Social engineering attacks, including those targeting or impersonating internal employees by any means (e.g. customer service chat features, social media, personal domains, etc.)\n* Open redirection, except in the following circumstances:\n    * Clicking an Urban Company-owned URL immediately results in a redirection, and/or\n    * A redirection results in the loss of sensitive data (e.g. session tokens, PII, etc)\n* Host header injections without a specific, demonstrable impact\n* Vulnerabilities found through DDoS or spam attacks. If you discover a vulnerability and believe it can cause DoS (for example, a logical flaw or known CVE), please submit it and we will review it on a case-by-case basis. Do not attempt or execute DDoS attacks.\n* Self-XSS, which includes any payload entered by the victim\n* Any vulnerabilities requiring significant and unlikely interaction by the victim, such as disabling browser controls\n* Login/logout CSRF\n* Rate Limiting Bypass\n* Vulnerabilities leading to crash of the app or Denial of Service (DOS/DDOS)\n* CSRF on unauthenticated forms or forms with no sensitive actions\n* Content spoofing without embedding an external link or JavaScript\n* Session not getting invalidated after logout\n* Infrastructure vulnerabilities, including:\n* Issues related to SSL certificates\n* DNS configuration issues\n* Server configuration issues (e.g. open ports, TLS versions, etc.)\n* Vulnerabilities only affecting users of outdated, unpatched, or unsupported browsers and platforms, including any version of Internet Explorer\n* Vulnerabilities that only affect one browser will be considered on a case-by-case basis and may be closed as informative due to the reduced attack surface\n* Information disclosure of public or non-protected information (e.g. code in a public repository, server banners, etc.), or information disclosed outside of Urban Company's control (e.g. a personal, non-employee repository; a list from a previous infodump; etc.)\n* Exposed credentials that are either no longer valid, or do not pose a risk to an in-scope asset\n* Any XSS that requires Flash. Flash is disabled by default in most modern browsers, thus greatly reducing the attack surface and associated risk\n* Missing HttpOnly or Secure flags on cookies\n* Missing security headers\n* Invalid or missing SPF/DKIM/DMARC records\n* Clickjacking on pages with no sensitive actions\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis\n* Any other submission determined to be low risk, based on unlikely or theoretical attack vectors, requiring significant user interaction or resulting in minimal impact\n* Vulnerabilities on third-party libraries without showing specific impact to the target application (e.g. a CVE with no exploit)\n* Exposure of non-sensitive data on the device\n* Vulnerabilities requiring a rooted, jailbroken, or otherwise modified device\n* https://www.urbancompany.com/blog points to blog.urbancompany.com and is out of scope.\n* Leaked or compromised passwords are out of scope.\n\n## Known Issues\nCertain vulnerabilities are already known either internally or through past submissions. These issues will be closed as **Not Applicable**.\n* Hardcoded/Unrestricted third-party API keys (Google API Keys, Branch.io, etc.)\n* CORS Misconfiguration\n* Impersonating another person's account on UI using response tampering without being able to book services on their behalf\n* Broken links hijacking\n* Task Hijacking\n\n\n# Bug Submission Requirements\n## Required Information\nFor all submissions, please include:\n* Full description of the vulnerability being reported, including the exploitability and impact\n* Evidence and explanation of all steps required to reproduce the submission, which may include:\n    * Videos\n    * Screenshots\n    * Exploit code\n    * Traffic logs\n    * Web/API requests and responses\n    * Mobile Number or user ID of any test accounts\n    * IP address used during testing\n* For RCE submissions, see below\n* Failure to include any of the above items may delay or jeopardize the Bounty Payment\n\n## RCE Submission Guidelines\nFailure to meet the below conditions and requirements could result in a forfeiture of any potential Bounty Payment:\n* Source IP address\n* Timestamp, including time zone\n* Full server requests and responses\n* Filenames of any uploaded files, which must include “bugbounty” and the timestamp\n* Callback IP and port, if applicable\n* Any data that was accessed, either deliberately or inadvertently\n* Allowed Actions:\n    * Directly injecting benign commands via the web application or interface (e.g. whoami, hostname, ifconfig)\n    * Uploading a file that outputs the result of a hard-coded benign command\n* Prohibited Actions:\n    * Uploading files that allow arbitrary commands (i.e. a web shell)\n    * Modifying any files or data, including permissions\n    * Deleting any files or data\n    * Interrupting normal operations (e.g. triggering a reboot)\n    * Creating and maintaining a persistent connection to the server\n    * Intentionally viewing any files or data beyond what is needed to prove the vulnerability\n    * Failing to disclose any actions taken or applicable required information\n\n# Note\n\nYou must comply with all applicable laws in connection with your participation in this program. You are also responsible for any applicable taxes associated with any reward you receive.\nUrban Company reserves the right to change or modify the terms of this program at any time.\n\nIf you have any doubts, please write to us: security@urbancompany.com.\n\nThank you for helping keep Urban Company safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.urbancompany.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "www.urbancompany.com is our main and critical domain. Most of our traffic routes through urbanclap.com. Other subdomains mentioned in scope are for internal purpose and either are password protected or Google auth protected. We do not wish anyone to login to mentioned domains and hence they are crit",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.urbanclap.provider",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our partner android app.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.urbanclap.urbanclap",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our customer app.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1032480595",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our customer iOS apps",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "982922982",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our professional ios app.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.urbanclap.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "www.urbanclap.com is also our root and critical domain. Most of our traffic routes through it.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other urbancompany.com subdomains except for the ones in-scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Examples of out-of-scope subdomains include but not limited to:\n- careers.urbancompany.com\n- careers.urbanclap.com\n- blog.urbancompany.com\n- blog.urbanclap.com\n- sherlock.urbanclap.com\n- sherlock.urbancompany.com \n- ops.urbanclap.com \n- ops.urbancompany.com\n- configs.urbanclap.com\n- configs.urbancom",
+      "max_severity": "none"
+    }
+  ]
+}

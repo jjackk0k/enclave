@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "vf-corporation-vdp",
+      "name": "VF Corporation - VDP",
+      "offersBounties": false,
+      "assets": [],
+      "exclusions": [
+        "jansport.ca",
+        "jansport.cl",
+        "jansport.com.ar",
+        "jansport.com.co",
+        "jansport.com.uy",
+        "kipling-usa.com",
+        "kipling.com.br",
+        "kipling.jp",
+        "napapijri.rs",
+        "thenorthface.com.ar",
+        "thenorthface.com.co",
+        "thenorthface.com.ec",
+        "thenorthface.cr",
+        "thenorthface.gt",
+        "thenorthface.hn",
+        "thenorthface.sv",
+        "timberlandpro.com.mx",
+        "vans.cl",
+        "vans.com.ar",
+        "vans.com.br",
+        "vans.com.co",
+        "vans.com.ec",
+        "vans.com.pa",
+        "vans.com.pe",
+        "vans.com.py"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\vf-corporation-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "vf-corporation-vdp",
+  "name": "VF Corporation - VDP",
+  "url": "https://hackerone.com/vf-corporation-vdp",
+  "policy": "At VF Corporation, we take security and privacy very seriously. If you believe that you have found a security vulnerability that affects any VF Corporation asset, please report it to us. You may report a vulnerability using HackerOne. Reports that fall within scope of this VF Corporation Vulnerability Disclosure Program Policy (the “Policy”) may be eligible to receive a +1 count on their public profile under “Thanks Received” and be listed on VF Corporation’s HackerOne webpage under “Hackers Thanked.” We appreciate your efforts in helping protect customer trust and make VF Corporation more secure.\n\n#**What is the VF Corporation Reporting Disclosure Program?**\n\n - This Policy describes the VF Corporation Vulnerability Disclosure Program, an initiative driven and managed by VF’s Information Security, Privacy and Legal teams to incentivize the responsible, ethical disclosure of vulnerabilities relating to VF information and technology systems.\n\n\n - The VF Corporation Vulnerability Disclosure Program accepts reports of bugs that provide a potential attacker with the ability to compromise the integrity, availability or confidentiality of VF Corporation services or information technology infrastructure. Please see below for specific submission criteria. If you believe you've found a qualifying security vulnerability in a VF Corporation web site, please submit a report in accordance with the guidelines below that includes a detailed description of your discovery with clear, concise, reproducible steps or a working proof-of-concept. \n\n\n - When investigating vulnerabilities, avoid altering existing files, file permissions, reading sensitive information (e.g., /etc/shadow) or disrupting services. Do not utilize an identified vulnerability to pivot to other hosts or services. If sensitive information or personal information is encountered, immediately cease activities and report via the HackerOne portal, where triage and VF Corporation personnel can assist.\n\n#**Who Can Participate in the Program?**\n\n - Security researchers authorized by HackerOne who discover a potential security finding within VF assets using ethical and lawful means are encouraged to report it via the Program, unless the circumstances described under the caption “Ineligible Participants” below apply. VF employees and contractors, as well as their immediate family members, are not eligible to participate in the Program, and should disclose any findings directly to VF Global Cyber and Information Security (GCIS). \n\n\n - We value the positive impact of your work and thank you in advance for your contribution.\n\n#**Assets In Scope:**\n\nThe following wildcards are in scope of the program:\n\n- *.vfc.com\n- *.vfc-int.com\n- *.thenorthface.com\n- *.timberland.com\n- *.vans.com\n\n\n#**Assets Out of Scope:**\n - Anything not listed in the Assets In Scope section above. \n - Any asset listed as out of scope in the Hacker One platform.\n - If you have any question about what is in scope, please ask.\n\n#**Qualifying Vulnerabilities:**\n\nThe VF Corporation Security Team is interested in the following types of vulnerabilities:\n\n - Cross-Site Scripting (XSS) With Meaningful Impact\n - Cross-Site Request Forgery (CSRF) With Meaningful Impact\n - Remote Code Execution (RCE)\n - Unauthorized Cross-Tenant Data Tampering or Access (for multi-tenant services)\n - Authentication/Authorization Bypass (Broken Access Control)\t\n - Privilege Escalation\t\n - Insecure Direct Object References\n - Injection Vulnerabilities\n - Cache Poisoning\n - Server-Side Request Forgery\n - Authentication Vulnerabilities\n - Server-Side Code Execution\n - Significant Security Misconfiguration (when not caused by user)\n - Subdomain Takeover\n - Directory Traversal \n - Remote and Local File Inclusion\n - Information Disclosure\n\nVF Corporation reserves the right to reject any submission, in our sole discretion. Submissions that require manipulation of data, network access, or physical attack against VF Corporate offices or data centers and/or social engineering of our service desk, employees or contractors will not be accepted. \n\n#**Non-Qualifying Vulnerabilities**\n\nThe following submissions are not accepted by VF Global Cyber and Information Security for the purposes of the Program:\n\n - Security Best Practices i.e. Security Headers etc.\n - Social Engineering, Phishing\n - Open redirects (unless you can demonstrate additional security impact)\n - Physical Attacks\n - Missing Cookie Flags\n - CSRF with minimal impact i.e. Login CSRF, Logout CSRF, etc.\n - Content Spoofing\n - Stack Traces, Path Disclosure, Directory Listings\n - SSL/TLS best practices\n - Banner Grabbing\n - CSV Injection with no demonstrable security impact\n - Reflected File Download\n - Reports on Out of dated browsers\n - DOS/DDOS\n - Host header Injection with no demonstrable security impact\n - Scanner Outputs\n - Vulnerabilities on Third-Party Products\n - User Enumeration\n - Password Complexity\n - Non Impactful HTTP Methods\n\n#**Limitations**\n\nYou are not authorized to test any asset, domain, or IP address listed as outside the scope of the Program. \n\n - Reports of security findings outside the scope of this Program will be ineligible for reputation increase within the program.\n\n\n- Zero-day vulnerabilities (vulnerabilities that were not previously known to the security community) are not eligible for reputation increase unless you identify a zero-day vulnerability on an in-scope system more than five days after the zero-day vulnerability was disclosed to the security community.\n\n\n - Vulnerabilities that are already known and being tracked by our internal team at the time of your report will not be eligible for reputation increase.\n\n\n - VF operates many brands and businesses, and our systems have many similarities across our platforms. A vulnerability that exists on one of our platforms/systems might exist on other VF platforms/systems. We consider findings such as these to be a single finding, eligible for a single reputation increase. (An example of this would be a vulnerability that exists on www.vans.com/path/testapi that also exists on www.timberland.com/path/testapi. Reporting a vulnerability for one of these URLs would make the same finding for the other URL ineligible for award.)\n\n\n- You may not violate any law in connection with this Program.\n\n#**Rules of Engagement**\n\n- You must provide details of the vulnerability finding, including information needed to reproduce and validate the report.\n\n\n- Do not attempt to conduct post-exploitation, including modification or destruction of data, or interruption or degradation of VF services.\n\n\n- Do not attempt to perform brute-force attacks, denial-of-service attacks, compromise or testing of existing accounts that you did not create.\n\n\n- Do not attempt to access personal information/data. If personal information/data is inadvertently accessed, then for the purposes of reporting, remove or obscure personal information/data in screenshots in a manner which cannot be reversed, and do not retain, save, copy, transfer, or otherwise use any personal information/data. Immediately disclose the access of personal information/data to us. You may be asked to sign a statement, under oath, affirming that you have not accessed any personal information/data and/or that you have not retained, saved, copied, transferred, or otherwise used any personal information/data.\n\n\n- Do not knowingly modify persistent data stores through authenticated access or risky application exploitation.\n\n\n- Do not attempt to target VF employees, customers, or consumers, including by any social engineering attack, phishing attack or physical attack.\n\n\n- Do not perform physical attacks against any VF facility.\n\n\n- Do not threaten or try to extort VF. You must not make ransom requests or otherwise act in bad faith. You should simply report the vulnerability to us. Actions taken in bad faith, including any ransom demand, will be reported to law enforcement authorities.\n\n\n- Do not save, copy, transfer, or otherwise use any VF data beyond the minimum required to meet the requirements of the Program. Continuing to access VF data or any third-party data, including but not limited to personal information, may be considered actions taken in bad faith.\n\n\n- You may use only assets that you explicitly own or have properly and lawfully licensed.\n\n\n- If reports of the same finding are received from multiple authorized HackerOne participants, only the first to report will be eligible for reputation increase.\n\n\n- Do not share publicly or privately any details or descriptions of your findings with any third party.\n\n#**Testing**\n\nWhen testing, you must identify your testing traffic such that it can be differentiated from normal business operations and malicious actors. Please do the following when participating in the Program:\n\n- Where possible, register accounts using your <username>+x@wearehackerone.com addresses. (see https://docs.hackerone.com/en/articles/8404308-hacker-email-alias)\n\n\n- Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity. We ask for this data to assist our Incident Response team with noise reduction when conducting an investigation.\n\n\n- Include a custom HTTP User-Agent in all your traffic. Burp and other proxies allow the easy automatic modification of headers to all outbound requests:\n\n       - Example (VFC-VDP): `Mozilla/5.0 (X11; VFC-VDP; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36`\n\n- Consider a custom HTTP header, if modifying the User Agent is not feasible. Report to us what header you set so we can identify it easily:\n\n    - Identifier: Your Username\n\n    - Format: X-VFC-VDP: HackerOne-<username>\n\n    - Example: X-VFC-VDP: HackerOne-vfjohn\n\n- Limit scanning and testing to a maximum of five requests per second, per host.\n\n#**Additional Program Policies**\n\n - Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged, and we will request additional information.\n\n\n- Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n\n\n- When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n\n\n- Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n\n#**Legal Safe Harbor**\n\n- VF Corporation will not bring any legal action against anyone for complying with this Policy in good faith. This includes any claim under the Digital Millennium Copyright Act (DMCA) for circumventing technological measures to protect the services and applications eligible under this policy. As long as you comply with this policy, we consider your security research to be \"authorized\" under the Computer Fraud and Abuse Act. These terms do not provide you with authorization to access company data or another person's personal information/data or account. We waive any restrictions in our applicable Terms of Service and Acceptable Use Policy that would prohibit your participation in the Program, for the limited purpose of your security research under this Policy.\n\n\n- VF cannot authorize any activity on third-party products or guarantee that other persons or entities will not pursue legal action against you. VF is not responsible for your liability from actions performed on third parties.\n\n\n- Do not do anything illegal or unethical. You are responsible for complying with all applicable laws, restrictions, regulations, etc.\n\n#**Ineligible Participants** \n\nYou may not participate in the Program, and we will not award reputation, if any of the following apply:\n\n- You are on the US Treasury Department's Specially Designated Nationals and Blocked Persons List.\n\n\n- You are a citizen or a resident of a nation subject to international sanctions or embargoes which prohibit us from making a payment, such as the US Office of Foreign Asset Controls list of sanctions programs.\n\n\n- You are a sanctioned party in the European Union according to an applicable act in the context of the EU Common Foreign and Security Policy and Cyber Diplomacy Toolbox, including, without limitation, Council Decision (CFSP) 2019/797, as subsequently modified by Council Decision (CFSP) 2020/1127.\n\n\n- Any Anti-Money Laundering Law (AML) prohibits us from making an award, such as FINCEN regulations or the EU 6AMLD.\n\n\n- You are associated with any person or entity on the Unreliable Entity List maintained by China's Ministry of Commerce. \n\n\n- Any public policy of a competent jurisdiction prohibits or discourages us from making an award.\n\n\n- You are associated with any organized crime enterprise.\n\n\n- Any applicable law prohibits us from making an award.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "jansport.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jansport.cl",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jansport.com.ar",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jansport.com.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jansport.com.uy",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kipling-usa.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kipling.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "napapijri.rs",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.com.ar",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.com.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.com.ec",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.cr",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.gt",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.hn",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thenorthface.sv",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "timberlandpro.com.mx",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.cl",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.ar",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.ec",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.pa",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.pe",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "vans.com.py",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kipling.jp",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

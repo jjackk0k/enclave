@@ -1,0 +1,58 @@
+{
+ "at": "2026-09-12T12:32:23.157Z",
+ "opportunity": "mariadb",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "mariadb.org",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": "7.0.4",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 7.0.4\""
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-powered-by": "Seravo",
+    "strict-transport-security": "max-age=63072000;",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

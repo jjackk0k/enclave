@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "zebra_vdp",
+      "name": "Zebra VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.antuit.ai",
+        "*.bankofamerica.reflexisinc.com",
+        "*.cto-si.zebra.com",
+        "*.cvsltc.reflexisinc.com",
+        "*.dnacloud.zebra.com",
+        "*.hartsystems.com",
+        "*.knlbobs.reflexisinc.com/mywork",
+        "*.mcduk.reflexisinc.co.uk",
+        "*.pttpro.zebra.com",
+        "*.reflexisinc.com",
+        "*.viq.zebra.com",
+        "*.zams.zebra.com",
+        "*.zebra.com",
+        "*.zebra.com/mobicontrol",
+        "*.zebra.engineering",
+        "*.zebrainventory.com",
+        "*.zebramwe.com",
+        "*.zebrasports.com",
+        "*.zpc.zebra.com",
+        "api.zillin.io",
+        "portal.uvtrace.com"
+      ],
+      "exclusions": [
+        "*.fetchcore-cloud.com",
+        "cmm01.sl.zebra.com",
+        "temptimecorp.com",
+        "www.zebra.cn"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\zebra_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "zebra_vdp",
+  "name": "Zebra VDP",
+  "url": "https://hackerone.com/zebra_vdp",
+  "policy": "# Overview:\nAt Zebra, we are committed to collaborating with the security community to identify and address vulnerabilities. Our goal is to safeguard our businesses and ensure the safety of our customers.\n\n# Scope:\nEverything Zebra-owned or controlled is in scope unless otherwise stated in the asset list.\n\n# Production and Non-Production Environments:\nProduction Environment: This environment consists of all live systems and services actively used by Zebra’s customers. Testing in this environment should be conducted with extreme caution to avoid any impact on our users.\nNon-Production Environment: This environment includes all systems and services used for development, testing, and staging purposes. Researchers are strongly encouraged to conduct tests here whenever possible to prevent disruptions to live services.\n\n# Response Targets:\nZebra will work to meet the following SLAs for ethical hackers (“Researchers”) participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | `3 days` |\n| Time to Triage | `3 days` |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process!\n\n# Disclosure Policy:\n- As this is a private program, please do not discuss this program or any bugs or vulnerabilities (even resolved ones) outside of the program without express, written consent from Zebra.\n- Always follow HackerOne’s disclosure guidelines.\n\n# Program Rules:\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for validation.\n- Try to provide a remediation; it helps the development team to know the fix from Researchers’s point of view.\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we only validate the first report that was received that can be fully reproduced.\n- Multiple vulnerabilities caused by one underlying issue will be validated once even if multiple endpoints are affected by the one underlying issue.\n- Social engineering (e.g., phishing, vishing, smishing) is strictly prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit, written permission of the account holder.\n\n1. HTTP Headers:\n    - Include a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests.\n    - Identifier: `Your Username`\n    - Format: `X-Bug-Bounty:HackerOne-<username>`\n    - Example: `X-Bug-Bounty: HackerOne-flyingtoasters`\n    - Identifier: `Tool Identifier`\n    - Format: `X-Bug-Bounty:<toolname>`\n    - Example: `X-Bug-Bounty: BurpSuitePro`\n\n2. Email Alias:\n- For anything that requires credentials, researchers must use their `@wearehackerone.com` email alias as part of the HackerOne platform.\n\n# Rules of Engagement:\nTo ensure the stability of our systems for Zebra, our customers, and fellow ethical Researchers, please follow these guidelines:\n\n1. Account Usage:\n- Conduct testing only with your own personal/test accounts or accounts for which you have explicit, written permission from the account holder.\n- Include your `@wearehackerone.com` email address in reports for verification.\n2. Testing Caution:\n- Be careful during testing to prevent any negative impact on customers and their services.\n- If unsure or if you suspect potential harm, stop immediately, report your findings, and seek authorization before continuing.\n3. Demonstrating Vulnerabilities:\n- For SQL Injection (SQLi), use safe methods like a sleep command to demonstrate vulnerabilities without unauthorized data access or modification.\n4. Access Control Vulnerabilities:\n- If you report an access control vulnerability, subsequent reports exploiting the same flaw will be treated as duplicates. \n- This policy applies globally to all domains and subdomains under our program. Once an access control issue is reported, similar root cause findings will follow this policy.\n- Once the root cause is resolved, new, distinct vulnerabilities will be assessed independently.\n- We will maintain open communication with researchers, ensuring clarity in classification and validation decisions.\n5. Remote Code Execution (RCE):\n- Use commands like `‘whoami’` to demonstrate RCE without further actions.\n- Do not alter or delete files on the system.\n- For root permissions, use the following commands in a vulnerable process:\n    - Read: `cat /proc/1/maps`\n    - Write: `touch /root/<your H1 username>`\n    - Execute: `id, hostname, password` (also cat and touch for execution proof)\n6. ==Credential Leaks and Password Exposures:==\n     - We only accept reports of credentials directly exposed through Zebra-owned systems (e.g., hardcoded in source code, exposed in configuration files, visible in API responses, exposed in logs).\n    - Credentials obtained from third-party breaches, public data dumps, credential stuffing attacks, or password reuse from external sources are OUT OF SCOPE.\n    - Include details about where the credentials were found within Zebra infrastructure, their format, and how they were exposed.\n7.  ==Out-Of-Scope Vulnerabilities:==\n    - Subdomain takeovers, dangling DNS records, or unclaimed cloud resources.\n    - Credential stuffing, credential reuse, or compromised credentials from third-party breaches.\n    - Account takeovers resulting from credentials exposed in external data breaches or through third-party email compromises.\n    - Clickjacking on pages with no sensitive actions.\n    - Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.\n    - Attacks requiring MITM or physical access to a user's device.\n    - Previously known vulnerable libraries without a working Proof of Concept.\n    - Reports based solely on historical data (e.g., archive.md, Wayback Machine).\n    - Reports based solely on DNS records without a working PoC.\n    - Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n    - Missing best practices in SSL/TLS configuration.\n    - Any activity that could lead to the disruption of our service (DoS).\n    - Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n    - Rate limiting or bruteforce issues on all endpoints.\n    - Missing best practices in Content Security Policy.\n    - Missing HttpOnly or Secure flags on cookies.\n    - Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.).\n    - Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version].\n    - Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n    - Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be assessed on a case-by-case basis.\n    - Tabnabbing.\n    - Open redirect - unless an additional security impact can be demonstrated.\n    - Issues that require unlikely user interaction.\n    - Other publicly known vulnerabilities or theoretical vulnerabilities.\n8. ==Out-Of-Scope Domains:==\n    - *.profitect.com - A legacy application that is currently being depreciated. As customers transition to a new version, the remediation team will no longer actively develop or make changes to this platform.\n    - *.rws.reflexisinc.com - These are legacy applications that the team is no longer going to support in the future. Any reported vulnerabilities related to any domain with the ```rws``` domain will automatically close out as \"Informational.\"\n    - *.mobicontrolcloud.com - Zebra does not own or maintain control over most subdomains and DNS records under this wildcard. Reports targeting these assets, including subdomain takeovers and DNS-related issues, will automatically close out as \"Informational.\" Any existing reports in triage will be closed accordingly.\n\n# Reporting Guidelines:\nWhen submitting a report, please consider including the following information to help us effectively validate and address the issue:\n1. Testing Environment:\n- Specify the environment you used for testing, including details such as browsers, app versions, devices, tools, and configuration settings.\n2. Accounts Used:\n- List any accounts you utilized during the testing process. This helps us determine potentially nefarious accounts.\n3. Public-Facing IP Address:\n- Provide your public-facing IP address if you’re reporting on an asset that might log this information. This helps us filter your activity and validate your findings more efficiently.\n\nBy participating in Zebra’s HackerOne program you agree to adhere to the above terms and any deviation may impact the potential validation or ability to make future submissions.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zebra.engineering",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hartsystems.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zebrainventory.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zebra.com/mobicontrol",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fetchcore-cloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.viq.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zams.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cto-si.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cmm01.sl.zebra.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.zebrasports.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.dnacloud.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.zebra.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.pttpro.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.antuit.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "temptimecorp.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.zillin.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zebramwe.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.reflexisinc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bankofamerica.reflexisinc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cvsltc.reflexisinc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.knlbobs.reflexisinc.com/mywork",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mcduk.reflexisinc.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.uvtrace.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.zpc.zebra.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "affirm",
+      "name": "Affirm",
+      "offersBounties": true,
+      "assets": [
+        "com.affirm.central.audit",
+        "com.affirm.internal.hackerone",
+        "sandbox.affirm.com"
+      ],
+      "exclusions": [
+        "*.affirm.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\affirm-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "affirm",
+  "name": "Affirm",
+  "url": "https://hackerone.com/affirm",
+  "policy": "# Introduction\nAffirm looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe. \n\n# Response Times\nAffirm will make a best effort to meet our response targets for hackers participating in our program. And we’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Do not perform testing on Affirm employee accounts and internal tools.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Only interact with accounts you own or with explicit permission of the account holder.\n\n# Program Scope\nPlease note: Returnly has been descoped from the bug bounty program effective 4/12/2023. \n\n* **Web application** at https://sandbox.affirm.com/\n* **iOS application** at Crashlytics: com.affirm.internal.hackerone\n* **Android application** at Google Play Store: com.affirm.central.audit\n\n## Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Brute force exploits.\n* Clickjacking of any kind. It is improperly configured in our test site, but our main domain has a `X-Frame-Options` header set.\n* Missing security cookie attributes (`secure`, `httponly`, and `samesite`).\n* Unauthenticated/logout/login CSRF.\n* Forms missing CSRF tokens (we require evidence of actual CSRF vulnerability).\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Absence of rate limiting.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Issues without clearly identified security impact, such as clickjacking on a static website, missing security headers, or descriptive error messages.\n* User enumeration of any kind (email ownership and timing attack).\n* Improper error handling unless proved in production environment.\n* Sender Policy Framework(SPF) or DomainKeys Identified Mail(DKIM) related findings.\n* Open redirection at `/redirect` endpoint with `redirect` parameter and at `/apps/affiliate/v1/generate-url` endpoint with `merchant_fallback_url` parameter.\n* (mobile) Lack of certificate pinning. The test apps are specifically built for testing environment, therefore there's no certificate pinning.\n* Missing client side check on virtual card loan amount (must be greater than $100 and less than $10000).\n* (mobile) Local access to user data when operating a rooted mobile device.\n* (mobile) Attacks that require physical access to or modification of the mobile device are not in scope.\n\n# Affirm Testing Environment\n\n## iOS\n_The Affirm testing iOS app built for HackerOne is distributed through Crashlytics._ \n1. Download the testing iOS application by going to **https://appdistribution.firebase.dev/i/07fb2924d6938db2**. \n2. Use your iOS device to visit that link and initiate the download process. Please note, the testing app is distributed though Firebase, and you have to install Firebase and Affirm profiles on your testing iOS device.\n\n## Android\n_The Affirm Android testing app built for HackerOne is distributed through Google Play Store._ \n\n1. Download the testing Android application by joining the **affirmhackerone(https://groups.google.com/forum/#!forum/affirmhackerone)** Google Group. \n2. This Group is open to the public and once you join you can go to **https://play.google.com/apps/testing/com.affirm.central.audit** to initiate the downloading process. (The app is only available in the US region in Google Play. If the account you are using is not in the US region, we recommend you to register a new account for this testing, since Google only allows switching the region of the account once per year.)\n\n## To register an Affirm test user\n* Go to https://sandbox.affirm.com/, under “Sign Up”, enter the following information\n* First Name (any value, letter only ) \n* Last Name (any value, letter only)\n* Email address (any value, email format required) \n* Phone number (any value, but please REMEMBER it for login)\n* Date of birth (older than 18 please) \n* Last 4-digits of SSN (any value between 9500 and 9850, and the last 3 digits of the number sets the FICO credit score of the testing account)\n* Click “Create Account” to finish\n\n## To leverage an Affirm test user\n* Hit \"login\" in the web or mobile application.\n* Enter the phone number you registered (the test site will NOT send SMS, instead you use a hardcoded pin code shown below)\n* In the next step, use “123456” as the verification code, click “Verify”. \n\n## To use testing payments\nIf you don't have a valid testing payment, you can use the following test payments.\n\n## Testing credit card numbers\n\n\n| Issuer           | Number              |\n|------------------|---------------------|\n| Visa             | 4242 4242 4242 4242 |\n| Master Card      | 5555 5555 5555 4444 |\n| American Express | 3782 822463 10005   |\n### Testing ACH\n| Routing Number           | Account Number              |\n|------------------|---------------------|\n| 112200439             | 12345678 |\n\nThank you for helping keep Affirm and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.affirm.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.affirm.central.audit",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the Android testing app built for HackerOne. It's distributed through Google Play Store.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.affirm.internal.hackerone",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the testing iOS app built for HackerOne. It is distributed through Crashlytics.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sandbox.affirm.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

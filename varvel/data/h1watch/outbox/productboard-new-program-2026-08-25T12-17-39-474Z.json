@@ -1,0 +1,46 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "productboard",
+      "name": "ProductBoard, Inc.",
+      "offersBounties": false,
+      "assets": [
+        "*.productboard.com",
+        "*.satismeter.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\productboard-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "productboard",
+  "name": "ProductBoard, Inc.",
+  "url": "https://hackerone.com/productboard",
+  "policy": "#Brand Promise\n\nProductBoard looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n#Scope\n\nThis policy applies to any digital assets, owned, operated, or maintained by ProductBoard, Inc., including public facing websites. \n\nPlease check out especially our [recently released features](https://support.productboard.com/hc/en-us/articles/360060759874-Productboard-Release-Notes).\n\n#Out of Scope\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope: \n\n* Vulnerabilities without a well-documented attack vector (e.g. only missing best practices)\n* Denial of service or Distributed Denial of service attacks\n* Absence of rate limiting\n* Permission issues in Portals and Legacy boards.\n* HTML and Markdown injection in Productboard Editor and Comments\n* Presence/absence/misconfiguration of SPF/DKIM/DMARC records or any email misconfiguration in general\n* Lack of CSRF tokens\n* Clickjacking issues\n* Missing security headers which do not lead directly to a vulnerability\n* Reports from automated tools or scans\n* Reports of insecure SSL/TLS ciphers (unless you have a working proof of concept, and not just a report from a scanner)\n* Outdated software without any noteworthy vulnerability\n* Password reset token, account activation or invitation token leaks to third party services\n* EXIF metadata issues\n* Jira Service Desk is open to public\n* Using features from higher plans and other licensing issues\n\n#Disclosure Policies\n\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n#Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep ProductBoard, Inc. and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.productboard.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.satismeter.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

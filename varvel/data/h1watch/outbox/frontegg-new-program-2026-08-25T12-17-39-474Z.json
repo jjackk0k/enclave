@@ -1,0 +1,63 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "frontegg",
+      "name": "Frontegg",
+      "offersBounties": true,
+      "assets": [
+        "api.au.frontegg.com",
+        "portal.au.frontegg.com"
+      ],
+      "exclusions": [
+        "api.frontegg.com",
+        "portal.frontegg.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\frontegg-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "frontegg",
+  "name": "Frontegg",
+  "url": "https://hackerone.com/frontegg",
+  "policy": "Frontegg looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\nFrontegg is a comprehensive developer platform designed to empower teams with self-service capabilities, robust security features, and enterprise-ready tools through a rich user-management interface, freeing up creativity and differentiation. Unlike traditional user management platforms, integrating Frontegg into your app takes minutes, unlocking a whole new level of end-user experience.\n\nFrontegg's platform provides not only Authentication and SSO via an embeddable or hosted login box, but also a complete Admin Portal serving as the settings area for your users. The Admin Portal allows your users to control every aspect of their accounts: manage users and teams, define and assign roles and permissions, get visibility through audit logs, subscribe to webhooks, and much more. Frontegg’s interfaces are embedded as a UI layer within your app and become a customer-facing management interface for your end users, both on the personal and workspace levels. Frontegg also powers your backend through rich SDKs supported in various languages and frameworks.\n\nScope\nPLEASE MAKE SURE YOU USE ONLY THESE DOMAINS (other domains are not eligible for bounty):\nportal.au.frontegg.com\napi.au.frontegg.com\nImportant: please use an @wearehackerone.com email when signing up.\n\nResponse Targets\nFrontegg will make best efforts to meet the following SLAs for hackers participating in our program:\n\nType of Response\n\nSLA (Business Days)\n\nFirst Response\n\n2 days\n\nTime to Triage\n\n2 days\n\nTime to Bounty\n\n14 days\n\nTime to Resolution\n\nDepends on severity and complexity\n\nWe’ll try to keep you informed about our progress throughout the process.\n\nFocus Areas\nWe are most interested in critical vulnerabilities related to authentication and access:\n\nAccount takeover\n\nCross-tenant manipulation\n\nPrivilege escalation\n\nBypassing security features (e.g., MFA, restrictions, session management)\n\nDisclosure Policy\nFollow HackerOne's disclosure guidelines.\n\nInstructions\n\nSign up to Frontegg Portal and Complete Onboarding:\n\nSign up at https://portal.au.frontegg.com using your @wearehackerone.com email address.\n\nComplete the onboarding process.\n\nYou will receive a unique Frontegg base URL (e.g., https://xxxxxx.au.frontegg.com) and a client ID. Save these for later use.\n\nDownload and Set Up Your Frontegg App:\n\nClone: https://github.com/frontegg/testing-demo-app\n\nRun npm install or yarn install.\n\nOpen the codebase and update index.js with your Frontegg base URL and client ID.\n\nStart the app using npm start or yarn start.\n\nCustomize the App:\n\nGo to the \"Builder\" section at https://portal.au.frontegg.com.\n\nEnable/disable features for testing.\n\nSave and publish your changes.\n\nYou can also adjust settings under Environments -> [Dev/Stg/Prod] -> Authentication/Authorization.\n\nProgram Rules\n\nPlease provide detailed reports with clear, reproducible steps to demonstrate the issue. Incomplete reports are not eligible.\n\nSubmit one vulnerability per report unless chaining is required.\n\nThe first valid report is rewarded in case of duplicates.\n\nMultiple issues from one root cause may receive one bounty.\n\nAvoid privacy violations, data destruction, or service disruption.\n\nTest only within the listed domains.\n\nExclusions\n\nSocial engineering of any kind, including phishing or pretexting against Frontegg employees or users\n\nEmail configuration issues (e.g., SPF, DKIM, DMARC) configuration (SPF, DKIM, DMARC)\n\nVerbose error messages and minor headers issues\n\nClickjacking on non-sensitive pages\n\nBest practices only (e.g., weak TLS, missing HTTP headers)\n\nVulnerabilities requiring MITM or physical access\n\nKnown vulnerable libraries without PoC\n\nMinor UI issues or outdated browser impact only\n\nPublic 0-days with patch < 30 days\n\nOpen redirect unless impactful\n\nExcessive role permissions (known issue)\n\nRatings/Rewards\nInitial vulnerability ratings are based on CVSS. Ratings may be adjusted based on real-world impact and exploitability. If a report is reprioritized, we will provide a clear explanation and allow the researcher to appeal. Adjustments may be made based on likelihood or impact. If a report is downgraded, we will provide an explanation and offer the opportunity to appeal.\n\nRequirements\n\nUse only your @wearehackerone.com email.\n\nAll testing must be done as a Frontegg customer.\n\nDo not access customer data or accounts.\n\nIf you discover a potential data leak, report it but do not exploit it.\n\nSafe Harbor\nActivities conducted within this policy are authorized. If legal action is initiated by a third party, we will confirm your actions were in accordance with this policy.\n\nThank you for helping keep Frontegg and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "portal.frontegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.frontegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.au.frontegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.au.frontegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

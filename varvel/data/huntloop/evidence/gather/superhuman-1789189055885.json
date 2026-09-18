@@ -1,0 +1,108 @@
+{
+ "at": "2026-09-12T04:57:29.069Z",
+ "opportunity": "superhuman",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.grammarly.keyboard",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.grammarly.keyboard:443 refused: host unreachable"
+  },
+  {
+   "host": "com.grammarly.android.keyboard",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.grammarly.android.keyboard:443 refused: host unreachable"
+  },
+  {
+   "host": "superhuman.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c54f4880bef41-LHR",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 9d014652fd32d2d679e361546e100a04.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=15552000",
+    "content-security-policy": "frame-ancestors 'none'",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/initLoad?*",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/admin",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "gateway.superhuman.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "id.superhuman.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "FunctionGeneratedResponse from cloudfront",
+    "via": "1.1 58fc6cf05625e5ee74a288151d13c370.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "base-uri 'self'; block-all-mixed-content; child-src 'self'; connect-src 'self' https://id.superhuman.com https://gnar.gr",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

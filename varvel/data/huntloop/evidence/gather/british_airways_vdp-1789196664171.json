@@ -1,0 +1,76 @@
+{
+ "at": "2026-09-12T07:03:48.640Z",
+ "opportunity": "british_airways_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.britishairways.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: GET www.britishairways.com/ via the chain aborted"
+  },
+  {
+   "host": "com.britishairways.baflights",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.britishairways.baflights:443 refused: host unreachable"
+  },
+  {
+   "host": "com.ba.mobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.ba.mobile:443 refused: host unreachable"
+  },
+  {
+   "host": "britishairways.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: GET britishairways.com/ via the chain aborted"
+  },
+  {
+   "host": "ba.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

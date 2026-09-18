@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "oppo_bbp",
+      "name": "OPPO",
+      "offersBounties": true,
+      "assets": [
+        "A16k",
+        "A76",
+        "A96",
+        "ColorOS",
+        "F 21 Pro",
+        "FindN2",
+        "FindN2Flip",
+        "FindN3",
+        "FindN3Flip",
+        "FindX6",
+        "FindX6Pro",
+        "FindX7",
+        "FindX7Ultra",
+        "com.coloros.video",
+        "com.heytap.browser",
+        "com.heytap.cloud",
+        "com.heytap.health.international",
+        "com.heytap.market",
+        "com.heytap.themestore",
+        "com.heytap.xgame",
+        "com.oplus.account",
+        "com.oplus.themestore",
+        "com.oppo.market",
+        "com.oppo.quicksearchbox",
+        "opposhop.cn"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\oppo_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "oppo_bbp",
+  "name": "OPPO",
+  "url": "https://hackerone.com/oppo_bbp",
+  "policy": "OPPO’s commitment to global researcher collaboration significantly enhances product security. \nWe welcome hackers worldwide to submit security vulnerability reports related to OPPO services. Your contributions will help enhance the security of OPPO's business and products. \nOPPO program on H1 currently accept vulnerabilities in the following areas :\n\n**Web/App services**\nFor the scope of acceptance, please refer to:\n🔹 Google Document (detailed domain/package name scope): https://docs.google.com/spreadsheets/d/1K2knhissfw817g_wLNQYJLGIn--j9HKHYBXsdALrD8Y/edit?usp=sharing\n\nNotes:\nIn addition, if other businesses nested within a certain coefficient business are involved, they will be calculated according to their actual belonging coefficients. For example, an high level property embedded within an open platform or mid level property nested within an e-commerce platform will be calculated based on the mid level property. The specific circumstances will be clarified by OSRC.\n\n**Web Application Scoring Rules**\nWe have defined four levels for mobile phone security vulnerabilities based on the degree of their impact: Critical, High, Moderate, and Low.\n\n| Level   | Example of Vulnerability and Impact | \n|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Critical| Including but not limited to: <br> 1. Directly obtain permissions to servers that host important data and processes as well as other important data, including but not limited to remote command execution, arbitrary code execution, web shell upload for acquisition of web server permissions, SQL injection allowing individuals to obtain system permissions, and buffer overflows allowing individuals to obtain system permissions. <br> 2. Serious leakages of sensitive information, including but not limited to SQL injection in core databases (relating to funding, user identity, and transaction) and interface problems which allow individuals to obtain the identity information, order information, and bank card information of large numbers of key users. <br> 3. Serious logic design flaws and process flaws, including but not limited to interface problems allowing individuals to consume the money in any bank account, log in to any OPPO account, and change the password of any OPPO account. |\n| High    | Including but not limited to: <br> 1. Directly obtain permissions to servers that host general data and processes as well as other general data, including but not limited to remote command execution, arbitrary code execution, web shell upload for acquisition of web server permissions, SQL injection allowing individuals to obtain system permissions, and buffer overflows allowing individuals to obtain system permissions. <br> 2. Leakages of sensitive information, including but limited to SQL injection in non-core databases, leakage of source code packages, reversible server application encryption or storage of passwords as plain text, hard coding, and GitHub sensitive information leakage (including but not limited to the leakage of key server accounts and their passwords). <br> 3. Unauthorized access to sensitive information, including but not limited to direct access to the backend by bypassing authentication, weak backend passwords, and Server-side Request Forgery (SSRF) enabling individuals to obtain large amounts of sensitive Intranet data. <br> 4. Unauthorized manipulation of sensitive data, including but not limited to modification of important information, manipulation of orders, and modification of important configurations through an unauthorized account. <br> 5. Other vulnerabilities that affect users on a large scale, including but not limited to Stored XSS on important pages that can cause automatic spread of and allow acquisition of authentication credentials (cookies). |\n| Moderate| Including but not limited to: <br> 1. Vulnerabilities that can affect users only through interaction, including but not limited to Stored XSS to general web pages and major Cross-site Request Forgery (CSRF) vulnerabilities. All vulnerability descriptions must provide the proof of the harm to other users. <br> 2. Actions with moderate destructive capabilities due to privilege escalation. This includes, but is not limited to, viewing general user information, editing/deleting comments, and changing functionality attributes that could pose actual business risks. <br> 3. Leakages of ordinary information, including but not limited to web path traversal, system path traversal, and plain-text password transmission over the HTTP when a HeyTap account is used for sign-in. <br> 4. Ordinary logic design flaws and process flaws, including but not limited to flaws in the verification code logic for important systems that cause the verification and relevant restrictions to be bypassed, leading to credential stuffing attacks. <br> 5. Unrestricted brute-force attacks on important account systems.                                                                                                                 |\n| Low     | Including but not limited to: <br> 1. Vulnerabilities allowing individuals to access user identity information only in specific unpopular browser environments (for example, IE6). Such vulnerabilities include but are not limited to Reflected XSS (including Reflected DOM-based XSS) and Stored XSS in ordinary properties. <br> 2. Minor information leakages, including but not limited to leakage of path information, SVN information, PHP information, exceptions information and configuration settings, log printing and plain-text password transmission over HTTP when a non-HeyTap account is used for sign-in. <br> 3. Unauthorized access, including but not limited to client-side active defense bypass and OPPO URL redirection vulnerabilities. (Note that redirecting an OPPO URL to a normal website is not considered a vulnerability. If PoC for URL redirection shows that an OPPO URL can be redirected to any domain that doesn't belong to OPPO without any prompts displayed, then there is a vulnerability. Otherwise no vulnerability exists.) <br> 4. Vulnerabilities that are difficult to exploit but may cause security risks. Such vulnerabilities include but are not limited to Self-XSS that may cause the spread and exploitation of XSS, JSON Hijacking that has obtained sensitive information, clickjacking on input web pages containing sensitive information (a valid exploit must be provided in the vulnerability details), CSRF attacks involving unimportant sensitive information, and remote code execution through man-in-the-middle (MITM) attacks (valid PoC must be provided in the vulnerability details). <br> 5. Other vulnerabilities that can only cause slight impact. Such vulnerabilities include but are not limited to inappropriate configuration settings for system/service maintenance and operations and vulnerabilities in component-level permissions. <br> 6. Verification code message/email bombing, which means that a single IP or user keeps sending more than 50 verification code messages/emails to the same mobile number/email box within 30 minutes. (Note: Reported problems wherein the same interface is used to send one verification code message/email to an unlimited number of mobile numbers or email boxes will be ignored.) |\n| NSI     | Including but not limited to: <br> 1. Bugs involving no security risks, including but not limited to product function defects, garbled pages, mixed content, directory traversal that has caused the leakage of meaningless or non-sensitive information, and application compatibility issues. <br> 2. Vulnerabilities that cannot be exploited, including but not limited to a scanner's meaningless vulnerability reports (such as a report on a low web server version), meaningless XSS (such as Self-XSS attacks), XSS that uses social engineering or phishing, POST based XSS, JSON hijacking involving no sensitive information, leaking of meaningless exception information, leaking of IP addresses or domain names in the intranet, meaningless clickjacking, HTTP request smuggling, obtaining the user's cookies by exploiting unconfigured CORS during user interaction, and brute-force attacks that cannot be further exploited. <br> 3. CSRF attacks involving no sensitive information, including but not limited to adding items to or deleting items from an online shopping cart, as well as executing actions on an online forum such as logging out of an account, giving likes, following others, publishing posts, making comments, and sending flowers. <br> 4. Traversals and leakages of non-sensitive information. Such information includes but is not limited to middleware version and non-sensitive information. <br> 5. Vulnerabilities that cannot be reproduced or other issues that cannot directly reflect any vulnerability, including but not limited to vulnerabilities that are purely a user's guesses. <br> 6. Cracking of 6-digit verification codes by distributed equipment. <br> 7. Other vulnerabilities with extremely low risks.                                                              |\n\n**Note:** NSI = Not Security Issue (vulnerabilities that do not qualify for bounty rewards)\n\n** Mobile App Security Vulnerabilities **\nThis type of security vulnerability mainly refers to those in mobile devices powered by ColorOS or realme UI. It includes security vulnerabilities in ColorOS or realme UIbuilt-ins and security vulnerabilities in OPPO's and realme's proprietary apps available in the App Market.\n\n# Vulnerability Levels\n| Level   | Example of Vulnerability and Impact                                                                                                                                                                                                           |\n|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Critical| Including but not limited to: <br> 1. Remote code execution (RCE): The attacker is able to remotely execute arbitrary code with the app permissions, including but not limited to a remote memory corruption vulnerability (complete exploit information should be provided), a code execution vulnerability caused by overwriting a dynamic library, and other RCE vulnerabilities caused by logic issues. <br> 2. Remote silent installation of any app: The attacker installs any app remotely or through low-level user interaction. <br> 3. Other severe logic vulnerabilities that can be exploited remotely: including but not limited to remote account takeover, lock screen bypass, money transfer, and other attacks that severely endanger a user's account or asset. |\n| High    | Including but not limited to: <br> 1. Arbitrary code execution (ACE): The attacker locally executes arbitrary code with the app permissions, including but not limited to a local memory corruption vulnerability (complete exploit information should be provided), a code execution vulnerability caused by overwriting a dynamic library, and other ACE vulnerabilities caused by logic issues. <br> 2. Sensitive information leakages: The attacker obtains sensitive information on an app or device remotely or through low-level user interaction. Such sensitive information includes login credentials, SMS messages, call history, contacts, browsing history, and other sensitive information in the private app directory. <br> 3. Privilege escalation vulnerabilities: Such vulnerabilities allow individuals to gain elevated access to an app to perform dangerous operations, including but not limited to launching any protected component of the app, enabling silent installation of any app, modifying the security and privacy settings of the app, and making silent calls or sending silent SMS messages through the app permissions. <br> 4. Other severe logic vulnerabilities: including but not limited to account takeover, lock screen bypass, money transfer, and other acts that are performed locally or through low-level user interaction and severely endanger a user's account or asset. <br> 5. Vulnerabilities able to break the site isolation restrictions of a browser, including but not limited to UXSS. |\n| Moderate| Including but not limited to: <br> 1. Arbitrary code execution or silent installation by staging MITM attacks (valid PoC must be provided in the vulnerability details). <br> 2. Leakages of common information, including but not limited to the leakage of IMEI, IMSI, mobile number, and other common user information. <br> 3. Sensitive information can be obtained from the app or device through local or high interaction attacks, including login credentials, SMS messages, call logs, contacts, browsing history, and other sensitive data stored in the app's private directory. <br> 4. Remote denial of service vulnerability. |\n| Low     | Including but not limited to: <br> 1. Stealing of sensitive information by staging MITM attacks (valid PoC must be provided in the vulnerability details). <br> 2. UI deception vulnerabilities that may cause actual harm. The risk level for this kind of vulnerability can be defined based on the actual harm. |\n| NSI     | Including but not limited to: <br> 1. Bugs involving no security risks, including but not limited to product function defects, garbled pages, mixed content, static directory traversals, and application compatibility issues. <br> 2. Vulnerabilities of no significance, including but not limited to a scanner's meaningless vulnerability reports (such as an automatic app analysis report on code decompilation and lack of security reinforcement). <br> 3. Vulnerabilities that result from necessary risky permissions but cannot be exploited. Such vulnerabilities include but are not limited to necessary component exposures, such as activity export. <br> 4. Vulnerabilities that cannot be reproduced or other issues that cannot directly reflect any vulnerability, including but not limited to vulnerabilities that are purely a user's guesses. <br> 5. Local denial-of-service vulnerabilities: Bugs that can only be launched locally on the phone and cause apps to crash temporarily without leading to further security issues. <br> 6. Other vulnerabilities with extremely low risks. |\n\n## Notes:\nThe following explains concepts involved in, for example, mobile app security vulnerabilities that can be triggered only through actions such as inducing a user to click a link or phishing email, or to install malicious software:\n\n- **Remote(ly)**: An online attack requires no physical contact with a user's mobile phone. Usually, the attacker uses a browser, IM software or SMS messages to launch an attack.\n- **Local(ly)**: It is necessary for the attacker to induce the victim to install malicious apps on the phone, or the attacker directly uses ADB commands, NFC, Bluetooth, or any other function to launch an attack.\n- **Low-level user interaction**: specific to scenarios where a security vulnerability can be triggered just by clicking on a link.\n- **High-level user interaction**: specific to scenarios where a security vulnerability can be triggered after an induced user installs a malicious app, clicks a phishing email, or clicks to confirm twice or more, or after a risk prompt is displayed.\n\n# Vulnerability Levels and Examples\n# OPPO Mobile Devices Security Vulnerability Severity and Reward Table\n\n| Level | Example of Vulnerability and Impact | Reward (USD) |\n|-------|-----------------------------------|--------------|\n| **Critical** | 1. Arbitrary code execution in the TEE;<br><br>2. Unauthorized access to TEE-protected data (only limited to fingerprints, face data, payment information, and other data that can cause property loss to the victim);<br><br>3. Remote code execution in a privileged process or the TCB or ICE;<br><br>4. Remote permanent DoS attacks (causing the attacked device to be unusable; for example, the device is damaged permanently or can resume only through re-flashing the entire OS);<br><br>5. Remote bypass of interaction requirements for installing an app package or an equivalent action;<br><br>6. Bypass of secure boot mechanism;<br><br>7. Upgrading to firmware or image not signed by OPPO;<br><br>8. Vulnerabilities allowing individuals to extract or infer private user information from the AI model file, such as images and sounds. | **$5,000-$11,500** |\n| **High** | 1. Remote code execution in an unprivileged process;<br><br>2. Local arbitrary code execution in a privileged process, the TCB or ICE;<br><br>3. Unauthorized access to TEE-protected data;<br><br>4. Remote access to protected data (usually limited to the data that can be accessed only after a local app requests and is granted access, or that can be accessed only by a privileged process);<br><br>5. Local permanent DoS attacks (causing the attacked device to be unusable; for example, the device is damaged permanently or can resume only through re-flashing the entire OS);<br><br>6. Remote temporary DoS attacks (remote hang or reboot);<br><br>7. Remote bypass of user interaction requirements (access to functions that usually require either user initiation or user permission);<br><br>8. Local bypass of user interaction requirements for modifying security settings (such as Developer Options);<br><br>9. Bypass of the security protection mechanism that separates the app data from other apps;<br><br>10. Bypass of the security protection mechanism that separates users or user profiles from one another;<br><br>11. Local bypass of user interaction requirements for installing an app package or an equivalent action;<br><br>12. Lock screen bypass;<br><br>13. Bypass of the device protection functions (such as the \"Find My Phone\" function);<br><br>14. Bypass of the carrier's restrictions (such as SIM card lock);<br><br>15. Bypass of the authentication mechanism to control OPPO smart devices;<br><br>16. Local acquisition of private user data through the AI model. | **$2,900-$3,500** |\n| **Moderate** | 1. Remote code execution in a constrained process;<br><br>2. Local code execution in an unprivileged process;<br><br>3. Bypass of the mitigation technology in a privileged process or in the TCB, ICE, or TEE;<br><br>4. Bypass of restrictions on a constrained process;<br><br>5. Bypass of restrictions on privacy password;<br><br>6. Remote access to unprotected data (usually referring to all the data that can be accessed by locally installed apps);<br><br>7. Local access to protected data (usually limited to the data that can be accessed only after a locally installed app requests and is granted access, or that can be accessed only by a privileged process);<br><br>8. Local bypass of user interaction requirements without authentication (access to functions that usually require either user initiation or user permission);<br><br>9. Plain text leakage vulnerability caused by the incorrect encryption algorithm model or incorrect implementation of the encryption algorithm;<br><br>10. Bypass of the protection function for restoring factory settings;<br><br>11. Targeted blocking of access to emergency services. | **$230-$430** |\n| **Low** | 1. Local arbitrary code execution in a constrained process;<br><br>2. Bypass of the mitigation technology in an unprivileged process. | **$20-$45** |\n\n---\n\n**Technical Abbreviations:**\n- **TEE:** Trusted Execution Environment\n- **TCB:** Trusted Computing Base  \n- **ICE:** In-Circuit Emulator\n- **DoS:** Denial of Service\n\n\n# Special Notes of Mobile Devices Scoring Rules\n** Concepts Involved in Mobile Phone Security Vulnerabilities **\n- Remote: The attacker exploits vulnerabilities to launch an attack without installing the app concerned or without physical contact with the victim's device, such as by browsing web pages, reading SMS or MMS messages, receiving or sending emails, downloading files, or having wireless network communications (excluding communication with a distance of less than 10 cm).\n- Local: The attacker exploits vulnerabilities to launch an attack. This kind of attack needs relevant apps to be installed in the victim's system or the attacker needs physical contact with the victim's system and the communication distance must be less than 10 cm.\n- Constrained process: Such a process is subject to stricter permission restrictions than a normal app process, and runs in a strictly restricted domain such as SELinux or SEAndroid.\n- Normal app process: refers to an application or process running in the untrusted_app or platform_app domain of SELinux (or SEAndroid), such as a third-party application/process or built-in application/process without system-level permissions.\n- Privileged process: refers to an application or process running in the system_app of SELinux (or SEAndroid), such as a process running with system-level permissions or root permissions.\n- TCB: stands for Trusted Computing Base. It refers to all of a computer's protective devices, including hardware, firmware, software, and components that implement security policies. It ensures a basic protection environment and provides additional user services required by a trusted computer system, including but not limited to parts of the kernel and drivers, or user services equivalent to the kernel, such as init and vold.\n- TEE: stands for Trusted Execution Environment. It co-exists with the Android system on a device. It is mainly used to provide the Android system with a running environment for security services such as trusted computing and storage.\n- ICE: stands for Independent Computing Environment. It refers to a function- and service-focused set of independent computing units, firmware and simple OS, such as a baseband modem.\n\n** Application for CVE IDs **\nl OPPO is the world's 100th CVE Numbering Authority (CNA). We can help security researchers who report vulnerabilities in OPPO products apply for CVE IDs.\nFor CVE application, you could send an application email to security@oppo.com. You need to list the following points in the email:\n- The name and Report ID of the vulnerability\n- The influence of the vulnerability\n- The type and the severity of the vulnerability\n- POC\n- The nickname and the email of the applicant\nOSRC Team will review their vulnerability reports in line with CVE requirements. If the review finds no problem, the OSRC will help the researchers apply for CVE IDs. \n\n**  Repeated Vulnerability Reports **\n- Similar vulnerabilities in the same system should be reported in one package. These vulnerabilities share the same risk level, but the reward will be increased appropriately. If the vulnerabilities are reported separately, only the first report will be considered valid and the subsequent reports will be considered as repeated reports.\n- For similar vulnerabilities affecting multiple systems, if internal troubleshooting has already started, a protection period of 1–3 months can be defined based on the proof of relevant internal communication. Vulnerabilities reported during this protection period will be ignored.\n- If several similar vulnerabilities exist in more than one parameter for the same URL, the vulnerabilities should be combined as appropriate. For similar vulnerabilities resulting from the same source, only the first one will be recorded and the remaining will be left out.\n-  For similar web or app vulnerabilities in the same common component or SDK, only the first one will be recorded and the remaining will be left out.\n\n** Zero-Day Vulnerabilities **\n- We accepts zero-day (also known as 0-day) vulnerabilities found only in OPPO or realme products and services.\n\n** General Vulnerability Review Principles for Third-Party Products **\n- Server-side vulnerabilities: including but not limited to vulnerabilities in the components of Tomcat and Apache being used by OPPO or realme , OpenSSL, and third-party SDKs. For a reported vulnerability which becomes publicly known within one month following report submission, if OPPO or realme has already received the vulnerability from another channel, OPPO or realme will give a FAIL result to the vulnerability report. If OPPO or realme remains unaware of the vulnerability one month after it is made public and the vulnerability remains in OPPO's third-party products, OPPO will reward the first vulnerability reporter. In general, this principle applies to low- and moderate-risk vulnerabilities.\n- Client-side vulnerabilities: including but not limited to Android-native vulnerabilities and common app vulnerabilities. For a reported vulnerability which becomes publicly known within three months following report submission, if OPPO or realme has already received the vulnerability from another channel, OPPO or realme will give a FAIL result to the vulnerability report. If OPPO remains unaware of the vulnerability three months after it is made public and the vulnerability remains in OPPO's and realme's third-party products, OPPO or realme will reward the first vulnerability reporter. In general, this principle applies to low- and moderate-risk vulnerabilities.\n- For vulnerabilities resulting from the same source, in general only the first reporter will be rewarded and the vulnerabilities will be counted as one.\n-  If several similar vulnerabilities exist in more than one parameter for the same URL, the vulnerabilities should be combined as appropriate. For different types of vulnerabilities in the same URL, only the reporter of the vulnerability that has the greatest impact will be rewarded.\n- Vulnerability reports should be as detailed and compliant as possible. The details of a reported vulnerability, its working principle and exploits, and fix recommendations affect the scoring of the vulnerability to some extent. For a reported vulnerability, the lack of PoC, exploit information, or analysis details will directly affect the scoring.\n-  Reporting threats or intelligence already published online will be given no score.\n-  The review results for a vulnerability are determined based on the level of difficulty in exploitation as well as the degree and scope of its impact.\n- Scanner results without proof of harm will be considered invalid.\n-  If you use security testing as an excuse to exploit security intelligence to harm the interests of users, affect the normal operation of our services, publish information about vulnerabilities before they are fixed, or steal user data, you will receive no score. In addition, OPPO will reserve the right to take legal action.\n\n# Test Plan\n* Users can sign up for a free account through our website\n* Please use your **hacker email alias** when testing (h1username@wearehackerone.com)\n* OPPO generally do not provide sample devices for testing; researchers need to purchase the devices themselves.\n* We currently only accept files smaller than 20MB in the following formats: doc, docx, 7z, zip, gz, bz2, excel.\n* OPPO and realme employees (including both regular and outsourced employees) and their immediate family members cannot participate in this reward scheme.\n\n**Clause Interpretation**\nThe OSRC reserves the right to interpret all the above clauses.\n\n**AI Submission Guidelines for AI-Assisted Vulnerability Reports**\n* To standardize AI-assisted discovery behaviors, ensure the quality of vulnerabilities, and optimize the platform review process, we are pleased to release the \"Submission Guidelines for AI-Assisted Vulnerability Reports,\" which clearly outline the submission requirements for AI-generated vulnerability reports:\n\n* Encouragement of AI Usage: The OPPO Security Center actively encourages white hats to utilize AI tools to assist or automate vulnerability discovery, enhancing the efficiency of finding vulnerabilities and uncovering more potential risks.\n\n* Strict Manual Verification: For vulnerability reports generated by AI assistance or automation, manual verification is mandatory before submission. Please ensure that you have completed the assessment and reproduction of the report's authenticity and severity, and provide detailed results of the manual verification in the report, including but not limited to:\n\nDescription of the vulnerability's impact\nDetailed reproduction steps\nComplete Proof of Concept (PoC)\nKey steps and result screenshots\n* Handling of Invalid Reports: Reports that are directly generated by AI, not manually reproduced, or do not provide valid verification result screenshots will be directly rejected by the platform, and no reasons for rejection will be provided.\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as:\n* “X-HackerOne-Research: [H1 username]”\n\n# OPPO Security Disclosure Statement\n\nOPPO is committed to product security and user privacy protection. Our OSRC (OPPO Security Response Center) Vulnerability Disclosure Program provides a secure channel for researchers to report security issues.\n\n## Responsible Disclosure Policy\n\nWhen reporting vulnerabilities:\n- Allow reasonable time for investigation before public disclosure\n- Do not exploit discovered vulnerabilities or access sensitive data\n- Follow applicable laws and privacy regulations\n- Agree to OPPO's Privacy Policy and these Terms & Conditions\n\n## Terms & Conditions\n\n- Any inadvertent access to proprietary data must be declared in your report and not used, stored, or disclosed\n- Submissions grant OPPO a worldwide, permanent, royalty-free license to address vulnerabilities\n- Do not disclose vulnerabilities to third parties without prior written consent\n- OPPO will respond within 15 working days and provide progress updates\n\n## Important Notice\n\nTo protect users, OPPO will not discuss security issues before completing full investigations.\n\n**Report vulnerabilities at:** [https://security.oppo.com/en/responsibleDisclosure](https://security.oppo.com/en/responsibleDisclosure)\n\n---\n\n*By participating, you acknowledge understanding and acceptance of these policies.*\n\n## Prohibitions\n- OPPO and realme opposes and condemns all hacking activities that use vulnerability testing as an excuse to exploit security vulnerabilities to harm users' interests. These activities include but are not limited to stealing user information, hacking production systems, modifying and stealing relevant system information, and maliciously spreading vulnerabilities or data. For details, see the SRC Security Test Specifications. For the above-mentioned behaviors, OPPO will pursue legal support and hold relevant people accountable in accordance with law.\n\nYou can check more details of devices standard on : https://security.oppo.com/en/noticeDetail?notice_only_key=NOTICE-1554748210814394368\n\nThank you for helping keep OPPO and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "ColorOS",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "It's an inner application of OPPO mobile.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.coloros.video",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.browser",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.cloud",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.health.international",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.market",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.themestore",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.heytap.xgame",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oplus.account",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oplus.themestore",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oppo.market",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.oppo.quicksearchbox",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "opposhop.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "A16k",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "A76",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "A96",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "F 21 Pro",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindN2",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindN2Flip",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindN3",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindN3Flip",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindX6",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindX6Pro",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindX7",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "FindX7Ultra",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

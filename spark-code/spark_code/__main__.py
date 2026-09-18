@@ -104,6 +104,12 @@ def main(argv=None) -> int:
         client.model = session.meta["model"]
         ui.dim(f"  session was using model {client.model}")
 
+    # A resumed session remembers its effort tier (fast/standard/reasoning). If the
+    # log has one, honor it over the CLI default so reopening doesn't silently reset.
+    _saved_effort = session.meta.get("effort") if session.meta else None
+    if _saved_effort and _saved_effort in config.EFFORT_MODES:
+        args.effort = _saved_effort
+
     # -- 4. go ---------------------------------------------------------------------
     executor = ToolExecutor(cwd=cwd, approve=ui.approve)
     executor.vision_probe = client.supports_vision  # read_image capability check

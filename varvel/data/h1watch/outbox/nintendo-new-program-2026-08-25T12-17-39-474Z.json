@@ -1,0 +1,103 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "nintendo",
+      "name": "Nintendo",
+      "offersBounties": true,
+      "assets": [
+        "Nintendo Switch 2 Kernel / ARM® TrustZone®",
+        "Nintendo Switch 2 Security controller known as PSC or Platform Security Controller (any component) / Security controller known as TSEC (bootROM only)",
+        "Nintendo Switch 2 System Processes",
+        "Nintendo Switch 2 System Processes allowing piracy",
+        "Nintendo Switch 2 applications for which Nintendo is the publisher worldwide",
+        "Nintendo Switch System",
+        "Nintendo Switch applications for which Nintendo is the publisher worldwide"
+      ],
+      "exclusions": [
+        "Nintendo 3DS System",
+        "Nintendo 3DS applications for which Nintendo is the publisher worldwide\t"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\nintendo-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "nintendo",
+  "name": "Nintendo",
+  "url": "https://hackerone.com/nintendo",
+  "policy": "Nintendo’s goal is to provide a secure environment for our customers so that they can enjoy our games and services. In order to achieve this goal, Nintendo is interested in receiving vulnerability information that researchers may discover regarding Nintendo’s platforms.  Currently, in the context of the HackerOne program, Nintendo is only interested in vulnerability information regarding Nintendo Switch 2 / Nintendo Switch / Nintendo Switch Lite and is not seeking vulnerability information regarding other Nintendo platforms, network service, or server-related information.\n\nBelow are examples of types of activities that Nintendo is focused on preventing:\n* Piracy, including:\n       * Game application dumping\n       * Copied game application execution\n* Cheating, including:\n       * Game application modification\n       * Save data modification\n* Dissemination of inappropriate content to children\n\nBelow are examples of vulnerabilities that Nintendo is interested in receiving information about:\n* System vulnerabilities regarding Nintendo Switch 2 / Nintendo Switch / Nintendo Switch Lite\n       * Privilege escalation from userland\n       * Kernel takeover\n       * ARM® TrustZone® takeover\n* Vulnerabilities regarding Nintendo Switch 2 / Nintendo Switch application titles published by Nintendo in all countries and regions where they are sold\n       * Userland takeover\n- Low-cost cloning\n- Security key detection via information leaks\n\nNintendo reserves the right to choose whether it will address any reported vulnerabilities.\nARM and TrustZone are registered trademarks of ARM Limited (or its subsidiaries) in the EU and/or elsewhere. All rights reserved.\n\n# Rewards\n\nNintendo will pay rewards to the first reporter of qualifying vulnerability information ranging from $100 USD to $50,000 USD. Only one reward per qualifying piece of vulnerability information will be awarded.  Nintendo will determine at its discretion whether the vulnerability information qualifies for a reward as well as the amount of any such reward. Nintendo does not disclose how the reward amount is calculated. Vulnerability information that is already known to Nintendo or the public, for example, does not qualify for a reward.  Rewards will not be issued to individuals who are on sanction lists, or who are in countries on sanction lists.  \n\nThe reward amount depends on the importance of the information and the quality of the report. In general, the importance of the information is higher if the vulnerability is severe, easy-to-exploit, etc.\n\nA report is evaluated to be high quality if you show that the vulnerability is exploitable by providing a proof of concept (functional exploit code is even better). If you don’t yet have a proof of concept, or functional exploit code, we still encourage you to report to us sooner rather than later such that you do not to lose the opportunity to become the first reporter; you can then submit a proof of concept or functional exploit code later (within three (3) weeks of the initial report) and it will be considered to be a part of the report. \n\nThe reward will be paid after the reported vulnerability has been fixed by Nintendo, but no later than three (3) months after Nintendo has confirmed the reported vulnerability.\n\nNintendo will not disclose to the public the amount of any reward distributed by Nintendo.\n\n# Disclosure of vulnerability information\n\nBecause older system versions can continue to exploit vulnerabilities that have been reported to Nintendo by researchers and subsequently fixed by Nintendo, you agree that you shall not disclose vulnerability information reported to Nintendo to any other third party until granted permission to do so from Nintendo.\nUsually, we grant such permission within two to four weeks from the release of the fix that addresses the vulnerability.\n\nWhen releasing fixes for vulnerabilities, Nintendo may issue security advisories intended to inform customers of specific details of those vulnerabilities.\n\n# Report template\n\nPlease include the details requested below when submitting vulnerability information to Nintendo. All such reports should be submitted in English.\n- State the name of the applicable platform (e.g., Nintendo Switch 2)\n- State the system version number(s) that the vulnerability applies to\n- Describe all of the steps required to reproduce the issue\n- Describe the details of what the vulnerability is and, if possible, potential ways to fix the vulnerability\n- Describe, if applicable, how individuals might be able to utilize the vulnerability information to impair the applicable system(s) and/or game(s) by showing a proof of concept or functional exploit code. You are allowed to submit a proof of concept or functional exploit code later (within three (3) weeks), after the initial submission of the report.\n- Confirm that the vulnerability is not widely known to the public.\n\nIn addition to the above, you may submit comments on vulnerability information that has already been disclosed by Nintendo.\nPlease ensure to include the CVE number when doing so.\n\n# Legal\n\nYou agree that you will not violate any law, or disrupt or compromise any data that is not your own in connection with reporting vulnerability information to Nintendo.  \nNintendo reserves all rights against any illegal use of the reported vulnerability information.\n\nNintendo reserves the right to modify the terms of this program at any time.  \n\nYou have no obligation to provide Nintendo with the abovementioned security and vulnerability information. However, you agree that by submitting such information to Nintendo, even if the information is not eligible for a reward, you grant Nintendo a worldwide, perpetual, irrevocable, non-exclusive, transferable, sublicenseable, fully-paid and royalty-free license under any and all intellectual property rights that you own or control to use, copy, modify, create derivative works based upon and otherwise exploit such information for any purpose.\n\nNintendo will not grant rewards to people employed or formerly employed by:\n- Nintendo\n- Third parties engaged or formerly engaged in developing code and/or hardware for Nintendo",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Nintendo Switch System",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo Switch applications for which Nintendo is the publisher worldwide",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo 3DS applications for which Nintendo is the publisher worldwide\t",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Nintendo 3DS System",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Nintendo Switch 2 applications for which Nintendo is the publisher worldwide",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo Switch 2 Security controller known as PSC or Platform Security Controller (any component) / Security controller known as TSEC (bootROM only)",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo Switch 2 Kernel / ARM® TrustZone®",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo Switch 2 System Processes allowing piracy",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nintendo Switch 2 System Processes",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

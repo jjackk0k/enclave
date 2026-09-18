@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "meesho_bbp",
+      "name": "Meesho",
+      "offersBounties": true,
+      "assets": [
+        "1457958492",
+        "admin.meeshosupply.com",
+        "affiliate.meesho.com",
+        "com.meesho.supply",
+        "com.valmo.valmo",
+        "investor.meesho.com",
+        "prod.meeshoapi.com",
+        "superstoreapp.meesho.com",
+        "supplier.meesho.com",
+        "www.meesho.com",
+        "www.valmo.in"
+      ],
+      "exclusions": [
+        "*.meeshoaiservices.ai",
+        "*.meeshogcp.in",
+        "Other Asset",
+        "Rider App",
+        "affiliate-c.meesho.com",
+        "agency.meesho.com",
+        "atlas.valmo.in",
+        "com.valmo.ops",
+        "console.valmo.in",
+        "di-prd-superset.meesho.com",
+        "farmiso.meeshosupply.com",
+        "grocery-supplier.meesho.com",
+        "log10-web-staging.valmo.in",
+        "warehouse.meesho.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated tools or scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\meesho_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "meesho_bbp",
+  "name": "Meesho",
+  "url": "https://hackerone.com/meesho_bbp",
+  "policy": "# Overview \nAt Meesho, we prioritise security and value responsible disclosure. If you identify a security issue in our website or apps, we encourage you to report it to us responsibly. Our team is committed to resolving issues promptly and requests that you allow us time to address them before any public disclosure. Please share a detailed description and reproduction steps. We trust the security community to help protect our users' data and privacy.\n\n# Disclosure Policy\n- This program follows a coordinated vulnerability disclosure process. By participating in this program, you agree not to publicly disclose or threaten to disclose or take any action which may adversely affect Meesho by using any vulnerability or related information, including technical details, proof-of-concepts, screenshots, or exploit code, on any public platform.\n- Public platforms include, but are not limited to, blogs, forums, social media, conference presentations, vulnerability databases, or other publicly accessible channels. Researchers are not permitted to disclose, discuss, or reference any vulnerability or report without Meesho’s explicit written consent, including in anonymized or aggregated form.\n- Researchers are not permitted to sell, license, transfer, auction, or otherwise disclose vulnerability information to any third party, vulnerability broker, data aggregator, or exploit marketplace, whether before or after reporting to Meesho.\nFailure to follow this policy may result in removal from the program, forfeiture of any pending rewards, and loss of eligibility for future participation or if deemed fit by Meesho legal recovery, legal action in accordance with applicable law.\n- You must follow the timelines prescribed by Meesho to make reporting under programs forming part of this policy.\n\n\n# Meesho Account Signup Instructions:\n- Researchers with Indian phone numbers can sign up/login via OTP.\n- Must avoid creating multiple accounts or generating spam accounts.\n- Any misuse, abuse or fraudulent activity shall render the researcher disqualified and liable \n\n\n# Test Plan & Credentials\n- Include the following HTTP header in all test requests:\nX-Hackerone: <h1-username>  (replace <h1-username> with your actual HackerOne username)\n- You can sign up for a free account through our website if needed\n- Use your HackerOne email alias when registering: h1username@wearehackerone.com\n- **Supplier Panel (Asset: supplier.meesho.com)**\n  - Username 1: suppliertest-1@meeshoai.com \n  - Username 2: suppliertest-2@meeshoai.com \n  - Password (both accounts): Hackerone@123$\n- **Consumer & Mobile Apps (Meesho Web, Meesho Android App, Meesho iOS App, Valmo Mobile App)**\n  - Mobile Number 1: 6666666661\n  - Mobile Number 2: 6666666662\n  - OTP (both numbers): 999999\n\n**Note:** If login fails after entering the OTP, tap Resend and enter the same OTP again\n\n\n## Important Notes\n- Testing rate limits on the order flow is not allowed\n- Any orders placed using these test accounts will be canceled within 24 hours\n- Do not perform real financial transactions\n- Do not access, change, download, or misuse real user data\n- Do not change passwords, emails, or account or security settings\n- Do not lock, suspend, or try to gain extra privileges on the accounts\n- Do not share test credentials with anyone\n- Use the accounts only for their intended purpose and permissions\n- Stay within the defined scope and avoid impacting live users or production systems\n- Let the security team know if the credentials stop working\n- Include clear steps to reproduce, affected assets, and a proof of concept in your reports\n- Any misuse of credentials or systems may lead to disqualification of reports and removal from the program\n\n\n# Out-of-Scope Assets\n- Any asset, domain, IP, application, or service that is not listed in the In-Scope section\n- Third-party or vendor-managed systems, such as payment providers, analytics tools, or customer support platforms\n- Internal systems, admin panels, employee-only tools, and staging or development environments, unless they are clearly marked as in scope\n\n\n# Report Eligibility\n- Only the first valid and complete report of an issue will be eligible for a bounty subject to timely submission by the research if the Meesho prescribes a timeline.\n- Please submit one issue per report, unless you need to chain multiple steps to show real impact.\n- If multiple findings come from the same root cause, they will be treated as a single issue and rewarded once (if applicable).\n- Similar issues across different endpoints in the same application may be marked as duplicates, unless we decide otherwise.\n- Reports should be clear and easy to reproduce, and include:\n  - Step-by-step instructions\n  - Screenshots, videos, or other proof of impact\n  - Test account details or sample payloads, where relevant\n(See HackerOne’s quality guidelines: https://docs.hackerone.com/hackers/quality-reports.html)\n- Current and former Meesho employees, contractors, or anyone with internal system access are not eligible to take part.\n- Issues we have already found internally, or that have already been reported by someone else, are not eligible for a reward.\n- Recently published CVEs will not be considered valid submissions under this program until a 30-day cool-off period has elapsed from the date of publication.\n- Reports based only on automated scan results without a clear security impact or working proof of concept may be treated as informational.\n- Spam, test, or non-actionable reports may be closed without further review.\n- Please follow responsible disclosure practices and do not publicly share any findings until we’ve had a chance to review and fix them.\n- Any vulnerability reported on out-of-scope assets will be closed as Not Applicable. Repeated violations will result in the report being closed as Spam and may lead to a ban from the program.\n\n\n# Program Rules\n- Use only your own accounts or the test accounts we provide when testing. Do not access or attempt to test against real user accounts or accounts you do not own or have permission to use.\n- Do not exploit vulnerabilities in a way that could harm our products, customers, data, or day-to-day business operations.\n- Avoid privacy violations, service disruptions, and any actions that could delete, corrupt, or expose data.\n- Do not use automated tools or scanners that could affect production systems or platform stability.\n- Malware, social engineering, and abuse activities are not allowed. This includes phishing, vishing, smishing and denial-of-service attacks.\n- Subsidiaries, parent companies, and affiliates are out of scope unless we clearly state otherwise.\n- Reports related to outdated or unsupported software versions may be placed under a 60-day blackout period to allow time for internal patching and will not be eligible for rewards during that period.\n- All communication must stay on the HackerOne platform. Reaching out directly to customer support, employees, or partners about a vulnerability may lead to disqualification.\n- Any threats, extortion attempts, or pressure tactics will result in removal from the program.\n- Keep all vulnerability details confidential. Do not publicly share any findings until we’ve reviewed and fixed the issue and approved disclosure.\n- Do not collect, store, or keep copies of any user or system data beyond what is strictly needed to demonstrate the issue. Delete any such data after reporting.\n- Any exploitation or misuse of a vulnerability beyond what is needed to prove impact may lead to automatic disqualification.\n- Automated data scraping, model inference attacks, training data extraction, prompt injection, or attempts to reverse-engineer algorithms or recommendation systems are prohibited unless explicitly authorized in writing.\n- Do not share vulnerability details with third parties.\n- If you discover a critical issue that provides system-level or administrative access, stop testing and notify us right away.\n- Test only the services and products listed as in scope, and only for eligible vulnerability types.\n- Do not take part in anything illegal, unethical, or that violates applicable laws or regulations.\n- Participation in this program does not grant access to Meesho systems beyond what is publicly available or explicitly provided for testing.\n- We may ask for basic identity or payment details if needed to process a bounty, in line with legal and compliance requirements.\n- Breaking these rules may result in report closure, disqualification from the program, or other actions at our discretion.\n- By submitting a report, you grant Meesho a non-exclusive, worldwide, perpetual, and royalty-free right to review, assess, and use your submission to analyze, fix and improve the security of our systems.\n\n\n# Out of Scope\n- Reports based on automated scanners or tools that could disrupt or impact production systems\n- Username/Email enumeration through signup, login, account recovery flows or any such similar flows\n- Brute-force or rate-limiting issues\n- Clickjacking\n- Cache deception (temporarily out of scope until further notice)\n- Cache poisoning without a valid a POC (i.e. replicated on different IPs/user sessions)\n- CSRF on unauthenticated, login, or logout actions\n- Self-XSS, content spoofing, or text injection without clear security impact\n- Open redirects unless they can be chained with a real, impactful exploit\n- Stack traces, directory listings, or path disclosures without demonstrated risk\n- Network-level DoS or DDoS attacks\n- Best-practice or hardening issues only, such as:\n  - Missing security headers, HSTS, or cookie flags\n  - SSL/TLS configuration warnings\n- Reports generated only by automated tools without a working proof of concept\n- Issues affecting outdated app versions, unsupported browsers, or deprecated platforms\n- Missing certificate pinning, root/jailbreak detection, or code obfuscation\n- Sensitive data in URLs or request bodies when the traffic is protected by TLS\n- OAuth or app secrets found in APKs without demonstrated impact\n- User data stored unencrypted on a device file system without clear risk\n- Lack of binary protections (such as anti-debugging), or issues that require a rooted or jailbroken device to exploit\n- Vulnerabilities that require physical access to a user’s device\n- SPF, DKIM, or DMARC issues without proven email spoofing to major email providers\n- Known vulnerable libraries or CVEs without a valid proof of concept or with low to medium impact\n- Employee credential leaks unless direct organizational impact is clearly demonstrated (subject to security team review)\n- Credentials sourced from personal repositories, the dark web, or public breach databases (such as Have I Been Pwned) unless real impact is shown\n- Document or file exposures, unless they are clearly critical\n- Cloud storage or bucket leaks, unless business critical data is exposed\n- Theoretical or purely speculative vulnerabilities without demonstrated impact\n- Service fingerprinting or banner disclosure on public-facing services\n- Publicly known files or directories (for example, robots.txt or readme files)\n- Subdomain takeover claims without a valid, working proof of concept\n- Google Maps API key exposure without demonstrated abuse\n- Tab-nabbing and Task Hijacking in mobile applications\n- Weak password policy findings without a clear, exploitable path\n- SSRF pingback connections, also referred to as out-of-band attacks, without a proper exploit PoC, will be marked as Informational\n- CORS misconfiguration without significant impact\n- Cross-Origin-Opener without significant impact\n- Collection ID enumeration in affiliate panel\n- Account Deletion issue in Meesho Android, iOS and Web apps.\n\n\n# Additional Out-of-Scope for Supplier / Seller Panel\n- IDOR, SSRF, or file upload issues with limited or no demonstrated security impact\n- Publicly accessible cloud storage buckets without exposed business critical data\n- MFA or 2FA not being enabled on the application\n- Missing rate limiting on its own, without proof of abuse or exploitation\n- Credentials sourced from the dark web or public leak sites (will be closed as Not Applicable)\n- Cache-related issues without real-world impact\n\n\n# Known Issues (Will Be Closed as Duplicates)\n- HTML injection in the ticketing module on supplier.meesho.com \n- Account deletion issues that lead to first-order discount misuse across Meesho Web, Android, and iOS apps\n- Stored XSS via file upload on supplier.meesho.com \n- Bank details update OTP bypass on supplier.meesho.com \n- My Bank & UPI details OTP bypass on Meesho mobile apps\n\n\n# Safe Harbor\n- If you follow this policy and test in good faith, Meesho considers your research to be authorized and will not pursue legal action for activities performed within scope.\n- We encourage responsible disclosure through this program and will make a good-faith effort to protect researchers who follow our rules, even if testing involves bypassing certain technical controls on in-scope assets.\n- This protection applies only to Meesho systems listed as in scope and does not extend to any third-party services or infrastructure.\n- If you are unsure whether a specific action is allowed or falls within scope, please reach out to us before proceeding. We’re happy to clarify.\n- In cases where your testing follows this program but conflicts with other site policies, we may allow limited exceptions under this safe harbor, at our discretion.\n- We cannot authorize testing on third-party systems, and we cannot prevent a third party from taking legal action if you test their infrastructure. We do not act on behalf of other organizations.\n- We are not responsible for any claims, legal actions, or liabilities that may arise from testing against third-party systems.\n- You are expected to follow all applicable laws and avoid disrupting services or accessing data beyond what is needed to demonstrate a security issue.\n- If you plan to take any action that is not clearly covered by this policy, contact us first at security@meesho.com  Letting us know in advance is an important factor in how we assess good-faith testing.\n- Safe Harbor protections are conditional and may be revoked if it is determined that a researcher:\n  - Acted in bad faith\n  - Exceeded the minimum level of exploitation required to demonstrate impact\n  - Violated confidentiality obligations\n  - Attempted to coerce, pressure, or influence remediation or disclosure timelines\n\n# Compliance & Governing Law\nParticipation in this program is prohibited where restricted by applicable export control laws, sanctions regulations, or trade compliance requirements. Researchers represent that they are not located in, or acting on behalf of, any sanctioned jurisdiction or entity.\n\nThis policy shall be governed by and construed in accordance with the laws of India. Any disputes arising under or in connection with this policy shall be subject to the exclusive jurisdiction of the courts of Bangalore, Karnataka.\n\nThank you for helping keep Meesho and our users secure",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The defined scope covers Meesho’s production web application and mobile applications (iOS and Android) that facilitate customer transactions, seller workflows, and core marketplace services. Please refer to the updated Out of Scope section for details on excluded assets and functionalities.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.meesho.supply",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1457958492",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin.meeshosupply.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "supplier.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Supplier Panel is accessible via Meesho Mobile Apps (Android & iOS) and is in scope. Please review the updated Out of Scope section for exclusions.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "affiliate.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Affiliate Panel is accessible via Meesho Mobile Apps (Android & iOS) and Web. Please review the updated Out of Scope section for exclusions.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "prod.meeshoapi.com",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "prod.meeshoapi.com is accessible via Meesho Mobile Apps (Android & iOS)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.valmo.in",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Valmo is the in-house logistics arm of Meesho, launched to manage the company's shipping operations",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.valmo.valmo",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the Android App for Valmo Partners",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Asset",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This indicates all assets apart from those specified in the in-scope items. Reports submitted under this asset are not eligible for any bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "superstoreapp.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Meesho Grocery/Superstore is part of the Meesho android app and is not a standalone service. To test this feature, please update the delivery PIN code to Nagpur (PIN: 440002), after which the Grocery/Superstore section will be visible.\n\nNote: When using the test account, please cancel any Superstore",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "grocery-supplier.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "farmiso.meeshosupply.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "atlas.valmo.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliate-c.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "warehouse.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "agency.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.meeshogcp.in",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "di-prd-superset.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "investor.meesho.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": " ",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.meeshoaiservices.ai",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "console.valmo.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "log10-web-staging.valmo.in",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.valmo.ops",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Rider App",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": " ",
+      "max_severity": "none"
+    }
+  ]
+}

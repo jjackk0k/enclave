@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "torproject",
+      "name": "Tor",
+      "offersBounties": true,
+      "assets": [
+        "Tor",
+        "Tor Browser",
+        "https://gitlab.torproject.org/tpo/core/arti"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\torproject-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "torproject",
+  "name": "Tor",
+  "url": "https://hackerone.com/torproject",
+  "policy": "The Tor Project is committed to working with security experts across the world to stay up to date with the latest security techniques. If you have discovered a security issue that you believe we should know about, we'd welcome working with you. \n\nThe Tor Project is only offering bug bounties for supported versions of two of its core products, Tor (the network daemon) and Tor Browser. Supported versions for Tor can be found at https://trac.torproject.org/projects/tor/wiki/org/teams/NetworkTeam/CoreTorReleases. For Tor Browser it's a good start to look at the latest stable, alpha, and nightly builds. The former can be found at https://www.torproject.org/download/ and nightlies can be obtained via https://nightlies.tbb.torproject.org/nightly-builds/tor-browser-builds/.\n\nOther services (like the website, bug tracker, and server infrastructure) or products (like OONI or Orbot) are out of scope. Both Tor and Tor Browser bounties come with different tiers accompanied by a price range and some restrictions.\n\nAI-Assisted Research & Submissions Policy\n------------------------------------------\n\n**Mandatory Disclosures**\nAll submissions using AI-assisted tools (including LLMs) must explicitly disclose:\n- What tooling was used\n- Whether an LLM was involved\n- Which LLM model(s) were used\n\nFailure to provide this disclosure will make you ineligible for any bounty award.\n\n**Verification Standards**\nAI-generated findings must include *either* a working proof-of-concept *or* thorough manual verification that demonstrates the issue is real and reproducible. Submissions lacking both will be classified as **Not-Applicable** (-5 Hacker Reputation).\n\n**Spam Classification** (-10 Hacker Reputation)\nThe following will be marked as Spam:\n- LLM-generated content that is demonstrably false or hallucinated, with no legitimate security concern\n- Submissions where trivial verification steps were skipped—issues a competent researcher should have validated before submission\n- Reports that waste our time with obvious oversights or incomplete research\n\n**Policy Compliance**\nAll submissions must also meet HackerOne's [Submission Standards on AI Research](https://www.hackerone.com/policies/code-of-conduct#:~:text=AI-assisted) before being accepted.\n\n**Summary**\nWe welcome AI-assisted research. We don't welcome lazy applications of it. Verify your findings, disclose your tools, and you'll be fine.\n\nInternet Bug Bounty\n--------------------\nThe [Internet Bug Bounty](https://internetbugbounty.org) is providing the funding for rewards offered by this program.\n\nThe project maintainers have final decision on which issues constitute security vulnerabilities. The [Internet Bug Bounty Panel](https://internetbugbounty.org/#the-panel) will respect their decision, and we ask that you do as well. It's important to keep in mind that not all submissions will qualify for a bounty, and that the decision to award a bounty is entirely at the discretion of the Panel.\n\nSafe Harbor\n------------\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nQuestions\n----------\nIf you have questions about our bug bounty program or if there are security bug reports you want to send directly to us (disqualifying them from any potential bounty), feel free to contact us via security@torproject.org. If you want to encrypt your mail, you can get the OpenPGP public key for this address from keys.openpgp.org. Here is the fingerprint:\n\n`835B 4E04 F6F7 4211 04C4 751A 3EF9 EF99 6604 DE41`\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Tor",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://gitlab.torproject.org/tpo/core/tor\n\nSupported versions for Tor can be found at https://www.torproject.org/download/tor",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tor Browser",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://gitlab.torproject.org/tpo/applications/tor-browser\n\nIt's a good start to look at the latest stable, alpha, and nightly builds. The former can be found at https://www.torproject.org/download/ and nightlies can be obtained via http://umj4zbqdfcyevlkgqgpq6foxk3z75zzxsbgt5jqmfxofrbrjh3crbnad.oni",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://gitlab.torproject.org/tpo/core/arti",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tenable",
+      "name": "Tenable",
+      "offersBounties": false,
+      "assets": [
+        "Nessus",
+        "Nessus Agent",
+        "Nessus Network Monitor",
+        "Tenable Attack Surface Management",
+        "Tenable Core",
+        "Tenable Identity Exposure",
+        "Tenable Lumin",
+        "Tenable OT Security",
+        "Tenable Security Center",
+        "Tenable Sensor Proxy",
+        "Tenable Web Application Scanning"
+      ],
+      "exclusions": [
+        "careers.tenable.com",
+        "cloud.tenable.com",
+        "community.tenable.com",
+        "de.tenable.com",
+        "developers.tenable.com",
+        "docs.tenable.com",
+        "fr.tenable.com",
+        "go.tenable.com",
+        "login.tenable.com",
+        "partners.tenable.com",
+        "static.tenable.com",
+        "suggestions.tenable.com",
+        "university.tenable.com",
+        "www.tenable.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tenable-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tenable",
+  "name": "Tenable",
+  "url": "https://hackerone.com/tenable",
+  "policy": "# Introduction\n\nTenable supports responsible disclosure of security vulnerabilities, and we are committed to working with researchers to fully understand and resolve them. Tenable believes in responding quickly to reports, maintaining communication with researchers, and providing a solution in short order.\n\n# Response Targets\nTenable will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response/acknowledgment (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days\n* Time to resolution - depends on severity and complexity\n\nThe team will keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Submit one vulnerability per report\n* Include a description of the issue explaining the vulnerability, including the impact to the user(s) or system. This should clearly describe how the issue crosses privilege boundaries.\nThe affected product or resource (e.g., Tenable.io, Nessus, Tenable.sc, web site), the software version, and the platform you are using (e.g., Windows 10, Debian Linux).\n* A proof-of-concept or functional exploit that demonstrates the issue. If a proof-of-concept is not available, please include any relevant logs generated from your testing.\n* Any caveats or conditions required to exploit the issue. Indicate if there are any non-default system settings, custom configurations, required user interaction, or anything else that would limit the attack.\n* Social engineering of any type (e.g. phishing, vishing, smishing) is strictly prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n\n\n# Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Clickjacking or lack of Framing protection in headers\n* Unauthenticated/logout/login CSRF\n* Previously known vulnerable libraries without a new working Proof of Concept\n* Missing best practices in SSL/TLS and Header configuration.\n* Any activity that could lead to the disruption of our services (i.e., DoS, DDoS, etc).\n* Recently disclosed zero day vulnerabilities\n* Headers which disclose versioning information\n* Issues related to email spoofing\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Tabnabbing\n* Physical or social engineering attempts (this includes phishing attacks against Tenable employees)\n*\tMissing Cookie Flags\n*\tSelf XSS or similar vulnerabilities\n*\tBugs requiring exceedingly unlikely user interaction\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Tenable and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cloud.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Tenable Security Center",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nessus",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tenable Identity Exposure",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tenable OT Security",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nessus Agent",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Nessus Network Monitor",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Tenable Core",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tenable Web Application Scanning",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "partners.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "university.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "careers.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "de.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fr.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "login.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "static.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "go.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "developers.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "suggestions.tenable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Tenable Sensor Proxy",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tenable Attack Surface Management",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Tenable Lumin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

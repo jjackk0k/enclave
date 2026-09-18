@@ -1,0 +1,101 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "agoric",
+      "name": "Agoric",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/Agoric/agoric-sdk/tree/master/packages/ERTP",
+        "https://github.com/Agoric/agoric-sdk/tree/master/packages/zoe",
+        "https://github.com/endojs",
+        "https://github.com/endojs/endo/tree/master/packages/ses"
+      ],
+      "exclusions": [
+        "agoric.com",
+        "http://agoric.zoom.us",
+        "https://agoricopco.slack.com",
+        "https://github.com/Agoric/agoric-sdk/tree/master/packages/inter-protocol"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\agoric-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "agoric",
+  "name": "Agoric",
+  "url": "https://hackerone.com/agoric",
+  "policy": "Agoric believes that strong security requires collaboration with skilled security researchers to improve the resilience of our code and its capabilities. We encourage you to notify us if you believe you've found a security issue in our source code or smart contracts. \n\n## Coordinated Disclosure with Agoric \n* Bugs in the Agoric SDK can be reported to the  [Agoric HackerOne program](https://hackerone.com/agoric?type=team) or  [security@agoric.com](mailto:security@agoric.com) .\n\t* Bugs submitted to HackerOne that are within the scope of the program may be eligible for a reward. \n\t\n* It is essential to be able to provide steps that reproduce the issue and demonstrate its impact with a Proof of Concept example in an initial bug report. Before reporting a bug, a reporter may want to have another trusted individual reproduce the issue.\n\n* A bug reporter can expect acknowledgment of a potential vulnerability reported through HackerOne or  [security@agoric.com](mailto:security@agoric.com)  within 5 business days of submitting a report. Please reach out again if an issue is not acknowledged within this time frame.\n\n* For the safety and security of the network, bug reporters should not publicly share the details of a security bug on Twitter, Discord, Telegram, or in public Github issues during the coordination process.\n\n* Once a vulnerability report has been received and triaged:\n\t* Agoric maintainers will confirm whether it is valid and will provide updates to the reporter.\n\t* It may take up to 10 business days to validate an issue.\n\n* When the Agoric team has verified an issue, remediation steps and patch release timeline information will be shared with the reporter.\n    * Complexity, severity, impact, and likelihood of exploitation are all vital factors determining the amount of time required to remediate an issue and distribute a fix.\n    * If an issue is of Critical or High Severity, Agoric maintainers will release a security advisory to notify impacted parties and prepare for an emergency fix.\n\t* While the current industry standard for vulnerability coordination resolution is 90 days, Agoric code maintainers will strive to release a patch as quickly as possible.\n\nWhen a bug patch is included in a software release, the Agoric code maintainers will:\n\n* Confirm the version and date of the software release with the reporter.\n* Provide information about the security issue that the software release resolves.\n* Credit the bug reporter for discovery by adding thanks in release notes, securing a CVE designation if applicable.\n\n\n## Program Rewards\n\n* Rewards are based on severity per CVSS (the [Common Vulnerability Scoring Standard](https://docs.hackerone.com/hackers/severity.html))\n* All bounty amounts will be at the discretion of the Agoric team.\n* Reports submitted using methods that violate policy rules will not be eligible for a reward.\n* The report must be for in-scope assets to be eligible for a reward.\n* Multiple reports describing the same vulnerability against multiple assets or endpoints with the same root cause will be treated as one report.\n* While we aim for consistency, previous reports and prior bounty amounts will not set a precedent for future report eligibility or severity.\n* Understand that there could be submissions for which we accept the risk, have other compensating controls, or will not address in the manner expected. When this happens, we will act as transparently as possible to provide you with the necessary context regarding how the decision was made.\n\n## Program Rules + Eligibility\nThis program does not cover algorithmic websites, web applications, or mobile applications. It also does not cover Agoric corporate assets such as Zoom, Slack, Google Suite, etc.\n\n* You agree and adhere to the Program Rules and Legal terms stated in this policy.\n* You are the first to submit a sufficiently reproducible report for a vulnerability to be eligible for the report to be accepted.\n* You are available to supply additional information as needed by our team to reproduce and triage the issue.\n* Publicly known zero-day vulnerabilities will not be considered for eligibility until more than 30 days have passed since patch availability.\n* Out-of-scope vulnerability reports or reports that are technically reproducible but pose a very low security impact are likely to be closed as Informative.\n* Agoric employees and third-party assets employees are not eligible for participation in this program.\n\n**Do:**\n* Read and abide by the program policy.\n* Perform testing using only your accounts.\n* Exercise caution when testing to avoid negative impact to customers and the services they depend on. \n* STOP testing if you are unsure about its impact on our systems. If you think you may cause, or have caused, damage with testing a vulnerability, report your initial finding(s) and request authorization to continue testing.\n\n**Do not:**\n* Do not brute force credentials or guess credentials to gain access to systems.\n* Do not participate in denial of service attacks.\n* Do not upload shells or create a backdoor of any kind.\n* Do not engage in any form of social engineering of Agoric employees, customers, or vendors.\n* Do not engage or target any Agoric employee, customer, or vendor during your testing.\n* Do not attempt to extract, download, or otherwise exfiltrate data that you believe may have PII or other sensitive data other than your own.\n* Do not change passwords of any account that is not yours or that you do not have explicit permission to change. If ever prompted to change an account password you did not register yourself or an account that was not provided to you, stop and report the finding immediately.\n* Do not do anything that would be considered a privacy violation, cause destruction of data, or interrupt or degrade our service. Do not interact with accounts you do not own or without the explicit permission of the account holder.\n\nYou may not discuss this program or any vulnerabilities (even invalid and resolved ones) outside of the program without express consent from the organization. If you are interested in sharing any information about your testing methodology related to an Agoric report, you must request permission on your report, and you must receive written approval from an Agoric team member. Generally, we will strive to support the sharing of research and share information about issues reported to our program. \n\n# Scope\n\nPlease consult the list below on [this page](/agoric?type=team), under \"Scopes\" for a complete list of bounty-eligible targets.\n\n# Out of Scope \n\nReports that include these issues will be considered out of scope and, therefore, are ineligible for bounty. Please refrain from submitting issues that fall into the following categories, as doing so may negatively impact your reputation score.  \n\n* Social engineering and physical attacks of any kind\n* Security issues in dependencies of project without a proof-of-concept demonstrating exploitability with the applied use case of that dependency as used by the project in scope\n* Information leakage that cannot be used to make a direct attack, like server IP, server version, path, error message, internal IP, etc.\n* Reports from automated tools or scans.\n* Dependency confusion\n* Distributed Denial of Service attacks that require large volumes of data.\n* Zero-day vulnerabilities less than 30 days from patch release\n* Security vulnerabilities in third-party products or websites not controlled by Agoric.\n* \"Self\" XSS\n* Session fixation\n* Content Spoofing\n* Missing cookie flags\n* SSL/TLS best practices\n* Mixed content warnings\n* Clickjacking, tabnabbing, and UI redressing\n* Reflected file download attacks (RFD)\n* Feedback, comment, message, SMS, email, etc. flooding\n* Login, logout, unauthenticated, or low-impact CSRF\n* All spam-related email configuration, including SPF, DMARC, DKIM\n* Attacks requiring man-in-the-middle (MITM)\n* Issues related to networking protocols or industry standards\n* Error information disclosure that cannot be used to make a direct attack\n* Missing security-related HTTP headers that do not lead directly to a vulnerability\n* Any issues related to the distribution of software. \n\n# Safe Harbor \n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct, and we will not initiate legal action against you. If a third party against you initiates legal action in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep our company and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/endojs/endo/tree/master/packages/ses",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hardened JavaScript is a tamper-proof JavaScript environment that allows safe execution of arbitrary programs in Compartments. It is the foundation of Agoric smart contracts. \n\nHardened JavaScript: \n* Is a JavaScript runtime library for safely running third-party code.\n* Addresses JavaScript’s lack ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Agoric/agoric-sdk/tree/master/packages/ERTP",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "ERTP (_Electronic Rights Transfer Protocol_) is Agoric’s token standard for digital assets in JavaScript. Using ERTP, you can easily create a wide variety of digital assets, all transferred in the same way and with the same security properties.\nERTP uses object capabilities to enforce access control",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Agoric/agoric-sdk/tree/master/packages/zoe",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "To help hackers identify avenues of attack or areas of potential weakness, we recommend checking out the [Attacker's Guide to Zoe](https://github.com/Agoric/agoric-sdk/blob/master/packages/zoe/docs/AttackGuide.md).\n\nZoe is Agoric’s smart contract framework, which is built on our [Electronic Rights T",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Agoric/agoric-sdk/tree/master/packages/inter-protocol",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/endojs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "agoric.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Agoric.com web properties, including www.agoric.com, community.agoric.com, and  agoric.com/blog, are out of scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://agoric.zoom.us",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Agoric corporate Zoom account and related functions, including links and meeting settings, are out of scope for this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://agoricopco.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Agoric corporate Slack account and related functions, including links and group settings, are out of scope for this program.",
+      "max_severity": "none"
+    }
+  ]
+}

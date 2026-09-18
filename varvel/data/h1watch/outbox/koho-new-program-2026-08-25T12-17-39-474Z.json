@@ -1,0 +1,143 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "koho",
+      "name": "KOHO",
+      "offersBounties": true,
+      "assets": [
+        "1091010942",
+        "app.koho.ca",
+        "assets.koho.ca",
+        "ca.koho",
+        "clicks.koho.ca",
+        "http://api.koho.ca/1.0",
+        "http://api.koho.ca/partner",
+        "login.koho.ca",
+        "usercontent.koho.ca",
+        "web.koho.ca",
+        "www.koho.ca"
+      ],
+      "exclusions": [
+        "*.koho.ca/cdn-cgi",
+        "*.line-of-credit.koho.ca"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\koho-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "koho",
+  "name": "KOHO",
+  "url": "https://hackerone.com/koho",
+  "policy": "# Introduction\nKOHO is a Canadian fintech company rooted in the belief that a better banking alternative exists. Our bug bounty program will allow researchers to help us improve our security for our customers to enable that better banking experience. We look forward to working with you through this program!\n\n# Positive Hacker Signal required\nDue to the increase in spam and N/A report submissions coming from program participants that have a negative Signal score, we are prohibiting anyone from participating in this program if they have a Signal score at or under 0. Any reports submitted by those with a negative score will be immediately closed as Spam and then locked. We reserve the right to report the author for abuse and block them from the KOHO bug bounty program.\n\n# Response Targets\nWe'll try to stay within our stated SLAs and keep you informed about our progress throughout the process. We will endeavour to achieve resolution for bugs within 30 days of reporting, but may need more time to fix the issues. We'll let you know if we require more time.\n\n# Disclosure Policy\nPlease refrain from discussing vulnerabilities in this program without express consent from a member of the KOHO program team.\n\nFollow HackerOne's https://www.hackerone.com/disclosure-guidelines.\n\n# Communication Policy\n\n- All communication regarding vulnerability reports must occur exclusively through the HackerOne platform.\n- Do not contact KOHO employees, executives, or official KOHO accounts through any external channels (including but not limited to social media, direct email, LinkedIn, or other messaging platforms) regarding bug bounty submissions or program-related matters.\n- If you experience issues with the HackerOne platform itself, you may contact security@koho.ca with \"HackerOne\" in the subject line, but only for HackerOne platform access issues—not to discuss report status, bounty amounts, or dispute resolutions.\n- Attempting to escalate or expedite reports through external channels is considered a violation of this policy.\n\nAny participant who contacts KOHO through external channels regarding their submission will forfeit their eligibility for a bounty award on that report and may be banned from the program.\n\n# Professional Conduct\n\nAll interactions with the KOHO security team must be professional and respectful.\n\nWe are committed to treating all researchers fairly and with respect, and we expect the same in return. The following behaviours are strictly prohibited:\n\n- Abusive, threatening, or harassing language\n- Personal attacks or insults directed at KOHO employees\n- Threats to publicly disclose vulnerabilities as leverage for higher bounties or faster resolution\n- Demands or ultimatums regarding bounty amounts or report timelines\n- Any form of intimidation or coercion\n- Repeated messaging after being asked to wait for a response\n\nWe understand that disagreements may arise regarding severity assessments or bounty amounts. We welcome constructive discussion and are happy to explain our reasoning. However, disagreement does not justify unprofessional behaviour.\n\nViolations of this policy will result in immediate forfeiture of bounty eligibility for the associated report. Severe or repeated violations will result in a permanent ban from the KOHO bug bounty program and may be reported to HackerOne for further action.\n\n# Some Geographic Restrictions Apply\n\nPerforming any authenticated testing on the KOHO application requires you to be a Canadian resident eligible to open a KOHO account. Due to our status as a financial technology company, any customer or user of the KOHO application requires passing the Know Your Customer (KYC) laws, which can only be passed by Canadian citizens at this time. We are looking at ways around this geographic restriction but, at the moment, this means non-Canadian residents can only test in-scope assets other than the KOHO mobile or web application.\n\n# Program Rules\n\n- Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n- Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n- When duplicates occur, we award the first report received that contains sufficient detail to reproduce the issue. If your report is marked as duplicate, we will provide the original report ID and submission date upon request.\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n- Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n- Use the User Agent \"HackerOne: username\" when testing against our systems in order for us to distinguish your testing efforts against legitimate attacks (where username should be replaced with your HackerOne username).\n- Our normal working hours at KOHO are between 8AM and 6PM EST. If you're going to do testing on our systems that might trigger alarms on our end, we'd truly appreciate it if you did so during business hours. Not a requirement - just helps us sleep at night :)\n- No request floods (TCP, HTTP, etc) on any endpoints.\n- Current and former KOHO employees and contractors are not eligible for bounty awards from this program.\n- Do not sell, transfer, or disclose vulnerability details to any third party without KOHO's written consent.\n\n# Scope\nPlease refer to the Scope tab for the domain assets in scope. Anything not listed as In Scope is considered out of scope and not permitted for testing.\n\nThe following classes of vulnerabilities would be interesting to us and will generally have us up the criticality of a bug:\n- Any vulnerability that would allow you to create a KOHO account and send transactions by bypassing our KYC protocols;\n- Any vulnerability that would allow modifications to the balance of a KOHO account that are unintended (e.g. achieving a negative balance and being able to continue purchasing despite);\n- Vulnerabilities that allow for user spoofing/account takeovers.\n\n# Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n- Clickjacking on pages with no sensitive actions\n- Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n- Attacks requiring MITM or physical access to a user's device.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n- Missing best practices in SSL/TLS configuration.\n- Any activity that could lead to the disruption of our service (DoS).\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n- Rate limiting or bruteforce issues on any endpoints\n- Missing best practices in Content Security Policy.\n- Missing HttpOnly or Secure flags on cookies\n- Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n- Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n- Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n- Tabnabbing\n- Open redirect - unless an additional security impact can be demonstrated\n- Issues that require unlikely user interaction\n- Credential stuffing\n- Self-XSS (XSS that only affects the user performing the action)\n- Logout CSRF\n- Account enumeration via login/registration/password reset pages (unless demonstrably exploitable)\n- Theoretical vulnerabilities without working proof of concept\n- Vulnerabilities requiring root/jailbreak on mobile devices\n- Automated scanner output without manual validation\n\n# Known Issues / Out-of-Scope (Not Security Vulnerabilities)\n\nTo help you spend your time on findings we can actually reward, this section documents the report patterns we receive most often that are not security vulnerabilities. Please review it before submitting. Reports that fall squarely into the categories below will generally be closed as Not Applicable or Informative without a bounty.\n\nWe group these into three distinct categories:\n\n- Out of scope: behaviour that is intended, or a class of issue we do not reward.\n- False positives: findings that can look like a vulnerability but demonstrate no security impact.\n- Known issues: specific things we are already aware of and track.\n\n## Out of scope (won't reward)\nBusiness logic presented as a security vulnerability. The following are intentional product and compliance decisions, not vulnerabilities:\n\n- Geographic / residency restrictions. KOHO serves Canadian residents only (see \"Some Geographic Restrictions Apply\"). Validation that rejects non-Canadian addresses, phone numbers, or identity documents — or that otherwise enforces our Know Your Customer (KYC) requirements — is intentional and is not a vulnerability.\n- Disposable / temporary email addresses. Whether we accept or reject disposable or temporary email addresses is a product decision. It is not a vulnerability unless you can demonstrate that it enables a specific attack (e.g., authentication bypass or account takeover).\n- Account-management issues. Profile settings, password resets, closing an account, and account-access or transaction-dispute requests are handled by Customer Support, not through this program. Please direct these to support@koho.ca; they will not be rewarded as security reports.\n\nVague open redirects. Open redirects are already out of scope unless you can demonstrate additional security impact (see \"Out of scope vulnerabilities\" above). When you can demonstrate that impact, your report must include the specific URL, the vulnerable parameter, the payload used, and proof of the redirect to an external domain. Generic claims — e.g., \"I found an open redirect on your site\" — will be closed as Not Applicable.\n\nSpam, low-quality, and unvalidated scanner output. Raw output from automated scanners or AI-assisted tools, pasted without manual validation, reproduction steps, or a demonstrated security impact, is not eligible. Test submissions, template or placeholder text, and reports lacking technical substance will be closed, and may result in account restrictions. See also \"Positive Hacker Signal required\" and \"Program Rules.\"\n\n## False positives (looks like a vuln but isn't)\nClient-side response manipulation. Modifying a server response, hidden field, JavaScript variable, or the DOM in your own browser using Burp Suite, your browser's developer tools, or a proxy — and then observing a \"changed\" price, balance, role, flag, or restriction — is not a vulnerability. A common example is changing an HTTP 403 to a 200 in a proxy to \"bypass\" a restriction: this alters only what your own browser displays and is never trusted or persisted by our backend. To qualify, you must demonstrate that the server itself accepts and acts on the manipulated request (for example, a change that persists to your account or affects another user). Screenshots of edited responses, without corresponding server-side impact, will be closed as Informative.\n\n## Known issues (specific findings we already track)\nVendor-hosted / third-party subdomains. Some KOHO subdomains (for example, roadmap.koho.ca ) are CNAME'd to and hosted by third-party service providers rather than KOHO-controlled infrastructure. These DNS records and the vendor-hosted content they point to are intentional and configured as expected. Simply discovering such a subdomain, reporting that it points to a third party, or filing a generic \"possible subdomain takeover\" with no demonstrated takeover, describes a known, accepted configuration and is not a vulnerability. If you can demonstrate an actual takeover — serving content you control from one of these hostnames — we absolutely want to hear about it; please include a full proof of concept.\n\n# Report Quality Requirements\n\nTo keep triage efficient and fair to everyone, all reports must meet these minimum standards. Reports that do not will be closed as Not Applicable or Informative.\n\nEvery report must include:\n\n- The specific affected asset — an exact URL, endpoint, or component.\n- Clear, reliable reproduction steps our security team can follow.\n- A proof of concept demonstrating the issue on our production environment.\n- An explanation of the realistic security impact.\n\nWe will not accept:\n\n- Generic automated scanner or AI-tool output without manual validation.\n- Template or placeholder text with no actual vulnerability details (e.g. \"testtttt\", default template language).\n- Reports under 100 characters, or otherwise lacking technical substance.\n- Off-topic submissions unrelated to security.\n- Test submissions — please use HackerOne's \"Submit Test Report\" feature instead.\n\nSpam or low-quality submissions may result in account restrictions or a ban (see also \"Positive Hacker Signal required\").\n\n# Pre-Submission Checklist\n\nBefore you submit, please confirm:\n\n- I tested this on the live production environment (not staging or dev; unless given explicit permission).\n- This affects the backend/server, not just what I see in my own browser.\n- I have specific URLs, endpoints, or parameters — not a generic description.\n- I can reproduce this reliably, with clear step-by-step instructions.\n- This is a security vulnerability — not a customer-support request, feature request, usability concern, or a business-logic decision I disagree with.\n- I have reviewed the \"Out of scope vulnerabilities\" and \"Known Issues / Out-of-Scope\" sections, and this is not listed there.\n- I have checked for existing duplicates of this issue.\n\n# Vulnerability-Specific Submission Guidance\n\nSome vulnerability classes are frequently reported without enough detail for us to act on. For these, please include the following.\n\n**Open redirect (CWE-601).** Open redirects are out of scope unless an additional security impact can be demonstrated (see \"Out of scope vulnerabilities\"). When you report one, include:\n\n- The exact vulnerable URL.\n- The specific parameter being exploited.\n- The complete payload used.\n- A screenshot or video showing the redirect to an external domain.\n- The HTTP request and response showing the `Location` header.\n\nIllustrative format:\n\n```\nURL:       https://<in-scope-host>/login\nParameter: next\nPayload:   https://<in-scope-host>/login?next=//evil.example\nResult:    Redirects to https://evil.example\n```\n\nNot acceptable: \"I found an open redirect on your site. It's on the login page.\"\n\n**Client-side vs. server-side.** Modifying responses in Burp Suite, browser DevTools, or another proxy is not a vulnerability unless you can prove the backend is affected (see \"Known Issues / Out-of-Scope\"). Your report must show the server's actual response to the manipulated request, proving server-side enforcement was bypassed.\n\n- Not valid: changing an HTTP `403` to `200` in a proxy to bypass a front-end restriction.\n- Not valid: editing JavaScript in DevTools to display different content.\n- Valid: demonstrating that the server accepts invalid data — or grants access it should not — when the manipulated request is actually sent.\n\n**Authentication / authorization bypass.** If you report a bypass, demonstrate:\n\n- The specific protection mechanism being bypassed.\n- A server-side enforcement failure (not just a client-side change).\n- The unauthorized access actually granted by the backend.\n- The specific data or functionality reached without proper authorization.\n\n# Valid vs. Invalid Report Examples\n\n**Example of a valid report**\n\n> **Title:** IDOR on `/api/v1/transactions` allows viewing other users' transactions\n> **Description:** The endpoint accepts a `user_id` parameter that is not properly validated, allowing any authenticated user to view another user's transaction history.\n> **Steps to reproduce:**\n> 1. Log in as User A (`user_id: 12345`).\n> 2. Capture the request `GET /api/v1/transactions?user_id=12345`.\n> 3. Change `user_id` to `67890` (User B).\n> 4. Observe that User B's transactions are returned.\n>\n> **Impact:** Any authenticated user can view another KOHO user's full transaction history — amounts, merchants, and dates.\n> **Proof:** HTTP request/response showing User A accessing User B's data.\n\n**Examples of invalid reports**\n\n| Example | Issue |\n| - | - |\n|\"I found an XSS vulnerability on your website. It's very critical.\"|No specific URL, parameter, or payload.|\n|\"I changed the response from 403 to 200 in Burp Suite and accessed the admin panel.\"|Shows only a client-side display change; does not prove the server granted access.|\n|\"Your registration form doesn't accept Indian phone numbers. This is improper input validation (CWE-20).\"|Geographic restriction is intentional, not a vulnerability.|\n|\"Missing X-Frame-Options header on https://koho.ca.\"|No demonstration of exploitability or impact.|\n\n# Communication & Timeline Expectations\n\n**Responding to our requests.** If we request additional information (a \"Needs More Info\" reply), please respond within **7 calendar days**. If we do not hear back within that window, we may close the report as Not Applicable. You're welcome to submit a new report if you obtain the missing detail later.\n\nWhen you respond, please:\n\n- Provide specific technical details, not general descriptions.\n- Include any new evidence — screenshots, video, or the relevant HTTP requests and responses.\n- Answer each question we asked.\n- Let us know if you can no longer reproduce the issue.\n\n# Researcher Acknowledgement\n\nWith your permission, we may acknowledge your contribution on our security acknowledgements page.\n\n---\nThank you for helping keep KOHO and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "web.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Customer-facing Web application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Marketing website",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "http://api.koho.ca/1.0",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our main API gateway",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://api.koho.ca/partner",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Used for API calls to/for our partners",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "usercontent.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Used for our assets to be delivered to customers (i.e. logo, stylesheets, etc.).",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "app.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our app API gateway.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1091010942",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "iOS Mobile app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ca.koho",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Android Mobile app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.koho.ca/cdn-cgi",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.line-of-credit.koho.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "login.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "assets.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "clicks.koho.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    }
+  ]
+}

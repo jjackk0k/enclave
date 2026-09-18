@@ -1,0 +1,77 @@
+{
+ "at": "2026-09-15T16:31:44.187Z",
+ "opportunity": "top_echelon_software",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.topechelon.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "WP Engine",
+    "cf-ray": "a3b905fd4e01d519-LHR",
+    "x-cache": "HIT: 1",
+    "strict-transport-security": "max-age=63072000",
+    "content-security-policy": "default-src 'self' https://topechelon.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://ww",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "bigbiller.topechelon.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3b906061c57ec0d-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; connect-src 'self' https://*.sandbox.topechelon.com wss://*.sandbox.topechelon.com https://bb3apista",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "bb3api.topechelon.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "content-security-policy": "script-src 'self' 'sha256-j4Lx1FqFgvYDBEjW7NQaEY7/HhCi8WVsLWkqC4+wJ3w=' 'sha256-m6fvPft2s/yQEwOGt2QsG3g0QeObZkTNIm8RPvU3"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

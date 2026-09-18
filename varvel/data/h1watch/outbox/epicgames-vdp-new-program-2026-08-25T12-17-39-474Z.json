@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "epicgames-vdp",
+      "name": "Epic Games VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.3lateral.com",
+        "*.amplitude-game.com",
+        "*.artstation.com",
+        "*.audicagame.com",
+        "*.bcbits.com",
+        "*.cubicmotion.com",
+        "*.dancecentral.com",
+        "*.dropmix.com",
+        "*.easy.ac",
+        "*.epicgames.com",
+        "*.epicgames.dev",
+        "*.fallguys.com",
+        "*.fortnite.com",
+        "*.harmonixmusic.com",
+        "*.hmxservices.com",
+        "*.hmxwebservices.com",
+        "*.hostman.prod.adad.live.use1a.on.epicgames.com",
+        "*.jellychat.com",
+        "*.mediatonic.co.uk"
+      ],
+      "exclusions": [
+        "*.bandcamp.com",
+        "*.corp.bandcamp.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\epicgames-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "epicgames-vdp",
+  "name": "Epic Games VDP",
+  "url": "https://hackerone.com/epicgames-vdp",
+  "policy": "**Note**:  ==This is a vulnerability disclosure program. This program offers neither bounties nor swag. If you are looking for the Epic Games bug bounty program you can find it [here](https://hackerone.com/epicgames)==.\n\nThe Epic Games VDP is offered in order to coordinate the responsible disclosure of vulnerabilities for researchers or firms who are not seeking bounties. If you believe you have discovered a security issue in our products, services, or anything else related to Epic Games then please report it as soon as possible so we can investigate and coordinate on any planned disclosure.\n\n\n==This program is for the responsible disclosure of vulnerabilities, most commonly used by security research firms. If you are seeking a bounty please use our [bug bounty program](https://hackerone.com/epicgames)==\n\n______________________________________________________________________________________________________________________\n\n# Response Targets\nEpic Games VDP will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 business days |\n| Time to Triage | 10 business days |\n\nThe Epic Games team will do our best to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not publicly disclose findings without first coordinating with Epic Games\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n______________________________________________________________________________________________________________________\n# Program Rules\n______________________________________________________________________________________________________________________\n\n###General Guidelines\n- This program will not reverse bans on accounts. Please only use an account you own that has been created for security testing when demonstrating a vulnerability. Your test account must include the phrase \"sectest\" in the username.\n- Do not maliciously exploit any vulnerabilities.\n- Avoid accessing any private or confidential information pertaining to Epic, our users, and/or any third parties.\n- Where applicable, you should use the following custom HTTP header during testing: `X-Bug-Bounty: Hackerone-<username>` to differentiate your requests from those from normal users. Example: `X-Bug-Bounty: Hackerone-FlyingToasters`. Additional custom headers may be added to differentiate between tests or reports.\n- Whenever possible, your reports should include as much information as possible regarding your tests and environment. For example: AccountID, IP, SessionID, Client Version, Client Log File, Date and Time, etc.\n- When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. These are crucial when determining the severity of your finding.\n- Please provide detailed reports with reproducible steps. Reports which are not detailed enough to reproduce may be closed as NA.\n- Please only submit one vulnerability per report unless multiple vulnerabilities are required to provide an impact.\n- Testing of vulnerabilities like cheats or exploits must be done using minimal proofs of concept and without disrupting gameplay for other users.\n- When testing vulnerabilities in community-driven material, like forums or profiles, you may only test on content you've created. Do not attempt to discover findings on any community content other than your own. Where possible, delete any comments/posts after confirmation of findings so as not to pollute pages.\n- You may not use any Epic created content (such as Megascans) when performing testing on any of our digital marketplace products (such as Fab).\n- When testing for findings, please do not flood email forms, public forums, publish insensitive or illegal content, or any other publicly consumable content in a way that may have an adverse effect on user experience.\n- Any content obtained during the POC of a finding must be deleted from systems within your control upon notice of your finding being rejected or validated by Epic.\n- In case any potentially harmful action is required to test or validate a vulnerability or bug, submit your potential finding and ask for permission prior to taking the potentially harmful action. Do not take any potentially harmful actions without the explicit permission of the Epic Games team.\n\n______________________________________________________________________________________________________________________\nOut of Scope\n============\n______________________________________________________________________________________________________________________\n\n- Vulnerabilities from automated scanners without additional analysis\n- Vulnerabilities relying on out of date browsers/software\n- Denial of Service\n- Distributed Denial of Service attacks\n- Social Engineering\n- Physical attempts against Epic Games offices/property\n- Clickjacking/UI-redressing\n- XSS only affecting old browser versions\n- Missing or misconfigured security-related HTTP headers that do not directly lead to a vulnerability\n- Mixed content warnings\n- Missing cookie flags that do not directly lead to a vulnerability\n- All types of brute-force and/or credential stuffing attacks (with the exception of faulty or missed rate-limiting)\n- Credentials to individual end-user accounts (e.g. Epic Games Store accounts)\n- Fortnite UEFN Live Edit Session Crashes are considered out of scope\n- Social engineering (e.g. phishing, vishing, smishing) attacks\n- Physical security attacks\n- SPF, DKIM, and DMARC records and flags\n- Text-only injection\n- Password stuffing attacks\n- Bugs/Attacks requiring extremely unlikely actions by a victim (e.g. Self-XSS)\n- Adobe Flash related submissions\n- Assets not owned by Epic Games (third party assets)\n  - If your finding is found to rely on a third party then it will be transferred to the corresponding VDP (if present).\n\n______________________________________________________________________________________________________________________\n\nLegal Notice\n\nYou grant Epic the right to freely use and disclose any feedback or suggestions that you provide through the Epic Games VDP, for any purpose, commercial or otherwise, without compensation to you, including to develop, copy, publish, modify, or improve Epic’s assets in our sole discretion.\n\nEpic reserves the right to modify or terminate the Epic Games VDP in its sole discretion, at any time without prior notice.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.3lateral.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.amplitude-game.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.artstation.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.audicagame.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bandcamp.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Bandcamp is not affiliated with Epic Games.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bandcamp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Bandcamp is not affiliated with Epic Games.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bcbits.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bcbits.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.corp.bandcamp.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Bandcamp is not affiliated with Epic Games.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.cubicmotion.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.dancecentral.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.dropmix.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.easy.ac",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.epicgames.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.epicgames.dev",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.epicgames.dev",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fallguys.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.fallguys.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fortnite.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.harmonixmusic.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hmxservices.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hmxwebservices.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hostman.prod.adad.live.use1a.on.epicgames.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.jellychat.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mediatonic.co.uk",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "logitech",
+      "name": "Logitech",
+      "offersBounties": true,
+      "assets": [
+        "*.logitech.com",
+        "*.ultimateearsuniversity.com",
+        "1018340690",
+        "632344648",
+        "Circle Cameras",
+        "Harmony Remotes",
+        "Presentation Remotes",
+        "Scope Questions: Items not explicitly listed here",
+        "Ultimate Ears Speakers",
+        "accounts.logi.com",
+        "circle.logi.com",
+        "com.logitech.circle",
+        "com.logitech.ueboom",
+        "community.logitech.com",
+        "id.logi.com",
+        "maintenance.logitech.com",
+        "partner.logitech.com",
+        "www.astrogaming.com",
+        "www.jaybirdsport.com",
+        "www.logitech-partner.com",
+        "www.logitech.com",
+        "www.logitechg.com",
+        "www.ultimateears.com"
+      ],
+      "exclusions": [
+        "*.saitek-fr.com",
+        "*.saitekforum.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\logitech-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "logitech",
+  "name": "Logitech",
+  "url": "https://hackerone.com/logitech",
+  "policy": "Welcome to Logitech's Vulnerability Disclosure and Bug Bounty Program!\n\nHere at Logitech we are committed to providing secure products and services to our customers. If you believe you have discovered a potential security vulnerability with any of the in-scope Logitech systems, products and/or services, we look forward to receiving your submission, and appreciate your help in disclosing the issue to us responsibly.\n\nThis program is dedicated to suspected security issues that may affect Logitech customers, systems, products and/or services. If you're having issues related to your Logitech product or a Logitech-related account, then please visit our [Support Center](http://support.logitech.com/en_us/home).\n\nLogitech looks forward to working with the security community to find security vulnerabilities in order to keep our business and customers safe. \n\n# Reports\n* [Please submit](https://hackerone.com/962d7e24-cb51-4f8a-9edc-5ed966857d44/embedded_submissions/new) a detailed description of the issue, and the steps required to reproduce what you have observed. In doing so, please make every attempt possible to protect our customers' privacy, data confidentiality, and integrity - we very much value your assistance in preserving those. \n* Please understand that we cannot work with anyone who violates applicable laws or regulations, attempts to exploit a security issue or access other users' data - in other words, violate this policy.\n\n# SLA\nUpon receipt of your report, we promise to review and address any security issues in a timely manner and to communicate with you during our investigation and upon resolution. \nLogitech will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business day\n* Time to triage (from first response) - 1 business day\n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress if the process remains ongoing, via a quarterly update.\n\n# Disclosure Policy\n* We ask the security research community to give us a reasonable opportunity to correct a vulnerability before publicly disclosing it. Please submit a detailed description of the issue and the steps required to reproduce what you have observed. In doing so, please make every attempt possible to protect our customers' privacy, data confidentiality, and integrity - we very much value your assistance in preserving those. Please understand that we cannot work with anyone who violates applicable laws or regulations, attempts to exploit a security issue or access other users' data - in other words, violate this policy.\n\n* Our customers' privacy, data confidentiality, and integrity is crucial at Logitech. You agree that you will not disclose vulnerability information reported to Logitech to any other third party, until granted permission to do so from Logitech. We endeavor to grant such permission within two to four weeks from the release of the fix that addresses the discovered vulnerability.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Bounties are issued solely at the discretion of Logitech.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* You must disclose all possible ways to exploit an issue in your original report. Logitech will not issue a bounty, follow-on bounty, or bonus if we believe you are abusing the report system by not providing complete information in your initial report.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward. This usually requires a working proof-of-concept typically in the form of a clickable link that we can verify. Videos or screenshots are not considered definitive proof.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Denial of service attacks\n* Password cracking attempts, including but not limited to: brute forcing, rainbow attacks, word list substitution, pattern checking\n* Clickjacking on pages with no sensitive actions\n* Attacks requiring takeover of the email or social account authenticating the victim account.\n* Tab-nabbing on non-user provided links (reports accepted, but not bounty eligible)\n* Unauthenticated/logout/login CSRF\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration.\n* Social engineering attacks (including phishing, vishing, smishing)\n* Software version disclosure\n* Issues requiring direct physical access to hardware (with the exception of hardware vulnerabilities) \n* Flaws affecting out-of-date browsers and plugins\n* Email enumeration / account oracles\n* CSP Policy Weaknesses\n* Email Spoofing\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Installer based DLL or EXE side-load attacks must involve a privilege escalation and be functional without requiring repackaging inside of a container format (such as zip or 7z). If they don't meet this requirement, reports will be closed as informative.\n* Any vulnerabilities identified in previous versions of our assets that are no longer supported are considered out-of-scope, even if the vulnerability is still exploitable in those versions. It is the researcher’s responsibility to stay updated on version releases. \n\n# Bounties\nFor Bounty eligible assets, Logitech's default policy is to award the bounty after a Logitech team member has confirmed the issue during the Triage process. We generally won't wait to award a bounty until the item is fixed as some products have long lead times in deploying fixes. However, we may make an exception to this policy on a report-by-report basis. Bounties are only awarded for actual security or privacy impacting reports.\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Logitech and our customers safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "partner.logitech.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "circle.logi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Also includes the *.video.logi.com and *.circle.logi.com\nSee developer documentation at https://developers.logitech.com/circle",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id.logi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.logi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Non production testing site exists under sandbox.accounts.logi.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.logitech.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Other logitech websites not explicitly listed ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Circle Cameras",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note exploits resulting from physical hacks to the device itself are out of scope, and any received reports will be marked N/A in accordance with HackerOne policy. Please refrain from submitting reports for physical hacks to avoid losing Reputation.\n\nAt this time we are unable to provide Circ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Harmony Remotes",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "In scope products: Harmony Elite, Harmony 950, Harmony Companion, Harmony Hub, Harmony 665, Harmony 350 Control.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Ultimate Ears Speakers",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Products in scope are the current generation \nBLAST, MEGABLAST, BOOM 3, MEGABOOM 3, WONDERBOOM 2, HYPERBOOM, POWER UP",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Presentation Remotes",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "In-scope devices: R500 Laser Presentation Remote; Spotlight Presentation Remote; R400 Laser Presentation Remote; R700 Laser Presentation Remote",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.logitech.ueboom",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "App: BOOM & MEGABOOM by Ultimate Ears",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.logitech.circle",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This app is part of the Circle ecosystem of camera devices.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "632344648",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "App: BOOM & MEGABOOM by Ultimate Ears",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1018340690",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the iOS app for the Circle ecosystem of devices,",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Scope Questions: Items not explicitly listed here",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "If you have a question about something that is not explicitly listed (or falls under a wildcard domain), please submit a report and we will provide clarification. We will allow you to self close that report after we answer your question.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.logitech.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "community.logitech.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.logitechg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.logitech-partner.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "maintenance.logitech.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.jaybirdsport.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.ultimateears.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.astrogaming.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ultimateearsuniversity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.saitekforum.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.saitek-fr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

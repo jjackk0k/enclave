@@ -104,6 +104,58 @@ class TestSessionStore(unittest.TestCase):
         loaded = self.store.load(s.id)
         self.assertEqual(loaded.last_ctx_used, 0)
 
+    def test_effort_persists_and_survives_resume(self):
+        """The owner's chosen tier (fast/standard/reasoning) must be restored on
+        reopen - previously it was never persisted and silently reset to default."""
+        s = self.store.create(cwd="c", model="m")
+        # fresh log has no effort yet -> meta absent, not a bogus value
+        loaded0 = self.store.load(s.id)
+        self.assertNotIn("effort", loaded0.meta)
+        s.set_effort("reasoning")
+        self.assertEqual(s.meta.get("effort"), "reasoning")
+        # last write wins if the owner switches tiers mid-session
+        s.set_effort("fast")
+        loaded = self.store.load(s.id)
+        self.assertEqual(loaded.meta.get("effort"), "fast")
+        # and it is NOT wiped by a context clear (like todos, it's session state)
+        s.clear()
+        loaded2 = self.store.load(s.id)
+        self.assertEqual(loaded2.meta.get("effort"), "fast")
+
+    def test_pings_survive_resume(self):
+        """Scheduled reminders must round-trip through the log. Previously load()
+        read 'ping' events but dropped them - they never reached the Session."""
+        s = self.store.create(cwd="c", model="m")
+        import time as _time
+        now = int(_time.time())
+        items = [
+            {"id": "p1", "kind": "once", "message": "check build",
+             "due_ts": float(now + 60), "interval_s": 0},
+            {"id": "e1", "kind": "every", "message": "standup",
+             "due_ts": float(now + 300), "interval_s": 300},
+        ]
+        s.set_pings(items)
+        self.assertEqual(s.pings, items)          # live state set
+        loaded = self.store.load(s.id)
+        self.assertEqual(loaded.pings, items)     # the actual bug: was [] before fix
+        # updating to a shorter list also round-trips (cancel path)
+        s.set_pings([items[0]])
+        loaded2 = self.store.load(s.id)
+        self.assertEqual(len(loaded2.pings), 1)
+        self.assertEqual(loaded2.pings[0]["id"], "p1")
+
+    def test_effort_and_pings_independent_of_clear(self):
+        s = self.store.create(cwd="c", model="m")
+        import time as _time
+        now = int(_time.time())
+        s.set_effort("standard")
+        s.set_pings([{"id": "x", "kind": "once", "message": "hi",
+                      "due_ts": float(now + 10), "interval_s": 0}])
+        s.clear()   # wipes messages+todos, must NOT wipe effort/pings
+        loaded = self.store.load(s.id)
+        self.assertEqual(loaded.meta.get("effort"), "standard")
+        self.assertEqual(len(loaded.pings), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,184 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mapbox",
+      "name": "Mapbox",
+      "offersBounties": true,
+      "assets": [
+        "Mapbox DevKit MCP Server",
+        "Mapbox Docs MCP Server",
+        "Mapbox GL Geocoder",
+        "Mapbox GL JS",
+        "Mapbox MCP Server",
+        "Maps SDK for Android",
+        "Maps SDK for Flutter",
+        "Maps SDK for iOS",
+        "Navigation SDK for Android",
+        "Navigation SDK for iOS",
+        "Search SDK for Android",
+        "Search SDK for iOS",
+        "api.mapbox.com",
+        "https://docs.mapbox.com/",
+        "www.mapbox.com"
+      ],
+      "exclusions": [
+        "geojson.io",
+        "https://github.com/mapbox"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mapbox-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mapbox",
+  "name": "Mapbox",
+  "url": "https://hackerone.com/mapbox",
+  "policy": "Mapbox appreciates the effort of software security researchers who work to make the Internet more secure. Our security vulnerability bounty system exists to reward the work of security researchers who find issues with our software and web services.\n\nIf you have questions about our bug bounty program or are unable to properly access/test an in-scope asset please email security@mapbox.com.  \n\n## SLAs\n**Mapbox attempts to meet the following SLAs for hackers participating in our program:**\n\nResponse Target | Time (in business days)\n-- | --\nTime to first response (from report submit) | 2 days\nTime to triage (from report submit) | 4 days\nTime to bounty (from triage) | 10 days\nTime to resolution | Depends on severity and complexity\n\n## Rules\n\n- **Do not** publicly disclose the bug until Mapbox has confirmed the bug is fixed. For any public disclosure, Mapbox approval is required.\n- **Do not** subject our website or web services to DoS, DDoS, scraping, brute force, or other type of automated attack.\n- **Do not** spam our contact form or support inboxes.\n- **Do not** use security scanners or tools which may cause DoS, DDoS or scraping-like behavior against our web services or website.\n- **Do not** try to gain access to another user's account or data - please use test accounts.\n\n## Test Account Registration\n- Researchers can create test accounts to make api calls utilizing Mapbox's free tier. Refer to [Mapbox pricing](https://www.mapbox.com/pricing) guide for more details.\n- When registering for test accounts, it is recommended use your HackerOne email address in the following format: `<your_h1_username>@wearehackerone.com>`.\n\n## Eligibility for a bounty\nTo qualify for a bounty:\n\n- You must be the first reporter of the vulnerability and it must not be a duplicate or known issue\n- Your report must be within scope and not on our list of ineligible reports and known issues\n- You must not be a minor\n- You must not be a resident of or be located in a country on any U.S. sanctions lists\n\nPublic disclosure of the issue before its resolution will result in disqualification from the Mapbox HackerOne program. Evidence of abuse or accessing another user's data or account without their permission will also result in disqualification from the program.\n\n## Reporting\nAll bug reports should include the following information to be considered for a bounty. Reports missing the information below will be marked as \"Needs More Information,\" resulting in a minor loss of reputation points.\n\n- Vulnerable URL(s) and any affected parameters\n- Your browser and operating system\n- Detailed, step-by-step explanation of how to replicate the issue\n\nScreenshots or videos of the vulnerability are highly encouraged and will result in quicker triage of the issue and possibly a higher bounty at Mapbox's discretion.\n\n## Eligible reports\n\nHere is an incomplete list of reports we are interested in:\n\n* Cross-site scripting (XSS)\n* Directory traversal\n* Privilege escalation\n* Server-side remote code execution or command injection\n* SQL or NoSQL injection\n* Access control bypass\n* Disclosure of Mapbox Staff tokens through any Mapbox-controlled resources, including but not limited to Mapbox APIs, services, documentation, code repositories, error messages and logs etc.\n   - Secret tokens intentionally displayed during their initial generation on Mapbox | Maps, Navigation, Search, and Data  are excluded from this policy.\n  - Mapbox reserves the right to make the final determination on whether a token is to be considered a Mapbox staff token.\n  - Disclosure of public access tokens (pk.*) and Mapbox customer secret tokens (sk.*) found on the public internet are currently out of scope.\n\n## Ineligible reports or known issues\n\nThe following reports are ineligible to receive bounties or reputation points. Any submitted reports related to them will be closed as N/A.\n\n* Social engineering of Mapbox staff, contractors, or customers\n* Session management issues \n* Reports from automated tools or scans\n* Issues related to software or protocols not under Mapbox's control\n* Denial of Service attacks, including mass requests against password reset, login, account creation, or other endpoints. We have monitoring and mitigation against brute force attacks which we believe are adequate. **Please do not conduct brute force attacks.**\n* HTML or CSS injection in map markers or map features - this is by design so that our users can have rich, styled maps. We sanitize JavaScript and arbitrary code using [sanitize-caja](https://github.com/mapbox/sanitize-caja). We *are* interested in reports about the execution of JavaScript though!\n* Presence of autocomplete on form fields, including username and password fields\n* SPF, DKIM, or DMARC settings\n* Password and account recovery policies, including password reset emails and password reset links\n* Reports noting the lack of or suggesting the institution of a password policy, including account lockout settings\n* email spoofing\n* DNSSEC settings\n* Presence of public (`pk.*`) access tokens in web pages or URLs - due to their use in client-side JavaScript these are public by design.\n* Presence of `sk.*` access tokens with non-staff and non-admin privileges in web pages or URLs or in deleted or archived GitHub repo's.\n* Username enumeration, including an oracle that discloses whether a given username or email address is associated an account\n* Reports of CSRF or reports of a lack of CSRF tokens on wwww.mapbox.com, unless accompanied by a detailed proof of concept exploit. We have alternative CSRF mitigation in place.\n* Missing HTTP security headers, unless accompanied by a detailed proof of concept exploit that leverages their absence\n* Existence of access-controlled administrative pages\n* Reports related to the SSL/TLS certificate for www.mapbox.com. Please report instead to the [Fastly security team](https://www.fastly.com/security/report-security-issue).\n* Open redirects\n* Use of a library with known vulnerabilities (without evidence of further exploitation)\n* Vulnerabilities only affecting older browsers. Please see [our documentation on browser support](https://www.mapbox.com/help/mapbox-browser-support/). Any reports related to Internet Explorer 7 will be marked as ineligible.\n* HSTS or CSP headers\n* Clickjacking or UI redressing on maps or features intended to be embedded in other pages such as those from the `api.tiles.mapbox.com` or `api.mapbox.com` domains. Mapbox customers often embed their maps on their pages using the iframe element.\n* Content spoofing or HTML injection, unless accompanied by a proof of concept that demonstrates a security risk beyond injecting plain text\n* Reports of insecure SSL/TLS ciphers or weak signature algorithms, unless accompanied by a working proof of concept of an exploit\n* Any resources which happen to contain `mapbox` in their name but are not owned Mapbox. For example, if an S3 bucket named `mapbox-test` was discovered and reported with a vulnerability, and we determine it is not owned by Mapbox, it would be considered ineligible.\n* Issues related to buying subscriptions without paying are currently out of scope from our bug bounty program. \n* Third-party credential dumps are out of scope unless they demonstrate a vulnerability within Mapbox systems. \n* Issues in archived/deprecated code repositories or packages are out of scope.\n* API Tokens/Keys that belong to third-party service providers that are used on mapbox.com or docs.mapbox.com. \n\n## Ineligible for monetary bounty, but appreciated\n\nThe following reports are ineligible for a monetary bounty due to their low severity though they may be available for reputation points. If accompanied by a detailed proof of concept of an exploit leveraging their existence they may be eligible for a cash bounty at Mapbox's discretion.\n\n* Mixed content\n* Self-XSS\n\n\n## AI Usage Policy\n### Disclosure Requirement\nIf you have used AI tools to help create or identify your vulnerability report, you **must clearly disclose this** at the beginning of your submission.\n\n### Important Guidelines\n- All AI-generated claims will be thoroughly scrutinized\n- You are responsible for verifying all information provided by AI tools\n- Reports that appear to be entirely AI-generated without human validation may be rejected\n- **All reports must include technical validation** through proof of concept, reproduction video, or debugging evidence\n- Low-quality or out-of-scope reports may be closed as \"Not Applicable\" or \"Spam\" at our discretion.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.mapbox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- https://mapbox.com\n- https://studio.mapbox.com/\n- https://account.mapbox.com/\n- https://console.mapbox.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mapbox GL JS",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-gl-js\nMapbox GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles and Mapbox styles. It is part of the Mapbox GL ecosystem, which includes Mapbox Mobile, a compatible renderer written in C++ with bindings for desktop and mobile p",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Maps SDK for iOS",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-maps-ios\nThe Mapbox Maps SDK for iOS is a library for embedding highly customized maps within iOS applications.\n[Docs for Maps SDK for iOS](https://docs.mapbox.com/ios/maps/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Maps SDK for Android",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-maps-android\nThe Mapbox Maps SDK for Android is a public library for displaying interactive, thoroughly customizable maps in native Android. It takes map styles that conform to the Mapbox Style Specification, applies them to vector tiles that conform to the Mapbox Ve",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/mapbox",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Unless the asset is specifically identified in the Scope, Mapbox's 700+ public repos are not in scope for submission.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.mapbox.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our APIs are the primary interface to Mapbox for many of our customers, and all actions a customer can take on their account run through them. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "geojson.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Geojson.io is considered deprecated and no longer maintained. The original developer has forked the code and maintains https://github.com/GeoJSON-Net/GeoJSON.Net. As such, Mapbox considers https://geojson.io to be out of scope for our security program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://docs.mapbox.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mapbox developer documentation that provides comprehensive guides and references services.\n- [Accounts Service APIs](https://docs.mapbox.com/api/accounts/)\n- [Maps Service APIs](https://docs.mapbox.com/api/maps/)\n- [Navigation Service APIs](https://docs.mapbox.com/api/navigation/)\n- [Search Service ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Maps SDK for Flutter",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-maps-flutter\nThe Mapbox Maps SDK for Flutter is a library for embedding highly customized maps within iOS and Android applications using a single codebase.\n[Docs for Maps SDK for Flutter](https://docs.mapbox.com/flutter/maps/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Navigation SDK for iOS",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-navigation-ios\nThe Navigation SDK for iOS allows you to build a custom navigation experience with the power of the Mapbox Directions API, Mapbox Map Matching, and Mapbox Maps.\n[Docs for Navigation SDK for iOS](https://docs.mapbox.com/ios/navigation/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Navigation SDK for Android",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-navigation-android\n[Docs for Navigation SDK for Android](https://docs.mapbox.com/android/navigation/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Search SDK for iOS",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-search-ios/\nThe Mapbox Search SDK is a developer toolkit to add location search on mobile devices. With the same speed and scale of the Mapbox Search API.\n[Docs for Search SDK for iOS](https://docs.mapbox.com/ios/search/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Search SDK for Android",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-search-android\nThe Mapbox Search SDK is a developer toolkit to add location search on mobile devices. With the same speed and scale of the Mapbox Search API.\n[Docs for Search SDK for Android](https://docs.mapbox.com/android/search/guides/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mapbox GL Geocoder",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mapbox-gl-geocoder\nGeocoder control for mapbox-gl-js using Mapbox Geocoding API",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Mapbox MCP Server",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mcp-server\nThe Mapbox MCP Server exposes Mapbox web services APIs in the Model Context Protocol, an open standard for AI tools to connect with external services.\n[Docs for Mapbox MCP Server](https://docs.mapbox.com/api/guides/mcp-server/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mapbox DevKit MCP Server",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mcp-devkit-server\nA Model Context Protocol (MCP) server that provides AI assistants with direct access to Mapbox developer APIs.\n[Docs for Mapbox DevKit MCP Server](https://docs.mapbox.com/api/guides/devkit-mcp-server/)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Mapbox Docs MCP Server",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mapbox/mcp-docs-server\nA Model Context Protocol (MCP) server that gives AI assistants instant access to Mapbox documentation and reference materials.\n[Docs for Mapbox Docs MCP Server](https://docs.mapbox.com/api/guides/docs-mcp-server/)",
+      "max_severity": "critical"
+    }
+  ]
+}

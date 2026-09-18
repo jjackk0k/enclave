@@ -1,0 +1,57 @@
+{
+  "_goldenbench": {
+    "note": "the golden-plugin recall/precision bench (research/SOTA-VULN-DISCOVERY-2026-08-25.md §6 item 9) — THE GATE every privemap rule change must pass. tools/goldenbench.mjs runs privemap over each entry: must-hit pins must land at/above their minReachability (a MISS fails loudly, ref named); must-stay-clean entries must yield ZERO candidates in the forbid band (default the CONFIRMED band: unauth + confidence high + severity high|crit — the engine's own conviction levels; everything below the band is counted, never hidden). Absent roots SKIP with a named reason and never fail the bench. Refs are root-relative 'path.php:line'. Roots may be absolute or repo-relative.",
+    "source": "madara pins: engine/privemap.mjs PROVENANCE hand review + the privemap calibration soak (test/privemap.test.mjs); negative goldens: agent-102 source verification (.tmp/ai-scan-1/FINDINGS.md, 2026-08-25)",
+    "updated": "2026-08-26"
+  },
+  "plugins": [
+    {
+      "id": "golden-sink-fixture",
+      "root": "test/fixtures/goldenbench/golden-sink",
+      "expectation": "must-hit",
+      "provenance": "synthetic fixture created with the bench (test/fixtures/goldenbench/golden-sink) — the corpus-independent positive: the bench always has at least one must-hit even when every external corpus is absent",
+      "hits": [
+        { "ref": "golden-sink.php:11", "class": "option-overwrite", "minReachability": "unauth", "handler": "golden_sink_save", "note": "unauth option overwrite via admin_init, no nonce/capability check — the madara shape, minimal" }
+      ]
+    },
+    {
+      "id": "madara-core",
+      "root": "C:/Users/Jack/Downloads/varvel-kimi/research/madara-site/wp-content/plugins/madara-core",
+      "expectation": "must-hit",
+      "provenance": "hand source review recorded in engine/privemap.mjs PROVENANCE (verified-novel unauth option-overwrite CVE candidate) + the calibration soak in test/privemap.test.mjs (all three sinks pinned top 6 there)",
+      "skipNote": "the madara research mirror lives outside the repo — on hosts without it this entry SKIPs (test/privemap.test.mjs's soak skips the same way)",
+      "hits": [
+        { "ref": "inc/settings.php:126", "class": "option-overwrite", "minReachability": "unauth", "handler": "wp_manga_setting_save", "note": "update_option('wp_manga_settings', …) via admin_init — the CVE candidate" },
+        { "ref": "wp-manga.php:789", "class": "option-overwrite", "minReachability": "unauth", "handler": "wp_manga_settings_save", "note": "update_option('wp_manga', …) — second unauth settings overwrite" },
+        { "ref": "inc/upload/imgur-upload.php:39", "class": "option-overwrite", "minReachability": "unauth", "handler": "_get_token", "note": "unauth $_GET-driven imgur refreshToken overwrite on init (credential-named option)" }
+      ]
+    },
+    {
+      "id": "angie-1.1.12",
+      "root": ".tmp/ai-scan-1/angie-src/angie",
+      "expectation": "must-stay-clean",
+      "scope": "AI/REST surface (super-admin executor, abilities/MCP wiring, code-snippets REST, token endpoint) — full surface hand-verified in the findings file",
+      "provenance": "agent-102 source verification, .tmp/ai-scan-1/FINDINGS.md §1 (2026-08-25): CLEAN — eval() executor gated on all three paths; zero wp_ajax_nopriv_/admin_post_nopriv/__return_true; all 13 privemap candidates refuted with named reasons",
+      "skipNote": ".tmp/ai-scan-1 may be cleaned between rounds — re-stage per the repro commands in .tmp/ai-scan-1/FINDINGS.md",
+      "forbid": { "reachability": "unauth", "confidence": "high", "severity": "high" }
+    },
+    {
+      "id": "sg-ai-studio-1.2.9",
+      "root": ".tmp/ai-scan-1/sg-ai-studio-src/sg-ai-studio",
+      "expectation": "must-stay-clean",
+      "scope": "SaaS bridge REST (signed-JWT gate, pinned algorithms) + admin REST surface",
+      "provenance": "agent-102 source verification, .tmp/ai-scan-1/FINDINGS.md §2 (2026-08-25): CLEAN — all 13 candidates refuted (JWT gate / manage_options); zero nopriv/__return_true",
+      "skipNote": ".tmp/ai-scan-1 may be cleaned between rounds — re-stage per the repro commands in .tmp/ai-scan-1/FINDINGS.md",
+      "forbid": { "reachability": "unauth", "confidence": "high", "severity": "high" }
+    },
+    {
+      "id": "rank-math-1.0.274.1",
+      "root": ".tmp/ai-scan-1/rank-math-src/seo-by-rank-math",
+      "expectation": "must-stay-clean",
+      "scope": "Content AI REST (rankmath/v1/ca/*), ai-visibility module, abilities, bundled mcp-adapter wiring — incl. the two token-only routes (pingContentAI, disconnectSite) whose api_key provenance leak was NOT found",
+      "provenance": "agent-102 source verification, .tmp/ai-scan-1/FINDINGS.md §3 (2026-08-25): CLEAN on the AI surface — capability-gated; token-only routes need a secret with no located exposure; 54 short-array-callback gaps hand-verified",
+      "skipNote": ".tmp/ai-scan-1 may be cleaned between rounds — re-stage per the repro commands in .tmp/ai-scan-1/FINDINGS.md",
+      "forbid": { "reachability": "unauth", "confidence": "high", "severity": "high" }
+    }
+  ]
+}

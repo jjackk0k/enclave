@@ -1,0 +1,252 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "freshworks",
+      "name": "Freshworks ",
+      "offersBounties": true,
+      "assets": [
+        "Freshcaller-iOS-App",
+        "Freshchat-iOS-App",
+        "Freshdesk-iOS-App",
+        "Freshservice-Intune-iOS-App",
+        "Freshservice-iOS-App",
+        "com.freshchat.agent.android",
+        "com.freshdesk.helpdesk",
+        "com.freshservice.helpdesk",
+        "com.freshservice.helpdesk.intune",
+        "com.freshworks.freshcaller",
+        "yourdomain.freshcaller.com",
+        "yourdomain.freshchat.com",
+        "yourdomain.freshdesk.com",
+        "yourdomain.freshservice.com",
+        "yourdomain.myfreshworks.com"
+      ],
+      "exclusions": [
+        "Freshsales-iOS-App",
+        "com.freshdesk.freshsales.mobile",
+        "freshworks.atlassian.net",
+        "http://yourdomain.myfreshworks.com/crm/marketer",
+        "http://yourdomain.myfreshworks.com/crm/sales",
+        "wchat.freshchat.com",
+        "www.freshworks.com",
+        "yourdomain.freshping.io",
+        "yourdomain.freshstatus.io",
+        "yourdomain.freshsurvey.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not run automated scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\freshworks-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "freshworks",
+  "name": "Freshworks ",
+  "url": "https://hackerone.com/freshworks",
+  "policy": "# Freshworks Bug Bounty Program Mission\nFreshworks places the highest priority on safeguarding customer data. We deeply appreciate the contributions of security researchers in strengthening our security posture and encourage their participation in the Freshworks Bug Bounty program to help us deliver a secure and trusted experience for our customers.\n\n# Response Targets\nIf you discover a security vulnerability and report it in accordance with this policy, we will make reasonable efforts to:\n- Acknowledge your report within 2 days of submission\n- Triage the reported vulnerability within a maximum of 7 business days, depending on ticket volume\n- Remediate the vulnerability in line with our security and privacy commitments\n- Resolve the issue based on its severity and complexity\nWe will strive to keep you informed of our progress throughout the entire process.\n\n# Guidelines\n* Do not attempt to compromise the confidentiality, integrity, and availability of our services/customer data or circumvent our privacy protections.\n* Do not publicly disclose a bug either before or after it has been fixed. Do not upload information about the vulnerability on any site. This includes your restriction to upload posts, videos on YouTube, Vimeo, Twitter, etc., even if marked private.\n* Do not attempt to gain access to customer accounts or data.\n* Do not run automated scanners or any attack that could harm the reliability/integrity of our services or data. \n* Do not take a reverse shell. If you happen to find an RCE, please execute only harmless commands such as \"whoami\",\"id\" or \"hostname\". Taking a reverse shell will violate the program policy and  unnecessarily trigger a security incident analysis by the Freshworks CIRT team. \n* Do not exploit the SQL Injection vulnerability by running SQLmap or any other automated SQLi exploitation tool. Use harmless commands such as \"sleep(5), DB version(), etc\". If you suspect the presence of the SQL Injection vulnerability, please report it. We will validate it from our side. \n* Do not use the exfiltrated EC2 metadata secrets to access the AWS resources if you find an SSRF. We will validate the impact from our side. \n* Use \"document.domain\" for XSS report submission. Only the domains mentioned in the \"In-scope\" section will be considered.\n* DOS/DDOS/Spam attacks are not allowed.\n* Do not attempt non-technical attacks such as social engineering, phishing, or physical attacks against our employees, users, or infrastructure.\n* Freshworks current and former employees and contractors, as well as their family members, are strictly prohibited from participating in the Program, or sharing information with an external security researcher to bypass this prohibition.\n* No breaching of any NDA, employee, customer or contractor agreements.\n* No leveraging of customer accounts, interacting with real customers or customer’s public websites is forbidden\n* Do not store, share, compromise or destroy any Freshworks or customer data while conducting research activities. If personally identifiable information (PII) is encountered, you are required to stop and immediately notify us.\n* Use specific test accounts only.\n\n# Disclosure Policy\n• We do not permit public disclosure. This includes sharing details with anyone, including - but not limited to - private hacker websites or forums, social media platforms, and blogs, even after the issue has been remediated.\n• Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Reporting\nPlease submit your report on HackerOne using the format outlined below. Do not disclose any information about the suspected security vulnerability in any public forum without our prior written consent. Reports that do not follow this format will not be eligible for the bug bounty program.\n\n* Vulnerability category\n* Affected endpoint and parameter\n* Detailed description of the vulnerability\n* Step-by-step reproduction details, including a video proof of concept (PoC)\n* Freshworks mobile app Android/iOS version and the device or emulator used for testing (applicable to mobile app vulnerabilities only)\n* Exploitable scenario\n* Recommended mitigation for the vulnerability\n\n# Non-Qualifying Criteria Vulnerabilities / Known Issues\n- Html injection, Hyperlink injection, Self-XSS & XSS that doesn't make any impact\n- XSS execution in the context of the AWS s3 bucket.\n- Host header and banner grabbing issues\n- Automated tool scan reports.Example: Web, SSL/TLS scan, Nmap scan results, etc.,\n- Missing HTTP security headers and cookie flags on insensitive cookies\n- Rate limiting, brute force attack\n-Race Conditions without security impact.\n- DNS IP Ping back request / Private IP Disclosure\n- Homograph attack \n- Login/logout CSRF\n- Session related issues\n- Email Spoofing\n- Unrestricted file upload\n- Open redirections - Unless you can chain open redirection to XSS, stealing tokens, or any other security impactful bugs.\n- Disclosure of AWS s3 presigned URL. This is not a security vulnerability. \n- Information disclosures in \"/.well-known/\" folder path locations unless it's sensitive.\n- Vulnerabilities affecting Freshworks sanboxed environment.\n- Formula/CSV Injection, Broken Link Highjacking\n- Vulnerabilities that require physical access to the victim machine.\n- User enumeration such as User email, User ID, etc.,\n- Phishing / Spam (including issues related to SPF/DKIM/DMARC). Missing email best practices (Invalid, incomplete, or missing SPF/DKIM/DMARC/CAA records, etc.)\n- Vulnerabilities found in third-party services\n- EXIF data not stripped on images\n- Any activity that could lead to the disruption of our service (DoS)\n- Able to retrieve user's public information\n- Tabnabbing\n- CSP Weaknesses\n- Use of a known-vulnerable library (without evidence of exploitability)\n- Information Exposure from Public Sources\n- Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n- Password Token Not Expired / Password Token Leaking to 3rd party Sites / Weak Password Policy / Password best practices\n- No password length or Long Password Upon Sign-up / Password Re-Use\n- Concurrent Sessions / Number of  Parallel Sessions\n- Best practices concerns\n- Any vulnerabilities requiring significant and unlikely interaction by the victim, such as disabling browser controls\n- Exposed login panels without an accompanying proof-of-concept demonstrating a vulnerability or path of exploitation\n- Dangling IPs takeover.\n- Clickjacking that doesn't have significant security impact\n- Subdomain takeovers\n- Vulnerabilities identified in Freshworks Acquired Products / Services\n- Software version disclosure / Banner identification issues / Descriptive error messages or headers (Eg. stack traces, application or server errors).\n- Reports on third-party products, services, or applications not owned by Freshworks\n-  Able to create Support Tickets using their known email-id's (This is our products intended behaviour) \n\n# Out of Scope bugs for Android and iOS apps\n- Any URIs leaked because a malicious app has permission to view URIs opened\n- Sensitive data in URLs/request bodies when protected by TLS\n- Path disclosure in the binary\n- Strandhogg / Task Hijacking\n- Lack of obfuscation and binary protection\n- Lack of Exploit mitigations i.e., PIE, ARC, or Stack Canaries\n- Absence of certificate pinning\n- Lack of obfuscation, jailbreak and root detection\n- Any kind of sensitive/encrypted data stored in app private directory\n- OAuth & app secret hard-coded/recoverable in IPA\n- Crashes due to malformed URL Schemes\n- Runtime hacking exploits using tools like but not limited to Frida/ Appmon (exploits only possible in a jailbroken environment & root permission)\n- Snapshot/Pasteboard leakage\n- Shared links leaked through the system clipboard.\n- Intent or URL Redirection leading to phishing\n- Third party library 0-day\n\n## Any findings that do not show an impact to the user or product will not be accepted.\n\nWe will recognize and reward only the first reporter of a valid vulnerability. Duplicate reports will not be considered. The same vulnerability identified in multiple areas of the same or different products will be treated as a single issue. Since our web and mobile applications share the same APIs, an access control issue found in the web application that also affects the mobile application will be considered one vulnerability.\n\n# Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Freshworks.\nYou are responsible for paying any taxes associated with the reward. Submissions from countries where we are prohibited by law from making payments, such as the [US Sanction Lists](https://ofac.treasury.gov/sanctions-programs-and-country-information), are ineligible for rewards.\n\n# Eligibility for Critical Severity Reward\nFreshworks operates a multi‑tenant, subscription‑based SaaS model. We classify as \"Critical\" those vulnerability categories that impact the Freshworks platform globally, rather than issues confined to an individual Freshworks instance. These include, but are not limited to:\n- SQL injection vulnerabilities that could lead to database information disclosure\n- Command or code injection vulnerabilities impacting the Freshworks environment\n- Server‑Side Request Forgery (SSRF) vulnerabilities that could result in the exfiltration of AWS credentials or similar sensitive data etc\nIn short, vulnerabilities that affect only an individual Freshworks product instance will not be classified as \"Critical\" severity.\n\n# Reward Assessment Guidelines\nIn certain situations, no bounty or only a minimum bonus may be awarded. Some of the most common examples include:\n\n1. Same vulnerability across different paths or hosts\nIf you believe a vulnerability exists on multiple (unique) paths or hosts, please include all affected paths and hosts in a single report. Submitting separate reports for the same vulnerability identified later on different paths or hosts will be considered duplicate submissions.\n\n2. Same payload or issue across different parameters or functionality\nReports describing the same vulnerability affecting multiple parameters within a resource or across similar functionality, or demonstrating multiple attack vectors for a single feature, will be treated as duplicates. We encourage consolidating such findings into one comprehensive report rather than submitting them separately.\n\n# In Scope\n- [Yourdomain].freshdesk.com\n- [yourdomain].freshservice.com  \n- [Yourdomain].freshchat.com\n- [Yourdomain].freshcaller.com\n- [Yourdomain].myfreshworks.com\n\n# Important Note - Out of scope\nDue to a product revamp, we have decided to remove Freshsales and Freshmarketer product from the HackerOne \"In-scope\" items. This policy will be effective from Nov 26th, 2024. Any bugs reported by HackerOne researchers before Nov 26th, 2024 will be considered by the team. \n\nFreshsales - https://yourdomain.myfreshworks.com/crm/sales/\nFreshmarketer - https://yourdomain.myfreshworks.com/crm/crm/marketer/\n\n**If you are unsure about a domain, email us at \"security[at] freshworks.com\" before spending time on it. Any findings apart from the specified scope will be considered as a non-qualifying bug.**\n\n# Test Plan\n\n##Automated Scanning is strictly Prohibited. Failing might get you banned from the program.\n\nTo participate in our program, you must \n* Create a trial account using your Hackerone email alias\n<hackerone-username>@wearehackerone.com\n* Provide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n\nInclude a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests.\n\n| Identifier | Format                          | Example                       |\n|------------|---------------------------------|--------------------------------|\n| Username   | X-Bug-Bounty:HackerOne-<username> | X-Bug-Bounty:HackerOne-Warrior |\n\n\nWhen testing for a bug, please also keep in mind:\nMinimize the mayhem. Adhere to program rules at all times. Do not use automated scanners/tools - these tools include payloads that could trigger state changes or damage production systems and/or data.\n\n\n# Go to the below links below to start a free trial for Freshworks Suite of Products\n- Freshdesk Omnichannel Suite - https://freshdesk.com/omnichannel-signup \n- Freshdesk Support Desk - https://freshdesk.com/signup\n- Freshdesk Contact Center - https://www.freshworks.com/freshcaller-cloud-pbx/signup/ \n- Freshchat - https://www.freshworks.com/live-chat-software/signup/\n- Freshservice - https://freshservice.com/signup \n- Freshsales Suite - https://www.freshworks.com/crm/signup/?plan_id=suite \n- Freshsales - https://www.freshworks.com/crm/signup \n- Freshmarketer - https://www.freshworks.com/crm/marketing/signup/ \n\n\n# Our Business Suites Overview:\nThis section describes Product Suites and information about respective user roles. Vulnerabilities related to Access Control will be treated based on this behaviour and issues affecting \"Cross Accounts / Organization\" will be our precedence.\n\n**Customer Service Products - Freshdesk / Freschat / Freshcaller **\n\nUsers of these suites are classified as _Requesters_ and _Agents_, where _Requesters_ are public users and _Agents_ are Support executives/employees of an organization. \n\nVulnerabilities affecting  Agent users from a requester viewpoint will be considered Impactful compared to the ones involving Agents within.\n\n**IT Service Products - Freshservice\nCRM Products - Freshsales / Freshmarketer**\n\nThese products are classified as an _Internal_ application within the organisation. Hence, this product's Users are likely to be considered  Employees of an organization. So successful exploitation of any vulnerability requires an attacker to be part of the organisation / internal system.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Freshworks and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "yourdomain.freshdesk.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please sign up to create your account and start testing. Read the \"In scope\" items mentioned in the description. Reports received from accounts/domains that you don't own will not be considered eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "yourdomain.freshservice.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please sign up to create your account and start testing. Read the \"In scope\" items mentioned in the description. Reports received from accounts/domains that you don't own will not be considered eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "yourdomain.freshchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please sign up to create your account and start testing. Read the \"In scope\" items mentioned in the description. Reports received from accounts/domains that you don't own will not be considered eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "yourdomain.freshcaller.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please sign up to create your account and start testing. Read the \"In scope\" items mentioned in the description. Reports received from accounts/domains that you don't own will not be considered eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "yourdomain.myfreshworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "As part of our ongoing product revamp, we have decided to remove the CRM Suite of products from the HackerOne program scope.\n\nOut of Scope:\nCRM Suite of Products – https://yourdomain.myfreshworks.com/crm/*\n\nPlease note that the main domain \"https://yourdomain.myfreshworks.com\" remains in scope. Only",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.freshservice.helpdesk",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshservice Android App can be downloaded from https://play.google.com/store/apps/details?id=com.freshservice.helpdesk",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.freshdesk.helpdesk",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshdesk Android app can be downloaded from https://play.google.com/store/apps/details?id=com.freshdesk.helpdesk",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.freshdesk.freshsales.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Freshsales Android app can be downloaded from https://play.google.com/store/apps/details?id=com.freshdesk.helpdesk",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.freshchat.agent.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshchat Android app can be downloaded from https://play.google.com/store/apps/details?id=com.freshchat.agent.android\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.freshworks.freshcaller",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshcaller Android app can be downloaded from https://play.google.com/store/apps/details?id=com.freshworks.freshcaller",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.freshservice.helpdesk.intune",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshservice Intune Android app can be downloaded from https://play.google.com/store/apps/details?id=com.freshservice.helpdesk.intune",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Freshdesk-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshdesk iOS app can be downloaded from https://apps.apple.com/us/app/freshdesk/id849713306",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Freshservice-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshservice iOS app can be downloaded from https://apps.apple.com/us/app/freshservice/id891265220",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Freshsales-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Freshsales iOS app can be downloaded from https://apps.apple.com/us/app/freshsales/id1073125057\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Freshchat-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshchat iOS app can be downloaded from \nhttps://apps.apple.com/us/app/freshchat/id1273666080",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Freshcaller-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshcaller iOS app can be downloaded from https://apps.apple.com/us/app/freshcaller/id1424866045\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Freshservice-Intune-iOS-App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Freshservice Intune iOS app can be downloaded from https://apps.apple.com/us/app/freshservice-for-intune/id6475669802\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wchat.freshchat.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.freshworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The domain www.freshworks.com is a static webpage containing no sensitive information.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "freshworks.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We don't use this Atlassian JIRA instance.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yourdomain.freshsurvey.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yourdomain.freshstatus.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yourdomain.freshping.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://yourdomain.myfreshworks.com/crm/sales",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Due to a product revamp, we have decided to remove Freshsales  product from the HackerOne \"In-scope\" items. This policy will be effective from Nov 26th, 2024. Any bugs reported by HackerOne researchers before Nov 26th,2024 will be considered by the team.\n\nFreshsales Endpoint - yourdomain.myfreshwork",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://yourdomain.myfreshworks.com/crm/marketer",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Due to a product revamp, we have decided to remove Freshmarketer product from the HackerOne \"In-scope\" items. This policy will be effective from Nov 26th, 2024. Any bugs reported by HackerOne researchers before Nov 26th,2024 will be considered by the team.\n\nFreshmarketer Endpoint - yourdomain.myfres",
+      "max_severity": "none"
+    }
+  ]
+}

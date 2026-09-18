@@ -1,0 +1,69 @@
+{
+ "at": "2026-09-12T02:12:40.235Z",
+ "opportunity": "launchdarkly",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.launchdarkly.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'self' https://static.launchdarkly.com; script-src 'report-sample' 'self' https://static.launchdarkly.com ht",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "events.launchdarkly.com",
+   "kind": "domain",
+   "status": 499,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "stream.launchdarkly.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "docs.launchdarkly.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "LambdaGeneratedResponse from cloudfront",
+    "via": "1.1 3f2c7b5ab7f3a5cae01ceaf64249f48c.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

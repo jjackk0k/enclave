@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "itau_unibanco",
+      "name": "Itaú Unibanco",
+      "offersBounties": false,
+      "assets": [
+        "bancofiat.com.br",
+        "bancoitau.com.br",
+        "bankline.com.br",
+        "bfb.com.br",
+        "credicard.com.br",
+        "credicardhall.com.br",
+        "credipronto.com.br",
+        "credlineitau.com.br",
+        "escrevendoofuturo.org.br",
+        "euleioparaumacrianca.com.br",
+        "funbep.com.br",
+        "fundacaoitausocial.org.br",
+        "fundacaoitauunibanco.com.br",
+        "fundacaosaudeitau.com.br",
+        "hipercard.com.br",
+        "ibconsigweb.com.br",
+        "ibeneficios.com.br",
+        "imulherempreendedora.com.br",
+        "institutounibanco.org.br",
+        "intrag.com.br",
+        "investiremque.com.br",
+        "investshop.com.br",
+        "issomudaomundo.com.br",
+        "itau.com.br",
+        "itauassetmanagement.com.br"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\itau_unibanco-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "itau_unibanco",
+  "name": "Itaú Unibanco",
+  "url": "https://hackerone.com/itau_unibanco",
+  "policy": "# Identificou algum ponto de melhoria em nossos sistemas?\n\nVocê é um pesquisador de segurança e descobriu vulnerabilidades em nossos sistemas? Então, gostaríamos de contar com a sua ajuda para corrigir essas vulnerabilidades.\n\nA privacidade, a proteção de dados e a segurança da informação são temas prioritários para o Itaú. Investimos fortemente nas melhores tecnologias e adoção das práticas mais rigorosas do mercado para garantir a segurança, bem como a proteção da privacidade e dos dados dos nossos clientes.\n\n# Saiba como realizar uma divulgação responsável\n\nPesquisadores de segurança podem divulgar potenciais vulnerabilidades em nossos sistemas/aplicativos seguindo as diretrizes abaixo:\n\nDiretrizes gerais da HackerOne: https://www.hackerone.com/disclosure-guidelines\n\n\n*  Não realize nenhuma atividade que possa causar dano ao Itaú, aos nossos clientes ou aos nossos colaboradores;\n*  Não realize nenhuma atividade que possa parar e/ou impactar os aplicativos, serviços ou ativos do Itaú;\n*  Não realize nenhuma atividade que possa violar qualquer Lei Federal, Estadual ou Municipal, bem como, diretrizes, portarias ou demais manifestações de Autoridades Reguladoras;\n* Não utilize ferramentas de scan automático;\n*  Você não deve agir de má-fé buscando realizar pedidos de resgate de dados (data hijacking);\n* Não realize ataques de força bruta, derrubada de serviços ou comprometimento de contas;\n* Não armazene, compartilhe, comprometa ou destrua qualquer dado do Itaú Unibanco ou de qualquer um de seus clientes. Se qualquer informação pessoalmente identificável for encontrada deve-se imediatamente parar as atividades, eliminar os dados de seu sistema e contatar imediatamente o Itaú Unibanco pelo e-mail abuse@itau-unibanco.com.br;\n* Não inicie qualquer transação financeira indevida;\n* Não solicite qualquer tipo de recompensa pela descoberta da vulnerabilidade potencial.\n* Forneça relatórios detalhados com etapas reproduzíveis. Se o relatório não for detalhado o suficiente para reproduzir o problema, o time de triagem pode não conseguir seguir com a triagem de sua submissão.\n* Envie uma vulnerabilidade por relatório, a menos que você precise encadear vulnerabilidades para causar impacto.\n* Quando ocorrem duplicatas, fazemos a triagem apenas do primeiro relatório recebido (desde que ele possa ser totalmente reproduzido).\n* Várias vulnerabilidades causadas por um problema subjacente serão tratadas como um relatório válido.\n\nImportante: Ao se submeter as regras do programa, você concorda em NÃO DIVULGAR (e/ou NÃO DISCUTIR) publicamente suas descobertas ou o conteúdo do seu envio a terceiros, de forma alguma, sem o EXPRESSO CONSENTIMENTO do Itaú Unibanco.\n\nSolicitamos que todas as requisições realizadas às nossas aplicações durante suas atividades inclua o header **X-VDP-H1** com o username na HackerOne no valor.\n      * X-VDP-H1: username\n\n# Escopo\n\nOs testes são autorizados apenas nos alvos listados no escopo. Qualquer domínio/propriedade/subdomínio/app do Itaú não listado nessa seção, está explicitamente, fora do escopo.\n\nImportante: Observe que esses domínios podem empregar redirecionamentos para outros domínios que não estão no escopo de nosso programa. Por favor, tome cuidado para garantir que seu teste seja executado apenas em relação aos alvos listados nesta página como dentro do escopo.\n\n# Fora do escopo\n\nCertas vulnerabilidades são consideradas fora do escopo de nosso Programa de Divulgação Responsável:\n\n* Teste Físico\n*  Engenharia social (por exemplo, tentativas de roubar cookies, páginas de login falsas para coletar credenciais)\n* Phishing\n* Ataques de negação de serviço\n* Ataques de exaustão de recursos\n* Ausência/Bypass de criptografia de payload\n* Mensagens de erro descritivas (por exemplo, Stack Traces, erros de aplicativo ou servidor)\n* Códigos / páginas HTTP 404 ou outros códigos / páginas HTTP diferentes de 200\n* Divulgação de banners em serviços comuns / públicos\n* Divulgação de arquivos ou diretórios públicos conhecidos (por exemplo, robots.txt)\n* Captura de tela (Foregroud ou backgroud)\n* Clickjacking e problemas que só podem ser explorados por meio de clickjacking\n* CSRF em formulários que estão disponíveis para usuários anônimos (por exemplo, o formulário de contato)\n* Logout Cross-Site Request Forgery (logout CSRF)\n* Presença da funcionalidade de 'preenchimento automático' ou 'salvar senha' do navegador da web ou aplicativo\n* Falta de sinalizadores de cookie seguro e HTTPOnly\n* Falta de Speedbump de Segurança ao sair do site\n* Desvio de Captcha / Captcha fraco\n* Enumeração de nome de usuário via mensagem de erro da página de login\n* Enumeração de nome de usuário via mensagem de erro “Esqueci minha senha”\n* Força bruta da página Login ou Esqueci a Senha e bloqueio de conta não aplicados\n* Método OPTIONS / TRACE HTTP ativado\n* Ataques SSL como BEAST, BREACH, ataque de renegociação\n* Sigilo de encaminhamento de SSL não habilitado\n* Conjuntos de criptografia SSL Insecure\n* O cabeçalho Anti-MIME-Sniffing X-Content-Type-Options\n* Resiliência dos aplicativos compilados (anti-root, bypass de pinning, anti-tampering, detecção de emulador, anti-debugging, mutual TLS)\n* Cabeçalhos de segurança HTTP ausentes\n* Práticas recomendadas ausentes (políticas de segurança de conteúdo,  tabnabbing, registros SPF/DKIM/DMARC de e-mail), a menos que um impacto significativo possa ser demonstrado.\n* Open redirect, a menos que um impacto significativo possa ser demonstrado.\n* Problemas que exigem uma interação improvável por parte da vítima.\n\nEste canal de reporte não deverá ser utilizado para:\n\n* comentários sobre os serviços prestados pelo Itaú Unibanco\n* comentários ou perguntas sobre a acessibilidade dos nossos serviços\n* denúncias de fraude ou possível fraude\n* relatar problemas de ATM (a menos que relacionado à segurança)\n* relatar vírus e/ou malware\n* relatar credencias ou número de cartões vazados\n\nReporte de Fraudes e Phishing deve ser realizado pelos canais:\n* SMS, páginas e e-mails falsos: emailsuspeito@itau-unibanco.com.br\n* Credenciais ou cartões vazados: abuse@itau-unibanco.com.br\n* Demais golpes e fraudes: inspetoria@itau-unibanco.com.br\n\n# Submissão\nA comunicação da melhoria deve ser realizada exclusivamente pelo canal da HackerOne. Uma vez a vulnerabilidade compartilhada, o Itaú se compromete com os seguintes tempos de resposta:\n\n| Tipo de resposta | Tempo de resposta em dias úteis |\n| ------------- | ------------- |\n| Primeira Resposta | 2 dias|\n| Tempo para triagem | 2 dias|\n| Tempo para resolução| depende da severidade e complexidade |\n\nQueremos obter o máximo de informações de quem relata a vulnerabilidade para que possamos validar e implantar qualquer potencial melhoria rapidamente.\n\nTente fornecer o máximo de informações possíveis, incluindo:\n\n- Uma descrição da vulnerabilidade, incluindo a capacidade de exploração e o impacto, se não um tipo de ataque comum;\n- Etapas necessárias para explorar a vulnerabilidade, incluindo:\n- URL(s) / aplicativo(s) afetado(s);\n- condições anteriores exigidas (por exemplo: conectado, não conectado);\n- como demonstrar o problema.\n- IPs usados quando a vulnerabilidade foi descoberta;\n- Se for pós-autenticação, o ID do usuário usado quando a vulnerabilidade foi descoberta;\n- Uma prova de conceito;\n- Nomes de quaisquer arquivos enviados para nossos sistemas.\n\nSe você não incluir tudo nesta lista, isso pode atrasar ou nos impedir de validar e corrigir a vulnerabilidade. Respostas a questões de baixa relevância e/ou informativas terão sua prioridade retirada. Salve todos os seus registros, pois pediremos que você nos disponibilize.\n\n# Um itaú mais seguro\nAgradecemos sua dedicação e parceria caso tenha feito um envio que tenha nos ajudado significativamente a manter nossos clientes cada vez mais protegidos. No entanto, o Itaú Unibanco não possui um programa público de bug bounty, nem realiza compensação monetária, ou qualquer outro tipo de recompensa pelas vulnerabilidades submetidas por meio deste canal.\n\n# Confidencialidade\nAo divulgar vulnerabilidades de forma responsável seguindo as diretrizes aqui dispostas e, desde que não seja verificada nenhuma incompatibilidade entre as ações do pesquisador de segurança e as legislações locais vigentes, o Itaú Unibanco concorda em não tomar ações legais e/ou outras medidas cabíveis contra o pesquisador, em linha com o \"Safe Harbor\" da HackerOne. Se uma ação legal for iniciada por um terceiro contra você em relação às atividades conduzidas de acordo com esta política, tomaremos medidas para tornar conhecido que suas ações foram conduzidas em conformidade com esta política.\n\nCaso seja identificada alguma irregularidade neste sentido, o Itaú Unibanco poderá seguir com as medidas cabíveis. O Itaú Unibanco poderá tomar outras medidas legais no caso de não cumprimento dessas diretrizes.\n\nOutras diretrizes podem ser obtidas em: https://hackerone.com/security/safe_harbor\n\n# Privacidade\n\nSuas informações de contato serão usadas apenas para mantê-lo informado sobre o processo de divulgação de vulnerabilidades e não serão repassadas a terceiros sem sua permissão explícita.\n\nPara proteger sua privacidade, nós não:\n\n▪ Compartilharemos seu PII (Personally Identifiable Information, Informação Pessoal Identificável, em tradução livre) com terceiros;\n\n▪ Compartilharemos sua pesquisa sem permissão.\n\nNo entanto, esse não é o caso se formos obrigados por lei a divulgar ou se transferirmos a investigação da vulnerabilidade relatada a um terceiro. Nestes casos, fazemos todo o possível para manter essas informações confidenciais e nos sentimos responsáveis por elas.\n\nEm vigor a partir de 10 de dezembro de 2021.\n\nPodemos alterar as regras para Divulgação Responsável de Vulnerabilidades de tempos em tempos, ou ainda, podemos cancelar nosso programa a qualquer momento.\n\nNossa segurança também é feita com você ;)",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "bancofiat.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "bancoitau.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "bankline.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "bfb.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "credicard.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "credicardhall.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "credipronto.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "credlineitau.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "escrevendoofuturo.org.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "euleioparaumacrianca.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "funbep.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "fundacaoitausocial.org.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "fundacaoitauunibanco.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "fundacaosaudeitau.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "hipercard.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "ibconsigweb.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "ibeneficios.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "imulherempreendedora.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "institutounibanco.org.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "intrag.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "investiremque.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "investshop.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "issomudaomundo.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "itau.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "itauassetmanagement.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "low"
+    }
+  ]
+}

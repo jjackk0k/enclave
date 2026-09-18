@@ -1,0 +1,10 @@
+{
+  "verified": false,
+  "expect": "GITHUB_ROBOTS_DOTGIT_DISCLOSED",
+  "matched": false,
+  "testMatched": false,
+  "stdout": "",
+  "stderr": "node:fs:448\n    return binding.readFileUtf8(path, stringToFlags(options.flag));\n                   ^\n\nError: ENOENT: no such file or directory, open ''\n    at Object.readFileSync (node:fs:448:20)\n    at [stdin]:3:35\n    at runScriptInThisContext (node:internal/vm:209:10)\n    at node:internal/process/execution:118:14\n    at [stdin]-wrapper:6:24\n    at runScript (node:internal/process/execution:101:62)\n    at evalScript (node:internal/process/execution:133:3)\n    at node:internal/main/eval_stdin:32:5\n    at Socket.<anonymous> (node:internal/process/execution:234:5)\n    at Socket.emit (node:events:536:35) {\n  errno: -2,\n  code: 'ENOENT',\n  syscall: 'open',\n  path: ''\n}\n\nNode.js v20.20.2",
+  "verdictReason": "the initial probe never printed its expected marker — the finding stays UNVERIFIED (honesty contract)",
+  "at": "2026-09-11T19:30:39.608Z"
+}

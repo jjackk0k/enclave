@@ -1,0 +1,143 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "portswigger",
+      "name": "PortSwigger Web Security",
+      "offersBounties": true,
+      "assets": [
+        "Burp Collaborator",
+        "Burp Suite DAST",
+        "Burp Suite Extension (BApps)",
+        "Burp Suite Pro/Community",
+        "ai.portswigger.net",
+        "collections.portswigger.net",
+        "http1mustdie.com",
+        "id.portswigger.net",
+        "links.portswigger.net",
+        "portswigger.net",
+        "share.portswigger.net"
+      ],
+      "exclusions": [
+        "*.portswigger.net",
+        "*.web-security-academy.net"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\portswigger-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "portswigger",
+  "name": "PortSwigger Web Security",
+  "url": "https://hackerone.com/portswigger",
+  "policy": "Vulnerabilities of interest\n--\nHere are some examples of vulnerabilities that we could consider to be valid, and rough guidelines as to what kind of payout you can expect:\n\n#### Critical - $15,000\n - SQL injection on portswigger.net\n - Remotely retrieving arbitrary users' Burp Collaborator interactions\n - Retrieve arbitrary users' AI interaction logs, with no user-interaction\n - Unauthenticated RCE on Burp Suite DAST\n - Complete authentication bypass on portswigger.net\n       \n#### High  - $5,000  \n - Stored XSS on portswigger.net or the Burp Suite Enterprise Edition web interface\n - File path traversal on portswigger.net\n - A website accessed through Burp Suite can make Burp execute arbitrary code\n - A project file loaded in untrusted mode can achieve make Burp execute arbitrary code with no user-interaction\n\n#### Medium - $1,000\n - A website accessed through Burp Suite can retrieve local files from the user's system\n - A website accessed through Burp Suite can extract cross-domain data from Burp's sitemap\n - Given a collaborator payload, an attacker can retrieve interactions generated from the same key\n - Exploitable reflected XSS on portswigger.net or Burp Suite Enterprise Edition\n- A project file loaded in untrusted mode can write or retrieve files from the filesystem with no user-interaction.\n - CSRF on critical actions\n\n#### Any medium severity issue involving unlikely user interaction - $100-$1000\n - Reflected XSS that is unexploitable due to CSP\n- CSP bypass via trusted domain, JSONP, etc\n - Header injection in Burp Suite\n - Open redirect\n\n#### Significant vulnerabilities in BApps  - $0\n- We will work to resolve serious vulnerabilities in extensions in the BApp store, but do not offer cash rewards. If you're searching for issues in core Burp, we highly recommend disabling all extensions first, to save yourself from wasting time.\n\n\nIf a report does not qualify but we find it useful, we may reward it with reputation or swag as a goodwill gesture.\n\nForbidden activities\n--\n\nThe following are strictly forbidden and may result in you being barred from the program, the website, or both:\n\n- Denial of service attacks\n- Physical or social engineering attempts\n- Attacks targeting PortSwigger employees or customers. If you obtain employee credentials indirectly, eg via a public password dump, please report these including the source. Leaked customer credentials are not in scope but can be reported by email.\n- Targeting subdomains of portswigger.net\n- Bruteforcing subdomains\n- Spamming orders\n- Unthrottled automated scanning - please throttle all tools to one request per second.\n\n**We are not interested in low severity, purely theoretical and best-practice issues.** \n\nHere are some examples:\n\n- Prompt injection with no security impact. Note that prompts are not considered private.\n - Broken links\n - Denial of service vulnerabilities\n- Missing rate-limits\n - Local privilege escalation that requires write access to the installer/program directory (eg most DLL hijacking)\n - HTTP Options header\n - Server errors with no sensitive information like https://portswigger.net/careers%22%3E\n - Headers like Server/X-Powered-By disclosing version information\n - XSS issues in non-current browsers\n - window.opener related issues\n - Unvalidated reports from automated vulnerability scanners\n - CSRF with minimal security implications (logout, DoS, etc.)\n - Issues related to email spoofing (eg SPF/DMARC)\n - DNS issues\n - Content spoofing\n - Reports that state that software is out of date or vulnerable without a proof of concept\n - Missing autocomplete attributes\n - Missing cookie flags on non-security sensitive cookies\n - SSL/TLS scan reports (this means output from sites such as SSL Labs)\n - Client-side caching issues\n - Concurrent sessions\n - HPKP / HSTS preloading\n - Implausible bruteforce attacks \n\nThere are a few known issues we consider to be low severity, but may fix eventually:\n- We are hardening our prompt injection defenses so this is not in scope. Note that if you can achieve RCE via plausible indirect prompt injection with no user-interaction, that would be accepted.\n- You can use prompt injection to obtain prompts. \n- Generic N-day vulnerabilities in the embedded Chromium browser will not typically be rewarded. \n- Upstream TLS verification needs hardening\n- Project files and configuration files may contain passwords, and are stored in plaintext by design. We recommend using full-disk encryption.\n\nSome other caveats and common mistaken reports:\n- Issues relating to license enforcement and free-trial abuse are out of scope.\n- login.portswigger.net is served by Auth0 - on this domain we're interested in PortSwigger-misconfigurations only.\n- Non-whitelisted subdomains of portswigger.net are **strictly out of scope**. Do not test these.\n- Our [Web Security Academy](https://portswigger.net/web-security) is full of intentional vulnerabilities including SSRF and RCE, and completely isolated from the rest of our infrastructure. As such, it's excluded from our bounty program.\n- If you wish to test the Burp Collaborator functionality, please configure your own private Collaborator server and test that. \n- The Paypal price can be tampered with but underpayment will result in product non-delivery so this isn't a security issue.\n- Just like extensions, Bambdas can execute arbitrary code by design\n- Invoices, quotations and receipts can be accessed by anyone who is given the link. This is an intentional design decision to enable sharing (the ability to view someone's invoice without being given the link would be considered a serious vulnerability)\n- Collections can be accessed by anyone who is given the link until they expire - the encryption key is stored in the URL fragment. Support for in-product deletion will be added in the future.\n- Changing the proxy settings to listen on a non-loopback IP exposes the web interface to people with network access by design.\n- Deleting a request in Burp does not overwrite it in the underlying project file. If you want to remove a request from a project file before sharing it, delete it then use Project->Save Copy to create a sanitised project file.\n- We use Content-Security-Policy (CSP) site-wide. This means you will have a hard time doing alert(1). We pay for HTML/JavaScript injection regardless but to maximize your payout, see if you can make a payload that will steal some sensitive information.\n- We deliberately allow unauthenticated access to Academy lab URLs (*.web-security-academy.net).\n- Some scanners report a [false positive STARTTLS vulnerability](https://hackerone.com/reports/953219) on the Collaborator Server.\n- The collaborator server creates an interaction for every valid ID it sees in a message, so one message can create multiple interactions.\n- Our voting system under /polls/ makes a token effort to discourage people from voting multiple times. We know you can bypass this.\n- As the makers of Burp Suite, we can assure you that we have already scanned our website with it. Don't waste your bandwidth.\n\nWhat constitutes a vulnerability in Burp Suite?\n--\nThe system that Burp Suite runs on is trusted, and every system that can access the Proxy listener is trusted to access the data within Burp. Extensions, and configuration files are also trusted. Websites accessed through Burp are untrusted, so anything a website could do to read files of the user's computer, read data out of Burp Suite, or gain remote code execution would be considered a vulnerability. Also, any way to get someone else's Collaborator interactions would be considered a vulnerability.  Detection of Burp usage, denial of service vulnerabilities, and license enforcement/obfuscation/free-trial issues are all out of scope. Please refer to the payout guidelines for some example vulnerabilities.\n\nProject files are trusted by default. If a project file is loaded in non-trusted mode, it should be harmless provided you don't proxy traffic through it, or use it to send requests. Please note that users will be automatically prompted to load unrecognised project files in non-trusted mode, but this prompt is not a security boundary and can be bypassed in some scenarios.\n\n\nContact\n--\nIf you have any questions, or want to report a vulnerability without opting in to the reward program, you can contact us at support@portswigger.net\n\nGood luck and have fun!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://portswigger.net",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Burp Suite Pro/Community",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Download from https://portswigger.net/burp",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Burp Suite Extension (BApps)",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "These are made by third parties, and installed via the BApp store in the Burp Extender tab. High severity vulnerabilities only please.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Burp Collaborator",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Burp Collaborator is part of Burp Suite Pro - for further information refer to  https://portswigger.net/burp/help/collaborator.html",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.web-security-academy.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Academy contains numerous intentional vulnerabilities, and is completely isolated from our other infrastructure.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.portswigger.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Subdomains of portswigger.net that are not explicitly whitelisted are out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ai.portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Burp Suite DAST",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Install from https://portswigger.net/burp/enterprise",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http1mustdie.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is static content hosted using CloudFront.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "collections.portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "share.portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "links.portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id.portswigger.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

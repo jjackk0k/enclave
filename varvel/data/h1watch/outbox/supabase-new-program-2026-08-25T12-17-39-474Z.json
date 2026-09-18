@@ -1,0 +1,189 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "supabase",
+      "name": "Supabase",
+      "offersBounties": false,
+      "assets": [
+        "api.supabase.com",
+        "https://*.database.dev/",
+        "https://github.com/supabase",
+        "https://github.com/supabase-community/supabase-mcp",
+        "https://mcp.supabase.com/mcp",
+        "https://multiplayer.dev",
+        "https://supabase.help",
+        "https://supabase.link",
+        "https://supabase.store",
+        "supabase.com"
+      ],
+      "exclusions": [
+        "db.*.supabase.co",
+        "https://*.supabase.co",
+        "https://api.supabase.com/platform/pg-meta/project_id/query",
+        "https://ctf.supabase.com",
+        "https://github.com/supabase-community/",
+        "https://supabase.dev/",
+        "https://supabase.productions/",
+        "supabase.sh"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\supabase-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "supabase",
+  "name": "Supabase",
+  "url": "https://hackerone.com/supabase",
+  "policy": "Supabase is an open source Firebase alternative. We allow developers to build in a weekend, scale to millions.\n\nAt Supabase, we consider the security of our systems a top priority. But no matter how much effort we put into system security, there can still be vulnerabilities present.\n\nIf you discover a vulnerability, we would like to know about it so we can take steps to address it as quickly as possible. We would like to ask you to help us better protect our clients and our systems.\n\nWhat we promise:\n- We will respond to your report within 7 business days with our evaluation of the report and an expected resolution date.\n- If you have followed the instructions below, we will not take any legal action against you in regard to the report.\n- We will handle your report with strict confidentiality, and not pass on your personal details to third parties without your permission.\n- We will keep you informed of the progress towards resolving the problem.\n- In the public information concerning the problem reported, we will give your name as the discoverer of the problem (unless you desire otherwise).\n\n# Program Rules\nAt Supabase our number one priority is our customers and the security of their data. We appreciate your help in this mission and being deliberate in your research, ensuring you adhere to the program scope and making every effort to not directly impact our users.\n\n- Read the program scope\n- Check that you are engaging with Supabase and not with a Supabase customer\n- Check the [Supabase changelog](https://supabase.com/changelog) for recently released features\n- When in doubt, reach out to us through [security@supabase.io](mailto:security@supabase.io)\n\nAny clearly AI generated reports, which have not been validated for accuracy by the reporter, will be closed as N/A. Using AI tooling to assist in finding vulnerabilities and in report writing is accepted. Submitting raw output from an AI without any validation is not.\n\n## Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Performing your research\n- Do not impact other users with your testing, this includes testing vulnerabilities in projects or organizations you do not own. If you are attempting to find an authorization bypass, you must use accounts you own.\n- We recommend creating an account with your `@wearehackerone.com` email address. For testing cross project/organization issues, you can create a second account using email aliasing, https://docs.hackerone.com/hackers/hacker-email-alias.html#multiple-aliases\n- Clearly identifying accounts that are associated with bounty research helps our teams to differentiate between possibly malicious activity and that of researchers involved in our Bug Bounty program. Please note that adding your HackerOne email address does not provide any exemptions to our Terms of Service or permit you to act beyond our bounty rules and scope.\n- We STRONGLY recommend setting an HTTP header identifying your H1 account. `X-SUPABASE-VDP: {H1 HANDLE}`\n- Do NOT blindly run automated tools or simply submit the output from an automated tool that you have not manually verified.\n\n## Handling personally identifiable information (PII) \nIf you come across PII during the course of your research or vulnerability exploitation, stop, and report the issue to us immediately. Any attempts to leak more data than is necessary to demonstrate a vulnerability will be considered a breach of program rules. Do not store extracted PII, as soon as you have reported the issue to us, destroy the data.\n\nWhen reporting, redact PII data, if we can reproduce your vulnerability report, we can see what PII is being leaked. You do not need to include this information in your report.\n\n*If you can show that you can access the records of another user, stop there. You **do not** need to attempt to access the records of a thousand users just to prove a point.*\n\n## The following is never allowed\n- Directly attacking or impacting Supabase customers.\n    - Remember, Supabase provides a platform for customers to host their data / function / storage. Double check that you are testing against Supabase and **NOT** a Supabase customer.\n- DDoS\n- Spamming content\n- Large-scale vulnerability scanners, scrappers or automated tools that produce excessive amounts of traffic\n- Attacking our support staff (attempts at social engineering)\n\n# Reporting Vulnerabilities\n*What to include in reports, reproduction steps, screenshots etc.*\n\nWhen reporting a vulnerability, the more information you can provide the better. Reports with clear reproduction steps and screenshots are highly valued.\n\nReport your vulnerabilities as early as possible. Before attempting to “escalate” privileges or perform any lateral movement, report your vulnerability to us. Attempts to perform unauthorised lateral movement, access data that is not yours or otherwise performing anything that is not within the necessary scope to demonstrate that a vulnerability exists, may lead to us treating your report as ineligible for bounty.\n\nIn order to protect our customers, do not reveal the problem to others until we have researched, addressed and informed our affected customers.\n\nWe will consider disclosure requests on a case by case basis.\n\nIf you want to publicly share your research about Supabase at a conference, in a blog or any other public forum, you should request disclosure, share a draft with us for review and approval at least 30 days prior to the publication date. Please note that the following should not be included:\n\n- Data regarding any Supabase customer projects\n- Supabase customers' data\n- information about Supabase employees, contractors or partners\n\n## Response Targets\nSupabase makes every effort to meet the following SLAs for hackers participating in our program:\n\n|Type of Response|\tSLA in business days|\n|-----|------|\n|First Response|\t2 days|\n|Time to Triage|\t5 days|\n|Time to Resolution|\tdependent on severity and complexity|\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n-----\n\n# Out of scope targets\nAll customer domains under *.supabase.co \n\nReports of \"SQLi\" on `api.supabase.com/platform/pg-meta/{PROJECT_ID}/query`. This end-point intentionally accepts raw SQL queries and forms part of core functionality offered by the Supabase dashboard. Reports will be treated as Not Applicable.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n* Social engineering support\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Configuration of or missing security headers.\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors).\n* Tabnabbing\n* Issues that require unlikely user interaction\n* Improper logout functionality and improper session timeout.\n* CORS misconfiguration without an exploitation scenario\n* Broken link hijacking\n* Lack of jailbreak detection in mobile apps.\n* Lack of SSL Pinning\n* Automated scanning results such as sqlmap, Burp active scanner etc, that have not been manually verified\n\nThank you for helping keep Supabase and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "supabase.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.supabase.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.supabase.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Supabase Product APIs and database domains belonging to our customers.\nTest only domains belonging to your own account. Domains that are part of your account are in-scope",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.database.dev/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The database package manager for Trusted Language extensions.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/supabase",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/supabase-community/",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://supabase.store",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Website for purchasing Supabase Swag.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://multiplayer.dev",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "https://nixfbjgqturwbakhnwym.supabase.co\n\nDemo application showcasing Supabase Realtime",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "https://supabase.help",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Redirects to the Supabase dashboard for creating support tickets",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://supabase.link",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "URL shortener for branded links",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://supabase.productions/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The official Supabase album",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://supabase.dev/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Supabase Contributor Portal - Guide for contributing to Supabase",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "db.*.supabase.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Supabase database domains belonging to our customers.\nTest only domains belonging to your own account. Domains that are part of your account are in-scope",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api.supabase.com/platform/pg-meta/project_id/query",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is intended to take raw SQL queries. This end-point is not \"SQL injectable\". The ability to escalate privileges via this end-point is a valid issue, but executing SQL is not.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ctf.supabase.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Capture the Flag leaderboard",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/supabase-community/supabase-mcp",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "MCP Server for Supabase integration",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://mcp.supabase.com/mcp",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Please consult our docs about this resource: https://supabase.com/docs/guides/getting-started/mcp\n\n`SQL injection` on the `executeSQL` function will not be accepted. This is intended functionality. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "supabase.sh",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This allows command execution (ssh supabase.sh) and this is expected behaviour. This is sandboxed and not attached to the Supabase platform in any way",
+      "max_severity": "none"
+    }
+  ]
+}

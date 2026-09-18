@@ -1,0 +1,66 @@
+{
+ "at": "2026-09-12T16:31:47.819Z",
+ "opportunity": "thnks",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.thnks.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 1bb33a344c3ceb252c34b6bd2125a768.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubdomains;",
+    "content-security-policy": "frame-ancestors app.thnks.com www.facebook.com *.force.com",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.thnks.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.thnks.appstore",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.thnks.appstore:443 refused: host unreachable"
+  },
+  {
+   "host": "com.thnks",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.thnks:443 refused: host unreachable"
+  }
+ ]
+}

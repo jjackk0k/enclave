@@ -1,0 +1,318 @@
+{
+  "lab": "range-iso/logiclab (T3b discovery round)",
+  "at": "2026-08-30T03:29:57.172Z",
+  "mode": "traffic-only discovery — NO spec, NO x-invariant annotations",
+  "fixture": {
+    "target": "targets/logiclab.mjs",
+    "base": "http://127.0.0.1:54987",
+    "recording": "test/fixtures/logiclab-traffic.json"
+  },
+  "discovery": {
+    "observations": 85,
+    "candidates": 16,
+    "kinds": [
+      "server-authoritative",
+      "bounds-min",
+      "bounds-max",
+      "flow-order",
+      "usage-limit",
+      "role-gate",
+      "state-machine",
+      "actor-separation"
+    ],
+    "dropped": [
+      {
+        "rule": "flow-order",
+        "target": "/api/coupons/apply",
+        "reason": "no intermediate step observed between creation and the terminal call for ORD-1004 — no flow to skip"
+      },
+      {
+        "rule": "flow-order",
+        "target": "/api/safe/coupons/apply",
+        "reason": "no intermediate step observed between creation and the terminal call for SAFE-5004 — no flow to skip"
+      }
+    ]
+  },
+  "recall": {
+    "hit": 8,
+    "total": 8,
+    "gate": "≥6/8"
+  },
+  "control": {
+    "claims": 0,
+    "total": 8,
+    "gate": "0 claims"
+  },
+  "decoy": {
+    "verdict": "enforced",
+    "naiveWouldFlag": true,
+    "cleared": true
+  },
+  "pass": true,
+  "results": [
+    {
+      "id": "traffic:POST /api/orders#price",
+      "kind": "server-authoritative",
+      "path": "/api/orders",
+      "param": "price",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          0.01
+        ],
+        "basis": "traffic: \"price\" is a money-named client field on a creation endpoint; tamper to 0.01 and read back the server's \"unitPrice\""
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"price\" is a money-named client field on a creation endpoint; tamper to 0.01 and read back the server's \"unitPrice\""
+    },
+    {
+      "id": "traffic:POST /api/safe/orders#price",
+      "kind": "server-authoritative",
+      "path": "/api/safe/orders",
+      "param": "price",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          0.01
+        ],
+        "basis": "traffic: \"price\" is a money-named client field on a creation endpoint; tamper to 0.01 and read back the server's \"unitPrice\""
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": true,
+      "detail": "violation request accepted (2xx) but the readback shows the SERVER-side value — accepted-but-ineffective, not a violation | traffic: \"price\" is a money-named client field on a creation endpoint; tamper to 0.01 and read back the server's \"unitPrice\""
+    },
+    {
+      "id": "traffic:POST /api/payments#amount",
+      "kind": "bounds-min",
+      "path": "/api/payments",
+      "param": "amount",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          -100
+        ],
+        "basis": "traffic: \"balance\" drops by exactly \"amount\" on 2 observed call(s) (debit semantics) and amount was never observed ≤ 0 → probe -100"
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"balance\" drops by exactly \"amount\" on 2 observed call(s) (debit semantics) and amount was never observed ≤ 0 → probe -100"
+    },
+    {
+      "id": "traffic:POST /api/bookings#seats",
+      "kind": "bounds-max",
+      "path": "/api/bookings",
+      "param": "seats",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          5
+        ],
+        "basis": "traffic: \"bookedSeats\" grows by exactly \"seats\" and the resource's constant \"seats\" = 4 caps every observed accumulation → probe 5"
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"bookedSeats\" grows by exactly \"seats\" and the resource's constant \"seats\" = 4 caps every observed accumulation → probe 5"
+    },
+    {
+      "id": "traffic:POST /api/safe/payments#amount",
+      "kind": "bounds-min",
+      "path": "/api/safe/payments",
+      "param": "amount",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          -100
+        ],
+        "basis": "traffic: \"balance\" drops by exactly \"amount\" on 2 observed call(s) (debit semantics) and amount was never observed ≤ 0 → probe -100"
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (422) — the invariant holds | traffic: \"balance\" drops by exactly \"amount\" on 2 observed call(s) (debit semantics) and amount was never observed ≤ 0 → probe -100"
+    },
+    {
+      "id": "traffic:POST /api/safe/bookings#seats",
+      "kind": "bounds-max",
+      "path": "/api/safe/bookings",
+      "param": "seats",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          5
+        ],
+        "basis": "traffic: \"bookedSeats\" grows by exactly \"seats\" and the resource's constant \"seats\" = 4 caps every observed accumulation → probe 5"
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (422) — the invariant holds | traffic: \"bookedSeats\" grows by exactly \"seats\" and the resource's constant \"seats\" = 4 caps every observed accumulation → probe 5"
+    },
+    {
+      "id": "traffic:POST /api/checkout/confirm",
+      "kind": "flow-order",
+      "path": "/api/checkout/confirm",
+      "param": null,
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          null
+        ],
+        "basis": "traffic: /api/checkout/confirm was only ever observed AFTER pay on the same entity → invoke it on a fresh entity with the intermediate(s) skipped"
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: /api/checkout/confirm was only ever observed AFTER pay on the same entity → invoke it on a fresh entity with the intermediate(s) skipped"
+    },
+    {
+      "id": "traffic:POST /api/safe/checkout/confirm",
+      "kind": "flow-order",
+      "path": "/api/safe/checkout/confirm",
+      "param": null,
+      "surface": "safe",
+      "derived": {
+        "values": [
+          null
+        ],
+        "basis": "traffic: /api/safe/checkout/confirm was only ever observed AFTER pay on the same entity → invoke it on a fresh entity with the intermediate(s) skipped"
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (409) — the invariant holds | traffic: /api/safe/checkout/confirm was only ever observed AFTER pay on the same entity → invoke it on a fresh entity with the intermediate(s) skipped"
+    },
+    {
+      "id": "traffic:POST /api/coupons/apply#code",
+      "kind": "usage-limit",
+      "path": "/api/coupons/apply",
+      "param": "code",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          "SAVE20"
+        ],
+        "basis": "traffic: \"code\" observed with 2 distinct values, a same-value repeat on one entity was refused (409), and \"couponCount\" never exceeded 1 → apply a second distinct value to one entity",
+        "limit": 1
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"code\" observed with 2 distinct values, a same-value repeat on one entity was refused (409), and \"couponCount\" never exceeded 1 → apply a second distinct value to one entity"
+    },
+    {
+      "id": "traffic:POST /api/safe/coupons/apply#code",
+      "kind": "usage-limit",
+      "path": "/api/safe/coupons/apply",
+      "param": "code",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          "SAVE20"
+        ],
+        "basis": "traffic: \"code\" observed with 2 distinct values, a same-value repeat on one entity was refused (409), and \"couponCount\" never exceeded 1 → apply a second distinct value to one entity",
+        "limit": 1
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (409) — the invariant holds | traffic: \"code\" observed with 2 distinct values, a same-value repeat on one entity was refused (409), and \"couponCount\" never exceeded 1 → apply a second distinct value to one entity"
+    },
+    {
+      "id": "traffic:PATCH /api/rides/RIDE1/status#status",
+      "kind": "role-gate",
+      "path": "/api/rides/RIDE1/status",
+      "param": "status",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          "completed"
+        ],
+        "basis": "traffic: PATCH /api/rides/RIDE1/status refused unauthenticated (401), was never observed succeeding for this session, and drives the resource's \"status\" field (observed: open) → the low-priv session drives it to the unobserved terminal \"completed\""
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: PATCH /api/rides/RIDE1/status refused unauthenticated (401), was never observed succeeding for this session, and drives the resource's \"status\" field (observed: open) → the low-priv session drives it to the unobserved terminal \"completed\""
+    },
+    {
+      "id": "traffic:PATCH /api/safe/rides/RIDE1/status#status",
+      "kind": "role-gate",
+      "path": "/api/safe/rides/RIDE1/status",
+      "param": "status",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          "completed"
+        ],
+        "basis": "traffic: PATCH /api/safe/rides/RIDE1/status refused unauthenticated (401), was never observed succeeding for this session, and drives the resource's \"status\" field (observed: open) → the low-priv session drives it to the unobserved terminal \"completed\""
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (403) — the invariant holds | traffic: PATCH /api/safe/rides/RIDE1/status refused unauthenticated (401), was never observed succeeding for this session, and drives the resource's \"status\" field (observed: open) → the low-priv session drives it to the unobserved terminal \"completed\""
+    },
+    {
+      "id": "traffic:POST /api/orders/×/cancel",
+      "kind": "state-machine",
+      "path": "/api/orders/{{id}}/cancel",
+      "param": null,
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          null
+        ],
+        "basis": "traffic: \"cancel\" only ever succeeded from [\"pending\"] but an entity's observed journey ends at \"delivered\" → drive a fresh entity there and invoke cancel",
+        "toState": "cancelled",
+        "preState": "delivered"
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"cancel\" only ever succeeded from [\"pending\"] but an entity's observed journey ends at \"delivered\" → drive a fresh entity there and invoke cancel"
+    },
+    {
+      "id": "traffic:POST /api/safe/orders/×/cancel",
+      "kind": "state-machine",
+      "path": "/api/safe/orders/{{id}}/cancel",
+      "param": null,
+      "surface": "safe",
+      "derived": {
+        "values": [
+          null
+        ],
+        "basis": "traffic: \"cancel\" only ever succeeded from [\"pending\"] but an entity's observed journey ends at \"delivered\" → drive a fresh entity there and invoke cancel",
+        "toState": "cancelled",
+        "preState": "delivered"
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (409) — the invariant holds | traffic: \"cancel\" only ever succeeded from [\"pending\"] but an entity's observed journey ends at \"delivered\" → drive a fresh entity there and invoke cancel"
+    },
+    {
+      "id": "traffic:POST /api/referrals#code",
+      "kind": "actor-separation",
+      "path": "/api/referrals",
+      "param": "code",
+      "surface": "vuln",
+      "derived": {
+        "values": [
+          "{{self}}"
+        ],
+        "basis": "traffic: \"code\" values share a token shape with the caller's own \"refCode\" (common prefix \"REF-\") → redeem the caller's OWN value (resolved at runtime)",
+        "limit": 1
+      },
+      "verdict": "violated",
+      "naiveWouldFlag": true,
+      "detail": "violation accepted AND the state readback shows the attacker-chosen effect | traffic: \"code\" values share a token shape with the caller's own \"refCode\" (common prefix \"REF-\") → redeem the caller's OWN value (resolved at runtime)"
+    },
+    {
+      "id": "traffic:POST /api/safe/referrals#code",
+      "kind": "actor-separation",
+      "path": "/api/safe/referrals",
+      "param": "code",
+      "surface": "safe",
+      "derived": {
+        "values": [
+          "{{self}}"
+        ],
+        "basis": "traffic: \"code\" values share a token shape with the caller's own \"refCode\" (common prefix \"REF-\") → redeem the caller's OWN value (resolved at runtime)",
+        "limit": 1
+      },
+      "verdict": "enforced",
+      "naiveWouldFlag": false,
+      "detail": "violating request refused (422) — the invariant holds | traffic: \"code\" values share a token shape with the caller's own \"refCode\" (common prefix \"REF-\") → redeem the caller's OWN value (resolved at runtime)"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "arkose_labs",
+      "name": "Arkose Labs",
+      "offersBounties": true,
+      "assets": [
+        "cdn.arkoselabs.com",
+        "client-api.arkoselabs.com",
+        "customer-sessions.arkoselabs.com",
+        "demo.arkoselabs.com",
+        "iframe.arkoselabs.com",
+        "portal.arkoselabs.com",
+        "verify.arkoselabs.com",
+        "www.arkoselabs.com"
+      ],
+      "exclusions": [
+        "developer.arkoselabs.com",
+        "https://status.arkoselabs.com/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\arkose_labs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "arkose_labs",
+  "name": "Arkose Labs",
+  "url": "https://hackerone.com/arkose_labs",
+  "policy": "At Arkose Labs, we take cybersecurity seriously and appreciate the valuable contributions from the wider security community. We encourage security research individuals to test our security, and we offer rewards for valid reported vulnerabilities. The responsible disclosure of potential issues helps us ensure the security and privacy of our customers and data.\n\n# Response Targets\nArkose Labs will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 5 business days\n* Time to triage (from report submit) - 10 business days\n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Arkose Labs.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Testing Guidance\nTo better understand Arkose Labs Products and its core functions, please refer to the website provided - https://developer.arkoselabs.com/docs/welcome-to-arkose-labs.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Focus Areas\n* Authentication bypass\n* Remote code execution\n* Obtaining user information\n* Injection attacks\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* Reports from automated tools or scans\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Reports of insecure SSL/TLS ciphers (unless you have a working proof of concept, and not just a report from a scanner such as SSL Labs)\n* Any activity that could lead to the disruption of our service (DoS).\n* Rate limiting or bruteforce issues on non-authentication endpoints. As for authentication endpoints, any brute force attempts must result in Account Take-over (ATO).\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* xmlrpc.php file being enabled for WP site.\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Arkose Labs and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "client-api.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdn.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "customer-sessions.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "portal.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "verify.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iframe.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://status.arkoselabs.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This website is mainly a Marketing based site. Vulnerabilities on this asset will be awarded with lower bounties.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "demo.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This web app is mainly a Marketing based site. Vulnerabilities on this asset will be awarded with lower bounties.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.arkoselabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This site is managed by a 3rd party provider.",
+      "max_severity": "none"
+    }
+  ]
+}

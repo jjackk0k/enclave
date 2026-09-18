@@ -1,0 +1,75 @@
+{
+  "id": "hubspot",
+  "handle": "hubspot",
+  "name": "HubSpot",
+  "platform": "hackerone",
+  "url": "https://hackerone.com/hubspot",
+  "engagement": "hubspot",
+  "intakePath": "data/bountyline/hubspot-program.json",
+  "signedScopePath": "../poc/enforcement-seam/session/marcus-hubspot.json",
+  "scopeVerification": "seam-verified",
+  "automation": {
+    "policy": "human-cadence",
+    "basis": "policy-text",
+    "evidence": "rate limits"
+  },
+  "state": "triaged",
+  "createdAt": "2026-08-30T21:46:04.762Z",
+  "updatedAt": "2026-08-30T23:56:03.945Z",
+  "history": [
+    {
+      "at": "2026-08-30T21:46:04.762Z",
+      "from": null,
+      "to": "imported",
+      "note": "intake record data/bountyline/hubspot-program.json"
+    },
+    {
+      "at": "2026-08-30T21:46:04.763Z",
+      "from": "imported",
+      "to": "scoped",
+      "note": "signed scope recorded at add time (seam-verified)"
+    },
+    {
+      "at": "2026-08-30T22:15:31.650Z",
+      "from": "scoped",
+      "to": "scoped",
+      "note": "signed scope recorded (seam-verified)"
+    },
+    {
+      "at": "2026-08-30T22:15:31.654Z",
+      "from": "scoped",
+      "to": "hunted",
+      "note": "campaign artifact data/exports/hubspot-state-2026-08-30.json"
+    },
+    {
+      "at": "2026-08-30T23:56:03.808Z",
+      "from": "hunted",
+      "to": "hunted",
+      "note": "hunt artifact repointed to V3 rerun exports (audited correction)"
+    },
+    {
+      "at": "2026-08-30T23:56:03.946Z",
+      "from": "hunted",
+      "to": "triaged",
+      "note": "validator-readiness triage"
+    }
+  ],
+  "hunt": {
+    "campaignArtifact": "data/exports/hubspot-surface-2026-08-30-V3.json",
+    "reportArtifact": "data/exports/hubspot-report-2026-08-30-V3.md",
+    "at": "2026-08-30T23:56:03.807Z",
+    "cadence": "human-cadence",
+    "note": "V3 rerun (soft-404-baselined + param-harvest engine). Supersedes the V1 pointer (full /api/state dump normalizeFindings cannot read) — artifact-shape correction; 22 findings, all TLS-wildcard class."
+  },
+  "triage": {
+    "ready": 0,
+    "notReady": 22,
+    "total": 22,
+    "at": "2026-08-30T23:56:03.949Z",
+    "source": "data/exports/hubspot-surface-2026-08-30-V3.json",
+    "staleDays": 30
+  },
+  "reports": [],
+  "queue": null,
+  "rounds": []
+}

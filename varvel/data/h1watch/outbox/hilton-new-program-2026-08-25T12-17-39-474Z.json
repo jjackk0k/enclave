@@ -1,0 +1,235 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hilton",
+      "name": "Hilton",
+      "offersBounties": true,
+      "assets": [
+        "*.hilton.com",
+        "*.hilton.io",
+        "*.hiltonbusinessonline.com",
+        "*.hiltonlocalbiz.com",
+        "121.200.237.36/29",
+        "167.187.0.0/16",
+        "192.251.123.0/24",
+        "192.251.124.0/24",
+        "192.251.125.0/24",
+        "192.251.126.0/24",
+        "203.79.37.2/29",
+        "62.216.152.46/29",
+        "82.196.42.196/28",
+        "hilton.com",
+        "hilton.io",
+        "hiltonbusinessonline.com",
+        "hiltonlocalbiz.com"
+      ],
+      "exclusions": [
+        "*.hiltonhotels.jp",
+        "eis.hilton.com",
+        "guestfeedback.hilton.com",
+        "hiltongrandvacations.com",
+        "hiltonnet.hilton.com",
+        "https://jobs.hilton.com",
+        "onqinsider.hilton.com",
+        "pim.hilton.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hilton-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hilton",
+  "name": "Hilton",
+  "url": "https://hackerone.com/hilton",
+  "policy": "# Introduction\nAt Hilton, our mission is to provide the light and warmth of hospitality to the world, by delivering an exceptional, safe, and reliable customer experience. In pursuit of this mission, we are partnering with HackerOne and the security community to launch the Hilton Bug Bounty program, and we want you to participate!\n\n# Response Targets\nHilton will make a best effort to respond within five business days to reports received through the Bug Bounty program. To be eligible for a reward, you must give Hilton reasonable time to investigate the reported vulnerability and you must respond to follow-up questions from Hilton or HackerOne.\n\n# Out of Scope\nBooking of reservations is considered an out-of-scope activity. \nThe following vulnerabilities also are out of scope:\n- All Social Media Account Takeover and Domain Takeover attacks.\n- Clickjacking on pages with no sensitive actions.\n- POST-based XSS attacks. \n- Open Redirect attacks.\n- Unauthenticated/logout/login CSRF.\n- Attacks requiring MITM or physical access to a user's device.\n- Previously known vulnerable libraries without a working Proof of Concept.\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n- Missing development best practices.\n- Missing best practices in SSL/TLS configuration.\n- Conflict with industry policies and standards.\n- Any activity that could lead to the disruption of a Hilton service (for example, DoS attacks).\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n- Rate-limiting issues on endpoints that do not disclose PII or other relevant information.\n- Reports originating only from automated tools or scanners (e.g., Burp, nmap, etc.).\n- All files, regardless of labeling, are out of scope for the ir.hilton.com site.\n\n# Testing Requirements\n==You must append the string “HackerOne” to your user agent for all HTTP/HTTPS traffic before performing any testing.== Example instructions on how to modify the user agent string for Chrome can be found [here](https://developers.google.com/web/tools/chrome-devtools/device-mode/override-user-agent) and for Burp Suite can be found [here](https://github.com/codewatchorg/Burp-UserAgent).\n\n# Submission Requirements\n- Vulnerability reports must be submitted to HackerOne and must meet HackerOne’s requirements (https://docs.hackerone.com/programs/submit-report-form.html)\n- When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug.\n- Please suggest mitigation or remediation actions, if appropriate.\n\n# Rewards\nValid, in-scope findings submitted to the Hilton Bug Bounty program will be rewarded based on the severity of the vulnerability. The amount offered for each severity is shown in the “Rewards” table above. Severity is based on the Common Vulnerability Scoring Standard (CVSS) of the vulnerability; however, the final determination of severity is performed by, and at the sole discretion of, Hilton.\n\n# Severity Scoring\nWe will consider numerous factors when determining the severity of a finding, including but not limited to the potential business impact of the finding, the volume of sensitive data at risk, and/or the potential financial impact that could result from the compromise of data or a system. \n\n# Disclosure Policy\n- You may not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Hilton. You may not disclose any vulnerabilities publicly.\n- Hilton may require that you sign a confidentiality agreement related to any vulnerabilities you identify.\n- Please review HackerOne's policy for additional guidelines. (https://www.hackerone.com/disclosure-guidelines).\n \n# Program Rules and Prohibited Activities:\n- ==You may only interact with accounts you own or with the explicit permission of the account holder, except in the case of published default credentials, in which case you may only authenticate to validate the credentials. Once authenticated, you may not interact with the account in any further manner.==\n- Automated web scans of Hilton websites should be limited to a maximum of 100 requests/minute for each website.\n- You must not collect, disclose, destroy, compromise, alter, interfere with, or transfer any proprietary or confidential Hilton data or property or data or property belonging to Hilton’s business partners, customers, employees, franchisees, owners, shareholders, vendors, or any other party directly or indirectly affiliated with Hilton. Actions such as storing Hilton data in public internet services such as PasteBin are strictly prohibited. You must notify Hilton immediately if you access, modify, delete, or store Hilton data.\n- You must not perform any actions that could affect Hilton's operations or the guest experience, such as Denial of Service (DoS) attacks or destruction of data.\n- You must not interact with Hilton's customers without Hilton’s express written consent.\n- All vulnerabilities submitted via the Hilton Bug Bounty program immediately and irrevocably become the intellectual property of Hilton. By submitting a report pursuant to the Hilton Bug Bounty program, you grant Hilton permission to make use of the information contained therein.\n- You must not disclose any vulnerabilities related to Hilton to parties other than Hilton or HackerOne without express authorization from Hilton.\n- Vulnerabilities will only be considered for triage if they are unknown to Hilton at the time of disclosure.\n- For findings involving the exposure of documents, the impact is determined solely by the substantive content of the affected documents regardless of the markings on the documents.\n- You must submit vulnerabilities to Hilton through the Bug Bounty program.\n- To be eligible for a reward, vulnerability reports must provide enough technical detail for the Hilton security team to reproduce the issue. \n- You must submit one report for each vulnerability.  If you need to chain vulnerabilities to provide impact, you may submit more than one vulnerability in a single report.\n- Do not submit multiple findings for issues of the same CWE affecting the same service.  If you have been advised that the initial finding has been resolved and you then identify another finding, you may submit that finding.\n- Findings related to the exposure of non-Hilton credentials from publicly available sources are considered out of scope.\n- Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n- All questions about the Bug Bounty program must be submitted to Hilton-program@hackerone.com.\n- You must comply with all applicable laws.\n- This program is not applicable in any jurisdiction where such conduct is not permissible.\n- You may not participate in the program if you are a public sector employee unless you have obtained written permission from your ethics compliance officer.\n- You may not participate in the program if you are a current Hilton employee or were an employee of Hilton within the last six months.\n- Hilton may change the rules of the Bug Bounty program at any time.\n \n# Safe Harbor\n- Any activities conducted in good faith and in a manner consistent with this policy will be considered authorized conduct and Hilton will not initiate legal action against the individual conducting those activities.\n- Hilton does not authorize any security research on other entities and will not defend, indemnify, or protect you from any third-party action.\n\n--------\nThank you for helping keep Hilton and our customers safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Authentication functionality when a user creates a Hilton Honors account (https://www.hilton.com/en/hilton-honors/join/).  To create a Hilton Honors account, finders should complete the free sign-up process. The string “Test-Hackerone” must be prepended to the First and Last name fields for all Hono",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hilton.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "167.187.0.0/16",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "192.251.123.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "192.251.124.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "192.251.125.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "192.251.126.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "82.196.42.196/28",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "203.79.37.2/29",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "62.216.152.46/29",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "121.200.237.36/29",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hiltonbusinessonline.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hiltonlocalbiz.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hilton.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All subdomains of hilton.com that resolve to IP addresses belonging to the Rackspace organization are considered out of scope. In addition, the application eis.hilton.com is out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hilton.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hiltonbusinessonline.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hiltonlocalbiz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hiltonhotels.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "eis.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://jobs.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "hiltongrandvacations.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Hilton Grand Vacations (HGV) is a separate, publicly traded company that operates Hilton's vacation ownership clubs, including the Hilton Grand Vacations Grand Vacations Club® and The Hilton Club®, and as such these reports should be submitted to them directly.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "guestfeedback.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is hosted by Qualtrics, and as such these reports should be submitted directly to them.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "hiltonnet.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "onqinsider.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pim.hilton.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

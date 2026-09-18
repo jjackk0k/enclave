@@ -1,0 +1,76 @@
+{
+ "at": "2026-09-12T16:04:55.395Z",
+ "opportunity": "rocket_chat",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "rocket.chat",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3a0269ba80f7863-LHR",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "github.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "github.com",
+    "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+    "content-security-policy": "default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ ",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/.git/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "cloud.rocket.chat",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-PM4BR5G",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-PM4BR5G"
+    }
+   ],
+   "headers": {
+    "content-security-policy": "frame-ancestors 'none';"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

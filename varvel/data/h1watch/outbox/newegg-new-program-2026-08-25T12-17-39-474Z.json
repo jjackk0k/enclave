@@ -1,0 +1,119 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "newegg",
+      "name": "Newegg",
+      "offersBounties": true,
+      "assets": [
+        "com.newegg.app",
+        "http://*.newegg.ca",
+        "http://*.newegg.com",
+        "pmtcards.newegg.com",
+        "secure.newegg.ca",
+        "secure.newegg.com",
+        "sellerportal.newegg.com"
+      ],
+      "exclusions": [
+        "http://*.neweggbusiness.com",
+        "jobs.newegg.com",
+        "sellingpilot.newegg.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\newegg-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "newegg",
+  "name": "Newegg",
+  "url": "https://hackerone.com/newegg",
+  "policy": "# Introduction \nOur mission at Newegg is to make e-Commerce better for everyone. Newegg's bug bounty program will give the security community the opportunity to help us accomplish our mission by making us the most secure and trusted e-commerce platform. We look forward to working with you and helping us find security vulnerabilities in order to keep our businesses and customers safe and happy. \n\n# Response Targets \nNewegg will make a best effort to meet the following response targets for hackers participating in our program: \n* Time to first response (from report submit) - 5 business days \n* Time to triage (from report submit) - 10 business days \n* Time to bounty (from triage) - 10 business days \n* Time to resolution - Depends on severity and complexity \nWe’ll try to keep you informed about our progress throughout the process. \n\n# Disclosure Policy \n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization. \n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines). \n# Program Rules \n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward. \n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact. \n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced). \n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty. \n* Social engineering (e.g. phishing, vishing, smishing) is prohibited. \n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder. \n\n# Program Guidelines\nNewegg often has the same code deployed in many locations, while these may appear to be discrete vulnerabilities, it is our policy to deploy fixes to vulnerabilities located in one place to all locations, as such we will only pay bounties on the first report of a vulnerability to a specific piece of code and vulnerabilities on multiple parameters in the same form will be treated as the same vulnerability.\n\n# Test Plan \n## Newegg.com & Newegg.ca\n\n### Create your own user account? \n* Yes\n\n# Out of scope subdomains\nJobs.Newegg.com\nSellerportal.Newegg.com\nvendorportal.newegg.com\nsellingpilot.newegg.com\n\n# Out of scope domains\nNeweggBusiness.com\n\n# Out of Scope additional guidelines:\n- UUID-related concerns fall outside the scope of our current investigation unless the attacker demonstrates a feasible method of enumerating the UUIDs.\n- If the submitted report is in the list of known vulnerabilities at NewEgg, the report will be closed as a duplicate.\n\n### What details are required?\n* First name, Last name, email, password\n\n### Can those personal details be dummy data?\n* Yes\n\n### What does this asset do? What is its intended use?\n* Newegg.com and Newegg.ca is an online retailer of items including computer hardware and consumer electronics.\n\n### Architecture behind it.\nAkamai\nFastly\nNetscaler\nNginx+Lua\nNginx\nKubernetes\nNGM\nAPI Gateway\nCassandra\nCanary\nSolr\nVarnish\nRedis\nSQL\nSpark Streaming\nKafka\nApache Hbase\n\n### Languages\n.net\nNode.js\nJava\nphp\n\n### What are some bugs we are looking for?\n* Identification of vulnerabilities so that they can be remediated prior to being exploited by an Attacker\n* Unauthorized access to restricted services or resources containing sensitive data, due to missing or insufficient access control\n* Compromise of an intermediary device used by privileged users to access secure network zones\n* Compromise of the domain used by privileged users\n* Sensitive data leakage or exfiltration\n* Verification of application logic, session handling, and API security for applications \n* Exploitable vulnerabilities or misconfigurations\n* Authentication and session management\n* Registration\n* Account page\n* API’s\n* MFA & One time token authentication mechanism\n* Customer information (PII)\n* Checkout page\n* OWASP Top 10\n* CWE Top 25\n* Vulnerable application features\n* Application Logic\n* Information Disclosure\n\n# Rewards \nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Newegg. \n\n# Out of scope vulnerabilities \n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope: \n* Clickjacking on pages with no sensitive actions \n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions \n* Attacks requiring MITM or physical access to a user's device. \n* Previously known vulnerable libraries without a working Proof of Concept. \n* Comma Separated Values (CSV) injection without demonstrating a vulnerability. \n* Missing best practices in SSL/TLS configuration. \n* Any activity that could lead to the disruption of our service (DoS). \n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS \n* Rate limiting or bruteforce issues on non-authentication endpoints \n* Missing best practices in Content Security Policy. \n* Missing HttpOnly or Secure flags on cookies \n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.) \n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version] \n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors). \n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis. \n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated \n* Issues that require unlikely user interaction \n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep Newegg and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "http://*.newegg.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://*.newegg.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://*.neweggbusiness.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jobs.newegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Site content on this subdomain hosted by 3rd party",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sellerportal.newegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sellingpilot.newegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.newegg.app",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.newegg.app",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.newegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.newegg.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pmtcards.newegg.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

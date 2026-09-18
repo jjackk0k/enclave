@@ -1,0 +1,61 @@
+{
+ "at": "2026-09-12T04:46:28.282Z",
+ "opportunity": "sorare",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "sorare.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 1588ee5c6313e6d4b2baea406a63f136.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=2592000; includeSubDomains",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.sorare.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 fa63af50c0e4f34ddecf2b2d0dca224e.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=63072000; includeSubDomains"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ws.sorare.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 e4bbc916b7f96771ed58c0d668318acc.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

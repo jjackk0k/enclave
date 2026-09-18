@@ -1,0 +1,151 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "costco",
+      "name": "Costco",
+      "offersBounties": false,
+      "assets": [
+        "*.costco.ca",
+        "*.costco.com",
+        "*.costcobusinesscentre.ca",
+        "*.costcobusinessdelivery.com",
+        "*.costcotravel.ca",
+        "*.costcotravel.com",
+        "com.costco.app.android",
+        "com.costco.costco",
+        "www.costco.ca",
+        "www.costco.com",
+        "www.costcobusinesscentre.ca",
+        "www.costcobusinessdelivery.com",
+        "www.costcotravel.ca",
+        "www.costcotravel.com"
+      ],
+      "exclusions": [
+        "signin.costco.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\costco-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "costco",
+  "name": "Costco",
+  "url": "https://hackerone.com/costco",
+  "policy": "Here at Costco, we have a very straightforward but important mission: to continually provide our members with quality goods and services at the lowest possible prices. \n\nWe respect and care deeply about the data security and privacy of our members, employees and partners. We welcome the security researcher community to share details of any suspected vulnerabilities in our systems and e-commerce platforms in a responsible manner.\n\nIf you believe you have found a qualifying security vulnerability in our in-scope e-commerce platform or systems, please submit a report in accordance with the HackerOne's Vulnerability Disclosure Guidelines.  We value the positive impact of your work and thank you in advance for your contribution.\n\n\n# Response Targets\nCostco makes a best effort to meet the following response targets for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 day |\n| Time to Triage | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n\n# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from Costco.\n* Follow HackerOne's [vulnerability disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Provide as much information as possible about the potential issue you have discovered. The more information you provide, the quicker Costco will be able to validate the issue.\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Participants must not be currently employed by Costco or any of its affiliates, or an immediate family member and/or household member of a person employed by Costco or any of its affiliates. Additionally, the security researcher submitting a security issue cannot have been a Costco employee, contractor, or vendor/supplier contact within the past 12 months.\n\nAll of the following conduct is prohibited:\n* Any attack that could harm our services, including launching any denial of service attacks (DDoS), Spam, pyramid schemes, or deployment or use any other malicious software or technology.\n* Access, download, or modification of data residing in an account that does not belong to you. Test accounts under your control are permitted. Testing must not disrupt or compromise any data or data access that is not yours.\n* Non-technical attacks such as social engineering or phishing.\n* Access to Costco’s infrastructure.\n* Attack, in any way, our end users, or engage in trade of stolen user credentials or other information.\n* Automated/scripted testing of web forms, including \"Contact Us\" forms that are designed for customers to contact our support team.\n* Social engineering (e.g. phishing, vishing, smishing).\n\n#Out of scope domains\nsignin.costco.com \n\n# Out of scope vulnerabilities\nAll of the following activities are out of the scope of this program:\n* Testing third-party applications, websites, or services that integrate with or link to Costco properties.\n* Physical security of Costco facilities, employees, equipment, etc.\n* Attacks requiring physical access to a user's device.\n* API keys found in our mobile applications.\n* Forms missing CSRF tokens (we require evidence of actual CSRF vulnerability).\n* Login/logout CSRF.\n* Password and account recovery policies, such as reset link expiration or password complexity.\n* Missing security headers which do not lead directly to a vulnerability.\n* Clickjacking without an impact.\n* Content spoofing / reflection/ injection (on 404 page, search result page etc.) unless executes code.\n* Known-vulnerable library (without evidence of exploitability).\n* Certain reports of spam.\n* Certain SPF and DKIM issues.\n* Low impact host header issues.\n* Hard to exploit SSL/TLS protocol vulnerabilities.\n* Best practice concerns will be reviewed, but in general we require evidence of a vulnerability.\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms.\n* Brute force of promo code.\n* Reflected file download.\n* CSV formula injection.\n* Email enumeration.\n* Cookie and logout policies.\n\n\n# Safe Harbor\nWe do not intend to assert claims under computer abuse laws for activities conducted in a manner consistent with this policy. We cannot bind third parties or authorize activities on third party products, but if legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Costco and our members safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.costco.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.costco.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.costcobusinessdelivery.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.costcobusinesscentre.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "signin.costco.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.costco.app.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.costcotravel.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.costcotravel.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.costco.costco",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costco.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costco.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costcobusinesscentre.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costcobusinessdelivery.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costcotravel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.costcotravel.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

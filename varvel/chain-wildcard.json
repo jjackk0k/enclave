@@ -1,0 +1,24 @@
+{
+  "name": "tls-wildcard-vhost-bypass",
+  "base": "https://sandbox.securegateway.com",
+  "steps": [
+    {
+      "id": "baseline",
+      "path": "/",
+      "expect": { "status": 200 },
+      "note": "confirm origin reachability against the canonical host"
+    },
+    {
+      "id": "probe-admin-vhost",
+      "path": "/admin",
+      "headers": { "Host": "admin.securegateway.com" },
+      "expect": { "status": 200, "contains": "admin" },
+      "note": "privileged endpoint is served for an arbitrary subdomain covered by the wildcard cert"
+    }
+  ],
+  "impact": {
+    "step": "probe-admin-vhost",
+    "contains": "admin",
+    "control": { "stripHeaders": ["Host"], "mustDiffer": true }
+  }
+}

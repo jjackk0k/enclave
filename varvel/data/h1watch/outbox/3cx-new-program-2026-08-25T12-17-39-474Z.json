@@ -1,0 +1,110 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "3cx",
+      "name": "3CX",
+      "offersBounties": true,
+      "assets": [
+        "3CX Live chat WordPress plugin",
+        "3CX Phone System",
+        "3CX SBC",
+        "Other",
+        "https://apps.apple.com/us/app/3cx/id992045982",
+        "https://apps.microsoft.com/detail/3cx/9NW77489NGJ0",
+        "https://play.google.com/store/apps/details?id=com.tcx.sipphone14",
+        "https://portal.3cx.com"
+      ],
+      "exclusions": [
+        "*.3cx.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\3cx-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "3cx",
+  "name": "3CX",
+  "url": "https://hackerone.com/3cx",
+  "policy": "# Who we are\n3CX is a global leader in business communications, being used by more than 350,000 companies around the world. Taking advantage of the SIP open-standard and WebRTC technology, 3CX has evolved from its roots as a PBX phone system to a complete communications platform, offering customers a simple, flexible, and affordable solution to call, video and live chat. With 3CX businesses can increase productivity, enhance customer experiences, while dramatically cutting costs and management headaches.\n\nThe 3CX Bug Bounty program is part of its commitment to providing a secure, best in class, product to its customers and partners. 3CX looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Response Targets\n3CX will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 7 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss or disclose vulnerabilities in this program (even resolved ones) outside of the HackerOne platform.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact. \n* Even though reports must be detailed in order to understand and reproduce an issue, they should be kept as short as possible.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Provide a working POC along with your report. (Theoretical vulnerabilities may not be accepted)\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty. (If an issue affects multiple endpoints but stems from the same function, open only one report and include all endpoints)\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Test Plan\n1. Register on www.3cx.com using your **hackerone email address**. Confirm your email and follow the wizard to select a deployment type. (Please refer to our documentation for more information about each deployment type https://www.3cx.com/docs/manual/install/)\n\n2. **There might be new builds in the repository after you have installed it. If you find a vulnerability, before submitting it, make sure you update to the latest available version and ensure it is still valid. On linux you can manually update by running `apt update && apt upgrade` in your server's terminal.**\n\n3. For any additional technical documentation you can refer to our website.\n\n*Hackers who want to test features that are only available in the ENTERPRISE license should use the \"Credentials for testing\" feature of H1 to request their license to be upgraded.*\n\n# Scope of program\nThe scope of our program focuses on exploiting any of the components included/used in the 3CX software. This includes:\n* 3CX Phone System V20 (Windows and Linux)\n -- On Premise\n -- SMB\n -- Hosted by 3CX\n\n* 3CX SBC V20 (Windows & Linux)\n* 3CX Windows app V20\n* 3CX Mobile clients (iOS/Android)\n* 3CX Live chat & WordPress plugin \n* 3CX Customer portal \n\n# Bounties\n* The 3CX Bug Bounty program recognizes the contributions of security researchers who invest their time and effort in helping us make 3CX more secure.\n* The reward level is based on the vulnerability impact and increases for higher quality reports that include reproduction code, test cases, and patches. Rewards are not additive and are subject to change as we see fit. 3CX will determine the impact for a given security vulnerability based on existing and compensating controls. Prior bounty amounts awarded are not precedent for future payments. Our program's scope and policy is subject to change at any time and individuals are encouraged to refer to this policy often.\n* Multiple reports by the same user for an issue that stems from the same root cause will be treated as one. \n* Our rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and that reward decisions are up to the discretion of 3CX. While exceptional reports may qualify for higher bounties, there should be no expectation of a payout above the range baselines.\n\n| Severity | Payout |\n| ------------- | ------------- |\n| Critical | $2,300 - $3,500 |\n| High | $1,150 - $2,300 |\n| Medium | $350 - $1,150 |\n| Low | $100 - $350 |\n| Informative | $0 - $0 |\n\n\\* ** Vulnerabilities found/reported  related to the VoIP/RTC features of the product can be awarded with extra bonus (depending on severity).**\n\n# Out of scope vulnerabilities\n* **Any activity that could lead to the disruption of our infrastructure or cloud services (DoS, DDoS)**.\n* Lack of rate limit on cloud endpoints. \n* Issues that require an attacker to have access to a user's system or email.\n* Creating unlimited objects in the 3CX Phone System is not considered an issue by itself, unless there is a severe impact that can be demonstrated.\n* Being able to see own credentials in the xAPI responses or of other users when in elevated roles\n* SSRF in the Admin console on Self-hosted systems. On 3CX hosted systems actual impact must be demonstrated for a report to be accepted/eligible and not just the mere presence of it.\n* Command execution/injection using the Call Flow Designer (CFD). The app has functionality to execute system commands by design.\n* Social engineering of our employees or contractors.\n* Attacks against our physical facilities.\n* Attacks requiring physical access to a user's device, unless the device is in-scope and explicitly hardened against physical access.\n* Attacks requiring disabling Man In The Middle (MITM) protections.\n* Attacks only affecting obsolete browsers or operating systems.\n* Missing best practices (SSL/TLS configuration, Content Security Policies, cookie flags, tabnabbing, autocomplete attribute, DNSSEC, SPF/DKIM/DMARC records), unless a significant impact can be demonstrated.\n* Information disclosure in log files in the product.\n* Information disclosure in publicly accessible files/endpoints, unless a significant/real impact can be demonstrated.\n* Clickjacking or Cross-Site Request Forgery (CSRF) on unauthenticated pages / forms with no sensitive actions.\n* X-frame \"bypasses\" using proxies.\n* Open redirects, unless a significant impact can be demonstrated.\n* Self-exploitation (e.g  XSS), unless a method to attack a different user can be demonstrated.\n* Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.\n* Software version disclosure / Banner identification issues / Descriptive error messages or stack traces.\n* Theoretical vulnerabilities that require unlikely user interaction or circumstances.\n* Outdated dependencies.\n* Subdomain takeover of any of the domains that are freely available in the 3CX Phone System.\n* Reports from automated tools\n* Leaked credentials from infostealers (Reports are welcome but are not eligible for a bounty)\n\n# Safe Harbor\nGold Standard Safe Harbor Applies to this program.\n\nThank you for helping keep 3CX and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "3CX Phone System",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "1. Register on www.3cx.com using your **hackerone email address**. Confirm your email and follow the wizard to select a deployment type. (Please refer to our documentation for more information about each deployment type https://www.3cx.com/docs/manual/install/)\n\n2. **There might be new builds in the",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/3cx/id992045982",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The 3CX App allows you to make and receive calls, schedule conferences, video call and chat with your team and customers from anywhere. You install the app and provision it by scanning your extension's QR code.\n\nUser manual: https://www.3cx.com/user-manual/installation-iphone/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.tcx.sipphone14",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The 3CX App allows you to make and receive calls, schedule conferences, video call and chat with your team and customers from anywhere. You install the app and provision it by scanning your extension's QR code. \n\nUser manual: https://www.3cx.com/user-manual/installation-android/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.microsoft.com/detail/3cx/9NW77489NGJ0",
+      "asset_type": "WINDOWS_APP_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The 3CX softphone app for Windows allows you to make calls, view the status of colleagues, chat, schedule a video conference and check voicemail from your desktop\n ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "3CX SBC",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "1. 3CX SBC requires an existing installation of 3CX Server. \n\n2. Use the following ISO instead to deploy 3CX SBC on-premise: https://downloads-global.3cx.com/downloads/debian12iso/debian-amd64-netinst-3cx.iso . \n\n3. In the 3CX Installer select 3CX SBC (not PBX)\n\n4. During the Installation you will b",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.3cx.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "3CX Live chat WordPress plugin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a plugin that integrates 3CX Livechat into a WordPress site. A 3CX installation is required (On Premise or in the Cloud).\n\nLink to the plugin: https://wordpress.org/plugins/wp-live-chat-support/\nLink to the documentation: https://www.3cx.com/docs/manual/live-chat/",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://portal.3cx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the portal where customers and partners can manage their 3CX account/license keys.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

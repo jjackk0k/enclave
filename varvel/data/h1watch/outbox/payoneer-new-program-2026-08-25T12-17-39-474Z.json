@@ -1,0 +1,154 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "payoneer",
+      "name": "Payoneer",
+      "offersBounties": true,
+      "assets": [
+        "*.payoneer.com",
+        "http://greenchannel.payoneer.com.cn/gcportal",
+        "myaccount-cn.payoneer.com",
+        "myaccount.payoneer.com",
+        "payoneer.com.cn"
+      ],
+      "exclusions": [
+        "affiliates.payoneer.com",
+        "blog.payoneer.com",
+        "brand.payoneer.com",
+        "community.payoneer.com",
+        "duediligence.payoneer.com",
+        "explore.payoneer.com",
+        "investorday.payoneer.com",
+        "register.payoneer.com",
+        "skuad.io",
+        "tracks.payoneer.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\payoneer-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "payoneer",
+  "name": "Payoneer",
+  "url": "https://hackerone.com/payoneer",
+  "policy": "Payoneer looks forward to working with the security community and welcome your participation in our program aimed at identifying potential security vulnerabilities related to Payoneer’s products or website (the “**Program**”), in order to keep our business and customers safe and protected.\n \nBelow is our policy and applicable terms and conditions for participation in the Program (the “**Policy**”). In order to be eligible for awards granted under the Program and to enjoy the safe harbor granted to fully compliant participants, you are required to meet all terms of this Policy.\n \nBy reporting a security vulnerability to Payoneer via HackerOne, you acknowledge that you have read and agree to our Policy below.\n\n# Response Targets\nPayoneer will make best efforts to meet the following SLAs for Program participants:\n\n| Type of Response | SLA in business days | \n|----------|--------------------|\n|  First Response | 2 days | \n| Time to Triage   | 2 days |\n| Time to  Bounty   | 14 days |\n|  Time to Resolution   | Depends on severity and complexity |\n\nPayoneer will make reasonable efforts to keep you informed about progress made with respect to your reported vulnerabilities.\n\n# Program Eligibility\nTo be eligible for participation in our Program, you must be of legal age and in addition must not:\n\n* Be a resident of, or submit your vulnerability reports from, a country against which the United States has issued export sanctions or other trade restrictions;\n* Be in violation of any national, state, or local law or regulation;\n* Be employed by Payoneer Global Inc. or any of its subsidiaries or an immediate family member of such person\n\n# Program Rules\n\n* Only vulnerabilities determined as a valid security issue by Payoneer’s security team may be eligible for an award, subject to full compliance of the participant with the terms of this Program. Payoneer’s security team shall have the right to determine if any reported vulnerability is eligible for an award under this Program\n* You need to show that you could exploit a vulnerability, but avoid causing any damage. You must not: access, modify, copy, download, delete, compromise or otherwise misuse any data; access non-public information without authorization; intentionally view or access any data beyond what is reasonably required to prove the vulnerability; degrade, interrupt or deny services to our users; and/or incur loss of funds that are not your own.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to reflect  aggregative impact.\n* When duplicates occur, we only award the first report that was received with respect to the same vulnerability (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be eligible for one award.\n* Any type of social engineering (e.g. phishing, vishing, smishing) is strictly prohibited and vulnerabilities detected based on such conduct will not be eligible for awards.\n* Participants are required to avoid privacy violations, processing of any personal data, destruction of data, and interruption or degradation of Payoneer’ services.\n* Only use accounts you own and do not interact with other users’ accounts or data without explicit permission of the account holder.\n* Rewards for reported eligible vulnerabilities may be granted based on Payoneer’s sole discretion and subject to applicable laws, including without limitation anti-money laundering obligations and sanctions. The amount of each reward will be determined by Payoneer in its sole discretion.\n* You will be responsible for any tax implications related to any award you receive, as determined by the laws applicable to you.\n* As a condition for your participation in the Program, you hereby waive any and all claim or demands of any nature in connection with or arising from any vulnerability report you submit.\n\n**Please ensure that you include a custom HTTP header in the following format**\n\n| Identifier | Format | Example |\n| ------------- | ------------- | ------------- |\n| Your Username   | X-HackerOne-Bugbounty: HackerOne-<username>   | X-HackerOne-Bugbounty: HackerOne-KevinMitnick\n\n# Confidentiality\n\n* Any information you receive or collect about Payoneer or any of its users must be kept confidential and only used in connection with this Program for the purpose of submitting a vulnerability report. Without derogating from the aforesaid and as condition for your participation in the Program, you agree that you may not: (i) publicly disclose any of your findings or any details related to any vulnerability you detect (whether resolved or not) to any third party without Payoneer’s prior written approval; (ii) disclose the terms of this Program or its existence without Payoneer’s prior written approval.\n* Please follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Payoneer employs third party vendors and some subdomains may be managed by third parties. Security issues found in third-party assets which are not managed by Payoneer are considered out of scope and should be reported to the affected party directly. When issues reported to the Payoneer program originate in a different vendor's service, Payoneer reserves the right to forward submissions to the affected party without further discussion. Please be sure to check our publicly published IP ranges and conduct all necessary due diligence to determine ownership of an asset prior to testing.\n\n# Safe Harbor \n\nWe will not take legal action against you in relation to activities conducted in a manner fully consistent with the rules described in this Policy, and which are reported to Payoneer under this Program.If legal action is initiated by a third party against you in connection with activities conducted in compliance with this Policy, we will take such reasonable steps to make it known that your actions were conducted under the Program.\n\n# Amendments\n\nThe Program may be changed, altered or cancelled by Payoneer at any time, without any notice. As such, Payoneer may amend this Policy at any time by posting a revised version. By continuing to participate in the Program after such changes are posted, you accept and agree to the modified terms.\n \nThank you for helping keep Payoneer and our users safe.\n\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tracks.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "explore.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "register.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "duediligence.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "investorday.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "payoneer.com.cn",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Payoneer China",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "brand.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "skuad.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://greenchannel.payoneer.com.cn/gcportal",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "myaccount-cn.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use @wearehackerone.com for test accounts.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "myaccount.payoneer.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please sign-up (self-registration) and use the following test accounts: @wearehackerone.com",
+      "max_severity": "critical"
+    }
+  ]
+}

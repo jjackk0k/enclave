@@ -1,0 +1,127 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "zabbix",
+      "name": "Zabbix",
+      "offersBounties": true,
+      "assets": [
+        "https://www.zabbix.com/download_sources"
+      ],
+      "exclusions": [
+        "https://academy.zabbix.com/",
+        "https://blog.zabbix.com/",
+        "https://cloud.zabbix.com/",
+        "https://exam.zabbix.com/",
+        "https://git.zabbix.com/",
+        "https://shop.zabbix.com",
+        "https://space.zabbix.com/",
+        "https://support.zabbix.com/",
+        "https://translate.zabbix.com/",
+        "https://www.zabbix.com/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\zabbix-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "zabbix",
+  "name": "Zabbix",
+  "url": "https://hackerone.com/zabbix",
+  "policy": "Please take the time to carefully read the program policy and scope exclusions.\nFailure to adhere will result in your report being closed as Not Applicable (reputation penalty).\n\n\n# Scope\n**💡 This program is solely focused on finding vulnerabilities in the Zabbix monitoring solution itself.**\n\n* In scope:\n  * Zabbix monitoring solution, all components and processes (supported and pre-release versions)\n  * Packages we deliver (current versions)\n  * Docker images we provide (current versions)\n  * Virtual appliances we provide (current versions)\n* Zabbix website and other supporting infrastructure are out of scope.\n* Zabbix Cloud is out of scope.\n* Please test only on Zabbix instances you own and do not interact with any Zabbix deployments of our users that might be publicly accessible.\n* Assume a securely configured Zabbix instance:\n  * Example - Agents use secure connections to the Server.\n  * Overriding secure default configuration will not be accepted as a prerequisite.\n\n\n# Report format\n**⚠️ Using the report template is mandatory. Keeping the report short is mandatory. Non-compliant reports are closed as N/A.**\n\nDue to the increase in AI assisted reporting, the number of submissions has grown several times over. Because of this volume, every report has to be short and precise.\n\nUse the template below. Too short is not a problem, we will ask if we need more. Reports that skip sections, add their own, or fill them with a wall of text are closed as N/A. AI use is not prohibited but filler is. Reports containing speculative impact, invented severity or textbook explanations of the vulnerability class will not be tolerated.\n\nLength is not evidence, a working proof of concept is. It should be the shortest path that demonstrates the claim - assume the reader knows Zabbix, and leave out anything not needed for reproduction. If the PoC is a script, it should be the minimum that demonstrates the issue - generated scaffolding is filler. Reports whose PoC is missing, inaccurate or bloated are closed as N/A.\n\n### Report template\n| Section | What to write |\n| ------- | ------------- |\n| Summary | One or two sentences, 200 characters maximum: who can do what. |\n| Prerequisites | Access, privileges and configuration the attacker needs. |\n| Proof of concept | Exact PoC steps against a secured Zabbix installation. |\n| Impact | What the attacker gains that they did not already have. |\n\n\n# Scope exclusions\n**⚠️ Please make sure your report is not for one of these. Anything on this list is closed as N/A.**\n\nIn addition to Core Ineligible Findings, these types of vulnerabilities are out of scope:\n\n| Category | Details |\n| -------- | ------- |\n| **SSRF by administrators** | Invoking arbitrary network requests is core Zabbix functionality and has no security impact in this context. |\n| **DoS by administrators** | We currently don't consider DoS attacks preventable when the attacker has administrative privileges and such reports are not eligible for a bounty. |\n| **Macros in scripts** | Zabbix administrators are expected to take measures to secure their scripts. Examples of insecurely defined user scripts will not be accepted. |\n| **API exposing configuration to users** | When enabled, the API currently exposes certain configured credentials and scripts to users. This is known and documented. |\n| **Dependency vulnerabilities** | Reports about vulnerable libraries are not eligible for a bounty without a working proof of concept. |\n| **Misconfigured Zabbix** | Issues only reproducible when Zabbix is misconfigured or otherwise not configured in a secure manner are not eligible for a bounty. |\n| **Vulnerable environment** | Issues only reproducible in a compromised or otherwise vulnerable environment (e.g. a misconfigured web server or malware) are not eligible for a bounty. |\n\n\n# Getting started\n* For the quickest installation, follow the instructions on our [download page](https://www.zabbix.com/download).\n* General Zabbix documentation is [available on our website](https://www.zabbix.com/documentation/current/en/manual/introduction/about).\n* Other installation options are [documented here](https://www.zabbix.com/documentation/current/en/manual/installation/getting_zabbix).\n* Zabbix source code can be downloaded [here](https://www.zabbix.com/download_sources).\n* The main components you can test:\n  * [Web Interface](https://www.zabbix.com/documentation/current/en/manual/web_interface) (Written in PHP)\n  * [Zabbix Server](https://www.zabbix.com/documentation/current/en/manual/concepts/server) (Written in C)\n  * [Agent](https://www.zabbix.com/documentation/current/en/manual/concepts/agent) (Written in C)\n  * [Agent 2](https://www.zabbix.com/documentation/current/en/manual/concepts/agent2) and [its plugins](https://www.zabbix.com/documentation/current/en/manual/extensions/plugins) (Written in Go)\n\n\n# Severity rating\nZabbix can be deployed in different ways and integrates with many systems, so impact can vary.\nTo keep ratings consistent, we assess issues based on a reasonable production setup - not the worst possible configuration. We use CVSS 4.0 as a reference, but final severity may differ. The table below shows our general rating guidelines.\n\n| Severity    | Bounty | Criteria |\n| ----------- | ------ | ------------ |\n| 🟥 Critical | $3,000 | Significant compromise by an unauthenticated attacker |\n| 🟧 High     | $1,500 | Significant impact but requires user privileges |\n| 🟨 Medium   | $500   | Exploitation requires administrator privileges or has limited impact |\n| 🟩 Low      | $200   | Issues with lower impact or unlikely prerequisites |\n\n### DoS severity\nSince typical Zabbix deployments are not available on public networks and the impact of any Zabbix disruptions is limited and typically doesn't translate to disruptions to user-facing services, DoS risks are assigned a lower severity in our threat model. Furthermore, impact of Frontend DoS issues is further lowered as they typically do not affect metric collection.\n\n### Bounty rules\n* The same vulnerability across different Zabbix versions counts as one vulnerability.\n* Multiple vulnerabilities caused by one underlying issue receive a single bounty.\n* Zabbix employees and their immediate family members are not eligible for bounties.\n\n\n# Disclosure policy\nZabbix discloses all confirmed vulnerabilities after a fix has been released and customers with active support contracts have been given adequate time to upgrade or patch.\n\nOnce the fix is released, your HackerOne ticket will be marked as resolved. Public disclosure will follow at a later stage, and you will be notified once the disclosure has been completed. We ask that you refrain from discussing the report publicly until the official disclosure has taken place.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://www.zabbix.com/download_sources",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You can download any supported versions of Zabbix distributive for testing purposes (including pre-release versions).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://blog.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://support.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://translate.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://git.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://space.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://exam.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This website out of the scope of this program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://cloud.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://shop.zabbix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://academy.zabbix.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

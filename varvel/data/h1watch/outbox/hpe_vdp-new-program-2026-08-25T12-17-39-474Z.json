@@ -1,0 +1,234 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hpe_vdp",
+      "name": "HPE VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.arubanetworks.com*",
+        "*.central.arubanetworks.com*",
+        "*Cray.com*",
+        "*cpqcorp.*",
+        "*hpe.com",
+        "*hpecore.*",
+        "*hpecorp.net",
+        "*hpqcorp.*",
+        "*nimblestorage.*",
+        "*plexxi.*",
+        "*simplivity.*",
+        "Additional HPE Asset ",
+        "Aruba",
+        "Vulnerabilities in any HPE products",
+        "alpha.infosight.hpe.com",
+        "aoe-ext-itg.it.hpe.com",
+        "aoe-ext-itg.wip.it.hpe.com",
+        "aoe-ext1-itg-vip.it.hpe.com",
+        "aoe-ext1-itg.it.hpe.com",
+        "api-cip-sgw-dc01-vip.it.hpe.com",
+        "api-cip-sgw-dc01.it.hpe.com",
+        "https://*axissecurity.com*",
+        "https://*pachyderm.com*",
+        "https://*silver-peak.com*",
+        "https://*zerto.com*"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hpe_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hpe_vdp",
+  "name": "HPE VDP",
+  "url": "https://hackerone.com/hpe_vdp",
+  "policy": "Vulnerability Disclosure Rules of Engagement\n\nWelcome to HPE! Hewlett Packard Enterprise (NYSE: HPE) is the global edge-to-cloud company that helps organizations accelerate outcomes by unlocking value from all of their data, everywhere.\n\nWith this program, we look forward to working closely with cybersecurity researchers to stress-test our products, discover vulnerabilities, and responsibly disclose them for the maximum benefit of our customers and the ecosystem at large.\nWe believe in the wisdom of the crowd, and in this case, a highly technical crowd. If you have information related to security vulnerabilities in HPE products, we appreciate that you submit a report in accordance with the rules of engagement below.\n\nWe value the positive impact of your hard work and thank you in advance for your contribution.\n\n# Testing\n1. Abide by the program scope and only test against systems you have permissions to test.\n2. When making an account for testing purposes, please use your HackerOne email alias so we can properly identify you.\n3. No social engineering against HPE employees or customers.\n4. No denial-of-service attacks against HPE assets or systems or other activity which may affect the integrity or availability of the target systems. If you notice performance degradation on the target systems, you must immediately suspend the activity.\n5. For best practice, indicate your identity as a security researcher with custom HTTP headers when sending requests, such as * “X-HackerOne-Research: [H1 username]”.\n\n# Disclosure\n1. If you think that you have discovered a security vulnerability, we appreciate your help in disclosing the issue to us. Please do this responsibly by giving us the opportunity to investigate and fix the vulnerability in a timely fashion before publicly disclosing it. Security vulnerability reports will be treated as a high priority.\n2. Researchers must not publicly disclose vulnerabilities or share vulnerabilities with a third party without HPE’s express written permission. \n3. Follow HackerOne's [disclosure guidelines] (https://www.hackerone.com/disclosure-guidelines)\n\n# Data Privacy\n1. Never use a finding to compromise/exfiltrate data or pivot to other systems. Use proof of concept to demonstrate the issue.\n2. Do not attempt to compromise any customer accounts or data, or personal information in the possession of HPE. Never attempt to view, modify, or damage data belonging to others.\n3. If you inadvertently view or change any personal identifiable information (PII) during your research, stop testing immediately and submit a report to HPE with reproducible steps so that our team can evaluate the potential business impact of any exposed PII.\n\n# Reporting\n1. A good report should include the following information:\na. Description of the vulnerability\nb. Proposed CVSSv3 Vector & Score\nc. Steps to reproduce the reported vulnerability\nd. Proof of exploitability (e.g., screenshot, video) e. Proof-of-concept code\nf. Perceived impact to another user or the organization\ng. Recommendations for remediation or mitigation\nh. List of URLs and affected parameters\ni. Other vulnerable URLS, additional payloads, proof-of-concept code\nj. Browser, OS, and/or app version used during testing\n2. Submit one vulnerability per report unless you need to chain vulnerabilities to demonstrate impact.\n3. Multiple vulnerabilities caused by one underlying issue will be considered duplicates.\n\n# Eligibility\n1. You must not be subject to sanctions administered or enforced by the Office of Foreign Assets Control (OFAC) or other Agency of the United States or be located in a country subject to such sanctions. Your activities much comply with all applicable domestic and international laws, statutes, ordinances, and regulations and you may not participate in this program if this activity is prohibited in your jurisdiction. \n2. Be at least 18 years old and have legal capacity to agree to these terms and participate in the program.\n3. Have permission from your employer to participate.\n4. Not be (for the previous 12 months) an HPE employee, immediate family member of an HPE employee, HPE contractor, or HPE service provider.\n\n# Out of Scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis.\n* Tab nabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n\n# Scope Update: Effective 11/3/2025: \n*Assets previously covered by the Aruba-Public program at https://bugcrowd.com/engagements/aruba-public are now in scope for HackerOne program. HPE Networking still maintains a separate program that pays bounties for product focused submissions. For scope details please visit https://bugcrowd.com/engagements/hpe-networking-product-public.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*hpe.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*hpecorp.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Vulnerabilities in any HPE products",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This scope applies to all HPE products. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*silver-peak.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*zerto.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*pachyderm.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*axissecurity.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*Cray.com*",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*cpqcorp.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*hpecore.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*hpqcorp.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*simplivity.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*nimblestorage.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*plexxi.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Aruba",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.arubanetworks.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Anything found here https://bugcrowd.com/aruba-public",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.central.arubanetworks.com*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Anything found here https://bugcrowd.com/aruba-product-public",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Additional HPE Asset ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is t be used if the impacted asset does not fit into the other selections in the list.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "alpha.infosight.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aoe-ext-itg.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aoe-ext-itg.wip.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aoe-ext1-itg-vip.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "aoe-ext1-itg.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-cip-sgw-dc01-vip.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-cip-sgw-dc01.it.hpe.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

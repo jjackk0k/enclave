@@ -1,0 +1,155 @@
+{
+ "at": "2026-09-12T03:01:36.787Z",
+ "opportunity": "pixiv",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "booth.pm",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39bab2b4ab388a9-LHR",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-zv3XysMeWBkoMkIkz2WtMr' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "comic.pixiv.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39bab3a2c0d9407-LHR",
+    "content-security-policy": "frame-ancestors 'self' https://comic-store-viewer.pixiv.net; report-to csp-endpoint"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sketch.pixiv.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-ZPL8LPMDK3",
+     "evidence": "googletagmanager.com/gtag/js?id=G-ZPL8LPMDK3"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "Next.js",
+    "cf-ray": "a39bab5368edfbf4-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "content-security-policy": "frame-ancestors https://sensei.pixiv.net/;"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sensei.pixiv.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": "2.2.1",
+     "evidence": "jquery-2.2.1.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39bab6c6fd7ef03-LHR",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "accounts.pixiv.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-MZ1NL4PHH0",
+     "evidence": "googletagmanager.com/gtag/js?id=G-MZ1NL4PHH0"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39bab85e89a1674-LHR",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'self'; script-src 'strict-dynamic' 'report-sample' 'nonce-uL8E1eijPo+aOCGlATOkSA==' https://s.pximg.net/ ht",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

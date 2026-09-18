@@ -1,0 +1,242 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "expediagroup_bbp",
+      "name": "Expedia Group Bug Bounty",
+      "offersBounties": true,
+      "assets": [
+        "403546234",
+        "427916203",
+        "483394780",
+        "566635048",
+        "com.ebookers",
+        "com.expedia.bookings",
+        "com.hotwire.hotels",
+        "com.orbitz",
+        "www.carrentals.com",
+        "www.cheaptickets.com",
+        "www.ebookers.com",
+        "www.ebookers.fi",
+        "www.expedia.com",
+        "www.hotels.com",
+        "www.hotwire.com",
+        "www.hotwirepartnercentral.com",
+        "www.lastminute.co.nz",
+        "www.lastminute.com.au",
+        "www.mrjet.se",
+        "www.orbitz.com",
+        "www.travelocity.ca",
+        "www.travelocity.com",
+        "www.vrbo.com",
+        "www.wotif.com"
+      ],
+      "exclusions": [
+        "www.expediapartnersolutions.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "no more than 100 requests"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\expediagroup_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "expediagroup_bbp",
+  "name": "Expedia Group Bug Bounty",
+  "url": "https://hackerone.com/expediagroup_bbp",
+  "policy": "# Bug Bounty Program Guidelines\nExpedia Group recognizes the important role that security researchers play in helping to keep Expedia Group and our customers secure. By submitting a vulnerability to us either directly or indirectly you acknowledge that you have read and agree to abide by these guidelines. If you discover a site or product vulnerability please notify us using the guidelines below. \n \n**If you identify a security vulnerability on _out of scope_ assets, please submit them to Expedia Group's Vulnerability Disclosure Program.** \n\nWe thank you in advance for your contributions and look forward to working with you!  \n\nExpedia Group’s global Security team manages the receipt and internal coordination of security vulnerabilities related to Expedia properties. We aim to keep all involved parties, both internal and external, informed of our progress on validating and remediating reported vulnerabilities.   \n\n# Response Targets\nExpedia Group will make its best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submission) - 2 business days\n* Time to triage (from report submission) - 4 business days\n* Time to bounty - 7-15 days depending upon criticality and application complexity \n\n# Testing \nIf registering for test accounts, please use your @wearehackerone.com email alias. \n\n**To help us distinguish researcher traffic from malicious activity, please set a header with your HackerOne username in your scanner requests. (For example: `X-hackerone: your_username`)**\n\n\n# Vulnerabilities on Third-Party Assets \n\nSubdomains owned by third parties are listed within our scope instructions and are generally considered out of scope. Please note this list is not exhaustive and may expand over time. \n\nExpedia Group does not control remediation on these assets, however, if you discover vulnerabilities in those assets in the course of testing Expedia Group, we will review and escalate the issues to the appropriate parties. \n\n\nAs always, please be mindful of your testing activities and limit scanner requests to no more than 100 requests per second.\n\n# Program Terms \nPlease note that your participation in the Expedia Group Bug Bounty Program is voluntary and subject to the terms and conditions set forth in this Policy (“Program Terms”). By submitting a vulnerability to us, you acknowledge that you have read and agree to the Program Terms.\n\nYou will be eligible to receive a bounty payment if: (i) you are the first person to submit the vulnerability; (ii) that vulnerability is determined to be a valid security issue by Expedia Group’s security team; and (iii) you are in compliance with all Program Terms.\n\nPlease fully and carefully read through the program scope and Prohibitions and Exclusions to make sure you are dedicating your time to identifying vulnerabilities that are within the scope of the bounty program. On a case-by-case basis, please note that Expedia Group may make exceptions and award a discretionary bounty or bonus for Critical vulnerabilities on out-of-scope assets.\n\nThese Guidelines are limited to security vulnerabilities in Expedia Group-owned assets. \n* Expedia Group reserves the right to determine whether a vulnerability submitted to the Bug Bounty Program is eligible for a reward, and to determine the amount of the reward. Expedia Group may change the validity or severity of a vulnerability based on the security team's due diligence and/or root cause analysis.\n* Please provide detailed reports with reproducible steps.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own. \n* Please combine reports if the same or similar root cause affects multiple endpoints, subdomains or assets. \n* Many of our sites share a common platform. Because of this, a vulnerability reported on one domain may exist on another domain if the sites are in the same platform. For example, an issue reported for expedia.com may also be present in the exact same way on expedia.co.in and the issue can be resolved on both sites with the same fix. We ask that you take the time to replicate the issue in other sites, and if replicating, please include all occurrences in one report instead of submitting them as multiple reports. We treat the issue as a single vulnerability and will close out others as duplicates. \n* Our sites also leverage Amazon AWS services. Please go through the AWS AUP before testing on AWS infrastructure. https://aws.amazon.com/security/penetration-testing/ \n\nAmazon prohibits: \n- DNS zone walking via Amazon Route 53 Hosted Zones\n- DoS or DDoS \n- Port, protocol and/or request flooding.\n\n**To be eligible for the Bug Bounty Program, you must not:**\n- Be a resident of, or make your Submission from, a country against which the United States has issued export sanctions or other trade restrictions (e.g., Cuba, Iran, North Korea, Sudan and Syria);\n- Be employed by Expedia Group or its subsidiaries;\n- Be an immediate family member of a person employed by Expedia Group or its subsidiaries or affiliates  \n\nIf it is discovered that you meet any of the criteria above, Expedia Group will remove you from the Bug Bounty Program and disqualify you from receiving bounty rewards.\n\n#Disclosure Policy and Rules \n\n• Researchers must adhere to [HackerOne’s Disclosure Guidelines](\nhttps://www.hackerone.com/disclosure-guidelines), and this Disclosure Policy and Rules to make a claim under Expedia Group’s Program.\n• If you believe you’ve discovered a security bug or vulnerability, report it to us as soon as possible.\n• Do not disclose your reported findings to others until we’ve had an opportunity to respond and address them. By keeping your reports private until we resolve them, you’re helping keep Expedia Group secure for our entire community. Disclosure requests must be coordinated with and approved by Expedia Group.\n•  All information acquired as part of this program is confidential to Expedia Group, and you will not disclose or use this information for any purpose other than the performance of your services within the Program. To the extent that you disclose information about a vulnerability that has been fixed, you will remove all identifying information and not use Expedia Group’s name or trademarks or logos in your disclosure, or represent that any work provided by you was approved or endorsed by Expedia Group.\n• To the extent that you have discovered an otherwise unreported vulnerability within an Open Source module or component in use on an Expedia Group site, you may disclose in accordance with Hacker One’s Disclosure Guidelines, as long as you remove all references to Expedia Group.\n• You must comply with all applicable federal, state, and local laws in connection with your security research activities or other participation in this Program.\n\n\n# Safe Harbor\nIf your activities are conducted in a manner consistent with these guidelines and legal action is initiated by a third party against you in connection with such activities, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Expedia Group and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.hotels.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note only point of sale assets of www.hotels.com are in scope. This includes regional versions of www.hotels.com such as www.in.hotels.com, www.uk.hotels.com, and www.fr.hotels.com. \n\nOther sub-domains are out of scope and ineligible for bounty. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.expedia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note the only point-of-sale assets of www.expedia.com are in scope. This includes regional versions of www.expedia.com such as www.expedia.co.in and www.expedia.co.uk. \n\nOther sub-domains are out of scope and ineligible for a bounty. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.vrbo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hotwire.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "www.hotwire.com is temporarily ineligible for bounty rewards due to ongoing infrastructure transition and new stack development.\n\nException: Critical vulnerabilities will still be assessed internally and may qualify for discretionary bonus rewards.\n\nThank you for your understanding.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hotwirepartnercentral.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "566635048",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Hotwire iOS App](https://apps.apple.com/us/app/hotwire-last-minute-hotels/id566635048)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.hotwire.hotels",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Hotwire Android App](https://play.google.com/store/apps/details?id=com.hotwire.hotels) ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.orbitz.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.ebookers.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.ebookers.fi",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.mrjet.se",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ebookers",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the ebookers Android app \n\nhttps://play.google.com/store/apps/details?id=com.ebookers",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.orbitz",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the Orbitz Android app \n\nhttps://play.google.com/store/apps/details?id=com.orbitz",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "403546234",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the Orbitz iOS app \n\nhttps://apps.apple.com/us/app/orbitz-hotels-flights/id403546234",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "483394780",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the ebookers iOS app \n\nhttps://apps.apple.com/us/app/ebookers-hotels-flights/id483394780",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "427916203",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Expedia iOS App\n\nhttps://apps.apple.com/us/app/expedia-hotels-flights-car/id427916203",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.expedia.bookings",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Expedia Android App\n\nhttps://play.google.com/store/apps/details?id=com.expedia.bookings",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.expediapartnersolutions.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.carrentals.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.wotif.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.cheaptickets.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.lastminute.co.nz",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.lastminute.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.travelocity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.travelocity.ca",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "shein",
+      "name": "SHEIN",
+      "offersBounties": true,
+      "assets": [
+        "*.romwe.com",
+        "*.shein.com",
+        "*.sheingsp.com",
+        "1080248000",
+        "878577184",
+        "com.romwe",
+        "com.zzkko"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\shein-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "shein",
+  "name": "SHEIN",
+  "url": "https://hackerone.com/shein",
+  "policy": "SHEIN looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nSHEIN will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Bounty | 5 days |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n-------\r\n\r\n# Disclosure Policy\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n-------\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\r\n\r\n-------\r\n\r\n# Test Plan\r\nResearchers are free to set up accounts for testing but please note that testing should be limited to the accounts you own. We also highly encourage you to register an account with your HackerOne Email alias [H1username@wearehackerone.com].\r\n\r\n-------\r\n\r\n# Important guidelines regarding cross-host vulnerabilities \r\n\r\nPlease note that _*.shein.com_ and _*.romwe.com_ , (inclusive of each domain’s localised sites stated in the scope section) have overlapping backend development. This simply means that the same vulnerability occurring on _*.shein.com_  endpoint ***may*** also appear on a similar _*.romwe.com_ endpoint . In such cases, the second report/asset to be submitted and is the same vulnerability will be eligible for 25% of the original bounty. \r\n\r\n**This guideline is also applicable to the SHEIN and ROMWE Mobile apps (inclusive of both the iOS and Android Apps).** Ie:  SHEIN iOS app has overlapping backend development with the ROMWE iOS app, while the SHEIN Android app has overlapping backend development with the ROMWE Android App. We will only apply this guideline if the reports are of the same exact issue. \r\n\r\nPlease read below for some example scenarios and how we will determine if 2 reports are cross-host vulnerabilities.\r\n\r\n**Example Scenario:**\r\n* Report A submitted for .shein.com with Vulnerability X receives $400 in bounty. \r\n* Subsequently, Report B submitted for .romwe.com also with Vulnerability X is submitted to the program. Report B will be awarded $100 (25% of the original bounty for Vulnerability X).\r\n\r\n**Conditions and other terms:**\r\n* Both reports do not have to come from the same researcher. \r\n* Both reports will be marked as triaged\r\n* When the same vulnerability occurs on both hosts, the first valid report submitted (for either host) will receive the original bounty amount\r\n* If the program receives a report on the other host, it will then be escalated to the SHEIN Team for internal validation, in the event that it is the same exact vulnerability. \r\n* In the case that the 2 reports are distinct unique vulnerabilities, the second report will be treated as a separate report and awarded accordingly. \r\n* Duplicate reports received thereafter will be treated as such. \r\n\r\n-------\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Reflected Cross-site Scripting (XSS)\r\n* DOM Cross-site Scripting (XSS)\r\n* Domain names belonging to SHEIN, however the DNS resolution was not deleted in time, thus resolving to other services.\r\n    * Such reports will not be accepted as the sub-domain could not be exploited and taken over by attackers to host malicious content. If you are able to prove otherwise (taking over the sub-domain and host malicious content), we will consider the report to be valid.\r\n* Domain names belonging to SHEIN, but resolves to third-party hosted services.\r\n    * Code/configuration related vulnerabilities belonging to third-parties and requiring their fix will not be accepted as SHEIN does not have permissions to modify them. Such vulnerabilities should be reported to the relevant third party. \r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* HTML Injection.\r\n* Rate limiting or bruteforce issues, unless it is for brute-forcing of a pass token with insufficient entropy (e.g. 6 digit passcode without invalidation and rate-limiting)\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n-------\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep SHEIN and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.shein.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "*.shein.[com | in | tw | se | com.hk | com.vn | com.mx | co.uk ]\n\n1. **Please note that if the exact same vulnerability is found on different top-level domains listed above (example: .com, .in, .tw etc), please do not submit multiple reports. Any duplicate reports submitted will be treated as such.*",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "878577184",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[SHEIN-Fashion Shopping Online](https://apps.apple.com/app/shein-fashion-shopping-online/id878577184)  on the Apple App Store \n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.zzkko",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[SHEIN-Fashion Shopping Online](https://play.google.com/store/apps/details?id=com.zzkko) on the Google Play Store\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.romwe.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "*.romwe. [com | co.in ]\n.romwe.org\n\n1. **Please note that if the exact same vulnerability is found on different top-level domains listed above (ie: .com, .co.in and .org), please do not submit multiple reports. Any duplicate reports submitted will be treated as such.**\n\n2. Please read the \"Important",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.romwe",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[ROMWE](https://play.google.com/store/apps/details?id=com.romwe) on the Google Play Store\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1080248000",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[ROMWE - Fashion Store](https://apps.apple.com/app/romwe-fashion-store/id1080248000)  on the Apple App Store \n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sheingsp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

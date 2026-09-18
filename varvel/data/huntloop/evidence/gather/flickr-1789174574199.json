@@ -1,0 +1,83 @@
+{
+ "at": "2026-09-12T00:56:09.008Z",
+ "opportunity": "flickr",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.yahoo.mobile.client.android.flickr",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.yahoo.mobile.client.android.flickr:443 refused: host unreachable"
+  },
+  {
+   "host": "www.whatismode.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "FunctionGeneratedResponse from cloudfront",
+    "via": "1.1 2a4e4c06d4d956bc89bdcf7ab988241e.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "modefestival.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39af370597f19ac-LHR",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "flickr.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-KDHKSZQN",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-KDHKSZQN"
+    }
+   ],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 5bbfbddc054a85758022c325fb08071e.cloudfront.net (CloudFront)",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

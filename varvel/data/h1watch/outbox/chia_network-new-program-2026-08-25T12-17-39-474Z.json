@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "chia_network",
+      "name": "Chia Network",
+      "offersBounties": true,
+      "assets": [
+        "api.vault.chiatest.net",
+        "https://apps.apple.com/app/chia-signer/id6504493785 ",
+        "https://github.com/Chia-Network/chia-blockchain",
+        "https://github.com/Chia-Network/chia-blockchain-gui",
+        "https://github.com/Chia-Network/chia_rs",
+        "https://github.com/Chia-Network/chiapos",
+        "https://github.com/Chia-Network/chiavdf",
+        "https://github.com/Chia-Network/clvm_rs",
+        "https://vault.chiatest.net/"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\chia_network-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "chia_network",
+  "name": "Chia Network",
+  "url": "https://hackerone.com/chia_network",
+  "policy": "No technology is perfect and Chia Network believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. We are excited for you to participate as a security researcher to help us identify vulnerabilities in our assets. Good luck, and happy hunting!\n\n# Response Targets\nChia Network will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* We currently don't disclose reports marked as **Informative**.\n\n# Eligibility\n* You must be the first reporter of the vulnerability.\n* The vulnerability must demonstrate security impact. \n* In most cases, a working proof of concept is required for report acceptance.\n* If a proof of concept is not provided, nor sufficient supporting documentation for Chia engineers to feasibly recreate and evaluate the issue, the report may not be accepted.\n* Report quality for acceptance will be at the discretion of Chia's HackerOne program.\n\n# Access\n* Information on how to install and test on these applications can be found on their page's wiki's (that can be found in the linked GitHub repos).\n* The GitHub repos include instructions on how to point the local services at testnet10 and testnet11, please ensure all testing is done against these testnets and not mainnet.\n\n# Safe Harbor\n**When conducting vulnerability research according to this policy, we consider this research to be:**\n* Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy;\n* Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls;\n* Exempt from restrictions in our Terms & Conditions that would interfere with conducting security research, and we waive those restrictions on a limited basis for work done under this policy; and\n* Lawful, helpful to the overall security of the Internet, and conducted in good faith.\n* You are expected, as always, to comply with all applicable laws.\n\n\nIf at any time you have concerns or are uncertain whether your security research is consistent with this policy, please inquire via support@hackerone.com before going any further.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/Chia-Network/chia-blockchain",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia core",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Chia-Network/chia-blockchain-gui",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia desktop",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Chia-Network/clvm_rs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia RUST implementations",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Chia-Network/chia_rs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia RUST implementations",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Chia-Network/chiapos",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia Proof of Space plotter",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/Chia-Network/chiavdf",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "ChiaVDF (Verifiable Delay Function) for Timelords",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://vault.chiatest.net/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia Cloud crypto wallet",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/app/chia-signer/id6504493785 ",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "IOS cryptographic signing application",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.vault.chiatest.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Chia Cloud crypto wallet API",
+      "max_severity": "critical"
+    }
+  ]
+}

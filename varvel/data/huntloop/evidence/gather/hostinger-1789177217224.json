@@ -1,0 +1,143 @@
+{
+ "at": "2026-09-12T01:40:11.231Z",
+ "opportunity": "hostinger",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.hostinger.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nuxt",
+     "label": "Nuxt",
+     "version": null,
+     "evidence": "/_nuxt/"
+    },
+    {
+     "id": "vue",
+     "label": "Vue.js",
+     "version": null,
+     "evidence": "data-v-e390f074"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-KL4FQVG",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-KL4FQVG"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b33e40aebedeb-LHR"
+   },
+   "endpoints": [
+    {
+     "path": "/api-proxy/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "cpanel.hostinger.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b33ec2afd7719-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "hpanel.hostinger.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b33f3494cae9a-LHR",
+    "content-security-policy": "default-src 'none'; script-src 'nonce-R4bEJ8W64q7zMpHlu7Pnr8' 'unsafe-eval' https://challenges.cloudflare.com; script-sr",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "builder.hostinger.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b33faac18edea-LHR",
+    "via": "1.1 google",
+    "content-security-policy": "frame-ancestors hostinger.com *.hostinger.com"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "horizons.hostinger.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b34022c75a430-LHR",
+    "via": "1.1 google",
+    "content-security-policy": "frame-ancestors hostinger.com *.hostinger.com"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "duckduckgo",
+      "name": "DuckDuckGo",
+      "offersBounties": false,
+      "assets": [
+        "*.duckduckgo.com",
+        "com.duckduckgo.mobile.android",
+        "com.duckduckgo.mobile.ios",
+        "https://github.com/duckduckgo/duckduckgo-privacy-extension"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\duckduckgo-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "duckduckgo",
+  "name": "DuckDuckGo",
+  "url": "https://hackerone.com/duckduckgo",
+  "policy": "DuckDuckGo is the Internet privacy company for everyone who wants to take back their privacy online now. For over a decade, we've built features, created new technology, and worked with policymakers to make online privacy simple and accessible for all. Our product is one supercharged app with multiple types of privacy protection: Private Search, Web and App Protection, Email Protection, & more.\n\nWe're committed to set the new standard of trust online, and we look forward to working with the security community to find security vulnerabilities in order to keep our users safe. Check out more about us on https://duckduckgo.com.\n\n# SLA\nDuckDuckGo will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submission) - 2 business days\n* Time to triage (from first response) - 2 business days\n* Time to resolution - depends on severity and complexity.\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Please do not discuss vulnerabilities (even resolved ones) outside of the program without express consent from DuckDuckGo.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid destruction of data, and interruption or degradation of our service.\n* When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug.\n\n# Rewards\nWe are not offering monetary bounties at this time, however, we would love to send you some swag for valid submissions.\n\n# Out of scope vulnerabilities\nThe following issues are considered out of scope:\n\n* Open proxy reports. \n* SSRF on proxy reports.\n* Clickjacking on pages with no sensitive actions.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Self-XSS without a plausible attack vector.\n==* WebView issues we have no control over - you can still report them if you're unsure, but be aware they might be closed as informative==\n\n# Out of scope endpoints\nThe following endpoints are considered out of scope:\n\n* va-ddgc-staging-web1.duckduckgo.com\n* va-ddgc-staging-web2.duckduckgo.com\n* duck.co\n\nThank you for helping keep DuckDuckGo and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.duckduckgo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.duckduckgo.mobile.ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.duckduckgo.mobile.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/duckduckgo/duckduckgo-privacy-extension",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

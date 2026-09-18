@@ -1,0 +1,351 @@
+{
+  "lab": "range-iso/chainyard (v2 round)",
+  "at": "2026-08-30T01:19:58.232Z",
+  "fixture": {
+    "target": "targets/chainyard.mjs",
+    "base": "http://127.0.0.1:51261",
+    "seeds": 27,
+    "probes": 48,
+    "searchActivated": true
+  },
+  "detection": {
+    "l4_debug_leak": {
+      "discovered": true,
+      "classifiedAs": "sensitive-hit",
+      "detected": true,
+      "note": "pathsearch classifyResponse scores the KEY=VALUE leak as sensitive-hit (0.95)"
+    },
+    "l2_cors_reflect": {
+      "detected": true,
+      "note": "header observation only — the SameSite=Strict impact ceiling is NOT visible to this check"
+    },
+    "l1_self_xss": {
+      "detected": true,
+      "note": "unescaped reflection observed; current machinery has no executable-context confirmer"
+    },
+    "l3_open_redirect": {
+      "detected": true
+    },
+    "l5_predictable_token": {
+      "detected": false,
+      "evidenceShape": "{\"ok\":true,\"delivery\":\"email\"}",
+      "note": "intrinsically invisible to single-request detection — predictability is provable only in composition; v2 covers it via the predictable-reset-token primitive + shape library"
+    }
+  },
+  "composition": {
+    "v1Vertical": {
+      "plansCompiled": [
+        {
+          "rule": "cors-theft",
+          "title": "CORS reflect-with-credentials → cross-origin data-read proof",
+          "confidence": "confirmed-method"
+        }
+      ],
+      "note": "regression view: chainforge v1 still compiles only the decoy — preserved for comparison",
+      "decoyCompiled": true
+    },
+    "v2Composed": {
+      "candidates": [
+        {
+          "name": "composed:published-creds-login→race-window:giveaway-enter",
+          "steps": 3,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:booking",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:invoice",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:listing",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:published-creds-login→race-window:coupon-redeem",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:published-creds-login→race-window:wallet-transfer",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:published-creds-login→race-window:gift-claim",
+          "steps": 4,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:leaked-token-material→predictable-reset-token:prefix-seed-user→protected-data-read",
+          "steps": 5,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:leaked-token-material→predictable-reset-token:seed-user→protected-data-read",
+          "steps": 5,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:leaked-token-material→predictable-reset-token:user-seed→protected-data-read",
+          "steps": 5,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        },
+        {
+          "name": "composed:leaked-token-material→predictable-reset-token:seed-only→protected-data-read",
+          "steps": 5,
+          "confidence": "composed-candidate (surface-fit; unproven until executed with impact assertion)"
+        }
+      ],
+      "search": {
+        "probes": 200,
+        "activated": true,
+        "reason": null
+      },
+      "gaps": [
+        {
+          "primitive": "invariant-violation",
+          "missing": [
+            "no logic-bearing route observed (orders/payments/bookings/coupons/referrals shape)",
+            "no API spec document observed (openapi.json shape) — invariants need a spec to extract from"
+          ]
+        }
+      ],
+      "honest": "composed 11 candidate chain(s) from typed primitives over observed surface data — execution (with impact assertion) is the oracle"
+    },
+    "engineComposedWinner": true,
+    "winnerChain": "composed:leaked-token-material→predictable-reset-token:prefix-seed-user→protected-data-read",
+    "idorWinnerChain": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:booking",
+    "raceWinnerChain": "composed:published-creds-login→race-window:giveaway-enter"
+  },
+  "race": {
+    "oracle": {
+      "coupon": {
+        "verdict": "raced",
+        "rate": 1,
+        "naiveWouldFlag": true,
+        "sequential": {
+          "successes": 1,
+          "effect": 1
+        },
+        "concurrent": {
+          "successes": 6,
+          "effect": 6
+        },
+        "detail": "race reproduced 3/3 attempt(s) (rate 1.00)"
+      },
+      "wallet": {
+        "verdict": "raced",
+        "rate": 1,
+        "naiveWouldFlag": true,
+        "sequential": {
+          "successes": 1,
+          "effect": 1
+        },
+        "concurrent": {
+          "successes": 3,
+          "effect": 3
+        },
+        "detail": "race reproduced 3/3 attempt(s) (rate 1.00)"
+      },
+      "giveaway": {
+        "verdict": "raced",
+        "rate": 1,
+        "naiveWouldFlag": true,
+        "sequential": {
+          "successes": 1,
+          "effect": 1
+        },
+        "concurrent": {
+          "successes": 6,
+          "effect": 6
+        },
+        "detail": "race reproduced 3/3 attempt(s) (rate 1.00)"
+      },
+      "gift": {
+        "verdict": "single-effect",
+        "rate": 0,
+        "naiveWouldFlag": true,
+        "sequential": {
+          "successes": 6,
+          "effect": 1
+        },
+        "concurrent": {
+          "successes": 6,
+          "effect": 1
+        },
+        "detail": "locked/idempotent: single effect under both sequential and concurrent fire — cleared"
+      }
+    },
+    "discriminationProof": {
+      "naiveFlagsAllFour": true,
+      "oracleSorted": true,
+      "safeControlCleared": true
+    },
+    "graduation": {
+      "trials": 20,
+      "rate": 1,
+      "passed": true,
+      "note": "T4 graduation gate: ≥90% race reproduction over 20 trials"
+    },
+    "composedChainProved": true,
+    "controlFate": "honest stop at race-fire (single-effect — locked/idempotent)"
+  },
+  "idor": {
+    "oracle": {
+      "bookings": {
+        "verdict": "idor",
+        "naiveWouldFlag": true,
+        "detail": "cross-tenant 200 with tenant-distinct content while the unauth control was refused — ownership confusion confirmed"
+      },
+      "invoices": {
+        "verdict": "enforced",
+        "naiveWouldFlag": true,
+        "detail": "cross-tenant read refused (404) — ownership check holds"
+      },
+      "listings": {
+        "verdict": "public",
+        "naiveWouldFlag": true,
+        "detail": "unauth control returned the IDENTICAL body — public object, not an ownership confusion"
+      }
+    },
+    "discriminationProof": {
+      "naiveFlagsAllThree": true,
+      "oracleSorted": true
+    },
+    "composedChainProved": true,
+    "decoyFates": {
+      "invoice": "honest stop (cross-tenant 404)",
+      "listing": "honest stop (id space mismatch / no leak)"
+    }
+  },
+  "execution": {
+    "attempts": [
+      {
+        "chain": "composed:published-creds-login→race-window:giveaway-enter",
+        "stepsOk": true,
+        "impactOk": true,
+        "canaryReached": true,
+        "hollow": false,
+        "impactDetail": "impact proven (assertions held)"
+      },
+      {
+        "chain": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:booking",
+        "stepsOk": true,
+        "impactOk": true,
+        "canaryReached": true,
+        "hollow": false,
+        "impactDetail": "impact proven (assertions held, control behaved)"
+      },
+      {
+        "chain": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:invoice",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      },
+      {
+        "chain": "composed:enumerable-id-leak→published-creds-login→ownership-confusion:listing",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      },
+      {
+        "chain": "composed:published-creds-login→race-window:coupon-redeem",
+        "stepsOk": true,
+        "impactOk": true,
+        "canaryReached": true,
+        "hollow": false,
+        "impactDetail": "impact proven (assertions held)"
+      },
+      {
+        "chain": "composed:published-creds-login→race-window:wallet-transfer",
+        "stepsOk": true,
+        "impactOk": true,
+        "canaryReached": true,
+        "hollow": false,
+        "impactDetail": "impact proven (assertions held)"
+      },
+      {
+        "chain": "composed:published-creds-login→race-window:gift-claim",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      },
+      {
+        "chain": "composed:leaked-token-material→predictable-reset-token:prefix-seed-user→protected-data-read",
+        "stepsOk": true,
+        "impactOk": true,
+        "canaryReached": true,
+        "hollow": false,
+        "impactDetail": "impact proven (assertions held, control behaved)"
+      },
+      {
+        "chain": "composed:leaked-token-material→predictable-reset-token:seed-user→protected-data-read",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      },
+      {
+        "chain": "composed:leaked-token-material→predictable-reset-token:user-seed→protected-data-read",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      },
+      {
+        "chain": "composed:leaked-token-material→predictable-reset-token:seed-only→protected-data-read",
+        "stepsOk": false,
+        "impactOk": false,
+        "canaryReached": false,
+        "hollow": false,
+        "impactDetail": "chain steps did not complete — impact assertion not reached"
+      }
+    ],
+    "winnerProven": true,
+    "knownKnownCalibration": {
+      "ok": true,
+      "impactOk": true,
+      "canaryReached": true
+    },
+    "pairedControl": {
+      "wrongTokenStatus": 403,
+      "refused": true
+    }
+  },
+  "discrimination": {
+    "decoyStepsPassed": true,
+    "decoyRunOk": false,
+    "decoyHollowSuccess": true,
+    "decoyImpactDetail": "impact body missing \"admin@\"",
+    "note": "v2: the decoy must fail INSIDE the executor (ok:false, hollowSuccess:true) — no harness-level rescue"
+  },
+  "validator": {
+    "findingProduced": true,
+    "passesOracleGate": true,
+    "finding": {
+      "title": "Predictable password-reset token → admin account takeover (composed)",
+      "sev": "high"
+    }
+  },
+  "verdict": {
+    "detect": "4/5 lows detected (L5 remains composition-only by design)",
+    "compose": "ENGINE COMPOSED + EXECUTED: composed:leaked-token-material→predictable-reset-token:prefix-seed-user→protected-data-read",
+    "idor": "IDOR family composed + impact-proven: composed:enumerable-id-leak→published-creds-login→ownership-confusion:booking",
+    "race": "race family composed + impact-proven: composed:published-creds-login→race-window:giveaway-enter (graduation rate 1 over 20 trials)",
+    "discriminate": "PASS — decoy failed inside the executor (hollowSuccess)"
+  }
+}

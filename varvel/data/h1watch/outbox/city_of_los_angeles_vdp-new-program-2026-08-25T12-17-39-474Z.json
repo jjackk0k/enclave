@@ -1,0 +1,46 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "city_of_los_angeles_vdp",
+      "name": "City of Los Angeles",
+      "offersBounties": false,
+      "assets": [
+        "*.lacity.gov",
+        "*.lacity.org"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\city_of_los_angeles_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "city_of_los_angeles_vdp",
+  "name": "City of Los Angeles",
+  "url": "https://hackerone.com/city_of_los_angeles_vdp",
+  "policy": "#The City of Los Angeles Vulnerability Disclosure Policy\r\n\r\nThe City of Los Angeles is committed to ensuring the safety and security of our residents. This policy is intended to guide security researchers conducting vulnerability discovery activities and to convey our preferences for how to submit discovered vulnerabilities to us. We hope to foster an open partnership with the security community, and we recognize that the work the community does is important in continuing to ensure safety and security for all of our residents.\r\n\r\n## Guidelines\r\n\r\n# City of Los Angeles will deal in good faith with security researchers who discover, test, and submit vulnerabilities or indicators of vulnerabilities in accordance with these terms and conditions:\r\n\r\n-   Notify us as soon as possible after you discover a real or potential security issue.\r\n    \r\n-   Make every effort to avoid privacy violations, degradation of user experience, disruption to City operations, and destruction or manipulation of data.\r\n    \r\n-   Only use exploits to the extent necessary to confirm a vulnerability’s presence. Do not use an exploit to compromise or exfiltrate data, establish command line access and/or persistence, or use the exploit to “pivot” to other systems.\r\n    \r\n-   Once you’ve established that a vulnerability exists or encounter any sensitive data (including personally identifiable information, financial information, or proprietary information or trade secrets of any party), you must stop your test, notify us immediately, and not disclose this data to anyone else.\r\n    \r\n-   Do not submit a high volume of low-quality reports.\r\n    \r\n\r\n# Program Rules\r\n\r\n-   Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\r\n    \r\n-   Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n    \r\n-   When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\r\n    \r\n-   Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\r\n    \r\n-   Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n    \r\n-   Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n    \r\n\r\n# Disclosure Policy\r\n\r\n-   Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the City of Los Angeles.\r\n    \r\n-   Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n    \r\n\r\n# Scope\r\n\r\nAt this time, only assets directly owned and controlled by the City of Los Angeles are covered by this Policy.\r\n\r\n# Out-of-scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario or exploitability and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n-   Clickjacking on pages with no sensitive actions\r\n    \r\n-   Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n    \r\n-   Attacks requiring MITM or physical access to a user's device.\r\n    \r\n-   Previously known vulnerable libraries without a working Proof of Concept.\r\n    \r\n-   Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n    \r\n-   Missing best practices in SSL/TLS configuration.\r\n    \r\n-   Any activity that could lead to the disruption of our service (DoS).\r\n    \r\n-   Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n    \r\n-   Rate limiting or bruteforce issues on non-authentication endpoints\r\n    \r\n-   Missing best practices in Content Security Policy.\r\n    \r\n-   Missing HttpOnly or Secure flags on cookies\r\n    \r\n-   Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n    \r\n-   Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n    \r\n-   Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n    \r\n-   Tabnabbing\r\n    \r\n-   Open redirect - unless an additional security impact can be demonstrated\r\n    \r\n-   Issues that require unlikely user interaction\r\n\r\n# Safe Harbor\r\n\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep the City of Los Angeles and our residents safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.lacity.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lacity.gov",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

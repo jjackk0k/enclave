@@ -1,0 +1,96 @@
+{
+ "at": "2026-09-12T08:02:36.038Z",
+ "opportunity": "cognition",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "deepwiki.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000",
+    "content-security-policy": "frame-ancestors 'self' vscode-webview://*"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "devin.ai",
+   "kind": "wildcard-apex",
+   "status": 429,
+   "techs": [],
+   "headers": {
+    "server": "Vercel"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "windsurf.com",
+   "kind": "wildcard-apex",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self';  script-src 'self' 'unsafe-eval' 'unsafe-inline' js.stripe.com giscus.app connect.facebook.net clear",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cognition.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cognition.ai",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

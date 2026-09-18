@@ -1,0 +1,75 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gener8",
+      "name": "Gener8",
+      "offersBounties": false,
+      "assets": [
+        "*.gener8ads.com"
+      ],
+      "exclusions": [
+        "help.gener8ads.com",
+        "http://api.gener8ads.com/auth",
+        "http://gener8ads.com/iframes",
+        "user.gener8ads.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "1 request per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gener8-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gener8",
+  "name": "Gener8",
+  "url": "https://hackerone.com/gener8",
+  "policy": "No technology is perfect, and Gener8 believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# 📬  Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# 🙏 Guidelines\r\nWhile researching, please be considerate of our customers, employees and systems:\r\n\r\n* When using a brute force or automated testing tools you **MUST NOT** exceed 1 request per second.\r\n* If you are using automated testing tools, you **MUST NOT** use multiple IP addresses or run them concurrently in a manner that would exceed the 1 RPS limit.\r\n* If you register accounts for testing purposes please observe the following:\r\n  * **MUST** Register using your `wearehackerone.com` email address **OR** include 'HackerOne' in your registration name.\r\n  * **MUST** delete the account no more than 7 days after creating it.\r\n  * **MUST NOT** create more than 10 accounts in a 7 day period.\r\n  * **MUST NOT** create accounts with email addresses that you do not control and may otherwise be legitimate e.g. `john.doe@gmail.com`, `test@hotmail.com`.\r\n  * **MUST NOT** purchase items from our marketplace in the following categories: Gift cards, Merchandise or Products.\r\n\r\n# ⛔️ Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Any activity that could lead to the disruption of our service (DoS)\r\n* Spamming \r\n* Social engineering (including phishing) of Gener8 staff or contractors \r\n* Any physical attempts against Gener8 property or data centers\r\n\r\n# 🙅‍♂️ Out of scope\r\nWhen reporting vulnerabilities, please consider attack scenario / exploitability, and security impact of the bug. The following types of issue are considered out of scope:\r\n\r\n* Theoretical attacks without proof of exploitability\r\n* Session expiration bugs. We are aware that sessions do not expire immediately after exit and consider the risks mitigated by other safeguards we have in place.\r\n* Any vulnerability outside our control such as hosting providers or other third party vendors, unless we have not configured it securely using the settings made available to us by the vendor.\r\n* A report of a vulnerability resulting from a violation of the program guidelines\r\n* Invalid, incomplete or missing SPF/DKIM/DMARC records, on domains other than `gener8ads.com`\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.\r\n\r\n\r\n# ⛵️ Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Gener8 and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.gener8ads.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "user.gener8ads.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This forms part of our legacy authentication system that will be sunset by the end of Q1 2020.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://api.gener8ads.com/auth",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This forms part of our legacy authentication system that will be sunset by the end of Q1 2020.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.gener8ads.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Our support systems and contact forms are managed by Intercom. Vulnerabilities should  be reported to security@intercom.com\n\nPlease do not attempt to test XSS or injection vulnerabilities against the widget embedded on our site.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://gener8ads.com/iframes",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Hosts static content related to serving third party ads and does not contain sensitive information.",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "cors-theft-app",
+  "base": "https://app.moderntreasury.com",
+  "steps": [
+    {
+      "id": "preflight-cors",
+      "path": "/api/users",
+      "method": "OPTIONS",
+      "headers": {
+        "Origin": "https://attacker.invalid",
+        "Access-Control-Request-Method": "GET"
+      },
+      "expect": { "status": 204 },
+      "note": "Preflight must succeed for credentialed cross-origin reads"
+    },
+    {
+      "id": "verify-cors-data",
+      "path": "/api/users",
+      "headers": { "Origin": "https://attacker.invalid" },
+      "expect": { "status": 200, "contains": "id" },
+      "note": "Arbitrary origin reflected with credentials allows cross-origin user-data theft"
+    }
+  ],
+  "impact": {
+    "step": "verify-cors-data",
+    "contains": "id",
+    "control": { "stripHeaders": ["Origin"], "refuseStatus": [403], "mustDiffer": true }
+  }
+}

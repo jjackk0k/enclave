@@ -1,0 +1,240 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "henkel_vdp",
+      "name": "Henkel",
+      "offersBounties": false,
+      "assets": [
+        "*.askteamclean.*",
+        "*.authenticbeautyconcept.*",
+        "*.ceresit.*",
+        "*.donnad.it",
+        "*.gliss.com",
+        "*.got2b.com",
+        "*.henkel-adhesives.cn",
+        "*.henkel-adhesives.com",
+        "*.henkel.com",
+        "*.henkelgroup.cloud",
+        "*.henkelgroup.net",
+        "*.indola.*",
+        "*.labelleadresse.com",
+        "*.livecolour.com",
+        "*.pattex.*",
+        "*.persil.de",
+        "*.perwoll.*",
+        "*.prittworld.*",
+        "*.raqn.io",
+        "*.schwarzkopf.*",
+        "*.schwarzkopf.de",
+        "*.schwarzkopfpalette.*",
+        "*.sexyhair.com",
+        "*.silan.*",
+        "*.syoss.de"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate-limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\henkel_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "henkel_vdp",
+  "name": "Henkel",
+  "url": "https://hackerone.com/henkel_vdp",
+  "policy": "# Disclosure Policy\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Scope\n** Any domain that has the brand name of Henkel  ** \n* Please see the structured scope section for our list of assets.\n* For wildcard matches please validate the content of the website to be relevant to Henkel business.\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Only interact with accounts you own or with explicit permission of the account holder.\n* **Any report, that is a direct copy obtained from an Ai model in an attempt to impose a risk inflation/risk exaggeration, will be directly closed as 'Not Applicable' **.\n\n# Out of Scope\n\n## Domains\n* Any domain that is not listed in the Domains section, is out of scope for this program\n* For wildcard matches please validate the content of the website to be relevant to Henkel business\n\n## Application\n* POST/GET based XSS without demonstrated business impact will not be accepted\n* CSRF without demonstrated business impact will not be accepted\n* Social Media Link Hijacking will not be accepted\n* API key disclosure without proven business impact\n* Adobe Experience Manager (AEM) Information disclosure, when it's simply public data without any demonstrated impact\n* WordPress usernames disclosure\n* CAPTCHA related abuse scenarios without proven exploitation\n* Pre-Auth Account takeover/OAuth squatting\n* Self-XSS that cannot be used to exploit other users\n* Verbose messages/files/directory listings without disclosing any sensitive information\n* CORS misconfiguration on non-sensitive endpoints\n* Missing cookie flags\n* Missing security headers\n* Cross-site Request Forgery with no or low impact\n* Presence of autocomplete attribute on web forms\n* Reverse tabnabbing\n* Bypassing rate-limits or the non-existence of rate-limits.\n* Best practices violations (password complexity, expiration, re-use, etc.)\n* Clickjacking without proven impact/unrealistic user interaction\n* CSV Injection\n* Sessions not being invalidated (logout, enabling 2FA, etc.)\n* Tokens leaked to third parties\n* Anything related to email spoofing, SPF, DMARC or DKIM\n* HTML Content injection (HTMLi)\n* Username/email enumeration\n* Email bombing\n* HTTP Request smuggling without any proven impact\n* Homograph attacks\n* XMLRPC enabled\n* Banner grabbing/Version disclosure\n* Not stripping metadata of files\n* Same-site scripting\n* Subdomain takeover without taking over the subdomain\n* Arbitrary file upload without proof of the existence of the uploaded file\n* Blind SSRF without proven business impact (pingbacks are not sufficient)\n* Disclosed/misconfigured Google Maps API keys\n* Host header injection without proven business impact\n* Open redirect without proven business impact.\n* PHPinfo without any sensitive information.\n* SSL/TLS misconfigurations\n\n## General\n* In case that a reported vulnerability was already known to the company from their own tests, it will be flagged as a duplicate\n* Theoretical security issues with no realistic exploit scenario(s) or attack surfaces, or issues that would require complex end user interactions to be exploited\n* Spam, social engineering and physical intrusion\n* DoS/DDoS attacks or brute force attacks\n* Vulnerabilities that only work on software that no longer receive security updates\n* Attacks requiring physical access to a victim's computer/device, man in the middle or compromised user accounts\n* Recently discovered zero-day vulnerabilities found in in-scope assets within 14 days after the public release of a patch or mitigation may be reported, but are usually not eligible for a bounty\n* Reports that state that software is out of date/vulnerable without a proof-of-concept\n\n## Mobile\n* Shared links leaked through the system clipboard\n* Any URIs leaked because a malicious app has permission to view URIs opened\n* The absence of certificate pinning\n* Sensitive data in URLs/request bodies when protected by TLS\n* Lack of obfuscation\n* Path disclosure in the binary\n* Lack of jailbreak & root detection\n* Crashes due to malformed URL Schemes\n* Lack of binary protection (anti-debugging) controls, mobile SSL pinning\n* Snapshot/Pasteboard leakage\n* Runtime hacking exploits (exploits only possible in a jailbroken environment)\n* API key leakage used for insensitive activities/actions\n\n# Testing\n# # Session Layer: HTTP Headers\nResearchers should add headers to requests such as: “X-HackerOne-Research: [H1 username]”\n\n* While you’re welcome to create accounts where they are available. We ask that you use your HackerOne alias when doing so. You can find instructions on how to find your alias [here](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias).\n* We’re unable to provide account licenses or refund expenses incurred during testing.\n\n\nThank you for helping keep Henkel and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.henkel.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.donnad.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gliss.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.got2b.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.henkel-adhesives.cn",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.henkel-adhesives.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.henkelgroup.cloud",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.henkelgroup.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.labelleadresse.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.livecolour.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.persil.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.raqn.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.schwarzkopf.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sexyhair.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.syoss.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.askteamclean.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "askteamclean scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.authenticbeautyconcept.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "authenticbeautyconcept scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ceresit.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "ceresit scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.indola.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "indola scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pattex.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "pattex scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.perwoll.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "perwoll scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.prittworld.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "prittworld scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.schwarzkopf.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "schwarzkopf scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.schwarzkopfpalette.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "schwarzkopfpalette scope including any TLD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.silan.*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "silan scope including any TLD",
+      "max_severity": "critical"
+    }
+  ]
+}

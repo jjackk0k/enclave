@@ -1,0 +1,251 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "superbet",
+      "name": "Superbet",
+      "offersBounties": true,
+      "assets": [
+        "*.luckydays.ca",
+        "*.luckydays.com",
+        "*.napoleoncasino.be",
+        "*.napoleondice.be",
+        "*.napoleongames.be",
+        "*.napoleonsports.be",
+        "*.spinaway.com",
+        "*.superbet.com",
+        "*.superbet.pl",
+        "*.superbet.ro",
+        "*.superbet.rs",
+        "https://napoleoncasino.be",
+        "https://napoleoncasino.be/en-be/game/hogamba-crash?demo=false",
+        "https://superbet.pl",
+        "https://superbet.ro",
+        "ro.superbet.games",
+        "ro.superbet.sport",
+        "superbet.bet.br"
+      ],
+      "exclusions": [
+        "*.epic.superbet.ro",
+        "affiliate.napoleongames.be",
+        "affiliates.superbet.com",
+        "affiliates.superbet.rs",
+        "http://surveys.superbet.com",
+        "https://legacy-web.superbet.ro/session/login",
+        "https://retail.prod.incubator.superbet.ro/ssbt-api/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use Scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\superbet-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "superbet",
+  "name": "Superbet",
+  "url": "https://hackerone.com/superbet",
+  "policy": "***Please limit the amount of requests to max 50/second*** \n***Do not use Scanners such as Nessus, acunetix,etc, we already scan our assets with these tools and you won't be rewarded if you report vulnerabilities found by scanners***\n***All our LOGIN services are out of scope for the moment. Please review our Policy page.\nAny bruteforce attempt on our login services will be considered misbehavior and you will be banned from the program. We won't reward any credentials identified using bruteforce attacks.***\n# S3 bucket takeovers are temporarily out-of-scope.\n#Other type of subdomain takeovers will be rewarded with 500$ unless additional  impact will be demonstrated.\n#Employee Credentials leaked(working credentials) will be rewarded with 250$ unless additional impact will be demonstrated.\n# IDOR/BAC vulnerabilities on SOCIAL Functionality is out of scope\n\nSuperbet will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 1 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n#Test Plan\nFor our main application ```superbet.ro/magicjackpot.ro``` You can use a Romanian fake CNP generator in order to create an account, such as - https://isj.educv.ro/cnp/ in order to create an account. Make sure you are using a Romanian VPN as the portal works only for Romanian IP’s.\n\n● Please add the following User-Agent header when you are using any automated tools or scripts - User-agent: hackerone -. Requests that will not contain this cookie header might get blocked by our tools/SOC team.\n\n# Disclosure Policy \n*  Follow HackerOne's disclosure guidelines.\n* Do not disclose information about any found vulnerabilities without express consent from Superbet.\n* Disclosure requests must be made through the HackerOne platform - see instructions here. We will make the final decision on a per report basis.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Username / email enumeration\n* Descriptive error messages (e.g. stack traces, application or server errors).\n* CORS issues without a working PoC\n* Login page or one of our websites over HTTP\n*  Self XSS\n* As a rule of thumb, we don't reward vulnerabilities found in 3rd parties. We have a lot of those, many of which have their own bug bounty programs and the vulnerabilities affect many companies that integrate or use their stuff. This is why you should try to reach out to the company who originated the code and have these kind of issues fixed upstream. We may try to reach the upstream provider ourselves to ensure that we're not keeping vulnerable code and, should we do so, you can be assured that you will be credited for the find\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nYou can contact us anytime for questions or support: security@superbet.com\n\nThank you for helping keep Superbet and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.superbet.ro",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For our main application superbet.ro You can use a Romanian fake CNP generator in order to create an account, such as - https://isj.educv.ro/cnp/ in order to create an account. Make sure you are using a Romanian VPN as the portal works only for Romanian IP’s.\nOr use a test account from this list:\n26",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.epic.superbet.ro",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://legacy-web.superbet.ro/session/login",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "All our LOGIN services are out of scope for the moment.\nAny bruteforce attempt on our login services will be considered misbehavior and you will be banned from the program. We won't reward any credentials identified using bruteforce attacks.\nThank you!",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.superbet.rs",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our new betting platform, available only in serbia. We only allow connection from Serbian Ip's, so please use a VPN.\nTest Accounts:\n26hackeroneserbia06 - YAJ6chCI9ra3fX%s\n26hackeroneserbia07 - 3hoPBI2sQRuIxDJ#\n26hackeroneserbia08 - Wqs!C7b8LLURfgbH\n26hackeroneserbia09 - @p0fNOlvVJLwZobb\n26ha",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.superbet.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "affiliates.superbet.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.superbet.rs",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.spinaway.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "we have a lot of 3rd party's such as cpanels/etc which will are OOS so if you are in doubt, contact security@superbet.com. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ro.superbet.sport",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Make sure you set the location to your google play account to Romania so you can access the app\nhttps://play.google.com/store/apps/details?id=ro.superbet.sport&hl=ro&gl=RO",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ro.superbet.games",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Make sure you change your google play country to Romania so you can access the app.\nhttps://play.google.com/store/apps/details?id=ro.superbet.games&hl=ro&gl=RO",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luckydays.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "we have a lot of 3rd party's such as cpanels/etc which will are OOS so if you are in doubt, contact security@superbet.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luckydays.ca",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "we have a lot of 3rd party's such as cpanels/etc which will are OOS so if you are in doubt, contact security@superbet.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.napoleoncasino.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You need a real/fake Belgium ID to register an account on the main casino/sport app.\nYou can generate a fake ID here - http://rsolution.be/rijksregister-nummer-generator.RSolution",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.napoleondice.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You need a real/fake Belgium ID to register an account on the main casino/sport app.\nYou can generate a fake ID here - http://rsolution.be/rijksregister-nummer-generator.RSolution",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.napoleongames.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You need a real/fake Belgium ID to register an account on the main casino/sport app.\nYou can generate a fake ID here - http://rsolution.be/rijksregister-nummer-generator.RSolution",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.napoleonsports.be",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You need a real/fake Belgium ID to register an account on the main casino/sport app.\nYou can generate a fake ID here - http://rsolution.be/rijksregister-nummer-generator.RSolution",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "affiliate.napoleongames.be",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.superbet.pl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Website available only from Poland use VPN\n Test Accounts: \n26hackeronepoland02 - ZIzUxh@D1FWrb@yF \n26hackeronepoland03 - 6J@K%IU9fVbMhCe9 \n26hackeronepoland04 - a%TlmhYhTxaMA%@8 \n26hackeronepoland05 - hCR63P@vPWGj&Rws\n26hackeronepoland06 - rI%nUj6E%cU5Lpkd",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://retail.prod.incubator.superbet.ro/ssbt-api/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "out of scope",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://surveys.superbet.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "superbet.bet.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Website available only for Brazil use VPN.\nTest Accounts:\n26hackeronebrazil02 - NyX#xTsIz8@8mku0\n26hackeronebrazil03 - LQg@9wyRk#7Xj!wX\n26hackeronebrazil04 - 1p99kdS1PeD&PZaf\n26hackeronebrazil05 - 4lz@ZvKqIp5z!vl7\n26hackeronebrazil06 - r0G#ViDGd!epgr4&",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://napoleoncasino.be/en-be/game/hogamba-crash?demo=false",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "slot game available on be/ro platforms and on BR in the future.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://superbet.ro",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For our main application superbet.ro You can use a Romanian fake CNP generator in order to create an account, such as - https://isj.educv.ro/cnp/ in order to create an account. Make sure you are using a Romanian VPN as the portal works only for Romanian IP’s.\nOr use a test account from this list:\n26",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://superbet.pl",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Website available only from Poland use VPN\nTest Accounts:\n26hackeronepoland02 - ZIzUxh@D1FWrb@yF\n26hackeronepoland03 - 6J@K%IU9fVbMhCe9\n26hackeronepoland04 - a%TlmhYhTxaMA%@8\n26hackeronepoland05 - hCR63P@vPWGj&Rws\n26hackeronepoland06 - rI%nUj6E%cU5Lpkd",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://napoleoncasino.be",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Website available only from Belgium\nYou need a real/fake Belgium ID to register an account on the main casino/sport app. You can generate a fake ID here - http://rsolution.be/rijksregister-nummer-generator.RSolution",
+      "max_severity": "critical"
+    }
+  ]
+}

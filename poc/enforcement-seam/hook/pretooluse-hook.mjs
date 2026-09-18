@@ -23,7 +23,7 @@ import { readFileSync } from 'node:fs';
 import { basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, isAbsolute } from 'node:path';
-import { tmpdir } from 'node:os';
+import { tmpdir, homedir } from 'node:os';
 import { authorize, DIRECTORY } from '../policy-engine.mjs';
 import { classify } from '../classify.mjs';
 import { verifySession, ipInAnyScope, appendAudit } from '../util.mjs';
@@ -113,8 +113,8 @@ async function readStdin() {
 
   // 4. Resolve resource + context — the model cannot set any of this.
   const wsRoot = process.env.ENCLAVE_WORKSPACE_DIR;   // abs path of the operator's OWN workspace (set by the server)
-  let resource, context = {};
-  if (cls.kind === 'target') {
+  let resource, context = {}, sessionWorkspace;        // sessionWorkspace: set ONLY when the
+  if (cls.kind === 'target') {                         // resource identity came from the signed session
     resource = { type: 'Target', id: cls.targetIp || '0.0.0.0' };
     context = {
       inScope: ipInAnyScope(cls.targetIp, session.engagementScope),
@@ -137,6 +137,10 @@ async function readStdin() {
       const r = relative(wsRoot, String(input.cwd));
       const insideOwn = !(r.split(/[\\/]/)[0] === '..' || isAbsolute(r));
       wsId = insideOwn ? session.workspace : basename(String(input.cwd));
+      // The signed, HMAC-verified session NAMES this engagement's workspace; when the
+      // resource IS that signed workspace, let the PDP evaluate against it (the static
+      // directory's workspace attr is a demo fixture that knows nothing of engagements).
+      if (insideOwn) sessionWorkspace = session.workspace;
     } else {
       wsId = input.cwd ? basename(String(input.cwd)) : session.workspace;
     }
@@ -147,10 +151,11 @@ async function readStdin() {
   // denied outright — even at L5. Subdirectories of the workspace are fine, and so is the
   // model's own ephemeral session scratchpad. (Bash-level fs confinement is the container
   // tier; this guards the file tools in every tier, incl. local.)
-  const fpath = input.tool_input && input.tool_input.file_path;
+  const fpath = input.tool_input && (input.tool_input.file_path ?? input.tool_input.path);  // Read/Write/Edit → file_path; Grep/Glob → path
   if (fpath && wsRoot) {
     const cwd = input.cwd || wsRoot;
-    const abs = isAbsolute(String(fpath)) ? String(fpath) : join(String(cwd), String(fpath));
+    const abs0 = (() => { const s = String(fpath); const m = /^\/(?:mnt\/)?([a-zA-Z])(?=\/|$)/.exec(s); return m ? m[1].toUpperCase() + ':' + s.slice(m[0].length) : s; })(); // Git-Bash/POSIX drive form (/c/Users → C:/Users) — the model on Windows emits these; without normalizing, the workspace's OWN files fail-closed as "outside"
+    const abs = isAbsolute(abs0) ? abs0 : join(String(cwd), abs0);
     const within = (root) => { const r = relative(root, abs); return r === '' || (r.split(/[\\/]/)[0] !== '..' && !isAbsolute(r)); };
     const t = tmpdir();
     const inScratch = abs.toLowerCase().startsWith(t.toLowerCase()) && /[\\/]claude[\\/]/i.test(abs); // the model's own session scratch
@@ -162,8 +167,52 @@ async function readStdin() {
     }
   }
 
+  // 4c. HOST-TIER BASH CONFINEMENT. The path-carrying file tools are jailed above, but Bash
+  // carries a raw command whose reads/writes that check never sees — so `cat ~/.claude.json`
+  // or `ls C:\Users\<you>` would otherwise run as the host user and reach your real profile,
+  // credentials, and the enclave's own signed sessions. Scan the command and deny any reach
+  // into your home dir (outside this enclave), any secret path, or any parent-escape out of
+  // the tree. `enclave-shell` runs inside the sealed container/VM, so its wrapped command is
+  // left to that boundary. Best-effort literal-path defense for the LOCAL tier (true isolation
+  // is the container/VM); it stops the demonstrated credential reach and casual escapes.
+  if (input.tool_name === 'Bash' && wsRoot) {
+    const cmd = String((input.tool_input && input.tool_input.command) || '');
+    const sealed = !!(process.env.ENCLAVE_CONTAINER || process.env.ENCLAVE_KALI_VMX);
+    const enclaveShell = /^\s*enclave-shell\b/.test(cmd);
+    const norm = (p) => { let s = String(p).replace(/\\/g, '/'); const m = s.match(/^\/([a-zA-Z])(\/.*)?$/); if (m) s = m[1] + ':' + (m[2] || '/'); return s.replace(/\/+$/, '').toLowerCase(); };
+    const home = norm(homedir()), ws = norm(wsRoot), tmp = norm(tmpdir());
+    const under = (n, root) => n === root || n.startsWith(root + '/');
+    const cwd = input.cwd || wsRoot;
+    const denyCmd = (why, tok) => {
+      appendAudit(LEDGER, { ts: new Date().toISOString(), event: 'pretooluse.decision', session_id: session.session_id,
+        principal: session.principal, clearance: who.clearance, tool: 'Bash', mapped_action: 'workspaceEscape',
+        resource: `Path::${String(tok).slice(0, 120)}`, context: { why }, decision: 'deny', cedar_policies: [] });
+      return emit('deny', `blocked: this shell command reaches OUTSIDE the sealed workspace (${why}). The enclave's file tools and host shell are confined to this workspace tree — your real home directory, credentials, and the enclave's own internals are off-limits regardless of clearance. Run workload tooling via enclave-shell (sealed container/VM); keep plain Bash inside the workspace.`, { mappedAction: 'workspaceEscape' });
+    };
+    if (!(sealed && enclaveShell)) {
+      // (a) explicit home references — never point inside the enclave subtree
+      if (/(^|[\s='"`(:>])(~($|[/\\])|\$\{?HOME\}?|%USERPROFILE%|%HOMEPATH%)/i.test(cmd)) return denyCmd('home-directory reference', '~');
+      // (b) credential / secret / enclave-internal paths — belt-and-braces literal match
+      if (/\.claude(\.json)?(["'\s/\\]|$)|[/\\]\.ssh[/\\]|id_rsa|id_ed25519|[/\\]\.aws[/\\]|\.git-credentials|[/\\]\.gnupg[/\\]|\.docker[/\\]config|\.enclave-workspaces[/\\]\.settings|enforcement-seam[/\\]session/i.test(cmd))
+        return denyCmd('credential or enclave-internal path', 'sensitive path');
+      // (c) any path-like token that resolves into your home dir (but not this enclave) or climbs out of the tree
+      for (let tok of cmd.split(/[\s;|&<>()"'`,]+/)) {
+        if (!tok) continue;
+        const eq = tok.indexOf('='); if (eq >= 0 && /[/\\]/.test(tok.slice(eq + 1))) tok = tok.slice(eq + 1);   // VAR=/x, --file=/x
+        if (!/[/\\]/.test(tok) && !/\.\./.test(tok)) continue;                 // not a path token
+        if (/^[a-z][a-z0-9+.-]*:\/\//i.test(tok)) continue;                    // URL scheme → governed egress, gated elsewhere
+        const abs = (isAbsolute(tok) || /^([a-zA-Z]:[\\/]|\\\\|\/)/.test(tok)) ? tok : join(cwd, tok);
+        const n = norm(abs);
+        if (under(n, ws)) continue;                                           // inside the enclave → fine
+        if (under(n, tmp) && /\/claude\//.test(n)) continue;                  // the model's own session scratch → fine
+        if (under(n, home)) return denyCmd('path into your home directory', tok);      // home but not enclave → your real profile
+        if (/(^|[/\\])\.\.([/\\]|$)/.test(tok)) return denyCmd('parent-directory escape', tok);  // ../.. out of the tree
+      }
+    }
+  }
+
   // 5. Authorize against Cedar.
-  const verdict = await decide({ principalId: session.principal, action: cls.action, resource, context });
+  const verdict = await decide({ principalId: session.principal, action: cls.action, resource, context, sessionWorkspace });
   const allowed = verdict.decision === 'allow';
 
   // 6. Human-readable reason.

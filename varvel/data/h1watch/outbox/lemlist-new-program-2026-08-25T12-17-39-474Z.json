@@ -1,0 +1,135 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lemlist",
+      "name": "lemlist",
+      "offersBounties": false,
+      "assets": [
+        "app.lemcal.com",
+        "app.lemlist.com",
+        "app.lemwarm.com",
+        "app.taplio.com",
+        "app.tweethunter.io"
+      ],
+      "exclusions": [
+        "api.lemlist.com",
+        "api.taplio.com",
+        "api.tweethunter.io",
+        "lemwarm.com",
+        "taplio.com",
+        "tweethunter.io",
+        "www.lemcal.com",
+        "www.lemlist.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "DO NOT use automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lemlist-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lemlist",
+  "name": "lemlist",
+  "url": "https://hackerone.com/lemlist",
+  "policy": "lempire is committed to working with security experts across the globe to stay up to date with the latest security techniques. If you have discovered a security issue that you believe we should know about, we'd welcome working with you. Please let us know about it and we'll make every effort to quickly correct the issue.\n\nPlease use your own accounts to conduct your research. Do not try to gain access to others' accounts or any confidential information. \nWhen creating accounts, use your [hacker email](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias) alias, for ex: jobert+test2@wearehackerone.com\n\n# Disclosure Policy \n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \n\n# DO NOT use automated scanning tools\n\n# Exclusions \nWhile researching, we'd like to ask you to refrain from: \n* Denial of service \n* Spamming \n* Social engineering (including phishing) of lempire staff, contractors or customers\n* Physical access to a lempire user computer\n* Any physical attempts against lempire property or data centers \n* Login/Logout CSRF\n* Self-XSS (we require evidence on how the XSS can be used to attack another user)\n* Client-side only vulnerabilities (e.g., HTML injections without persistent or cross-user impact)\n* Miss of rate limits\n* Report from automated tools and scans\n* Vulnerabilities sending spam or unauthorised messages\n* Bugs in 3rd party software\n* X-Frame-Options related\n* Customer's sites\n* Relating to HSTS\n* DNSSEC\n* CAA records\n* Missing security headers which do not lead directly to a vulnerability\n* Physical attack on the infrastructure\n* Theoretical attacks\n* Breaking of SSL/TLS trust\n* Compromising of browser/device (ex. computer sharing, physical access to a user's device, ...)\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms\n* Password and account recovery policies, such as reset link expiration or password complexity\n* Vulnerabilities without solution on our side (HEIST, ...)\n* Outdated DNS record pointing to system which does not belong to lempire (subdomain takeover)\n* Issue related to homographs\n* HTST preload directive\n* Authorizing a third-party OAuth app via our consent screen. Open (dynamic)\n    client registration is by design (it powers the public API and MCP\n    integrations); no token is issued until the user completes a consent screen\n    that WARNS the app is unverified, states access equals sharing their API\n    key, and requires an explicit confirmation. Tricking a user into completing\n    this flow is social engineering / phishing and is out of scope. Still in\n    scope: OAuth flaws granting access WITHOUT informed consent (code/token\n    theft with no consent step, redirect_uri leaks, consent-screen clickjacking,\n    scope escalation)\n\n# Scopes\n\n* Website and API related endpoints on domains listed in program scopes\n\n# Eligibility\n\n* You must be the first reporter of the vulnerability.\n* You follow https://hackerone.com/disclosure-guidelines\n* You do not access data of other users and solely use your created accounts.\n* You may not publicly disclose the vulnerability prior to our resolution.\n* You are not an individual on, or residing in any country on, any U.S. sanctions lists.\n* You provide a working proof of concept that exploits the security issue.\n\nDUPLICATE REPORTS\nDifferent exploitation vectors for the same bug or similar bugs may be considered duplicating if the security team believes information provided for a single vector/bug is enough to fix all vectors or bugs reported.\nA report for a known or duplicating vulnerability is considered as Duplicate. The report can be either a duplicate of another report from any bug bounty platform or a duplicate of the problem internally tracked by the Lempire security team. Usually, access to the original report or some information from the internal task tracker is provided to the reporter of a Duplicate. In some cases, information may not be provided if a Duplicate contains less information or a less critical exploitation vector than the original report.\nThe report is considered duplicated to another report from any bug bounty platform if there is an original report in \"New\" or \"Triaged\" state with an earlier report date/time or lower report number, or if it updates the report in \"N/A\" or \"Need more info\" state and the original report is in \"N/A\" or \"Need more info\" state for less than 1 week, or sufficient information is provided in the original report by the researcher since the report is transferred to \"N/A\" or \"Need more info\" state.\nThe report is considered a duplicate of an internal task if there is a task in the internal task tracker which is tracked by the Lempire security team at the time of the duplicate report.\nAlso, public 0-day/1-day vulnerabilities may be considered as a duplicate within a few days after the vulnerability details publication, if the vulnerability is known to our team from public sources and we are working to mitigate or patch it.\n\n# Reward\n* We do not provide rewards for reported issue. Only fame!\n\n# Safe Harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep lempire and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.lemlist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.lemcal.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.lemwarm.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "taplio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tweethunter.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app.taplio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.tweethunter.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.lemlist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "lemwarm.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.lemcal.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.lemlist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.taplio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.tweethunter.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

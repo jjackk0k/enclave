@@ -1,0 +1,209 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "clear",
+      "name": "CLEAR",
+      "offersBounties": true,
+      "assets": [
+        "authentication.clearme.com",
+        "clearme.atlassian.net",
+        "clearme.com",
+        "com.clearme.Clear",
+        "com.clearme.clearapp",
+        "concierge.clearme.com",
+        "enroll.clearme.com",
+        "http://verified.clearme.com/dashboard",
+        "identity.clearme.com",
+        "ir.clearme.com",
+        "mobile.clearme.com",
+        "my.clearme.com",
+        "scan.clearme.com",
+        "verified.clearme.com",
+        "verified.clearme.com/v1/verification_sessions",
+        "web-edge.clearme.com",
+        "www.clearme.com"
+      ],
+      "exclusions": [
+        "docs.clearme.com",
+        "fieldsupport.clearme.com",
+        "hub.clearme.com",
+        "legal.clearme.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\clear-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "clear",
+  "name": "CLEAR",
+  "url": "https://hackerone.com/clear",
+  "policy": "# About Us\nCLEAR's mission is to strengthen security and create frictionless experiences. With over 36 million Members and a growing network of partners across the world, CLEAR's secure identity platform is transforming the way people live, work, and travel. Whether you are traveling, at the stadium, or on your phone, CLEAR connects you to the things that make you, you—making everyday experiences easier, more secure, and friction-free. CLEAR is committed to privacy done right. Members are always in control of their own information, and we do not sell biometric or sensitive personal data.\n\nCLEAR is committed to maintaining robust security throughout our entire enterprise. We are committed to our members and to the security of their data. In the spirit of continual improvement, we welcome the contributions of external security researchers. We anticipate awarding them for their contributions as they bolster the security for CLEAR and, ultimately, our members.\n\nCLEAR1 is CLEAR's secure identity platform for businesses, offering multi-layered verification at critical touchpoints. By analyzing hundreds of real-time signals across biometrics, documents, and devices – and validating them against issuing, authoritative, and trusted data sources – CLEAR1 ensures users are who they claim to be. Implementation is seamless, with low-code and out-of-the-box integrations that fit into your existing tech stack.\n\nOver 36 million users in CLEAR’s network can verify instantly with just a selfie, while new users enjoy the same experience across all partners after a quick, one-time setup. Backed by over 15 years in highly-regulated environments, CLEAR1 delivers trust, wherever identity matters.\n\n# Program Summary\nAs a researcher, we understand your eagerness to start testing immediately. However, we strongly recommend that you read the full program terms. Here is a brief overview:\n- Submit a well-written report following the submission guidelines.\n- Do not cause any damage or disruption to our systems or services.\n- Rewards are based on the demonstrated impact of the vulnerability, not solely on CVSS scores.\n\n# Response Targets\nCLEAR will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 2 business days\n* Time to triage (from report submit) - 2 business days \n* Time to bounty (from triage) - 5 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\nBy providing a submission or agreeing to the Program Terms, You agree that you may not publicly disclose your findings or the contents of your Submission to any third parties in any way without CLEAR's prior written approval.\nFailure to comply with the Program Terms will result in immediate disqualification from the Bug Bounty Program and ineligibility for receiving any Bounty Payments.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# CLEAR Membership/Accounts & Testing\nCLEAR1 has a web+mobile member experience for an individual wishing to verify their identity and share information with a partner. CLEAR1 also has a Web+API partner experience for our business partners to view verification info, change project settings, and manage their integrations. You can always verify with CLEAR1 free online from the comfort of your own home; there is no need to go to an airport or appear anywhere else in person.\n\n## How to access data in CLEAR1\nAdministrators for our partner organizations log in with their credentials at https://verified.clearme.com/dashboard. It supports both standard user login and SSO-based logins. CLEAR is not providing credentials into the H1 testing organization at this time.\n\nAdditionally, there is an API which CLEAR1 customers (businesses) use to retrieve personal information or create new verification sessions. That API is [documented here](https://docs.clearme.com/docs/getting-started). CLEAR is not providing an API key at this time.\n\n# Program Rules\n* Any web traffic sent to CLEAR assets as part of testing must contain the following header: “X-Bug-Bounty: HackerOne-<username>”. Username should be your HackerOne username. See the “Public Website” section below for a way to conveniently set these headers while testing the public website.\n* Any CLEAR accounts that you create solely for testing with this program must follow the enrollment instructions above (see \"How to Enroll in CLEAR\"). This usually entails setting the appropriate lead source during enrollment, which can be done automatically for you by enrolling through the links provided. The testing instructions below mention more about this.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Only interact with accounts you own or with the explicit, written permission of the account holder.\n* Do not mass create accounts to perform testing. For example, creating over a dozen accounts is most likely unnecessary. If you see a potential valid attack that requires more accounts please reach out to us.\n* Do not perform brute force testing to determine whether rate limiting is in place for particular APIs or pieces of functionality.\n\n## Public Website (www.clearme.com & web-edge.clearme.com) Testing\nBefore testing the public website visit the following URL with your HackerOne username filled in: [https://www.clearme.com/?bug-bounty-program=HackerOne&bug-bounty-username=\\<your-username\\>](https://www.clearme.com/?bug-bounty-program=HackerOne&bug-bounty-username=<your-username>). This will ensure that the required “X-Bug-Bounty” header is sent with all browser requests to CLEAR assets and that the lead source is set to “hackerone-web” during an account enrollment. After visiting the pre-testing URL above, your browser should remain configured for testing for one week. So you will just have to visit this URL once per week if the site data for www.clearme.com is not cleared/modified and remains intact.\n\n## Mobile App (flagship, iOS & Android) Testing and Installation\nYou MUST install the apps from this specific link so that the app is set up correctly on your device: https://clear.app.link/hackerone-mobile.\n\nThis installation will automatically set the lead source to “hackerone-mobile” for you during any new account enrollments. But it does not automatically set the `X-Bug-Bounty` header for you when hitting mobile.clearme.com, so at this time you must set the header manually when testing.\n\n# Rewards\nCLEAR, at its discretion, may provide rewards to vulnerability reporters. Our rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard) and risk (defined as a vector of impact and likelihood) to CLEAR and its members. Please note these are general guidelines, and those reward decisions are up to the discretion of CLEAR. Reward amounts may vary depending upon the severity of the vulnerability reported and the quality of the report. If we receive multiple reports for the same finding the reward will go to the first reporter. Keep in mind that this is not a contest, nor a competition.\n\n# In Scope Assets\nSee the Structured Scope Section for each individual asset in and out of scope.\n\nVulnerabilities reported on other CLEAR properties or applications are currently ineligible for rewards (as other sites and systems come into scope, they will be added to this section).\n\n# Out of Scope Items\n\nAmong our in-scope assets, there are some vulnerabilities and functionalities/features that are out of scope. These are defined in this section among the core ineligible findings: https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings\n\n## Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider:  \n1. **Attack scenario/exploitability**  \n2. **The security impact of the bug**  \n\n## Out of Scope Assets\n This program is also **NOT scoped** to any physical devices (e.g., at airports, sports locations, etc.) that are in any way associated with or owned by CLEAR. Any vulnerabilities or bounties submitted that include this domain or these devices will not be considered and may lead to disqualification from the program.\n\n# Responsible Disclosure and Eligibility \nTo promote the discovery and reporting of vulnerabilities, as well as increasing the security of our data, we ask that you:\n* Please remember we welcome your submissions but require your discretion. Please do not publicly disclose any vulnerabilities without our prior consent.\n* You must follow all rules as described in “Program Rules” section above\n* Public disclosure will uniformly result in disqualification.\n* Refrain from accessing or modifying user data.\n* If you have found a vulnerability affecting our underlying software, please notify us.\n* Share the security issue with us in detail.\n* You are responsible for complying with any applicable laws, and you should only use your own accounts or test accounts for reporting vulnerabilities.\n* We only reward the first reporter of a vulnerability.\n* You must report a qualifying vulnerability through the HackerOne reporting tool to be eligible for a monetary reward.\n\n# Qualifying Vulnerabilities\nAny design or implementation issue that is reproducible and/or substantially affects the security of CLEAR and/or its members is likely to be in scope for the program. Common examples include, but are not limited to:\n* Cross Site Scripting (XSS)\n* Cross Site Request Forgery (CSRF)\n* Remote Code Execution (RCE)\n* SQL Injection (SQLi)\n* Authentication bypass\n* Server Side Request Forgery (SSRF)\n* Privilege Escalation\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\n# The Fine Print\nFlaws must be verifiable and reproducible.\nYou must comply with all applicable laws in connection with your participation in this program. You are also responsible for any applicable taxes associated with any reward you receive.\n\n# Legal\n- If you’re on a sanctions list or live in a country that’s on a sanctions list, we cannot give you a reward. Keep in mind that your citizenship and residency may affect whether you owe taxes on any reward you receive, and you alone are responsible for paying those taxes.\n\n- We may modify the terms of this program or terminate this program at any time. We won’t apply any changes we make to these program terms retroactively.\n\n- By accessing CLEAR systems, you agree to [CLEAR's Terms of Use](https://www.clearme.com/terms-of-use) and [Privacy Policy](https://www.clearme.com/privacy-policy).\n\n- Please note: as discussed above, your discretion is paramount. By participating in this program you are agreeing not to disclose any of your findings to third parties.\n\n**Thank you for helping to keep CLEAR and our members safe!**",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You can sign up for a free CLEAR account for 2 months by using the promo code “HACKER2020”.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "enroll.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Primary Marketing Site",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "web-edge.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Clear Member Portal",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mobile.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the backend that supports our flagship iOS and Android apps. Please read the \"Mobile App\" section under our program's policy to see the best way to test as well as the eligibility requirements for testing. Please install the app via [this link](https://clear.app.link/hackerone-mobile).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.clearme.clearapp",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You must install the app using [this link](https://clear.app.link/hackerone-mobile).\n\nYou can sign up for a free CLEAR account for 2 months by using the promo code “HACKER2020”.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.clearme.Clear",
+      "asset_type": "OTHER_IPA",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You must install the app using [this link](https://clear.app.link/hackerone-mobile).\n\nYou can sign up for a free CLEAR account for 2 months by using the promo code “HACKER2020”. There are also free memberships offered when signing up for a [Sports](https://clearme.com/sports) membership.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hub.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fieldsupport.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "clearme.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Clear Service Support Platform.\nRegistration & Login using arbitrary domains is out of scope. \nPlease only report misconfigurations that result in vulnerabilities. Any vulnerabilities in the Atlassian Platform itself should be reported to their [vulnerability disclosure program](https://www.atlassia",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "legal.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ir.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Public Investor Relations Site",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "scan.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Must only referencing physical location parameter \"CLR\". Attempts to scan or attack other production locations ( Barclays Center, JFK, LAX, Madison Square Garden, SoFi Stadium, etc) is not authorized and may not be eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "authentication.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "verified.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "verified.clearme.com/v1/verification_sessions",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Public facing API for starting a session in C1.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "concierge.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "identity.clearme.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://verified.clearme.com/dashboard",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

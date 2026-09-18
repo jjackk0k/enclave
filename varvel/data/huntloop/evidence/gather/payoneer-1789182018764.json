@@ -1,0 +1,90 @@
+{
+ "at": "2026-09-12T03:00:12.419Z",
+ "opportunity": "payoneer",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "payoneer.com.cn",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to payoneer.com.cn:443 refused: host unreachable"
+  },
+  {
+   "host": "greenchannel.payoneer.com.cn",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to greenchannel.payoneer.com.cn:443 refused: host unreachable"
+  },
+  {
+   "host": "myaccount-cn.payoneer.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "rhino-core-shield",
+    "via": "1.1 google"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "myaccount.payoneer.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39ba930db0f2b0b-LHR",
+    "strict-transport-security": "max-age=16070400; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "payoneer.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39ba93c6c9bd874-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

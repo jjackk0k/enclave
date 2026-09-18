@@ -1,0 +1,38 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tron_dao",
+      "name": "TRON DAO",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/tronprotocol/java-tron"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tron_dao-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tron_dao",
+  "name": "TRON DAO",
+  "url": "https://hackerone.com/tron_dao",
+  "policy": "TRON is an open-source platform for launching highly decentralized applications, new financial primitives, and new interoperable blockchains. It is conducted and supported by the active TRON developer community and is governed by TRON DAO. The TRON protocols rely on a unique consensus mechanism to realize the high TPS of the TRON network, which is far beyond Ethereum, bringing developers a good experience of faster transactions.\n\nTRON DAO looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n\n# Program Rules\n* This Vulnerability Response Process and subsequent bounty reward apply to the following:\n    1. Code implementation as seen in the tronprotocol/java-tron GitHub repositories. This includes code in all branches, the master branch, and any release branch\n* Researchers/Hackers: while you research/hack, we ask that you please refrain from committing the following:\n    1. Denial of Service / Active exploitation against the TRON networks\n    2. Social Engineering of developers from the TRON developer community and TRON DAO\n    3. Any physical or electronic attempts against the TRON developer community and TRON DAO property and/or data centers\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Eligibility\nCannot be a current employee of TRON DAO or previously employed within the last 6 months.\n\n# Response Targets\nTRON DAO will make its best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 10 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Please do not discuss the reports' contents or any vulnerabilities (even non-vulnerabilities and resolved ones) outside of the program without express consent from the organization.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Scope\nThe scope of the TRON DAO bug bounty program radar covers the integrity of the TRON protocols, such as the blockchain consensus mechanism, resource model, TRON Virtual Machine (TVM), APIs, protocol implementation, etc. Classical client security, as well as the security of cryptographic primitives, is also part of the program. Most HTTPS, gRPC, and JSON-RPC methods and CSRF attacks against them are in scope as well. Please send an email to bounty@tron.network for specifics and details of the scope.\n\n\n# Out-of-scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma-Separated Values (CSV) injection without demonstrating a vulnerability.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute-force issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Attacks that the reporter has already exploited themselves, leading to damage\n* Attacks requiring access to leaked keys/credentials\n* Attacks requiring access to privileged addresses (governance, strategist), except in such cases where the contracts are intended to have no privileged access to functions that make the attack possible. Broken link hijacking is out of scope.\n\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct, and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep TRON DAO and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/tronprotocol/java-tron",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

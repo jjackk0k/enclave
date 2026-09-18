@@ -1,0 +1,92 @@
+{
+ "at": "2026-09-12T08:01:54.970Z",
+ "opportunity": "coalition",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "platform.thecoalition.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39d6311cd50ef2f-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.thecoalition.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39d63191d7526a4-LHR",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "coalitioninc.com",
+   "kind": "domain",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.wirespeed.co",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39d6329cd3b2cdf-LHR",
+    "content-security-policy": "script-src 'self' 'sha256-ms13yO391I+a6ht//4594EyOMQvf0N7FCOFG42uiEwo=' https://uptime.betterstack.com https://*.interco"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

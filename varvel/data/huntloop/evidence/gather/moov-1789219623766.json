@@ -1,0 +1,126 @@
+{
+ "at": "2026-09-12T13:26:39.730Z",
+ "opportunity": "moov",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "dashboard.moov.io",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-9BEP48RTE1",
+     "evidence": "googletagmanager.com/gtag/js?id=G-9BEP48RTE1"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f3ec6da38b26a-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'; connect-src 'self' https://api.moov.io/ https://apple.com/apple-pay https://www.apple.com/apple-pay ",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.moov.io",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f3ed2ae58950f-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'; connect-src 'self' https://api.moov.io/ https://apple.com/apple-pay https://www.apple.com/apple-pay ",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cards.moov.io",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f3ee15d9b1179-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'; connect-src 'self' https://api.moov.io/ https://apple.com/apple-pay https://www.apple.com/apple-pay ",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "gateway.moov.io",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to gateway.moov.io:443 refused: host unreachable"
+  },
+  {
+   "host": "infra-oss.moov.io",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39f3ef85bbd634d-LHR"
+   },
+   "endpoints": [],
+   "requests": 1,
+   "error": "ghost-timeout: GET infra-oss.moov.io/robots.txt via the chain aborted"
+  }
+ ]
+}

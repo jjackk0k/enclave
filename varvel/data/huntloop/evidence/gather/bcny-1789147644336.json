@@ -1,0 +1,104 @@
+{
+ "at": "2026-09-11T17:27:10.827Z",
+ "opportunity": "bcny",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 15,
+  "delayMs": 1200,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "company.thebrowser.arc",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to company.thebrowser.arc:443 refused: host unreachable"
+  },
+  {
+   "host": "arc.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39861cf49b562c0-LHR",
+    "strict-transport-security": "max-age=63072000; includeSubDomains; preload"
+   },
+   "endpoints": [
+    {
+     "path": "/api/redirect-links/link/*",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "thebrowser.company",
+   "kind": "domain",
+   "status": 307,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39861e2599a8e49-LHR",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "bcny.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39861f31a2f5781-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "diabrowser.com",
+   "kind": "domain",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "alvosec",
+      "name": "Alvosec",
+      "offersBounties": true,
+      "assets": [
+        "cloud.alvosec.com",
+        "dns.alvosec.com",
+        "mail.alvosec.com",
+        "proton-api.alvosec.com",
+        "www.alvosec.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\alvosec-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "alvosec",
+  "name": "Alvosec",
+  "url": "https://hackerone.com/alvosec",
+  "policy": "No technology is perfect, and Alvosec believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Disclosure Policy\r\n* OUR MAIN GOAL IS TO PROTECT OUR SERVERS, SO ANY FOUNDED VULNERABILITY OR MISCONFIGURATION THAT CAN LEAD TO DISCLOSURE OF SENSITIVE DATA SHOULD BE REPORTED HERE.\r\n\r\nWhich type of attacks are allowed to preform on our system:\r\n\r\n- bypassing firewall rules\r\n- privilege escalation of MySQL, SSH, mail server or any other service which is running on the server\r\n- SSL attack\r\n- DNS attack\r\n- zero day exploit\r\n- data leaking\r\n\r\n(Don't use Nessus or OpenVAS, try to preform manual pentest)\r\n\r\n* OUR SECOND GOAL IS TO KEEP OUR WEBSITE SAFE AS MUCH AS POSSIBLE. \r\nType of attacks:\r\n\r\n* OWASP TOP 10\r\n\r\n* Pentest is allowed to perform only on alvosec.com + including all subdomains that are in scope.\r\n\r\n# Out of Scope\r\n\r\nAlso, the following do not quality:\r\n\r\n* DoS, brute force, user enumeration or DDoS attacks\r\n* Banner or version disclosures.\r\n* HSTS or CSP headers\r\n* Missing SPF\r\n* Missing cookie flags on non-security sensitive cookies\r\n* User enumeration\r\n* Host header injection\r\n* Presence of autocomplete attribute on web forms\r\n* Disclosure of known public files or directories, (e.g. robots.txt)\r\n* Open ports without a vulnerability\r\n* Missing captcha\r\n\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Exclusions\r\n* **AVOID USING AUTOMATED TOOLS (SCANNERS ETC.) THAT ARE MAKING HUGE LOAD ON SERVERS.**\r\n\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Alvosec staff or contractors\r\n* Any physical attempts against Alvosec property or data centers\r\n* Creating social media accounts by using our name\r\n\r\nThank you for helping keep Alvosec and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.alvosec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dns.alvosec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cloud.alvosec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mail.alvosec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "proton-api.alvosec.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

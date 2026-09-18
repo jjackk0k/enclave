@@ -1,0 +1,123 @@
+{
+ "at": "2026-09-12T11:29:31.447Z",
+ "opportunity": "insulet_corporation",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.omnipod.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "drupal",
+     "label": "Drupal",
+     "version": null,
+     "evidence": "/sites/default/files"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e932fafb42103-LHR",
+    "x-cache": "HIT",
+    "via": "varnish",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "frame-ancestors 'self'; report-uri /report-csp-violation; upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/admin/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.poddercentral.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ERR_TLS_CERT_ALTNAME_INVALID: Hostname/IP does not match certificate's altnames: Host: www.poddercentral.com. is not in the cert's altnames: DNS:*.dnsmadeeasy.com"
+  },
+  {
+   "host": "insuletid.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "aspnet",
+     "label": "ASP.NET",
+     "version": null,
+     "evidence": ".AspNetCore."
+    },
+    {
+     "id": "recaptcha",
+     "label": "reCAPTCHA",
+     "version": null,
+     "evidence": "google.com/recaptcha/api.js"
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=2592000; includeSubDomains",
+    "x-frame-options": "ALLOW-FROM https://myomnipod.force.com/",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.insulet.myblue.pdm",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.insulet.myblue.pdm:443 refused: host unreachable"
+  },
+  {
+   "host": "prod.omnipodapps.com",
+   "kind": "domain",
+   "status": 503,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

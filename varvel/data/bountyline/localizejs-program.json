@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "platform": "hackerone",
+  "program": {
+    "name": "Localize",
+    "handle": "localizejs",
+    "url": "https://hackerone.com/localizejs"
+  },
+  "policy": "# Introduction\n\nNo technology is perfect, and Localize believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security bug in the services listed in our scope, we will be happy to work with you to resolve the issue promptly and ensure you are fairly rewarded for your discovery.\n\n# Disclosure Policy\n- Let us know as soon as possible upon discovery of a potential security issue or vulnerability, and we'll make every effort to quickly resolve the issue.\n- Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Exclusions\n\nWhile researching, we'd like to ask you to refrain from testing against our production environment (localizejs.com and all subdomains). Instead, please test against our staging environment: https://localizestaging.com\n\nReports related to the following are also not eligible for reward:\n\n- DDoS and DoS\n- Request flooding\n- Rate limit bypass\n- Token leakage to 3rd party (unless such leak is critical)\n- Reflected XSS (stored XSS reports are welcomed)\n- DMARC / SPF / Email spoofing (unless critical)\n- Brute force attacks\n- Do not test the help/chat widget (external service, out of scope)\n- Do not test the Help Center, help.localizejs.com (external service, out of scope)\n\nIMPORTANT:  This program will not pay bounties on reports that do not pose a security risk to users of the application. (For example, we will not award bounties for application bugs, UNLESS the bug can be exploited to compromise account security or result in inappropriate data disclosure)\n\n# Eligibility\n\nYou will qualify for a reward only if you are the first person to responsibly disclose an unknown issue. The Localize security team has 30 days to respond to the report, and up to 90 days to implement a fix base on the severity of the report.\n\nPlease allow for this process to fully complete before attempting to contact us again. Note that posting details or conversations about the report or posting details that reflect negatively on the program and the Localize brand, will result in immediate removal from the program.\n\n- Any vulnerability found must be reported no later than 24 hours after discovery.\n- You are not allowed to disclose details about the vulnerability anywhere else.\n- You must avoid tests that could cause degradation or interruption of our production service.\n- You must only test against non-production endpoints: https://localizestaging.com and https://app.localizestaging.com and all subdomains.\n- You will not be eligible for reward if you test against production and removal from the program will be considered.\n\n# Rewards\n\nLocalize may provide rewards to eligible reporters of qualifying vulnerabilities. Our minimum reward is $50 USD, and our maximum rewards is $1,000 USD. Reward amounts may vary depending upon the severity of the vulnerability reported.\n\nThe following table outlines the average rewards for specific classes of vulnerabilities:\n\n- Remote Shell / Command Execution:  $1,000\n- Significant Authentication Bypass: $500\n- Application Permissions Bypass $200\n- Local file Inclusion  $200\n- SQL Injection  $200\n- Insecure Direct Object References $200\n- Server Side Request Forgery $150\n- CSRF (site wide) $100\n- XSS $50\n\nReports that include information about how the vulnerability can be exploited in the wild will receive higher reward amounts than vulnerabilities with low likelihood of exploitation.\n\nTo qualify for a reward under this program, you should:\n\n1. Be the first to report a vulnerability.\n2. Send a clear textual description of the report along with steps to reproduce the vulnerability.\n3. Include attachments such as screenshots or proof of concept code as necessary.\n4. Disclose the vulnerability report directly and exclusively to us.\n\nA good bug report should include the following information at a minimum:\n\n- List the URL and any affected parameters\n- Describe the browser, OS, and/or app version\n- Describe the perceived impact. How could the bug potentially be exploited?\n\n# Exceptions & Rules\n\nOur bug bounty program is limited strictly to technical security vulnerabilities of Localize services, within Localize's Staging environment, listed in the scope. Any activity that would disrupt, damage or adversely affect any third-party data or account is not allowed. Please see the \"Exclusions\" section above for issues that will not be considered.",
+  "safeHarbor": null,
+  "rewards": null,
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "localizestaging.com",
+        "note": "localizestaging.com is the primary asset in scope of this program.\n\nThis application uses Stripe for credit card payment processing. To test payment related functionality, you may use test credit cards as documented by Stripe: https://stripe.com/docs/testing",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "api.localizestaging.com",
+        "note": "api.localizestaging.com maps to the APIs that are documented here: https://help.localizejs.com/reference\n\nPlease refrain from testing against the Production endpoint (https://api.localizejs.com). Instead, the staging endpoint should be used (https://api.localizestaging.com)",
+        "maxSeverity": "critical"
+      },
+      {
+        "asset": "cdn.localizestaging.com",
+        "maxSeverity": "high"
+      },
+      {
+        "asset": "app.localizestaging.com",
+        "maxSeverity": "critical"
+      }
+    ],
+    "wildcards": [],
+    "other": []
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [],
+    "wildcards": [],
+    "other": []
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [],
+  "gaps": [
+    "HackerOne adapter: modeled on the documented structured-scope export — entries in structured_scopes[] with eligible_for_submission:false treated as OUT-of-scope; a top-level out_of_scope[] list, when present, is honored verbatim",
+    "no bounty_table/rewards in the export — HackerOne reward ranges live on the program page; carry them by hand if the export omits them",
+    "4 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact"
+  ]
+}

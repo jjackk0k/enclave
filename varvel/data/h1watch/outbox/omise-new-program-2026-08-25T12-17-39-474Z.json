@@ -1,0 +1,92 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "omise",
+      "name": "Omise",
+      "offersBounties": true,
+      "assets": [
+        "api.omise.co",
+        "dashboard.omise.co",
+        "github.com",
+        "offsite.omise.co",
+        "vault.omise.co",
+        "www.omise.co",
+        "www.opn.ooo"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\omise-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "omise",
+  "name": "Omise",
+  "url": "https://hackerone.com/omise",
+  "policy": "Omise. Seamless software and APIs that enable businesses to accept payments and financial institutions to innovate at scale\n\nIf you believe you've found a security issue in our product or service, please let us know. We welcome working with you to resolve any issues.\n\n***NOTE*: Read carefully what is on our *Scope* and allowed for research.**\n\n# Investigating and reporting bugs \n\n* Be the first to report it to receive credits or payments.\n * Express and explain the vulnerabilities;\n * Give brief steps to reproduce the vulnerability;\n * Provide Proof-Of-Concept(Screenshots or Screen recordings, etc.,) that gives us an insight that the \n    attack is reproducible, if we feel lost;\n * Brief summary of impact the vulnerability might cause to our company.\n* Follow our Disclosure Policy.\n* Respect the exclusions.\n* Only research on Scoped domains and systems.\n\n# Regarding State of the Reports:\n\n* Please be informed on State of the Report: https://docs.hackerone.com/hackers/report-states.html .\n* If you have additional information, add them to the report.\n* When the report is closed as `N/A` or `Informative`, please read the explanation behind closing the \n   report, including the linked articles carefully.\n* If you feel we have made a mistake, update the report. We will consider your explanation and reply.\n* Don’t file a separate report to discuss the same issue.\n* Feel free to verify the bugfix, and let us know if there’s still a problem. \n\n# Main Components:\nSee the Hacker one Scope page for a up to date list of all endpoints in scope.\n\nThere are some exceptions by design for the dashboard:\n\n* Rolling keys will expire the old keys after 1 hour and still be shown for 15 minutes (You can revoke expiring keys to make them unusable immediately); \n* Test data can be reset via a get request, it's just test data, this is a feature; \n* Email verification is not required to continue using us in test mode, but optional; \n* You can create test account without email (anonymous mode); \n* Roles are applied to live mode only. All members will have full access in test mode.\n\n# Disclosure Policy\n\n* Contact us here upon discovery of a potential security issue which needs \n   immediate attention.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a \n   third-party. We will try reply within 48 business hours.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation \n   of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Rewards and Eligible Vulnerabilities\n\nWe will reward depending on the application, risk, complexity, impact and overall severity of the Vulnerability. You must provide as much explanation as possible on how the attack can be performed, estimated percentage of users/browsers affected, browser versions, attack conditions and all edge case details.\n\nVulnerabilities must be applicable, have a proof of concept and must be reproducible. Non-reproducible findings that depends on other theoretical or non-existing high level issues are not accepted.\n\nOur team will review each Vulnerability submission for eligibility and final reward consideration. Final reward amounts are at `our sole and final discretion`. In some instances, our reward panel may choose higher rewards for unusually major, clever or complex vulnerability submissions.\n\nTo receive credit, you must be the first reporter of a vulnerability and provide us a reasonable amount of time to remediate before publicly disclosing. When submitting a vulnerability, please provide concise steps to reproduce that are easily understood, as well allow us some time to fix it. Depending on the issue we might take longer to produce a solution.\n\n### While researching, please to refrain from:\n\n* Denial of service.\n* Spamming.\n* Destruction of data.\n* Non-technical attacks such as social engineering, phishing, or physical attacks against our employees, \n   users, or infrastructure.\n* Scans from available tools such as Nessus or Qualys.\n\n###  Example of qualifying vulnerabilities:\n\n* Remote code execution\n* Authentication bypass\n* SQL injection\n* Unauthorized Access\n* Severe XSS and CSRF\n* Change content on our pages/websites\n* Skip merchant live account verification\n* Live Account take-over\n* Unauthorized data access such as:\n* Leak or Retrieval of credit/debit card data\n* Leak or Retrieval or merchant/account information\n* iOS application security flaws\n* Two Factor authentication bypass\n\n### Vulnerabilities not eligible: \n\n- No Email verification while signing up in Test mode.\n- No session expiration if password changed.\n- Email enumeration via Login, Signup, or Forgot Password pages.\n- Rate limiting to any endpoint.\n- OTP validation on profile page when signed in correctly.\n- Content spoofing / text injection.\n- Self-XSS [to be valid, cross-site scripting issues must be exploitable in reflected, stored or DOM-based \n   types]\n- Logout and other instances of low-severity Cross-Site Request Forgery.\n- CSRF to GET type urls that are not important (i.e. reset test data)\n- Missing HTTP security headers and,\n- Host Header Attacks.\n- Missing cookie flags on non-sensitive cookies.\n- Password and account recovery policies, such as reset link expiration or password complexity.\n- Invalid or missing SPF (Sender Policy Framework) records (Incomplete or missing SPF/DKIM).\n- *Flaws affecting the users of out-of-date browsers and plugins*: The security model of the web is being \n   constantly fine-tuned. The panel will typically not reward any problems that affect only the users of \n   outdated or unpatched browsers. In particular, we exclude Internet Explorer prior to version 9.\n    SSL/TLS best practices.\n- Clickjacking/UI redressing with no practical security impact.\n- *Presence of banner or version information*: Version information does not, by itself, expose the service to attacks - so we do not consider this to be a bug. That said, if you find outdated software and have good reasons to suspect that it poses a well-defined security risk, please let us know.\n- Vulnerabilities that depend on other non existing vulnerabilities (fall under best practices).\n* Issues related to software not under our control (such as external dependencies) are not eligible for a \n   reward.\n* Our open source development is publicly visible. Reports related to an issue being fixed in a branch or \n   being tracked in a public way will therefore not be eligible for a bounty.\n* Reports of issues without a proof-of-concept or clear path to exploitation. You may still report these, \n   but will not be eligible for a monetary reward.\n* Issues on older releases. Issues must be reproducible on latest/master releases only.\n* Certificate pinning recommendations.\n* Links from webpage that are broken. Most likely these will not be awarded.\n* MITM attacks. \n\n\n**Security Best practices**: We welcome those findings with no actual security vulnerability that are security best practices, but we may not award bounties to those, we can only give you thanks and points for it.\n\n***NOTE***: Reports covering exclusions above may be closed as `Not Applicable` or `Duplicate` causing you to lose your hard earned points, or we may mark as Informative if deemed a good security best practice. \n\n# Payment Conditions\n\nAll reward payments are subject to compliance with local laws, rules and regulations. Before you receive your reward, we may require that you sign an affidavit of eligibility, a questionnaire, and a release of liability. You will be solely responsible for all applicable taxes relating to any reward under this Program.\n\nThank you for helping keep us and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "vault.omise.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://vault.omise.co\n\nOmise vault is used only for receiving credit cards data and exchanging it for a token which can be used to charge a card or create a permanent card on file (customer) for recurring charges. https://www.omise.co/tokens-api \n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.omise.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://api.omise.co \n\nOmise API handles all operations except token creation. No credit card is ever transmitted to the API. The API can charge cards, capture charges, perform refunds, create transfers, among many others. All API endpoints can be found in our Documentation at https://www.omise.co/a",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.omise.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://dashboard.omise.co \nWeb Dashboard where merchants signin, signup and view all information for their accounts. Some actions are also possible to be run from the dashboard, such as refunding a charge or creating a transfer withdraw.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "github.com",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/omise",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "www.omise.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.omise.co \nOmise Informational and Documentation main website.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "offsite.omise.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://offsite.omise.co \nInternet Banking redirect application.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.opn.ooo",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    }
+  ]
+}

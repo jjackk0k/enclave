@@ -1,0 +1,239 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "automattic",
+      "name": "Automattic",
+      "offersBounties": true,
+      "assets": [
+        "*.srvcs.tumblr.com",
+        "*.tumblr.com",
+        "Jetpack",
+        "WooCommerce",
+        "api.tumblr.com",
+        "assets.tumblr.com",
+        "com.tumblr",
+        "com.tumblr.tumblr",
+        "embed.tumblr.com",
+        "intensedebate.com",
+        "safe.tumblr.com",
+        "secure.tumblr.com",
+        "simperium.com",
+        "simplenote.com",
+        "t.umblr.com",
+        "wordpress.com",
+        "www.tumblr.com"
+      ],
+      "exclusions": [
+        "*.poll.fm",
+        "*.survey.fm",
+        "*.txmblr.com",
+        "*/xmlrpc.php",
+        "afterthedeadline.com,*.afterthedeadline.com",
+        "learnboost.com,*.learnboost.com",
+        "polishmywriting.com,*.polishmywriting.com",
+        "scrollkit.com,*.scrollkit.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\automattic-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "automattic",
+  "name": "Automattic",
+  "url": "https://hackerone.com/automattic",
+  "policy": "Automattic runs [WordPress.com](https://wordpress.com/), [Jetpack](https://jetpack.com/), [WordPress VIP](https://wpvip.com/), [Beeper](https://beeper.com), [Texts](https://texts.com/), [Akismet](https://akismet.com/), [Gravatar](https://gravatar.com/), [WooCommerce](http://www.woothemes.com/woocommerce/), [Tumblr](https://tumblr.com/), [Simplenote](https://simplenote.com/), and more. Find a complete list of projects on our website https://automattic.com/.\n\n> **Please, report vulnerabilities in the [WordPress](http://wordpress.org),  [BuddyPress](http://buddypress.org), or  [bbPress](http://bbpress.org) open-source projects through the [WordPress HackerOne page](https://hackerone.com/wordpress).**\n\n\nEligibility and Responsible Disclosure\n--------------------------------------\nYou are responsible for complying with all applicable laws and **must** only ever use or otherwise access your own test accounts when researching vulnerabilities in any of our products or services. Access to, or modification of user data is explicitly prohibited without prior consent from the account owner.\n\nAny public disclosure of issues prior to resolution may result in disqualification from the program. Individuals who we are legally prohibited from paying, such as those residing in a country on a U.S. sanctions list, are ineligible for rewards.\n\n### Rewards\n\n| Severity | WordPress.com | Everything Else  |\n|-|-|-|\n| Critical | $1,000 | $500 |\n| High | $600 | $300 |\n| Medium | $300 | $200 |\n| Low | $100 | $100 |\n\nThe table above outlines the nominal rewards for in-scope assets. Automattic, at its own discretion, will make a final decision on the bounty for qualifying vulnerabilities. Bounties will be awarded to the first reporter of a vulnerability only. If an asset is not in active development, the awards will be adjusted.\n\nAmounts may vary depending upon the severity of the issue and quality of the report. \n\n### Crafting a Report\n\nIf our security team cannot reproduce and verify an issue, a bounty cannot be awarded. To help streamline our intake process, we ask that submissions include:\n\n- Description of the vulnerability\n- Steps to reproduce the reported vulnerability\n- Proof of exploitability (e.g. screenshot, video)\n- Perceived impact to another user or the organization\n- Proposed [CVSSv3](https://www.first.org/cvss/calculator/3.0) Vector & Score (without environmental and temporal modifiers)\n- List of URLs and affected parameters\n- Other vulnerable URLs, additional payloads, Proof-of-Concept code\n- Browser, OS and/or app version used during testing\n\n*Note: Failure to adhere to these minimum requirements may result in the loss of a reward.*\n\n**All supporting evidence and other attachments must be stored only within the report you submit.** Do not host any files on external services.\n\n#### Same Bug, Different Host\n\nFor each report, please allow Automattic sufficient time to patch other host instances. If you find the same bug on a different (unique) host, prior to the report reaching a triaged state, file it within the existing report. Any reports filed separately while we are actively working to resolve the issue will be treated as a duplicate.\n\n#### Same Payload, Different Parameter\n\nIn some cases, rewards may be consolidated into a single payout. For example, multiple reports of the same vulnerability across different parameters of a resource, or demonstrations of multiple attack vectors against a fundamental framework issue. We kindly ask you to consolidate reports rather than separate them.\n\nQualifying Vulnerabilities\n--------------------------\nAny reproducible vulnerability that affects the security of our users is likely to be in scope for the program. Common examples include:\n\n - Cross Site Scripting (XSS)\n - Cross Site Request Forgery (CSRF)\n - Server Side Request Forgery (SSRF)\n - Remote Code Execution (RCE)\n - SQL Injection (SQLi)\n\nNon-Qualifying Vulnerabilities (Out of Scope)\n---------------------------------------------\nWe are generally not interested in DoS vulnerabilities that are perceived by a lack of rate-limiting or captcha. As a web-scale service, our threshold for rate limiting is higher than you would probably expect. Of course, if you think you have found an exception to this rule, please let us know.\n\n\"Follow-Ups\" WooCommerce extension is out of scope.\n\nCross Site Scripting (XSS) is out of scope for all impactless domains where arbitrary HTML / JavaScript is intentionally allowed, e.g. `[blog].tumblr.com`, `cldup.com` etc.\n\nTabnabbing vulnerabilities are out of scope.\n\nMissing Best Practices that don't pose a direct security threat will most likely not be accepted.\n\nFine Print\n--------------\nYou are expected to comply with all applicable laws in connection with your participation in this program and you are responsible for the payment of any taxes associated with rewards received. ",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "scrollkit.com,*.scrollkit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "learnboost.com,*.learnboost.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*/xmlrpc.php",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The sole presence of `xmlrpc.php` in `wordpress.com` and all the domains hosted under our platform doesn't constitute a vulnerability. If you report an issue related to this file, please make sure to provide a working proof of concept that clearly shows the impact.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "safe.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "secure.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "assets.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "embed.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tumblr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**The Blog Network**\n\n*Note: Blogs are cached for 1 minute after first request (60s from first request); content is re-loaded into cache when a new request is submitted after the 61st second.*\n\nHow to identify you are looking at the Blog Network:\n* Header: `X-tumblr-user` can be used to identify if ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.tumblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "t.umblr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.srvcs.tumblr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.txmblr.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.tumblr",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- Minimum OS version: API 21\n\nExclusions:\n- API keys in code\n- Certificate pinning",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.tumblr.tumblr",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- Minimum OS version: iOS 11\n\nExclusions:\n- API keys in code\n- Certificate pinning",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "afterthedeadline.com,*.afterthedeadline.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "polishmywriting.com,*.polishmywriting.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.survey.fm",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This cookieless domain contains user generated content. While we might decide to fix XSS issues, reports for this domain will not be eligible for a bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.poll.fm",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This cookieless domain contains user generated content. While we might decide to fix XSS issues, reports for this domain will not be eligible for a bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wordpress.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "intensedebate.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "simplenote.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "simperium.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Jetpack",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any issues related to the Jetpack plugin https://github.com/Automattic/jetpack and/or https://jetpack.com/",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "WooCommerce",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any security issues on the WordPress WooCommerce plugin (https://wordpress.org/plugins/woocommerce/) and/or https://woocommerce.com/",
+      "max_severity": "critical"
+    }
+  ]
+}

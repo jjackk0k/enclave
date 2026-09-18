@@ -1,0 +1,143 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wellsfargo-bbp",
+      "name": "Wells Fargo Bounty",
+      "offersBounties": true,
+      "assets": [
+        "*.advisor-connection.com",
+        "*.mworld.com",
+        "*.wellsfargo.com",
+        "*.wellsfargoadvisors.com",
+        "*.wf.com",
+        "accountoffers.wellsfargo.com",
+        "com.wellsfargo.ceomobile",
+        "com.wf.ceomobile",
+        "com.wf.mobilebanking",
+        "com.wf.wellsfargomobile",
+        "connect.secure.wellsfargo.com",
+        "homeloans.wellsfargo.com",
+        "http://wellsfargo.com",
+        "http://wf.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "500 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wellsfargo-bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wellsfargo-bbp",
+  "name": "Wells Fargo Bounty",
+  "url": "https://hackerone.com/wellsfargo-bbp",
+  "policy": "Introduction\n=============\nWells Fargo welcomes security researchers to participate in our bug bounty program to help us identify and fix vulnerabilities in our systems. By working together, we can improve everyone's security of our products and services.\n\n\n**Note:** *This is a Bug Bounty Program, which addresses technical vulnerabilities that could be exploited. This team is unable to assist with customer service issues, account issues, or fraud claims. If you need Wells Fargo customer support, please visit [Customer Service](https://www.wellsfargo.com/help/). If you are reporting fraud or phishing, please visit our [Fraud Center](https://www.wellsfargo.com/privacy-security/fraud/report/).*\n\n\n# Response Targets\nWells Fargo Bounty will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | Response target (in business days) |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 7 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\n\n# Disclosure Policy\n* Wells Fargo does not allow public disclosure of vulnerabilities, including after resolution. Requesting public disclosure does not guarantee that disclosure will be allowed.\n* Please see HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines) for more information.\n\n\n# Program Terms\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Your report is subject to HackerOne’s Vulnerability Disclosure Guidelines.\n* The program cannot reward any individual on any U.S. sanctions list or any individual residing in any U.S.-sanctioned country or region. \n* You are solely responsible for any applicable taxes, withholding or otherwise, arising from or relating to your participation in the Program, including any bounty payments.\n* One vulnerability type per report unless chaining vulnerabilities to provide impact.\n* One report for the same vulnerability impacting multiple domains.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* When reporting vulnerabilities, consider (1) the attack scenario or exploitability, and (2) the security impact of the bug.\n* When duplicates occur, only the first report that was received will be awarded. (pending validation)\n* Social engineering (e.g. phishing, vishing, smishing, tabnabbing) for the purposes of validating a vulnerability is prohibited. Testing with your own accounts at your own risk will be considered on a case-by-case basis.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Comply with applicable federal, state, local, and international laws in connection with your participation in this vulnerability disclosure program.\n* Current and former employees of Wells Fargo and Wells Fargo’s subsidiaries, past and present, are not permitted to take part in our bug bounty program.\n* If credentials are obtained for an app that is not widely, publicly available, no further testing is allowed until explicitly approved by the Wells Fargo Bounty Team.\n* Wells Fargo reserves the right to modify the terms of this policy or terminate the program at any time.\n\n\nResearcher Responsibilities:\n=======\n\n# By submitting a report:\n\n* You represent that you are not located in or a resident of a country under United States sanctions, nor a person on, or working on behalf of a party identified on, any restricted party list maintained by the United States government.\n* You consent to your information being stored and transferred to the United States and acknowledge you have read and accepted the terms of this policy and HackerOne’s Vulnerability Disclosure Guidelines. You agree not to disclose vulnerability details to anyone other than Wells Fargo without Wells Fargo’s written permission.\n* You agree that any Wells Fargo information that you may encounter, view, acquire, or access, is owned by Wells Fargo or its customers, clients, or third-party providers. You have no rights, title, or ownership to any such information.\n* You agree that your research will be conducted for testing and research purposes only, that you will not attempt to gain access to customer or user accounts or confidential information, and you will only interact with accounts you own.\n* You understand that nothing in this agreement, including submission of a report, shall be deemed to constitute the grant to you of any license or other right to or in respect of any Wells Fargo or third-party product, service, patent, trademark, trade secret, or other intellectual property.\n* You hereby grant Wells Fargo a perpetual, worldwide, exclusive, fully-paid license to sublicense, copy, distribute, display, perform, transmit, and publish the report.\n\n\nReporting Guidelines\n====\n\n#Creating a clear report:\n * **Detailed Reports:** Submit comprehensive reports that clearly explain the vulnerability with reproducible steps, including any relevant code snippets, screenshots, or network traffic logs. Vague or incomplete reports may not be eligible for a reward.\n* **Ethical & Safe Testing:** Never attempt non-technical attacks such as social engineering, phishing, or physical attacks against our employees, users, or infrastructure.\n* **Reduce impact:** Wells Fargo handles enormous web traffic. Help us differentiate your testing activity from real threats by following these steps:\n>*Use email addresses in the format <username>+x@wearehackerone.com when registering accounts (when possible).\n>*Provide your IP address in bug reports, especially for high and critical severity issues. Wells Fargo will keep it confidential and use it solely to analyze your testing logs.\n>*Set a custom HTTP header in all your testing traffic. Once again, report to us what header you set so we can identify it easily for deconfliction purposes.\n* **Examples:** See examples of great reports on HackerOne’s site: How to Write Great Quality Reports\n\n\n| Identifier | Format | Example |\n | ------------- | ------------- |------------- |\n| Your Username\t| X-Bug-Bounty:HackerOne-<username>|\n| Tool Identifier\t| X-Bug-Bounty:<toolname> |\n\n\nProof-of-Concept Creation:\n=====\n\n* **Respect user privacy:** Use only authorized accounts to avoid compromising real user data.\n* **Demonstrate responsible exploitation:**\n    * When showcasing root access, use these commands (or similar methods):\n        * Read: cat /proc/1/maps\n        * Write: touch /root/<your H1 username>\n        * Execute: Run cat and touch simultaneously to prove execution capabilities.\n* **Always follow program rules:** Adhere to program rules at all times. Do not use payloads that could trigger state changes or damage production systems and/or data.\n* **Responsible Automation:** Thoughtful usage of automated scanners/tools is allowed. Scanners/tools must be configured to not send more than 500 requests per second to any particular service.\n* **Stop before causing harm:** If you suspect potential damage during testing, stop immediately, report your findings, and request permission for further testing. Wells Fargo's internal security team is available to assist.\n\n\nScope\n=======\n\nDomains where Wells Fargo & Company is listed as the Registrant Organization, Admin Organization, or Tech Organization are in scope. Domains maintained by third parties, other than Wells Fargo, will be considered on a case-by-case basis.\n\nVulnerabilities typically in scope include items from the OWASP Top 10 and vulnerabilities with a confirmed security impact.\n\nWe reserve the right to determine whether to accept a report. For example, we may not accept:\n* A report on a vulnerability with little security impact or exploitability.\n* A vulnerability outside our control, such as issues impacting third-party systems.\n* Vulnerabilities discovered through automated scanning tools ex: Acunetix, Nessus, and Qualys without steps to reproduce the vulnerability, and associated request / response data.\n* A report of a vulnerability resulting from a violation of the program guidelines.\n* Eligibility for payment is contingent on Wells Fargo's ownership of the hosting infrastructure regardless of the in-scope domains list. Assets that appear to be owned by Wells Fargo may be owned and/or managed by third parties.\n\nThe following issues are considered out of scope:\n---------\n\n* HTTP Headers best practices. Ex:\n    * Access-control-allow-origin (CORS)\n    * Content-Security-Policy (CSP)\n    * X-XSS-Protection (XSS)\n    * Referrer-Policy (RBAC)\n    * Strict-Transport-Security (HSTS)\n* Email record best practices. Ex:\n    * Missing or invalid SPF\n    * Missing or invalid DKIM\n    * Missing or invalid DMARC \n* Error Messages. Ex:\n    * Software or server version number\n    * Banner identification\n    * Stack trace info\n* Self XSS\n    * Valid cross-site scripting must be exploitable via reflected, stored, or DOM-based attacks and injectable by a third party\n* Web app hygiene\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Publicly identified vulnerable libraries\n* Comma Separated Values (CSV) injection\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our services (DoS)\n* Content spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\n* Stealer Logs\n* Most rate limiting or brute force findings\n* Missing HttpOnly or Secure flags on cookies\n* Findings requiring unlikely or inordinate amounts of prior victim user interaction, such as session tokens or CSRF values\n* Bugs affecting browsers or plugins not listed on the Wells Fargo supported browsers page\n* Do not test the physical security of Wells Fargo property\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis\n* Public Zero-day vulnerabilities that have been publicly disclosed for less than 72 hours\n\n\n\nSafe Harbor\n======\n\nGold Standard Safe Harbor supports the protection of organizations and hackers engaged in Good Faith Security Research. “Good Faith Security Research” is accessing a computer solely for purposes of good-faith testing, investigation, and/or correction of a security flaw or vulnerability, where such activity is carried out in a manner designed to avoid any harm to individuals or the public, and where the information derived from the activity is used primarily to promote the security or safety of the class of devices, machines, or online services to which the accessed computer belongs, or those who use such devices, machines, or online services.\n\nWe consider Good Faith Security Research to be authorized activity that is protected from adversarial legal action by us. We waive any relevant restriction in our Terms of Service (“TOS”) and/or Acceptable Use Policies (“AUP”) that conflicts with the standard for Good Faith Security Research outlined here.\n\nThis means that, for activity conducted while this program is active, we:\n*Will not bring legal action against you or report you for Good Faith Security Research, including for bypassing technological measures we use to protect the applications in scope; and,\n*Will take steps to make known that you conducted Good Faith Security Research if someone else brings legal action against you.\n\nYou should contact us for clarification before engaging in conduct that you think may be inconsistent with Good Faith Security Research or unaddressed by our policy.\n\nKeep in mind that we are not able to authorize security research on third-party infrastructure, and a third party is not bound by this safe harbor statement.\n\n\n#F.A.Q.\n\n1. **Swag:** Wells Fargo's Bug Bounty program does not currently offer swag.\n2. **Test accounts:** We cannot provide pre-configured test accounts or special access. Please use authorized accounts when testing.\n3. **Report status:** If you have questions about your report's status, please contact us directly within the report.\n4. [How do I make my report great?](https://docs.hackerone.com/hackers/quality-reports.html)\n5. [I submitted a report. Now what? I have questions.](https://www.hackerone.com/blog/how-bug-bounty-reports-work)\n6. [What causes a report to be closed as Informative, Duplicate, N/A, or Spam?](https://docs.hackerone.com/hackers/report-states.html)\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.wellsfargo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "connect.secure.wellsfargo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our retail banking experience, and a priority domain. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wf.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.wellsfargo.ceomobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.wf.wellsfargomobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.wf.mobilebanking",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.wf.ceomobile",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://wellsfargo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://wf.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.advisor-connection.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mworld.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wellsfargoadvisors.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "homeloans.wellsfargo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accountoffers.wellsfargo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

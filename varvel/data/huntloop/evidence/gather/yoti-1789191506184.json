@@ -1,0 +1,82 @@
+{
+ "at": "2026-09-12T05:38:20.215Z",
+ "opportunity": "yoti",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.yoti.mobile.android.live",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.yoti.mobile.android.live:443 refused: host unreachable"
+  },
+  {
+   "host": "core.yoti.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "UNABLE_TO_VERIFY_LEAF_SIGNATURE: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca"
+  },
+  {
+   "host": "api.yoti.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ccloud.yoti.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to ccloud.yoti.com:443 refused: host unreachable"
+  },
+  {
+   "host": "code.yoti.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c90dcbca208b9-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "content-security-policy": "default-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' ajax.aspnetcdn.com ajax.googleapis.com api.yoti.com c",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

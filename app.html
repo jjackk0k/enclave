@@ -312,12 +312,15 @@
     <select id="toolchainPick" class="model-pick" onchange="pickToolchain(this.value)" title="Active toolchain — the sealed image whose tools run in this engagement. Switch freely: your workspace is SHARED across toolchains (build in one, test in another), and every action stays gated by your clearance + certifications.">
       <option value="incident-response">🛡 IR / forensics</option>
       <option value="red-team">🧪 red-team</option>
+      <option value="vm-range">🖥️ vm-range · real Win11 + Defender</option>
       <option value="tool-dev">🔧 tool-dev</option>
       <option value="code-review">◧ code-review</option>
       <option value="grc-audit">📄 grc-audit</option>
     </select>
     <div class="top-right">
       <div class="clear-chip">◈ <span id="topClear">L3</span> · ISOLATED</div>
+      <button class="icon-btn" id="varvelBtn" title="Open VARVEL — the governed autonomous red-team platform — bound to your signed identity. Your clearance, certs and signed scope carry over; offensive actions are still enforced by the Enclave." onclick="openVarvel()" style="width:auto;padding:0 11px;font-weight:650;letter-spacing:.03em;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;height:auto;min-height:32px">◈ VARVEL</button>
+      <button class="icon-btn" id="varvelStopBtn" title="Stop the running VARVEL instance" onclick="stopVarvel()" style="width:auto;padding:0 9px;display:none;color:#ff8a8a;white-space:nowrap;height:auto;min-height:32px;align-items:center">■ stop</button>
       <button class="icon-btn" title="Audit ledger" onclick="openAudit()">📜</button>
       <button class="icon-btn" title="Attach Claude CLI" onclick="toast('Claude CLI attached to this enclave')">◧</button>
       <button class="icon-btn" title="Sign out" onclick="signOut()">⏻</button>
@@ -330,9 +333,9 @@
       <button class="newws" onclick="openNewEnclave()">+ New enclave</button>
       <h4>Active enclaves</h4>
       <div id="activeEnclaves">
-        <div class="ws active"><div class="wi">🛡️</div><div class="meta"><div class="nm">incident-2231</div><div class="sm">IR · egress deny-all</div></div></div>
-        <div class="ws"><div class="wi">🔎</div><div class="meta"><div class="nm">malware-triage</div><div class="sm">isolated · 2 tools</div></div></div>
-        <div class="ws"><div class="wi">🧪</div><div class="meta"><div class="nm">pentest-northwind</div><div class="sm">red-team · scoped</div></div></div>
+        <div class="ws active" data-workload="incident-response" onclick="switchEnclave('incident-response')" title="Switch this enclave to the IR / forensics toolkit. You STAY the operator you logged in as — clearance, certs and signed scope don't change; only the provisioned tools do."><div class="wi">🛡️</div><div class="meta"><div class="nm">incident-2231</div><div class="sm">IR · forensics toolkit</div></div></div>
+        <div class="ws" data-workload="red-team" onclick="switchEnclave('red-team')" title="Switch this enclave to the red-team toolkit (nmap, metasploit, sliver, …). You stay signed in as your operator — offensive actions only run if YOUR clearance (≥L4), certs and signed scope permit them."><div class="wi">🧪</div><div class="meta"><div class="nm">pentest-northwind</div><div class="sm">red-team toolkit</div></div></div>
+        <div class="ws" data-workload="vm-range" onclick="switchEnclave('vm-range')" title="Switch this enclave to the VM range — a real disposable Win11 + Defender target (192.168.50.130), governed by YOUR identity + scope. The box wipes when the session ends."><div class="wi">🖥️</div><div class="meta"><div class="nm">vm-range</div><div class="sm">live Win11 + Defender</div></div></div>
       </div>
       <h4>Recent</h4>
       <div class="ws"><div class="wi">📄</div><div class="meta"><div class="nm">soc2-evidence-q3</div><div class="sm">read-only</div></div></div>
@@ -385,15 +388,26 @@
             <button class="attach" onclick="openTools()">🧰 tools</button>
             <span style="flex:1"></span>
             <span id="ctxMeter" class="ctx-meter" title="Context used in this conversation (input + cache) against the model window"></span>
-            <select id="modelPick" class="model-pick" onchange="pickModel(this.value)" title="Model for this enclave — switch per task (Sonnet for speed, Opus for depth)">
+            <select id="modelPick" class="model-pick" onchange="pickModel(this.value)" title="Model for this enclave — switch per task. Sonnet for speed, the Opus family for depth (all 1M context); Haiku for cheap (200k context).">
               <option value="sonnet">Sonnet 5 · fast</option>
-              <option value="opus">Opus 4.8 · deep</option>
+              <optgroup label="Opus · deep · 1M ctx">
+                <option value="opus-5">Opus 5 · newest</option>
+                <option value="opus-4-8">Opus 4.8 · default</option>
+                <option value="opus-4-7">Opus 4.7</option>
+                <option value="opus-4-6">Opus 4.6</option>
+              </optgroup>
               <option value="haiku">Haiku 4.5 · cheap</option>
+              <optgroup label="Kimi · runs VARVEL on your subscription (governed)">
+                <option value="k3">Kimi K3 · 1M ctx</option>
+                <option value="kimi-k2.7-code">Kimi K2.7 Code</option>
+              </optgroup>
             </select>
             <select id="effortPick" class="model-pick" onchange="pickEffort(this.value)" title="Reasoning effort — how hard the model thinks (higher = deeper but slower/costlier)">
               <option value="low">effort: low</option>
               <option value="medium" selected>effort: med</option>
               <option value="high">effort: high</option>
+              <option value="xhigh">effort: xhigh</option>
+              <option value="max">effort: max</option>
             </select>
             <button class="send" id="send" onclick="submitMsg()">↑</button>
           </div>
@@ -606,6 +620,43 @@ function doLogin(){
 }
 function signOut(){ location.reload(); }
 
+// Open VARVEL bound to the CURRENT operator. The Enclave spawns it with your SIGNED
+// session (ENCLAVE_SESSION) — VARVEL shows who you are and sources its engagement scope
+// from your signed engagementScope. No offensive scope on your identity → VARVEL still
+// opens, but there is nothing to target (and the hook denies offensive actions anyway).
+async function openVarvel(){
+  const btn=document.getElementById('varvelBtn'); const label=btn?btn.textContent:'';
+  if(btn){btn.disabled=true;btn.textContent='◈ opening…';}
+  toast('Opening VARVEL as '+((P&&P.name)||currentPersonaKey)+' …');
+  // Open the named window SYNCHRONOUSLY (inside the click gesture) — an awaited fetch first
+  // loses the gesture and Firefox silently blocks the popup. Navigate it once VARVEL is up.
+  const w=window.open('about:blank','varvel');
+  try{
+    const r=await fetch('/api/varvel/open',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({persona:currentPersonaKey, model: liveModelChoice, effort: liveEffort})}).then(x=>x.json());
+    if(r&&r.url&&r.ok!==false){
+      if(w&&!w.closed){ w.location.replace(r.url); }
+      else { location.href=r.url; } // popup was closed/blocked anyway → fall back to this tab
+      toast('VARVEL open · '+(r.operator||currentPersonaKey)+' · AI: '+(r.model||liveModelChoice));
+    }
+    else { if(w&&!w.closed)w.close(); toast('VARVEL failed to start'+(r&&r.error?': '+r.error:'')); }
+  }catch(e){ if(w&&!w.closed)w.close(); toast('VARVEL launch error'); }
+  finally{ if(btn){btn.disabled=false;btn.textContent=label;} pollVarvelStatus(); }
+}
+async function stopVarvel(){
+  try{ const r=await fetch('/api/varvel/stop',{method:'POST'}).then(x=>x.json()); toast(r&&r.ok?'VARVEL stopped':'VARVEL stop failed'); }
+  catch(e){ toast('VARVEL stop error'); }
+  pollVarvelStatus();
+}
+async function pollVarvelStatus(){
+  const openB=document.getElementById('varvelBtn'), stopB=document.getElementById('varvelStopBtn');
+  if(!openB||!stopB)return;
+  try{ const s=await fetch('/api/varvel/status').then(x=>x.json());
+    if(s&&s.running){ openB.innerHTML='◈ VARVEL <span style="color:#35d99a">● open'+(s.boundTo?' · '+s.boundTo:'')+'</span>'; stopB.style.display=''; }
+    else{ openB.textContent='◈ VARVEL'; stopB.style.display='none'; }
+  }catch(e){}
+}
+setInterval(pollVarvelStatus, 4000);
+
 function applyPersona(){
   const set=(id,v)=>document.getElementById(id).textContent=v;
   set('pfAvatar',P.init); set('pfName',P.name); set('pfRole',P.role);
@@ -620,6 +671,23 @@ function applyPersona(){
   document.getElementById('pfBadges').innerHTML =
     '<span class="badge clr">◈ '+P.clear+'</span>'+P.licenses.map(l=>'<span class="badge lic">'+l+'</span>').join('');
   document.getElementById('input').placeholder='Message Claude in the '+P.ws+' enclave…';
+  markActiveEnclave(currentWorkload);
+}
+
+/* ---------------- switch enclave (live, identity-preserving) ---------------- */
+// IDENTITY DOES NOT CHANGE. You stay the operator you logged in as — clearance, certs and
+// signed engagement scope travel with YOU, not with the enclave. Switching an enclave only
+// swaps the provisioned toolkit/workload for the same engagement workspace; what actually
+// runs is still gated by your identity (an L1 can't scan by entering a "red-team" enclave;
+// a scoped L4 can, anywhere). This is deliberately the same mechanism as the toolchain picker.
+function markActiveEnclave(wl){
+  document.querySelectorAll('#activeEnclaves .ws').forEach(el=>
+    el.classList.toggle('active', el.getAttribute('data-workload')===wl));
+}
+function switchEnclave(wl){
+  const tp=document.getElementById('toolchainPick'); if(tp) tp.value=wl;
+  pickToolchain(wl);            // swaps the toolkit only — persona / signed identity untouched
+  markActiveEnclave(wl);
 }
 
 /* ---------------- profile modal ---------------- */
@@ -754,22 +822,42 @@ function submitMsg(){
 /* ---------------- live Claude (via the local broker server.mjs) ---------------- */
 function newToken(){ return Math.random().toString(36).slice(2,10)+Date.now().toString(36); }
 let liveMode=false, liveMode2='', liveModel='', liveSession=null, convo=[], currentPersonaKey='ir', liveModelChoice='sonnet', liveEffort='medium', liveCostTotal=0, sessionToken=newToken();
-function pickModel(v){ liveModelChoice=v; logEvent('model.switch · '+v,''); if(liveMode2==='api') toast('Model switch takes effect in CLI mode (you’re on the API broker).'); }
+function pickModel(v){ liveModelChoice=v; logEvent('model.switch · '+v,''); syncEffortOptions(); if(liveMode2==='api') toast('Model switch takes effect in CLI mode (you’re on the API broker).'); }
 function pickEffort(v){ liveEffort=v; logEvent('effort.set · '+v,''); }
-function syncToolchain(){ const tp=document.getElementById('toolchainPick'); if(tp) tp.value=currentWorkload; }
+// Kimi's coding API tops out at effort:high — the xhigh/max options are Claude-only.
+// Disable them (and snap down honestly) whenever a Kimi model is picked, instead of
+// silently running high while the UI claims max. Re-enabled for Claude models.
+const KIMI_MODEL_RE=/^(k3|kimi)/i;
+function syncEffortOptions(){
+  const sel=document.getElementById('effortPick'); if(!sel)return;
+  const kimi=KIMI_MODEL_RE.test(liveModelChoice||'');
+  let snap=false;
+  for(const opt of sel.options){
+    const unsupported=kimi&&(opt.value==='xhigh'||opt.value==='max');
+    opt.disabled=unsupported;
+    opt.title=unsupported?'Claude-only — Kimi models top out at effort: high':'';
+    if(unsupported&&sel.value===opt.value)snap=true;
+  }
+  if(snap){ sel.value='high'; liveEffort='high'; logEvent('effort.set · high (Kimi ceiling — xhigh/max are Claude-only)',''); }
+  sel.title=kimi?'Reasoning effort — Kimi supports low / medium / high (high is the ceiling)':'Reasoning effort — how hard the model thinks (higher = deeper but slower/costlier)';
+}
+syncEffortOptions();
+function syncToolchain(){ const tp=document.getElementById('toolchainPick'); if(tp) tp.value=currentWorkload; markActiveEnclave(currentWorkload); }
 function pickToolchain(v){
   // switch the ACTIVE toolchain WITHOUT resetting the session — same engagement workspace,
   // different sealed image's tools. Actions stay gated per-action by clearance/certs.
   currentWorkload=v;
   const inp=document.getElementById('input'); if(inp) inp.placeholder='Message Claude — '+v+' toolchain · shared engagement workspace…';
   logEvent('toolchain → '+v,'');
+  markActiveEnclave(v);
   toast('Toolchain: '+v+' — same workspace (your artifacts carry over), tools switch. Every action stays gated by your clearance + certs.');
 }
-function fmtTok(n){ return n>=1000 ? (n/1000).toFixed(n>=100000?0:1)+'k' : String(n||0); }
+function fmtTok(n){ n=n||0; if(n>=1000000) return +(n/1000000).toFixed(n>=10000000?0:1)+'M'; return n>=1000 ? +(n/1000).toFixed(n>=100000?0:1)+'k' : String(n); }
 function updateCtx(u, model, cost){
   liveCostTotal += (cost||0);
   const used=(u.input_tokens||0)+(u.cache_read_input_tokens||0)+(u.cache_creation_input_tokens||0);
-  const win=200000, pct=Math.min(100,Math.round(used/win*100));
+  const win=/haiku/i.test(model||liveModelChoice)?200000:1000000;   // Opus/Sonnet/Fable = 1M ctx; only Haiku is 200k
+  const pct=Math.min(100,Math.round(used/win*100));
   const short=(model||liveModelChoice).replace(/^claude-/,'').replace(/-20\d{6}$/,'');
   const el=document.getElementById('ctxMeter'); if(!el) return;
   el.innerHTML='<b>'+fmtTok(used)+'</b>/'+fmtTok(win)+' ctx · '+esc(short)+' · $'+liveCostTotal.toFixed(3);

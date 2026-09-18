@@ -1,0 +1,95 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "redis-vdp",
+      "name": "Redis VDP",
+      "offersBounties": false,
+      "assets": [
+        "Redis Community Edition",
+        "Redis Insight",
+        "api.redislabs.com",
+        "app.redislabs.com",
+        "http://cloud.redis.io",
+        "redis.io",
+        "www.redis.com",
+        "www.redislabs.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\redis-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "redis-vdp",
+  "name": "Redis VDP",
+  "url": "https://hackerone.com/redis-vdp",
+  "policy": "# Our Priorities for the Research Community\nWe are particularly interested in reports involving our cloud DBaaS product (Redis Cloud) that are:\n- Remote Code Execution (RCE) vulnerabilities\n- Weaknesses in user access and permission management  \n- API flaws that could result in unauthorized data exposure in `api.redislabs.com`  \n- Cross-tenant data access\n\n---\n &nbsp;\n\n# Program Rules\n* You pledge not to discuss potential vulnerabilities either publicly or privately prior to your findings being resolved without express written consent from Redis.\n* Please follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n- Please provide detailed reports with clear, reproducible steps. Reports that lack sufficient detail to reproduce the issue may not be triaged. If you are aware of potential mitigations or remediations, please include them.\n- Submit one vulnerability per report unless chaining vulnerabilities is necessary to demonstrate impact.\n- In the case of duplicate submissions, we will triage only the first fully reproducible report received.\n- Multiple vulnerabilities stemming from a single underlying issue will be treated as a single valid report.\n- Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n- Flooding or denial-of-service (DoS) testing against Redis owned infrastructure is prohibited.\n- Do not violate user privacy, modify or destroy data, or interrupt/degrade our services.\n- Only interact with accounts you own or have explicit permission to test.\n\n---\n &nbsp;\n\n# Disqualifiers\nThe following actions will result in disqualification from the program:\n- Modification or destruction of user data  \n- Intentional violations of user privacy  \n- Public actions that harm the company’s reputation (e.g., website defacement, typo-squatting domains or accounts)\n- Social engineering of users or employees\n- Denial-of-service attacks and high-volume automated scanning targeting Redis infrastructure or user accounts\n\n---\n &nbsp;\n\n# Redis Security Baseline & CVSS Scoring\n## Base Configuration\nThe following defines the security configuration assumptions under which Redis evaluates and scores vulnerabilities. Researchers may test outside these assumptions; however, CVSS base scoring will be evaluated against this hardened security posture.\nWhen testing, enable the following security controls where supported.  \nSee the documentation references below for full details of controls and recommendations.\n- Enforce strong authentication for all users and clients.\n- Enable Multi-Factor Authentication (MFA).\n- Use Role-Based Access Control (RBAC) and Access Control Lists (ACLs) to enforce the principle of least privilege.\n- Enable TLS encryption for clients and connections.\n- Use trusted certificates issued by recognized Certificate Authorities.\n- Restrict access to trusted network environments using private networking and CIDR allowlists.\n\n## CVSS Scoring\nRedis uses the **CVSS 4.0** standard to determine vulnerability scores and may adjust them based on context and evolving threat models.\nCustomers are expected to evaluate published vulnerabilities within the context of their own environments and are encouraged to apply **CVSS Temporal Metrics** and **Environmental Metrics** based on their specific usage.\n\n## Examples\n> The following example is hypothetical and is not based on any previously disclosed or existing vulnerability. It is provided solely to illustrate CVSS scoring under the guidelines above.\n\n### Vulnerability Description\n**Product:** Redis OSS (Redis Community Edition)  \n**Summary:** A malformed database `CLIENT UNBLOCK` command causes the database process to crash.\n**CVSS 4.0 Score:** 6.8\n### CVSS Metrics Breakdown\n- **AV: A** — Requires access to a trusted network.\n- **AC: L** — No special conditions (e.g., ASLR or DEP bypass) are required for the crash to occur.\n- **AT: N** — Does not require specific load conditions or OS-specific scenarios.\n- **PR: H** — The `CLIENT UNBLOCK` command is classified as high privilege under the `@admin` ACL category.\n- **UI: N** — No user interaction is required.\n- **VC: N** — No impact on confidentiality.\n- **VI: N** — No impact on integrity.\n- **VA: H** — The process crash impacts availability for all users of the affected database instance.\n\nNote regarding Subsequent System impact.\nRedis considers the full Redis deployment, including databases, clusters, nodes, shards, and Redis-managed services, to be a single Vulnerable System for CVSS scoring. Impacts confined to that deployment are scored using Vulnerable System impact metrics. Subsequent System impact is reserved for effects outside that Redis boundary, such as compromise of the underlying host operating system. For example, an RCE that executes as root rather than the expected redislabs service user may justify Subsequent System impact because exploitation has crossed from the Redis service context into the host operating system security domain.\n\n## References\n- [Redis Cloud Security Documentation](https://redis.io/docs/latest/operate/rc/security/)\n- [Redis Enterprise Software Recommended Security Practices](https://redis.io/docs/latest/operate/rs/security/)\n- [Redis Enterprise for Kubernetes Security Documentation](https://redis.io/docs/latest/operate/kubernetes/security/)\n- [Redis Open Source Security Documentation](https://redis.io/docs/latest/operate/oss_and_stack/security/)\n\n---\n &nbsp;\n\n# Policy Updates\nWe may update this policy from time to time. If we make material changes, we will post a notice on this page.\n\nThank you for helping secure Redis and our community of technologists, enthusiasts, and innovators",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.redislabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.redis.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.redislabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.redislabs.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "redis.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Redis Community Edition",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Redis Open Source Software (Redis OSS) or Redis Community Edition\n\nSource code can be found at: \nhttps://github.com/redis/redis/\n\nProduct documentation at: \nhttps://redis.io/docs/latest/operate/oss_and_stack/\n\nPlease take special note of the security section of the documentation: \nhttps://redis.io/d",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://cloud.redis.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Redis Insight",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

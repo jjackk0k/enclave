@@ -1,0 +1,51 @@
+{
+ "at": "2026-09-11T22:27:46.390Z",
+ "opportunity": "coinspot",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.coinspot.com.au",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a1a08a8eb981e-LHR",
+    "strict-transport-security": "max-age=63072000",
+    "content-security-policy": "base-uri 'none'; object-src 'none'; img-src *; style-src 'unsafe-inline' 'self'; script-src https: 'nonce-b2d4a206a96a4f",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.coinspot.app",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.coinspot.app:443 refused: host unreachable"
+  }
+ ]
+}

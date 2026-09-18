@@ -1,0 +1,123 @@
+{
+ "at": "2026-09-12T09:45:52.659Z",
+ "opportunity": "equifax",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.equifax.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": "3.7.1",
+     "evidence": "jquery-3.7.1.min.js"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39dfb5bf8f9582e-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000; include subdomains",
+    "content-security-policy": "object-src 'none'; base-uri 'none'; frame-ancestors 'self'; upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "chaodeudas.cl",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-P6VMJG8",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-P6VMJG8"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Next.js",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 8e70b5396a94f70fe0478eaebad6b4d2.cloudfront.net (CloudFront), 1.1 32301bfd0e3b06c528ccd8abdb13411e.cloudfront.net (C",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src data: blob: 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' js.appboycdn.com; style-",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mapcity.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "dicom.cl",
+   "kind": "wildcard-apex",
+   "status": 302,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": "2.4.62",
+     "evidence": "server: Apache/2.4.62"
+    }
+   ],
+   "headers": {
+    "server": "Apache/2.4.62 (AlmaLinux) OpenSSL/3.5.5 mod_perl/2.0.12 Perl/v5.32.1"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ansoniacreditdata.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "default-src 'self' ansoniacreditdata.com *.equifax.com fonts.googleapis.com fonts.gstatic.com cdnjs.cloudflare.com code.",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

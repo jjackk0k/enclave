@@ -1,0 +1,75 @@
+{
+ "at": "2026-09-11T23:51:50.425Z",
+ "opportunity": "eero",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.eero.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.eero.android:443 refused: host unreachable"
+  },
+  {
+   "host": "eero.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "shopify",
+     "label": "Shopify",
+     "version": null,
+     "evidence": "cdn.shopify.com"
+    },
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": "1.29.2",
+     "evidence": "server: nginx/1.29.2"
+    }
+   ],
+   "headers": {
+    "server": "nginx/1.29.2",
+    "x-powered-by": "Next.js",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://consent.cookiebot.com htt"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "e2ro.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to e2ro.com:443 refused: host unreachable"
+  }
+ ]
+}

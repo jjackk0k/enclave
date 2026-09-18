@@ -306,21 +306,58 @@ class ToolExecutor:
         if not self.approve("shell", summary, None):
             return ToolResult(False, "Denied by user; command was NOT run.")
         shell = ["cmd", "/c", command] if os.name == "nt" else ["sh", "-c", command]
+        popen_kwargs: dict = dict(cwd=str(self.cwd), stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE, text=True, errors="replace")
+        if os.name == "nt":
+            popen_kwargs["creationflags"] = subprocess.CREATE_NEW_PROCESS_GROUP
+        else:
+            popen_kwargs["start_new_session"] = True
+        proc = subprocess.Popen(shell, **popen_kwargs)
         try:
-            proc = subprocess.run(
-                shell, cwd=str(self.cwd), capture_output=True, text=True,
-                errors="replace", timeout=t,
-            )
+            stdout, stderr = proc.communicate(timeout=t)
         except subprocess.TimeoutExpired:
-            return ToolResult(False, f"Command timed out after {t}s and was killed.")
+            # A bare proc.kill() here only kills cmd.exe/sh itself. Any
+            # grandchild it spawned (a hung python.exe, a stuck network
+            # call, antivirus holding a new interpreter) survives and
+            # keeps the stdout/stderr pipes open - so the communicate()
+            # that follows would block with NO timeout of its own, and
+            # this tool call never returns at all. This is the actual
+            # cause of the observed hang (Esc does nothing, no timeout
+            # message ever prints): Esc only aborts the model's HTTP
+            # stream, and there is no code path back here to report
+            # anything until the pipe closes, which it never does.
+            self._kill_tree(proc.pid)
+            try:
+                stdout, stderr = proc.communicate(timeout=5)
+            except subprocess.TimeoutExpired:
+                proc.kill()  # last resort - never let one stuck command hang the turn
+                stdout, stderr = "", ""
+            return ToolResult(False, f"Command timed out after {t}s and was killed, "
+                                      f"including any child processes it spawned.")
         out = ""
-        if proc.stdout:
-            out += proc.stdout
-        if proc.stderr:
-            out += ("\n[stderr]\n" if out else "[stderr]\n") + proc.stderr
+        if stdout:
+            out += stdout
+        if stderr:
+            out += ("\n[stderr]\n" if out else "[stderr]\n") + stderr
         out = _trunc(out.strip(), SHELL_OUT_CAP)
         return ToolResult(proc.returncode == 0,
                           f"exit code {proc.returncode}\n{out or '(no output)'}")
+
+    @staticmethod
+    def _kill_tree(pid: int) -> None:
+        """Kill pid and every descendant it spawned. Needed because a plain
+        proc.kill() only terminates the immediate cmd.exe/sh - a grandchild
+        process keeps running and holds the output pipe open, which is
+        exactly what causes run_shell to hang past its own timeout."""
+        if os.name == "nt":
+            subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"],
+                           capture_output=True)
+        else:
+            import signal
+            try:
+                os.killpg(os.getpgid(pid), signal.SIGKILL)
+            except ProcessLookupError:
+                pass  # already gone
 
     def list_dir(self, path: str = ".") -> ToolResult:
         p = self._resolve(path)

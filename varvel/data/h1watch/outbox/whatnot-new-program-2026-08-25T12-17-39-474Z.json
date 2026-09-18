@@ -1,0 +1,90 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "whatnot",
+      "name": "Whatnot",
+      "offersBounties": true,
+      "assets": [
+        "*.whatnot.com",
+        "Whatnot: Shop, Sell, Connect",
+        "api.whatnot.com",
+        "auction-service.whatnot.com",
+        "com.whatnot_mobile",
+        "live-service.whatnot.com",
+        "www.whatnot.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate-limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\whatnot-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "whatnot",
+  "name": "Whatnot",
+  "url": "https://hackerone.com/whatnot",
+  "policy": "# Important program rule: While registering an account on Whatnot, please use email address: username@wearehackerone.com\n\n\n\nWhatnot is a livestream shopping platform where people buy and sell in real time across categories like trading cards, sneakers, fashion, collectibles, and more. \nSellers host live shows and auctions while buyers chat, bid, and purchase directly in the stream, turning shopping into an interactive community experience. Our mission is to enable anyone to turn their passion into a business and bring people together through commerce. \n\n# Security at Whatnot\nWe invest heavily in securing our platform and the community that depends on it. Our security team continuously tests, monitors, and strengthens our systems as part of that commitment. This bug bounty program extends that work by partnering with the security research community to help us identify opportunities to raise the bar even further. We value responsible research and aim for transparent, timely collaboration.\n\n# Response Targets\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 5 days |\n| Time to Triage | 7 days |\n| Time to Bounty | 30 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe will do our best to keep you informed about our progress throughout the process. Please refrain from contacting Whatnot's team out of band and allow us to review your submissions according to the timelines above.\n\n\n# Disclosure Policy\n* As a participant in this program, please do not discuss any vulnerabilities (even resolved ones) publicly without express written consent from Whatnot.  Public disclosure of any vulnerability is prohibited until (a) Whatnot has confirmed remediation, or (b) 90 days have elapsed from initial report submission, whichever is later.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.  Do not access, modify, export, or retain personal data beyond what is strictly necessary to demonstrate the vulnerability. If you encounter sensitive user data (including PII, payment information, or private messages), stop testing that vector immediately, do not save or share the data, and report the issue promptly.\n\n\n# Testing Scope\n\nWe are primarily interested in vulnerability reports affecting our core service: the livestream shopping platform available at https://www.whatnot.com and through our official mobile applications (this includes APIs used: (api.whatnot.com, live-service.whatnot.com, auction-service.whatnot.com)\n\nWhen testing this service, please follow these rules:\n* You may test only with Whatnot account(s) that you own and control.\n* To be eligible for a bounty, you must create your account using your HackerOne email alias.\n\nAll researchers on HackerOne are assigned an email alias in the format username@wearehackerone.com, which automatically forwards to their registered email address.\n\nIf you need additional test accounts, you may use email aliasing by adding a plus sign (“+”) followed by any combination of words or numbers to your username. For example: username+whatnot@wearehackerone.com. This allows you to test different attack scenarios and account states without interacting with other users or creating multiple HackerOne accounts.\n\nThere are some exceptions. In cases such as unauthenticated requests, when the username itself is used as an injection point, or when testing alternative entry points (for example, email-based flows) where a @wearehackerone.com address cannot be used, please include the header: X-HackerOne-Research: [your H1 username]. If neither an email alias nor the header can be used, clearly and unambiguously reference HackerOne somewhere in your payload.\n\nTo help you get started with creating your test account, we've created a step-by-step guide {F5103662}. \n\nWe also welcome reports concerning other Whatnot-owned assets where the findings provide meaningful value to the business. In most cases, this includes services operating under the *.whatnot.com domain.\n\nPlease note the following:\n\nSome infrastructure within our domain relies on third-party services that we do not own or manage. We cannot authorize testing of these systems, and we are unable to remediate vulnerabilities identified within them. Issues affecting third-party infrastructure should be reported directly to the relevant provider through their vulnerability disclosure or bug bounty program.\nWe maintain non-production environments, including those associated with terms such as “stage,” “test,” “qa,” “load,” and “dev.” These environments may not have the same security controls or hardening measures as production systems. As a result, we may decline vulnerability reports affecting non-production environments unless the issue demonstrates a clear and meaningful impact to the business. Findings that would be considered valid in production may not be accepted in non-production environments.\n\n\n#Rate Limiting\n\nPlease rate-limit any automated tooling to a maximum of 100 requests per second, per unique endpoint. Limit of 10,000 total requests per day.\n\n#Livestream Rules\n\nFor any testing using our livestream feature please follow the below rules.  \n* Creation of livestreams for must be limited to 3 per month  \n* Livestreams must include \"Test Stream\" in the title to avoid customer confusion  \n* Livestreams must only be limited to the \\#other category  \n* Livestreams must include a start time in the future as to not clutter production  \n* Livestreams must be canceled & removed from the storefront after report submission as to not clutter production  \n* Marketplace listings must be canceled & removed from the storefront after report submission as to not clutter production  \n* If you cannot delete the livestream for some reason please reach out to security@whatnot.com to get these deleted\n\n\n# Rewards\n\nOur rewards are primarily determined by the impact on our business. While severity generally aligns with CVSS (Common Vulnerability Scoring Standard) ratings, bounty amounts may be adjusted to reflect the real-world business impact of the finding.\n\n\n| Critical (9.0 - 10.0) | High (7.0 - 8.9)  | Medium (4.0 - 6.9) | Low (0.1 - 3.9) |\n| ------------- | ------------- | ------------- | ------------- |\n| $10,000 | $5,000 | $1,000 | $300 |\n\nExamples of past vulnerabilities with granted bounty in each category (please keep in mind these are just examples and there is no guarantee that reports matching the description below will receive the same severity - additional factors may increase/decrease severity)\n\nCritical:\n* Account takeover without user interaction  \n* Mass PII exposure (e.g., email addresses, physical addresses)\n* Ability to generate or manipulate funds\n\nHigh:\n* Account takeover requiring user interaction (e.g., XSS requiring a user to click a malicious link)  \n* PII exposure under specific or limited conditions  \n* Unauthorized modification of another seller’s inventory or livestream\n\nMedium:\n* Exposure of non-sensitive data that is not intended to be publicly accessible\n\nLow:\n* Bypassing non-critical restrictions or controls\n\n# Out of scope vulnerabilities\n\n### **When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:**\n\n* [Team Permissions](https://help.whatnot.com/hc/en-us/articles/30400729663885-Team-Permissions) \\- Role Escalation Vulnerabilities (This category may be added to scope in a future program update)  \n* Clickjacking on pages with no sensitive actions  \n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions  \n* Attacks requiring MITM or physical access to a user's device.  \n* Previously known vulnerable libraries without a working Proof of Concept.  \n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.  \n* Missing best practices in SSL/TLS configuration.  \n* Any activity that could lead to the disruption of our service (DoS), destructive testing, or installation of backdoors or persistent access mechanisms.  \n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS  \n* Rate limiting or bruteforce issues on non-authentication endpoints  \n* Missing best practices in Content Security Policy.  \n* Missing HttpOnly or Secure flags on cookies  \n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)  \n* Vulnerabilities only affecting users of outdated or unpatched browsers \\[Less than 2 stable versions behind the latest released stable version\\]  \n* Software version disclosure / Banner identification issues  \n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.  \n* Tabnabbing  \n* Open redirect \\- unless an additional security impact can be demonstrated  \n* Any user bug that is not a security vulnerability  \n* Phishing attacks  \n* Social engineering attacks  \n* Flaws affecting out-of-date browsers and plugins\n\n\n# Safe Harbor\n\nWhatnot supports the protection of security researchers engaged in Good Faith Security Research. ‘Good Faith Security Research’ means accessing a computer solely for purposes of good-faith testing, investigation, and/or correction of a security flaw or vulnerability, where such activity is carried out in a manner designed to avoid any harm to individuals or the public, and where the information derived from the activity is used primarily to promote the security or safety of the class of devices, machines, or online services to which the accessed computer belongs, or those who use such devices, machines, or online services.\n\nWe consider Good Faith Security Research to be an authorized activity protected from adversarial legal action by us. We waive any relevant restriction in our Terms of Service or Acceptable Use Policy that conflicts with the standard for Good Faith Security Research outlined here.\n\nThis means that, for activity conducted while this program is active: (a) We will not bring legal action against you or report you for Good Faith Security Research, including for bypassing technological measures we use to protect the applications in scope; and (b) We will take steps to make known that you conducted Good Faith Security Research if a third party brings legal action against you.\n\nYou should contact us for clarification before engaging in conduct that you think may be inconsistent with Good Faith Security Research or unaddressed by this policy.\n\nSafe harbor does not apply to activities involving: extortion or ransom demands; social engineering, phishing, or attacks targeting Whatnot employees or users; physical security attacks; use of insider access or stolen credentials; fraud, data theft, or sale of vulnerabilities to third parties; installation of backdoors or persistent access mechanisms; or any activity outside the stated intent to improve security. We reserve sole discretion to determine whether conduct qualifies as Good Faith Security Research.\n\nWe are not able to authorize security research on third-party infrastructure, and third parties are not bound by this safe harbor statement.\n\nThank you for being part of the work we're doing to keep Whatnot and our community safe.  \n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.whatnot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All researchers on HackerOne are assigned an email alias in the format username@wearehackerone.com, which automatically forwards to their registered email address.\nIf you need additional test accounts, you may use email aliasing by adding a plus sign (“+”) followed by any combination of words or num",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.whatnot.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We also welcome reports concerning other Whatnot-owned assets where the findings provide meaningful value to the business. In most cases, this includes services operating under the *.whatnot.com domain.\nPlease note the following:\nSome infrastructure within our domain relies on third-party services t",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Whatnot: Shop, Sell, Connect",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://apps.apple.com/pl/app/whatnot-shop-sell-connect/id1488269261\n\nAll researchers on HackerOne are assigned an email alias in the format username@wearehackerone.com, which automatically forwards to their registered email address.\nIf you need additional test accounts, you may use email aliasing b",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.whatnot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "live-service.whatnot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auction-service.whatnot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.whatnot_mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://play.google.com/store/apps/details?id=com.whatnot_mobile&pcampaignid=web_share\n\nAll researchers on HackerOne are assigned an email alias in the format username@wearehackerone.com, which automatically forwards to their registered email address.\nIf you need additional test accounts, you may us",
+      "max_severity": "critical"
+    }
+  ]
+}

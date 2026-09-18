@@ -1,0 +1,236 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "pingidentity",
+      "name": "Ping Identity",
+      "offersBounties": true,
+      "assets": [
+        "api.ort-one-pingone.com",
+        "apps.ort-one-pingone.com",
+        "auth.ort-one-pingone.com",
+        "console.ort-one-pingone.com",
+        "https://console.ort-one-pingone.com/?env=361b34ef-2725-4fd9-af1b-a2b189df3d05",
+        "https://openam-bug-bounty-stag.forgeblocks.com/*",
+        "https://ort-admin.pingone.com/*",
+        "https://ort-authenticator.pingone.com/*",
+        "https://ort-desktop.pingone.com/*"
+      ],
+      "exclusions": [
+        "admin.pingone.com",
+        "api-staging.pingone.com",
+        "api.pingone.com",
+        "authenticator.pingone.com",
+        "console-staging.pingone.com",
+        "console.pingone.com",
+        "desktop.pingone.com",
+        "https://*.pingidentity.com",
+        "https://*.pingidentity.io",
+        "https://*.pingidentity.net",
+        "https://developer.pingidentity.com/*",
+        "privilege.ort-one-pingone.com",
+        "test-desktop.pingone.com",
+        "test-sso.connect.pingidentity.com",
+        "uploads-staging.pingone.com",
+        "uploads.pingone.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\pingidentity-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "pingidentity",
+  "name": "Ping Identity",
+  "url": "https://hackerone.com/pingidentity",
+  "policy": "Ping Identity looks forward to working with the security community to find and solve vulnerabilities.\nThank you for helping us keep our customers safe.\n\n# Getting Access\n\n##For our docker images:\nPlease clone [this repo](https://github.com/pingidentity/bug-bounty-server-profiles/) and follow the steps in the README. Please use the following credentials for this program:\n```\nPING_IDENTITY_DEVOPS_USER=bug-bounty1@pingidentity.com\nPING_IDENTITY_DEVOPS_KEY=ed56408c-8d96-6aed-107c-3deb0214e928\n```\nYou may open an issue in [the github repo](https://github.com/pingidentity/bug-bounty-server-profiles/) if you run into trouble.\n\n##For our SaaS offerings:\n**PingOne (console.ort-one-pingone.com):** \nPlease obtain credentials via H1 Credential Management for any of the Assets starting with https://console.ort-one-pingone.com/?env=<envId>.\n\n**PingOne Advanced Identity Cloud (openam-bug-bounty-stag.forgeblocks.com):**\nSelf-service account creation:\n> Initial Sign-up can be achieved through the Account Creation journey:\n> https://openam-bug-bounty-stag.forgeblocks.com/am/XUI/?realm=/alpha&authIndexType=service&authIndexValue=Login#/service/Registration\n> \n> A valid email address is required for account creation, we prefer that researchers use their HackerOne (@wearehackerone.com) email address whilst registering.  \n> Please limit account creation to 2 user accounts.\n\n**NOTE:** \n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As per the program scope, neither \\*.pingidentity.\\* or \\*.symphonicsoft.\\* URLs,  nor any other domains or sub-domains registered to Ping Identity that aren't included in our program scope, will be eligible for bounties. Please see in-scope endpoints below. \n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out of scope reports that are determined to be legitimate vulnerabilities will be remediated, and while they will not be eligible for monetary awards, we will do our best to award as many reputation points as possible to the reporter and publicly disclose actionable reports upon request. \n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you are a Ping customer, please consider submitting a support ticket [here](https://support.pingidentity.com/s/security-vulnerability).\n\n\n# Response times\nPing Identity strives to respond to reports as follows:\n* First response - 5 business days from submission\n* Triage - 10 business days from submission\n* Bounty payout - 10 business days from triage\n\nWe do our best to keep researchers informed throughout the process.\n\n# Disclosure Policy\nFollow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue is not eligible for a reward.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first eligible report that we receive.\n* When multiple vulnerabilities are caused by one underlying issue, we award a single bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or have explicit permission to interact with.\n\n#Common vulnerabilities to look for across all endpoints:\n* Information disclosure (cluster health, internal hostnames, passwords)\n* Exploitable TLS vulnerabilities or misconfiguration\n* Components with exploitable security vulnerabilities\n* Unauthorized or elevated persistent store access\n* Sensitive AWS metadata exposure\n* Cross-tenant administrative access or information disclosure\n* REST API vulnerabilities\n* [OWASP Top 10 vulnerabilities](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)\n* [CWE-SANS Top 25 Dangerous Bugs](https://cwe.mitre.org/top25/)\n\n#The following issues are well known and ineligible for bounties:\n* Session mismanagement on change or forget password\n     * [Report \\#643731](https://hackerone.com/reports/643731)\n     * [Report \\#659957](https://hackerone.com/reports/659957)\n* Publicly exposed Google Maps API key\n     * [Report \\#724039](https://hackerone.com/reports/724039)\n* Publicly exposed New Relic monitoring access token\n* Publicly exposed Coveo search access token\n* Missing SPF Records\n\n#The following issues are considered out of scope and ineligible for bounties:\n* Ping Identity corporate systems, and neither websites \\*.pingidentity.\\* or \\*.symphonicsoft.\\*,  nor any other domains or sub-domains registered to Ping Identity that are not included in our program scope\n* All example code and public repository code at https://github.com/pingidentity or anywhere else on Github, apart from the Docker images in https://github.com/pingidentity/bug-bounty-server-profiles\n* All public Docker images at https://hub.docker.com/u/pingidentity that are not part of the repo for bug bounties (https://github.com/pingidentity/bug-bounty-server-profiles)\n* All on-premises Ping Identity downloadable products that are not provided in our docker images\n* Other Ping Identity customer-downloadable products or components, such as SDKs, including PingID SDK\n* Any customizations, Ping Identity adapters, or integration kits\n* Issues without clearly identified security impact or with only speculative theoretical exploitability\n* Missing security best practices and controls (rate-limiting/throttling, lack of CSRF protection, lack of security headers, missing flags on cookies, descriptive errors, server/technology disclosure, etc.), without a clear and working Proof of Concept\n* Self-exploitation (cookie reuse, self cookie-bomb, self denial-of-service, etc.)\n* Self Cross-Site Scripting vulnerabilities without evidence of how the vulnerability can be used to attack another user\n* Previously known CVEs in third-party services (i.e. Google Tag Manager, New Relic, Coveo, Pendo, etc.), dependencies and open-source libraries (without a clear and working Proof of Concept)\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS), the brute forcing of credentials, or the cracking of licenses\n* Attacks requiring MitM or physical access to a user's device\n* Subdomains lacking proper SPF records\n* Clickjacking on pages with no sensitive actions\n* Unauthenticated/logout/login CSRF\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Content-spoofing and text injection issues without showing an attack vector or without being able to modify HTML/CSS\n* Social engineering of Ping Identity employees or contractors\n* Leaked credentials collected from the dark web, breach databases, etc.\n* Any physical/wireless attempt against Ping Identity property\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://*.pingidentity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "admin.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ort-authenticator.pingone.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "\n* **What it is:**\n   * Multi-factor Authentication (MFA) authenticator service\n   * MFA is configured via the PingOne Desktop > Devices > My Device > Add.\n   * Ping Authenticator used for Multi-Factor Authentication (MFA)\n   * The authenticator is a service which provides multi-factor via PingID mo",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "api.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "desktop.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.pingidentity.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "test-desktop.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "test-sso.connect.pingidentity.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://ort-admin.pingone.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "\n* **What it is:**\n   * Administrative web portal for PingOne For Enterprise (P14E)\n* **What it does:**\n   * Allows P14E administrators to manage all aspects of their enterprise user accounts\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ort-desktop.pingone.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "\n* **What it is:** \n   * Central hub of Ping One For Enterprise, a cloud-based dock that provides users with secure SSO access to an expansive library of applications\n* **What it does:** \n   * Provides many pre-existing integrations with popular SaaS applications\n   * Leverages SAML, OIDC and other ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "authenticator.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.pingidentity.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "console.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://developer.pingidentity.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "uploads.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "uploads-staging.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://openam-bug-bounty-stag.forgeblocks.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* **What it is:**\n   * Administrative console for the single-tenant SAAS PingOne Advaced Identity Cloud platform which manages IAM functionality for Enterprise customers.\n   * Staging environment - Used for testing development changes, including stress tests and scalability tests with realistic depl",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.ort-one-pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api-staging.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "console.ort-one-pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console-staging.pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "apps.ort-one-pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth.ort-one-pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://console.ort-one-pingone.com/?env=361b34ef-2725-4fd9-af1b-a2b189df3d05",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You will need to reset the one-time-use password upon your first login, and possibly to register your HackerOne email address as a MFA method.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "privilege.ort-one-pingone.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

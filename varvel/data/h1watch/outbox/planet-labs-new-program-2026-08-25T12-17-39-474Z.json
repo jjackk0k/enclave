@@ -1,0 +1,65 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "planet-labs",
+      "name": "Planet Labs",
+      "offersBounties": false,
+      "assets": [
+        "*.planet-labs.com",
+        "*.planet.com",
+        "*.sentinel-hub.cc",
+        "*.sentinel-hub.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\planet-labs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "planet-labs",
+  "name": "Planet Labs",
+  "url": "https://hackerone.com/planet-labs",
+  "policy": "# Introduction\nPlanet was founded with the mission to image the Earth every day and make change visible, accessible, and actionable. Over the past decade with our customers, Planet has revolutionized the Earth observation industry, democratizing access to satellite data beyond the traditional agriculture and defense sectors.\nTo that end, Planet provides the leading web-geo platform with the highest frequency satellite data available and foundational analytics to derive insights, empowering users across the world to make impactful, timely decisions.\nPlanet employs secure design and testing practices to protect the integrity, availability, and confidentiality of our applications, systems, and the data within them. This vulnerability disclosure program will give everyone the opportunity to help us accomplish our mission by making us the most secure and trusted web-geo platform.\n\nWe encourage the security research community or anyone to report any potential vulnerabilities in accordance with the guidelines below. \n\n# Response Targets\n\nPlanet Labs will make a best effort to reply in a timely manner.\nWe’ll try to keep you informed about our progress throughout the process.\n\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per-report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing), physical penetration testing, and denial of service or volumetric attacks are prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n* Information tending to identify Planet’s customers or our customer’s usage of our system is particularly sensitive. Do not intentionally access Planet customer information. If you suspect a service provides access to Planet customer information, limit queries to your own personal information.\n   * Report the vulnerability immediately and do not attempt to access any other data. \n   * Limit the amount of data returned from services. For SQL injection, for example, limit the number of rows returned.\n   * You must delete all your local, stored, or cached copies of data containing Planet customer information as soon as possible. We may ask you to sign a certificate of deletion and confidentiality agreement regarding the exact information you accessed. This agreement will not affect your bounty reward.\n* In connection with your participation in this program you agree to comply with [Planet’s Terms of Use](https://www.planet.com/terms-of-use/), [Planet’s Privacy Policy](https://www.planet.com/privacy/), and all applicable laws and regulations, including any laws or regulations governing privacy or the lawful processing of data.\n* You may not participate in this program if \n   * you are a resident or individual located within a country  against which the United States has trade restrictions or export sanctions as determined by the U.S. Office of Foreign Assets Control; or\n   * you are included on any list as a party of concern by the U.S. Bureau of Industry and Security of the Department of Commerce; or\n   * you are affiliated in any way with a foreign terrorist organization as designated by the U.S. Department of State.\n* Planet reserves the right to change or modify the terms of this program at any time. \n\n\n\n# Test Plan\nWeb traffic to and from Planet properties produce terabytes of data every day. When testing, you can make it easier for us to identify your testing traffic against our normal data and the malicious actors out in the world. Please do the following when participating in Planets bug bounty programs:\nWhere possible, register accounts using your ``````<username>@wearehackerone.com`````` addresses. If you are in need to register multiple accounts, use ``````<username>+<foobar>@wearehackerone.com``````.\nProvide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\n\nYou are a returning hacker revisiting our program and want to quickly see what changed since you looked at it the last time or you want to start hacking on new or updated features? Take a look at our [Developers Changelog](https://developers.planet.com/changelog/).\n\nGeneral documentation of our services is available at our [Support page](https://support.planet.com/hc/en-us). Developers documentation is available at our [Developers page](https://developers.planet.com/)\n\n## In Scope\n\nOnly the Planet-owned domains listed below are eligible for reward.\n\n * *.planet.com\n * *.planet-labs.com\n* *.sentinel-hub.com\n* *.sentinel-hub.cc\n\n### Out of Scope\n\nThird party services hosted on subdomains of planet.com, for example:\n\n  * https://support.planet.com\n  * https://learn.planet.com\n  * https://investors.planet.com\n  * https://developers.planet.com/devtrial/#devtrial-signup-form \n     * form submission goes to learn.planet.com\n  * https://developers.planet.com/contact-us/\n     * form submission goes to a third party service\n\nThe most important information entrusted to Planet’s care concerns Planet’s customers and their use of Planet’s services. Informed by the CVSS scoring system, vulnerability disclosures concerning Planet customer information may reward higher amounts for exceptional reports. \n\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n \n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure or Banner identification issues.\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Issues arising from static Planet API keys, including their use as query parameters\n* Insufficient session expiration\n* Password brute force or reset user enumeration \n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Planet cannot and does not authorize security research in the name of other entities. You are expected, as always, to comply with all applicable laws and regulations. \n\nPlease submit a report to us **before** engaging in conduct that may be inconsistent with or unaddressed by this Policy.\n\nThank you for helping keep Planet and our users safe!\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.planet.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "\n**Explicitly excluded are third party services hosted on subdomains of planet.com**, for example:\n\n  * https://support.planet.com\n  * https://learn.planet.com\n  * https://developers.planet.com/devtrial/#devtrial-signup-form \n     * form submission goes to learn.planet.com\n  * https://developers.pla",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.planet-labs.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sentinel-hub.cc",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "A mostly internally used domain related to the Sentinel Hub platform.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sentinel-hub.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Sentinel Hub is a multi-spectral and multi-temporal big data satellite imagery service, capable of fully automated archiving, real-time processing and distribution of remote sensing data and related EO products. Users can use APIs to retrieve satellite data over their AOI and specific time range fro",
+      "max_severity": "critical"
+    }
+  ]
+}

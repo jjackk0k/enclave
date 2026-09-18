@@ -1,0 +1,74 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "myndr",
+      "name": "Myndr",
+      "offersBounties": false,
+      "assets": [
+        "*.myndr.net",
+        "*.myndr.nl",
+        "www.myndr.nl"
+      ],
+      "exclusions": [
+        "mqtt.myndr.net",
+        "mqtt2.myndr.net"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\myndr-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "myndr",
+  "name": "Myndr",
+  "url": "https://hackerone.com/myndr",
+  "policy": "No technology is perfect, and Myndr believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n* This is a vulnerability disclosure program. The only bounty you can receive are the points you might receive for the platform.\r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Performing actions that may negatively impact Myndr or its  users (for instance Denial of Service attacks, brute-force, spam)\r\n* Accessing, or attempting to access, data or information that does not belong to you\r\n* Destroying or corrupting, or attempting to destroy or corrupt, data or information that does not belong to you\r\n* Social engineering (including phishing) any Myndr service desk, employee or contractor\r\n* Any physical or electronic attack against Myndr property or data centers\r\n* Violating any laws or breaching any agreements in order to discover vulnerabilities \r\n\r\nThe following vulnerabilities typically will not qualify for our program:\r\n\r\n* User account hacks that require user interaction\r\n* bugs in embedded third party services like Intercom support chat\r\n* Chat filter bugs\r\n* Missing autocomplete attributes\r\n* Missing flags on cookies that don’t house any sensitive information\r\n* SSL/TLS scan reports (this means output from sites such as SSL Labs) and SSL/TLS version related vulnerabilities\r\n* Missing security-related HTTP headers which do not lead directly to a vulnerability. Issues that only affect a smaller user base (e.g. users on outdated browsers or other outdated software).\r\n* Denial of Service vulnerabilities (DoS)\r\n* Cross-site Request Forgery (CSRF) with minimal security implications (For example but not limited to login/logout/unauthenticated)\r\n* Version information disclosure (without verifying the presence of an actual exploitable vulnerability)\r\n* Password complexity related vulnerabilities\r\n* Unverified or incomplete \"Scanner output\" or scanner-generated reports\r\n* Vulnerabilities requiring physical access to the victim's unlocked device\r\n* Bugs requiring exceedingly unlikely user interaction\r\n* Disclosure of public information and information that does not present significant risk\r\n* Vulnerabilities that Myndr determines to be an accepted risk will not be eligible for a paid bounty\r\n* Language used in emails and policy documents\r\n* SPF, DKIM or DMARC issues on sub-domains of myndr.nl\r\n* HTML injection vulnerabilities with no direct risk\r\n* Social engineering or following a link will not be considered for bounty\r\n* Self XSS or similar vulnerabilities\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Myndr and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.myndr.nl",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is our main website. You can do the following:\n\n- Buy our product\n\nWe are especially interested in bugs that affect our customers during the sales proces",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.myndr.nl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "If the subdomain you found an issue on is not explicitly mentioned as scope than his is probably a testing-website. We use this to try out new things. \nThis should not be open to the public so we are very interested in your findings.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.myndr.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "These (sub)domain(s) are used for our core services. We are extremely interested in any and all issues you can find within this scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mqtt.myndr.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mqtt2.myndr.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

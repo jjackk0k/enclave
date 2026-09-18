@@ -1,0 +1,95 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "lyst",
+      "name": "Lyst",
+      "offersBounties": true,
+      "assets": [
+        "*.lyst.co",
+        "*.lyst.com",
+        "*.lystit.com",
+        "597940518",
+        "cdna.lystit.com",
+        "com.lyst.lystapp",
+        "mobileapi.lystit.com"
+      ],
+      "exclusions": [
+        "help.lyst.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Rate Limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\lyst-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "lyst",
+  "name": "Lyst",
+  "url": "https://hackerone.com/lyst",
+  "policy": "No technology is perfect, and Lyst believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Test Accounts\r\nYou must only test against accounts that you have created. You may register for accounts as long as you include the suffix **+hackerone** before the @ in your email address. For example **test+hackerone@example.com**.\r\n\r\nYou may be banned for registering accounts without this string in your email address.\r\n\r\n# Test Cards\r\nWe have 5 test cards to use. Note these are not real credit card numbers. All orders will not be processed.\r\n\r\n* 4024007175579357 \r\n* 4916375378230974 \r\n* 4839456722548214 \r\n* 4556908228877498 \r\n* 4916736231570825\r\n\r\nUse the address **921 Front St \\#100, San Francisco, CA 94111** for all of them.\r\n\r\n# Rate Limits and Bans\r\nWe enforce rate limiting on most of our website. This may result in your address being banned if you make more than around 160 requests per minute from a single IP address. Do not try and evade this limit.\r\n\r\nIf you are banned due to excessive activity please halt requests and wait a short amount of time and the ban will be released automatically.\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Examples of vulnerabilities Lyst are particularly interested in hearing about\r\nAuthentication flaws\r\nCross-site scripting (XSS)\r\nSQL Injection\r\nCross-site request forgery (CSRF/XSRF)\r\nMixed content scripts (scripts loaded over HTTP on an HTTPS page, blockable errors only)\r\nServer side code execution\r\nPrivilege Escalation\r\nAuthorization flaws/Access Control Bypasses (e.g. being able to perform security-sensitive actions as a Restricted User) \r\nClickjacking on authenticated pages with sensitive state changes\r\n\r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Submitting reports on `help.lyst.com` - we do not host this and issues here should be reported directly to @Zendesk instead.\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Lyst staff or contractors\r\n* Any physical attempts against Lyst property or data centers\r\n* Username enumeration\r\n* Exposure of social features such as users saved items\r\n* Missing \"best practices\" without a clear demonstration of impact in our use case\r\n* CSRF on login/logout/other non-authenticated content\r\n* Missing headers\r\n* Secure and HTTPonly flags on cookies\r\n* crossdomain.xml misconfiguration without an exploit scenario\r\n\r\nThank you for helping keep Lyst and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.lyst.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.lyst.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "597940518",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdna.lystit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mobileapi.lystit.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lystit.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lyst.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.lyst.lystapp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

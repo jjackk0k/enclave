@@ -1,0 +1,61 @@
+{
+ "at": "2026-09-12T16:17:47.527Z",
+ "opportunity": "stripo",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "stripo.email",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "laravel",
+     "label": "Laravel",
+     "version": null,
+     "evidence": "csrf-token\" content="
+    }
+   ],
+   "headers": {
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "base-uri 'self';connect-src 'self' *.stripo.email *.firstpromoter.com esputnik.com *.esputnik.com *.google.com *.google.",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "my.stripo.email",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'self' https://*.intercomcdn.com; frame-src 'self' data: https://stripo-app.firebaseio.com https://stripo-ap",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

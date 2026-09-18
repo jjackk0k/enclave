@@ -1,0 +1,110 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "flipkart",
+      "name": "Flipkart",
+      "offersBounties": true,
+      "assets": [
+        "https://api.myntra.com",
+        "https://apps.apple.com/in/app/flipkart-online-shopping-app/id742044692",
+        "https://apps.apple.com/in/app/myntra-fashion-shopping-app/id907394059",
+        "https://pay.payzippy.com",
+        "https://payments.myntra.com",
+        "https://play.google.com/store/apps/details?id=com.flipkart.android",
+        "https://play.google.com/store/apps/details?id=com.myntra.android",
+        "https://uiscoop.payzippy.com",
+        "https://www.flipkart.com",
+        "https://www.myntra.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\flipkart-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "flipkart",
+  "name": "Flipkart",
+  "url": "https://hackerone.com/flipkart",
+  "policy": "At Flipkart, we take the security of our systems very seriously, and it is our constant endeavour to make our products secure for our customers. However, in the rare case when some security researcher or member of the general public identifies a vulnerability in our systems, and responsibly shares the details of it with us, we appreciate their contribution, work closely with them to address such issues, and  ensure that they are rewarded fairly for their contribution. \n\n\n\n\n# Instructions for signing up Flipkart accounts\n\n\n - Researchers having Indian phone number can sign up/login using OTP. Please make a note to not open multiple accounts creating spam.\n - Only our Android application supports sign-up via international phone numbers. \n\n\n# Scope Rules and Policy - Including Out of Scope assets\n*We would advice to stick strictly to the scope defined for this program. Submissions on assets that are not within scope are not entertained however based on Severity and Business impact, may be considered for acceptance on a case by case basis. *\n\n\n\n\n# Report Eligibility\n* Be the first to report a vulnerability.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty. If the root cause is the same and endpoints are different within the same application , it will be treated as a duplicate. Sometimes exceptions are made upon discreteness of Flipkart security team.\n* Provide [high quality reports](https://docs.hackerone.com/hackers/quality-reports.html) with clear and comprehensive reproducible steps. High quality submissions allow our team to better understand the issue and relay the bug to the internal teams to fix it quickly.\n\n\n# Program Rules\n* Please do not use any vulnerabilities to cause direct damage to our products or customers.\n* Please do not perform password spraying on any real user accounts in any of our applications.\n* Please refrain from using automated scanners/tools as some actions could trigger changes or damage our production systems and data.\n* Please do not send our employees or users malware as a part of testing. Also, social engineering against employees (phishing, vishing, smishing, etc.) is not acceptable.\n* Please do not attempt to sneak into our premises either secretly or by using social engineering.\n* Any subsidiaries, parents, affiliates are not in scope unless explicitly mentioned in the in-scope section.\n* Outdated software versions are subject to a 30 days blackout period to grant time for internal patching and testing (for instance, issues resulting from a 0day, 1day etc). Rewards will not be given for outdated software versions reported during this period.\n* Please keep all communication within the HackerOne program. Please do not directly contact our Customer Support or any Flipkart employee regarding the status of a submission. This will result in automatic disqualification for any reward, regardless of severity.\n\n\n# Out of scope vulnerabilities\n\n* Mobiles apps of Flipkart and Myntra are OOS for this engagement\n* Username Enumeration via signup and account & recovery forms\n* Rate-limiting related issues.\n* Vulnerabilities regarding SPF/DMARC/DKIM records without verifiable proof of spoofing to a major mail client\n* Best practice concerns like cookie is not marked secure and http only, missing HSTS, SSL/TLS configuration, missing security headers.\n* Vulnerabilities reported by automated tools and scanners without additional proof of concept\n* Vulnerabilities that only affect outdated app versions or browsers - we consider vulnerabilities only in the versions of our applications that are currently in the app store and exploits only in the latest browser versions\n* Denial of Service(DoS) and Distributed Denial of Service(DDoS) attacks\n* Exploits that need MITM or physical access to the victim’s device\n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF\n* Previously known vulnerable libraries without a working Proof of Concept\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Open redirect vulnerabilities are out-of-scope by default, If you chain it with a different vulnerability and make it impactful we would be interested.\n* Stack traces, directory listings or path disclosures\n* Self XSS\n* Social engineering attacks, both against users or Flipkart employees\n* CVEs for outdated software with Low or Medium severity impact won't be considered for reward.\n* Internal credential leak related reports will not be awarded a bounty. However exceptions can be made in cases where there is direct impact to the organization in accordance with the discreteness of the Flipkart security team.\n* Credential leaks from personal repositories/DarkWeb URLs, leaked URL's such as huntr.io, haveibeenpwned.com are not eligible for bounty. \nCredential leaks on the following are strictly OOS:\n    - `@partner.flipkart.com`\n    - `*.myntrainfo.com`\n\nHowever exceptions can be made in cases where there is direct impact to the organization in accordance with the discreteness of the Flipkart security team.\n* Employee credential leak related reports will not be awarded a bounty. However exceptions can be made in cases where there is direct impact to the organization in accordance with the discreteness of the Flipkart security team.\n* Document exposures are generally out-of-scope and are not eligible for a reward, however it can differ from scenario to scenario depending on our discretion.\n\n\n*Cloud Bucket Leak - Please note that only leaks pertaining to customer data will be eligible for bounty*\n\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n\nThank you for helping keep Flipkart and our users safe!\n\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://api.myntra.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://payments.myntra.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.myntra.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.flipkart.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://pay.payzippy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://uiscoop.payzippy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/in/app/flipkart-online-shopping-app/id742044692",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.flipkart.android",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.myntra.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/in/app/myntra-fashion-shopping-app/id907394059",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

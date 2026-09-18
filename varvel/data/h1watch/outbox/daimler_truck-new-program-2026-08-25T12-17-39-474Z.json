@@ -1,0 +1,233 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "daimler_truck",
+      "name": "Daimler Truck",
+      "offersBounties": false,
+      "assets": [
+        "*.bharatbenz.com",
+        "*.daimlertruck.com",
+        "*.freightliner.com",
+        "*.mercedes-benz-trucks.com",
+        "*.setra.de",
+        "*.westernstar.com",
+        "*detroitconnect.com",
+        "*exceleratorparts.com",
+        "*fleetboard.com",
+        "*fleetboard.de",
+        "*omniplus.com",
+        "060.syncro-int.daimlertruck.com",
+        "3dprintdata.daimlertruck.com",
+        "3dviewer.daimlertruck.com",
+        "All Apps published by Daimler Truck AG",
+        "Vehicles",
+        "access.platon.daimlertruck.com",
+        "accon.tsac-staging.daimlertruck.com",
+        "accon.tsac.daimlertruck.com",
+        "daimlertrucksgoldcoast.com.au"
+      ],
+      "exclusions": [
+        "*.daimler.com",
+        "*.fuso.com",
+        "*.mitsubishi-fuso.com",
+        "*.thomasbuildbuses.com",
+        "*evobus.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\daimler_truck-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "daimler_truck",
+  "name": "Daimler Truck",
+  "url": "https://hackerone.com/daimler_truck",
+  "policy": "# Brand Promise\nWe at Daimler Truck take security vulnerabilities and privacy issues very seriously and we are committed to building and maintaining an effective partnership with the cybersecurity community. We value your contributions and welcome any information that could lead to the identification and remediation of a security issue in Daimler Trucks services and products. We will investigate all legitimate reports and do our best to quickly fix the issue.\n\nDaimler Truck looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Safety Note\nSafety first! Don't do anything that could cause harm to yourself or others. Keep in mind that a vehicle has several systems such as airbags that could cause serious injury when misused. Use special caution when interacting with safety-critical devices such as brake systems, steering components, the engine or high voltage components like the vehicle battery. If in doubt, let it be.\n\nIf you work on a vehicle, don't try anything that could interfere with road safety and don't experiment on public roads. Only perform testing in a safe place with a stationary vehicle.\n\n# Response Targets\nDaimler Truck will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 businessdays |\n| Time to Triage | 2 business days after first response |\n| Time to Resolution | depends on severity and complexity |\n\n**Note:** If you found a flaw in our vehicles, please note that fixing a bug in a vehicle is a substantially different process than fixing a bug in classic IT systems. Vehicle software needs to meet high safety and regulatory requirements, therefore fixing a bug takes significantly more time. We’ll try to keep you informed about our progress throughout the process. \n\n# Disclosure Policy\n* Please refrain from publishing technical details of any vulnerability you find to give us an opportunity to fix it. We will try to work out a disclosure timeline with you.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Please be aware that other than standard IT systems, we cannot mandate installation of an update as the vehicles belong to our customers and are not under our control. Therefore, it can take a long time after a patch is released before a significant part of vehicles on the road are patched.\n\n# Qualifying Vulnerabilities\n**OWASP Top 10**\n\n**Vehicles**\n* OWASP Embedded Application Security Top 10\n* Remote Code Execution\n* Sensitive Data Exposure\n* Broken Authentication\n* Compromise of update mechanisms, e.g. Flashing an ECU with arbitrary firmware\n* Remote sending of arbitrary data on in-vehicle bus systems (CAN, LIN, Flexray, etc.)\nUnlocking vehicle functions\n\n\n\n# Out of Scope Vulnerabilities\n\n* Dealership Websites - Some dealerships use a subdomain of daimlertruck.com to host their websites. Nevertheless, Daimler Truck is not in control of these sites. Please contact the appropriate dealership in these cases.\n* Any activity that could lead to the disruption of our service (DoS/ DDoS).\n* Brute force attacks and social engineering.\n* Physical destruction of locks / anti-theft mechanisms, etc.\n* Gaining access to the vehicle by physical destruction.\n* DoS of ECUs or Bus Systems through Flooding.\n\n# Third Party Bugs\nIf you find a flaw in an application written by a third-party we will try to contact them and forward your findings to them in an anonymized form. In this case, we will ask you if you want your contact details to be sent to the third-party so that they can further discuss that topic with you.\n\n# Low Severity Findings\nPlease note that whilst we want to consider all valid submissions to our program, it will take us time to fix low impact findings. \n\n# Legal Points and Safe Harbor\nAlways obey your local laws!\n\nIf you work on a product or vehicle, use only a vehicle that you own or have the owner’s permission to work on. Do not modify or copy data that doesn't belong to you. We explicitly reject criminal activity in any form.\n\nWe utilize code written by third-parties. Those code parts belong to their respective owners. We can’t grant you permission to reverse engineer any of that code.\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Daimler Truck and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.mercedes-benz-trucks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.freightliner.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mitsubishi-fuso.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.fuso.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.westernstar.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.thomasbuildbuses.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bharatbenz.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.setra.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.daimler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "All Apps published by Daimler Truck AG",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "**For example:**\n* Digital Manual (Mercedes-Benz)\n* Fleetboard Driver (Mercedes-Benz)\n* Mercedes-Benz TruckTraining (Mercedes-Benz)\n* Mercedes-Benz Uptime (Mercedes-Benz)\n* OMNIplus ON (Daimler Buses)\n* Smart Source (Freightliner)\n* ...",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Vehicles",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "**All Vehicles sold under the brands:**\n* Mercedes-Benz Trucks & Buses\n* Freightliner Trucks\n* FUSO Trucks & Buses\n* BharatBenz Trucks & Buses\n* Western Star\n* Thomas Built Buses\n* Setra\n\nAny accessory or component for use with the above vehicles sold under these brands.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*evobus.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*omniplus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*fleetboard.de",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*fleetboard.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*detroitconnect.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*exceleratorparts.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "daimlertrucksgoldcoast.com.au",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "060.syncro-int.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "3dprintdata.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "3dviewer.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "access.platon.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accon.tsac-staging.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accon.tsac.daimlertruck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

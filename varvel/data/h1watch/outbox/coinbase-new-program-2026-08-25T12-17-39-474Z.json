@@ -1,0 +1,191 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "coinbase",
+      "name": "Coinbase",
+      "offersBounties": true,
+      "assets": [
+        "*.base.app",
+        "*.base.org",
+        "*.cbhq.net",
+        "*.coinbase-corp.com",
+        "*.coinbase.com",
+        "54.175.255.192/27",
+        "Other",
+        "com.coinbase.android",
+        "com.vilcsak.bitcoin2",
+        "https://chrome.google.com/webstore/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad",
+        "https://github.com/base/*",
+        "https://github.com/coinbase/*",
+        "https://github.com/coinbase/cb-mpc",
+        "https://github.com/coinbase/cb-mpc-go",
+        "org.toshi",
+        "org.toshi.distribution"
+      ],
+      "exclusions": [
+        "N/A - Not Coinbase owned or operated",
+        "status.*.coinbase.com",
+        "status.coinbase.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\coinbase-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "coinbase",
+  "name": "Coinbase",
+  "url": "https://hackerone.com/coinbase",
+  "policy": "Coinbase's Bug Bounty Program exists to protect our two highest-priority assets: **customer funds** and **customer information**. We reward researchers who responsibly disclose software vulnerabilities that could put either at risk.\n\nTo be eligible for an award, a report must present a clear list of steps that when executed demonstrate the impact of a vulnerability that harms Coinbase or its customers. Coinbase determines eligibility and reward amounts at its sole discretion.\n\n## Scope\n\nThe scope of this program is Web2 products, assets and infrastructure owned by Coinbase. Please see the Scope page for more details. If you have a Web3 finding pertaining to Coinbase, please submit through our program on [Cantina](https://cantina.xyz/bounties/55316f42-3c5e-4746-9bd0-0f18dcbc344b).\n\n## Out of scope\n\n* Social engineering  \n* Username enumeration  \n* Rate Limiting (non-critical issues)  \n* Physical security  \n* Non-security-impacting UX issues  \n* Deprecated open source libraries  \n* Vulnerabilities in third-party applications that integrate with Coinbase  \n* Ability to abuse existing banking functionality such as ACH or credit card chargebacks  \n* Publicly available leaked credentials that have since been rotated  \n* Demo apps, testnet, staging environments, etc.\n\n## Severity & Rewards\n\n---\n**Extreme** — Up to **$1,000,000**\n-  Unauthorized access to Coinbase-owned hot/cold wallet assets, funds, or private keys.\n---\n**Critical** — Up to **$15,000**\n- Market-moving API/service abuse.\n- RCE on staking infrastructure.\n- Easily-exploitable, high-severity bugs in protocols accessible from the public API (e.g., signing, DKG, TDH2 in the cb-mpc open-source library) that could lead to key compromise or RCE. Exploitation requires no material precondition beyond normal protocol operation, and broadly affects typical deployments.\n- Large-scale money laundering.\n- MNPI exposure, sustained business disruption, or significant monetary loss.\n---\n**High** — Up to **$6,000**\n- PII exposure affecting a meaningful share of users.\n- Fee-structure bypass at scale.\n- KYC bypass.\n- Single-product 2FA bypass.\n- High-severity bugs in protocols accessible from the public API (e.g., signing, DKG, TDH2 in the cb-mpc open-source library) that could lead to key compromise or RCE, but require additional—yet realistic—conditions, access, or effort to exploit. Exploitation must remain feasible in a realistic deployment and must not depend on unlikely conditions.\n---\n**Low / Medium** — Out of Scope — **$0**\n\n---\n##\n\nSeverity is scored on **impact** (confidentiality, integrity, availability, fund and/or data exposure) and **exploitability** (access required, prerequisites, likelihood).\n\n**Note for the cb-mpc open-source library**: the extreme category is out of scope, and hard to exploit bugs are considered medium, and therefore also out of scope.\n\n# Program Policies\n\n## Safe Harbor\n\n* Coinbase adheres to and supports the HackerOne Gold Standard Safe Harbor terms. \n\n\n## Eligibility\n\n* Not be a resident of any country under U.S. sanctions or any country that does not allow participation  \n* Be at least 14 years old with legal capacity to agree to these terms  \n* Have permission from your employer to participate  \n* Not be (for the previous 12 months) a Coinbase employee, immediate family member, contractor, or service provider\n\n## Researcher Requirements\n\n* Submit all valid, Coinbase-related bug reports through our programs on HackerOne (for Web2), and Cantina (for Web3).  \n* Provide Coinbase a reasonable amount of time to fix a vulnerability prior to sharing details with any other party.  \n* Adhere to HackerOne Disclosure Process.  \n* Make a good faith effort to preserve the confidentiality and integrity of Coinbase customer data.  \n* Do not defraud or attempt to defraud or socially engineer Coinbase customers or Coinbase itself.  \n* Do not profit from vulnerabilities outside of Bug Bounty Program payouts.  \n* Report vulnerabilities with no conditions, demands, or ransom threats.\n\nViolation of any of our policy may result in the immediate ban from further participation in the Coinbase Bug Bounty Program. Researchers who engage in extortion attempts will be reported to law enforcement.\n\n## Fine print\n\nCoinbase may modify or cancel this program at any time. Anonymous HackerOne reports are accepted but not reward-eligible. This is v5.0 of the program; see also [HackerOne's Finder Terms and Conditions](https://hackerone.com).**",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.coinbase.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Coinbase's main domain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.coinbase.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Coinbase's retail mobile app on Android.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "54.175.255.192/27",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cbhq.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Applications that may have been missed as a part of our standard scope; this will be assessed on a by submission basis. ",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "org.toshi",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Base Android app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "org.toshi.distribution",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Base iOS app",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "status.coinbase.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "N/A - Not Coinbase owned or operated",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset labelling is used to signal to a reporter that the asset in question is not owned or operated by Coinbase in any capacity.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://chrome.google.com/webstore/detail/coinbase-wallet-extension/hnfanknocfeofbddgcijnmhnfnkdnaad",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.base.org",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/coinbase/cb-mpc",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.coinbase-corp.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.vilcsak.bitcoin2",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Coinbase's retail mobile app on iOS.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/coinbase/cb-mpc-go",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "While we appreciate submissions regarding this repo, this repo is not eligible for bounties.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/coinbase/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/base/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "status.*.coinbase.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.base.app",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

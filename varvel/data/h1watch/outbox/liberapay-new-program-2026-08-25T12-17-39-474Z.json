@@ -1,0 +1,73 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "liberapay",
+      "name": "Liberapay",
+      "offersBounties": true,
+      "assets": [
+        "*.liberapay.com",
+        "Any IP belonging to Liberapay",
+        "https://github.com/liberapay/liberapay.com"
+      ],
+      "exclusions": [
+        "https://github.com/liberapay/liberapay.com/blob/master/sql/app-conf-defaults.sql",
+        "libravatar.org"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "No more than 3 GET or HEAD requests"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\liberapay-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "liberapay",
+  "name": "Liberapay",
+  "url": "https://hackerone.com/liberapay",
+  "policy": "## ⏳ Disclosure policy\n\nWe will investigate legitimate reports and make every effort to quickly resolve any vulnerability. Please make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our services.\n\nWe will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. We consider activities conducted consistent with this policy to constitute authorized conduct.\n\nIf legal action is initiated by a third party against you and you have complied with this security policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nIt is also important to note, we will not take legal action against you simply for providing us with a proof of concept of the security vulnerability. Please follow the guidelines listed in the *Proof of concepts* section below to ensure that your proof of concept is detailed enough to demonstrate the issue and still follows the guideline listed above.\n\nBecause we strive to be as transparent as possible, our policy is to make a report public as early as possible. If you aren't comfortable with full publication, you can ask us to redact a report before publication or to only publish a summary. If you don't want your reports to be made public at all, please don't send us any unless you've found a critical vulnerability.\n\n## 🚫 Known issues\n\nBefore reporting a potential vulnerability please check that it's not already in our list of known low-risk issues: https://github.com/liberapay/liberapay.com/labels/Defense\n\n## 🖼 False positives\n\nYou may stumble across something that appears like an issue at first, but turns out to be an accepted risk or not a security vulnerability. We created this section in the hopes that you will not panic if you come across these non-issues.\n\n- Our GitHub repository might appear to leak credentials (e.g. in the [`app-conf-defaults.sql` file](https://github.com/liberapay/liberapay.com/blob/4419a95916f4af3bfd61361341776fce66bf7a6a/sql/app-conf-defaults.sql)), but these are simply test credentials and exposing them is an accepted risk.\n- Issues related to username and page name collisions; i.e. being able to set a page name as your username. We are already aware of this and will eventually fix this properly.\n- Almost all CSRF-related reports are false-positives. Make sure you can exploit the issue across two accounts in two separate browser sessions, preferably in incognito mode. (We often get reports claiming that our anti-CSRF mechanism is broken, but it isn't. An anti-CSRF cookie doesn't need to be authenticated by the server, because a cross-site attacker cannot modify the cookies of the attacked domain.)\n- Our wikis are meant to be publicly-editable.\n\nIf you are not sure about whether something belongs to us or not, please feel free to either submit a report or email `contact {at} edoverflow {dot} com` with your questions. If you submit a report, we will let you self-close it afterwards so as not to affect your reputation.\n\n## ⛔ Don't…\n\n- Don't flood our production website with requests. If you want to scan our production website for vulnerabilities you must do so at a slow pace. No more than 3 GET or HEAD requests per second and no more than 1 request per second for \"unsafe\" methods (POST, PUT, etc.). If that seems too low, remember that multiple people may be running scans at the same time. **Your scan results will be inaccurate if you don't comply with the rate limits**, because most of your requests will be ignored (a 429 HTTP status code will be returned). If you want to scan faster, you can run the Liberapay webapp locally. Make sure to always test the latest tagged commit: https://github.com/liberapay/liberapay.com/tags.\n- Don't create accounts with fake email addresses, they will be blocked as fraudulent.\n- Don't send fake card or bank account numbers to the production website, your account will be blocked as fraudulent.\n- Don't send any potentially damaging payload when attempting to find or confirm a remote code execution vulnerability.\n- Don't attempt physical testing such as office access (e.g. open doors, tailgating).\n- Don't attempt social engineering (e.g. phishing, vishing).\n\n## 🎯 Target dummy accounts\n\nTo demonstrate the impact of your findings, please feel free to exploit them against https://liberapay.com/hackerone-target if you can. This will give us an idea of what you are capable of doing against a victim's account on the Liberapay platform.\n\n{F320809}\n\nThis dummy account is very privacy oriented and has all the privacy settings enabled.\n\n{F320808}\n\nWe have also set up a target team account on https://liberapay.com/hackerone-target-team. Once again, this is a very privacy-oriented team.\n\n{F320813}\n{F320810}\n\nFinally, there is a target community too: https://liberapay.com/for/hackerone-target-community. Unlike the other targets the community isn't private, so it's supposed to appear in search results.\n\n{F320812}\n\n## ⛔ Exclusions\n\nDon't submit:\n\n* Reports of vulnerabilities in applications or systems not listed in the \"Scope\" section, unless you've found a high-severity issue that directly affect us. Issues in third-party services should be reported to the respective team.\n* Vulnerability reports with video only PoCs.\n* Reports that state that software is out of date or vulnerable without a proof of concept.\n* Highly speculative reports about theoretical damage. Be concrete.\n* Vulnerabilities as reported by automated tools without additional analysis as to how they’re an issue.\n\nThe following **issue types** are excluded from scope:\n\n| Description | Reason |\n|-------------|--------|\n| Network-level Denial of Service (DoS/DDoS) vulnerabilities. | We do not want you to disrupt any of our services. |\n| Low severity issues that can be detected with tools such as [Hardenize](https://www.hardenize.com/) and [Security Headers](https://securityheaders.io/). | We run regular scans with these services and try to improve our score gradually. |\n| Content injection issues. | The severity of this issue is so low that it does not warrant a report. |\n| Cross-site Request Forgery (CSRF) with minimal security implications (Logout CSRF, etc.). | In order for CSRF to be a valid issue it must affect some important action such as deleting one's account. |\n| Missing cookie flags on non-security-sensitive cookies. | These type of issues do not present a major risk and are usually picked up by scanners. |\n| UI and UX bugs (including spelling mistakes). | No comment. |\n| 401 injection. | This is usually an accepted risk and we are already aware of this issue: https://github.com/liberapay/liberapay.com/issues/504. |\n| Stack traces that disclose information. | All of our projects are open-source therefore this information is usually public knowledge. **That said, if you discover a stack trace that discloses information which is not located in our GitHub repositories, please do submit a report.** |\n| Host header issues without an accompanying proof-of-concept demonstrating vulnerability. | We require a clear proof of concept. |\n| Open ports without an accompanying proof-of-concept demonstrating vulnerability. | Same as above. |\n| Banner grabbing issues (figuring out what web server we use, etc.). | We will happily share what web servers we are running. |\n| Missing `X-Frame-Options` header (Clickjacking) | The lack of `X-Frame-Options` does not always indicate that a security vulnerability is present. This is an optional header that is only necessary on endpoints where there UI is rendered to invoke state changing actions. We recommend reading this informative post by David Ross: https://plus.google.com/u/0/+DavidRossX/posts/jVrtTRd5yKP |\n| Cross-site tracing | In order for Cross-Site Tracing (XST) to really be a significant issue you would need to find an endpoint vulnerable to Cross-site Scripting (XSS). |\n| CSP uses `unsafe-inline` | The fact that a CSP includes `unsafe-inline` is not an issue in itself. In order for you to demonstrate the actual impact of this value, we highly recommend you look for an XSS vulnerability. Try to trigger `alert(document.domain)`. |\n| Disclosure of robots.txt file | We are aware that in some cases robots.txt files have been known to disclose sensitive information. In our case we have determined that our robots.txt files do not contain any information that poses a potential security risk. |\n| Email spoofing (SPF misconfigurations) | We have accepted the risk that this issue poses and do not believe that it warrants an immediate fix. |\n| Open redirect using `Host` header | Open redirects in the `Host` header are not exploitable. |\n| User enumeration | See https://security.stackexchange.com/a/200612/192205. |\n\nAs a rule of thumb, pretty much everything listed below is a non-issue:\n\n{F304365}\n\n## 📎 Proof of concept\n\n| Issue type | How to prove it |\n|------------|--------------------------|\n| XSS | Trigger the opening of an alert window that displays the URL of the vulnerable page, by executing `alert(location.href)`. |\n| Python RCE | Get the output of `os.uname()`. |\n| Shell RCE | Get the output of `uname -a`. |\n| SQL RCE | Get the version number of the SQL server with `select version();`. |\n| Unvalidated redirect | Set the redirect endpoint to http://example.com if possible. |\n| CSRF | Provide the source code of your exploit and explain how it works, especially why the anti-CSRF cookie and the SameSite attribute of the session cookie don't prevent exploiting the vulnerability. |\n| SSRF | Use a service like [Request Bin](https://pipedream.com/requestbin) to record the request sent by the vulnerable server. |\n| LFI and RFI | Execute a harmless script. |\n\n## 🏁 Service-level agreement (Performance expectations)\n\nWe will make a best effort to meet the following expectations for hackers participating in this program:\n\n**Time to first response:** 2 business days or less.\n**Time to triage:** 3 business days or less.\n\n## 📝 Advice\n\nWe encourage hackers to read [Web Hacking 101](https://leanpub.com/web-hacking-101) and [Breaking into Information Security: Learning the Ropes 101](https://leanpub.com/ltr101-breaking-into-infosec) to get a good idea of the type of issues that we are looking for.\n\n## 📚 Terminology\n\nThe term \"severity\" is frequently used interchangeably with \"impact\" or \"priority\". This section defines our terminology in order to prevent any potential confusion. We use the *Oxford Dictionaries'* definition of \"severity\" and *Information Technology Infrastructure Library's* definitions of the two latter terms.\n\n**Severity**\n\n> The fact or condition of being severe.\n\n**Impact**\n\n>  A measure of the effect of an incident, problem or change on business processes. Impact is often based on how service levels will be affected. Impact and urgency are used to assign priority.\n\n**Priority**\n\n> A category used to identify the relative importance of an incident, problem or change. Priority is based on impact and urgency, and is used to identify required times for actions to be taken.\n\nThank you for helping us keep Liberapay safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.liberapay.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/liberapay/liberapay.com",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any IP belonging to Liberapay",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "libravatar.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Libravatar does not belong to Liberapay.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/liberapay/liberapay.com/blob/master/sql/app-conf-defaults.sql",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The test credentials in this file are not used in production. Exposing them is an accepted risk.",
+      "max_severity": "none"
+    }
+  ]
+}

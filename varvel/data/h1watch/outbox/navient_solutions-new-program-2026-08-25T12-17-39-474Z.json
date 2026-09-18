@@ -1,0 +1,135 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "navient_solutions",
+      "name": "Navient Solutions LLC",
+      "offersBounties": false,
+      "assets": [
+        "navient.com"
+      ],
+      "exclusions": [
+        "clientaccess.citrixcloud.navient.com",
+        "filegateway.navient.com",
+        "jobs.navient.com",
+        "m.jobs.navient.com",
+        "mynavientwellbeing.com",
+        "navientpath.com",
+        "news.navient.com",
+        "pcx.navient.com",
+        "rsa.citrixcloud.navient.com",
+        "wsmb2bproxy.navient.com",
+        "wsmb2bproxynp.navient.com",
+        "wsmb2bresv.navient.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "60 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\navient_solutions-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "navient_solutions",
+  "name": "Navient Solutions LLC",
+  "url": "https://hackerone.com/navient_solutions",
+  "policy": "Maintaining the security of our applications and networks is a high priority for Navient Solutions LLC. If you have information related to security vulnerabilities of Navient products and services, please submit a report in accordance with the guidelines below.\r\n\r\n* The vulnerabilities identified in the HackerOne reports will be classified by the degree of risk as well as the impact they present to the host system, this includes the amount and type of data exposed, privilege level obtained, proportion of systems or users affected.\r\n\r\n* Do not try to further pivot into the network by using a vulnerability. The rules around Remote Code Execution (RCE), SQL Injection (SQLi), vulnerabilities allowing you to access file/folder structure, defacement and file uploads are listed below.\r\n\r\n* Navient has a comprehensive vulnerability management program that includes receiving and acting on security notifications from third-party vendors. Published vulnerabilities in supported third-party and open source products (e.g., network infrastructure, operating systems, application servers) are not eligible for submission until 45 days after publication.\r\n\r\n* Do not try to exploit service providers we use, prohibited actions include, but are not limited to bruteforcing login credentials of Domain Registrars, DNS Hosting Companies, Email Providers and/or others. Navient Solutions LLC does not authorize you to perform any actions to a non-Navient owned property/system/service/data.\r\n\r\n* If you encounter Personally Identifiable Information (PII) contact us through the Hackerone portal immediately. Do not proceed with access and immediately purge any local information, if applicable.\r\n\r\n* Please limit any automated scanning to 60 requests per second. Aggressive testing that causes service degradation will be grounds for removal from the program.\r\n\r\nThank you for helping keep Navient Solutions LLC and our users safe!\r\n\r\n# Response Targets\r\nNavient Solutions LLC will make a best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 2 days |\r\n| Time to Resolution | depends on severity and complexity \r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# SCOPE\r\nPlease carefully review the scope section below.  Many of our web properties may have \"Navient\" in the domain name, but may be 3rd party hosted and as such, are out of scope. In addition, an in scope asset may linked to or redirect away from our network range., but the resulting external link are also NOT in scope for the program.  \r\n\r\n### Scope determination criteria:  \r\n\r\n### In addition to the applications that are explicitly listed as in or out of scope, only sites that resolve to the IP address ranges below should be considered in scope. Anything outside of these IP address ranges is out of scope (exceptions noted below).\r\n\r\n167.104.0.0/16\r\n207.250.125.0/28\r\n\r\n### Exceptions To IP Ranges Above (Assets below are in-scope and route through Akamai with a different IP range): \r\nwww.navient.com\r\nwww.dsparkingportal.com\r\nwww.dspayments.com\r\nduncan.imageenforcement.com\r\nwww.pampayments.com\r\nwww.pamcollections.com\r\nwww.pamcollectionsin.com\r\nsandiegoadmin.dsmyportal.com\r\nsandiego.dsmyportal.com\r\nwww.nystapayment.com\r\nonlineserviceshub.com\r\nwww.msbpay.com\r\nwww.msbnexus.com\r\nmsbpay.com\r\nmsbnexus.com\r\ntemp.msbpay.com\r\ntemp.msbnexus.com\r\npayments.msbpay.navient.com\r\nadmin.msbnexus.navient.com\r\nwww.navirefi.com\r\napply2.navirefi.com\r\nmyaccount.navirefi.com\r\nwsmb2bresv.navient.com\r\n\r\n# Public Disclosure Policy\r\n* Navient Solutions LLC will not be publicly disclosing reports at this time. If and when Navient Solutions LLC does disclose a report, it will be mutually agreed upon with the hacker.\r\n* Navient Solutions LLC reserves the right to deny any request for public disclosure. If a hacker publicly discloses without consent, they run the risk of a program ban.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Test Plan\r\n* Note that Navient will not be distributing login credentials for the vulnerability disclosure program.  Please register/create a new account with the information below for any authenticated testing on the respective sites that are in scope.\r\n* There is a possibility that traffic generated by researchers can be categorized as malicious. Providing additional information allows us to identify your traffic.  \r\nThis can be done by adding the following header to your request:\r\n\r\n        X-HackerOne-Research: \"your username\"\r\n\r\nWhen creating a new account do the following:\r\n-Use the prefix HackerOne as first name.\r\n-Use your @wearehackerone.com email alias.\r\n-Use special social security number 999-99-9999.\r\n\r\n#Process\r\nPlease submit your report by clicking on the “Submit Report” button, your submission will be reviewed and validated by a member of the Navient Security team. Providing clear and concise steps to reproduce the issue will help to expedite the response. As a bare minimum, please include in your report:\r\n\r\n* List any tools used and path to reproduce issue.\r\n* List the URL and any affected parameters\r\n* Describe the browser, OS, and/or app version\r\n* Describe the perceived impact. How could the bug potentially be exploited?\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue should be one submission.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \r\n* Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Out of scope vulnerabilities\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. \r\n\r\nThe following issues are considered out of scope:\r\n\r\n* Sites not operated by Navient Solutions LLC.  Navient Solutions LLC does not authorize testing against third-party websites. A major indicator for this is when a subdomain has a DNS CNAME record pointing to another organization. If you are unsure, please ask before testing.\r\n* All vulnerabilities in Flash files out of scope\r\n* Reports from automated tools or scans\r\n* Reports affecting outdated browsers\r\n* Denial of Service Attacks\r\n* Issues without clearly identified security impact (such as clickjacking on a static website) or speculative theoretical exploitability.\r\n* Missing security best practices and controls (rate-limiting/throttling, lack of CSRF protection, lack of security headers, missing flags on cookies, descriptive errors, server/technology disclosure - without clear and working exploit)\r\n* Lack of crossdomain.xml, p3p.xml, robots.txt or any other policy files and/or wildcard presence/misconfigurations in these.\r\n* Use of a known-vulnerable libraries or frameworks - for example an outdated JQuery or AngularJS (without clear and working exploit)\r\n* Self-exploitation (cookie reuse, self cookie-bomb, self denial-of-service etc.)\r\n* Self Cross-site Scripting vulnerabilities without evidence on how the vulnerability can be used to attack another user\r\n* Lack of HTTPS\r\n* Reports about insecure SSL / TLS configuration\r\n* Password complexity requirements, account/email enumeration, or any report that discusses how you can learn whether a given username or email address has a Navient-related account\r\n* Presence/Lack of autocomplete attribute on web forms/password managers.\r\n* Server Banner Disclosure/Technology used Disclosure\r\n* Full Path Disclosure\r\n* IP Address Disclosure\r\n* CSRF on logout or insignificant functionalities\r\n* Publicly accessible login panels\r\n* Clickjacking\r\n* CSS Injection attacks. (Unless it gives you ability to read anti-CSRF tokens or other sensitive information)\r\n* Tabnabbing\r\n* Host Header Injection (Unless it gives you access to interim proxies)\r\n* Cache Poisoning\r\n* Reflective File Download\r\n* Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin: * or accepting of custom Origin header that do not specifically show a valid attack scenario\r\n* PRSSI - Path-relative stylesheet import vulnerabilities (without a impactful exploitation scenario - for example stealing CSRF-tokens)\r\n* OPTIONS/TRACE/DELETE/PUT/WEBDAV or any other HTTP Methods accepted by the server which do not specifically show a valid attack scenario\r\n* Cookie scoped to parent domain or anything related to the path misconfiguration and improperly scoped\r\n* Private IP/Hostname disclosures or real IP disclosures for services using CDN\r\n* Open ports which do not lead directly to a vulnerability\r\n* Our policies on presence/absence of SPF / DKIM / DMARC records\r\n* Lack of DNS CAA and DNS-related configurations\r\n* Weak Certificate Hash Algorithm\r\n* Social engineering of Navient employees or contractors\r\n* Any physical/wireless attempt against Navient property or data centers\r\n\r\n# Remote Code Execution (RCE) Policy\r\nVulnerabilities which allow execution of code on the application server or shell command on the server itself should be run in accordance to this policy.\r\n\r\nProhibited actions when conducting RCE attempts:\r\n\r\n* Altering or uploading files on the web server. (In case of file-upload functionality upload of webshells is prohibited, try uploading echo, info or any variable/info-based invocation code)\r\n* Altering file permissions\r\n* Reading sensitive files on the system (e.g /etc/shadow) and/or snooping through the file/folder structure (Same applies to XXE, LFI and Path Traversal, or any other vulnerability which allows you to read underlying file/folder structure)\r\n* Altering/Modifying/Deleting any files on the system.\r\n* Copying any files from the system and disclosing them to a non GS site or entity\r\n* Interacting with underlying OS-level data and/or databases.\r\n* Interacting with other services running on the OS-level and/or any remote hosts residing on the network.\r\n* Interrupting the normal operation of the server.\r\n* Any type of establishment for persistent connection mechanisms (netcat, ssh reverse tunnel, etc) are prohibited.\r\n\r\nAllowed actions when conducting RCE attempts - Unix:\r\n\r\n* Executing 'ifconfig', 'hostname', 'whoami', 'uptime', 'top' or any metrics commands\r\n* Reading content of the '/etc/passwd' file\r\n* Using 'echo' to pipe characters into a file located in the \"/tmp/\", reading the file and then removing it right after confirmation.\r\n\r\nAllowed actions when conducting RCE attempts - Windows:\r\n\r\n* Executing 'ipconfig', 'hostname', 'whoami' or any metrics commands\r\n* Reading content of the 'drive:/boot.ini', 'drive:/install.ini' or 'drive:/Windows/System32/drivers/etc/networks'\r\n* Using 'echo' to pipe characters into a file located in the drive:/temp, reading the file (type) and then removing it right after confirmation.\r\n\r\n# SQL Injection (SQLi) Policy\r\nVulnerabilities which allow injection of attacker controlled parts of the SQL query should be run in accordance to this policy.\r\n\r\nProhibited actions when conducting SQLi attempts:\r\n\r\n* Reading sensitive files on the system (e.g /etc/shadow) and/or snooping through the file/folder structure (SELECT LOAD_FILE)\r\n* Reading specific sensitive database records\r\n* Creating/Altering/Modifying/Deleting any files/records on the system/database. This includes use of INTO OUTFILE\r\n* Command Execution (xp_cmdshell, uploading .so or any action that leads to command execution)\r\n* Creating/Deleting Users\r\n* Reading/Altering Username and Password information (includes password hashes)\r\n* Interrupting the normal operation of the server and the database.\r\n\r\nAllowed actions when conducting SQLi attempts:\r\n\r\n* Executing SELECT queries such as \"@@version\", \"user();\" \"system_user();\", \"database();\", \"@@hostname\"\r\n* Listing Databases names from schema, listing Columns, Table names\r\n* Executing Mathematical, conversion or logical queries, such as:\r\n 1. ASCII Value -> Char (SELECT char(65); # returns A)\r\n 2. Char -> ASCII Value (SELECT ascii(‘A’); # returns 65)\r\n 3. String Concatenation (SELECT CONCAT(‘A’,'B’,'C’); # returns ABC)\r\n 4. Case Statement (SELECT CASE WHEN (1=1) THEN ‘A’ ELSE ‘B’ END; # returns A)\r\n 5. SELECT 0×414243; # returns ABC\r\n 6. Time Delay (SELECT BENCHMARK(1000000,MD5(‘A’)); SELECT SLEEP(5); )\r\n* Using Logic and time in Server Response\r\n* Using output responses\r\n\r\n# File-Upload Policy\r\nVulnerabilities which allow upload of files through any means (f.g PUT HTTP Method, File-upload functionality/module., etc.) are subjected to these rules\r\n\r\nProhibited actions when conducting File-upload attempts:\r\n\r\n* Altering/Modifying/Deleting/Replacing any files on the system. (f.g. defacement)\r\n* Uploading files to the account of a user which is not owned by you and you are not authorized by (does not apply to system users or web users like www-data f.g)\r\n* Uploading files which deliberately introduce additional exploitation vectors (f.g html code with cross-site scripting code on it etc.)\r\n* Uploading files which can cause Denial of Service (f.g. over-sized files or unlimited amount of files resulting in running out of Disk Quota)\r\n\r\nAllowed actions when conducting File-upload attempts:\r\n\r\n* Chained exploitation vectors allowing you to jump out from the upload folder using f.g. path traversal or path manipulation that do not violate prohibited actions mentioned in File-Upload Policy.\r\n* Upload of a file (any extension) with no content, simple string, integer or a special character.\r\n\r\n# Legal\r\n* You must comply with all applicable Federal, State, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program.\r\n* You agree that You shall not, without the prior written consent of Navient Solutions LLC in each instance (i) use in advertising, publicity or otherwise the name of Navient Solutions LLC or its Affiliates or any trade name, trademark, trade device, service mark, symbol or any abbreviation, contraction or simulation thereof owned by Navient Solutions LLC or its Affiliates, or (ii) represent, directly or indirectly, any service or work provided by You as approved or endorsed by Navient Solutions LLC or its Affiliates.\r\n* You agree that any and all information acquired or accessed by You as part of this exercise is confidential to Navient Solutions LLC and You shall hold the Confidential Information in strict confidence and shall not copy, reproduce, sell, assign, license, market, transfer or otherwise dispose of, give or disclose such information to third parties or use such information for any purposes other than for the performance of your work.\r\n* Furthermore, you agree to remove all Navient Solutions LLC customer data from your device or devices when no longer necessary for associated testing activities.\r\n* You acknowledge and agree that any and all information you encounter is owned by Navient Solutions LLC or its third party providers, clients or customers. You have no rights, title or ownership to any information that you may encounter.\r\n* Navient Solutions LLC may modify the terms of this policy or terminate the policy at any time.\r\n* By clicking Submit Report, you consent to Your Information being transferred to and stored in the United States and acknowledge that you have read and accepted the Terms, Privacy Policy and Disclosure Guidelines presented to you when you created your account.\r\n* Please use your own account for testing or research purposes. Do not attempt to gain access to another user’s account or confidential information.\r\n* Please do not test for spam, social engineering or denial of service issues. Your testing must not violate any law, or disrupt or compromise any data that is not your own.\r\n* You will not attempt to access any more data than the minimum necessary to prove a vulnerability exists.\r\n* You must comply with this policy and the policies of Hackerone with respect to ethical hacking against our applications.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jobs.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "news.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "m.jobs.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mynavientwellbeing.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "navientpath.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "pcx.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "filegateway.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "clientaccess.citrixcloud.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "rsa.citrixcloud.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wsmb2bproxynp.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wsmb2bproxy.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "wsmb2bresv.navient.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -39,11 +39,16 @@ def main() -> int:
     if not vpy.exists():
         print(f"! venv python missing at {vpy}")
         return 1
-    run([vpy, "-m", "pip", "install", "--quiet", "pyinstaller"])
+    # PyInstaller bundles what ITS venv can import — customtkinter must be
+    # installed here (not only in the runtime) for the menu exe to carry it.
+    run([vpy, "-m", "pip", "install", "--quiet", "pyinstaller", "customtkinter"])
     pyi = [vpy, "-m", "PyInstaller", "--onefile", "--clean", "--noconfirm",
            "--paths", str(ROOT), "--distpath", str(ROOT),
            "--workpath", str(BUILD / "work"), "--specpath", str(BUILD)]
+    # The ops console's UI is customtkinter — its theme assets (JSON) must be
+    # collected into the onefile bundle or the window dies at first widget.
     run(pyi + ["--windowed", "--name", "spark-menu",
+               "--collect-all", "customtkinter",
                str(ROOT / "scripts" / "entry_menu.py")])
     run(pyi + ["--console", "--name", "spark-code",
                "--hidden-import", "spark_code.__main__",

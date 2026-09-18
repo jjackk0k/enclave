@@ -1,0 +1,157 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "rockstargames",
+      "name": "Rockstar Games",
+      "offersBounties": true,
+      "assets": [
+        "*.rockstargames.com",
+        "Rockstar Games Launcher",
+        "circolocorecords.com/",
+        "prod.ros.rockstargames.com",
+        "rockstarnorth.com",
+        "socialclub.rockstargames.com",
+        "store.rockstargames.com",
+        "support.rockstargames.com",
+        "www.rockstargames.com"
+      ],
+      "exclusions": [
+        "anomotion.com",
+        "any-invalid-domains.rockstargames.com",
+        "bomgar.rockstargames.com",
+        "emailcontent.rockstargames.com",
+        "faspex.rockstargames.com",
+        "lifeinvader.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\rockstargames-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "rockstargames",
+  "name": "Rockstar Games",
+  "url": "https://hackerone.com/rockstargames",
+  "policy": "## Statement\n\nWe are dedicated to the privacy and security of our users, and the environment we create for them. We believe that having a talented group of independent security researchers is paramount to achieving that goal. We are running this HackerOne bounty program to reward researchers for identifying potential vulnerabilities . Please review the following guidelines detailing the rules of this bug bounty program. Only research following these guidelines will be eligible for a bounty.\n\n# Rewards\n\nOur minimum bounty for successful vulnerability submissions is $150. Please refer to the table below for bounty ranges based on report severity. \n\n###Bounty Table:\nAll bounties will ultimately be paid out at our discretion based on severity, likelihood, and impact.\n\n|Severity |Examples |Typical Bounty Range|\n--- | --- | --- \n|Informational|Text injection, non-impactful CSRF, non-sensitive Information Disclosure, Brute Force, Employee credential exposure*| $0|\n|Low|Open Redirects, CSRF, XSS with low impact, domain takeover of unused domain, Rockstar account privacy issues (highly variable)| $150-$500|\n|Medium|Reflected/DOM-based XSS, cache poisoning, SSRF| $500-$1,000|\n|High|Stored XSS, local privilege escalation, full authentication bypass| $1,000-$2,000|\n|Critical|SQL injection with data exfiltration, remote code execution|$2,500-$25,000+**|\n*:Reports of employee credentials found online will be closed as \"Informative\", but we may award bonuses for source disclosures on a case-by-case basis\n**: Bounty will vary widely based on severity, likelihood, and impact.\n\n\n## Scope\n\nThe current scope is limited to the domains and applications listed below. No authorization is given to test any other video game titles, web applications, mobile applications, or desktop applications. No bounties will be given for any disclosures relating to any applications outside the scope of this program. For more information about testing video game titles and other particular applications, please see our statement below regarding our private program.\n\n## Responsible Disclosure and Guidelines\n\nFor your submission to qualify for a bounty, you must:\n\n- Adhere to all guidelines and terms related to the program, including those on this page, the terms provided by HackerOne, and the Legal agreements you accepted before being admitted to this bounty program\n- Be the first to submit this particular vulnerability\n- Not disclose or discuss the vulnerability outside of this program before or after submitting it\n\n## Eligibility\n\nWhen submitting potential vulnerabilities, we ask that you follow our guidelines for disclosure. A submission that does not meet these requirements may not qualify for a bounty. \n\nThe following attributes are expected in a valid submission:\n\n- The type of issue being reported. What kind of attack, does it fit a CWE number, etc.\n- Steps for reproduction. If we cannot reliably reproduce the issue, we cannot fix it\n- What is the potential impact of the bug?\n- How could a malicious user potentially benefit from this issue?\n- For reports on the domain 'support.rockstargames.com', if you must make test posts in the forums, you must include \"test\" in the title. Failure to do so may result in your tests being deleted and your report marked \"Ineligible for Bounty\"\n\nSubmitting multiple reports pointing out the exact same vulnerability across multiple hosts will be treated as Duplicates of the first report submitted. However, we may award bonuses at our discretion if you assist us by pointing out every instance of a vulnerability (Example scenario: Submitting 3 separate reports regarding a vulnerability to CVE-2099-12345 on vulnhost1.rockstargames.com, vulnhost2.rockstargames.com, and vulnhost3.rockstargames.com)\n\n## Exclusions\n\nBugs that are outside the scope or guidelines detailed here are not eligible for this program.\n\nThe privacy, security and experience of our users are of the utmost importance. Under no circumstances may any testing target or negatively affect our users. You must use only accounts you own and/or created specifically for testing purposes.\n\nThe following attributes would invalidate any submitted vulnerabilities:\n\n- Attacks involving physical access to a user's device, Rockstar property or data centers\n- Social engineering of users, Rockstar staff or contractors\n- Denial-of-service attacks\n- Bugs in 3rd party authentications (attacks specifically against our implementation are fine)\n- Results from automated tools without any manual confirmation\n- Bugs affecting 3rd party sites that consume data from our sites or services\n- Any similar action that interferes with a user's privacy, security or experience\n\nThe following sorts of technical issues are also excluded:\n\n• Lack of security-related headers, such as: content-security-policy, public-key-pins, x-xss-protection, x-content-type-options, x-frame-options\n• SSL/TLS configuration issues, such as: Perfect Forward Secrecy not supported, TLSv1.0 / 1.1\n• Strict transport security (HSTP/HSTS) is not enforced\n• Lack of HTTPOnly or secure flag on non-session cookies\n• CSRF token verification missing from pages (unless you can do something impactful with the request)\n• Autocomplete enabled\n• Banner disclosures\n• Session timeout/expiration issues\n• Window.opener issues\n• Clickjacking\n• Invalid or stale employee credential dumps - we already monitor haveibeenpwned.com and other sources for dumps of this nature\n• Cross-Script Includes (Unless a particularly creative or damaging exploit can be found as a result)\n• Text / content injection\n• Email spoofing directly or as it ties to any of our contact forms\n• Rate-limiting, brute-forcing, and/or credential stuffing on endpoints\n• User credentials found in online repositories or other publicly accessible dumps\n• Generic error messages\n• Path and internal IP (RFC 1918) disclosures (unless you can do something impactful with the information)\n• Attacks that only work against yourself (e.g. host header injection, self-XSS, control-character injection)\n• Account-age issues on support.rockstargames.com\n• Issues regarding user-driven configurations of third-party authentication systems (e.g. 2FA not applying to such logins despite our notice here)\n• Recently released zero day vulnerabilities. Please give us time to patch.\n\nFinally, keep in mind that the goal for this bug bounty program is to demonstrate exploitable vulnerabilities. **Recommendations for new controls or technologies are welcome, but they will be marked as Ineligible For Bounty unless they are accompanied by a valid exploit.** Thank you!\n\n***\n## Additional Opportunity: Private In-Game Bug Bounty Program\n\nIn order to help ensure the best quality experience for our players, we are working with the HackerOne community of security researchers to help us identify potential vulnerabilities in our games and non-web applications that have previously been out-of-scope. We will be accepting such reports through our private bounty program only; not on the public program you are currently visiting. \n\nBefore participating, please take careful note of the following rules. If your research does not follow these rules we cannot verify your report and your work will not be eligible for payment:\n\nThe privacy, security and experience of our users are of the utmost importance. **Under no circumstances may any of your testing negatively affect our users in any way**\n\n- Bans received while testing for issues will not be reversed\n- You may only use your own account(s) for testing\n- Reports with no security impact will be closed\n- Please do not report the following types of issues through this program:\n  - General game bugs\n  - Glitches (e.g. car duplication, wall hacks, etc.). If your issue can only be performed solely on a controller, it's probably a glitch\n  - Specific cheaters, mods, or mod developers, nor does this program apply to links to cheating forums, discords, social media handles, or any other references to known cheat / modding resources \n\nThe scope of the in-game bounty is currently limited to:\n\n- Grand Theft Auto V and Grand Theft Auto Online on the following platforms:\n  - PS4 / PS5\n  - Xbox One / Xbox Series X & S\n  - PC\n- Red Dead Redemption 2 and Red Dead Online on the following platforms:\n  - PS4\n  - Xbox One\n  - PC\n- Red Dead Redemption 2 Companion App\n\nIn addition to the in-game bounty, we are still accepting reports for the targeted Incorrect Ban Bounty campaign, described in more detail further below.\n\nIn order to participate in either the in-game bounty or in the Targeted Bounty: GTA Online and Red Dead Online - Incorrect Ban Bounty campaign, please submit our [enrollment form](https://forms.office.com/r/7737UKLECX) and await an invitation to our private bounty program. **We will not accept reports pertaining to an in-game bounty or incorrect ban bounty that are submitted to the public program page.**\n\n---------------\nTargeted Opportunity: GTA Online and Red Dead Online - Incorrect Ban Bounty\n---------------\nWe occasionally receive support tickets from people who have been suspended for cheating in Grand Theft Auto Online or Red Dead Online, denying that any cheating took place and claiming a “false-positive”. We take these claims seriously and investigate them thoroughly. However, we have yet to find any evidence to support these claims.\n\nWe are offering a **$10,000 bounty** for any researcher who can successfully identify a reproducible incorrect ban in GTA Online or Red Dead Online. The types of activities that people have claimed (but we do not believe) to have caused bans include: using legitimate visual overlays (e.g. FPS) or audio chat integrations, other players spamming the in-game reporting system and having cash/rank forced on them by modders, but please do not limit yourselves to investigating these methods.\n\nOur focus is on continuing to ensure that our anti-cheat system does not ban anyone who is playing the game normally and consistently with our terms of service. Any reports that are inconsistent with the spirit of what we are focused on will be ineligible for a bounty and closed. Furthermore, no complaints or commentary about existing bans will be reviewed. Note that bans incurred as a result of violating our terms of service will not be reversed. However, if anybody were to successfully illustrate a reproducible inappropriate ban, any banned test accounts would of course be restored.\n\nAs stated above, in order to participate please submit our enrollment form and await an invitation to our private bounty program. We will not accept reports pertaining to an in-game bounty or incorrect ban bounty that are submitted to the public program page.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "socialclub.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "lifeinvader.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "rockstarnorth.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "prod.ros.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Vulnerability reports for support.rockstargames.com may not be awarded bounties if it is discovered that the root vulnerability lies in Zendesk's code. Hackers are encouraged to submit such reports to [Zendesk's bug bounty program](https://hackerone.com/zendesk).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "faspex.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Rockstar Games Launcher",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Some subdomains excluded. See the rest of the scope table below.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "emailcontent.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not have direct control over this subdomain and will not be accepting submissions for it.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bomgar.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is ineligible for bounty at this time.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "store.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note that the checkout/payment process go through the Xsolla platform. If you believe you have found a vulnerability in the checkout/payment process, please confirm first whether the vulnerability is in the general Xsolla platform, or our specific implementation.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "any-invalid-domains.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any subdomain that does NOT contain its own valid content and instead redirects to 'rockstargames.com/?domain-check-failed', UNLESS you can demonstrate an impact to a valid domain or subdomain.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "circolocorecords.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "anomotion.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.rockstargames.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fetlife",
+      "name": "FetLife",
+      "offersBounties": true,
+      "assets": [
+        "*.fetlife.com",
+        "fetlife.com",
+        "fetlifemail.com"
+      ],
+      "exclusions": [
+        "*.bitlove.co",
+        "Requests to our ad endpoints (on any server): `/ads/serve`, `/ads/application_serve*`, and `/ads/click/*`",
+        "bitlove.co",
+        "co.bitlove.opensource.FetLife",
+        "com.bitlove.fetlife",
+        "fetlifestatus.com",
+        "mail.fetlife.com",
+        "n2.fetlife.com",
+        "status.fetlife.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fetlife-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fetlife",
+  "name": "FetLife",
+  "url": "https://hackerone.com/fetlife",
+  "policy": "No technology is perfect, and FetLife believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\n\n# Response Targets\n\nFetLife will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response       | SLA in business days               |\n|------------------------|------------------------------------|\n| Time to first response | 5 days                             |\n| Time to triage         | 10 days                            |\n| Time to bounty         | 15 days                            |\n| Time to resolution     | depends on severity and complexity |\n\n# Program Rules\n- Reports must include concrete and clear reproducible steps that do not require any commercial tools\n- Reports must include a clear security impact, for example unauthorised access, data exposure, account takeover, or privilege escalation\n- **Register all accounts using your <hackerone_username>+x@wearehackerone.com address.**\n- Not interact with other accounts without the explicit consent of their owners.\n- Communicate with FetLife's engineering team exclusively via HackerOne.\n- Be the first person to report the issue to us. In cases where you submit a vulnerability that is already acknowledged, we will only award a bounty if it: proves to be more extensive, or provides more information.\n- If the vulnerability affects multiple FetLife domains or subdomains, include them in a single report. We will assess the overall impact and award a bounty that matches the severity and scope.\n- Do not use shared fake / temporary phone services. If our website requires you to enter a phone number, contact us at security@fetlife.com and we'll take care of it. You are responsible for your test accounts at fetlife.com, so please use common security practices to secure those accounts.\n\n# Disclosure Policy\n\n- Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n- Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n- Make a good faith effort to avoid privacy violations, destruction of data, interruption or degradation of our service.\n- Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Bounty Reward Program\n\nTo show our appreciation of responsible security researchers, FetLife offers a monetary bounty for reports of qualifying security vulnerabilities.\n\n| Vulnerability Type                              | Average Bounty |\n|-------------------------------------------------|----------------|\n| Remote Code Execution (RCE) on FetLife Servers  |        $6,000  |\n| SQL Injection (with output)                     |        $4,000  |\n| SQL Injection (blind)                           |        $2,000  |\n|  Privilege Escalation Flaw                |        $1,500 |\n| User Impersonation Vulnerability               |        $1,500  |\n| Server Side Request Forgery (SSRF)              |        $1,000  |\n| Local file Inclusion                            |          $500  |\n| Stored Cross Site Scripting                     |          $500  |\n| Stored Self Cross Site Scripting                |          $150  |\n| Self Cross Site Scripting                       |           $50  |\n| Sensitive Data Exposure                         |          $500  |\n| Cross-Site Request Forgery (CSRF)               |          $500  |\n| Improper Direct Object Reference (IDOR)         |          $500  |\n| Security-impacting Business Logic Errors                |          $50 - $500  |\n| User-Activity Exposure Flaw            |      $200  |\n| Open Redirect                                   |          $150  |\n| User-Specific Authorization Bypass                |          $100  |\n| Generic Authorization Flaw                                    |          $100  |\n| Other                                           |          $100+ |\n\nTo clarify the distinctions among the specified vulnerability types, predominantly within the group that would fit the description of  \"authorization flaws\", refer to the following list:\n\n   *  **Generic Authorization Flaw** - A catch-all category encompassing miscellaneous authorization flaws with minimal impact on our user.\n   * **User-Specific Authorization Bypass** - Any vulnerability pertinent to the user in question without data leaks. Actions such as editing one's own comments from banned groups are examples.\n   * **User-Activity Exposure Flaw** - Resembling User-Specific Authorization Bypass, yet unveiling actions or data concerning other users. For instance, viewing likes on a comment from a group one is banned from, or receiving notifications from closed groups (without the ability to view the content).\n   * **Sensitive Data Exposure** - Entails the ability to view content in unauthorized zones or on a broader scale than the User-Activity Exposure Flaw.\n  * **User Impersonation Vulnerability** - Pertains to masquerading as another user, except if the sole attack vector differs from the types listed in the table above. For instance, employing XSS from your primary account on your secondary account to access the latter account will be classified as XSS, not this vulnerability. However, being able to log in as a different user qualifies.\n   * **Privilege Escalation Flaw** - Refers to unauthorized elevation of permissions, like assuming the role of a caretaker. However, if such action results from executing an XSS or a similar attack on an elevated user, it won't be categorized here.\n\nNOTE: In line with HackerOne's guidelines, post-triage of reports, we reserve the right to label reports as duplicates if they would be resolved due to another preceding report. For example, if a singular flaw in our code affects our entire website, we will address only the first report and label subsequent ones as duplicates. Triage implies successful replication of the issue and does not guarantee a reward. Rewards will be allocated solely when our developers confirm the issue is unique and have started working on them.\n\n\n# Out of Scope\n\nWe do not consider the following to be eligible vulnerabilities under this program:\n\n* General product bugs and UI issues\n* SEO and indexing issues\n* Feature requests and usability feedback\n* Performance issues without a demonstrated security impact\n* Denial of Service\n* Email spoofing\n* Spamming\n* Rate-limiting\n* Click-jacking\n* Content spoofing\n* SPF, DMARC or other email configuration related issues\n* Lack of DNSSEC\n* SSL configuration issues\n* Disclosure of server or software version numbers\n* Generic examples of Host header attacks without evidence of the ability to target a remote victim\n* Password or account recovery policies, such as reset link expiration or password complexity\n* Theoretical sub-domain takeovers with no supporting evidence\n* Perceived security weaknesses without evidence of the ability to target a remote victim. For example credentials are transmitted in POST body as plain text over TLS without demonstrating impact, etc.\n* Reports exploiting [unsupported](https://fetlife.com/help/supported-browsers) browsers\n* False reports, or reports lacking evidence of a vulnerability\n* Attacks requiring a Man-in-the-Middle, with no other possible exploitation\n* CSV injection that affects third-party applications\n* Android Application (https://github.com/fetlife/android)\n* iOS Application (https://github.com/fetlife/ios\n* Configuration issues on end users machines. For example password storage or cache settings.\n* Race conditions allowing bypass of numerical limits or counters (e.g., multiple poll votes, exceeding invite/favorite/collection limits) without exposure of sensitive data or escalation of privileges\n* Reports of credentials, personal data, or other information obtained from third-party breaches, stealer logs, or OSINT sources (e.g., collections found on sites like DeHashed, intelx.io, Phonebook.cz). While these may involve FetLife members, they originate outside our systems. We encourage responsible disclosure of issues directly affecting our platform.\n\n# Disqualifiers\n\n* Interacting with other accounts without the explicit consent of their owners.\n* Denial of service\n* Social engineering of any kind\n* Physical intrusion\n* Automated scanning and brute-forcing\n* Requests to `/ads/serve`, `/ads/application_serve*`, and `/ads/click/*`\n* Overwhelming our support team with messages\n* Mentioning PHP\n\n# Questions\n\n* You can contact us with any questions at security@fetlife.com\n\nWe offer a bounty of up to $6000 for helping us to protect our community.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "status.fetlife.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fetlife.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fetlife.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bitlove.fetlife",
+      "asset_type": "OTHER_APK",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Open-source FetLife Android App (https://github.com/fetlife/android)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mail.fetlife.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "n2.fetlife.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "CNAME to 3rd Party email Vendor",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fetlifestatus.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "fetlifemail.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "In particular, the notification emails from this domain and the links in them are in scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "co.bitlove.opensource.FetLife",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Requests to our ad endpoints (on any server): `/ads/serve`, `/ads/application_serve*`, and `/ads/click/*`",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bitlove.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "For an issue to be classified as 'Low severity', it must be very significant and have risk implications that affects users across our primary domains",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bitlove.co",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "For an issue to be classified as 'Low severity', it must be very significant and have risk implications that affects users across our primary domains",
+      "max_severity": "none"
+    }
+  ]
+}

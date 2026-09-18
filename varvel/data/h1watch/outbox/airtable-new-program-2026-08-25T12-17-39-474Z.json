@@ -1,0 +1,184 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "airtable",
+      "name": "Airtable",
+      "offersBounties": true,
+      "assets": [
+        "*.staging-airtableblocks.com",
+        "*.staging.airtable.com",
+        "airtable.js SDK (https://www.npmjs.com/package/airtable)",
+        "api-staging.airtable.com",
+        "https://www.npmjs.com/package/@airtable/mcp-cli",
+        "mcp.staging.airtable.com",
+        "staging.airtable.com"
+      ],
+      "exclusions": [
+        "Airtable Windows app",
+        "Airtable macOS app",
+        "airtable.com",
+        "blog.airtable.com",
+        "com.FormaGrid.Hyperbase",
+        "com.formagrid.airtable",
+        "community.airtable.com",
+        "dl.airtable.com",
+        "dl.getforma.com",
+        "guide.airtable.com",
+        "support.airtable.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\airtable-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "airtable",
+  "name": "Airtable",
+  "url": "https://hackerone.com/airtable",
+  "policy": "Airtable considers privacy and security to be core functions of our platform. Earning and keeping the trust of our users is our top priority, so we hold ourselves to the highest privacy and security standards. If you have discovered a security issue that you believe we should know about, we would love to work with you.\n\nPlease let us know about it and we'll make every effort to quickly correct the issue.\n\n## Vulnerabilities\n\n**Only perform testing against our web staging environment at staging.airtable.com.** Do not perform any testing against our production site at airtable.com or our downloadable apps.\n\n### In scope\n\nWe typically use [the CVSS calculator](https://www.first.org/cvss/calculator/3.0) to determine severity. We reward bounties based on severity.\n\nThe following areas are generally considered of Critical severity:\n\n* Stored cross-site scripting (XSS) vulnerability: $5000\n* Remote code execution: $10,000 \n* File system access: $10,000 \n\nThe following areas are generally considered to be High severity:\n\n* Privilege escalation (for example, seeing something that should be locked or editing something that shouldn't be editable) or authentication issues\n* Cross-Site Request Forgery (CSRF) on user data\n* Sensitive data sent unencrypted (for example, with HTTP and not HTTPS)\n\nThe following areas are generally considered to be Medium severity:\n\n* Vulnerabilities when uploading CSVs\n* Insecure TLS configuration when a fix would be backwards-compatible\n* Lack of `secure` or HTTP-only flags on sensitive cookies\n\nThe following areas are generally considered to be Low severity:\n\n* Self-XSS (XSS), a user performing XSS on themselves only\n* Leaking the `Referer` header when leaving Airtable, disclosing sensitive information\n* On a case-by-case basis, issues with publicly-available malicious browser extensions that capture user data\n* On a case-by-case basis, exploits for legacy browsers (any version of Internet Explorer or any version of Chrome/Firefox/Safari/Chromium/Opera/Edge that is not the latest)\n\nSee below for more on third-party vulnerabilities.\n\n### Enterprise Feature Testing\n\nPlease see [this guide](https://docs.google.com/document/d/1Sov_CqRX6FS-UbjOmMI2C2qwk5HBKFOP_gLDWvQDRVY/edit) for directions on how to request an enterprise account for testing.\n\n**Enterprise Scope**\n* All content found under https://staging.airtable.com/admin\n  * User management\n  * Service accounts\n  * User groups\n  * Workspace management\n  * Base management\n  * Interface management\n  * Data sets\n  * Report generation\n* All content gated by enterprise admin controls (see the Settings panel in the enterprise admin portal)\n\nAll Enterprise documentation can be found here: https://support.airtable.com/docs/airtable-enterprise-support\n\n\n### Out of scope\n\nWe generally do not accept reports that are simply the output from an automated security scanner (even lightly annotated). Feel free to use security scanners, but please don't copy-paste their output into our program without additional insight.\n\nIf a report is a duplicate, we won't award a bounty or reputation. A report is a duplicate if we have another HackerOne report for the issue or if our other security review processes have already identified the issue.\n\nA specific vulnerable behavior found in one part of Airtable is not necessarily eligible for a bounty if an identical problem is uncovered in another part of the Airtable, though we'll assess this on a case-by-case basis. If the same vulnerability affects multiple parts of the product, please let us know in a single report—we'll take that into consideration when assessing severity (such a vulnerability might be eligible for a higher reward), and when marking reports as resolved. For example, if we fail to sanitize URLs in five parts of the Airtable product, that should probably be one report, not five.\n\nThe following areas are **always out of scope**:\n\n* Production airtable.com\n* Our desktop apps\n* Our mobile apps\n* [blog.airtable.com](https://blog.airtable.com/)\n* [support.airtable.com](https://support.airtable.com/)\n* [guide.airtable.com](https://guide.airtable.com/)\n* [community.airtable.com](https://community.airtable.com/)\n\n* API keys disclosed by Airtable users on Github or elsewhere on the web are not in scope. It is up to users to safeguard their own API keys, and we are working with Github to notify users when they commit API keys.\n\n**Attacks that are beyond Airtable's control are generally out of scope.** These include:\n\n* Man-in-the-middle (MITM) attacks outside of Airtable's control (for example, modifying traffic by controlling a wireless router)\n* Attacks requiring access to a user's device (such as physical access or remote access)\n* Attacks requiring the user's credentials\n* Exported CSV files that can execute commands in Excel, Numbers, Google Sheets, or other CSV programs\n* Exploits requiring users to modify code running on their own device (opening up browser developer tools and running commands, for example)\n\n**We also ask for an exploit or proof of concept** for reports. If you can't produce an attack, even a hypothetical one, we are unlikely to award a bounty. For example, here are some areas we generally consider to be out of scope:\n\n* Arbitrary file upload (which is a core Airtable feature)\n* Mis-adherence to best practices that does not lead to an exploit\n* Vulnerabilities in third-party code or services that do not lead to an exploit\n* Generic information disclosure, such as the `Server` or `X-Powered-By` headers\n* Missing HTTP security headers, such as:\n  * Content-Security-Policy\n  * Feature-Policy\n  * HTTP Strict Transport Security\n  * HTTP Public Key Pinning\n  * X-Content-Type-Options\n  * X-XSS-Protection\n  * Referrer Policy\n  * P3P\n  * Certificate Transparency (Expect-CT)\n  * X-Download-Options\n  * X-DNS-Prefetch-Control\n\nWe also consider the following areas to be out of scope, though there may be some exceptions:\n\n* Social engineering (phishing) of Airtable staff or users\n* Username or email enumeration\n* Denials of service scoped to a single user or workspace\n* Invitation abuses (to accumulate credits or send spam)\n* API key disclosure for third-party services\n* Changing the `Host` header to cause redirects\n* Missing subresource integrity\n* Email security: DMARC, DKIM, SPF\n* DNSSEC\n* Session cookie duration\n* Issues related to password policies\n* Disclosure of non-sensitive internal IDs (such as user IDs)\n* Two-factor authentication (2FA) bypass with third-party sign-ins like Google\n\nIf you're not sure whether an issue is in scope, we'd appreciate it if you file a report anyway!\n\n## Third party issues\n\nAirtable uses several third party services. If they have vulnerabilities, we'd like to know. We can't guarantee bounty for those but we encourage you to report issues to both us and to them.\n\nIf the vulnerability might reasonably affect our users, we'll likely grant a bounty. The bounty amount will be determined on a case-by-case basis due to possible difficulties assessing the true severity of the issue. As such, vulnerabilities in third-party services are *not* eligible for the default bounty amounts listed in the \"Areas in scope\" section above, and the bounty amount will be determined on a case-by-case basis.\n\n## Disclosure guidelines\n\nDo not disclose any issues to the public or to any third party without Airtable's permission. If you have questions, please ask us!\n\n## Thanks\n\nWe believe in recognizing the work of others. If your work helps us improve the security of our service, we'd be happy to [acknowledge your contribution](/airtable/thanks).",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.FormaGrid.Hyperbase",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Airtable's iOS is not in-scope for bounties.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "staging.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.formagrid.airtable",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Airtable macOS app",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Airtable macOS app is available for download at: https://staging.airtable.com/downloads",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Airtable Windows app",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The Airtable Windows app is available for download at: https://staging.airtable.com/downloads",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.staging-airtableblocks.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "IMPORTANT: this domain is NOT eligible for stored XSS via building custom apps/blocks functionality.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.staging.airtable.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "guide.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is production environment. All testing should be performed against staging.airtable.com.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dl.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "dl.getforma.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api-staging.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Go to https://staging.airtable.com/account to generate an API key. See https://staging.airtable.com/api for API documentation per base.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "airtable.js SDK (https://www.npmjs.com/package/airtable)",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- Install `airtable.js` via `npm install airtable`\n- Visit https://staging.airtable.com/account and generate an API key\n- Create a new Javascript file and add the following lines:\n\n```javascript\nconst Airtable = require('airtable');\nconst airtable = new Airtable({\n    apiKey: 'PUT YOUR API KEY HERE'",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mcp.staging.airtable.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Use the official Airtable MCP CLI (https://www.npmjs.com/package/@airtable/mcp-cli) to interact with the MCP server. \n\nMCP CLI code is also in scope, but vulnerabilities assuming a malicious MCP server must be paired with a demonstrated MCP exploit that provides a full exploit chain.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.npmjs.com/package/@airtable/mcp-cli",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Source code for our MCP CLI.\n\nVulnerabilities assuming a malicious MCP server must be paired with a demonstrated MCP exploit that provides a full exploit chain in order to be considered.",
+      "max_severity": "critical"
+    }
+  ]
+}

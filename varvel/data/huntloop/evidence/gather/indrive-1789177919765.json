@@ -1,0 +1,88 @@
+{
+ "at": "2026-09-12T01:51:53.909Z",
+ "opportunity": "indrive",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "new-order.eu-east-1.indriverapp.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to new-order.eu-east-1.indriverapp.com:443 refused: host unreachable"
+  },
+  {
+   "host": "watchdocs.indriverapp.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.js"
+    },
+    {
+     "id": "laravel",
+     "label": "Laravel",
+     "version": null,
+     "evidence": "csrf-token\" content="
+    }
+   ],
+   "headers": {
+    "server": "istio-envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 d899a78dff2c87065b62c25ceb8ba904.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "priority.eu-east-1.indriverapp.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to priority.eu-east-1.indriverapp.com:443 refused: host unreachable"
+  },
+  {
+   "host": "profile-api.eu-east-1.indriverapp.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to profile-api.eu-east-1.indriverapp.com:443 refused: host unreachable"
+  },
+  {
+   "host": "messenger.eu-east-1.indriverapp.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "istio-envoy",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 3237c9d5c672cab641cd30a0572be162.cloudfront.net (CloudFront)",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

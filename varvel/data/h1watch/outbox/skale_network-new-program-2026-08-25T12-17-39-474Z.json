@@ -1,0 +1,87 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "skale_network",
+      "name": "SKALE Network",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/skalenetwork/libBLS",
+        "https://github.com/skalenetwork/sgxwallet",
+        "https://github.com/skalenetwork/skale-consensus",
+        "https://github.com/skalenetwork/skale-manager/tree/develop/contracts"
+      ],
+      "exclusions": [
+        "*.skale.network",
+        "https://github.com/skalenetwork/skale-node-cli",
+        "https://github.com/skalenetwork/validator-cli"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\skale_network-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "skale_network",
+  "name": "SKALE Network",
+  "url": "https://hackerone.com/skale_network",
+  "policy": "# SKALE Network's HackerOne Program Scope\r\n\r\nThe SKALE Network Bug Bounty Program is intended for discovering potential technical vulnerabilities in the SKALE Network with the help of SKALE Network community members, especially those who specialize in global network security and Solidity smart contract security. The SKALE Network community takes the security of the network very seriously and offers this bounty program to reward those who help strengthen the network and technologies. \r\n\r\n## Program Scope\r\n\r\nSKALE Network is a fully asynchronous binary Byzantine Fault Tolerant consensus that incorporates BLS threshold cryptography and a Trusted Execution Environment (SGX) to provide performant sidechains that are 100% Ethereum compatible. The SKALE Network is orchestrated by a set of smart contracts called SKALE Manager, deployed on Ethereum network. For general documentation, [see here](https://skale.network/docs/).\r\n\r\n**At present, the `skale-consensus`, `libBLS`,`skale-manager`, and `sgxwallet` repositories are the only assets in-scope.** There are three scopes: \r\n\r\n1. **SKALE Manager smart contracts.**\r\n2. **Infrastructure: skale-consensus and libBLS.**\r\n3. **Hardware secure crypto wallet: sgxwallet.**\r\n\r\n### SKALE Manager smart contracts\r\n\r\nFor `skale-manager`, bugs must:\r\n* be valid attacks to allow a user to steal SKL tokens from the system.\r\n* be an attack through a Network attack vector that is more than just theoretical.\r\n* must include a POC implementation with reproducible steps. This can be a Solidity, JavaScript or Python test or list of actions that clearly shows how the bug occurs.\r\n\r\nExamples of `skale-manager` vulnerabilities the SKALE Network is interested in, include:\r\n* see [SWC Registry](https://swcregistry.io/) for some examples.\r\n\r\n#### SKALE Manager Testnet Releases\r\n\r\nThe SKALE Network will continue with as-needed deployments of the latest versions of the smart contracts to the Rinkeby testnet.\r\n\r\nThe bug bounty program will be applicable to only one release at a time as specified in this policy. Submissions MUST indicate to which release they relate.\r\n\r\nThe current release eligible for vulnerability reports is 1.8.1. Only vulnerabilities found in this deployment can currently be submitted for a reward. See [https://github.com/skalenetwork/skale-network/tree/master/releases#test-releases](https://github.com/skalenetwork/skale-network/tree/master/releases#test-releases) for testnet contract addresses and ABIs.\r\n\r\nFor testnet tokens, please reach out to [SKALE Discord HackerOne Support](https://discord.gg/2K8ARv6).\r\n\r\n### Infrastructure\r\n\r\nTo qualify for a bounty, bugs must be:\r\n* Valid on the `develop` branch of the corresponding repository.\r\n\r\nFor `skale-consensus` and `libBLS`, the following bugs must be:\r\n* Valid for 64-bit Ubuntu machines with at least 2GB RAM.\r\n* Valid on SKALE Consensus clusters where less than 1/3 of the nodes are faulty or malicious.\r\n* Network based attack vectors (local or physical attacks only will be closed as informative or low priority)\r\n* for libBLS, excluding threshold encryption and aggregated signatures. **Only threshold signatures and DKG are in scope.**\r\n\r\nSKALE Network is interested in a full range of bugs with demonstrable security risk: from those that can be proven with a simple unit test, to those that require a full cluster and complex sequence of transactions.\r\n\r\nExamples of `libBLS` vulnerabilities the SKALE Network is interested in include:\r\n* insecure cryptographic functions\r\n* incomplete implementation of cryptographic algorithms\r\n\r\nExamples of `skale-consensus` vulnerabilities the SKALE Network is interested in include:\r\n\r\n* memory allocation bugs\r\n* race conditions\r\n* timing attacks\r\n* information leaks\r\n* authentication bypasses\r\n* incorrect block validation\r\n* Denial of Service\r\n* lost write bugs\r\n* payloads/transactions that cause panics.\r\n\r\nPlease see the [SKALE Consensus README](https://github.com/skalenetwork/skale-consensus/blob/develop/README.md) and [libBLS README](https://github.com/skalenetwork/libBLS/blob/develop/README.md) for a quick-start guide to getting SKALE Consensus or libBLS running so you can start hunting for bugs.  Please also see  the `test` directory in each repository for examples of tests.\r\n\r\n### SGXWallet\r\n\r\nTo qualify for a bounty, bugs must be:\r\n* Valid for the `develop` branch of the corresponding repository.\r\n* Not related to any Intel SGX specific vulnerability (please review exclusions, ineligible bugs and out-of-scope carefully).\r\n* Network based attack vectors (local or physical attacks only will be closed as informative or low priority)\r\n\r\nFor `sgxwallet` bug submissions must satisfy following:\r\n* Valid for SGX-enabled Intel processor\r\n\r\nParticular areas SKALE Network is interested in are:\r\n\r\n* attacks that allow 3rd party to steal funds from SGXWallet\r\n* memory consumption and memory leaks inside/outside of secure enclave\r\n* DDoS attacks \r\n* SGXWallet performance and stability\r\n\r\n\r\nPlease refer to [SGX Wallet README](https://github.com/skalenetwork/sgxwallet/blob/develop/README.md) as your starting point for deep dive in the component and your bug bounty kick off.\r\n\r\n## Program Rules\r\n\r\n* You must provide detailed reports with reproducible steps. If the report is not detailed sufficiently to reproduce the issue, the issue will not be eligible for a reward.\r\n* When duplicates occur, the program will only reward the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing), clickjacking and issues are prohibited.\r\n* Scanner-generated reports and \"Advisory\" or \"Informational\" reports that do not include any SKALE Network-specific testing or context are ineligible for rewards.\r\n* Website-related issues are ineligible for rewards.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n## Ineligible and prohibited methods\r\n\r\nVulnerabilities contingent on any of the following activities do not qualify for a reward in this program, and are prohibited:\r\n\r\n* Social engineering (including phishing) of SKALE Network staff or contractors.\r\n* Spamming.\r\n* Denial of service attacks on testnet, mainnet or any other live assets such as websites.\r\n* Any physical attacks against SKALE Network property, data centers, or employees.\r\n* Automated tools.\r\n* Compromising or misusing third party systems or services.\r\n\r\n## Exclusions, ineligible bugs, and out-of-scope\r\n\r\n* Vulnerabilities that assume different security assumptions from SKALE Network.\r\n* Vulnerabilities that assume different setups of various components. \r\n* Mentions of secrets, access tokens, API keys, private keys, etc. in Github, will be considered out of scope without EXPLICIT proof that they are in-use in production.\r\n* SGX-related issues and/or vulnerabilities\r\n* Game Theory and incentive mechanisms attacks.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Security issues in third-party software.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Vulnerabilities already known to the public or to the SKALE Network core team including previous findings from another participant in the bug bounty program.\r\n* Bugs that are not reproducible.\r\n* Bugs disclosed to other parties without consent from the SKALE Network core team.\r\n* skale.network, skale.space or any other SKALE Network websites, and any website related security practices such as:\r\n    * Content Security Policy (CSP) HTTP header\r\n    * HTTP Public Key Pinning (HPKP)\r\n    * Subresource integrity\r\n    * Referrer Policies\r\n    * SSL/TLS configuration\r\n    * Email or DNS configurations\r\n    * Site or domain configurations\r\n    * Cookies missing security flags\r\n\r\n## Disclosure Policy \r\n* Upon receipt of a potential security issue, SKALE Network will make every effort to quickly resolve the issue.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of SKALE Network service. Only interact with accounts you own or with explicit permission of the account holder. \r\n* Provide a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n## Legal\r\nAll rights of interpretation of the Bug Bounty are reserved to SKALE Network. SKALE Network decides whether to reward a bug disclosure and how much will be rewarded. Any individual or team participant should not violate any laws and regulations during testing.\r\n\r\n## Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep SKALE Network and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/skalenetwork/skale-consensus",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/skalenetwork/libBLS",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/skalenetwork/skale-node-cli",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/skalenetwork/validator-cli",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/skalenetwork/sgxwallet",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skale.network",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/skalenetwork/skale-manager/tree/develop/contracts",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+ "at": "2026-09-12T04:59:43.358Z",
+ "opportunity": "tiktok",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.zhiliaoapp.musically",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.zhiliaoapp.musically:443 refused: host unreachable"
+  },
+  {
+   "host": "business.tiktok.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "server": "TLB",
+    "x-cache": "TCP_MISS from a92-123-132-22.deploy.akamaitechnologies.com (AkamaiGHost/22.6.3-da071da6976b6d633b0b37bcfe65c0fc) (-)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "report-uri https://mon.tiktokv.com/monitor_browser/collect/batch/security/?bid=tiktok_pns&ev_type=csp&p=uqoEqfPqsms78hEH",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.ss.android.ugc.trill",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.ss.android.ugc.trill:443 refused: host unreachable"
+  },
+  {
+   "host": "ads.tiktok.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "x-akamai"
+    }
+   ],
+   "headers": {
+    "server": "TLB",
+    "x-cache": "TCP_MISS from a92-123-132-4.deploy.akamaitechnologies.com (AkamaiGHost/22.6.3-da071da6976b6d633b0b37bcfe65c0fc) (-)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "report-uri https://mon.tiktokv.com/monitor_browser/collect/batch/security/?bid=tiktok_pns&ev_type=csp&p=oeH5PTCfMyySfJQ4",
+    "x-frame-options": "sameorigin",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "tiktok.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost",
+    "x-cache": "TCP_MISS from a92-123-132-33.deploy.akamaitechnologies.com (AkamaiGHost/22.6.3-da071da6976b6d633b0b37bcfe65c0fc) (-)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

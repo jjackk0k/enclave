@@ -1,0 +1,116 @@
+{
+  "scope": {
+    "engagement": "ACME/prod",
+    "signedBy": "x",
+    "cidrs": [
+      "10.0.0.0/8"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "root-1",
+      "type": "root",
+      "label": "ACME/prod",
+      "sub": "x"
+    },
+    {
+      "id": "finding-2",
+      "type": "finding",
+      "label": "SECRET",
+      "sub": "",
+      "sev": "high",
+      "risk": "high",
+      "ref": "S",
+      "conf": 40,
+      "confidence": "suspected"
+    },
+    {
+      "id": "finding-3",
+      "type": "finding",
+      "label": "SECRET",
+      "sub": "",
+      "sev": "high",
+      "risk": "high",
+      "ref": "S",
+      "conf": 40,
+      "confidence": "suspected"
+    },
+    {
+      "id": "finding-4",
+      "type": "finding",
+      "label": "SECRET",
+      "sub": "",
+      "sev": "high",
+      "risk": "high",
+      "ref": "S",
+      "conf": 40,
+      "confidence": "suspected"
+    }
+  ],
+  "edges": [
+    {
+      "from": "root-1",
+      "to": "finding-2",
+      "kind": "finding"
+    },
+    {
+      "from": "root-1",
+      "to": "finding-3",
+      "kind": "finding"
+    },
+    {
+      "from": "root-1",
+      "to": "finding-4",
+      "kind": "finding"
+    }
+  ],
+  "holds": [],
+  "phaseLog": [
+    {
+      "phase": "recon",
+      "summary": "",
+      "at": "2026-09-17T23:32:52.810Z"
+    },
+    {
+      "phase": "validate",
+      "summary": "",
+      "at": "2026-09-17T23:32:52.810Z"
+    },
+    {
+      "phase": "report",
+      "summary": "",
+      "at": "2026-09-17T23:32:52.810Z"
+    },
+    {
+      "phase": "report",
+      "summary": "Coverage gate: NO-SURFACE-QUEUED — recon harvested no testable surface; a clean bill here is vacuous and is recorded as vacuous",
+      "at": "2026-09-17T23:32:52.810Z"
+    }
+  ],
+  "debunked": [],
+  "counts": {
+    "hosts": 0,
+    "subdomains": 0,
+    "svcs": 0,
+    "endpoints": 0,
+    "tech": 0,
+    "cves": 0,
+    "findings": 3,
+    "confirmed": 0,
+    "crit": 0,
+    "risk": {
+      "high": 3,
+      "medium": 0,
+      "info": 0
+    },
+    "exploits": 0,
+    "creds": 0,
+    "footholds": 0,
+    "routes": 0,
+    "holds": 0
+  },
+  "model": {
+    "nodeTypes": 16,
+    "edgeKinds": 20
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "pixiv",
+      "name": "pixiv",
+      "offersBounties": true,
+      "assets": [
+        "*.fanbox.cc",
+        "accounts.pixiv.net",
+        "booth.pm",
+        "coban.pixiv.net",
+        "comic-indies.pixiv.net",
+        "comic.pixiv.net",
+        "dic.pixiv.net",
+        "https://vroid.com/studio",
+        "hub.vroid.com",
+        "neoket.net",
+        "novel.pixiv.net",
+        "pastela.app",
+        "payment.pixiv.net",
+        "premium.pixiv.net",
+        "sensei.pixiv.net",
+        "sketch.pixiv.net",
+        "vroid.com",
+        "www.pixiv.net"
+      ],
+      "exclusions": [
+        "*.pixiv.co.jp",
+        "ads.pixiv.net",
+        "factory.pixiv.net"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\pixiv-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "pixiv",
+  "name": "pixiv",
+  "url": "https://hackerone.com/pixiv",
+  "policy": "No technology is perfect, and pixiv believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \n\n\n# Disclosure Policy \n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \n* It is not permitted to publicly disclose reports without the express consent of pixiv's security team.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \n\n# Program Rules\nWhile researching, we'd like to ask you to refrain from: \n* Denial of service \n* Spamming (Examples include, but are not limited to, the following):\n  * Sending unintelligible messages or comments to general users. (If an investigation requires multiple actors, please prepare multiple accounts of your own to avoid involving general users.)\n  * Exposing your investigation to the public by modifying third-party or public resources. (While we understand this can be challenging due to the nature of social networking services, please ensure that your activities remain as discreet as possible.)\n\n* Social engineering (including phishing) of pixiv staff or contractors \n* Any physical attempts against pixiv property or data centers \n* Re-uploading other users' assets such as drawings and 3D models for testing of pixiv features\n\nIf spam or other disruptive behavior is detected, we may take the same actions as we do with regular spammers, such as account suspension. \nFurthermore, if such prohibited or disruptive acts are discovered during the reporting process, no bounty will be awarded.\n\n# Out of Scope / Known Issues\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Hypothetical or theoretical vulnerabilities without actual verification code\n* Insecure coding or design patterns without actual vulnerabilities\n* Vulnerabilities with capability of brute force against password or tokens\n* Password, email and account policies, such as email id verification, reset link expiration, password complexity\n* Login/Logout CSRF\n* CSRF on forms that are available to anonymous users (e.g. contact form)\n* Vulnerabilities found in domains out-of-scope\n* Vulnerabilities affecting outdated browsers or platforms\n* Presence of autocomplete attribute on web forms\n* Missing secure flags on non-sensitive cookies\n* Reports of insecure SSL/TLS ciphers\n* Vulnerabilities with capability of username/email enumeration\n* Descriptive error messages (e.g. Stack traces, application or server errors)\n* Banner disclosure on servers\n* Misconfiguration of SPF record, DMARC and DKIM\n* Lack of security headers without an actual attack scenario\n* Phishing attack via registration email (e.g. making username a URL)\n* Tabnabbing\n* Disclosure of pixiv's numeric ID such as user ID and illustration ID (unless it compromises user privacy)\n* Lack of rate limit\n* Assets remaining visible on CDN after changing its visibility from public to private\n* Manipulating number of views\n* Insufficient session expiration\n* Backup of app data\n* Race conditions which do not involve privacy or monetary risk\n* IDOR which do not involve privacy or monetary risk (e.g. bookmarking private contents while gaining no information about it)\n* Lack of URL confirmation on outgoing links\n* Content subject to client-side filtering, such as age-restricted content, can be accessed by using the API directly. (Note: Age restrictions and client-side settings are fully adjustable and do not constitute restrictions requiring authentication or authorization.)\n * Broken link hijacking (social media account etc): You may submit a report for this issue and it will be closed as informative, not eligible for bounty\n* Misuse of the outgoing link URL confirmation page to generate links to arbitrary external websites.\n* Credentials for PIXIV Accounts\n* Investigation reports that are deemed to have used insider information, such as from employees, are not eligible for a reward.\n\n# Duplicate Reports\nWhen we receive multiple reports concerning the same underlying cause, the eligibility for a bounty for later reports will be evaluated based on the value of new information provided to us.\nAny report that does not offer new value beyond what was included in an earlier report will be considered a duplicate and will be closed.\n\n# Safe Harbor \nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \n\nThank you for helping keep pixiv and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "booth.pm",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* This site uses pixiv account (signup at https://accounts.pixiv.net).\n* PC: https://booth.pm",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "comic.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This site is in Japanese.\nThis site uses pixiv account (signup at https://accounts.pixiv.net).\n- Web: https://comic.pixiv.net\n- iOS : https://apps.apple.com/jp/app/pixiv%E3%82%B3%E3%83%9F%E3%83%83%E3%82%AF/id975414811\n- Android: https://play.google.com/store/apps/details?id=jp.pxv.android.manga",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "factory.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "* This site is in Japanese.\n* This site uses pixiv account (signup at https://accounts.pixiv.net).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sketch.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "/lives/ is out of scope for scheduled to be discontinued.\n\n* This site is in Japanese.\n* This site uses pixiv account (signup at https://accounts.pixiv.net).\n* PC: https://sketch.pixiv.net/\n* iOS: https://itunes.apple.com/app/pixiv-sketch/id991334925\n* Android: https://play.google.com/store/apps/det",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sensei.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* Signin / signup site for many pixiv products (`*.pixiv.net`, `*.booth.pm`, etc).",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* The core pixiv.\n* Signup at https://accounts.pixiv.net\n* PC: https://www.pixiv.net/\n* iOS: https://itunes.apple.com/app/pixiv/id337248563\n* Android:  https://play.google.com/store/apps/details?id=jp.pxv.android",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hub.vroid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* This site uses pixiv account (signup at https://accounts.pixiv.net).\n* This is a site where users share their 3D characters in [VRM file format](https://vrm.dev/en/).\n* When testing with VRM, please use characters provided by [our official account](https://hub.vroid.com/users/36144806).\n  * Go to ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dic.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pixiv.co.jp",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.fanbox.cc",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "* This site uses pixiv account (signup at https://accounts.pixiv.net).\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vroid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "payment.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "neoket.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "novel.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This site is in Japanese.\nThis site uses pixiv account (signup at https://accounts.pixiv.net).\n- Web: https://novel.pixiv.net",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://vroid.com/studio",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "coban.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "pastela.app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- This site uses pixiv account (signup at https://accounts.pixiv.net).\n- PC: https://pastela.app\n- iPadOS: https://apps.apple.com/app/pastela/id6478907270",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "comic-indies.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "/submission is the only part excluded from vulnerability testing",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ads.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "premium.pixiv.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

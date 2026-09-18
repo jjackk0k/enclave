@@ -1,0 +1,58 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "infogram",
+      "name": "Infogram",
+      "offersBounties": false,
+      "assets": [
+        "infogram.com"
+      ],
+      "exclusions": [
+        "*.infogr.am",
+        "infogram.com/blog"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\infogram-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "infogram",
+  "name": "Infogram",
+  "url": "https://hackerone.com/infogram",
+  "policy": "# Responsible disclosure\r\n\r\nTo join the program you should read this whole page, and only proceed if you are OK with everything.\r\n \r\nIf you disclose your findings responsibly, we will not bring any lawsuit against you or launch any investigation into you. The most important rules of responsible disclosure are:\r\n\r\n* Never ever try to access somebody else’s account or infographics, please always use your own account(s) for testing!\r\n* Don’t test for DoS issues, launch social engineering attacks, or spam us or our users!\r\n* If you find something, please provide us enough information to reconstruct the attack and give us enough time to respond to your report before you make it public!\r\n\r\n# What is the bounty?\r\n\r\nPlease be aware that although we will be very grateful for your submissions, at the moment we _cannot give you_ cash rewards.\r\n\r\n# Exclusions\r\n While researching, we'd like to ask you to refrain from:\r\n * Denial of service\r\n * Spamming\r\n * Social engineering (including phishing) of Infogram staff or contractors\r\n * Any physical attempts against Infogram property or data centers\r\n\r\nIssues that we are aware of, but for the time being we don't plan to change/fix:\r\n* Lack of email verification upon registration.\r\n* Lack of password strength checking.\r\n* Different types of accounts (e.g. google auth and password based) can share the same email address. For login purposes it is used only in one of them, therefore we don't consider this to be a flaw.\r\n* SSL cipher recommendations.\r\n* Missing Content-Security-Policy HTTP header.\r\n* Rate limiting issues.\r\n\r\n# Other legal notices\r\n\r\n* General warning: please try not to be destructive, use automated tools with care.\r\n* Please don’t make your findings public until we explicitly allow you to do so. We will try to do our best to be really quick. But after the fix is out and making the details public doesn't compromise our users safety, we absolutely encourage you to write a blog post (or create an infographic!) about how you demonstrated that our system sucked!\r\n* The program is not open for individuals on sanctions lists or individuals in countries on sanctions lists.\r\n* You are responsible for any tax implications or additional restrictions depending on your country and local law.\r\n* We reserve the right to cancel this program at any time and the decision to pay a reward is entirely at our discretion.\r\n* You must not violate any law. You also must not disrupt any service, or compromise anyone’s data.\r\n\r\nThank you for helping keep Infogram and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "infogram.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Main domain",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.infogr.am",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please don't report issues regarding infogr.am and its subdomains.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "infogram.com/blog",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please don't submit issues found under this path.",
+      "max_severity": "none"
+    }
+  ]
+}

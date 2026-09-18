@@ -1,0 +1,244 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "twilio",
+      "name": "Twilio",
+      "offersBounties": true,
+      "assets": [
+        "*.sip.*.twilio.com",
+        "Any host/web property verified to be owned by Twilio et al.",
+        "Twilio APIs",
+        "api.segment.io",
+        "api.sendgrid.com",
+        "api.twilio.com",
+        "app.segment.com",
+        "app.sendgrid.com",
+        "http://help.twilio.com",
+        "http://tsock.us1.twilio.com",
+        "http://twilio.com/blog",
+        "https://segment.com/docs/connections/sources/",
+        "https://www.authy.com/download/",
+        "https://www.twilio.com/docs/authy/api",
+        "https://www.twilio.com/docs/libraries",
+        "https://www.twilio.com/docs/verify/api",
+        "https://www.twilio.com/en-us/blog/get-started-webrtc",
+        "https://www.twilio.com/login?g=%2fconsole%3f&t=2b1c98334b25c1a785ef15b6556396290e3c704a9b57fc40687cbccd79c46a8c",
+        "mc.sendgrid.com",
+        "sendgrid.com",
+        "signup.sendgrid.com",
+        "smtp.sendgrid.net",
+        "static*.twilio.com"
+      ],
+      "exclusions": [
+        "signal.twilio.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\twilio-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "twilio",
+  "name": "Twilio",
+  "url": "https://hackerone.com/twilio",
+  "policy": "## Twilio Security Disclosure Program Overview\n\nEnsuring the security and integrity of the Twilio platform is critical to the service we provide to our customers. We are committed to providing a secure product and appreciate help from the community in responsibly identifying ways for us to improve Twilio. We will make an effort to respond as fast as possible.\n\n  \n\nAny place we reference Twilio, also applies to M&As such as but not limited to Sendgrid, Segment, and Authy. We will specify further when we intend a specific Product Target group. Bounties are awarded differently per product (see Target Groups for more details on payouts).\n\n  \n\n1.  Bug Bounty Program: Our Bug Bounty Program through HackerOne is for experienced security researchers to identify and report vulnerabilities in our applications and internet-facing assets to earn rewards. Eligible findings may qualify for monetary bounties based on severity and impact. By participating, you help us strengthen our security while receiving recognition and compensation for contributions.\n    \n2.  Vulnerability Disclosure Program: We are committed to the security and integrity of the Twilio platform and appreciate help from our community to identify and report vulnerabilities. Our Vulnerability Disclosure Program is open to you—whether you're a customer, professional security researcher (who does not meet the Bug Bounty Program requirements), or someone who has discovered a potential issue. While this program doesn't offer monetary rewards, your contribution is invaluable to us. [Submit a vulnerability disclosure](https://www.twilio.com/en-us/security/vulnerability-disclosure-program).\n    \n3.  SendGrid abuse: If you would like to report abuse of SendGrid's service, please see our [spam/phish reporting page](https://sendgrid.com/report-spam/).\n    \n4.  For all other security based docs, requests, and more, please visit [Twilio](https://www.twilio.com/en-us/security) and [Segment](https://segment.com/security/) Trust Centers.\n    \n\n## Bug Bounty Rules of Engagement\n\n* Twilio expects all security researchers to follow the [HackerOne Code of Conduct](https://www.hackerone.com/policies/code-of-conduct)\n* Please follow all account/credential/asset naming requirements in the *Access and Account Requirements* section.\n* If you think you have found a problem but cannot prove it without accessing Twilio's Internal Systems, please submit your finding and we'll be happy to work with you for validation.\n    \n\n### Prohibited behavior:\n\n* DDoS/DoS attacks (Network Level, Application Volumetric) are prohibited. If you find a request that takes too long to answer, report it to HackerOne.\n* Spam or phishing attacks are considered abuse and out of scope.\n* All automated testing should be throttled to prevent lockout.\n* Interacting with real customers is forbidden. Only test against accounts you have created.\n* Do not exfiltrate customer or employee data under any circumstance. Please contact us immediately if you think this is possible, or you have done so inadvertently. We will work with you to assess the full impact of the vulnerability and award appropriately.\n* Please do not open support tickets with Twilio. If you have any technical issues or questions, [work with us through HackerOne Support](https://support.hackerone.com/support/login).\n* Do not use personal emails for testing.\n    \nFor the initial prioritization/rating of findings, this program will use the [HackerOne Report Severity](https://docs.hackerone.com/en/articles/8475343-severity). However, it is important to note that in some cases a vulnerability priority will be modified due to its likelihood or impact.\n\n**NOTE:** If a submission has a significant impact, bounty may be increased at Twilio’s discretion.\n\n### Access and Account Requirements\n|Requirement| Description |\n|--|--|\n| Accounts | Register with your `@wearehackerone.com`  [email address](https://docs.hackerone.com/en/articles/8404308-hacker-email-alias) |\n| Assets including Segment workspaces |*hackerone-<your email>-<random-string>* |\n|POCs including npm packages| *twilio-hackerone-poc-<random-string>* Note: They should be deleted once the submission is triaged. |\n|Custom Request Header| *X-Bug-Bounty: <username>-twilio* |\n|Segment specific | Please see the **Segment target** section for more specific Segment related details.|\n\n* We cannot provide any credits at this time and accounts will not be provisioned by Twilio. Any elevated features must be purchased by Security Researchers. This may be revisited for specific scenarios.\n\n### Excluded Submission Types for All Target Groups\n\n***Please do not submit contact forms, create support tickets, send emails, etc. that will generate work for a human outside of the Twilio security team.***\n\n***Twilio et.al. uses a number of third-party providers and services. Our bug bounty program does not give you permission to perform security testing on their systems.***\n\n***Please contact HackerOne support if you discover anything critical that falls in this area. We may consider reports on a case-by-case basis.***\n\n-   Denial of service or Rate limiting issues, including Resource Exhaustion attacks\n-   Authentication weaknesses related to:\n    -   \"Session too long,\" password reset/change logout or other intended business functionality\n    -   Forgot password auto-login\n    -   Login or Forgot Password page brute force attacks and account lockout not enforced\n    -   Non-existent or weak captcha / captcha bypass\n-   Subdomain takeovers related to:\n    -   Subdomain takeovers of TLD's used for demo or test purposes\n-   Malicious links created as part of SendGrid's  [click and open tracking](https://www.twilio.com/docs/sendgrid/api-reference/link-branding)  such as *.sendgrid.net, click.sendgrid.com, and email.sendgrid.com\n-   All Wordpress-related findings\n-   OpenVBX related findings\n-   Email validation not enforced. DMARC and SPF submissions unless on major domains\n-   SSL/TLS Issues such as: BEAST, BREACH, SSL insecure cipher suites enabled\n-   Vulnerabilities that are limited to older/unsupported browsers\n-   Known vulnerabilities in libraries used by Twilio, usage of an outdated third party library (e.g. jQuery, Apache etc.) unless you can prove exploitability\n-   CORS or crossdomain.xml issues on api.segment.io without proof-of-concept\n-   Public repository or documentation vulnerabilities that fall under:\n    -   _Note: These exclusions apply in addition to all of the above._\n    -   Dependency confusion attacks on public repositories. They may be considered on maintained, heavily used libraries\n    -   Vulnerabilities in archived public repositories\n    -   Vulnerabilities in public repos that have not had a commit in the last 2 years\n    -   S3 bucket takeover from docs or public repos, applies to all products\n    -   Broken link hijacking on old (documentation not maintained for 2+ years) or archived documentation\n-   Hijacked Social media handles in the Twilio Blog that do not belong to Twilio will be treated as Informational findings\n- Sandboxed Function Code Execution: Remote code execution or AWS credential exposure originating from within Twilio Functions or Segment Functions sandboxed runtimes is out of scope.\n    -   These functions execute in isolated, short-lived Lambda environments with minimal IAM permissions. Obtaining a shell or exfiltrating the runtime AWS credentials does not constitute a meaningful security impact.\n    -   How to identify sandbox environments:\n        - Segment Functions: AWS role ARN contains `funk-runner`.\n        - Twilio Functions: AWS role ARN containes `lambda-role-execution`, `ZB<Function_ID>` or the username starts with `sbx_user`.\n    -   If you believe you have escaped the sandbox (e.g. accessed resources beyond the function's intended scope, pivoted to another account or reached internal services), we will triage it as usual.\n\n### Submission Template\n\nPlease include the following information with your submission:\n\n> -   Description: Provide a detailed description of the vulnerability\n> -   Steps to Reproduce: Step-by-step information on how to reproduce\n> -   Proof of Concept: Screenshots or video\n> -   Impact: Business Impact - How does it affect Twilio?\n> -   Exploitability: How likely is this to be discovered and exploited?\n> -   Recommendations & References (Optional)\n\n### PII, Customer and Employee data\n\nAs mentioned under our Rules of Engagement:  **do not**  exfiltrate customer or employee data under any circumstance. Please contact us immediately if you think this is possible, or you have done so inadvertently. We will validate internally and work with you to assess the full impact of the vulnerability.\n\nLeaked employee credentials and employee API keys will be rewarded appropriately.\n\n### Compliance\n\nPlease note that researchers must comply with our rules of engagement, including rate limit tests and DoS tests. Twilio may ban accounts for suspicious behavior in accordance with our policies and processes . Please do not open up a support ticket with Twilio, but instead  [create a ticket with HackerOne Support](https://support.hackerone.com/support/login)  for assistance. Twilio may unban accounts but only at Twilio’s discretion.\n\n### Similar Bugs\n\nReports from a single researcher for similar bugs that involve one fix may be merged and receive a single reward. This will be done at the discretion of Twilio.\n\n### Twilio Acquisitions\n\nUnless specifically listed In Scope, all Twilio acquisitions are out of scope. When in doubt, please  [create a ticket with HackerOne Support](https://support.hackerone.com/support/login)  with any questions.\n\n### Public Disclosure\n\nTwilio does not permit public disclosure at this point in time. Exceptions will be made when the Twilio Security team decides to publish a CVE for vulnerabilities identified in desktop apps, mobile apps and SDKs based on the severity of the identified issue. In case a CVE is published, we will reach out to the researcher for permission before mentioning them. The vulnerability will be mentioned  [here](https://www.twilio.com/changelog).\n\n### Third Party Disclosure\n\nTwilio follows an internal process when a vulnerability is reported to us turns out to be an issue with a third party’s technology, devices, or process.\n\nIf we are aware that the third party has a security disclosure program, we will recommend the researcher submit their report directly to that Third Party. If not, at Twilio’s discretion, Twilio will use commercially reasonable efforts to report the discovered vulnerabilities to the affected third party directly.\n\n### Twilio Safe Harbor\n\nWe will not pursue civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act. To the extent your activities are inconsistent with certain restrictions in our Acceptable Use Policy, we waive those restrictions for the limited purpose of permitting security research under this policy. We will not bring a DMCA claim against you for circumventing the technological measures we have used to protect the applications in scope.\n\nIf legal action is initiated by a third party against you and you have complied with Twilio's bug bounty policy, Twilio will take steps to make it known that your actions were conducted in compliance with this policy. In the event that you engage in conduct that is inconsistent with or unaddressed by this policy, you must submit a HackerOne report prior to engaging in such conduct. Your submission will allow us to evaluate such conduct.\n\nPlease submit a HackerOne report to us before engaging in conduct that may be inconsistent with or unaddressed by this policy.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "api.twilio.com",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Twilio APIs",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://tsock.us1.twilio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sip.*.twilio.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.twilio.com/en-us/blog/get-started-webrtc",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nTwilio WebRTC Client\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.twilio.com/docs/libraries",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nTwilio SDKs \n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.\n\n\n\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.twilio.com/login?g=%2fconsole%3f&t=2b1c98334b25c1a785ef15b6556396290e3c704a9b57fc40687cbccd79c46a8c",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Primary Targets\n\nTwilio Console\n\nMany of our Twilio APIs are available in our Postman collection. Please confirm that your target is within scope before testing. Do not publicly store any sensitive information.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "static*.twilio.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio CDNs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://twilio.com/blog",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://help.twilio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sendgrid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.sendgrid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "signup.sendgrid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.sendgrid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "mc.sendgrid.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "smtp.sendgrid.net",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.authy.com/download/",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.authy.com/download/",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.twilio.com/docs/verify/api",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Verify",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.twilio.com/docs/authy/api",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Twilio Authy API",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.segment.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "###Access & Testing (Segment)\nLimit your use of scanner tests based on our technology stack. Our application is primarily powered by Node.js, React, and GraphQL.\nTo test Segment you'll need to create a variety of data sources/destinations. We would recommend using those that have a bug bounty progra",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.segment.io",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "### Access & Testing (Segment)\nLimit your use of scanner tests based on our technology stack. Our application is primarily powered by Node.js, React, and GraphQL.\nTo test Segment you'll need to create a variety of data sources/destinations. We would recommend using those that have a bug bounty progr",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://segment.com/docs/connections/sources/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "##Source code of Website, Mobile, or Server Libraries\n###Access & Testing (Segment)\nLimit your use of scanner tests based on our technology stack. Our application is primarily powered by Node.js, React, and GraphQL.\nTo test Segment you'll need to create a variety of data sources/destinations. We wou",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Any host/web property verified to be owned by Twilio et al.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Any host/web property verified to be owned by Twilio (domains/IP space/etc.) but not listed in the previous target groups and not listed as Out of Scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "signal.twilio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

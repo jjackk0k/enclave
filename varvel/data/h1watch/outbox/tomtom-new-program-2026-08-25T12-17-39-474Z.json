@@ -1,0 +1,63 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "tomtom",
+      "name": "TomTom",
+      "offersBounties": false,
+      "assets": [
+        "*.tomtom-global.com",
+        "*.tomtom.com",
+        "*.tomtomgroup.com",
+        "https://github.com/tomtom-international/*"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\tomtom-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "tomtom",
+  "name": "TomTom",
+  "url": "https://hackerone.com/tomtom",
+  "policy": "TomTom is committed to maintaining the highest level of security for our products, services, and users. We appreciate your efforts in identifying and reporting potential security vulnerabilities in our systems and applications. \n\nThis policy outlines our commitment to working with security researchers to resolve vulnerabilities responsibly.\n\n#In-Scope:\n\n- *.tomtom-global.com\n- *.tomtomgroup.com\n- *.tomtom.com\n- **GitHub Organization:** [tomtom-international](https://github.com/tomtom-international)  \n  - Public repositories only  \n  - Archived repositories are excluded  \n\n| Included in GitHub Repositories | Excluded from GitHub Repositories |\n| ------------- | ------------- |\n| Source code in all public repositories| Private repositories|\n| Configuration and deployment files | Production infrastructure |\n| Dependencies and third-party integrations | Third-party dependencies hosted elsewhere |\n| Documentation that may contain security-sensitive information | Archived repositories |\n\n#Out of Scope:\nThe following vulnerabilities are generally considered out of scope for our program:\n\n| **Category** | **Description** |\n|--------------|-----------------|\n| Social engineering | Phishing, vishing, or other social engineering attacks. |\n| Physical security | Access to buildings or data centers. |\n| Denial of service (DoS) | Attacks that aim to disrupt service availability. |\n| Spamming | Sending unsolicited messages. |\n| Password brute-forcing | Automated attempts to guess passwords. |\n| Clickjacking without impact | Reports of clickjacking without a clear security impact. |\n| CSRF on low-impact forms | CSRF on forms with minimal security impact (e.g., contact forms). |\n| Self-XSS | Vulnerabilities that require the user to execute the attack themselves. |\n| Missing security headers without impact | Missing headers (e.g., X-Frame-Options) without a clear security consequence. |\n| Best practice suggestions | General security advice or recommendations. |\n| Third-party library issues | Vulnerabilities in libraries or frameworks, unless related to our implementation. |\n| Outdated software versions | If a newer, patched version is available. |\n| Publicly known vulnerabilities | Vulnerabilities that have already been disclosed. |\n| Email not verified for account registration | Cases where email verification is not enforced. |\n| Insufficient session logout | Session issues without demonstrable impact on user security. |\n| Weak password policy | Reports about missing complexity requirements (e.g., length, special characters). |\n| Open redirections without impact | Open redirections without direct impact on account compromise or data disclosure. |\n| Destructive testing on repositories | Any testing that could damage or alter repository content or functionality. |\n\n#What You Can Expect From Us:\n\n- We will acknowledge receipt of your report within 5 business days.\n- We will investigate your report and keep you informed of our progress.\n- We will work with you to understand and validate the vulnerability.\n- We will remediate the vulnerability in a timely manner.\n\n#What We Expect From You:\n\n- Do not publicly disclose the vulnerability before we have had a reasonable time to address it.\n- Do not exploit the vulnerability beyond what is necessary to demonstrate its existence.\n- Do not access or modify any user data without explicit permission.\n- Do not use attacks on physical security, social engineering, distributed denial of service or spam;\n- Do not attack third-party applications, systems, or products\n- Act in good faith and with the intention of improving our security.\n\n#Disclosure Policy:\nPlease do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization. Follow HackerOne's disclosure guidelines: https://www.hackerone.com/disclosure-guidelines\n\nThank you for your interest and help in protecting the security of TomTom's products and services.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.tomtom-global.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tomtom.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tomtomgroup.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/tomtom-international/*",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "All public repositories in tomtom-international github org are in scope excluding the archived repositories",
+      "max_severity": "critical"
+    }
+  ]
+}

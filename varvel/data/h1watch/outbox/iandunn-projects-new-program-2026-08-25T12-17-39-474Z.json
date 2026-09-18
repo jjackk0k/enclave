@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "iandunn-projects",
+      "name": "Ian Dunn",
+      "offersBounties": true,
+      "assets": [
+        "GitHub repositories",
+        "WordPress.org plugins"
+      ],
+      "exclusions": [
+        "iandunn.name"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\iandunn-projects-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "iandunn-projects",
+  "name": "Ian Dunn",
+  "url": "https://hackerone.com/iandunn-projects",
+  "policy": "### Scope\r\n\r\nI'm a developer, so I'm mostly interested in **source code bugs**, rather than network intrusions. Reports must meet these criteria to be accepted:\r\n\r\n* It must show **tangible/practical security implications**. Theoretical scenarios and missing best practices aren't worth the time.\r\n* It must include a **PoC** with complete steps to reproduce. \r\n* It must have a **medium or higher severity**; low severity issues just aren't worth the time *(unless they can be chained together to create a higher severity vulnerability)*. \r\n* It must **not** be mentioned in the `Scope Exclusions` section.\r\n\r\nReports that don't meet those criteria will be marked as **`Not Applicable`**.\r\n\r\n\r\n### Top Targets\r\n\r\n* [Compassionate Comments](https://wordpress.org/plugins/compassionate-comments/)\r\n* [Regolith](https://github.com/iandunn/regolith)\r\n* [Quick Navigation Interface](https://wordpress.org/plugins/quick-navigation-interface/)\r\n\r\nThere are **more targets** listed in the `In Scope` section below.\r\n\r\n\r\n### Bounties\r\n\r\n| Severity | Award            |\r\n| -------- | ------------- |\r\n| High       | $100 - $400 |\r\n| Medium | $25-50          |\r\n| Low        | $0                  |\r\n\r\nSeverity is based on [CVSS 3](https://www.first.org/cvss/calculator/3.0), but may be adjusted up or down at my discretion. For example, a vulnerability in a plugin with 10,000 active installations may be higher than a vulnerability in a plugin with 100 active installations.\r\n\r\n\r\n### Scope Exclusions / Common Invalid Reports\r\n\r\n* My personal website is not in scope. It's not important, and the constant pentesting is annoying.\r\n* Common false reports listed on [WordPress' Reporting Security Vulnerabilities page](https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/). I don't consider usernames sensitive enough to be information disclosure.\r\n* Brute force, DoS ([including XML-RPC](https://hackerone.com/reports/371550) and [load-scripts.php](https://hackerone.com/reports/770508)), phishing, text injection, or social engineering attacks. \r\n* Output from **automated scans** - please manually verify issues and include a valid proof of concept.\r\n* Clickjacking with minimal security implications\r\n* Lack of HTTP/MX security headers (CSP, X-XSS, SPF, DMARC, DKIM, etc.)\r\n* Mixed content warnings for passive assets like images and videos\r\n* Theoretical vulnerabilities where you can't demonstrate a significant security impact with a PoC.\r\n* **Rare or low-severity edge cases**: Like regular bugs, not all security bugs are worth fixing. Some edge cases may be closed as `Informative`. For example, CEMI attacks using standard trigger characters (like #151516) are welcome, but characters that only work in Excel, or only in old versions of software, etc are not accepted (see #124223).\r\n\r\nInvalid reports will be disclosed in order [to help other researchers and programs learn from them](https://hackerone.com/reports/160488#activity-1220162).",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "WordPress.org plugins",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Any plugin listed on my WordPress.org profile](https://profiles.wordpress.org/iandunn#content-plugins) is within scope, **except** for these:\n\n* Email Post Changes and Jetpack should be submitted to [Automattic](https://hackerone.com/automattic) instead.\n* CampTix, CampTix Network Tools, P2 New Pos",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "GitHub repositories",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Any _**source**_ repository on my Github account](https://github.com/iandunn?tab=repositories&type=source), _**except**_ for the ones marked as **archived**. \n\nForks are not in-scope, please report any issues with those upstream. Archived repos are not maintained.\n\nThis refers to the source code in",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "iandunn.name",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

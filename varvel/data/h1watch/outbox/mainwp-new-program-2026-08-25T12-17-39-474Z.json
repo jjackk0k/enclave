@@ -1,0 +1,48 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mainwp",
+      "name": "MainWP",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/mainwp/mainwp",
+        "https://github.com/mainwp/mainwp-child"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mainwp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mainwp",
+  "name": "MainWP",
+  "url": "https://hackerone.com/mainwp",
+  "policy": "In our ongoing effort to provide the most secure WordPress Manager to our users, we are offering a reward for each security vulnerability reported in either the MainWP Dashboard plugin or the MainWP Child Plugin.\r\n\r\nBoth plugins are 100% open source\r\n\r\n* [MainWP Dashboard WordPress Plugin](https://github.com/mainwp/mainwp) \r\n* [MainWP Child WordPress plugin ](https://github.com/mainwp/mainwp-child)\r\n\r\nWe are specifically looking for security violations that would enable access to the users \"Network\" by a third party **when a connection between the MainWP Dashboard and MainWP Child Plugin has already been established**. This includes but is not limited to Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF/XSRF), Broken Authentication, Remote Code Execution SQL injection, and Privilege Escalation.\r\n\r\nWe are generally not interested in DoS vulnerabilities that are perceived by a lack of rate-limiting or captcha. \r\n\r\n**You should install a copy of the plugins and WordPress on your own server. **\r\n\r\nTo help you get started review the KB section [MainWP first steps](https://kb.mainwp.com/docs/category/getting-started/first-steps-with-mainwp/)\r\n\r\nIf you believe you've found a security issue in our plugins, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Bounty Program\r\nTo show our appreciation of responsible security researchers, MainWP offers a monetary bounty for reports of qualifying security vulnerabilities. Reward amounts will vary based upon the severity of the reported vulnerability, and eligibility is at our sole discretion.\r\n* Bounties will be awarded to the first reporter of vulnerability only. \r\n* Amounts may vary depending upon the severity of the issue and quality of the report.\r\n* We are interested in any vulnerability in our code, however, issues that are only exploitable by having an Admin user logged on to their WordPress install are ineligible for a bounty \r\n* If a vulnerability requires the successful phishing or another type of social engineering of a MainWP Dashboard admin we are interested in the vulnerability but it will be marked as informative and not eligible for a bounty. \r\n* Bounties are awarded at the discretion of the bug bounty team\r\n\r\n# Scope \r\n* [MainWP Dashboard WordPress Plugin](https://github.com/mainwp/mainwp) \r\n* [MainWP Child WordPress plugin ](https://github.com/mainwp/mainwp-child)\r\n\r\n**Important Notes on Scope** \r\n* The MainWP plugins are maintained on [GitHub](https://github.com/mainwp/), and you can use the Master branch of the Dashboard or Child for the latest development version or WordPress.org for the latest stable version, [MainWP Dashboard](https://wordpress.org/plugins/mainwp/) [MainWP Child](https://wordpress.org/plugins/mainwp-child/).  No other branches, forks, or versions qualify for a bounty.\r\n\r\n# Out of Scope\r\n* **The MainWP website and hosting are not within the scope**\r\n\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to resolve the problem quickly.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\r\n\r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Security vulnerabilities in the hosting service, WordPress core, or in any part of the MainWP website (the reward is for the MainWP Dashboard and Child plugins only! See Scope and Out of Scope sections. )\r\n* Security vulnerabilities in third-party websites, applications or Extensions that integrate with MainWP website or MainWP plugins\r\n* Denial of service\r\n* Spamming\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms\r\n* Social engineering (including phishing) of MainWP staff or contractors\r\n* Any physical attempts against any MainWP property or data centers\r\n* We are not interested in social engineering reports\r\n* We are not interested in version disclosure reports\r\n* We are not interested in HTTP sniffing or HTTP tampering exploits,  you can assume all live MainWP Dashboard and Child installs will be HTTPS.\r\n\r\n# Response  Times\r\nWe will attempt to respond to reports within a week at the latest, typically within 48 hours. (Please, keep in mind that we are distributed across time zones, and this may cause a delay if we need to discuss internally.) Severe issues will be handled as soon as possible, while all other issues will be treated as part of our normal update process.\r\n\r\nThank you for helping keep MainWP and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/mainwp/mainwp",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are specifically looking for security violations that would enable access to the users “Network” by a third party when a connection between the MainWP Dashboard and MainWP Child Plugin has already been established. This includes but is not limited to Cross-Site Scripting (XSS), Cross-Site Request",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/mainwp/mainwp-child",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are specifically looking for security violations that would enable access to the users “Network” by a third party when a connection between the MainWP Dashboard and MainWP Child Plugin has already been established. This includes but is not limited to Cross-Site Scripting (XSS), Cross-Site Request",
+      "max_severity": "critical"
+    }
+  ]
+}

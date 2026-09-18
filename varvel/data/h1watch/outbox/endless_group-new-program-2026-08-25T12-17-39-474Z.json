@@ -1,0 +1,128 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "endless_group",
+      "name": "Endless Group",
+      "offersBounties": false,
+      "assets": [
+        "(*).endlessgroup.org",
+        "(*).itsendless.org",
+        "(*).theendlessweb.com",
+        "207.90.251.0/24",
+        "api.raisable.org",
+        "app.raisable.org",
+        "https://github.com/EndlessHosting"
+      ],
+      "exclusions": [
+        "(*).endl.site",
+        "Customer Domains",
+        "Publicly Editable GitHub Wiki",
+        "no-mans-land.theendlessweb.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\endless_group-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "endless_group",
+  "name": "Endless Group",
+  "url": "https://hackerone.com/endless_group",
+  "policy": "No technology is perfect, and Endless Group believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n## Raisable Information\r\nEndless Group's HackerOne program includes Raisable, our in-house developed fundraising platform. Raisable's domains are included below. Reports submitted for Raisable are handled by the same response team as reports for our other services, but may have a faster respon This same policy, including all rules regarding the use of automated tools, applies to Raisable as well as our standard services.\r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n* **SPAMMING ANY OF OUR SIGNUP OR SUPPORT FORMS WILL RESULT IN YOU BEING BLOCKED FROM THE PROGRAM!**\r\n* At this time we can only offer in-service rewards. If you would like these rewards, please let us know once your bug is marked as resolved. These rewards include things such as plan upgrades.\r\n* Most of our services use programs or code created by other companies. Our ticket resolution time, as well as our ability to disclose vulnerabilities, will depend on those external companies, where applicable. We reserve the right to refuse public disclosure of any issue at the request of an external company. Additionally, we may not be able to accept a bug report for external software, especially in the case of any software that does not have their own report/ticketing system\r\n\r\n# Exclusions \r\n**While researching, we'd like to ask you to refrain from:** \r\n* **Denial of service**\r\n* **Spamming** \r\n* **Social engineering (including phishing) of Endless Group staff or contractors** \r\n* **Any physical attempts against Endless Group property or data centers** \r\n* **Spamming our support or signup forms using automated tools**\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\n# Out of Scope\r\nBesides the domains/things listed as Out of Scope below, the following are also considered N/A:\r\n\r\n* Hosting customer owned sites (*.endl.site), or anything that is user-generated content on the service.\r\n* ### Attacking random addresses on our CIDR range. Our CIDR range includes *customer sites*. Please do not scan and attack addresses on this range without a forward or reverse DNS answer that is listed as in scope below, as otherwise you will be disrupting services not owned by Endless Group. *Attacks against customer owned sites or IP addresses are NOT COVERED by our safe harbor policy!*\r\n* Insecure-Cookies as these generally do not pose a large security risk.\r\n* Clickjacking vulnerabilities as these also generally do not pose a large risk.\r\n* HSTS/HSTS-Preloading.\r\n* Password auth allowed on SSH-- we utilize a one-time-use password system.\r\n* Invalid SPF Setups (This only applies to GMail. Please test with other providers prior to reporting).\r\n* Account existence/valid email disclosure-- this is almost impossible to avoid given the nature of our services.\r\n\r\nThank you for helping keep Endless Group and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "(*).theendlessweb.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Excluding ns1/ns2/autodiscover/autoconfig (no sites are served from these subdomains)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "(*).endl.site",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are customer domains and do not affect the main service.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Publicly Editable GitHub Wiki",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "These are left editable intentionally :)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Customer Domains",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Customer sites that are not owned by you are not eligible for submission to our program. Please contact the site owner.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "(*).itsendless.org",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "no-mans-land.theendlessweb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is our common reverse DNS response for when there is not a reverse DNS answer explicitly set for an IP. If you find a service that you believe has a vulnerability and does not belong to one of our clients, you will need to use the forward DNS answer for that domain in your report.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "(*).endlessgroup.org",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "207.90.251.0/24",
+      "asset_type": "CIDR",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Both customer and corporate services live on this range. Exercise caution when attempting to target specific addresses, as you may be targeting services not owned by Endless Group, which are out of scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/EndlessHosting",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "A decent portion of our public code lives here. Our bigger and more noteworthy projects are currently private, but we hope to change that soon.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.raisable.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Reports related to the Raisable frontend application ONLY belong here. Reports related to the backend/API should use the \"api.raisable.org\" asset. Please see the \"Raisable Information\" section in our program policy.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.raisable.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Reports related to the Raisable backend API ONLY belong here. Reports related to the frontend applciation should use the \"app.raisable.org\" asset. Please see the \"Raisable Information\" section in our program policy.",
+      "max_severity": "critical"
+    }
+  ]
+}

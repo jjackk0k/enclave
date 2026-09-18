@@ -1,0 +1,237 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "csg-public",
+      "name": "Cloud Software Group",
+      "offersBounties": true,
+      "assets": [
+        "*.citrixworkspacesapi.net",
+        "*developer.cloud.com",
+        "accounts.cloud.com",
+        "adm.cloud.com",
+        "ap-s.cloud.com",
+        "api.adm.cloud.com",
+        "eu.cloud.com",
+        "onboarding-*.cloud.com",
+        "onboarding.cloud.com",
+        "us.cloud.com"
+      ],
+      "exclusions": [
+        "(youriwssubdomain).cloud.com",
+        "(yoursubdomain).ap.iws.cloud.com",
+        "(yoursubdomain).eu.iws.cloud.com",
+        "(yoursubdomain).us.iws.cloud.com",
+        "*.browser.cloud.com",
+        "*.citrix*.com",
+        "*.cloudburrito.com",
+        "*.podio.com",
+        "*.securevdr.com",
+        "*.xmqa.cloud.com",
+        "*.xmtest.cloud.com",
+        "accounts-internal.cloud.com",
+        "citrix.cloud.com",
+        "launch.cloud.com",
+        "www.cloud.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\csg-public-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "csg-public",
+  "name": "Cloud Software Group",
+  "url": "https://hackerone.com/csg-public",
+  "policy": "# Citrix Bug Bounty Program Policy\n\nCitrix looks forward to working with the security community to find security vulnerabilities to keep our businesses and customers safe.\n\nYour participation in the Bug Bounty Program (“Program”) is voluntary and subject to the terms and conditions set forth in this Citrix Bug Bounty Program Policy (the “Policy”), and any other agreement in which you have entered with Citrix in connection with the Program (collectively “Citrix Agreements”). By submitting a vulnerability to Citrix, you acknowledge that you have read and agreed to this Policy and the Citrix Agreements. \n \nCitrix maintains the right to terminate this Bug Bounty Program (“Program”) at any time with or without notice. Citrix may amend this Policy at any time by posting a revised version on our HackerOne policy page. By continuing to participate in the Program after any such changes, you accept the Policy’s terms and conditions, as modified.\n\nCitrix may, in its sole discretion, remove you from the Program, or disqualify you from receiving any benefit of the Program, if you breach this Policy or any of the Program’s terms, or if Citrix determines that your participation in the Program could adversely affect Citrix, our affiliates, subsidiaries, customers, employees or agents.\n\n## SLA\nCitrix will try to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business days\n* Time to triage (from report submit) - 1 business days\n* Time to initial bounty (from triage) - 5 business days\n\nWe will award a portion of the bounty upon triage of a valid report. The full bounty amount will be awarded upon remediation of the issue after its impact is fully assessed.\n\nWe will try to keep you informed about our progress throughout the process.\n\n## Creating your Citrix Accounts\n##Update - Citrix Cloud trial and test account creation is now officially out of scope for this program. We are currently in the process of removing the \"Citrix_Cloud_Setup_Guide.pdf\" to prevent further confusion.\n* When registering for your test account, please use HackerOne's new email aliases - [instructions here](https://docs.hackerone.com/hackers/hacker-email-alias.html).\n* Use “H1_” as a prefix in the “customer ID” field when registering for an account.\n* This is very important to ensure our sales team does not treat your test account as a lead.\n* When your trial expires, you can generate a second test account by appending \"+1\" to your HackerOne email alias.\n\n**For help getting your test account setup, see {F1032793}**\n\n**If you have any questions regarding the scope or setup, please direct them to support@hackerone.com**\n\n## Disclosure Policy\n* Although this is a public program, you are not permitted to discuss or publish anything about any vulnerabilities (even resolved ones) without express written consent from Citrix.\n* In the event of any inconsistency between this Policy and HackerOne’s disclosure guidelines, this Policy will govern and control.\n* If you prefer not to be part of the Citrix Bug Bounty Program, you may submit issues via Citrix's [coordinated disclosure](https://www.citrix.com/about/trust-center/vulnerability-process.html) program. However, please note that reports submitted via our coordinated disclosure program do not qualify for a bounty.\n\n## Program Rules\n* Follow HackerOne's [code of conduct](https://www.hackerone.com/disclosure-guidelines).\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* If you find a vulnerability which is out of scope for this Program, please report it, but note it may not be eligible for a bounty.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that the steps in the report can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering techniques (e.g., phishing, vishing, smishing) are prohibited.\n* Leaking of credentials may not be eligible for bounty. They will be evaluated on a case-by-case basis depending on impact.\n* You are prohibited from engaging in any privacy violations, trading stolen user credentials, destroying data, or interrupting or degrading our service (including without limitation, spam, DoS attacks or DDoS attacks).\n* Only interact with accounts you own or with explicit permission of the account holder.\n* You are prohibited from engaging in any activity that results in you, or any third party, accessing, acquiring, altering, copying, storing, saving, sharing, transferring, deleting, destroying, or otherwise processing user data.  Contact us immediately if you do inadvertently encounter userdata, and immediately and securely purge any local information upon reporting the vulnerability to Citrix.\n* To be eligible for the Bug Bounty Program, you must not:\n* Be a resident of, or make your submission from, a country against which the United States has issued export sanctions or other trade restrictions (e.g., Cuba, Iran, North Korea, Sudan, and Syria).\n* Be in violation of any national, state, or local law or regulation.\n* Be a current employee of Citrix or its affiliates or subsidiaries, or an employee who has left Citrix, or its affiliates or subsidiaries within the past 12 months.\n* Be an immediate family member of a person employed by Citrix or its subsidiaries or affiliates; or\n* Be less than 13 years of age. If you are between the ages of 13 - 17 years old but are considered a minor in your place of residence, you must get your parent’s or legal guardian’s permission prior to participating in the program.\n* Cloud Software Group would like to focus this engagement on our products and services. As a result, reports containing issues related to the Enterprise itself (such as compromised credentials) are considered out of scope for the program and will be awarded 50% of the nominal bounty. While these reports are useful, they are secondary considerations against the protection of the Cloud Software Group products and services suite.\n\n## Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Subdomain takeovers on Cloud Software Group domains\n* **Vulnerabilities found on subdomains of cloud.com which are not explicitly listed in scope**\n* Reports of stolen or compromised corporate data or employee credentials\n* Clickjacking and issues only exploitable through clickjacking\n* Descriptive error messages (e.g., Stack Traces, application, or server errors) without proof of vulnerability or risk\n* HTTP 404 codes/pages or other HTTP non-200 codes/pages\n* Fingerprinting/banner disclosure on common/public services\n* Disclosure of known public files or directories, e.g., robots.txt\n* Scripting or other automation and brute forcing of intended functionality\n* Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality\n* Lack of Secure and HTTPOnly cookie flags\n* Content spoofing (text injection) or IDN homograph attacks or reflected file download attacks\n* Tabnabbing\n* Email configuration issues (SPF, DKIM, DMARC)\n* Weak captcha or captcha bypass\n* Forced login/logout CSRF\n* Account lockout, login, or forgot password page brute force\n* Password complexity or account recovery policies\n* HTTPS Mixed Content\n* Missing HTTP security headers\n* Known SSL issues\n* SSL Forward Secrecy or HSTS not enabled\n* Weak SSL/TLS cipher suites\n* Issues related to networking protocols or industry standards not controlled by Citrix\n* Sending vulnerability reports using automated tools without validation\n* Use of a known-vulnerable library without evidence of exploitability\n* Problems related to widely publicized CVE's\n* Attacks requiring physical access to a user's unlocked device\n* Reports of spam, phishing, or security best practices\n* Username/email enumeration\n* Bugs in content/services that are not owned/operated by Citrix\n* Vulnerabilities affecting users of outdated or unsupported browsers or platforms\n* Any activity that could lead to the disruption of our service (DoS)\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Content spoofing and HTML injection issues without showing an attack vector/without being able to execute JavaScript\n* HTTP OPTIONS/TRACE/PUT methods enabled\n* Disclosure of private IP addresses in HTTP responses\n* 3rd party feature abuse (data: URL schema)\n* Partner sites/services\n\n## Scope Overview\nThe circled services are in scope for testing:\n{F1032797}\n\nThank you for helping keep Citrix and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "citrix.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ap-s.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "eu.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "us.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.citrixworkspacesapi.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onboarding.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onboarding-*.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accounts-internal.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.browser.cloud.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "launch.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*developer.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is will NOT be eligible for the bounty as this domain is intended for documentation only. Kindly avoid attacking the documentation site.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.citrix*.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.cloudburrito.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Staging Environment for Citrix Cloud",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.securevdr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.podio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "adm.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please note that some UI elements and features of ADM may only become available when an organization has an ADC, MPX, SDX or VPX appliance to onboard into ADM. The most efficient and cost-effective way to do this would be setting up a \"Citrix ADC VPX Express – 20 Mbps\" from the AWS or Microsoft Azur",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.adm.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the API Gateway for Citrix Application Delivery Management. All traffic between an Agent and Application Delivery Management service is proxied via API Gateway. \n\nAPI Gateway is also responsible for API authorization checks for traffic from the Agent to Application Delivery Management. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "(yoursubdomain).us.iws.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "(yoursubdomain).ap.iws.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "(yoursubdomain).eu.iws.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "(youriwssubdomain).cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.xmtest.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Test Environment for CEM (XenMobile)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.xmqa.cloud.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "QA Environment for Citrix Endpoint Management (XenMobile)",
+      "max_severity": "none"
+    }
+  ]
+}

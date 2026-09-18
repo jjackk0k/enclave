@@ -1,0 +1,79 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "verily_life_sciences",
+      "name": "Verily Life Sciences",
+      "offersBounties": true,
+      "assets": [
+        "https://*.projectbaseline.com/",
+        "https://*.signalpath.com/",
+        "https://*.verily.com/",
+        "https://*.verilyme.com/",
+        "https://apps.apple.com/us/app/verily-me/id6448808133",
+        "https://play.google.com/store/apps/details?id=com.verily.me"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\verily_life_sciences-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "verily_life_sciences",
+  "name": "Verily Life Sciences",
+  "url": "https://hackerone.com/verily_life_sciences",
+  "policy": "# Disclosure Policy\n* Please do not discuss any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Ask the program team before submitting vulnerabilities on assets that have not been explicitly listed in the program scope. Submissions will be accepted and reviewed by the team only if the asset is confirmed to be Verily-owned.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Attacks that affect the availability of Verily's services such as denial-of-service attacks are prohibited. Please avoid using scanners or vulnerability testing tools that generate high volumes of traffic to avoid being flagged by our monitoring systems.\n* Using tools that perform DNS brute forcing of any kind is prohibited.\n* Leveraging black hat SEO techniques, spamming people, breaking and entering into Verily offices are also prohibited. \n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Vulnerability disclosures that do not qualify for rewards through this program include URL redirections, vulnerabilities requiring unlikely or impractical user interaction steps, \"logout\" cross-site request forgery, banner or version information leaks, and user enumeration. \n* Only interact with accounts you own or with the explicit permission of the account holder.\n* The following subdomains are excluded from this program's scope - \"enroll.onduo.com\" and \"helix.verily.com\".\n\n# Test Plan\n* Users are able to sign up for free accounts through some of our in-scope domains and mobile apps. We do not provide credentials for testing at this time.\n* Please use your **hacker email alias** (e.g. h1username@wearehackerone.com) when testing.\n\n# Session Layer: HTTP Headers\nResearchers should add headers to requests such as: \n* “X-HackerOne-Research: [H1 username]\"\n\nThank you for helping keep Verily and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://*.verily.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "helix.verily.com is managed by a third-party and is out of scope. \n\nContact form endpoints such as https://verily.com/contact-us and https://verily.com/solutions/public-health/wastewater/contact are also out of scope.\n\nIssues related to *.api.verily.com, including subdomain takeovers, are generally ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.projectbaseline.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "https://*.signalpath.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://apps.apple.com/us/app/verily-me/id6448808133",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.verily.me",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://*.verilyme.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

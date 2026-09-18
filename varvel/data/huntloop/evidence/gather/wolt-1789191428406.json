@@ -1,0 +1,93 @@
+{
+ "at": "2026-09-12T05:37:02.288Z",
+ "opportunity": "wolt",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "authentication.wolt.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 922dfe970b636b0cb294f8b601fdecf4.cloudfront.net (CloudFront)",
+    "content-security-policy": "frame-ancestors 'self' https://*.wolt.com; report-to csp-endpoint"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "corporate.wolt.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "express",
+     "label": "Express (Node.js)",
+     "version": null,
+     "evidence": "x-powered-by: Express"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Express",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 3017587acd2a65d8bc5fcc9f562d64cc.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=15768000",
+    "content-security-policy": "base-uri 'none'; upgrade-insecure-requests; script-src 'nonce-hrKYOLVpmi5HS9wLEXwehBvWTm1xRXpkPzscbrw8Ybc=' 'strict-dyna",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "drive.wolt.com",
+   "kind": "domain",
+   "status": 307,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 40b76fea3127a1d583fbc11b2e091fc2.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ops.wolt.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 0f9bc3bf1e603116a76b76d7cd5d556a.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=15768000",
+    "content-security-policy": "frame-ancestors 'self'; script-src 'nonce-qGrR+SRecvLueE6TMrG5jJV3HcArxkfj1fPrL53J+24=' 'strict-dynamic'; worker-src 'se",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.wolt.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.wolt.android:443 refused: host unreachable"
+  }
+ ]
+}

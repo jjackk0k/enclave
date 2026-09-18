@@ -1,0 +1,56 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "neon_bbp",
+      "name": "Neon",
+      "offersBounties": true,
+      "assets": [
+        "https://console-stage.neon.build/",
+        "https://console.neon.tech/",
+        "https://console.neon.tech/api/v2/"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\neon_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "neon_bbp",
+  "name": "Neon",
+  "url": "https://hackerone.com/neon_bbp",
+  "policy": "## Overview\nNeon is an open-source database company dedicated to delivering a serverless PostgreSQL platform optimized for cloud deployment. Our architecture separates storage and compute, enabling features like autoscaling, instant branching, and bottomless storage. Committed to continuous development, we regularly release new features and enhancements, providing ongoing opportunities for security testing. We invite researchers to collaborate with us in identifying and addressing potential vulnerabilities, ensuring our platform remains robust and secure.\n\nTime to resolution varies by complexity and severity.\n\nUpdate: Here's the API endpoints list for comprehensive testing: {F4002038}\n\n### Disclosure Policy\n- Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from us. Disclosure of reports within Hacker0ne can be discussed.\n- Follow HackerOne's disclosure guidelines.\n\n## Eligible Vulnerabilities\nTo qualify for rewards, the following criteria must be met:\n- You must be the first to report the vulnerability.\n- Reports must include full reproduction details and be reproducible on in-scope assets.\n- Vulnerabilities should affect recent versions of supported browsers or applications (e.g., Microsoft Edge, Chrome 111, Firefox 111, Safari 15).\n- Qualification of vulnerabilities is at Neon's sole discretion.\n\n**NOTE** Neon has been acquired by Databricks and we maintain two distinct bug bounty programs. It is important to note that Neon and Lakebase share a common codebase; consequently, we can only accept a specific vulnerability report once across both platforms. We strongly advise that prior to submitting a vulnerability report concerning Neon, you verify its applicability to Lakebase and submit the report through the [Databricks bounty program](https://hackerone.com/databricks), as the associated bounties are typically more substantial.\n\nWe welcome reports of:\n- Leaked credentials of Neon employees that could grant unauthorized access or expose sensitive information. We do not award reports for leaked credentials of our customers because Neon is a GitHub Secret Scanning partner, which means GitHub automatically scans for and reports leaked credentials associated with our platform. We have an internal process to notify affected customers directly.\n- Any issue allowing unauthorized access, modification, or data exposure.\n\n### Out of Scope\nTo keep things efficient and reduce unnecessary noise for the Neon team, please exclude the following forms from your tests:\n\n- Feedback Form\n- Support Form\n- Request Private Networking Form\n\n### Known Vulnerabilities\nWe're aware of the following vulnerabilities and do not award these reports unless you can combine multiple vulnerabilities to have a bigger impact:\n- CSRF\n- HTML injection\n- Invalid Session termination\n\n### Staging vs Prod Environments\nWhile production systems are in scope, we ask that researchers use our staging environment for all security testing. Staging is a replica of production and supports the same features, including paid account functionality via test credit cards.\n> **Staging Access :** Sign up at https://console-stage.neon.build/ using preview code / invite code **I-LOVE-PREVIEWS**\n( https://console-stage.neon.build/?invite=I-LOVE-PREVIEWS ), and please use your **@wearehackerone.com** email so we can identify testing activity. For staging, you can upgrade plans using Stripe test cards. (https://docs.stripe.com/testing) .\n\nIf your testing requires something specific to production, please alert us at bugbounty@databricks.com before proceeding so we can coordinate and minimize any impact to live users and data. If you have questions about this or anything else, feel free to reach out at the same address!\n\n### Non-Qualifying Vulnerabilities and Exclusions\nIn addition to the \"Hackerone's Core Ineligible Findings\" list, the followings are considered out of scope unless a proof-of-concept (PoC) demonstrates exploitability:\n- Unfixed issues in third-party components (vendor-dependent).\n- Missing \"best practices\" that do not introduce a security vulnerability.\n- Rate limiting (please avoid excessive testing, as it may trigger alerts).\n- Vulnerable libraries without a PoC.\n- User enumeration via account creation, authentication, or password recovery.\n\nNote: We cannot reward or work with individuals on U.S. sanction lists or residing in sanctioned countries. This includes, but is not limited to, residents of Iran, North Korea, Syria, Crimea region of Ukraine. Severity level is at the sole discretion of the Neon security team.\n\n## Rules of Engagement\nPlease adhere to the following rules to ensure compliance with the program:\n- Use a unique header with your HackerOne username (X-Bug-Bounty:HackerOne-username) in requests to help us identify your testing.\n- Do not attempt to view, alter, or damage data belonging to other users. If necessary, create a test account to verify vulnerabilities.\n- Avoid excessive automated scanning; keep requests to 10 per second or lower to prevent potential service impact.\n- Do not discuss or share details of any vulnerability, even resolved ones, outside the HackerOne platform until officially approved for disclosure.\n- Refrain from attempting denial-of-service attacks or similar actions that could disrupt our services.\n- Use the HackerOne platform for all correspondence regarding your testing and findings.\n\nImportant: Use your HackerOne email alias (e.g., username@wearehackerone.com) when creating accounts, so we can recognize legitimate testing accounts. If you run security scans against Neon's systems without using your @wearehackerone.com email address, your email may be blocked. Please ensure you use your HackerOne email when testing.\n\nNeon reserves the right to change program terms at any time.\n\nFor vulnerabilities involving information disclosure, avoid capturing or retaining personally identifiable information (PII). If you inadvertently access or alter any PII, stop testing immediately and report the issue along with reproduction steps to help our team assess the impact.\n\nWhen possible, please employ methods that confirm elevated access without exposing PII. Examples include:\n- Screenshots of navigation bar options or pages without PII that weren’t originally viewable.\n- Improper access to another account you control.\n\n### Attributes of a Good Report and Bug Bounty Rewards\nProvide detailed, clear reporting with screenshots, proof-of-concept code, and steps to reproduce. Rewards reflect the impact, severity, and creativity of the vulnerability discovered. Bug bounty rewards are solely at Neon’s discretion, based on the severity and creativity of the bug.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://console.neon.tech/api/v2/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://console.neon.tech/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Use Staging unless absolutely necessary. Notify us before testing here. Accounts must use @wearehackerone.com email addresses. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://console-stage.neon.build/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please do research here and use @wearehackerone.com email addresses for account creation.",
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "openmage",
+      "name": "OpenMage",
+      "offersBounties": false,
+      "assets": [
+        "demo-admin.openmage.com",
+        "demo.openmage.org",
+        "https://github.com/OpenMage/magento-lts"
+      ],
+      "exclusions": [
+        "www.openmage.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\openmage-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "openmage",
+  "name": "OpenMage",
+  "url": "https://hackerone.com/openmage",
+  "policy": "No technology is perfect, and OpenMage believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Disclosure Policy\r\n\r\nWe agree to follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines) and expect that you agree to the same. Please read these guidelines and abide by them when disclosing a vulnerability. Additionally:\r\n\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. We may share the details of the disclosure with other parties that are contributors to the OpenMage LTS project so that they may also have time to resolve the issue before any disclosure to the public.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Activity\r\nWhile researching, we'd like to ask you to refrain from the following activities on OpenMage, or any production systems running OpenMage software: \r\n* Denial of service \r\n* Spamming \r\n* Social engineering (including phishing) of OpenMage staff or contractors \r\n* Any physical attempts against OpenMage property or data centers \r\n\r\n# Exclusions\r\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Vulnerabilities in custom code developed by merchants.\r\n* Vulnerabilities in extensions available from the extension market.\r\n* Clickjacking or CSRF on pages with no sensitive actions.\r\n* Vulnerabilities that require disabling security features enabled in default configurations.\r\n* Unauthenticated/logout/login CSRF.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Use of known-vulnerable libraries without proof of exploitation, e.g. OpenSSL.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Cross-Site Scripting (XSS) bugs in the admin interface (URLs containing /admin/) where the code is only executed in front-end context but not in admin context. Merchants are explicitly allowed to use active content when designing their stores, so this is a required feature. The admin XSS capability does not give the administrator any additional powers to do harm beyond what other administrative features already allow. XSS issues where an administrator with limited access can impact other administration pages are valid.\r\n* Vulnerabilities that require extensive or obtuse social engineering. For example, a user typing an XSS into an input field, and then submitting the form to trigger a non-persistent XSS.\r\n* Open Redirects/Forwards when leaving the site.\r\n* Missing HTTP security headers, specifically [http security headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers).\r\n* Reports from automated scripts or scanners (without proof of exploitation).\r\n\r\n# Program Policies\r\nResearchers who are the first to report a vulnerability will be the researcher acknowledged in the release notes once the vulnerability is resolved. If there are additional team members involved in researching the vulnerability, please provide their name(s) and what their contribution was to the findings when submitting this report.\r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\n# Ineligible participants\r\nThis Program is not open to individuals who reside in Cuba, Iran, North Korea, Sudan or Syria.\r\n\r\nThank you for helping keep OpenMage and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/OpenMage/magento-lts",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The source code for OpenMage LTS is provided via github.com/OpenMage/magento-lts and is publicly available.\n\nThe attack surface for this source code can vary widely based on how it is deployed. If there is a security vulnerability with a specific installation that does not widely affect other OpenMa",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.openmage.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This asset is hosted by Github Pages. Please observe [Github's security program](https://hackerone.com/github) and report directly to them if any issues are found with the underlying technologies. Only issues directly affecting the security or privacy of the OpenMage organization should be submitted",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "demo.openmage.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This \"demo site\" is the OpenMage LTS source code hosted on a server donated by a third-party. It does not contain sensitive data but for the purpose of this program may be considered as a live shopping cart target.\n\nOnly the website on **port 443** is in-scope for this HackerOne program!\n\n**Please d",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "demo-admin.openmage.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 
 import { createHmac, createHash } from 'node:crypto';
 import { appendFileSync, readFileSync, existsSync } from 'node:fs';
+import { inCidr, inAnyCidr } from '../../varvel/engine/ipaddr.mjs';
 
 // --- Session binding -----------------------------------------------------------
 // DEMO ONLY: sessions are signed with an HMAC and a fixed key so the PoC is
@@ -24,25 +25,13 @@ export function verifySession(s) {
   return s.sig.length === expected.length && s.sig === expected;
 }
 
-// --- CIDR (IPv4) ---------------------------------------------------------------
-function ipToInt(ip) {
-  const p = ip.split('.').map(Number);
-  if (p.length !== 4 || p.some(n => Number.isNaN(n) || n < 0 || n > 255)) return null;
-  return ((p[0] << 24) >>> 0) + (p[1] << 16) + (p[2] << 8) + p[3];
-}
-export function ipInCidr(ip, cidr) {
-  if (!ip || !cidr) return false;
-  const [range, bitsStr] = cidr.split('/');
-  const bits = parseInt(bitsStr, 10);
-  const ipInt = ipToInt(ip), rangeInt = ipToInt(range);
-  if (ipInt === null || rangeInt === null || Number.isNaN(bits)) return false;
-  const mask = bits === 0 ? 0 : (~0 << (32 - bits)) >>> 0;
-  return (ipInt & mask) === (rangeInt & mask);
-}
-export function ipInAnyScope(ip, scope) {
-  if (!scope) return false;
-  return String(scope).split(',').map(s => s.trim()).some(cidr => ipInCidr(ip, cidr));
-}
+// --- CIDR (IPv4 + IPv6) ----------------------------------------------------------
+// Scope math is SHARED with the VARVEL engine (varvel/engine/ipaddr.mjs): one
+// audited implementation for every scope decision on the platform — dual-stack,
+// family-strict (a v4 CIDR never matches a v6-native address), strict masks (the
+// old bits>32 shift-wrap is gone: out-of-range masks are rejected, never coerced).
+export const ipInCidr = (ip, cidr) => inCidr(ip, cidr);
+export const ipInAnyScope = (ip, scope) => inAnyCidr(ip, scope);
 
 // --- Hash-chained audit ledger -------------------------------------------------
 // Each line embeds the SHA-256 of the previous line, so any edit/reorder/delete

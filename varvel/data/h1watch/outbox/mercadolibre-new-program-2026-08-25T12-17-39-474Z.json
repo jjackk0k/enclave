@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mercadolibre",
+      "name": "MercadoLibre",
+      "offersBounties": true,
+      "assets": [
+        "*.adminml.com",
+        "*.mercadolibre.cl",
+        "*.mercadolibre.com",
+        "*.mercadolibre.com.ar",
+        "*.mercadolibre.com.co",
+        "*.mercadolibre.com.mx",
+        "*.mercadolibre.com.pe",
+        "*.mercadolibre.com.uy",
+        "*.mercadolivre.com.br",
+        "*.mercadopago.cl",
+        "*.mercadopago.com",
+        "*.mercadopago.com.ar",
+        "Crypto",
+        "Point Smart",
+        "api.mercadolibre.com",
+        "api.mercadopago.com",
+        "com.3mosquitos.MercadoLibre",
+        "com.mercadoenvios.crowdsourcing",
+        "com.mercadoenvios.driver",
+        "com.mercadolibre",
+        "com.mercadopago.MercadoPago",
+        "com.mercadopago.wallet"
+      ],
+      "exclusions": [
+        "*.kangu.com.br",
+        "Redelcom",
+        "developersforum"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "automated scans are not permitted"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mercadolibre-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mercadolibre",
+  "name": "MercadoLibre",
+  "url": "https://hackerone.com/mercadolibre",
+  "policy": "# Table of Contents\n- [Current Active Challenge](#user-content-current-active-challenge)\n- [Rewards](#user-content-rewards)\n- [Loyalty And Gamification](#user-content-loyalty-and-gamification)\n- [Tier 3 — Non-Applicative Vulnerabilities](#user-content-tier-3-non-applicative-vulnerabilities)\n- [Response Times](#user-content-response-times)\n- [Testing](#user-content-testing)\n- [Eligibility and Responsible Disclosure](#user-content-eligibility-and-responsible-disclosure)\n- [Restrictions](#user-content-restrictions)\n- [Considerations](#user-content-considerations)\n\n# Current Active Challenge \n\n-------------------------------\n | Name | Documentation |\n |--- | --- |\n | ATO 2FA BYPASS | F4018599 | \n | CSP BYPASS | F4286645 | \n |Checkout|F6437138|\n\n# Rewards \n\n-------------------------------\nMercadoLibre offers rewards to eligible reporters for qualifying vulnerabilities, with a minimum reward of $50 USD. The bounty table specifies minimum rewards based on the assessed CVSS score for in-scope properties. We reserve the right to adjust rewards based on specific impact.\n\nAll bounties for High and Critical reports are calculated using **CVSS 3.1**.\n\n- For high and critical reports the bounty is determined by this formula:\n\n**(((CVSS Score × Tier) × Severity) + Loyalty Bonus) = Bounty total**\n\n| Example | Calculation |\n|--- | --- |\n| CVSS 8,6 (High), Tier 1 & 5 years hacker | ((8,6 × 100) × 10) = $8,600 base + $860 Antique bonus (10%) = **$9,460** |\n| CVSS 8,6 (High), Tier 2 & 5 years hacker | ((8,6 × 50) × 10) = $4,300 base + $430 Antique bonus (10%) = **$4,730** |\n\nThis is calculated with constants that are:\n\n| Description | Constant |\n|--- | --- |\n| TIER 1 | 100 |\n| TIER 2 | 50 |\n| HIGH/CRITICAL | 10 |\n\n- For lows and mids reports the bounty is fixed as specified in the bounty table.\n- The bounty table ranges represent the maximum cap for the base bounty. Bonuses and the Fix Bypass addition are calculated on top of and may exceed the published bounty table ranges.\n- Low vulnerabilities will only be paid if CVSS score >= 2.0.\n- Bounty decisions are made by an internal team who consider several factors, including CVSS scores, involvement of customer data, severity of the vulnerability, compliance with the [HackerOne standard](https://docs.hackerone.com/en/articles/8369826-detailed-platform-standards), and the affected business unit.\n- Reports that demonstrate a high level of technical skill and clarity may also be considered when determining the final bounty range.\n- Bounties are set according to our current payout table.\n- The value of bounties awarded for previous vulnerabilities does not set a precedent for future cases.\n\n# Loyalty, gamification and bonus\n\n-------------------------------\n | Bonus Name | Description | Reward |\n |--- | --- | --- |\n | Newbie | If this is your first valid report on our program, you get a bonus | 25% on the total bounty |\n | Antique | An extra percentage bonus over the bounty for consecutive years reporting on the program | 2 years = 4% / 3 years = 6% / 4 years = 8% / 5 years and more = 10% |\n | Fix Bypass | If you report a valid bypass over a previously fixed vulnerability | +10% added to the total bounty |\n\nBonus Restrictions:\n- The Antique bonus applies to **consecutive** years only.\n- Bonuses are retroactive to the current year.\n- The Newbie bonus can only be claimed in 1 report per year.\n- The **Newbie and Antique bonuses are mutually exclusive** — only one applies per report.\n- The **Fix Bypass addition is independent** and stacks on top of the base bounty, regardless of whether a Newbie or Antique bonus also applies.\n- Bonuses are only paid on reports in \"triage\" or \"resolved\" status.\n- The **Antique (Loyalty) bonus applies to Tier 3 reports** and multiplies the fixed bounty amount. The Newbie bonus and Fix Bypass addition do not apply to Tier 3 reports.\n\n# Tier 3 Non Applicative Vulnerabilities\n\n-------------------------------\nThis section covers security findings resolved through configuration changes, access revocation,\nor asset remediation — not through a code pull request. Tier 3 was introduced to provide a clear\nbounty path for exposure scenarios that fall outside Tier 1 / Tier 2 but carry demonstrable\nbusiness risk.\n\n## What qualifies as Tier 3\n\nA report is eligible for Tier 3 when **all** of the following conditions are met:\n\n1. **The finding is non-applicative.** The exposure is caused by a misconfiguration, an access\n   control gap, or an asset management failure — not by a vulnerability in application code.\n   Typical examples: leaked credentials or API tokens in a public repository, internal documents\n   exposed on a public drive or paste site, misconfigured cloud storage buckets or dashboards\n   with PII.\n\n2. **The asset is demonstrably linked to MercadoLibre.** The exposed material must be verifiably\n   owned, managed, or created by current MercadoLibre employees acting within the scope of their\n   role or hosted in official MercadoLibre scopes. This includes:\n   - Official `@mercadolibre` / `@mercadolivre` accounts on any platform.\n   - Assets found in MercadoLibre scopes.\n   - Personal GitHub, Google Drive, or similar accounts of current employees, provided the\n     reporter can demonstrate a direct link to their MercadoLibre role (e.g., corporate email\n     in commit history, internal system references, cross-links to MELISOURCE).\n\n3. **The fix is a configuration or access change**, not a code patch.\n\n4. **No exploitation beyond confirmation.** The reporter must not have accessed, exfiltrated, or\n   used the exposed data beyond confirming its existence. Demonstrating credential validity via\n   a single, non-destructive API call is acceptable; going further is not.\n\n## Severity criteria\n\nTier 3 reports are **not scored with CVSS.** Severity is assessed by the MercadoLibre team\nbased on the CIA impact (Confidentiality / Integrity / Availability) of the exposed asset and\nthe sensitivity of the data involved.\n\n| Tier 3 Severity | Bounty (USD) |\n|---|---|\n| **Critical** | $1,000 |\n| **High** | $750 |\n| **Medium** | $200 |\n| **Low** | $75 |\n\n## One bounty per source\n\nTier 3 pays **one bounty per source location**, regardless of the number of credentials or\nrecords found within it. The bounty severity is determined by the MercadoLibre team based on\nthe highest-impact item present in that source.\n\n## Reporting guidelines\n\nTo help us triage your Tier 3 report efficiently, please include:\n\n- **Source location:** URL or path of the exposed asset (e.g., GitHub repo, Google Drive link,\n  cloud storage URL).\n- **Ownership evidence:** explain how the asset is linked to MercadoLibre (commit author email,\n  internal system references, etc.).\n- **Credential/document validity:** confirm whether the secret was active at time of discovery.\n  A single non-destructive validation call is sufficient — do not go further.\n\n# Response Times\n-------------------------------\nMercado Libre is committed to making a best effort to meet the following response times for hackers participating in our program:\n- **Time to First Response** (from report submission): 2 business days\n- **Time to Triage** (from report submission): 5 business days\n- **Time to Bounty** (from triage): 10 business days\n\nWe will keep you informed about our progress throughout the process.\n\nIf you have any questions can contact us on our [discord](https://discord.gg/eTAJbRxqa2)\n\n# Testing \n\n-------------------------------\n- **Users:** You can claim test users for our in-scope assets or [create users to launch testing probes](https://developers.mercadolibre.com.ar/en_us/start-testing). Please check the restrictions section.\n\n**On-demand Test Users**: If standard test users are insufficient for specific flows or complex scenarios, you may request specialized test accounts through [discord](https://discord.gg/eTAJbRxqa2) or [email](mailto:bugbounty@mercadolibre.com).\n\nPlease note that for any vulnerability reported using these accounts, the Privileges Required (PR) metric in the CVSS calculator will consistently be rated as **HIGH**, as these users are provisioned specifically for security research.\n\n- **Test cards:** You can use test cards of local payment methods and simulate different payment responses, without the need to use a real card. Depending on your country, use one of the credit or debit cards we [provide](https://www.mercadopago.com.ar/developers/en/docs/checkout-api/additional-content/your-integrations/test/cards).\n\n# Eligibility and Responsible Disclosure \n\n-------------------------------\nTo promote coordinated disclosure, Mercado Libre does not intend to take legal action or initiate law enforcement investigations against security researchers who adhere to the following guidelines:\n\n- Researchers must report discovered security issues to Mercado Libre without making any information or details public until a mutual agreement is reached or with explicit authorization from MercadoLibre.\n- Researchers should allow Mercado Libre reasonable time to resolve the issue before publishing any information or details about the vulnerability. Mercado Libre commits to following the [HackerOne disclosure guidelines](https://hackerone.com/disclosure-guidelines), ensuring open communication, providing an initial response to the researcher within 30 days, and mutually agreeing on a disclosure timeline.\n- Researchers should make all reasonable efforts in good faith to avoid destroying, stealing, modifying, damaging, or otherwise jeopardizing the personal data or privacy of Mercado Libre's customers or data. This includes avoiding any disruption to Mercado Libre's products and services.\n\n# Restrictions \n\n-------------------------------\nThe following actions are expressly prohibited and are not covered under the Coordinated Disclosure Policy:\n\n- **Automated Scanning**: Massive automated scans are not permitted. Creative testing is encouraged instead.\n- **Test Users**: Improper or out-of-scope use of test users may result in a ban from the program.\n- **Service Degradation**: Significantly degrading our service may lead to a ban from the program.\n- **No DoS Attacks**: Denial-of-Service (DoS) activities are prohibited by our cloud providers.\n- **Physical Attacks**: Physical attacks against MercadoLibre employees, offices, or data centers are prohibited.\n- **Social Engineering**: Engaging in social engineering of Mercado Libre employees, contractors, vendors, or service providers, including phishing, is not allowed.\n- **Spam**: Pursuing vulnerabilities that involve sending unsolicited bulk messages (spam) is prohibited.\n- **Account Compromise**: Attempting to gain access to another user's account or data by compromising a MercadoLibre customer or employee account is forbidden.\n- **Malware**: Knowingly posting, transmitting, uploading, linking to, or sending malware to Mercado Libre or its employees is prohibited.\n- **Mass Account Creation**: Mass account creation for testing against Mercado Libre applications and services is not allowed.\n- **Brute Force Testing**: \"Brute force\" testing to determine rate limiting for APIs or other functionalities is prohibited.\n- **Employee Participation**: Internal employees are prohibited from participating in this program.\n- **Former Employees**: Former employees may participate only after a one-year waiting period from their termination date.\n- **Provider Participation**: Participation from our providers, including individuals or entities directly affiliated with Mercado Libre, is strictly prohibited.\n\n# Considerations\n\n-------------------------------\n**a. Considerations on Issues Related to Vulnerabilities Found in Code Review Exercises or SAST:**\n- Please avoid uploading automatic scanning tool results.\n- 0-day and other CVE vulnerabilities may be reported 30 days after initial publication ([CVE List Status](https://nvd.nist.gov/vuln/vulnerability-status) of Published).\n- Vulnerabilities related to exploitable dependencies, CVEs, 0-days, and working exploits must be demonstrable through the internet with a proper PoC.\n- Dependency confusion vectors are out-of-scope.\n- Supply chain attacks involving a malicious package that is verifiably published in a public registry and demonstrably affects MercadoLibre's build or runtime environment are in-scope and must include a working PoC.\n\n**b. Considerations on Issues Related to Vulnerabilities Found in Third-Party Applications Used by Mercado Libre:**\n- If the vulnerability is found in a third-party application used by MercadoLibre, it must be exploitable on Mercado Libre's infrastructure to be considered valid. Otherwise, it will be marked as informative.\n- Use of out-of-date third-party libraries without proof of exploitability is out-of-scope.\n- Vulnerabilities in third-party scripts used on Mercado Libre's websites are out-of-scope.\n\n**c. Considerations for Mobile Applications:**\n\nThe following issues specific to mobile applications should not be tested or reported:\n- Certificate pinning and SSL/TLS best practices for native apps.\n- Obfuscated code in native apps.\n- Use of SafetyNet attestation API or similar tools to protect against anti-dynamic instrumentation, debugging, emulation, tampering, or root detection in native apps.\n- Exported components with no real security impact on native apps.\n- Vulnerabilities related to loading arbitrary domains on the following deeplinks:\n    - mercadopago://in-app-browser/?url=$URL\n    - meli://in-app-browser/?url=$URL\n    - The In-App Browser feature is designed to open external web pages through deep links directly from the app without breaking its flow. Therefore, any external website opened in the in-app browser is treated as an untrusted domain.\n\n**d. Considerations on Issues Related to Subdomain Takeover:**\n- It must be possible to insert content.\n- Demonstrate control with a verification page, DNS evidence (CNAME/A), provider, and claim steps; HTTP/HTTPS response captures.\n- Do not steal cookies or interact with users; no phishing.\n\n**e. Other Considerations:**\n- Cross-site scripting vulnerabilities without a Content Security Policy (CSP) bypass will be assessed with a lower or no severity level compared to those with a bypass.\n- We reserve the right to establish the severity of vulnerabilities based on their direct impact on MercadoLibre; therefore, the severity may increase or decrease depending on the case.\n- Mercado Libre team may also determine if a vulnerability is a duplicate of either a previous report in our bug bounty program or an internal report submitted by a collaborator.\n- Reports that contain inappropriate or disrespectful language towards any of the triagers of HackerOne or Mercado Libre staff will be closed as N/A. Repeated offenses may result in a ban from the program.\n- Any **.cn** domain, such as **\\*.mercadolibre.cn**, is excluded from the scope.\n\n**Mercadolibre reserves the right to modify this program at any time.**\n\n**Mercadolibre reserves the right to evaluate the scope tiers at any time.**\n\n**MercadoLibre reserves the right to escalate a Tier 3 finding to Tier 2 or Tier 1 based on the assessed business impact of the vulnerability.**\n\n# Thank you for helping to keep Mercado Libre and our customers safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.mercadopago.wallet",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Pago Android:\nhttps://play.google.com/store/apps/details?id=com.mercadopago.wallet",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mercadopago.MercadoPago",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Pago iOS:\nhttps://itunes.apple.com/ar/app/mercado-pago-recargar-celular/id925436649",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.mercadopago.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - See documentation: https://www.mercadopago.com.ar/developers/en/reference",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mercadolibre",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Libre Android: https://play.google.com/store/apps/details?id=com.mercadolibre",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.3mosquitos.MercadoLibre",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Libre iOS: https://apps.apple.com/ar/app/mercado-libre/id463624852",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.mercadolibre.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - See documentation: https://developers.mercadolibre.com.ar/en_us/api-docs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Point Smart",
+      "asset_type": "HARDWARE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - MLA - https://www.mercadopago.com.ar/point-smart\nTier 1 - MLB - https://www.mercadopago.com.br/point-smart",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mercadoenvios.driver",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Envíos Flex: https://play.google.com/store/apps/details?id=com.mercadoenvios.driver",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.mercadoenvios.crowdsourcing",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1 - Mercado Envíos Extra: https://play.google.com/store/apps/details?id=com.mercadoenvios.crowdsourcing",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.kangu.com.br",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Kangu",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "developersforum",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any asset related to developersforum \nIncluding but not limited to:\nhttps://developersforum.mercadolibre.com.ar/\nhttps://developersforum.mercadolibre.com.co/\nhttps://developersforum.mercadolibre.cl/\nhttps://developersforum.mercadolibre.com.mx/\nhttps://developersforum.mercadolibre.com.ve/",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Redelcom",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any other asset related to redelcom",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Crypto",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "- www.mercadopago.com.mx/crypto/*\n- www.mercadopago.cl/crypto/*\n- www.mercadopago.com.br/crypto/*",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.adminml.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.cl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com.ar",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com.mx",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com.pe",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolibre.com.uy",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadolivre.com.br",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadopago.cl",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadopago.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mercadopago.com.ar",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Tier 1",
+      "max_severity": "critical"
+    }
+  ]
+}

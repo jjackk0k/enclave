@@ -1,0 +1,92 @@
+{
+ "at": "2026-09-11T22:29:59.038Z",
+ "opportunity": "creditkarma",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "accounts.creditkarma.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.creditkarma.ca",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.creditkarma.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "akamai",
+     "label": "Akamai",
+     "version": null,
+     "evidence": "server: AkamaiGHost"
+    }
+   ],
+   "headers": {
+    "server": "AkamaiGHost"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.creditkarma.mobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.creditkarma.mobile:443 refused: host unreachable"
+  },
+  {
+   "host": "blog.creditkarma.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ECONNRESET: Client network socket disconnected before secure TLS connection was established"
+  }
+ ]
+}

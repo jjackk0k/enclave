@@ -1,0 +1,253 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "kubernetes",
+      "name": "Kubernetes",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/kubernetes/apiextensions-apiserver",
+        "https://github.com/kubernetes/apiserver",
+        "https://github.com/kubernetes/cli-runtime",
+        "https://github.com/kubernetes/cloud-provider-alibaba-cloud",
+        "https://github.com/kubernetes/cloud-provider-sample",
+        "https://github.com/kubernetes/cluster-bootstrap",
+        "https://github.com/kubernetes/component-base",
+        "https://github.com/kubernetes/csi-api",
+        "https://github.com/kubernetes/dns",
+        "https://github.com/kubernetes/frakti",
+        "https://github.com/kubernetes/gengo",
+        "https://github.com/kubernetes/git-sync",
+        "https://github.com/kubernetes/kube-aggregator",
+        "https://github.com/kubernetes/kube-controller-manager",
+        "https://github.com/kubernetes/kube-openapi",
+        "https://github.com/kubernetes/kube-proxy",
+        "https://github.com/kubernetes/kube-scheduler",
+        "https://github.com/kubernetes/kubelet",
+        "https://github.com/kubernetes/kubernetes",
+        "https://github.com/kubernetes/kubernetes-anywhere",
+        "https://github.com/kubernetes/kubernetes-template-project",
+        "https://github.com/kubernetes/metrics",
+        "https://github.com/kubernetes/sample-apiserver",
+        "https://github.com/kubernetes/sample-cli-plugin",
+        "https://github.com/kubernetes/sample-controller"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\kubernetes-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "kubernetes",
+  "name": "Kubernetes",
+  "url": "https://hackerone.com/kubernetes",
+  "policy": "We’re incredibly grateful for security researchers and users that report vulnerabilities to the Kubernetes Open Source Community. All reports are thoroughly investigated by a set of community volunteers.\n\n# Response Targets\nCloud Native Computing Foundation will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submitted) - 1 business day\n* Time to triage (from report submitted) - 10 business days\n* Time to bounty (from triage) - 10 business days\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* A public disclosure date is negotiated by the Kubernetes Security Response Committee and the bug submitter. We prefer to fully disclose the bug as soon as possible once user mitigation is available. It is reasonable to delay disclosure when the bug or the fix is not yet fully understood, the solution is not well-tested, or for vendor coordination. The timeframe for disclosure is very dependent on the context of the bug and varies from immediate for publicly known issues to months for bugs requiring breaking changes.\n\n\n# Program Rules\n* https://github.com/kubernetes/security/blob/master/security-release-process.md\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of live user production services. Only interact with accounts you own or with the explicit permission of the account holder.\n* Please limit security scanner QPS against kubernetes domains to 5 QPS\n\nWhen Should I Report a Vulnerability?\n* You think you discovered a potential security vulnerability in Kubernetes\n* You are unsure how a vulnerability affects Kubernetes\n\n\nWhen Should I NOT Report a Vulnerability?\n* You need help tuning Kubernetes components for security\n* You need help applying security-related updates\n* Your issue is not security-related\n\n### If you think you discovered a vulnerability in another project that Kubernetes depends on, and that project has their own vulnerability reporting and disclosure process, please report it directly there.\n\n# Severity Thresholds - How We Do Vulnerability Scoring\nFor details, please refer to the [Github Kubernetes Security Release](https://github.com/kubernetes/security/blob/master/security-release-process.md#severity-thresholds---how-we-do-vulnerability-scoring)\n\n***\n# Rewards\nOur rewards are based on severity per CVSS (the Common Vulnerability Scoring Standard). Please note these are general guidelines, and reward decisions are up to the discretion of Cloud Native Computing Foundation and adjustments to the Severity Thresholds described below. `kubectl` vulnerabilities requiring user-interaction will be awarded at a lower-tier (e.g. a critical will be awarded as a high).\n\n# Reward Eligibility\nThe following groups of people are ineligible for awards but may still submit reports if the conflict is mentioned within the report:\n- CNCF staff\n- Kubernetes Security Response Committee and associates\n- HackerOne’s program team\n- Project maintainers, for the vulnerable (sub)project\n- Authors & reviewers of the vulnerable code\n\n### Tier 1: Core Kubernetes\nTier 1 includes:\n- GA & Beta features of core Kubernetes (e.g. k8s.io/kubernetes & staging) or Kubernetes-owned core dependencies (e.g. k8s.io/klog), as well as core addons (kube-proxy)\n- The ability to alter source code without OWNER approval, or modify release artifacts.\n- DoS attacks on release artifacts, including k8s.gcr.io, dl.k8s.io, and packages.k8s.io\n\n### Tier 2: \nTier 2 includes:\n- GA & Beta features of non-core GA components (e.g. CSI drivers, kube-adm)\n\n### Tier 3:\nTier 3 includes:\n- Kubernetes infrastructure (e.g. k8s.io, prow, documentation)\nNote: Kubernetes infrastructure compromise leading to code/artifact modification falls under Tier 1.\n- Alpha features of core Kubernetes\n\n\n***\n\n\n#Getting Started \nWe've included a few links for anyone who would like an overview of Kubernetes. \n\n**Hardening guides**\n* Kubernetes.io: https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/\n\n**Frameworks**\n* CIS benchmarks: https://www.cisecurity.org/benchmark/kubernetes/\n* NIST 800-190: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf\n\n**Talks**\n* Shipping in pirate-infested waters (KubeCon NA 2017): https://www.youtube.com/watch?v=ohTq0no0ZVU\n* Hacking and Hardening Kubernetes clusters by example (KubeCon NA 2017): https://www.youtube.com/watch?v=vTgQLzeBfRU\n* Securing Kubernetes (BSidesSF 2017): https://www.youtube.com/watch?v=BER8uridVIs\n* Kubernetes Practical Attack and Defense (BlueHat Seattle 2019) https://www.youtube.com/watch?v=XmP9Rcn5fZo\n\n**Training**\n* Kubernetes Acadamy: https://kubernetes.academy\n\n***\n# Scope  \n## Cluster Attacks:\n\n*Attacks against Beta & GA features unless explicitly excluded below*\n* Privilege escalation due to bugs in RBAC, ABAC, pod security policies\n* Authentication bugs in the in-tree authentication handlers\n* Including: OIDC, x509 certificates, service accounts, webhook authenticator, bearer token, etc.\n* Privilege escalation through the kubelet APIs\n* Remote code execution in kubelet, api server\n* Unauthorized etcd access via the Kubernetes API\n* Path traversal attacks in API, namespaces, etcd\n* Info leak (e.g. workload names) from publicly accessible unauthenticated endpoints\n* Excluding intentionally disclosed info, such as Kubernetes version & enabled APIs\n* Reliable suppression of audit logs for privileged actions\n* Unexpected editing, removal, or permission changes of files on the host filesystems from Kubernetes components (e.g. kubelet)\n* Persistent DoS from within a cluster by an unprivileged container or user.\n\n## Supply Chain: (excluding social engineering attacks against maintainers)\n* Unauthorized code commit to any Kubernetes org repository\n* Including: github.com/kubernetes{,-client,-csi,-incubator,-retired,-security,-sigs}/*\n* Unauthorized access to github.com/kubernetes-security\n* Publishing of unauthorized artifacts\n* Unauthorized modification of github data\n* CI/CD Credential Leaks\n* Execution inside the CI/CD infrastructure\n* Unauthorized push, update or delete of container images in any kubernetes-owned repository\n* Including: k8s.gcr.io, gcr.io/kubernetes-ci-images\n\n## Components:\n* Attacks against a stable & supported Kubernetes release (most recent 3 releases)\n* Community maintained stable cloud platform plugins\n* Vulnerabilities in other cloud platform plugins should be reported through the associated provider\n* In-tree (k8s.io/kubernetes) stable volume plugins\n\n# In scope but not eligible for bounty\n\n**The following items are but not eligible for rewards.** While we still welcome vulnerability reports in these areas, they are not (currently) eligible to receive a bounty.\n* Kubernetes running on Windows or other non-Linux operating systems\n* Non-Kubernetes binaries distributed as cluster addons\n* Please report vulnerabilities in these components through the appropriate channel for the upstream component\n* Container escalations and escapes to the host, unless the attack path traverses a Kubernetes process (e.g. kubelet).\n* Attacks against containers from the host they are running on\n* Attacks relying on insecure configurations (subject to the Security Response Committee's opinion), such as clusters not utilizing mutual authentication or encryption between Kubernetes components.\n* Attacks relying on or against deprecated components (e.g. gitrepo volumes)\n* Broken link hijacking to 3rd party content in Kubernetes documentation.  \n* Community management tooling - Including email lists, Google docs, community meetings, slack channels, etc.\n    * Exceptions: reading messages in *-private@kubernetes.io, security@kubernetes.io, distributors-announce@kubernetes.io\n    * Kubernetes is a community run open source project. Most of our communications and plans are public, and we welcome anyone to join the conversations.\n    * Email spoofing protections are known [1](https://groups.google.com/d/msg/kubernetes-security-discuss/EEQEaGQucSA/rLSxT7EDCgAJ) [2](https://groups.google.com/d/topic/kubernetes-wg-k8s-infra/b3gB8ft0beA/discussion), and we've chosen to stick with the current configuration.\n\n# Out of scope - please report to the corresponding project directly\n* Vulnerabilities in etcd\n    * Please report these through [etcd's disclosure process](https://github.com/etcd-io/etcd/tree/master/security#report-a-vulnerability)\n* Vulnerabilities in CoreDNS\n    * Please report these through [CoreDNS's disclosure process](https://github.com/coredns/coredns#security)\n* Vulnerabilities specific to a hosted Kubernetes setup\n    * Please report these through the associated provider\n* Vulnerabilities in hosted vendor tools, including Google docs, Slack, Discourse, Zoom\n    * Please report these to the vendor directly.\n* Linux Vulnerabilities\n    * Please report these through security@kernel.org\n* Vulnerabilities in ingress and gateway controllers\n    * High quality reports may be rewarded with a bonus on a case by case basis\n\n# Miscellaneous notes:\n* Much of our infrastructure is managed in public through GitOps and declarative config. As such, **configuration disclosures** and **path disclosures** are typically _not_ considered vulnerabilities.\n    * If reporting one of these issues, please include proof of credential leakage, or demonstrate an attack with the leaked information.\n* We have some dummy credentials in test data. Such values should typically have a comment indicating that they are not sensitive. When reporting leaked credentials, please check to ensure it's not just test data.\n* Our community is very open, and most calendars (including Zoom PINs), mailing lists, meeting notes and other administrative resources are intended to be public. Exceptions: *-private@kubernetes.io, security@kubernetes.io, distributors-announce@kubernetes.io\n\n***\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you **under applicable\ncomputer use laws on the basis of such activities**. We cannot bind or authorize any activities taken in relation to networks,\nsystems, information, applications, products, or services of any third\nparties. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Cloud Native Computing Foundation and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/kubernetes/csi-api",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kubernetes",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Production-Grade Container Scheduling and Management",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/dns",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Kubernetes DNS service",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/cloud-provider-alibaba-cloud",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "CloudProvider for Alibaba Cloud\n\nVendor-specific plugins are not eligible for bounty. We recommend reporting vulnerabilities through the vendor's bug bounty program instead.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kube-openapi",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Kubernetes OpenAPI spec generation & serving",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/git-sync",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "A sidecar app which clones a git repo and keeps it in sync with the upstream.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/gengo",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Gengo library for code generation.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/cloud-provider-sample",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Sample of how to build a cloud provider repo. This will build a Kubernetes image which deploys on bare metal. It uses the fake cloud provider. It consumes the K8s/K8s build artifact and adds to it the Cloud Controller Manager and CSI Daemon Set.\n\nExample code.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kubernetes-template-project",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "A template for starting new projects on the github.com/kubernetes organization",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kubernetes-anywhere",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "{concise,reliable,cross-platform} turnup of Kubernetes clusters\n\nDEPRECATED",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/frakti",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The hypervisor-based container runtime for Kubernetes.\n\nVendor-specific plugins are not eligible for bounty. We recommend reporting vulnerabilities through the vendor's bug bounty program instead.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/cluster-bootstrap",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kube-controller-manager",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "kube-controller-manager component configs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kube-scheduler",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "kube-scheduler component configs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kubelet",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "kubelet component configs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kube-proxy",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "kube-proxy component configs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/sample-cli-plugin",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Sample kubectl plugin",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/cli-runtime",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Set of helpers for creating kubectl commands and plugins.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/metrics",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Kubernetes metrics-related API types and clients",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/apiextensions-apiserver",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "API server for API extensions like CustomResourceDefinitions",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/sample-controller",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Repository for sample controller. Complements sample-apiserver",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/sample-apiserver",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Reference implementation of an apiserver for a custom Kubernetes API.\n\nExample code.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/kube-aggregator",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Aggregator for Kubernetes-style API servers: dynamic registration, discovery summarization, secure proxy",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/apiserver",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Library for writing a Kubernetes-style API server.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/kubernetes/component-base",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Shared code for kubernetes core components",
+      "max_severity": "critical"
+    }
+  ]
+}

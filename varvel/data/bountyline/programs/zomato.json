@@ -1,0 +1,75 @@
+{
+  "id": "zomato",
+  "handle": "zomato",
+  "name": "Zomato (Eternal)",
+  "platform": "hackerone",
+  "url": "https://hackerone.com/zomato",
+  "engagement": "zomato",
+  "intakePath": "data/bountyline/zomato-program.json",
+  "signedScopePath": "../poc/enforcement-seam/session/marcus-zomato.json",
+  "scopeVerification": "seam-verified",
+  "automation": {
+    "policy": "human-cadence",
+    "basis": "default-silent",
+    "evidence": "the policy text never speaks on automation — operator rule 2026-08-29: gated, scoped, human-paced AI is human-equivalent, so silence maps to the conservative human-cadence ceilings (never exclusion)"
+  },
+  "state": "triaged",
+  "createdAt": "2026-08-30T21:18:38.873Z",
+  "updatedAt": "2026-08-30T23:25:14.425Z",
+  "history": [
+    {
+      "at": "2026-08-30T21:18:38.873Z",
+      "from": null,
+      "to": "imported",
+      "note": "intake record data/bountyline/zomato-program.json"
+    },
+    {
+      "at": "2026-08-30T21:18:38.874Z",
+      "from": "imported",
+      "to": "scoped",
+      "note": "signed scope recorded at add time (seam-verified)"
+    },
+    {
+      "at": "2026-08-30T21:41:05.656Z",
+      "from": "scoped",
+      "to": "scoped",
+      "note": "signed scope recorded (seam-verified)"
+    },
+    {
+      "at": "2026-08-30T21:41:05.659Z",
+      "from": "scoped",
+      "to": "hunted",
+      "note": "campaign artifact data/exports/zomato-state-final-2026-08-30-V2.json"
+    },
+    {
+      "at": "2026-08-30T23:25:14.316Z",
+      "from": "hunted",
+      "to": "hunted",
+      "note": "hunt artifact repointed to V3 rerun exports (audited correction; V2 pointer was an unreadable state dump)"
+    },
+    {
+      "at": "2026-08-30T23:25:14.426Z",
+      "from": "hunted",
+      "to": "triaged",
+      "note": "validator-readiness triage"
+    }
+  ],
+  "hunt": {
+    "campaignArtifact": "data/exports/zomato-surface-2026-08-30-V3.json",
+    "reportArtifact": "data/exports/zomato-report-2026-08-30-V3.md",
+    "at": "2026-08-30T23:25:14.315Z",
+    "cadence": "human-cadence",
+    "note": "V3 rerun (soft-404-baselined + param-harvest engine). Supersedes the V2 pointer, which named a full /api/state dump normalizeFindings cannot read — artifact-shape correction, findings unchanged (11)."
+  },
+  "triage": {
+    "ready": 0,
+    "notReady": 11,
+    "total": 11,
+    "at": "2026-08-30T23:25:14.428Z",
+    "source": "data/exports/zomato-surface-2026-08-30-V3.json",
+    "staleDays": 30
+  },
+  "reports": [],
+  "queue": null,
+  "rounds": []
+}

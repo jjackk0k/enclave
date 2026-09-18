@@ -1,0 +1,242 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "crypto",
+      "name": "Crypto.com",
+      "offersBounties": true,
+      "assets": [
+        "*.crypto.com",
+        "*.mona.co",
+        "Crypto.com Exchange APIs that require an account",
+        "Crypto.com mobile app APIs that require an account",
+        "app.mona.co",
+        "co.mona.android",
+        "com.monaco.mobile",
+        "developer-platform-api.crypto.com",
+        "developer.crypto.com",
+        "https://crypto.com/exchange",
+        "https://crypto.com/nft",
+        "https://crypto.com/price",
+        "https://etherscan.io/token/0xfe18ae03741a5b84e39c295ac9c856ed7991c38e",
+        "js.crypto.com",
+        "merchant.crypto.com",
+        "nadex.com",
+        "tax.crypto.com",
+        "web.crypto.com"
+      ],
+      "exclusions": [
+        "Crypto.com Wallet Extension",
+        "com.defi.wallet",
+        "https://github.com/crypto-com/chain-desktop-wallet",
+        "https://github.com/crypto-com/cro-staking",
+        "https://github.com/crypto-com/swap-contracts-core",
+        "https://github.com/crypto-com/swap-contracts-periphery"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\crypto-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "crypto",
+  "name": "Crypto.com",
+  "url": "https://hackerone.com/crypto",
+  "policy": "# Our Products\nAs a globally regulated company, Crypto.com is required to follow various laws and regulations in order to provide you access to our services. This means that to gain access to our main product, the Crypto.com App, you will need to go through a Know-Your-Customer (KYC) signup flow. You can find more information at https://help.crypto.com/en/articles/6185958-how-to-sign-up-for-the-crypto-com-app. We encourage you to download our app at https://download.crypto.com!\n\nOur app has over 100 million users and, as of December 2024, is the highest volume cryptocurrency trading app in the United States. While we understand that going through a sign-up process to gain access to our crown jewels is not ideal for ethical hackers, we are committed to making your experience with our program as quick, friendly, and fair as possible.\n\nPlease email us at hackerone@crypto.com if you have any questions, comments, or need help related to our Bug Bounty program.\n\nThanks for reading and for considering hacking us!\n\n# Scope Message\nWe will accept reports on any asset that is within Crypto.com's control. For assets outside of our control, like vendors (e.g. https://help.crypto.com), we will accept reports if the vulnerability was caused due to a misconfiguration by us.\n\n# Out of Scope: User and Personnel Targeting\nWe strictly prohibit any attacks targeting our users, employees, or staff. This is out of scope and includes, but is not limited to:\n* Deceptive Software: Publishing or distributing malicious or baiting software, including IDE extensions (e.g., VSCode), browser extensions, AI skills, or public code packages.\n* Social Engineering: Attempting to trick or socially engineer staff or users into installing third-party tools or clicking links.\n* Unauthorized Data Collection: Extracting any data, beacons, or telemetry from our users' or staff members' machines, regardless of whether the data is deemed \"harmless\" or benign.\n* Malware: Any attacks involving viruses, trojans, or destructive payloads.\n\n# Commitments\nBy engaging in any activity under this HackerOne program:\n* **We** commit to working with you to making Crypto.com, our customers, and our products more secure\n* We commit to responding to all reports as soon as possible and in good-faith\n* We commit to honesty and transparency with you\n* We commit to evaluating all reports for bounty eligibility fairly and neutrally\n* We commit to making ourselves available upon request when reasonable to assist you\n\n\n- **You** commit to not engaging in any activities under this or any other Crypto.com-affiliated HackerOne programs as or with the assistance of a current or former employee, contractor, or vendor\n- You commit to not attempting to sabotage or disrupt any of our operations\n- You commit to following HackerOne's Code of Conduct\n- You commit to reporting potential security issues only through our Bug Bounty program\n\n# Smart Contracts\nFor vulnerabilities against in-scope smart contracts, please note that we score internally only based on potential impact to user funds and cryptographic security rather than CVSS 3.1. As always, all reports must come with a valid Proof-of-Concept. This means that reports operating on theoretical attacks such as governance attacks, incorrect data supplied by third-party oracles, sybil attacks, or lacks of liquidity are not considered valid reports.\n\nWe only consider the latest mainnet releases of blockchain assets as in-scope. We will not consider reports against assets marked \"Mock\" or \"Test\". Please note that any report which included draining another individual's funds or blocking them access to their funds without their consent will automatically make you ineligible for this program.\n\n# Extended Policy\nThis document is intended to be concise and precise. An extended version of our HackerOne policy, including sections such as **Out-of-scope Vulnerabilities** and **Vulnerability Severity Definitions**, can be found [here](https://github.com/crypto-com/h1-policy-guidelines).",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "co.mona.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Get the app here: https://play.google.com/store/apps/details?id=co.mona.android\n\nYou won’t need test accounts for this as it will be public-facing sites for now.\n\nThe app should give you the functionality to start using CRO services.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "com.monaco.mobile",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.crypto.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We will consider all vulnerability reports against assets in Crypto.com's control. Severity might be limited for certain assets based on business impact.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://crypto.com/exchange",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.mona.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.defi.wallet",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://play.google.com/store/apps/details?id=com.defi.wallet",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.defi.wallet",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://apps.apple.com/app/crypto-com-wallet/id1512048310",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "merchant.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reward for GraphQL-based DOS that can cause service disruption will be capped at $200 USD",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "js.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/crypto-com/cro-staking",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/crypto-com/swap-contracts-periphery",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/crypto-com/swap-contracts-core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tax.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For this asset, we only accept Critical and High severity issues.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://crypto.com/nft",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reward for GraphQL-based DOS that can cause service disruption will be capped at $500 USD",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://crypto.com/price",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.mona.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We will consider all vulnerability reports against assets in Crypto.com's control. Severity might be limited for certain assets based on business impact.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/crypto-com/chain-desktop-wallet",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Crypto.com Wallet Extension",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Crypto.com mobile app APIs that require an account",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes any BFF APIs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Crypto.com Exchange APIs that require an account",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Includes any BFF APIs",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "web.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer-platform-api.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/token/0xfe18ae03741a5b84e39c295ac9c856ed7991c38e",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Bounty Range Changes: CDCETH Smart Contract**\n\nCritical Severity: Up to $50,000 USD\nExtreme Tier: Up to $1,000,000",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nadex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "For this asset, we only accept Critical and High severity issues.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "developer.crypto.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

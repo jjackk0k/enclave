@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "kiwicom",
+      "name": "Kiwi.com",
+      "offersBounties": true,
+      "assets": [
+        "*.kiwi.com",
+        "*.skypicker.com",
+        "auth.skypicker.com",
+        "com.skypicker.Skypicker",
+        "com.skypicker.main",
+        "http://www.kiwi.com/stories",
+        "jobs.kiwi.com",
+        "tequila.kiwi.com",
+        "www.kiwi.com"
+      ],
+      "exclusions": [
+        "*._domainkey.kiwi.com",
+        "*_domainkey.skypicker.com",
+        "*cars.kiwi.com",
+        "*code.kiwi.com",
+        "*learn.kiwi.com",
+        "*ov.kiwi.com",
+        "*parking.kiwi.com",
+        "*sg.kiwi.com",
+        "email*kiwi.com",
+        "email*skypicker.com",
+        "mail.skypicker.com",
+        "outbound.intercom.kiwi.com",
+        "retool.skypicker.com",
+        "rooms.kiwi.com",
+        "status.kiwi.com",
+        "vacation.kiwi.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "2 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\kiwicom-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "kiwicom",
+  "name": "Kiwi.com",
+  "url": "https://hackerone.com/kiwicom",
+  "policy": "Kiwi.com is committed to working with security experts worldwide in cooperation with HackerOne’s Triage team to ensure the high quality of our bug bounty program and the security of our customers.\n\nIf you’re good enough to spot a vulnerability on our site, we’d love to know about it!\n\nWe value the work and time of independent security researchers and therefore aim to:\n* Reply to all submissions within two business days (either Kiwi.com or Hackerone Triage)\n* Post regular updates to all submissions on a weekly basis\n* Determine security impacts transparently\n* Pay bounty on triage\n* Resolve vulnerabilities within one week to minimize the likelihood of a duplicate report\n\nEverything related to Kiwi.com is in scope, with primary services outlined in the structured scope section. If you have any questions, reach out to us at [security@kiwi.com](mailto:security@kiwi.com).\n\n\n# Rules of engagement\n\n* Confine scans on a single hostname to a 500ms delay (in other words, 2 requests per second).\n* Under any circumstances, don’t engage in:\n    * Physical attacks targeting any Kiwi.com property\n    * Social engineering of Kiwi.com employees or contractors\n    * DoS/DDoS or other availability attacks\n* Do not compromise any customer accounts or data.\n* Do not discuss or post details of your vulnerability outside of the HackerOne platform before it has been approved for disclosure.\n* Issues introduced by vulnerable third-party software are subject to a ten-day grace period to provide enough time for internal remediation and testing (for example, publicly disclosed 0days).\n* Current employees and former employees who have left the company within the past year are prohibited from participating in our bug bounty program. Employees who departed more than one year ago are eligible to participate.\n\n# Account & Booking\n\nUse your `<username>@wearehackerone.com` email for any registrations or logins.\n\nIf you want to book a flight and test any post-booking systems, you can pay for a booking with a test credit card. To create a test booking, use the following information:\n\n* Start the flow with adding `&sandbox=true` as a query param to URL\n* Create the following cookie: `sandbox_payment=true`\n* On the main _Booking_ page, in the _Primary passenger_ tab:\n    * First Name: `TEST`\n    * Last Name: `TEST`\n* On the _Payment_ page:\n    * Test card number: `4111 1111 1111 1111`\n    * Expiry date (MM/YY): `12/42`\n    * Security code: `123`\n    * Cardholder's name: `TEST APPROVE`\n* The system treats test bookings as complete, but it will not book any real flights.\n\n\n# Out of scope vulnerabilities & exclusions\n\nIssues that we know about and would like to fix at some point or which we don't plan on fixing, e.g., because we know it's not feasible:\n\n* User/email enumeration\n* A small number of Kiwi.com email addresses leak via JavaScript files\n* Invalid or missing SPF/DKIM/DMARC records\n* Lack of 'Secure' and 'HttpOnly' cookie flags\n* Theoretical TLS/SSL issues\n* Read access to our public Firebase instances\n    * skypicker-984.firebaseio.com\n    * kiwi-debug.firebaseio.com\n* Hard-coded API keys (for example, Google Maps, Mapbox, ...), unless there is a different impact than additional costs\n* Leaked credentials of tequila partners in 3rd party services (such as GitHub)\n* Attacks requiring MITM or physical access to a user's device\n* Lack of \"best practices\" that do not impose a vulnerability that can be leveraged\n* PII leaks between the members of a single tequila company\n* Authorization bypasses in tequila within a single tequila company might be exempt from bounties, depending on the vulnerability\n* XSS / HTML Injection in Swagger UI\n* Credentials and other sensitive leaks aggregated in third-party sites (e.g., otx.alienvault) without demonstrating that a vulnerability on our end caused the breach. \n\n\n# Safe harbor\n\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct, and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. Your participation in our bug bounty program is voluntary. By submitting a report or otherwise disclosing a vulnerability to us, you are indicating that you have read and agree to follow the rules set forth on this page. Kiwi.com reserves the right to modify or terminate this program at any time.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our main website",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Mostly branded versions of our main www.kiwi.com site, please report vulnerabilities only for www.kiwi.com and don't duplicate it here.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skypicker.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "APIs & internal tools.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.skypicker.main",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary target** - Available in the [Play Store](https://play.google.com/store/apps/details?id=com.skypicker.main)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.skypicker.Skypicker",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "**Primary target** - Available in [App Store](https://itunes.apple.com/bs/app/kiwi-com-cheap-flight-tickets/id657843853)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*cars.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Operated by [rentalcars.com](https://rentalcars.com).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Hosted on [statuspage.io](https://statuspage.io) (see https://bugcrowd.com/statuspage).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*code.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Hosted on [medium.com](https://medium.com) (see [this help page](https://help.medium.com/hc/en-us/articles/213481308-Bug-Bounty-Disclosure-Program)).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "auth.skypicker.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Authentication API used on www.kiwi.com.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*parking.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Operated by [travelcar.com](https://travelcar.com).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "rooms.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Operated by [booking.com](https://booking.com) (see https://hackerone.com/bookingcom).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "tequila.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "B2B platform. Backend API requests are proxied via **tequila-api.kiwi.com** & **api.tequila.kiwi.com**",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "retool.skypicker.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Operated by [retool.com](https://retool.com). Please contact retool directly on security@retool.com.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*learn.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**3rd-party target** - Operated by [northpass.com](https://www.northpass.com).",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://www.kiwi.com/stories",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Online travel magazine Kiwi.com Stories, with very limited impact on our sites & infrastructure.",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "jobs.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Hiring page, no sensitive information, likely no impact on our company.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "vacation.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "3rd party, out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*ov.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope, 3rd party assets that are under our domains.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*sg.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope, 3rd party assets that are under our domains.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*._domainkey.kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope, 3rd party assets that are under our domains.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "outbound.intercom.kiwi.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope, 3rd party assets that are under our domains.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "email*skypicker.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope: 3rd party asset that is linked under our domain.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "email*kiwi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope: 3rd party asset that is linked under our domain.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*_domainkey.skypicker.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope: 3rd party asset that is linked under our domain.\n",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mail.skypicker.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope: 3rd party asset that is linked under our domain.\n",
+      "max_severity": "none"
+    }
+  ]
+}

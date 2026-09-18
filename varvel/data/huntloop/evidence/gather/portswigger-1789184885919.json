@@ -1,0 +1,33 @@
+{
+ "at": "2026-09-12T03:48:04.612Z",
+ "opportunity": "portswigger",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "http1mustdie.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "'; DELETE carlos FROM users --",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 f6464b7d5450140d724b02dc30ebfa32.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; preload",
+    "content-security-policy": "default-src 'self'; style-src 'self'; script-src https://ps.containers.piwik.pro/ppms.js https://ps.piwik.pro/ppms.js 'n"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

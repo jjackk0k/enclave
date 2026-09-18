@@ -1,0 +1,29 @@
+{
+  "name": "prove-svn-metadata",
+  "base": "https://app.localizestaging.com",
+  "steps": [
+    {
+      "id": "svn-entries",
+      "path": "/.svn/entries",
+      "expect": { "status": 200 },
+      "note": "Classic SVN metadata file exposing repository structure and revision numbers"
+    },
+    {
+      "id": "svn-wcdb",
+      "path": "/.svn/wc.db",
+      "expect": { "status": 200, "contains": "SQLite" },
+      "note": "SVN 1.7+ SQLite working-copy database leaks file paths, URLs, and revisions"
+    },
+    {
+      "id": "svn-all-wcprops",
+      "path": "/.svn/all-wcprops",
+      "expect": { "status": 200 },
+      "note": "WC properties may contain repository URL and commit metadata"
+    }
+  ],
+  "impact": {
+    "step": "svn-wcdb",
+    "contains": "SQLite",
+    "note": "Downloadable wc.db proves source-control metadata leak (high)"
+  }
+}

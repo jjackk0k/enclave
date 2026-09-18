@@ -1,0 +1,208 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "udemy",
+      "name": "Udemy",
+      "offersBounties": true,
+      "assets": [
+        "www.udemy.com",
+        "yourcompany.udemy.com"
+      ],
+      "exclusions": [
+        "about.udemy.com",
+        "affiliates.udemy.com",
+        "blog.udemy.com",
+        "business.udemy.com",
+        "coding-exercises.udemy.com",
+        "community.udemy.com",
+        "copyright.udemy.com",
+        "design.udemy.com",
+        "government.udemy.com",
+        "helpdesk.udemy.com",
+        "keeplearning.udemy.com",
+        "legalteam.udemy.com",
+        "mi.udemy.com",
+        "people-innovators.udemy.com",
+        "research.udemy.com",
+        "support.udemy.com",
+        "teach.udemy.com",
+        "theupskillingimperative.com",
+        "translate.udemy.com",
+        "ufbsupport.udemy.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\udemy-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "udemy",
+  "name": "Udemy",
+  "url": "https://hackerone.com/udemy",
+  "policy": "# TL;DR\nDo no harm. Respect users’ privacy. Research and disclose in good faith.\n\nUdemy is a global marketplace for learning and instruction. By connecting students all over the world to the best instructors, Udemy is helping individuals reach their goals and pursue their dreams. Udemy has offerings for individuals, companies, and governments. The integrity of our customers’ data is extremely important to us, and our bug bounty program reflects that. Thank you for taking the time to help make Udemy a better place. We look forward to your reports.\n\n#  Response Targets\nUdemy will make the best effort to meet the following response targets for hackers participating in our program. Please note that we rely on HackerOne associates for initial triage:\n\n* Time to first response (from report submit) - 3 business days\n* Time to triage (from report submit) - 5 business days\n* Time to bounty (from triage) - 30 business days\n* Time to resolution (from triage) - 2 business days to several months based on the CVSS score\n\nWe'll keep you informed about our progress throughout the process.\n\n#  Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Researchers may not publicly disclose vulnerabilities (sharing any details whatsoever with anyone other than authorized Udemy or HackerOne employees) before public disclosure through HackerOne’s website. Please note that we don’t publicly disclose every vulnerability submitted via HackerOne.\n\n# Program Rules\n* Please provide **reproducible steps**. If the report is not precise enough to reproduce the issue, it will not be eligible for a reward. Video-only PoCs will not be considered.\n* As a researcher, you know best what is wrong with the code you attack, so we **appreciate suggestions** for how to fix it.\n* Submit **one vulnerability** per report, unless you need to chain multiple vulnerabilities to have an impact.\n* When duplicates occur, we only award the **first report received** that contains enough detail for us to fully reproduce the issue.\n* Multiple vulnerabilities caused by **one underlying issue** will be awarded one bounty.\n* Researchers may not, and are not authorized to engage in any activity that would be **disruptive, damaging, or harmful** to Udemy’s brand, its users, or their data. This includes social engineering (e.g. phishing), physical security, and denial of service attacks against users, employees, or Udemy as a whole.\n* Make a **good faith effort** to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Only interact with **accounts you own** or have explicit permission from the account holder to use. Please create a **new account** or team plan for your testing so as not to compromise the privacy of our users inadvertently.\n* Do not **leak, manipulate, or destroy** any user data.  If you uncover user personal data, please take the following actions: Stop investigating. Report this immediately to Udemy through the bug bounty program as soon as practically possible. Do not retain, transfer or disclose any of the personal data. \n* Only reports submitted to **this program** and against assets **in scope** will be eligible for a monetary award.\n* **Minimize the mayhem**. Do not use automated tools in a way that would seriously impact the performance of our servers or leave a mess behind.\n* Previous bounty amounts are not considered a **precedent** for future bounty amounts.\n\n# In Scope\nWe are primarily interested in exploits that impact:\n\n* Our website, [www.udemy.com](https://www.udemy.com) and Udemy Business subdomains such as [yourcompany.udemy.com](https://yourcompany.udemy.com).\n* Our iOS and Android mobile apps.\n* Our systems which send email from udemy.com and udemymail.com.\n\n# Out of Scope Vulnerabilities\n* Anything that’s very low on the CVSS scale.\n* Clickjacking on pages with no sensitive actions.\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions.\n* Attacks requiring MITM or physical access to a user's device or our data centers.\n* Previously-known vulnerable libraries without a working proof of concept.\n* Content downloading that is not covered by DRM.\n* Content spoofing or HTML injection in places where we intentionally accept HTML.\n* Exploits that do not impact our users’ data or the health of our service.\n* Denial of Service exploits.\n* Exploits that require significant social engineering.\n* Missing best practices in Content Security Policy (CSP).\n* Missing HttpOnly, Secure, etc. flags on cookies.\n* Vulnerabilities that only affect users of browsers we [no longer support](https://support.udemy.com/hc/en-us/articles/229231047-System-Requirements).\n* Issues that require incredibly unlikely user interaction.\n* Software version disclosure, banner identification issues, minorly descriptive error messages, or minorly descriptive headers.\n* Trivial enumeration of our users, courses, etc. in cases where we are exposing integer IDs.\n* A course can be configured in a way that the course’s enrollment page is password-protected or invitation-only. Courses also exist in a state called \"draft mode\" before they are published. Anything that incorrectly assumes that these are truly private courses is out of scope. However, courses created as part of a UB organization are private to that organization; any violation of that would be considered in scope.\n* In general, issues in software or hardware not under Udemy’s control.\n\n# Other Things Explicitly *in* Scope\n* Non-trivial vectors for fraud (CVSS may not apply straightforwardly, so use None, Low, or High for the impact variable as appropriate to obtain a score).\n* XSS and HTML injection in places where it’s clear we don’t mean to permit HTML.\n\n# Private Programs\nUdemy may occasionally run a private program on HackerOne in addition to our public program. Researchers who have provided substantial value over a long period may be invited into that private program and given additional resources or access.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct, and we will not initiate legal action against you. If a third party initiates legal action against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Udemy and our users safe. \n\nHappy hacking!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "about.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "business.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "teach.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "research.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "mi.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "helpdesk.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "yourcompany.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "copyright.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "design.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "government.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "keeplearning.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "legalteam.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "people-innovators.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "theupskillingimperative.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "translate.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ufbsupport.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "coding-exercises.udemy.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Powered by GitBook, a third-party vendor",
+      "max_severity": "none"
+    }
+  ]
+}

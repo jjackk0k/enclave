@@ -1,0 +1,71 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "homebargains",
+      "name": "Home Bargains",
+      "offersBounties": true,
+      "assets": [
+        "https://hackerone-m1rtuq8orz.hbstaging.website/",
+        "https://signin-hackerone.hbstaging.website/"
+      ],
+      "exclusions": [
+        "*.home.bargains",
+        "*.homebargains.co.uk",
+        "*.tjmorris.co.uk"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\homebargains-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "homebargains",
+  "name": "Home Bargains",
+  "url": "https://hackerone.com/homebargains",
+  "policy": "Home Bargains (TJ Morris Ltd) are rolling out upgrades to the eCommerce website and a new SSO solution, and would like to invite you to test and report any weaknesses you may find.\n\n**eCommerce Gift Cards & Checkout**\n\nUpgrades to the eCommerce website have been developed to enable giftcards. As part of this the checkout experience has been recreated from the ground up. The back end uses a \"No Server\" type infrastructure. There is minimal code in place and as a result we hope to be immune from many of the classic web vulnerabilities.\n\n**SSO Sign-In**\n\nHome Bargains' new Single Sign-On (SSO) system, built to provide a secure and unified login experience across internal and external applications. It uses a concept called \"userpool\" to group different types of users. For example, employees belong to the EMPLOYEE userpool, while customers or suppliers would be part of their respective pools.\n\nNo technology is perfect, and Home Bargains believe that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\n\n# Testing URLs\n* https://hackerone-m1rtuq8orz.hbstaging.website/\n* https://signin-hackerone.hbstaging.website/\n\n# eCommerce Testing\n\nPlease test all aspects of the listed site - https://hackerone-m1rtuq8orz.hbstaging.website/\n* You may create accounts\n* You may place orders\n* You may use test payment card details to settle orders (see https://stripe.com/docs/testing for test card information)\n* Please do not use live card details as payment may not be refunded.\n* Gift cards may be purchased using the test payment card details and redeemed in the checkout process. The gift cards will be emailed to the email address entered when purchasing.\n* Gift cards are to be used on the hackerone test site only. Not physical retail stores.\n\n# SSO Testing\n\nFor this testing environment, we've set up two dedicated userpools:\n\nHACKERONE-A\nHACKERONE-B\n\nExpected user flow:\n\n* Sign Up\n* Enter email\n* Choose the userpool\n* Provide an Employee Number (any number between 10000000 and 99999999)\n* Enter a valid NI Number (any valid format will work)\n* Set a password\n* Setup 2FA (For HACKERONE-B only)\n* Verify your email\n\nSign In - Once signed up, users can log in with their email and password. Password reset is also available.\nDashboard - After signing in, users are taken to a dashboard that shows which connected apps they can access based on their userpool.\nConnected Apps - There are three test apps integrated for authentication testing:\n\n* App A - Token-based auth\n* App B - Token-based auth\n* App SAML - SAML-based auth\n\nEach app will show whether the user is authenticated and allowed access.\n\n* Users in HACKERONE-A can access App A and App SAML\n* Users in HACKERONE-B can access App B only (Two factor authentication is also required)\n\nYou're welcome to explore & test:\n\n* The full signup process\n* Sign in with your test user\n* Password reset flow\n* Dashboard access\n* App access based on userpool\n* Basic SAML and token-based auth verification\n* Anything else, so long as it relates to this system and is in scope\n\n# Notes\nIf the combination of Employee Number and NI Number has already been used by another tester, it won't be possible to register again with the same details.\n\n# Disclosure Policy\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Bounty Program\nTo show our appreciation of responsible security researchers, Home Bargains offers a monetary bounty for reports of qualifying security vulnerabilities. Reward amounts will vary based upon the severity of the reported vulnerability, and eligibility is at our sole discretion.\n\n# Exclusions\nWhile researching, we'd like to ask you to refrain from:\n* Denial of service\n* Spamming\n* Social engineering (including phishing) of Home Bargains staff or contractors\n* Any physical attempts against Home Bargains property or datacentres\n* Forwarding the output of vulnerability scanners such as Nessus\n* Reporting issues such as DMARC/DKIM/SPF/E-Mail spoofing or any other issues that aren't directly related to the system under test\n\n# In-Scope Domains and Properties\nThe scope of this program is currently limited to technical security vulnerabilities on Home Bargains' internet applications. See 'Scopes' for full details.\n\n* https://hackerone-m1rtuq8orz.hbstaging.website/\n* https://signin-hackerone.hbstaging.website/\n\n# Out-of-Scope Domains and Properties\n**The following areas are currently out-of-scope:**\n* In-store systems and EPOS systems\n* In-store redemption of gift cards\n* Any physical attempts to gain access to our network\n\nThird-party systems, including but not limited to:\n* careershub.homebargains.co.uk\n* help.homebargains.co.uk\n* jobs.homebargains.co.uk\n* portal.homebargains.co.uk\n* www.homebargains.co.uk\n* *.homebargains.co.uk\n* *.homebargainsflowers.co.uk\n* www.tjmorris.co.uk\n* *.home.bargains\n* *.hbstaging.website, aside from the subdomains listed as \"In-Scope\"\n* any other domain not specifically listed as \"In-Scope\"\n\nAnything not listed as 'In-Scope' is 'Out-of-Scope'.\n\nSee 'Scopes' for full details.\n\nWe welcome quality submissions, and will reward accordingly for any confirmed vulnerabilities.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.homebargains.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.tjmorris.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.home.bargains",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://signin-hackerone.hbstaging.website/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://hackerone-m1rtuq8orz.hbstaging.website/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

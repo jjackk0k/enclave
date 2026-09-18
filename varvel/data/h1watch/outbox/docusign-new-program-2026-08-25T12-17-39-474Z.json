@@ -1,0 +1,103 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "docusign",
+      "name": "DocuSign",
+      "offersBounties": false,
+      "assets": [
+        "All Docusign apps and assets not listed below as Out of Scope"
+      ],
+      "exclusions": [
+        "https://*.account.docusign.com/",
+        "https://admin.docusign.com",
+        "https://app.docusign.com/",
+        "https://partners.docusign.com",
+        "https://www.docusign.net/api/3.0/*",
+        "https://www.docusign.net/restapi/*",
+        "https://www.docusign.net/signing/",
+        "https://www.rooms.docusign.com/*"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "no more than 2-3 requests"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\docusign-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "docusign",
+  "name": "DocuSign",
+  "url": "https://hackerone.com/docusign",
+  "policy": "##Testing Method Exclusions\n\n* DO NOT carry out attacks that affect the data of other customers' accounts. \n* DO NOT carry out attacks or perform any testing in our production environment. \n* Uploading or downloading malicious files (e.g., word macros, viruses, etc.) \n* Any automated tools or scanners used to find vulnerabilities must be heavily rate limited.An appropriate rate is considered to be no more than 2-3 requests per second. \n* No denial-of-service attacks and load testing.\n* Phishing, social engineering, and any other non-technical attacks.\n* Domains that are CNAME'd to another domain. Please contact their program if you find an issue.\n* Subdomain takeovers with PoCs that don't simply state: \"This is a temporary landing page, please proceed to  www.docusign.com\".\n* Attacks related to stolen credentials.\n\n##Scope\n\nTesting is only authorized on the targets listed as in scope. Acquisitions will be excluded from scope for the first six months following the completion of the deal. If you happen to identify a security vulnerability on a target that is not in scope but it demonstrably belongs to Docusign,\n\nyou can report it to this program. Please also strictly adhere to the Out of Scope list and keep in mind that it is not an exhaustive list, and under no circumstances should any customer production environment be used for testing.\n\n##Reporting Guidelines\n\n* Include clear reproduction steps. You may send a video for clarity, but we need clear step-by-step written instructions. Also include a meaningful impact or attack scenario. \n* Vulnerabilities exploited using similar payloads on the same path or source will be eligible for only one reward - subsequent reports of the same issue will be considered duplicates. \n* Similar issues that use the same configuration for bypassing a particular control, which may be used on multiple related vulnerable endpoints or actions (User X can Create/Read/Update/Delete Resource Y). These issues should be grouped in one report. \n* Access control bypasses occurring within the same account will be treated as low priority. Our accounts include an invite feature, so reports involving invited users performing malicious actions will also be considered low priority.\n*  Please provide the account ID and email address used during testing. If the vulnerability involves an envelope, please include the envelope ID as well.\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "All Docusign apps and assets not listed below as Out of Scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://app.docusign.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.docusign.net/signing/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://admin.docusign.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.account.docusign.com/",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.docusign.net/restapi/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.docusign.net/api/3.0/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://www.rooms.docusign.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://partners.docusign.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

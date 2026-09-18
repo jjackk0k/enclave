@@ -1,0 +1,103 @@
+{
+ "at": "2026-09-12T04:29:47.316Z",
+ "opportunity": "ring",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "ring.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "express",
+     "label": "Express (Node.js)",
+     "version": null,
+     "evidence": "x-powered-by: Express"
+    }
+   ],
+   "headers": {
+    "server": "Server",
+    "x-powered-by": "Express",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src  'self'; script-src  'self' 'unsafe-inline' 'unsafe-eval' https://*.ring.com/ https://*.a2z.com/ https://*.c",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/admin",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "api.ring.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "fw.ring.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.ring.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "admin.ring.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "angular",
+     "label": "Angular",
+     "version": null,
+     "evidence": "ng-app"
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.js"
+    }
+   ],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "RefreshHit from cloudfront",
+    "via": "1.1 82816b4db3d10cf725248e806af6b2be.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

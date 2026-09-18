@@ -1,0 +1,164 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "klarna",
+      "name": "Klarna",
+      "offersBounties": true,
+      "assets": [
+        "*.klarna.com",
+        "*.klarna.net",
+        "*.klarnacdn.net",
+        "*.pricerunner.com",
+        "Klarna Android App (com.myklarnamobile)",
+        "Klarna iOS App (com.klarna.app)",
+        "Merchant Portal",
+        "app.klarna.com"
+      ],
+      "exclusions": [
+        "Kustom",
+        "https://api-stage.pricerunner.com/swagger-ui.html",
+        "https://api-us.pricerunner.com/swagger-ui.html",
+        "https://api.pricerunner.com/swagger-ui.html",
+        "https://app.klarna.com/us/api/connected_card_bff/",
+        "jobs.pricerunner.com",
+        "locker.klarna.com",
+        "nuji.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\klarna-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "klarna",
+  "name": "Klarna",
+  "url": "https://hackerone.com/klarna",
+  "policy": "\nSmoooth hacking\n---\n\nKlarna looks forward to working with the security community to find vulnerabilities in order to keep its businesses and customers safe. Our program accepts reports of bugs that provide a potential attacker with the ability to compromise the integrity, availability, or confidentiality of Klarna products, services, or infrastructure.\n\nIf you believe you have found a qualifying security vulnerability in any of the assets that are part of the scope described on this page, please submit a report in accordance with the guidelines below.\n\n&nbsp;\n\n# Priority Targets\n\n---\nThis section highlights the vulnerabilities we are most interested in at any given time. These priorities may change periodically to reflect our current security goals and to direct research toward areas that provide the most value to Klarna's security. Please check back regularly for updates.\n\n## We’re currently not offering bonuses or prioritizing any specific vulnerabilities. Please make sure you’re signed up for our updates so you’ll be informed when we add new priorities!\n\n&nbsp\n\n# Merchant Portal and Klarna App testing plans\n\n---\n\n\n## Merchant Portal \n\nHackers should test in the playground environment only.\n\n### Test Plan\n\nIn order to get full access to the playground version of the Merchant Portal, follow the steps below. \n\n1. Go to https://docs.klarna.com/\n2. Click on the 'Log In' button in the top right corner.\n3. Select the region you're interested in.\n4. Set 'Playground' as the environment.\n5. Click 'Sign Up'.\n\nA good starting point for getting familiar with Merchant Portal, are the documents and links below.\n* https://docs.klarna.com/acquirer/klarna/resources/developer-tools/merchant-portal-guide/merchant-portal-user-guide/\n* https://docs.klarna.com/acquirer/klarna/in-store-payments/prerequisites/what-is-klarna-in-store/\n* https://docs.klarna.com/acquirer/klarna/on-site-messaging/integration-prerequisites/\n* https://docs.klarna.com/acquirer/klarna/resources/developer-tools/testing-payments/before-you-test/\n* https://docs.klarna.com/acquirer/klarna/sign-in-with-klarna/integration-prerequisites/\n\n&nbsp;\n---\n## Klarna App (Android & iOS)\n\nKlarna App (Android & iOS) and all of its APIs. \n\n### Test Plan\n\n- Users are able to sign up for free accounts through our in-scope mobile app. We do not provide credentials for testing at this time.\n- Please use your hacker email alias (e.g. h1username@wearehackerone.com) when testing. **Reports submitted not using your HackerOne email alias may not be accepted or may have a reduced bounty**.\n\n&nbsp;\n\n# Response targets\n\n---\n\nKlarna will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of response   | SLA in business days               |\n| ------------------ | ---------------------------------- |\n| First response     | 1 day                              |\n| Time to triage     | 2 days                             |\n| Time to bounty     | 10 days                            |\n| Time to resolution | depends on severity and complexity |\n\nWe will try to keep you informed about our progress throughout the process.\n\n&nbsp;\n\n# Disclosure policy\n\n---\n\n- Please do not discuss any unresolved vulnerabilities outside of the program without express consent from the organization\n- Do not include Personally Identifiable Information (PII) in your vulnerability report. However, please do inform us if you are able to disclose it in any way\n- Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n\n&nbsp;\n\n# Program rules\n\n---\n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, it may not be eligible for a reward.\n\n- All testing activity must be attributable to your HackerOne account. Send `X-Bug-Bounty: h1-<your-handle>` on every request\n- Use `<your-handle>@wearehackerone.com` for any account registration, form submission, or subscription created during testing\n- Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact\n- When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced)\n- Multiple vulnerabilities caused by one underlying issue will be awarded one bounty\n- Different regions have distinct log-in flows, functionalities, etc. Klarna will not provide a comprehensive list of the differences, but researchers are encouraged to test/download any of them, as long as they are within the scope of testing\n- Social engineering (e.g. phishing and the like) is prohibited\n- Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our services\n- If you come across any private customer/merchant data during testing, please notify us immediately\n- Only interact with accounts you own or with the explicit permission of the account holder\n- Use of automated scanners, tools, and the like is strictly disallowed\n- **The standard payout for in-scope subdomain takeover vulnerabilities is $150.**\n- The standard payout for retests is $50.\n- Do not attempt to pivot in any way or attempt to elevate privileges or explore a system beyond the minimum necessary to prove access. This will disqualify you from receiving a bounty.\n\n&nbsp;\n\n# Third party software, services, and domains\n\n---\n\nSecurity issues found on third-party assets which are not managed by Klarna are considered out of scope, and should therefore be reported to the affected party directly. Please perform both of the following validations to ensure that your target does not belong to an externally-owned application:\n1. whois <domain>; confirm that the 'Registrant Organization' value corresponds to 'Klarna *'\n2. dig <domain>; ensure that DNS records do not point to a third party\n\nSome subdomains under our wildcard assets may be operated by third parties; these are **not in scope** for this program unless expressly stated otherwise.\n\n&nbsp;\n\n# Non-Production Environment Findings\n\n---\n\nFindings affecting sandbox, staging, playground, or other non-production environments may receive reduced severity ratings or lower bounty awards compared to equivalent production vulnerabilities. Reward decisions will consider factors such as production exploitability, exposure of sensitive data, and presence of compensating controls.\n\n&nbsp;\n\n# Out-of-scope vulnerabilities (general)\n\n---\n\nKlarna places special emphasis on the security, integrity and availability of its data and systems and thus also on those of its customers, employees and partners. We value the work of security researchers in improving the security of our products and services and encourage the community to participate in our bug bounty program. \n\n**When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:**\n\n- Clickjacking on pages with no sensitive actions\n- Any issues in forms or flows that generate outbound contact: contact, support, feedback, sales enquiry, meeting booking, and newsletter subscription, including flooding via email, SMS, calendar invitations, chat messages, or support tickets\n- Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n- Attacks requiring man-in-the-middle (MITM) or physical access to a user's device\n- Previously known vulnerable libraries without a working proof of concept (PoC)\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability\n- Missing best practices in SSL/TLS configuration\n- Any activity that could lead to the disruption of our services (DoS)\n- Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n- Rate limiting or brute-force issues on non-authentication endpoints\n- Any issues related to the use of HTTP Basic Authentication\n- Lack of security-related HTTP headers (e.g.: HSTS, X-XSS-Protection, X-Content-Type, etc.)\n- Missing best practices in Content Security Policy (CSP)\n- Missing \"HttpOnly\" or \"Secure\" flags on cookies\n- Missing email best practices (invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n- Vulnerabilities only affecting users of outdated or unpatched browsers (less than 2 stable versions behind the latest released stable version)\n- Software version disclosure/banner identification issues/descriptive error messages or headers (e.g. stack traces, application or server errors)\n- Vulnerabilities in third-party software which have had an official patch for less than one month will be awarded on a case-by-case basis\n- Rewards for 0-days in third-party software will be awarded on a case-by-case basis\n- Vulnerabilities that require social engineering/phishing of Klarna's staff, customers, or contractors\n- Open-redirect issues (unless there's an exceptional impact, i.e. in OAuth applications)\n- Issues that require unlikely user interactions\n\n&nbsp;\n\n# Legal\n\n---\n\n- You must comply with all applicable Federal, State, and local laws in connection with your security research activities or other participation in this bug bounty program\n- You agree that you shall not, without the prior written consent of Klarna in each instance, use in advertising, publicity, or otherwise the name of Klarna or its affiliated companies or any trade name, trademark, or symbols owned by Klarna or its affiliated companies\n- You agree that all information acquired or accessed by you (including any and all Klarna data) as part of this exercise, and the vulnerability reports created by you, is confidential to Klarna\n- You shall hold the confidential information in strict confidence and shall not copy, reproduce, sell, assign, license, market, transfer or otherwise dispose of, give or disclose such information to third parties or use such information for any purposes other than for the performance of your work\n- You acknowledge and agree that any and all information you encounter is owned by Klarna, its affiliated companies, or its third-party providers, clients, or customers. You have no rights, title, or ownership to any information that you may encounter\n- By submitting a vulnerability report, you consent to your information being transferred to Klarna and acknowledge that you have read and accepted these terms and applicable privacy policy presented to you when you created your account and/or when entering into this program\n- Your testing must not violate any law, disrupt or compromise any data that is not your own. You may not process any data from Klarna's systems, including any personal data (ie. data directly or indirectly related to an identifiable person), when conducting your review, or preparing your vulnerability report\n- If you come across data from Klarna's systems or any personal data (which may for example concern Klarna's customers, employees, etc.) when creating your vulnerability report under this program, you shall immediately permanently erase and/or return such personal data to Klarna, and not use it for any purposes\n- Klarna's employees and contingent workers, as well as their immediate family members and persons living in the same household, or third parties that are/were engaged in developing code for Klarna are not eligible to receive bounties or rewards of any kind under this bug bounty program\n\n&nbsp;\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Merchant Portal",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://portal.playground.klarna.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Klarna iOS App (com.klarna.app)",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use your hacker email alias (e.g. h1username@wearehackerone.com) when testing. URL: https://apps.apple.com/it/app/klarna-shop-now-pay-later/id1115120118",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Klarna Android App (com.myklarnamobile)",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use your hacker email alias (e.g. h1username@wearehackerone.com) when testing. URL: https://play.google.com/store/apps/details?id=com.myklarnamobile",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.klarna.com",
+      "asset_type": "API",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Klarna app's API. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Kustom",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Any endpoint, URL, or functionality related to Kustom is out of scope. ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "nuji.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "locker.klarna.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://app.klarna.com/us/api/connected_card_bff/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api.pricerunner.com/swagger-ui.html",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api-us.pricerunner.com/swagger-ui.html",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://api-stage.pricerunner.com/swagger-ui.html",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "jobs.pricerunner.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.klarna.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.klarna.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.klarnacdn.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.pricerunner.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

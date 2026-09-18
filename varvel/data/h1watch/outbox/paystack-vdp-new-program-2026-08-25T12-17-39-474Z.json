@@ -1,0 +1,142 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "paystack-vdp",
+      "name": "Paystack Vulnerability Disclosure",
+      "offersBounties": false,
+      "assets": [
+        "*.paystack.com",
+        "*.paystackintegrations.com",
+        "Assets which are owned by Paystack are in scope for this Vulnerability Disclosure Program",
+        "api.paystack.co",
+        "checkout.paystack.com",
+        "com.paystack.zap",
+        "dashboard.paystack.com",
+        "decodefintech.com",
+        "nigerialogos.com",
+        "paystack.shop",
+        "paystackintegrations.com",
+        "paystackmfb.com",
+        "standard.paystack.co",
+        "zap.money"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\paystack-vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "paystack-vdp",
+  "name": "Paystack Vulnerability Disclosure",
+  "url": "https://hackerone.com/paystack-vdp",
+  "policy": "# Vulnerability Disclosure Program\r\n\r\nPaystack recognizes that the security community is a multiplier in our quest to provide a safe and secure experience for our customers and stakeholders. To that end, we always welcome the contributions of security researchers and strive to provide as good an experience as possible when researchers seek to disclose vulnerabilities.\r\n\r\nThis vulnerability program positions us to accept reports of bugs and vulnerabilities that provide a potential attacker with the ability to compromise the integrity, availability or confidentiality of Paystack’s products, services or information technology infrastructure.\r\n\r\nBy submitting a security bug or vulnerability to Paystack via HackerOne, you acknowledge that you have read and agreed to the Program Terms and Conditions set forth below. By providing a submission, you agree that you may not publicly disclose your findings or the contents of your submission to any third parties without Paystack's prior written approval.\r\n\r\n# Program Terms and Conditions\r\nYour participation in our program is voluntary and subject to the below terms and conditions:\r\n\r\n- You need to show that you *could* exploit a vulnerability, but you must not actually exploit it. You must not: access, modify, copy, download, delete, compromise or otherwise misuse others’ data; access non-public information without authorization; degrade, interrupt or deny services to our users; and/or incur loss of funds that are not your own.\r\n- You must not leverage the existence of a vulnerability or access to sensitive or confidential data to make threats, extortionate demands, or ransom requests.\r\n- Your testing must not violate any applicable laws or regulations.\r\n- You are prohibited from participating in the program if you are a resident of any U.S. embargoed jurisdiction, including but not limited to Iran, North Korea, Cuba, the Crimea region, and Syria; or if you are on the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Person’s List or Entity List. By participating in the program, you represent and warrant that you are not located in any such country or on any such list.\r\n- By providing a submission, you agree that you may not publicly disclose your findings or the contents of your submission to any third parties without Paystack's prior written approval.\r\n- You must be 18 years of age or older.\r\n- You must not be employed by Paystack or any of its affiliates. You must also not be an immediate family member of someone employed by Paystack or any of its affiliates.\r\n- By reporting a bug, you grant Paystack and its affiliates a perpetual, irrevocable, worldwide, royalty-free license to use, copy, adapt, develop, create derivative work from, or share your submission for any purpose. You waive all claims, including breach of contract or implied-in-fact contract, arising out of your submission.\r\n- HackerOne may share with Paystack the personal information that you provide to HackerOne, in order to allow Paystack run this program more effectively.\r\n- Only the first, responsibly-disclosed submission of a vulnerability instance will be marked as valid, any subsequent reports will not be eligible for our program.\r\n\r\n# Ineligible Vulnerabilities\r\n\r\nPaystack does not consider the following to be eligible vulnerabilities: \r\n\r\n- Denial of service attacks\r\n- RBAC  and IDOR bypasses for all roles tied to a merchant or user\r\n- Social engineering of Paystack employees, contractors, vendors, or service providers (e.g. phishing, vishing, smishing, et al.)\r\n- Social engineering of customers or merchants\r\n- Account squatting by preventing users from registering with certain email addresses\r\n- Attacks requiring MITM or physical access to a user's device\r\n- Clickjacking on pages with no sensitive actions\r\n- Comma Separated Values (CSV) injection without demonstrating a vulnerability\r\n- Malicious file upload with no further exploit proof\r\n- Reports of spam\r\n- Self-XSS\r\n- Content/text spoofing issues without showing an attack vector/without being able to modify HTML/CSS\r\n- Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n- Unconfirmed reports from automated vulnerability scanners\r\n- Disclosure of server or software version numbers\r\n- Hypothetical subdomain takeovers without supporting evidence\r\n- Issues that are premised on unlikely user interaction\r\n- Issues related to software or protocols not under Paystack control\r\n- Missing Content Security Policy or best practices\r\n- Session invalidation or other improved-security related to account management when a credential is already known (e.g., password reset link does not immediately expire, adding MFA does not expire other sessions, etc.)\r\n- Password complexity or account recovery policies\r\n- Problems related to widely publicized CVE's\r\n- Disclosure of private IP addresses in HTTP responses\r\n- HTTP OPTIONS/TRACE/PUT methods enabled\r\n- Descriptive error messages (e.g., Stack Traces, application, or server errors) without proof of vulnerability or risk\r\n- HTTP 404 codes/pages or other HTTP non-200 codes/pages\r\n- Perceived security weaknesses without concrete evidence of the ability to compromise a user (e.g., missing rate limits, missing headers, etc.)\r\n- Presence of application or web browser ‘autocomplete’ or ‘save password’ functionality\r\n- Reports exploiting the behavior of, or vulnerabilities in, outdated browsers\r\n- Missing email best practices (invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n- User/merchant enumeration\r\n- Previously known vulnerable libraries without a working Proof-of-Concept\r\n- Best practice reports without a valid exploit (e.g. use of \"weak\" TLS ciphers)\r\n- Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\r\n- Vulnerabilities found outside of the scoped domains\r\n\r\n \r\n# Vulnerability Disclosure Program\r\n\r\nPaystack recognizes that the security community is a multiplier in our quest to provide a safe and secure experience for our customers and stakeholders. To that end, we always welcome the contributions of security researchers and strive to provide as good an experience as possible when researchers seek to disclose vulnerabilities.\r\n\r\nThis vulnerability program positions us to accept reports of bugs and vulnerabilities that provide a potential attacker with the ability to compromise the integrity, availability or confidentiality of Paystack’s products, services or information technology infrastructure.\r\n\r\nBy submitting a security bug or vulnerability to Paystack via HackerOne, you acknowledge that you have read and agreed to the Program Terms and Conditions set forth below. By providing a submission, you agree that you may not publicly disclose your findings or the contents of your submission to any third parties without Paystack's prior written approval.\r\n\r\n# Program Terms and Conditions\r\nYour participation in our program is voluntary and subject to the below terms and conditions:\r\n\r\n- You need to show that you *could* exploit a vulnerability, but you must not actually exploit it. You must not: access, modify, copy, download, delete, compromise or otherwise misuse others’ data; access non-public information without authorization; degrade, interrupt or deny services to our users; and/or incur loss of funds that are not your own.\r\n- You must not leverage the existence of a vulnerability or access to sensitive or confidential data to make threats, extortionate demands, or ransom requests.\r\n- Your testing must not violate any applicable laws or regulations.\r\n- You are prohibited from participating in the program if you are a resident of any U.S. embargoed jurisdiction, including but not limited to Iran, North Korea, Cuba, the Crimea region, and Syria; or if you are on the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Person’s List or Entity List. By participating in the program, you represent and warrant that you are not located in any such country or on any such list.\r\n- By providing a submission, you agree that you may not publicly disclose your findings or the contents of your submission to any third parties without Paystack's prior written approval.\r\n- You must be 18 years of age or older.\r\n- You must not be employed by Paystack or any of its affiliates. You must also not be an immediate family member of someone employed by Paystack or any of its affiliates.\r\n- By reporting a bug, you grant Paystack and its affiliates a perpetual, irrevocable, worldwide, royalty-free license to use, copy, adapt, develop, create derivative work from, or share your submission for any purpose. You waive all claims, including breach of contract or implied-in-fact contract, arising out of your submission.\r\n- HackerOne may share with Paystack the personal information that you provide to HackerOne, in order to allow Paystack run this program more effectively.\r\n- Only the first, responsibly-disclosed submission of a vulnerability instance will be marked as valid, any subsequent reports will not be eligible for our program.\r\n\r\n\r\n ",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Assets which are owned by Paystack are in scope for this Vulnerability Disclosure Program",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.paystackintegrations.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nigerialogos.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "decodefintech.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "checkout.paystack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.paystack.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.paystack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.paystack.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "standard.paystack.co",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "zap.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paystackintegrations.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paystackmfb.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "paystack.shop",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.paystack.zap",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

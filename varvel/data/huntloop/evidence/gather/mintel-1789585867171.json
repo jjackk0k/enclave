@@ -1,0 +1,79 @@
+{
+ "at": "2026-09-16T19:10:58.173Z",
+ "opportunity": "mintel",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "clients.mintel.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "FunctionGeneratedResponse from cloudfront",
+    "via": "1.1 e9e4350b1ded67c8df30434cb8337934.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=600",
+    "content-security-policy": "frame-ancestors 'self' https://reports.mintel.com; report-uri https://3f88b768f9ca759710ab36a8b6c50c86.report-uri.com/r/",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cms.mintel.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "data.mintel.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "strict-transport-security": "max-age=300",
+    "content-security-policy": "frame-ancestors 'self'; report-uri https://3f88b768f9ca759710ab36a8b6c50c86.report-uri.com/r/d/csp/reportOnly",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.mintel.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cds.mintel.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "gunicorn",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

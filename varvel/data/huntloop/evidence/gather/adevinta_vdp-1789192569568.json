@@ -1,0 +1,89 @@
+{
+ "at": "2026-09-12T05:55:56.074Z",
+ "opportunity": "adevinta_vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.coches.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 1c331e1e1f7423e4ec815d284e00c2a6.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "adevinta.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to adevinta.com:443 refused: TTL expired"
+  },
+  {
+   "host": "kijiji.ca",
+   "kind": "domain",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Google Frontend",
+    "via": "1.1 google"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.infojobs.net",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 dec2a929e38abcba29053b59369dd9c4.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=63072000; includeSubdomains;",
+    "content-security-policy": "frame-ancestors 'self' *.optimizely.com *.optimizelyedit.com *.adobe.com *.adyen.com;"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "2dehands.be",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 813272f434255b631960acc4a58151c6.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

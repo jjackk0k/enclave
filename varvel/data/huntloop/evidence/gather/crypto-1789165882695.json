@@ -1,0 +1,105 @@
+{
+ "at": "2026-09-11T22:31:16.043Z",
+ "opportunity": "crypto",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "co.mona.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to co.mona.android:443 refused: host unreachable"
+  },
+  {
+   "host": "com.monaco.mobile",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.monaco.mobile:443 refused: host unreachable"
+  },
+  {
+   "host": "crypto.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a1f347ec6b78a-LHR",
+    "strict-transport-security": "max-age=15552000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.mona.co",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a1f3c2d7679c8-LHR",
+    "strict-transport-security": "max-age=604800",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "merchant.crypto.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-WG9FXPH",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-WG9FXPH"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39a1f45ac5b53a3-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

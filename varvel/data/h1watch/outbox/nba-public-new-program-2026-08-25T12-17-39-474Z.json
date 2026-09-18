@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "nba-public",
+      "name": "NBA Public Bug Bounty",
+      "offersBounties": true,
+      "assets": [
+        "bal.nba.com",
+        "cdn-bal.nba.com",
+        "cdn.nba.com",
+        "cms.nba.com",
+        "content-api-nextgen-prod.nba.com",
+        "content-api-prod.nba.com",
+        "core-api.nba.com",
+        "corp-dev.nba.com",
+        "cweb-ott.nba.com",
+        "gleague.nba.com",
+        "id.nba.com",
+        "identity.nba.com",
+        "manage-teams.nba.com",
+        "manage.nba.com",
+        "nbafedsvc.nba.com",
+        "stats-trafficcop-prod.nba.com",
+        "stats.gleague.nba.com",
+        "stats.nba.com",
+        "stats.wnba.com",
+        "syndication.nba.com",
+        "teamportal.nba.com",
+        "www.nba.com",
+        "www.wnba.com"
+      ],
+      "exclusions": [
+        "2kleague.nba.com",
+        "stats.2kleague.nba.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "3 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\nba-public-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "nba-public",
+  "name": "NBA Public Bug Bounty",
+  "url": "https://hackerone.com/nba-public",
+  "policy": "* [Purpose](#user-content-purpose)\n* [Scope](#user-content-scope)\n* [Rules of Engagement](#user-content-rules-of-engagement)\n* [In-Scope Vulnerabilities](#user-content-in-scope-vulnerabilities)\n* [Out of Scope Vulnerabilities](#user-content-out-of-scope-vulnerabilities)\n* [Make Your Submission Count](#user-content-make-your-submission-count)\n* [Reward Structure](#user-content-reward-structure)\n* [Response Targets](#user-content-response-targets)\n* [Disclosure Policy](#user-content-disclosure-policy)\n* [Compliance](#user-content-compliance)\n* [References](#user-content-references)\n\n## Purpose\nThe National Basketball Association (NBA) is a global sports and media organization, built around five professional sports leagues: the NBA, WNBA, NBA G League, NBA 2K League and Basketball Africa League. The NBA has a major international presence with games and programming available in 214 countries and territories in 60 languages. At the NBA, we’re passionate about growing and celebrating the game of basketball. The NBA's mission is centered around igniting inspiration and fostering connections among people worldwide through the transformative power of basketball. With the intensity of the game and incredible athleticism of our players, the NBA delivers excitement to hundreds of millions of fans worldwide. In addition to the league's on-court activities, the NBA manages relationships with television and digital media partners, develops marketing partnerships with some of the world's most recognizable companies, oversees the licensing of merchandise, and manages a wide range of global events that attract fans and drive social impact in communities around the world.\n\nThis policy defines the requirements for security researchers to conduct vulnerability discovery activities and submit identified findings through HackerOne for a potential bounty reward. You must have a HackerOne account and use the HackerOne platform for all submissions. Participating in the NBA’s bug bounty program is a unique opportunity to earn bounty payouts while helping to enhance the security of our applications. The NBA has been working closely with the security research community for more than six years through responsible disclosure and private bug bounty programs. Thanks to your contributions, the NBA continues to drive innovation through technology, captivate fans around the globe, and safeguard our brand. We greatly value the positive impact of your work to improve the security of the NBA.\n\n## Scope\nThe NBA has a vast infrastructure within the public domain. However, not all digital assets are in-scope for the NBA bug bounty program. Researchers are strictly prohibited from any security testing on applications that are not in-scope. Security testing on out-of-scope assets, vulnerabilities, and/or any actions that are otherwise in violation of the requirements stated are not eligible for bounty reward. All security researchers participating in the program must adhere to the scope requirements. The list of in-scope assets can be found [here](https://hackerone.com/nba-public/policy_scopes). \n\n## Rules of Engagement\n- Be mindful of your testing activities to avoid initiating any actions that could potentially lead to denial of service. Traffic requests must not exceed 3 requests per second, as this will help with the observability and monitoring of external testing. Failure to do so will be considered a denial-of-service (DoS) attack.\n- Do not perform attacks that can lead to denial of service (DoS/DDoS). \n- Do not perform social engineering, brute-forcing, or password spraying attacks.\n- Do not perform testing on out-of-scope assets or vulnerabilities.\n- Do not perform aggressive vulnerability scans.\n- Do not modify any files or destroy data, including permissions.\n- Do not access NBA customer, employee, or confidential information.\n- Do not intentionally view or access any data beyond what is needed to prove the vulnerability.\n- Do not degrade the NBA user experience. Security testing must not disrupt production or lower environment systems.\n- Stop testing and report the finding to the NBA immediately if you obtain unauthorized access to sensitive data, compromised accounts, or discover arbitrary command execution.\n\n## In-Scope Vulnerabilities\nThe NBA has adopted the OWASP Top 10 framework to ensure our web applications are security-hardened against top relevant risks and vulnerabilities. Our analysis will consider the information security triad: confidentiality, integrity, and availability with the lens of business risk and sensitive data exposure to determine a finding’s severity. The list below outlines vulnerability types that are in scope for bounty payout.\n- Broken Access Control\n- Remote Code Execution (RCE)\n- Injection\n- Insecure Design\n- Security Misconfiguration\n- Account Takeover (ATO)\n- Vulnerable and Outdated Components\n- Identification and Authentication Failures\n- Software and Data Integrity Failures\n- Server-Side Request Forgery (SSRF)\n- Cross-Site Scripting (XSS)\n- Cryptographic Failures\n\n## Out of Scope Vulnerabilities\nThe following vulnerability types are out of scope and not accepted by the NBA. Note: Zero-day vulnerabilities may be reported 30 days after initial publication. \n- Denial of Service (DoS) or Distributed Denial of Service (DDoS)\n- Cache Poisoning\n- HTTP Request Smuggling\n- Client-Side Desync\n- Edge Side Includes (ESI) Injection\n- Server Information & Status Pages\n- SSL/TLS Best Practices\n- Reports from automated tools or scans\n- Social Engineering\n- Vulnerabilities on out-of-scope assets\n- Verbose error messages without proof of exploitability\n- Issues without a clearly defined security impact\n- Self-exploitation\n- Brute Forcing\n- Password Spraying\n- Banner Grabbing\n- Absence of SPF/DMARC records\n- NBA ID fan account credentials\n- Contact form scanning\n\n## Make Your Submission Count\n- Acceptance or rejection of all vulnerability report submissions is subject to the NBA’s sole discretion.\n- Detailed reports must be provided. Reports without a working proof of concept and steps to reproduce the finding will have the disposition status changed to \"Needs more information.\"\n- Proof of concepts are required to obtain the full bounty payment. If a proof of concept cannot be provided, justification by the researcher must be included.\n- When duplicates occur, only the first received report will be awarded provided it can be fully reproduced in a form acceptable to the NBA.\n- Exposed or compromised credentials will be evaluated on a case-by-case basis and paid out according to risk and impact to the NBA.\n- Vulnerabilities will be consolidated into a single report and bounty payout if internal review determines that separate fixes are not warranted. This includes multiple reports submitted by a researcher for the same vulnerability found on various endpoints of the same host application or its components impacting multiple hosts.\n\n## Reward Structure\nThe NBA has aligned with CVSS v3.1 and places significant emphasis on the risk and impact resulting from a vulnerability for the reward conclusion. Bounty payments and severity classification are determined at the sole discretion of the NBA program administrator. All testing performed must comply with this program’s policy, rules of engagement, and scope for a report to be eligible for bounty reward. The vulnerability severity classification will generally be categorized according to the following criteria:\n\n### Medium Severity Vulnerability\nMedium severity vulnerabilities pose a moderate risk to the NBA. Vulnerability examples include exposure of API tokens, reflected or DOM cross-site scripting with access to cookies, takeover on an unused subdomain, or read access to sensitive data or fields.\n\n### High Severity Vulnerability\nHigh severity vulnerabilities are where exposure to the NBA starts to elevate. For example, read privileges to databases with sensitive PII, ability to scan internal network resources, domain takeover on an active web application, or improper access control.\n\n### Critical Severity Vulnerability\nCritical severity vulnerabilities warrant immediate attention, and the proof of concept needs to demonstrate the exploitability and risk to the NBA. Examples include arbitrary command execution on a remote device, bulk sensitive data loss, or write access with full permissions to a database containing sensitive PII.\n\n## Response Targets\nThe NBA will use reasonable efforts to meet the following response targets for researchers participating in the program.\n\n| Response Target                                                                                | Time (Business Days)       |                                                \n| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |\n| First Response                                                                                 | 5 Days                                                     |\n| Triage                                                                                 | 10 Days                                                     |\n| Resolution                                                                                 | Dependent on severity & complexity                                                     |\n\n## Disclosure Policy\nThis program does not allow any disclosure without the NBA’s prior written approval in each instance and all researchers participating in the NBA public bug bounty program must adhere to this disclosure policy. Approval may be granted or withheld at the NBA’s sole discretion. Additionally, the NBA may require redactions to any authorized disclosure. Researchers must not discuss or release to the public any information about vulnerabilities (even if resolved) found in connection with this program, except and to the extent expressly permitted by the NBA. Approvals must be obtained from the NBA program administrator and requested within the HackerOne report submitted prior to any public disclosure.\n\nThe NBA strictly prohibits public disclosure and/or storage of data discovered during any testing activities. All data must be secured at-rest, in-transit, and in-storage to assure the confidentiality of sensitive or other protected information. All data collected, downloaded, cached or otherwise stored by researchers during testing activities, including any data entered or stored in third-party applications or services, must be promptly and securely deleted after submission of the report.\n\n## Compliance\nAdherence to the NBA bug bounty program policy is required. Lack of compliance by security researchers is subject to the processes defined within the HackerOne Code of Conduct.\n\n## References\n| Document Title                                                                                | Document Description                                                       | Document URL                                                       |\n| -------------------------------------|------------------------------------------------------- | ------------------------------------------------------------------- |\n|NBA Bug Bounty Program Policy|          Documents the policy and rules of engagement for the program.|                 https://hackerone.com/nba-public |\n|NBA Asset Scope|         Defines in-scope assets for testing within the program.|                https://hackerone.com/nba-public/policy_scopes |\n|HackerOne Code of Conduct Policy|  Code of Conduct policy and process from HackerOne. |                https://www.hackerone.com/policies/code-of-conduct |\n|HackerOne Safe Harbor|          Golden Standard Safe Harbor (GSSH) policy from HackerOne.|                https://hackerone.com/security/safe_harbor |\n|CVSS 3.1|          Common Vulnerability Scoring System (CVSS) framework.|    https://nvd.nist.gov/vuln-metrics/cvss |\n|OWASP Top 10|            OWASP Top 10 vulnerabilities reference standard.|   https://owasp.org/www-project-top-ten/ |\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gleague.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "2kleague.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bal.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "content-api-nextgen-prod.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "content-api-prod.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "core-api.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "id.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats-trafficcop-prod.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cdn.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cms.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "identity.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.wnba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "teamportal.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cweb-ott.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "syndication.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats.wnba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats.gleague.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "stats.2kleague.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cdn-bal.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "corp-dev.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "manage.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "manage-teams.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "nbafedsvc.nba.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

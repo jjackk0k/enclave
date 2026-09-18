@@ -1,0 +1,206 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hubspot",
+      "name": "HubSpot",
+      "offersBounties": true,
+      "assets": [
+        "*.hs-sites(-eu1)?.com",
+        "*.hubspotemail.net",
+        "*.hubspotpagebuilder.com",
+        "*.hubspotpagebuilder.eu",
+        "Customer Connected Domain",
+        "Customer Portal",
+        "HubSpot Android Mobile App",
+        "HubSpot Sales Office 365 add-in",
+        "HubSpot iOS Mobile App",
+        "Other HubSpot-owned (sub)domains not listed as Out of Scope",
+        "api*.hubapi.com",
+        "api*.hubspot.com",
+        "app*.hubspot.com",
+        "chatspot.ai",
+        "hubspot.net"
+      ],
+      "exclusions": [
+        "connect.com",
+        "events.hubspot.com",
+        "ir.hubspot.com",
+        "shop.hubspot.com",
+        "thespot.hubspot.com",
+        "trust.hubspot.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limits"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hubspot-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hubspot",
+  "name": "HubSpot",
+  "url": "https://hackerone.com/hubspot",
+  "policy": "# Instructions for creating a HubSpot trial portal:\n- Anyone may create a trial portal by navigating to: https://offers.hubspot.com/free-trial. When signing up, please use your @WEAREHACKERONE.COM email address.\n- All available functionality may be tested with the exception of email sends to email addresses you do not own. Please note, sending phishing attacks or spam from a portal will be grounds for permanent disqualification.\n- With a trial account, it is possible to create an API key to send API requests. Follow [these instructions](https://developers.hubspot.com/docs/guides/apps/authentication/intro-to-auth) for creating an API key. API requests should fall within these [API usage guidelines](https://developers.hubspot.com/docs/guides/apps/api-usage/usage-details).\n- Information about HubSpot APIs, including example requests, is available at: https://developers.hubspot.com/docs/api/overview\n\n## Beta Features:\nWe encourage researchers to test and submit any bugs or vulnerabilities you may identify within beta features. To learn more about opting your account into beta features, check out our KB reference [here](https://knowledge.hubspot.com/account-management/opt-your-hubspot-account-into-a-public-beta-feature).\n\n---\n# Special Reward and Bonus (CTF Challenge)\nWe created a portal with 1 contact record in the CRM. The record has 2 properties (`firstname` and a custom sensitive property called `super_secret`) that contain flags you need to obtain for this capture the flag challenge. Your task is to find permission-related vulnerabilities to bypass access controls (without any social engineering, user interaction, or brute-forcing) and read the `firstname` flag for a $15,000 USD special reward. Optionally, you may attempt to obtain the second `super_secret` flag for an additional $5,000 USD bonus, for a total of $20,000 USD potential reward.\n\nThe target domain for this challenge is `app.hubspot.com` and the target portal ID is `46962361`. **DO NOT attempt to access other portals you don’t own.** In order to be awarded the bounty, you must:\n1. Provide the property name and value of the flag(s) obtained. For example: firstname = <contact’s first name>, super_secret = <contact’s super secret info>\n2. Provide detailed reproduction steps so we can successfully validate the finding.\n3. Email your submission ID to the email address specified in the contact record’s `email` property with the subject `HubSpot CTF Challenge`.\n\nThe first valid submission will be awarded the special reward. At that time, the CTF challenge will be paused while we remediate the finding and improve our defenses. Once done, we will modify the flags, make an announcement that we’re resuming the challenge, and update our bounty brief to indicate that the CTF is open again.\n\n**_The standard HubSpot bug bounty program rules apply. Please take the time to read the entire bounty brief before attempting this challenge._**\n**_HubSpot reserves the right to stop the CTF challenge, special reward, and bonus at any time without prior notice and reason._**\n\n---\n\n# Focus Areas\n## Authentication flows\nWe highly encourage researchers to test various authentication flows including but not limited to:\n- Signup (with email, Google, Apple, Microsoft)\n- Login (with email, SSO, Google, Apple, Microsoft)\n- MFA\n- Account recovery / password reset\n- OAuth\n\nResearchers should approach these areas with a creative and critical mindset, exploring potential vulnerabilities that may lead to user account takeover and/or unauthorized access of data. Our goal is to ensure that our authentication mechanisms not only comply with industry standards but also demonstrate strong resilience against emerging threats and sophisticated attack techniques.\n\n## High impact findings\nOverall, we are most interested in critical vulnerabilities that allow access to customer CRM records and sensitive (PHI and PII) data, HubSpot’s corporate data, and our internal network. We highly encourage researchers to look for:\n- Vulnerabilities (like cross-site scripting) that may lead to user account takeover\n- Cross-portal data leakage and access; i.e. if you are authenticated and authorized to access portal A, you should not be able to read/modify data in portal B, unless you have also been authorized to that portal\n- Server-side code execution vulnerabilities\n- Sensitive data exposure\n\n# Ratings and Rewards\nFor the initial prioritization/rating of findings, this program will use the [the Common Vulnerability Scoring System (CVSS)](https://www.hackerone.com/vulnerability-management/what-common-vulnerability-scoring-system-cvss). However, it is important to note that in some cases a vulnerability priority will be modified due to its likelihood and impact. In any instance where an issue is downgraded, a full, detailed explanation will be provided to the researcher.\n\nTo maximize your reward and minimize the payout time frame, please make sure to include the following in your report:\n- An attack scenario: Provides context and demonstrates how the vulnerability can be exploited in real-world conditions.\n- Clear reproduction steps: Helps ensure that the vulnerability can be consistently and reliably demonstrated.\n- Recommended fix: Speeds up the mitigation process and reduces the time that the system remains exposed. Providing a practical solution also showcases the researcher’s understanding of the issue which enhances the credibility of the report.\n\n## Critical Severity - Reward Tiers\nEvery finding that meets the Critical severity bar is assigned to one of the reward tiers below, based on the blast radius and demonstrated impact of the vulnerability. These tiers apply the same impact-and-likelihood logic used in our XSS Severity Guidelines. Tier assignment is based on the impact actually demonstrated in the report; theoretical or unproven escalation is rated on the impact shown. A single root cause is rewarded once.\n\nWe reserve the right to grade a finding above or below these tiers at our discretion where we deem it necessary. In any case where we do, a full, detailed explanation will be provided to the researcher. We will otherwise strive to follow these tiers in as many cases as possible, in order to be transparent about how we reward Critical findings.\n\n| Tier | Reward | Impact | Success Conditions | Example |\n|---|---|---|---|---|\n| **C1 - Elevated Critical** | $5,000 to $10,000 | Compromise of HubSpot internal systems, or automatic compromise of many organizations in a single attack. Includes remote code execution on HubSpot systems, access to source code, internal networks, CI/CD, production databases, or infrastructure credentials. | No prior knowledge of, or access to, a target is required. The attack compromises HubSpot's own systems or fires across organizations automatically, without victim interaction. | Server-side remote code execution on a HubSpot-operated rendering pipeline; unauthorized access to HubSpot source code or internal source-control; SQL injection escalated to local file read on production; or read access to a production database. |\n| **C2 - Standard Critical** | $3,000 to $5,000 | Compromise of arbitrary customers or portals, executed per target or through a multi-step chain rather than automatically platform-wide. Includes cross-portal data access, arbitrary-user account takeover, and financial/payment account takeover. | Exploitable against arbitrary customers with no prior relationship, but the attack is run against each target or assembled through a chain rather than firing across the platform on its own. | Zero-click account takeover of an arbitrary HubSpot user; cross-portal read or write access to another customer's CRM/sensitive data; takeover of a user's connected payment-processor account; or theft of OAuth authorization codes leading to account takeover. |\n\n**For Elevated Criticals.** Please ensure you do not access or alter internal systems or data belonging to other clients. Use a minimally disruptive proof-of-concept (PoC) to demonstrate the vulnerability.\n**Chained findings.** Where a report chains multiple issues to reach Critical impact, the tier reflects the impact of the full chain, not the individual components.\n\n\n# In Scope Features\n### Customer portal\n_(1)_ The customer portal feature is in scope. However, testing on live customer portals is prohibited without explicit customer authorisation. Please set up your own instance in your test HubSpot account. For instructions, navigate to: [https://knowledge.hubspot.com/inbox/set-up-a-customer-portal](https://knowledge.hubspot.com/inbox/set-up-a-customer-portal)\n\n### Customer connected domain\n_(2)_ HubSpot Marketing and CMS customers often host content on the HubSpot platform. Customer connected domains are in scope and CNAME'd to a subdomain like:\n- groupXX.sites.hscoscdnYY.net, where XX and YY are the numeric identifiers for the content path.\n\n# In Scope Vulnerabilities\nIn general, vulnerabilities thought to be introduced by HubSpot's hosting platform, and therefore may affect multiple HubSpot customers, are in-scope for this program. Please report those here. Vulnerabilities that are not HubSpot-introduced will still be investigated and will be reported to the affected customer, but they are not rewardable.\n\n## Cross-site scripting (XSS)\nXSS found while authenticated to the app are only eligible for a reward if it executes in the context of hubspot.com. XSS found on [default system domains](https://knowledge.hubspot.com/inbox/set-up-a-customer-portal) (eg. _hs-sites_ or _hubspotpagebuilder_) are only eligible for a reward if all of the below criteria are met:\n1. XSS also executes on the connected domain\n2. The XSS was introduced by HubSpot\n\nWe've received XSS submissions on customer sites caused by a vulnerable HubL or JavaScript code written by the customer in the [Design Manager](https://knowledge.hubspot.com/design-manager/a-quick-tour-of-the-design-manager). Those are not rewardable.\n\n_We will make exceptions to these rules for any XSS submitted with an exploit that shows clear security impact to the HubSpot platform._\n\n### XSS Severity Guidelines\n\nThe following table outlines the internal guidelines we have established to grade the severity of Cross-Site Scripting (XSS) vulnerabilities submitted to this program. These guidelines apply only to XSS submissions that meet the in-scope eligibility criteria defined above.\n\nWe reserve the right to use our discretion to grade above or below these severity levels in cases where we deem it necessary. That said, we will strive to meet these guidelines in as many cases as possible in order to be transparent about how we assess XSS risk on this program.\n\n| Severity | Impact | Success Conditions | Likelihood | Example |\n|---|---|---|---|---|\n| **Critical** | Multi-organisational — multiple accounts, not portals, are affected by a single attack. | None; any account with a portal is affected (e.g., an attack can be launched off-site from a high-traffic domain). **AND** Attacker needs no prior knowledge of the target. | Guaranteed to affect many organisations were an attack to be launched. | Stored XSS in a platform-wide UI component on `app.hubspot.com` that fires automatically for every authenticated user without any interaction, enabling mass session hijacking across all organisations. |\n| **High** | Multiple portals are affected by a single attack. | Few; very limited interaction is needed by the victim (e.g., one-click attack). **AND** Attacker needs no prior knowledge of the target. | Exploitation is possible and likely to succeed. | Stored XSS on `app.hubspot.com` where clicking a single crafted link executes a payload in the victim's authenticated session. No prior knowledge of the victim is needed; attacker can steal session tokens and access CRM data across the victim's portals. |\n| **Medium** | Multiple portals are affected by a single attack. | Pre-existing knowledge or access to targets is needed. **AND/OR** Social engineering may be necessary for a successful attack. | Exploitation is unlikely to succeed in most cases. | Stored XSS in a shared CRM asset (e.g., a record property) that fires when another user views it. Requires the attacker to have portal write access to inject the payload and social engineering to direct a target to the affected page. |\n| **Low** | A single portal is compromised by the attack. | Complex conditions or extensive knowledge of the target is needed. **AND/OR** Significant social engineering is needed for a successful attack. | Exploitation is very unlikely to succeed in most cases. | Stored XSS in a portal configuration page that only fires for super admins of the same portal. Requires editor-level access, a crafted payload in a specific field, and social engineering to get an admin to navigate to the affected page. |\n| **Informational** | A single portal is compromised by the attack. | Victims must effectively attack their own portal. | Exploitation has a near-zero chance of success in real conditions. | Self-XSS where a user injects a script into a field that only renders in their own authenticated session. No path to cross-user exploitation; the victim would need to paste the payload into their own portal. |\n\n## Subdomain takeovers\nHubSpot owns thousands of subdomains. Researchers who submit a valid subdomain takeover will be rewarded at either P2 or P3 level, depending on impact.\n\nSubdomain takeover reports are in scope only if they meet the following criteria:\n- You must include proof that the subdomain is owned by HubSpot.\n- You must demonstrate proof-of-concept by hosting a simple, nonmalicious html file under the taken-over subdomain.\n\n## Insecure direct object references (IDORs)\n\nCross-portal IDORs or privilege escalation issues that allow unauthorized access to sensitive data, different customer portals, or administrative functions are eligible for rewards and will be prioritized based on their impact.\n\nFor same-portal IDORs, the API layer is the relevant enforcement boundary. UI-level restrictions (e.g., a grayed-out button) do not constitute a security control. To be eligible for a reward, a report must demonstrate that the action is not blocked at the backend permission layer and results in meaningful security impact, defined as:\n\n- Unauthorized read access to another user's sensitive data (PII, PHI, financial/billing information, credentials, or records restricted by object-level permissions)\n- Unauthorized modification or deletion of another user's data with a meaningful integrity or confidentiality consequence\n\n**Reports will be closed as Informational if:**\n- The behavior is consistent with our backend permission model (e.g., in HubSpot's engagement model, edit access implies delete access by design)\n- The owning team confirms the behavior is working as designed\n- The low-privileged user holds a scope that legitimately permits the action\n- It's a previously accepted and documented risk (e.g., users without `User table access` can still view a list of users elsewhere in their HubSpot account as documented [here](https://knowledge.hubspot.com/user-management/hubspot-user-permissions-guide))\n\n**Note:** If modifying another user's settings could result in account takeover, data exposure, or loss of account access, the report may still be eligible.\n\n**Higher Priority IDORs** (eligible for standard rewards):\n\n- Cross-portal data access or leakage\n- Access to [sensitive properties](https://knowledge.hubspot.com/properties/store-health-data#create-phi-properties) or PHI/PII data within the same portal\n- Financial, billing, or payment information access within the same portal\n- Privilege escalation to Super Admin functions within the same portal\n- User account takeover capabilities within the same portal\n\n**Lower Priority / Informational IDORs** (may be closed without reward):\n\n- Basic CRUD operations on non-sensitive objects within the same portal\n- Sharing / permission modifications on non-sensitive content within the same portal\n- Feature or setting toggles within the same portal without demonstrated security impact\n\n**Note:** We reserve the right to mark authorization bypass issues as informational when they involve low-impact administrative functions, even if they represent a technical violation of intended permissions. This allows our team to focus resources on higher-impact security issues while still acknowledging valid findings.\n\n---\n# Out Of Scope Vulnerabilities:\nThe following submission types are excluded from the bounty and therefore not rewardable:\n- Reports related to the rate limits applied to an API endpoint\n- Login or Forgot Password page brute force\n- Denial of service attacks\n- Perceived excessive volumes of sent email (e.g., mail flooding)\n- Race condition bugs that bypass subscription limits\n- Social-engineering of any kind against HubSpot employees or its users\n- Vulnerable libraries without a working proof-of-concept\n- Clickjacking\n- Absent or misconfigured HTTP headers\n- Missing best-practice bugs that don't pose a direct/immediate risk to our company or our users (e.g. missing certificate authority authorization)\n- XSS that don't execute in the context of *.hubspot.com or customer connected domains, and instead only executes on preview domains like hs-sites.com, hubspotpagebuilder.com, hubspotpreview.com, cdn.hubspot.net, and similar domains. These domains are intentionally designed to host untrusted user-supplied data.\n\n---\n# Important Notice:\nParticipating community members agree that they have appropriate rights for HubSpot to use Community Member Data as contemplated in this Program Policy and such use of Community Member Data by HubSpot will not infringe, misappropriate, or violate a third party's intellectual property rights, or rights of publicity or privacy.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "chatspot.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "connect.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please note that connect.com will be sunset as of June 13, 2025. As a result, functionality associated with connect.com, even under api*.hubspot.com, will also be considered out of scope. In a case where a vulnerability stemming from connect.com results in compromise of HubSpot accounts or other fea",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hubspotemail.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "shop.hubspot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "trust.hubspot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "thespot.hubspot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ir.hubspot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hs-sites(-eu1)?.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.hubspotpagebuilder.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.hubspotpagebuilder.eu",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "Customer Portal",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Instructions on setting up a customer portal linked below:\nhttps://knowledge.hubspot.com/inbox/set-up-a-customer-portal",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "Customer Connected Domain",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Refers to domains connected within a HubSpot portal. For example, an XSS vulnerability identified on a HubSpot hosted page (where customer domain is connected in the HubSpot portal).",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "HubSpot Android Mobile App",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You can download the app at the link below:\nhttps://play.google.com/store/apps/details?id=com.hubspot.android&hl=en_US&gl=US&pli=1",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "HubSpot iOS Mobile App",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "You can download the app at the link below:\nhttps://apps.apple.com/us/app/hubspot-crm-grow-better/id1107711722",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "HubSpot Sales Office 365 add-in",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Setup instructions linked below:\nhttps://knowledge.hubspot.com/connected-email/get-started-with-the-hubspot-sales-office-365-add-in",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Other HubSpot-owned (sub)domains not listed as Out of Scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Other HubSpot-owned (sub)domains not listed as Out of Scope . Please make sure to exercise due diligence before testing. You must include proof that the subdomain is registered to HubSpot to be eligible for a reward.",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "events.hubspot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "app*.hubspot.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api*.hubspot.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api*.hubapi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hubspot.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    }
+  ]
+}

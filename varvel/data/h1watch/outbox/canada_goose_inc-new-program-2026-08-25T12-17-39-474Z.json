@@ -1,0 +1,57 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "canada_goose_inc",
+      "name": "Canada Goose Inc.",
+      "offersBounties": false,
+      "assets": [
+        "api.canadagoose.com",
+        "canadagoose.com",
+        "service.canadagoose.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\canada_goose_inc-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "canada_goose_inc",
+  "name": "Canada Goose Inc.",
+  "url": "https://hackerone.com/canada_goose_inc",
+  "policy": "Canada Goose Inc. looks forward to working with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nCanada Goose Inc. will make reasonable efforts to meet the following response targets for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 10 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll use reasonable efforts to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n•\tFollow HackerOne's disclosure guidelines: https://www.hackerone.com/disclosure-guidelines.\r\n\r\n# Program Rules\r\n•\tDo not conduct social engineering, (e.g, spearphishing, vishing, smishing) of Canada Goose personnel, third parties, contractors, or customers\r\n•\t Avoid privacy violations, destruction of data, and interruption or degradation of our service. \r\n•\tOnly interact with accounts you own or with the explicit permission of the account holder.\r\n•\tCommon Automated Tooling including Acunetix, Nessus, and Qualys should be avoided. Such tools include payloads that could trigger state changes or damage production systems or data\r\n•\tDo not compromise the privacy or safety of Canada Goose personnel or any third parties.\r\n•\tDo not compromise the intellectual property or other commercial or financial interests of any Canada Goose personnel or entities, or any third parties.\r\n•\tDo not include any information that may identify an individual other than yourself (such as name, contact information, IP address, or other similar information) in your vulnerability report or any attachments\r\n\r\n#Out of scope vulnerabilities\r\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n \r\n•\tClickjacking on pages with no sensitive actions.\r\n•\tUnauthenticated/logout/login CSRF.\r\n•\tAttacks requiring MITM or physical access to a user's device.\r\n•\tPreviously known vulnerable libraries without a working Proof of Concept.\r\n•\tComma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n•\tMissing best practices in SSL/TLS configuration.\r\n•\tAny activity that could lead to the disruption of our service (DoS).\r\n•\tContent spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n•\tBugs requiring exceedingly unlikely user interaction (e.g., requiring a user to manually type in an XSS payload)\r\n•\tAny activity involving Canada Goose Inc.  physical locations, including but not limited to conducting physical attacks against assets (e.g., any equipment within Canada Goose facilities, stores, locks, Point of Sale (POS) systems, kiosks)\r\n•\tBanner Exposure / Version Disclosure\r\n•\tMissing best practices in Content Security Policy\r\n\r\n#Crafting a Report\r\nTo help streamline our intake process, we ask that submissions include:\r\n\r\n•\tSubmit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n•\tDescription of the reported vulnerability.\r\n•\tProvide your IP address in the bug report. We will keep this data private and only use it to review logs related to your testing activity.\r\n•\tSteps to reproduce the reported vulnerability.\r\n•\tProof of exploitability (e.g., screenshot, video).\r\n•\tPerceived impact to another user or the organization.\r\n•\tList of URLs and affected parameters.\r\n•\tOther vulnerable URLs, additional payloads, Proof-of-Concept code.\r\n•\tBrowser, OS or app version used during testing.\r\n•\tDo not use tiny-urls in reports.\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nWe may collect information that could reasonably be used to identify you (e.g., IP address). Canada Goose Inc uses this information to evaluate a reported vulnerability and protect products, services or information technology infrastructure.\r\nCanada Goose reserves the right to modify or terminate this program at any time.\r\n\r\nThank you for helping keep Canada Goose Inc. and our customers safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "canadagoose.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Canadagoose.com is our public facing e-commerce website hosted on the Salesforce Commerce Cloud. All subdomains under canadagoose.com are in-scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "service.canadagoose.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is our customer warranty portal hosted on the Salesforce Service Cloud.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.canadagoose.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "The canadagoose API gateway is an interface to a collection of backend services",
+      "max_severity": "critical"
+    }
+  ]
+}

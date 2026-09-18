@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "john-deere",
+      "name": "John Deere",
+      "offersBounties": false,
+      "assets": [
+        "1104383066",
+        "1498206477",
+        "958749681",
+        "agrisync.com",
+        "bearflagrobotics.com",
+        "bluerivertechnology.com",
+        "ccms.deere.com",
+        "com.deere.equipmentplus",
+        "com.deere.myoperations",
+        "deere.com",
+        "developer.deere.com",
+        "jdisonline.com",
+        "jdlink.deere.com",
+        "jdquote2.deere.com",
+        "jdwarrantysystem.deere.com",
+        "johndeere.com",
+        "johndeerecloud.com",
+        "my.deere.com",
+        "myjohndeere.deere.com",
+        "oca.deere.com",
+        "partsadvisor.deere.com",
+        "payload.deere.com",
+        "salescenter.deere.com",
+        "wirtgen-group.com",
+        "www.johndeere.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\john-deere-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "john-deere",
+  "name": "John Deere",
+  "url": "https://hackerone.com/john-deere",
+  "policy": "# Responsible Disclosure Policy\n \nJohn Deere employs secure design and testing practices to protect the integrity, availability, and confidentiality of our applications, systems and the data within them, but we're always willing to accept additional help.\n \nWe encourage the security research community or anyone to report any potential vulnerabilities in accordance with the guidelines below. Please note, John Deere does not operate a bug bounty program and makes no offer of reward or compensation in exchange for submitting potential vulnerabilities.\n \n## Disclosure Policy Guidelines\n- Provide detailed reports with reproducible steps. Screenshots are welcome.\n- Do not cause harm to John Deere, our customers, or others.\n- Do not compromise the privacy or safety of John Deere, our customers, or others and the operation of our services. Specifically;\n   - Avoid access to data related to individuals and contact us immediately if you inadvertently encounter such data:\n   - Do not alter, save, store, transfer, or otherwise access such data, and immediately purge any local data upon reporting the vulnerability to us\n   - Act in good faith to avoid privacy violations, destruction of data, and interruption or degradation of our services\n   - Do not violate any laws, including all privacy and data security laws. \n   - Do not disclose any information about the vulnerability unless John Deere specifically approves the disclosure\n   - Only conduct research and submit potential vulnerabilities on assets or systems specifically identified as In Scope and do not conduct research on Out of Scope Vulnerabilities.\n   - Do not participate in this program if you are:\n      - A member of a foreign terrorist organization as designated by the U.S. Department of State;\n      - A resident of or located in a country against which the United States has trade restrictions or export sanctions as determined by the U.S. Office of Foreign Assets Control (“OFAC”)\n      - Included on any list as a party of concern by the U.S. Bureau of Industry and Security of the Department of Commerce\n      - We aim to respond to all new vulnerability reports within 5 business days and will strive to keep you informed on our progress during the process\n\n## Using Credentials found in Breached Data\n- The submission of breached credentials is currently out of scope as we develop and implement internal processes to mitigate exposure.\n  \n## Safe Harbor\nWe agree to not pursue civil action against researchers who comply with John Deere’s and HackerOne’s policies regarding this vulnerability disclosure program.  In the event of a conflict between this policy and any HackerOne policy, this policy applies.\n \n## Program Scope\nAny John Deere digital application, product or service, including John Deere machines, equipment or hardware (collectively “Equipment”), as well as any software, firmware or other component of John Deere equipment\n\n## Tracking\nTo help us identify you as a HackerOne researcher, please include a custom User-Agent in your request headers: 'hackerone-{your username}'. \n\nFor the purposes of Program Scope, “John Deere” includes Deere & Company and each of its wholly owned subsidiaries. Examples of digital applications, products and services that are in scope can be found the \"Scope\" tab of the policy page.\n\n## Out of Scope Vulnerabilities\nWhen reporting vulnerabilities, please consider:\n1. attack scenario/exploitability\n2. security impact of the bug. \n\n### The following issues are considered out of scope:\n \n* Clickjacking on pages with no sensitive actions.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Rate Limiting Vulnerabilities\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n * Any vulnerability requiring Social Engineering or Phishing to exploit are out of scope. Including, but not \n    limited to:\n     * Self\\Client\\Reflective XSS ( **Exception: Stored XSS vulnerabilities**)\n     * Session Cookie Reuse\n     * Open redirect vulnerabilities\n* Open ports which do not lead directly to a vulnerability\n* Reports from automated tools or scans without a working Proof of Concept\n* Physical Penetration Testing\n* Denial of Service Attacks\n* Presence of autocomplete attribute on web forms\n* John Deere machines or equipment\n* Cache Poisoning Vulnerabilities relating to cloudfront (CDN).\n\n#### Dangling IP Vulnerabilities\n\n- **Accepted:** Dangling IP vulnerabilities are **in scope** only if you can demonstrate a clear and reproducible security impact, such as a subdomain takeover or the ability for an attacker to claim the IP address and serve malicious content to users or systems. Reports must include evidence of a practical exploit, not just the existence of an unassigned or unallocated IP. **Simply showing that an IP address is no longer listed as owned by John Deere is not sufficient evidence of impact.**\n- **Not Accepted:** Reports of unassigned, unallocated, or \"dangling\" IP addresses that do not result in a proven security risk (e.g., no subdomain takeover, no ability to intercept or serve traffic) are **out of scope**. Merely identifying a released or unassociated IP address is not sufficient for a valid report.\n\n## Account Registration\nWhen registering for John Deere accounts on assets that allow self-registration, we kindly request that you use your official HackerOne email address ending with @wearehackerone.com. This ensures we can accurately identify and verify the legitimacy of researchers engaging with HackerOne.\n\nAny role-based or authorization vulnerability, in which a user can execute actions not intended by their assigned role, will be classified as a low severity issue if the following conditions are met:\n* The user or hacker must be invited or added to an account, organization, or similar entity by an administrator of that entity.\n* The unintended actions can be executed within the context of that specific entity only.\n\nAny John Deere digital application, product or service, but excluding: (1)Any John Deere machine, equipment or other hardware (collectively “Equipment”) And  (2) Any software, firmware or other component of John Deere Equipment.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.johndeere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "partsadvisor.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jdisonline.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "myjohndeere.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jdquote2.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jdwarrantysystem.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ccms.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "salescenter.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "my.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1104383066",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.deere.myoperations",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "developer.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "jdlink.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "oca.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "payload.deere.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1498206477",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "958749681",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.deere.equipmentplus",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "johndeere.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wirtgen-group.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bluerivertechnology.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bearflagrobotics.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "agrisync.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "johndeerecloud.com",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

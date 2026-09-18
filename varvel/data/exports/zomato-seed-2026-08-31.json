@@ -1,0 +1,73 @@
+{
+ "target": "zomato.com + mcp-server.zomato.com",
+ "date": "2026-08-31",
+ "operator": "varvel",
+ "transport": "ghost socks5://10.64.0.1:1080 + X-HackerOne: varvel, fail-closed",
+ "seeding": {
+  "web_ui": "failed \u2014 ordering is mobile-app-only; Add-Address modal resolves to Manchester locus (delivery_subzone_id 0) which server rejects",
+  "worked": "curl replay of harvested POST /webroutes/order/address (cookie + x-zomato-csrft), Connaught Place subzone via /webroutes/location/get (subzone_id=104, delivery_subzone_id=505)",
+  "validation_oracle": [
+   "missing params: [delivery_subzone_id]",
+   "missing params: [address, alias]"
+  ],
+  "persisted_object": {
+   "address_id": 1037093544,
+   "address": "1 YWCA Building, Ashoka Road, Hanuman Road Area, Connaught Place, Delhi",
+   "alias": "home",
+   "lat": 28.632,
+   "lon": 77.217
+  },
+  "verified_on": [
+   "GET /webroutes/user/address?page=1",
+   "GET /webroutes/order/address",
+   "MCP get_saved_addresses_for_user"
+  ]
+ },
+ "harvested_endpoints": [
+  "/webroutes/user/address",
+  "/webroutes/order/address",
+  "/webroutes/location/get",
+  "/webroutes/location/search",
+  "/webroutes/order/cart",
+  "/webroutes/order/autoVerifyPhone",
+  "/webroutes/dote/address",
+  "/webroutes/dote/cart",
+  "/webroutes/dote/home",
+  "/webroutes/dote/orderDetails",
+  "/webroutes/dote/placeOrder"
+ ],
+ "three_way_mcp": {
+  "A_own_address_history": "success:true (empty order list) \u2014 resolves for owner",
+  "B_on_A_address_id": "INVALID_ADDRESS_ID \u2014 ownership-scoped (DECISIVE)",
+  "B_own_addresses": "[] \u2014 isolation",
+  "A_garbage_id": "INVALID_ADDRESS_ID",
+  "A_adjacent_id_1037093545": "INVALID_ADDRESS_ID",
+  "unauth": "401 invalid_token"
+ },
+ "three_way_web": {
+  "A_user_address": "200 count:1 full object",
+  "B_user_address": "200 count:0",
+  "B_decoy_user_id": "200 count:0 (ignored)",
+  "unauth_user_address": "401 You are not authorized.",
+  "A_order_address": "200 addresses[1]",
+  "B_order_address": "200 addresses[]",
+  "unauth_order_address": "200 addresses[] (no data)"
+ },
+ "findings": [],
+ "informational": [
+  "unauth /webroutes/order/address returns 200-empty vs 401 on /webroutes/user/address",
+  "refresh_token grant demands code_verifier field, accepts any value",
+  "POST /webroutes/order/cart carries client-supplied user_id \u2014 UNTESTED (writes off)"
+ ],
+ "submission_drafted": false,
+ "captures": [
+  ".tmp/zom-seed11-traffic.json",
+  ".tmp/mcp-threeway-1.json",
+  ".tmp/mcp-threeway-2.json",
+  ".tmp/mcp-threeway-3.json",
+  ".tmp/web-threeway.json",
+  ".tmp/loc-get-cp.json",
+  ".tmp/zmain.js"
+ ],
+ "generated": "2026-08-31T14:00:49Z"
+}

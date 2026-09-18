@@ -1,0 +1,104 @@
+{
+ "at": "2026-09-16T17:24:01.606Z",
+ "opportunity": "trycourier",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.trycourier.app",
+   "kind": "domain",
+   "status": 308,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.trycourier.app",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c18ffd9b6263d6-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.courier.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c19009fa5b0ac6-LHR",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "base-uri 'self'; connect-src 'self' 'strict-dynamic' inbox.courier.com wss://realtime.courier.io static.hsappstatic.net ",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.courier.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c190134e8b63ad-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ct0.app",
+   "kind": "wildcard-apex",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 b2681b26dfe5ff6abd1161024abe3ee0.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

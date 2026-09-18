@@ -1,0 +1,76 @@
+{
+ "at": "2026-09-12T10:09:21.332Z",
+ "opportunity": "gmelius",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api.gmelius.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e1dbfeedc1f67-LHR",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "content-security-policy": "style-src 'self';font-src 'self';upgrade-insecure-requests;default-src 'self';base-uri 'self';form-action 'self';frame-a",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "gmelius.io",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39e1dc8b949be9b-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.gmelius.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "HIT",
+    "strict-transport-security": "max-age=31556926",
+    "content-security-policy": "default-src https://app-staging.gmelius.com 'self'; script-src https://app.cal.com https://client.crisp.chat https://*.g",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

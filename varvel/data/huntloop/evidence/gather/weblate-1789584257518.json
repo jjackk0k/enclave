@@ -1,0 +1,46 @@
+{
+ "at": "2026-09-16T18:44:16.150Z",
+ "opportunity": "weblate",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "hosted.weblate.org",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "django",
+     "label": "Django",
+     "version": null,
+     "evidence": "csrfmiddlewaretoken"
+    },
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'none'; style-src 'unsafe-inline' s.weblate.org 'self'; img-src data: 'self'; script-src 'wasm-unsafe-eval' ",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

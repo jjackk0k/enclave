@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VARVEL · governed autonomous red team</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0D13'/%3E%3Cpath d='M7 6l9 20L25 6h-5l-4 10L12 6z' fill='%23D8434F'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0A0D13; --bg2:#080A0F; --panel:#10141C; --panel2:#0D111A; --raised:#151A24; --raised2:#1A2130;
+    --hair:#202634; --hair2:#2A3444; --hair3:#161C27;
+    --tx:#E6EAF0; --tx2:#9AA3B2; --tx3:#5C6675; --tx4:#414B5C;
+    --steel:#8FA0B5; --steel-hi:#B7C4D6; --steel-lo:#39445A; --steel-md:#63758F;
+    --red:#D8434F; --red-hi:#E5555F; --red-lo:#7A2A31; --red-dim:#B04A55;
+    --crit:#D34F5E; --high:#E0803C; --med:#7C8596; --low:#5E86A6; --sage:#4FB07A; --cyan:#6FA8B8;
+    --sans:ui-sans-serif,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+    --sh:0 1px 0 rgba(255,255,255,.02) inset;
+    --sh-card:0 1px 0 rgba(255,255,255,.02) inset,0 2px 6px rgba(0,0,0,.30);
+    --sh-pop:0 12px 34px rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.03) inset;
+    --ease:cubic-bezier(.4,.14,.3,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font:12.5px/1.5 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{overflow:hidden}
+  ::selection{background:rgba(216,67,79,.38);color:#fff}
+  #grain{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>")}
+  .cap{font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--tx3)}
+  .mono{font-family:var(--mono)}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-thumb{background:#232B3B;border:2px solid var(--panel)}
+  ::-webkit-scrollbar-thumb:hover{background:#2E3849}
+  ::-webkit-scrollbar-corner{background:var(--panel)}
+  #app{display:grid;grid-template-rows:56px 40px 30px 1fr;height:100vh;min-width:1120px;border-top:2px solid var(--red-lo)}
+
+  header{display:flex;align-items:center;gap:14px;padding:0 15px;background:linear-gradient(180deg,#131927,var(--panel));border-bottom:1px solid var(--hair);position:relative}
+  .emblem{width:34px;height:34px;border-radius:50%;flex:none;object-fit:cover;border:1px solid var(--steel-lo);box-shadow:0 0 0 1px #0A0D13,0 0 0 3px rgba(143,160,181,.08),0 0 16px rgba(216,67,79,.20)}
+  .wm{display:flex;flex-direction:column;line-height:1.02;margin-right:4px}
+  .wm b{font:800 16px var(--sans);letter-spacing:.34em;color:var(--tx)}
+  .wm span{font:700 7px var(--sans);letter-spacing:.24em;color:var(--tx3);margin-top:2px}
+  .vrule{width:1px;height:26px;background:var(--hair2);flex:none}
+  .grow{flex:1}
+  .chip{display:flex;flex-direction:column;gap:2px;border:1px solid var(--hair);background:var(--raised);padding:5px 11px;box-shadow:var(--sh)}
+  .chip .k{font:700 7.5px var(--sans);letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+  .chip .v{font:11px var(--mono);color:var(--tx2)} .chip .v b{color:var(--tx);font-weight:600}
+  #scopeV{max-width:320px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .chip.gov .v{color:var(--sage)}
+  .clock{font:11px var(--mono);color:var(--tx3);letter-spacing:.04em;min-width:66px;text-align:right}
+  .stat{display:flex;align-items:center;gap:8px;font:700 10px var(--sans);letter-spacing:.18em;padding:7px 13px;border:1px solid var(--hair);color:var(--tx2);background:var(--raised);text-transform:uppercase}
+  .stat .dot{width:7px;height:7px;border-radius:50%;background:var(--tx3);flex:none}
+  .stat.run{color:var(--sage);border-color:#22392E;background:#0C1310} .stat.run .dot{background:var(--sage);animation:blink 1.8s infinite}
+  .stat.hold{color:var(--steel-hi);border-color:var(--steel-lo);background:#111722} .stat.hold .dot{background:var(--steel-hi);animation:blink 1.2s infinite}
+  .stat.done{color:var(--steel);border-color:var(--steel-lo)} .stat.done .dot{background:var(--steel)}
+  .stat.err{color:var(--red-hi);border-color:var(--red-lo);background:#160F11} .stat.err .dot{background:var(--red)}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.32}}
+  #recall{display:flex;align-items:center;gap:7px;font:800 10px var(--sans);letter-spacing:.2em;color:var(--red-hi);background:#150E0F;border:1px solid var(--red-lo);padding:8px 15px;cursor:pointer;text-transform:uppercase;transition:background .16s var(--ease),border-color .16s var(--ease)}
+  #recall::before{content:'';width:8px;height:8px;border:1.5px solid var(--red-hi);border-radius:50%;display:inline-block}
+  #recall:hover{background:#1C1012;border-color:var(--red);box-shadow:0 0 14px rgba(216,67,79,.28)}
+
+  nav{display:flex;align-items:stretch;background:var(--panel);border-bottom:1px solid var(--hair);padding:0 8px}
+  nav button{position:relative;background:none;border:none;color:var(--tx3);font:700 10px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:0 16px;cursor:pointer;height:100%;display:flex;align-items:center;gap:7px;transition:color .16s var(--ease),background .16s var(--ease)}
+  nav button .idx{font:600 8px var(--mono);color:var(--tx4);transition:color .16s var(--ease)}
+  nav button:hover{color:var(--tx2);background:rgba(255,255,255,.014)}
+  nav button.on{color:var(--tx);background:linear-gradient(180deg,rgba(216,67,79,.07),rgba(216,67,79,.01))}
+  nav button.on::after{content:'';position:absolute;left:12px;right:12px;bottom:-1px;height:2px;background:var(--red);box-shadow:0 0 9px rgba(216,67,79,.65)}
+  nav button.on .idx{color:var(--red)}
+
+  #signal{display:flex;align-items:stretch;background:var(--panel2);border-bottom:1px solid var(--hair);padding:0 10px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 97%,transparent);mask-image:linear-gradient(90deg,#000 97%,transparent)}
+  #signal::-webkit-scrollbar{height:0}
+  .sig{display:flex;align-items:center;gap:7px;padding:0 13px;border-right:1px solid var(--hair3);flex:none}
+  .sig .sk{font:700 7.5px var(--sans);letter-spacing:.15em;color:var(--tx3);text-transform:uppercase}
+  .sig .sv{font:12px var(--mono);color:var(--tx);font-weight:600}
+  .sig.warn .sv{color:var(--crit)} .sig.gov .sv{color:var(--steel-hi)}
+  .sig.live{gap:8px} .live-dot{width:7px;height:7px;border-radius:50%;background:var(--sage);animation:blink 2s infinite;flex:none}
+  .sig.live .sv{color:var(--sage);letter-spacing:.14em;font-family:var(--sans);font-weight:700;font-size:10px}
+  .sig.link{gap:8px} .sig.link .lk{width:7px;height:7px;border-radius:50%;flex:none}
+  .sig.link .sv{letter-spacing:.14em;font-family:var(--sans);font-weight:700;font-size:10px}
+  .sig.link.up .lk{background:var(--sage);animation:blink 2s infinite} .sig.link.up .sv{color:var(--sage)}
+  .sig.link.down .lk{background:var(--red)} .sig.link.down .sv{color:var(--red-hi)}
+
+  main{overflow:hidden;position:relative}
+  .view{display:none;height:100%;overflow:auto;padding:12px 13px}
+  .view.on{display:block;animation:viewIn .22s var(--ease)}
+  @keyframes viewIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+  .card{background:var(--panel);border:1px solid var(--hair);margin-bottom:11px;box-shadow:var(--sh-card);display:flex;flex-direction:column;min-height:0}
+  .card>h3{margin:0;padding:9px 12px 9px 14px;border-bottom:1px solid var(--hair);font:700 9px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--tx2);display:flex;justify-content:space-between;align-items:center;gap:8px;flex:none;background:linear-gradient(180deg,var(--raised2),var(--panel2));position:relative}
+  .card>h3::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--red),var(--red-lo));opacity:.8}
+  .card>h3 .r{display:flex;align-items:center;gap:6px;color:var(--tx3);font-weight:600;letter-spacing:.06em}
+  .card>.bd{padding:11px 12px;overflow:auto;min-height:0}
+  .card.fill{flex:1}
+  .card.fill>.bd{flex:1}
+
+  .console-grid{display:grid;grid-template-columns:294px minmax(0,1fr) 366px;gap:11px;height:100%}
+  .col-left,.col-right{display:flex;flex-direction:column;min-height:0;overflow-y:auto;overflow-x:hidden}
+  .col-left>.card,.col-right>.card{flex:none}
+  .col-left>.card.fill,.col-right>.card.fill{flex:1}
+  .col-center{display:flex;flex-direction:column;min-height:0}
+
+  .graphcard{flex:1;margin:0;min-height:0}
+  .graphtools{display:flex;gap:5px}
+  .gt{font:700 8.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);background:var(--raised);border:1px solid var(--hair2);padding:4px 9px;cursor:pointer;transition:color .16s var(--ease),border-color .16s var(--ease),background .16s var(--ease)}
+  .gt:hover{color:var(--tx);border-color:var(--steel-lo)}
+  .gt.on{color:var(--red-hi);border-color:var(--red-lo);background:#170F12}
+  .graphwrap{position:relative;flex:1;min-height:0;background:var(--bg2);overflow:hidden;border-top:1px solid var(--hair3)}
+  .graphwrap::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 70px rgba(0,0,0,.5)}
+  .glegend,.ginspect,.gmeta{z-index:2}
+  .graphwrap canvas{position:absolute;inset:0;display:block}
+  .glegend{position:absolute;left:10px;top:10px;background:rgba(13,17,26,.86);border:1px solid var(--hair);padding:8px 9px 7px;max-width:190px}
+  .glegend h5{margin:0 0 6px;font:700 7.5px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--tx3)}
+  .glegend .grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px}
+  .glg{display:flex;align-items:center;gap:6px}
+  .glg canvas{position:static;width:18px;height:18px;flex:none}
+  .glg span{font:9px var(--sans);color:var(--tx2);letter-spacing:.02em;white-space:nowrap}
+  .gmeta{position:absolute;right:10px;bottom:9px;display:flex;gap:7px;align-items:center;font:9px var(--mono);color:var(--tx3);background:rgba(13,17,26,.7);padding:3px 8px;border:1px solid var(--hair3);letter-spacing:.04em}
+  .gmeta b{color:var(--steel);font-weight:600}
+  .gmeta .ld{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:blink 2s infinite}
+  .ginspect{position:absolute;left:10px;bottom:9px;width:252px;max-height:calc(100% - 24px);overflow:auto;background:rgba(15,19,27,.96);border:1px solid var(--hair2);display:none;box-shadow:0 6px 22px rgba(0,0,0,.5)}
+  .ginspect.on{display:block}
+  .ginspect .ih{display:flex;justify-content:space-between;align-items:center;padding:7px 9px;border-bottom:1px solid var(--hair);background:var(--panel2)}
+  .ginspect .ih .ttl{font:700 9px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+  .ginspect .ih .cl{cursor:pointer;color:var(--tx3);font:700 13px var(--sans);line-height:1;padding:0 2px}
+  .ginspect .ih .cl:hover{color:var(--tx)}
+  .ginspect .ib{padding:8px 9px}
+
+  .rail-v{display:flex;flex-direction:column}
+  .pv{display:flex;gap:10px;padding:6px 2px;position:relative}
+  .pv:not(:last-child)::before{content:'';position:absolute;left:5px;top:19px;bottom:-6px;width:1px;background:var(--hair2)}
+  .pv.done:not(:last-child)::before{background:var(--steel-lo)}
+  .pmark{width:11px;height:11px;border:1.5px solid var(--tx4);flex:none;margin-top:3px;border-radius:50%;background:var(--bg);z-index:1;transition:background .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
+  .pv.done .pmark{background:var(--steel);border-color:var(--steel);box-shadow:0 0 0 3px rgba(143,160,181,.10)}
+  .pv.act .pmark{background:var(--red);border-color:var(--red);box-shadow:0 0 0 3px rgba(216,67,79,.16),0 0 10px rgba(216,67,79,.35)}
+  .pv.gate .pmark{border-radius:0}
+  .pbody{flex:1;min-width:0}
+  .pname{font:700 10px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--tx3)}
+  .pv.done .pname,.pv.act .pname{color:var(--tx)}
+  .pmeta{font:9.5px var(--mono);color:var(--tx3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pv.act .pmeta{color:var(--red-hi)}
+  .pgate{margin-left:auto;font:700 7px var(--sans);letter-spacing:.13em;color:var(--steel);border:1px solid var(--steel-lo);padding:2px 5px;height:fit-content;margin-top:2px;text-transform:uppercase}
+  .pgate.sig{color:var(--sage);border-color:#22392E} .pgate.dec{color:var(--red-hi);border-color:var(--red-lo)}
+
+  .bar{height:6px;background:var(--bg);border:1px solid var(--hair2);margin-top:7px;position:relative;overflow:hidden}
+  .bar>i{display:block;height:100%;background:var(--steel-lo)}
+  .bar.hot>i{background:linear-gradient(90deg,var(--red-lo),var(--red))}
+  .barhead{display:flex;justify-content:space-between;align-items:baseline}
+  .barhead b{font:15px var(--mono);color:var(--tx);font-weight:600}
+  .barhead small{font:9.5px var(--mono);color:var(--tx3)}
+  .kv{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--hair3);font-size:11.5px}
+  .kv:last-child{border-bottom:0}
+  .kv .k{color:var(--tx3)} .kv .v{color:var(--tx);font-family:var(--mono);font-weight:600}
+  .kv .v.hi{color:var(--steel-hi)} .kv .v.warn{color:var(--crit)}
+
+  .hold-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--hair3)}
+  .hold-row:last-child{border-bottom:0}
+  .hold-row .blk{width:14px;height:14px;border:1px solid var(--steel-lo);border-radius:50%;flex:none;position:relative}
+  .hold-row .blk::after{content:'';position:absolute;left:2px;right:2px;top:6px;height:1px;background:var(--steel);transform:rotate(-45deg)}
+  .hold-row .ha{flex:1;min-width:0}
+  .hold-row .ha .a{font:11px var(--mono);color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hold-row .ha .r{font:8.5px var(--sans);letter-spacing:.1em;color:var(--tx3);text-transform:uppercase}
+  .hold-row .tag{font:700 7.5px var(--sans);letter-spacing:.13em;color:var(--steel-hi);border:1px solid var(--steel-lo);padding:2px 6px}
+
+  .feed{font-family:var(--mono);font-size:11px;padding:2px 0}
+  .ln{display:flex;gap:9px;padding:4px 9px;border-bottom:1px solid var(--hair3);align-items:baseline;transition:background .12s var(--ease)}
+  .ln:hover{background:var(--panel2)}
+  .ln .t{color:var(--tx4);font-size:9px;flex:none;width:52px}
+  .ln .k{flex:none;width:92px;color:var(--steel);font:700 8px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+  .ln .x{flex:1;color:var(--tx2);min-width:0;word-break:break-word}
+  .ln.hold{background:#0E1319} .ln.hold .k{color:var(--steel-hi)}
+  .ln.finding .k{color:var(--crit)} .ln.exploit .k{color:var(--steel-hi)}
+  .ln.gate .k{color:var(--steel-hi)} .ln.campaign .k{color:var(--sage)} .ln.memory .k{color:var(--steel-md)}
+  .ln.phase .k{color:var(--tx3)}
+
+  .chatcard{flex:none}
+  .thread{display:flex;flex-direction:column;gap:8px;padding:11px 12px;max-height:380px;overflow:auto}
+  .msg{padding:9px 12px;border:1px solid var(--hair);background:var(--raised);font-size:11.5px;color:var(--tx2);word-break:break-word;line-height:1.55}
+  .msg .who{font:700 7.5px var(--sans);letter-spacing:.16em;color:var(--tx3);margin-bottom:5px;text-transform:uppercase}
+  .msg{border-left:2px solid var(--hair2)}
+  .msg.me{border-color:var(--steel-lo);border-left-color:var(--steel-md)} .msg.me .who{color:var(--steel)}
+  .msg.agent{border-color:var(--red-lo);border-left-color:var(--red)} .msg.agent .who{color:var(--red-hi)}
+  .msg .mtext{white-space:pre-wrap}
+  .steps{display:flex;flex-direction:column;gap:3px;margin-bottom:8px}
+  .stp{display:flex;gap:9px;padding:4px 8px;font-size:10.5px;border-left:2px solid var(--steel-lo);background:var(--panel2)}
+  .stp .sk{font:700 8px var(--mono,ui-monospace,monospace);letter-spacing:.06em;color:var(--steel-hi);flex:none;min-width:56px;text-transform:uppercase;padding-top:1px}
+  .stp .sd{color:var(--tx3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--mono,ui-monospace,monospace)}
+  .stp.tool{border-left-color:var(--steel-md)} .stp.tool .sk{color:var(--steel-hi)}
+  .stp.res.denied{border-left-color:var(--red)} .stp.res.denied .sk{color:var(--red-hi)}
+  .stp.think{border-left-color:var(--steel-md);color:var(--tx2);white-space:normal}
+  .stp.think .sd{white-space:normal;font-family:inherit;color:var(--tx2)}
+  /* collapsible full payloads — huge tool inputs/results preview-short, expand on demand */
+  .fulld{display:block;margin-top:2px}
+  .fulld summary{display:inline;cursor:pointer;font:600 8.5px var(--mono,ui-monospace,monospace);color:var(--steel-hi);letter-spacing:.04em;text-decoration:underline;text-underline-offset:2px;user-select:none}
+  .fulld pre{white-space:pre-wrap;word-break:break-word;max-height:320px;overflow:auto;background:rgba(0,0,0,.28);border-left:2px solid var(--steel-lo);padding:8px 10px;margin:6px 0 2px;font:9.5px/1.55 var(--mono,ui-monospace,monospace);color:var(--tx2)}
+  .working{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--red-hi);margin-top:6px;letter-spacing:.08em}
+  .working .wd{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1s infinite}
+  .mheld{margin-top:6px;font-size:10px;color:var(--red-hi)}
+  .composer{display:flex;gap:8px;padding:9px 10px;border-top:1px solid var(--hair);background:var(--panel2)}
+  .composer input{flex:1;background:var(--bg);border:1px solid var(--hair2);color:var(--tx);padding:9px 11px;font:12px var(--sans);transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+  .composer input:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 2px rgba(143,160,181,.13)}
+
+  .btn{background:var(--raised);border:1px solid var(--hair2);color:var(--tx);padding:8px 14px;font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:border-color .16s var(--ease),background .16s var(--ease),color .16s var(--ease)}
+  .btn:hover{border-color:var(--steel)}
+  .btn.pri{border-color:var(--red-lo);color:var(--red-hi);background:#140E0F} .btn.pri:hover{background:#1B1012;border-color:var(--red)}
+  .btn.go{border-color:#22392E;color:var(--sage);background:#0C1310} .btn.go:hover{background:#0F1714}
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{opacity:.5;cursor:default}
+  button:focus-visible{outline:1px solid var(--red);outline-offset:2px}
+
+  .gate{border:1px solid var(--red-lo);background:#140E10;margin-bottom:11px;display:none}
+  .gate.on{display:block;animation:gatePulse 2.2s infinite}
+  @keyframes gatePulse{0%,100%{box-shadow:0 0 0 rgba(216,67,79,0)}50%{box-shadow:0 0 18px rgba(216,67,79,.22)}}
+  .gate .gh{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--red-lo);background:#1B1013}
+  .sigil{width:15px;height:15px;border:1.5px solid var(--red-hi);border-radius:50%;display:inline-block;position:relative;flex:none}
+  .sigil::after{content:'';position:absolute;inset:3px;border:1px solid var(--red-lo);border-radius:50%}
+  .gate .gh b{font:800 10px var(--sans);letter-spacing:.16em;color:var(--red-hi);text-transform:uppercase}
+  .gate .gb{padding:10px 11px}
+  .gate p{margin:0 0 10px;color:var(--tx2);font-size:11.5px;line-height:1.55}
+  .gate .row{display:flex;gap:8px}
+
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  th{text-align:left;font:700 8px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--steel-md);padding:7px 11px;border-bottom:1px solid var(--hair2);background:var(--panel2);position:sticky;top:-11px;z-index:2}
+  td{padding:6px 11px;border-bottom:1px solid var(--hair3);color:var(--tx2);vertical-align:top;transition:background .12s var(--ease)}
+  tr:last-child td{border-bottom:0}
+  tr:hover td{background:var(--panel2)}
+  td.mono,th.mono{font-family:var(--mono)} td .lbl{color:var(--tx);font-weight:600}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .sev{font:700 8px var(--sans);letter-spacing:.09em;padding:2px 7px 2px 6px;border:1px solid;display:inline-flex;align-items:center;gap:5px;text-transform:uppercase;white-space:nowrap;vertical-align:middle}
+  .sev::before{content:'';width:5px;height:5px;flex:none;border-radius:50%;background:currentColor;opacity:.85}
+  .sev.crit{color:var(--crit);border-color:#4A2630;background:#160F12}
+  .sev.high{color:var(--high);border-color:#4A3320;background:#17110C}
+  .sev.med{color:var(--med);border-color:#2A3140;background:#11141B} .sev.low{color:var(--low);border-color:#28394A;background:#0E141B}
+  .sev.proved{color:var(--steel-hi);border-color:var(--steel-lo);background:#111722}
+  .sev.ok{color:var(--sage);border-color:#22392E;background:#0C1310}
+  .pill{display:inline-block;padding:1px 7px;border:1px solid var(--hair2);color:var(--tx3);font:9.5px var(--mono);background:var(--panel2);letter-spacing:.02em}
+  .empty{color:var(--tx3);font-style:italic;padding:18px 12px;font-size:11.5px;text-align:center;line-height:1.55;letter-spacing:.01em}
+
+  .cards2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:11px;align-items:start} /* minmax(0,…) — a bare 1fr floor is the item's min-content, so one wide card (a data table) hijacks the track and squeezes the other column to a sliver; same idiom as .surface-grid below */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;align-items:start}
+  .full{grid-column:1/-1}
+  .surface-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:11px;height:100%}
+  .surface-side{display:flex;flex-direction:column;min-height:0;overflow:auto}
+  .surface-side>.card{flex:none} .surface-side>.card.fill{flex:1}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+  .tile{border:1px solid var(--hair);background:linear-gradient(180deg,var(--raised),var(--panel2));padding:10px 12px 11px;box-shadow:var(--sh);position:relative;overflow:hidden;transition:border-color .16s var(--ease),transform .16s var(--ease)}
+  .tile:hover{border-color:var(--hair2);transform:translateY(-1px)}
+  .tile::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--steel-lo);opacity:.45}
+  .tile:has(.n.warn)::before{background:var(--crit);opacity:.75} .tile:has(.n.gov)::before{background:var(--steel-hi);opacity:.6} .tile:has(.n.live)::before{background:var(--sage);opacity:.6}
+  .tile .n{font:21px/1 var(--mono);color:var(--tx);font-weight:600;letter-spacing:.01em}
+  .tile .n.warn{color:var(--crit)} .tile .n.gov{color:var(--steel-hi)} .tile .n.live{color:var(--sage)}
+  .tile .l{font:700 7.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--tx3);margin-top:7px}
+  .tile .sub{font:9px var(--mono);color:var(--tx4);margin-top:2px}
+
+  .dist{display:flex;flex-direction:column;gap:7px}
+  .dbar{display:flex;align-items:center;gap:9px}
+  .dbar .dl{width:48px;font:700 8px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--tx3)}
+  .dbar .dt{flex:1;height:9px;background:var(--bg);border:1px solid var(--hair2);position:relative;overflow:hidden}
+  .dbar .dt>i{display:block;height:100%}
+  .dbar .dn{width:22px;text-align:right;font:11px var(--mono);color:var(--tx)}
+
+  .chain{display:flex;align-items:stretch;flex-wrap:wrap;padding:4px 0}
+  .cstep{display:flex;align-items:center}
+  .cnode{border:1px solid var(--hair2);background:var(--panel2);padding:7px 11px;min-width:92px}
+  .cnode .ck{font:700 7px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--tx3)}
+  .cnode .cv{font:11px var(--mono);color:var(--tx);margin-top:3px;font-weight:600}
+  .cnode.hot{border-color:var(--steel-lo);background:#111722}
+  .carrow{width:30px;height:1px;background:var(--steel-lo);position:relative;margin:0 3px;align-self:center}
+  .carrow::after{content:'';position:absolute;right:0;top:-3px;border-left:5px solid var(--steel-lo);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+  .carrow .cl{position:absolute;left:-4px;right:-4px;top:-15px;text-align:center;font:7px var(--mono);letter-spacing:.06em;color:var(--tx4);text-transform:uppercase}
+
+  .form label{display:block;margin:11px 0 4px;color:var(--tx3);font:700 8.5px var(--sans);letter-spacing:.14em;text-transform:uppercase}
+  .form label:first-child{margin-top:0}
+  .form input{width:100%;background:var(--bg);border:1px solid var(--hair2);color:var(--tx);padding:9px 11px;font:12px var(--mono);transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+  .form input:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 2px rgba(143,160,181,.13)}
+  .hint{color:var(--tx3);font-size:10.5px;margin-top:11px;line-height:1.55;border-left:2px solid var(--steel-lo);padding-left:9px}
+
+  .report{font-size:11.5px;color:var(--tx2);line-height:1.65}
+  .report h2{font:800 13px var(--sans);letter-spacing:.04em;color:var(--tx);margin:2px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--hair)}
+  .report h3{font:700 10px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin:16px 0 6px}
+  .report h4{font:700 11.5px var(--sans);color:var(--tx);margin:12px 0 4px}
+  .report p{margin:5px 0} .report ul{margin:5px 0;padding-left:18px} .report li{margin:2px 0}
+  .report code{font-family:var(--mono);font-size:10.5px;color:var(--steel-hi);background:var(--bg);border:1px solid var(--hair2);padding:0 4px}
+  .report hr{border:0;border-top:1px solid var(--hair);margin:14px 0} .report b{color:var(--tx)}
+  .reportpre{white-space:pre-wrap;font-family:var(--mono);font-size:11px;color:var(--tx2);line-height:1.6}
+
+  .banner{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--hair);background:var(--panel2);margin-bottom:11px}
+  .banner .bdot{width:9px;height:9px;border-radius:50%;flex:none}
+  .banner.clean{border-color:#22392E} .banner.clean .bdot{background:var(--sage)}
+  .banner.pending{border-color:var(--steel-lo)} .banner.pending .bdot{background:var(--steel-hi);animation:blink 1.6s infinite}
+  .banner .bt{font:700 10px var(--sans);letter-spacing:.15em;text-transform:uppercase} .banner.clean .bt{color:var(--sage)} .banner.pending .bt{color:var(--steel-hi)}
+  .banner .bs{font:11px var(--mono);color:var(--tx3);margin-left:auto}
+  .inspect-body,.model-body{font-size:11.5px}
+
+  /* ---------- data module pages: centered dense dashboards ---------- */
+  #v-recon,#v-exploit,#v-findings,#v-insights,#v-opsec,#v-settings{padding:0}
+  .page{max-width:1180px;margin:0 auto;padding:15px 18px 30px}
+  .page.narrow{max-width:960px}
+  .phd{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:2px 0 14px;padding-bottom:11px;border-bottom:1px solid var(--hair)}
+  .phd .lhs{min-width:0;position:relative;padding-left:12px}
+  .phd .lhs::before{content:'';position:absolute;left:0;top:3px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--red),var(--red-lo))}
+  .phd h2{margin:0;font:800 15px var(--sans);letter-spacing:.17em;text-transform:uppercase;color:var(--tx)}
+  .phd .desc{font:10.5px var(--sans);color:var(--tx3);letter-spacing:.02em;margin-top:4px}
+  .phd .rhs{display:flex;gap:8px;flex:none;align-items:stretch}
+  .pchip{display:flex;flex-direction:column;gap:2px;border:1px solid var(--hair);background:var(--raised);padding:5px 11px;box-shadow:var(--sh);max-width:250px}
+  .pchip .pk{font:700 7px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+  .pchip .pv{font:10.5px var(--mono);color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:9px;margin-bottom:12px}
+  .chain-wrap{display:flex;flex-direction:column;gap:2px}
+  .chain-wrap .chain:not(:last-child){padding-bottom:11px;margin-bottom:1px;border-bottom:1px solid var(--hair3)}
+  /* detection footprint */
+  .fp-act{border:1px solid var(--hair);background:var(--raised);padding:10px 12px;margin-bottom:8px}
+  .fp-h{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+  .fp-h b{font-size:12.5px;color:var(--steel-hi)}
+  .fp-l{font:800 9.5px var(--mono,monospace);letter-spacing:.06em;padding:2px 7px;border:1px solid var(--steel-lo);color:var(--steel);background:var(--panel2)}
+  .fp-l.l3{color:var(--steel-hi);border-color:var(--steel-md)}
+  .fp-l.l4,.fp-l.l5{color:var(--red-hi);border-color:var(--red-lo);background:#160F11}
+  .fp-x{font:700 9.5px var(--sans);color:var(--steel-md);letter-spacing:.08em}
+  .fp-row{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:3px 0;border-top:1px solid var(--hair3);font-size:11px}
+  .fp-k{font:700 8px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--steel-md);padding-top:2px}
+  .fp-v{color:var(--tx2,var(--steel))}
+  .fp-v.q{color:var(--steel);font-style:italic}
+
+  /* ---------- backend indicator chip (header) ---------- */
+  .chip.bk .v{display:flex;align-items:center;gap:6px;font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:.02em;color:var(--tx2)}
+  .chip.bk .v b{color:var(--tx);font-weight:700}
+  .bkdot{width:6px;height:6px;border-radius:50%;background:var(--tx4);flex:none;transition:background .2s var(--ease),box-shadow .2s var(--ease)}
+  .bkdot.ok{background:var(--sage);box-shadow:0 0 7px rgba(79,176,122,.55)}
+  .bkdot.warn{background:var(--steel-hi);box-shadow:0 0 6px rgba(183,196,214,.35)}
+  .bkdot.off{background:var(--tx4)}
+
+  /* ---------- natural-language surface query ---------- */
+  .qbox{display:flex;gap:7px;margin-bottom:9px}
+  .qinput{flex:1;min-width:0;background:var(--bg);border:1px solid var(--hair2);color:var(--tx);padding:8px 10px;font:11.5px var(--sans);transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+  .qinput::placeholder{color:var(--tx4)}
+  .qinput:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 2px rgba(143,160,181,.13)}
+  .qhint{font:9.5px var(--mono);color:var(--tx4);margin-bottom:10px;letter-spacing:.02em;line-height:1.5}
+  .qinterp{display:flex;flex-direction:column;gap:3px;border-left:2px solid var(--steel-lo);padding:1px 0 1px 10px;margin-bottom:9px}
+  .qinterp .qi-k{font:700 7px var(--sans);letter-spacing:.17em;text-transform:uppercase;color:var(--steel)}
+  .qinterp .qi-v{font:11.5px var(--sans);color:var(--tx);line-height:1.45}
+  .qcount{font:700 8px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--tx3);margin-bottom:6px}
+  .qlist{display:flex;flex-direction:column}
+  .qrow{padding:8px 2px;border-top:1px solid var(--hair3)}
+  .qrow:first-child{border-top:0}
+  .qr-top{display:flex;align-items:center;gap:8px;min-width:0}
+  .qr-lbl{font:600 11.5px var(--sans);color:var(--tx);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .qr-meta{font:9.5px var(--mono);color:var(--tx3);margin-top:4px;letter-spacing:.02em}
+
+  /* ---------- numeric finding confidence ---------- */
+  .cf{display:flex;flex-direction:column;gap:3px;min-width:106px}
+  .cf-l{font:700 8px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--steel);white-space:nowrap}
+  .cf.conf-hi .cf-l{color:var(--steel-hi)}
+  .cf.conf-lo .cf-l{color:var(--tx3)}
+  .cf-m{height:4px;background:var(--bg);border:1px solid var(--hair2);position:relative;overflow:hidden}
+  .cf-m>i{display:block;height:100%;background:var(--steel-lo);transition:width .3s var(--ease)}
+  .cf.conf-hi .cf-m>i{background:var(--steel)}
+  .cf-t{font:700 9px var(--sans);letter-spacing:.05em}
+  .cf-t.conf-hi{color:var(--steel-hi)} .cf-t.conf-lo{color:var(--tx3)}
+
+  /* ---------- v5 refinements ---------- */
+  tr:nth-child(even) td{background:rgba(150,170,200,.020)}
+  tr:hover td{background:var(--panel2)}
+  .empty{font-style:normal;padding:20px 14px;line-height:1.6;color:var(--tx3)}
+  .empty::before{content:'';display:block;width:9px;height:9px;margin:0 auto 9px;border:1px solid var(--hair2);transform:rotate(45deg)}
+  .card>.bd>table:not(:first-child){margin-top:2px}
+  .form select{width:100%;background:var(--raised2);color:var(--tx);border:1px solid var(--hair2);padding:9px 11px;font:12px var(--sans);cursor:pointer;transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+  .form select:hover{border-color:var(--steel-lo)}
+  .form select:focus{outline:none;border-color:var(--steel);box-shadow:0 0 0 2px rgba(143,160,181,.13)}
+  .ln.think .k{color:var(--steel-md)} .ln.skill .k{color:var(--steel-hi)} .ln.tool .k{color:var(--steel-hi)}
+  .ln.opsec .k{color:var(--steel-hi)} .ln.search .k{color:var(--steel-hi)}
+
+  /* footprint reduction (OPSEC) */
+  .rd-head{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto;gap:11px;align-items:stretch;margin-bottom:12px}
+  .rd-risk{border:1px solid var(--hair);background:linear-gradient(180deg,var(--raised),var(--panel2));padding:10px 13px;display:flex;flex-direction:column;gap:5px;min-width:0;justify-content:center}
+  .rd-cap{font:700 7.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)}
+  .rd-val{font:600 16px var(--mono);color:var(--tx);letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rd-val.hi{color:var(--crit)} .rd-val.warn{color:var(--steel-hi)} .rd-val.ok{color:var(--sage)}
+  .rd-sub{font:9px var(--mono);color:var(--tx4);letter-spacing:.02em}
+  .rd-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0 3px;flex:none}
+  .rd-mid .ar{font:16px var(--mono);color:var(--steel-md);line-height:1}
+  .rd-mid .lb{font:700 6.5px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--tx4);text-align:center;line-height:1.3}
+  .rd-delta{border:1px solid var(--steel-lo);background:#0E1319;padding:9px 14px;display:flex;flex-direction:column;gap:4px;justify-content:center;align-items:center;flex:none;min-width:96px}
+  .rd-delta .dn{font:700 19px var(--mono);color:var(--sage);letter-spacing:.01em;line-height:1}
+  .rd-delta .dl{font:700 6.5px var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--tx3);text-align:center;line-height:1.3}
+  .rd-save{font:700 10.5px var(--mono);color:var(--sage);white-space:nowrap}
+  .advisor{border:1px solid var(--hair);border-left:2px solid var(--red-lo);background:var(--panel2);padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+  .advisor .av-h{display:flex;align-items:center;gap:8px}
+  .advisor .av-t{font:700 8px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--red-hi)}
+  .advisor .av-r{font:700 7.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);border:1px solid var(--steel-lo);padding:1px 6px}
+  .advisor .av-at{font:9px var(--mono);color:var(--tx4);margin-left:auto;letter-spacing:.02em}
+  .advisor .av-x{color:var(--tx2);font-size:11.5px;line-height:1.6}
+  /* task tree */
+  .tt-ph{display:flex;align-items:center;gap:10px;padding:8px 11px;border:1px solid var(--hair);border-left:2px solid var(--steel-lo);margin-bottom:6px;background:var(--panel)}
+  .tt-ph .tt-name{font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;min-width:88px}
+  .tt-ph .tt-sub{font:9px var(--mono);color:var(--tx4);margin-left:auto}
+  .tt-run{border-left-color:var(--red)}.tt-done{border-left-color:var(--sage)}.tt-held{border-left-color:var(--high)}.tt-err2{border-left-color:var(--crit)}.tt-skip,.tt-pend{opacity:.55}
+  .tt-wave{margin-bottom:12px}
+  .tt-members{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+  .tt-member{border:1px solid var(--hair);border-top:2px solid var(--steel-lo);background:var(--panel);padding:8px 10px;flex:1;min-width:150px}
+  .tt-member.tt-merr{border-top-color:var(--red)}
+  .tt-member .tt-ml{font:700 9.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--tx2)}
+  .tt-member .tt-ms{font:9px var(--mono);color:var(--tx4);margin-top:4px;line-height:1.55}
+  .tt-row{display:flex;align-items:center;gap:8px;padding:2.5px 8px;font:10px var(--mono);color:var(--tx2);border-left:1px solid var(--hair)}
+  .tt-row .tt-path{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tt-row .tt-cls{font:700 7.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:1px 5px;border:1px solid var(--steel-lo);color:var(--steel);flex:none}
+  .tt-row .tt-bar{flex:0 0 84px;height:4px;background:rgba(255,255,255,.05);position:relative}
+  .tt-row .tt-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--red)}
+  .tt-row .tt-score{flex:0 0 30px;text-align:right;color:var(--tx4)}
+  .tt-row.tt-pruned{opacity:.42}.tt-row.tt-pruned .tt-path{text-decoration:line-through}
+  .tt-best{font:10px var(--mono);color:var(--tx2);padding:5px 8px;border-left:2px solid var(--sage);margin-bottom:5px;background:var(--panel)}
+
+  /* remediation triage */
+  .scr{display:flex;align-items:center;gap:8px;min-width:80px}
+  .scr .sv{font:700 11.5px var(--mono);color:var(--tx);min-width:24px;text-align:right}
+  .scr .sm{flex:1;height:4px;background:var(--bg);border:1px solid var(--hair2);position:relative;overflow:hidden}
+  .scr .sm>i{display:block;height:100%;background:var(--steel-lo)}
+  .scr.hot .sv{color:var(--crit)} .scr.hot .sm>i{background:var(--crit)}
+  .fixcell{color:var(--tx2);font-size:10.5px;line-height:1.55;max-width:360px}
+  .maps{display:flex;flex-wrap:wrap;gap:4px}
+
+  /* productivity tier ladder */
+  .tier{border:1px solid var(--hair);background:var(--panel2);padding:9px 12px;margin-bottom:11px}
+  .t-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:10px}
+  .t-cap{font:700 8px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--tx3)}
+  .t-val{font:800 12.5px var(--sans);letter-spacing:.1em}
+  .t-lad{display:flex;gap:3px}
+  .t-seg{flex:1;height:6px}
+  /* readiness checklist glyphs + input placeholders */
+  .ck-ok{color:var(--sage);font-weight:700} .ck-no{color:var(--red-hi);font-weight:700}
+  .composer input::placeholder,.form input::placeholder{color:var(--tx4)}
+  /* ---------- bounty view: pipeline FSM chain + fresh-ground ranks ---------- */
+  .fsm{display:inline-flex;gap:2px;flex-wrap:wrap}
+  .fsm-s{font:700 7.5px var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:1px 5px;border:1px solid var(--hair2);color:var(--tx4);background:var(--panel2)}
+  .fsm-s.done{color:var(--steel);border-color:var(--steel-lo)}
+  .fsm-s.act{color:var(--red-hi);border-color:var(--red-lo);background:#170F12}
+  .rk{font:700 9px var(--mono);color:var(--tx3)}
+</style>
+</head>
+<body>
+<div id="grain"></div>
+<div id="app">
+  <header>
+    <img class="emblem" src="/assets/emblem.png" alt="VARVEL" onerror="this.style.display='none'">
+    <div class="wm"><b>VARVEL</b><span>GOVERNED AUTONOMOUS RED TEAM</span></div>
+    <div class="vrule"></div>
+    <div class="chip"><span class="k">Operator</span><span class="v" id="opV"><b>—</b></span></div>
+    <div class="chip"><span class="k">Signed scope</span><span class="v" id="scopeV"><b>—</b></span></div>
+    <div class="chip" id="ghostChip" title="Ghost Mode — identity posture"><span class="k">Ghost</span><span class="v" id="ghostV"><b>—</b></span></div>
+    <div class="grow"></div>
+    <div class="chip bk" id="backendChip"><span class="k">Backend</span><span class="v"><span class="bkdot off"></span><b>checking…</b></span></div>
+    <div class="chip gov"><span class="k">Enclave</span><span class="v">governed · audited</span></div>
+    <div class="clock mono" id="clock">--:--:--</div>
+    <div class="vrule"></div>
+    <div class="stat" id="statusV"><span class="dot"></span><span id="statusT">IDLE</span></div>
+    <button id="recall" onclick="recall()">Recall</button>
+  </header>
+
+  <nav id="nav"></nav>
+  <div id="signal"></div>
+
+  <main>
+    <!-- CONSOLE -->
+    <div class="view on" id="v-console">
+      <div class="console-grid">
+        <aside class="col-left">
+          <section class="card"><h3>Phase</h3><div class="bd"><div class="rail-v" id="rail"></div></div></section>
+          <section class="card"><h3>Step budget</h3><div class="bd" id="budget"></div></section>
+          <section class="card"><h3>Footprint</h3><div class="bd" id="footprint"></div></section>
+          <section class="card fill"><h3>Governance holds <span class="pill" id="holdCount">0</span></h3><div class="bd" id="holds"></div></section>
+        </aside>
+
+        <section class="col-center">
+          <div class="card graphcard">
+            <h3>Attack surface — live
+              <span class="graphtools">
+                <button class="gt" onclick="gFit('c')">Fit</button>
+                <button class="gt" id="gt-pause-c" onclick="gPause('c',this)">Pause</button>
+                <button class="gt" id="gt-labels-c" onclick="gLabels('c',this)">Labels</button>
+              </span>
+            </h3>
+            <div class="graphwrap" id="gwrap-c">
+              <canvas id="gcanvas-c"></canvas>
+              <div class="glegend" id="glegend-c"></div>
+              <div class="ginspect" id="ginspect-c"></div>
+              <div class="gmeta" id="gmeta-c"><span class="ld"></span><span id="gmetat-c">—</span></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="col-right">
+          <div class="gate" id="gate"></div>
+          <section class="card fill"><h3>Activity <span class="pill" id="actCount">0</span></h3><div class="bd feed" id="feed" style="padding:0"></div></section>
+          <section class="card chatcard">
+            <h3>Operator ↔ agent</h3>
+            <div class="thread" id="thread"></div>
+            <div class="composer">
+              <input id="msg" placeholder="Instruct the agent…" autocomplete="off" onkeydown="if(event.key==='Enter')sendMsg()">
+              <button class="btn" onclick="sendMsg()">Send</button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <!-- RECON -->
+    <div class="view" id="v-recon"></div>
+
+    <!-- ATTACK SURFACE -->
+    <div class="view" id="v-surface">
+      <div class="surface-grid">
+        <section class="card graphcard" style="margin:0">
+          <h3>Attack-surface graph — signed scope
+            <span class="graphtools">
+              <button class="gt" onclick="gFit('s')">Fit</button>
+              <button class="gt" id="gt-pause-s" onclick="gPause('s',this)">Pause</button>
+              <button class="gt" id="gt-labels-s" onclick="gLabels('s',this)">Labels</button>
+            </span>
+          </h3>
+          <div class="graphwrap" id="gwrap-s">
+            <canvas id="gcanvas-s"></canvas>
+            <div class="glegend" id="glegend-s"></div>
+            <div class="gmeta" id="gmeta-s"><span class="ld"></span><span id="gmetat-s">—</span></div>
+          </div>
+        </section>
+        <aside class="surface-side">
+          <section class="card"><h3>Ask the surface <span class="r">natural language</span></h3><div class="bd">
+            <div class="qbox"><input id="q-input" class="qinput" placeholder="critical findings on web-01" autocomplete="off" onkeydown="if(event.key==='Enter')runQuery()"><button class="btn" onclick="runQuery()">Ask</button></div>
+            <div class="qhint">Try: services on port 443 · confirmed findings · hosts in scope</div>
+            <div id="q-result"><div class="empty">Ask a question to search the mapped surface.</div></div>
+          </div></section>
+          <section class="card"><h3>Selection</h3><div class="bd inspect-body" id="ginspect-s"><div class="empty">Click a node in the graph to inspect it.</div></div></section>
+          <section class="card fill"><h3>Model</h3><div class="bd model-body" id="surface-model"></div></section>
+        </aside>
+      </div>
+    </div>
+
+    <div class="view" id="v-exploit"></div>
+    <div class="view" id="v-findings"></div>
+    <div class="view" id="v-insights"></div>
+    <div class="view" id="v-opsec"></div>
+    <div class="view" id="v-settings"></div>
+    <div class="view" id="v-bounty"></div>
+    <div class="view" id="v-channel"></div>
+    <div class="view" id="v-tree"></div>
+  </main>
+</div>
+<script>
+"use strict";
+const PAL={bg:'#0A0D13',bg2:'#080A0F',panel:'#10141C',panel2:'#0D111A',raised:'#151A24',
+  hair:'#202634',hair2:'#2A3444',hair3:'#161C27',
+  tx:'#E6EAF0',tx2:'#9AA3B2',tx3:'#5C6675',tx4:'#414B5C',
+  steel:'#8FA0B5',steelHi:'#B7C4D6',steelLo:'#39445A',steelMd:'#63758F',
+  red:'#D8434F',redHi:'#E5555F',redDim:'#B04A55',crit:'#D34F5E',high:'#E0803C',med:'#7C8596',low:'#5E86A6',sage:'#4FB07A',cyan:'#6FA8B8'};
+const SEVC={crit:PAL.crit,high:PAL.high,med:PAL.med,low:PAL.low};
+const RADIUS={root:13,host:11,foothold:10.5,finding:9,exploit:9,cve:8,cred:8,route:7,tech:7.5,
+  endpoint:6.5,subdomain:6.5,account:7.5,asset:7.5,service:5,port:5,out:8.5};
+const GBG='#080A0F';
+
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const hhmmss=iso=>{const s=String(iso||"");return s.length>=19?s.slice(11,19):"";};
+// lastSeen can be any truthy garbage (non-epoch) — new Date(x).toISOString() throws RangeError on it.
+const fmtSeen=v=>{if(!v)return '—';const d=new Date(v);if(isFinite(d.getTime()))return hhmmss(d.toISOString());return String(v).slice(0,19);};
+async function api(p,opts){try{const r=await fetch(p,opts);const ct=r.headers.get("content-type")||"";return ct.includes("json")?r.json():r.text();}catch(e){return null;}}
+/* === CONSOLE-HELPERS MIRROR BEGIN (byte-identical copy of engine/console-helpers.mjs,
+   drift-pinned by test/console-helpers.test.mjs — edit the engine module, re-copy here) === */
+const MAXTURNS_FALLBACK = 40; // matches engine/settings.mjs agent.maxTurns default
+
+// budgetReadout(s, maxTurns) -> ONE of:
+//   { kind:'none' }                                   — idle / no campaign budget at all
+//   { kind:'turns', used, max, pct, ... }             — interactive: GOVERNED TOOL TURNS
+//   { kind:'steps', used, max, pct, ... }             — pipeline campaign: STEP BUDGET
+// `used` for turns is derived exactly the way the console always has (the latest agent
+// message's step entries pair into turns, ceil(n/2)); `max` is the agent.maxTurns
+// setting (the console syncs it at boot; the fallback is the settings default).
+function budgetReadout(s, maxTurns) {
+  const status = (s && s.status) || 'idle';
+  const mt = (Number.isFinite(Number(maxTurns)) && Number(maxTurns) > 0) ? Number(maxTurns) : MAXTURNS_FALLBACK;
+  if (!s || status === 'idle' || !s.budget) return { kind: 'none' };
+  if (/interactive/.test(status)) {
+    const msgs = Array.isArray(s.messages) ? s.messages : [];
+    const am = [...msgs].reverse().find((m) => (m.who || m.role) === 'agent');
+    const used = am && Array.isArray(am.steps) ? Math.ceil(am.steps.length / 2) : 0;
+    return {
+      kind: 'turns', used, max: mt,
+      pct: mt ? Math.min(100, Math.round((used / mt) * 100)) : 0,
+      chipKey: 'Turns', unit: 'tool turns', source: 'agent.maxTurns',
+      hint: 'Interactive session — this meter is the agent’s governed tool-turn budget (the agent.maxTurns setting, '
+        + mt + '). The pipeline campaign step counter is a DIFFERENT budget and only appears here while a pipeline campaign runs.',
+    };
+  }
+  const used = (s.budget && s.budget.usedSteps) || 0;
+  const max = (s.budget && s.budget.maxSteps) || 0;
+  return {
+    kind: 'steps', used, max,
+    pct: max ? Math.min(100, Math.round((used / max) * 100)) : 0,
+    chipKey: 'Steps', unit: 'steps', source: 'campaign budget.maxSteps', hint: null,
+  };
+}
+
+// ghostChip(st) -> { state, label, cls, title } — THE one mapping of a ghost.status()
+// object to the chip vocabulary. state: 'off' | 'ok' | 'bad' | 'unverified'; cls is the
+// console's ck-ok/ck-no class or ''. Never throws on a partial status object.
+function ghostChip(st) {
+  if (!st || st.mode === 'off') {
+    return { state: 'off', label: 'off', cls: '', title: 'Ghost Mode off — egress is direct (operator source exposed to targets)' };
+  }
+  const hops = st.hops || 0;
+  const hopWord = hops === 1 ? ' hop' : ' hops';
+  const title = 'chain: ' + ((st.chain || []).join(' → ') || '—') + ' · dns: ' + (st.dns || '');
+  if (st.verified && st.verified.ok) {
+    return { state: 'ok', label: st.mode + ' · ' + hops + hopWord + ' · exit ' + (st.verified.exitIp || '?'), cls: 'ck-ok', title };
+  }
+  if (st.verified) {
+    return { state: 'bad', label: st.mode + ' · NOT HIDDEN', cls: 'ck-no', title: title + ' · ' + (st.verified.error || 'verification failed') };
+  }
+  return { state: 'unverified', label: st.mode + ' · ' + hops + hopWord + ' · unverified', cls: '', title };
+}
+
+// freshGroundView(events, cap) -> { shown, hiddenByCap, total } — display-trim the
+// watcher's ranked ring, but an EXCLUSION move (side 'out' — the off-limits list moved)
+// is never cut by the cap: it is safety-critical and stays visible with its weight.
+function freshGroundView(events, cap = 30) {
+  const ranked = Array.isArray(events) ? events : [];
+  const head = ranked.slice(0, cap);
+  const kept = ranked.slice(cap).filter((e) => e && e.side === 'out');
+  return { shown: [...head, ...kept], hiddenByCap: ranked.length - head.length - kept.length, total: ranked.length };
+}
+
+// RANK_WEIGHT: the documented h1watch rank order as operator-facing one-liners
+// (mirrors the ranking comment in tools/h1watch.mjs — rankEvent is the code truth).
+const RANK_WEIGHT = {
+  1: 'new bountied program — untouched ground that pays',
+  2: 'fresh in-scope surface on a bountied program',
+  3: 'bounty table moved on a bountied program — the reward math changed',
+  4: 'new VDP program — reputation ground, no bounties',
+  5: 'fresh in-scope surface, no bounties',
+  6: 'EXCLUSION/policy move — honor before any contact',
+  7: 'informational',
+};
+
+// eventSummary(e) -> one plain-text line per event (the console esc()s it). Asset and
+// exclusion arrays are COUNTED with a short preview, never dumped whole.
+function eventSummary(e) {
+  if (!e || !e.type) return '—';
+  const list = (a) => (Array.isArray(a) ? a : []);
+  const preview = (a) => { const l = list(a); return l.length ? ' — ' + l.slice(0, 3).join(', ') + (l.length > 3 ? ' …' : '') : ''; };
+  switch (e.type) {
+    case 'new-program':
+      return (e.name || e.handle) + ' [' + e.handle + '] — ' + (e.offersBounties === true ? 'bountied' : e.offersBounties === false ? 'VDP (no bounties)' : 'bounties unknown')
+        + ' · ' + list(e.assets).length + ' in-scope, ' + list(e.exclusions).length + ' excluded' + preview(e.assets);
+    case 'scope-added':
+      return e.handle + ' — ' + list(e.assets).length + ' ' + (e.side === 'out' ? 'NEW EXCLUSION(S)' : 'new in-scope asset(s)') + preview(e.assets);
+    case 'scope-removed':
+      return e.handle + ' — ' + list(e.assets).length + ' ' + (e.side === 'out' ? 'exclusion(s) LIFTED (signed scope still governs until re-signed)' : 'asset(s) left scope') + preview(e.assets);
+    case 'policy-changed': {
+      const from = (e.automation && e.automation.from && e.automation.from.policy) || '?';
+      const to = (e.automation && e.automation.to && e.automation.to.policy) || '?';
+      return e.handle + ' — policy changed · automation ' + from + ' → ' + to;
+    }
+    case 'bounty-table-changed': {
+      const flip = e.offersBounties ? ' · bounties ' + String(e.offersBounties.from) + ' → ' + String(e.offersBounties.to) : '';
+      return e.handle + ' — bounty table changed' + flip;
+    }
+    default:
+      return e.handle ? e.handle + ' — ' + e.type : e.type;
+  }
+}
+
+// goalReadout(goal) -> { paidText, targetText, pctText, widthPct } for the £3332.50
+// ledger bar. widthPct is clamped for the bar; pctText keeps the true value (a payout
+// past the goal reads honestly, the bar just fills). GBP counts toward the goal ONLY —
+// the engine never converts currencies, and the console never pretends to either.
+function goalReadout(goal) {
+  if (!goal || !Number.isFinite(Number(goal.target)) || Number(goal.target) <= 0) {
+    return { paidText: '£0.00', targetText: '£3332.50', pctText: '0%', widthPct: 0 };
+  }
+  const paid = Number(goal.paid) || 0;
+  const pct = Number.isFinite(Number(goal.pct)) ? Number(goal.pct) : (paid / Number(goal.target)) * 100;
+  return {
+    paidText: '£' + paid.toFixed(2),
+    targetText: '£' + Number(goal.target).toFixed(2),
+    pctText: (Math.round(pct * 100) / 100) + '%',
+    widthPct: Math.max(0, Math.min(100, Math.round(pct))),
+  };
+}
+
+// moneyText(amount, currency) — display-only currency glyph; NEVER a conversion.
+function moneyText(amount, currency) {
+  const sym = { GBP: '£', USD: '$', EUR: '€' }[String(currency || '').toUpperCase()];
+  const n = Number(amount);
+  const v = Number.isFinite(n) ? n.toFixed(2) : String(amount);
+  return (sym || (String(currency || '?') + ' ')) + v;
+}
+
+// jsq(s) — quote a value for interpolation into a SINGLE-QUOTED js string literal inside
+// a DOUBLE-QUOTED inline handler attribute (onclick="fn('...')"). Two layers in one pass:
+// the JS layer first (\ → \\, ' → \', CR/LF → \r/\n — a raw ' or line break terminates the
+// literal and breaks the handler), then the HTML-attribute layer (the same & < > " entity
+// mapping as the console's esc(), so the attribute itself can't be broken out of either).
+// The layers never interfere: the JS layer introduces no & < > " chars to double-escape.
+function jsq(s) {
+  return String(s == null ? '' : s)
+    .replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\r/g, '\\r').replace(/\n/g, '\\n')
+    .replace(/[&<>"]/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+}
+/* === CONSOLE-HELPERS MIRROR END === */
+
+/* ---------- glyph drawing (shared by graph + legend) ---------- */
+function poly(g,pts){g.beginPath();g.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)g.lineTo(pts[i][0],pts[i][1]);g.closePath();}
+function muted(g,color,a){g.save();g.globalAlpha=g.globalAlpha*(a==null?0.34:a);g.fillStyle=color;g.fill();g.restore();}
+function nodeColor(nd){
+  switch(nd.type){
+    case 'finding':return SEVC[nd.sev]||PAL.med;
+    case 'cve':return PAL.high;
+    case 'out':return PAL.tx3;
+    case 'foothold':case 'cred':case 'root':return PAL.steelHi;
+    default:return PAL.steel;
+  }
+}
+function drawGlyph(g,type,x,y,r,color){
+  g.lineWidth=1.5;g.lineJoin='round';g.strokeStyle=color;g.fillStyle=color;
+  switch(type){
+    case 'root':
+      g.beginPath();g.arc(x,y,r,0,7);g.strokeStyle=PAL.steelHi;g.lineWidth=1.6;g.stroke();
+      g.beginPath();g.arc(x,y,r-4,0,7);g.fillStyle='#182031';g.fill();g.strokeStyle=PAL.steel;g.lineWidth=1;g.stroke();
+      g.beginPath();g.arc(x,y,2,0,7);g.fillStyle=PAL.red;g.fill();break;
+    case 'host':
+      g.beginPath();g.rect(x-r,y-r,2*r,2*r);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.5;g.stroke();break;
+    case 'foothold':
+      g.beginPath();g.rect(x-r,y-r,2*r,2*r);g.fillStyle=GBG;g.fill();muted(g,color,0.55);g.strokeStyle=PAL.steelHi;g.lineWidth=1.6;g.stroke();
+      g.beginPath();g.moveTo(x-r,y-r);g.lineTo(x,y-r*0.4);g.lineTo(x-r,y+r*0.2);g.strokeStyle=PAL.steelHi;g.lineWidth=1.2;g.stroke();break;
+    case 'asset':
+      g.beginPath();g.rect(x-r,y-r,2*r,2*r);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.4;g.stroke();
+      g.beginPath();g.rect(x-r+4,y-r+4,2*(r-4),2*(r-4));g.stroke();break;
+    case 'out':
+      g.save();g.setLineDash([3,3]);g.beginPath();g.rect(x-r,y-r,2*r,2*r);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.3;g.stroke();g.restore();break;
+    case 'subdomain':
+      g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.4;g.stroke();break;
+    case 'service':
+      g.beginPath();g.arc(x,y,r,0,7);g.fillStyle=color;g.fill();break;
+    case 'port':
+      poly(g,[[x,y-r],[x+r,y],[x,y+r],[x-r,y]]);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.3;g.stroke();break;
+    case 'endpoint':
+      g.beginPath();g.moveTo(x-r*0.45,y-r);g.lineTo(x+r*0.55,y);g.lineTo(x-r*0.45,y+r);g.strokeStyle=color;g.lineWidth=1.7;g.stroke();break;
+    case 'tech':{
+      const p=[];for(let i=0;i<6;i++){const a=Math.PI/6+i*Math.PI/3;p.push([x+Math.cos(a)*r,y+Math.sin(a)*r]);}poly(g,p);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.4;g.stroke();break;}
+    case 'cve':
+      poly(g,[[x,y-r],[x+r*0.92,y+r*0.75],[x-r*0.92,y+r*0.75]]);g.fillStyle=GBG;g.fill();muted(g,color,0.28);g.strokeStyle=color;g.lineWidth=1.6;g.stroke();break;
+    case 'finding':
+      poly(g,[[x,y-r],[x+r,y],[x,y+r],[x-r,y]]);g.fillStyle=GBG;g.fill();muted(g,color,0.4);g.strokeStyle=color;g.lineWidth=1.6;g.stroke();break;
+    case 'exploit':
+      poly(g,[[x,y-r],[x+r*0.92,y+r*0.75],[x-r*0.92,y+r*0.75]]);g.fillStyle=GBG;g.fill();muted(g,color,0.5);g.strokeStyle=color;g.lineWidth=1.6;g.stroke();break;
+    case 'cred':{
+      const bx=x-r*0.28,by=y-r*0.28,br=r*0.5;
+      g.beginPath();g.arc(bx,by,br,0,7);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.5;g.stroke();
+      g.beginPath();g.moveTo(bx+br*0.7,by+br*0.7);g.lineTo(x+r*0.7,y+r*0.7);g.stroke();
+      g.beginPath();g.moveTo(x+r*0.3,y+r*0.55);g.lineTo(x+r*0.55,y+r*0.3);g.stroke();break;}
+    case 'account':{
+      g.beginPath();g.arc(x,y-r*0.35,r*0.42,0,7);g.fillStyle=GBG;g.fill();g.strokeStyle=color;g.lineWidth=1.4;g.stroke();
+      g.beginPath();g.arc(x,y+r*0.9,r*0.85,Math.PI*1.15,Math.PI*1.85);g.stroke();break;}
+    case 'route':
+      g.beginPath();g.moveTo(x-r,y);g.lineTo(x+r*0.55,y);g.strokeStyle=color;g.lineWidth=1.6;g.stroke();
+      poly(g,[[x+r,y],[x+r*0.4,y-r*0.5],[x+r*0.4,y+r*0.5]]);g.fillStyle=color;g.fill();break;
+    default:
+      g.beginPath();g.arc(x,y,r*0.8,0,7);g.fillStyle=color;g.fill();
+  }
+}
+
+/* nav */
+const MODULES=[["console","Console"],["tree","Task Tree"],["channel","Channel"],["recon","Recon"],["surface","Attack Surface"],["exploit","Exploit"],["findings","Findings"],["insights","Insights"],["opsec","OPSEC"],["settings","Settings"],["bounty","Bounty"]];
+// Number-key nav map: keys 1-9 pick modules 1-9, 0 the 10th, - the 11th — one keychar per
+// module, indexed into MODULES. (The old parseInt(e.key) topped out at 9, so the 10th and
+// 11th modules — Settings and Bounty — were unreachable by key.) An 12th module would
+// need one more keychar appended here.
+const NAVKEYS='1234567890-';
+let STATE=null, cur="console", REMED=null, remedKey="", REPORT_HTML="", vsig={}, phaseDefs=null, TRIAGE=null, triageKey="", CONN=true;
+// Interactive turn cap — synced from the settings engine (agent.maxTurns) at boot.
+// Hardcoding 40 here drifted from the operator-tunable server value (4–80).
+let MAXTURNS=40;
+const nav=$("#nav");
+MODULES.forEach(([id,label],i)=>{const b=el("button",id===cur?"on":"",`<span class="idx">${String(i+1).padStart(2,'0')}</span>${label}`);b.onclick=()=>show(id);b.dataset.m=id;b.title=label+' — press '+(NAVKEYS[i]||i+1);nav.appendChild(b);});
+function show(id){cur=id;vsig[id]=null;
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.m===id));
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  const v=$("#v-"+id);if(v)v.classList.add("on");
+  if(id==="surface"&&window.GS)GS.onShow();
+  if(id==="console"&&window.GC)GC.onShow();
+  if(id==="settings"){loadGhost();loadShelf();loadAttackbench();loadFp();loadMissions();loadBrain();} // init-once view — re-pull ghost posture, the tool shelf, attackbench coverage, the fp ring, mission checkpoints and the brain/key card on every visit, not just first
+  render();}
+/* number-row keys switch modules: 1-9 → modules 1-9, 0 → the 10th, - → the 11th — every
+   MODULES entry is reachable (NAVKEYS above); ignored while typing in a field */
+document.addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const t=e.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))return;
+  const i=NAVKEYS.indexOf(e.key);if(i>=0&&i<MODULES.length)show(MODULES[i][0]);
+});
+
+/* legend */
+const LEGEND=[["root","Root / scope"],["host","Host"],["subdomain","Subdomain"],["service","Service"],
+  ["endpoint","Endpoint"],["tech","Technology"],["cve","CVE"],["finding","Finding"],["exploit","Exploit"],
+  ["cred","Credential"],["foothold","Foothold"],["route","Pivot route"],["out","Out of scope"]];
+function buildLegend(box){
+  if(!box||box.dataset.done)return;box.dataset.done="1";
+  const rep={cve:PAL.high,finding:PAL.crit,out:PAL.tx3,foothold:PAL.steelHi,cred:PAL.steelHi,root:PAL.steelHi};
+  let html='<h5>Legend</h5><div class="grid"></div>';box.innerHTML=html;const grid=box.querySelector('.grid');
+  LEGEND.forEach(([t,lab])=>{
+    const row=el('div','glg');const cv=document.createElement('canvas');cv.width=36;cv.height=36;
+    const g=cv.getContext('2d');g.scale(2,2);drawGlyph(g,t,9,9,t==='root'?7.5:5.4,rep[t]||PAL.steel);
+    row.appendChild(cv);row.appendChild(el('span',null,esc(lab)));grid.appendChild(row);
+  });
+}
+
+/* ---------- force-directed attack-surface graph ---------- */
+const CSSSANS='ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif';
+const CSSMONO='ui-monospace,"Cascadia Code",Consolas,monospace';
+function edgeCat(k){
+  if(k==='exploit'||k==='yields'||k==='escalates'||k==='pivots'||k==='lateral'||k==='drops'||k==='owns')return 'off';
+  if(k==='affects')return 'aff'; if(k==='hold')return 'hold'; if(k==='out')return 'out';
+  if(k==='finding'||k==='remediates'||k==='contains')return 'find'; return 'struct';
+}
+function edgeLen(k){switch(k){case 'recon':return 134;case 'svc':return 52;case 'runs':return 58;case 'exposes':return 62;
+  case 'resolves':return 66;case 'listens':return 54;case 'affects':return 74;case 'finding':return 80;
+  case 'exploit':case 'yields':return 96;case 'escalates':case 'pivots':return 106;case 'lateral':return 122;default:return 86;}}
+function hstr(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return h;}
+
+function makeGraph(opts){
+  const wrap=opts.wrap, cv=opts.canvas, g=cv.getContext('2d');
+  let W=0,H=0,DPR=1;
+  let nodes=[],edges=[],scope=null,holds=[],byId=new Map();
+  let alpha=0;
+  let cam={x:0,y:0,scale:1}, autoFit=true, ringR=170;
+  let hoverId=null,selId=null,dragNode=null,panning=false,moved=false;
+  let panSX=0,panSY=0, paused=false, showLabels=false, tNow=0, raf=null;
+  const CHARGE=15000, SPRING=0.045, GRAV=0.022, ROOTG=0.09, VD=0.86;
+
+  function project(wx,wy){return {x:(wx-cam.x)*cam.scale+W/2, y:(wy-cam.y)*cam.scale+H/2};}
+  function unproj(sx,sy){return {x:(sx-W/2)/cam.scale+cam.x, y:(sy-H/2)/cam.scale+cam.y};}
+  function resize(){const r=wrap.getBoundingClientRect();W=Math.max(10,r.width);H=Math.max(10,r.height);
+    DPR=Math.min(window.devicePixelRatio||1,2);cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);
+    cv.style.width=W+'px';cv.style.height=H+'px';g.setTransform(DPR,0,0,DPR,0,0);}
+  function kick(a){if(a>alpha)alpha=a;}
+
+  function setData(surf){
+    if(!surf||!surf.nodes){nodes=[];edges=[];scope=null;holds=[];byId=new Map();alpha=0;
+      if(selId){selId=null;if(opts.onSelect)opts.onSelect(null);}hoverId=null;return;}
+    scope=surf.scope||null; holds=surf.holds||[];
+    const keep=new Map(); const list=[]; let added=false;
+    for(const raw of surf.nodes){
+      let nd=byId.get(raw.id);
+      if(!nd){added=true;nd={id:raw.id,vx:0,vy:0,_placed:false,pinned:false};
+        if(raw.type==='root'){nd.x=0;nd.y=0;nd._placed=true;}else{nd.x=(Math.random()-0.5)*40;nd.y=(Math.random()-0.5)*40;}}
+      nd.type=raw.type;nd.label=raw.label||raw.id;nd.sub=raw.sub;nd.ip=raw.ip;nd.port=raw.port;nd.proto=raw.proto;
+      nd.host=raw.host;nd.sev=raw.sev;nd.ref=raw.ref;nd.cve=raw.cve;nd.cvss=raw.cvss;nd.method=raw.method;
+      nd.name=raw.name;nd.version=raw.version;nd.kind=raw.kind;nd.state=raw.state;nd.gated=raw.gated;nd.raw=raw;
+      nd.r=RADIUS[raw.type]||6.5; nd.inScope=raw.type!=='out';
+      list.push(nd);keep.set(raw.id,nd);
+    }
+    let removed=false;for(const n of nodes)if(!keep.has(n.id))removed=true;
+    nodes=list;byId=keep;
+    edges=[];
+    for(const e of (surf.edges||[])){const a=byId.get(e.from),b=byId.get(e.to);if(!a||!b)continue;
+      edges.push({a,b,from:e.from,to:e.to,kind:e.kind,cat:edgeCat(e.kind),len:edgeLen(e.kind),
+        off:(hstr(e.from+e.to)%2?1:-1)*0.13, ph:(hstr(e.to+e.kind)&255)/255});}
+    for(const nd of nodes){if(nd._placed)continue;
+      let anchor=null;for(const e of edges){if(e.a===nd&&e.b._placed){anchor=e.b;break;}if(e.b===nd&&e.a._placed){anchor=e.a;break;}}
+      if(anchor){nd.x=anchor.x+(Math.random()-0.5)*34;nd.y=anchor.y+(Math.random()-0.5)*34;}nd._placed=true;}
+    if(added||removed)kick(0.7);else if(alpha<0.04)kick(0.12);
+    if(selId&&!byId.has(selId)){selId=null;if(opts.onSelect)opts.onSelect(null);}
+    if(hoverId&&!byId.has(hoverId))hoverId=null;
+  }
+
+  function tick(){
+    const n=nodes.length;if(!n)return;
+    if(alpha<0.001&&!dragNode)return;
+    for(let i=0;i<n;i++){const a=nodes[i];
+      for(let j=i+1;j<n;j++){const b=nodes[j];
+        let dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        if(d2<0.01){dx=Math.random()-0.5;dy=Math.random()-0.5;d2=dx*dx+dy*dy+0.01;}
+        const d=Math.sqrt(d2);let rep=CHARGE*alpha/d2;
+        const mn=a.r+b.r+16;if(d<mn)rep+=(mn-d)*0.22*Math.max(alpha,0.15);
+        const ux=dx/d,uy=dy/d;a.vx+=ux*rep;a.vy+=uy*rep;b.vx-=ux*rep;b.vy-=uy*rep;}}
+    for(const e of edges){const a=e.a,b=e.b;let dx=b.x-a.x,dy=b.y-a.y;const d=Math.sqrt(dx*dx+dy*dy)||0.01;
+      const f=(d-e.len)*SPRING*alpha;const ux=dx/d,uy=dy/d;a.vx+=ux*f;a.vy+=uy*f;b.vx-=ux*f;b.vy-=uy*f;}
+    for(const nd of nodes){
+      if(nd.type==='root'){nd.vx+=-nd.x*ROOTG;nd.vy+=-nd.y*ROOTG;}
+      else{nd.vx+=-nd.x*GRAV*alpha;nd.vy+=-nd.y*GRAV*alpha;}
+      const dc=Math.hypot(nd.x,nd.y)||0.01;
+      if(nd.inScope){const lim=ringR-nd.r-8;if(dc>lim){const p=(dc-lim)*0.04*Math.max(alpha,0.2);nd.vx-=nd.x/dc*p;nd.vy-=nd.y/dc*p;}}
+      else{const lim=ringR+38;if(dc<lim){const p=(lim-dc)*0.05;nd.vx+=nd.x/dc*p;nd.vy+=nd.y/dc*p;}}}
+    for(const nd of nodes){
+      if(nd===dragNode){nd.x=nd.fx;nd.y=nd.fy;nd.vx=0;nd.vy=0;continue;}
+      nd.vx*=VD;nd.vy*=VD;
+      const sp=Math.hypot(nd.vx,nd.vy);if(sp>30){nd.vx*=30/sp;nd.vy*=30/sp;}
+      nd.x+=nd.vx;nd.y+=nd.vy;}
+    alpha*=0.985;if(alpha<0.001)alpha=0;
+    let mx=0;for(const nd of nodes){const d=Math.hypot(nd.x,nd.y)+nd.r;if(d>mx)mx=d;}
+    ringR+=((Math.max(mx+40,110))-ringR)*0.08;
+  }
+
+  function fitCamera(){
+    if(!nodes.length)return;
+    let minX=-ringR-46,minY=-ringR-46,maxX=ringR+46,maxY=ringR+46;
+    for(const nd of nodes){if(nd.x<minX)minX=nd.x;if(nd.x>maxX)maxX=nd.x;if(nd.y<minY)minY=nd.y;if(nd.y>maxY)maxY=nd.y;}
+    const pad=54,bw=Math.max(maxX-minX,80),bh=Math.max(maxY-minY,80);
+    let ts=Math.min((W-2*pad)/bw,(H-2*pad)/bh);ts=Math.max(0.28,Math.min(2.2,ts));
+    const cx=(minX+maxX)/2,cy=(minY+maxY)/2;
+    if(autoFit){cam.scale+=(ts-cam.scale)*0.07;cam.x+=(cx-cam.x)*0.07;cam.y+=(cy-cam.y)*0.07;}
+  }
+
+  function drawGrid(){const step=46;
+    const x1=cam.x+(W/2)/cam.scale,y1=cam.y+(H/2)/cam.scale;
+    const gx0=Math.floor((cam.x-(W/2)/cam.scale)/step)*step,gy0=Math.floor((cam.y-(H/2)/cam.scale)/step)*step;
+    if(((x1-gx0)/step)*((y1-gy0)/step)>4200)return;
+    g.save();g.fillStyle='#121826';g.globalAlpha=0.6;
+    for(let wx=gx0;wx<x1;wx+=step)for(let wy=gy0;wy<y1;wy+=step){const s=project(wx,wy);g.beginPath();g.arc(s.x,s.y,0.8,0,7);g.fill();}
+    g.restore();}
+  function drawRing(){if(!scope)return;const c=project(0,0),R=ringR*cam.scale;g.save();
+    g.strokeStyle=PAL.steelLo;g.lineWidth=1;g.beginPath();g.arc(c.x,c.y,R,0,7);g.stroke();
+    g.globalAlpha=0.55;g.setLineDash([2,5]);g.beginPath();g.arc(c.x,c.y,R-3,0,7);g.stroke();g.setLineDash([]);
+    g.globalAlpha=0.65;g.strokeStyle=PAL.red;for(let i=0;i<4;i++){const a=i*Math.PI/2;g.beginPath();g.moveTo(c.x+Math.cos(a)*(R-1),c.y+Math.sin(a)*(R-1));g.lineTo(c.x+Math.cos(a)*(R+5),c.y+Math.sin(a)*(R+5));g.stroke();}
+    g.globalAlpha=0.9;g.fillStyle=PAL.steel;g.font='700 8px '+CSSSANS;g.textAlign='center';g.textBaseline='bottom';
+    g.fillText('SIGNED SCOPE',c.x,c.y-R-7);
+    g.globalAlpha=0.55;g.fillStyle=PAL.tx3;g.font='9px '+CSSMONO;
+    const cn=(scope.cidrs||[]).length,eng=scope.engagement||'',cd=cn?cn+' cidr'+(cn===1?'':'s'):'';g.fillText((eng+(eng&&cd?'  ·  ':'')+cd).slice(0,60),c.x,c.y-R-19);g.restore();}
+  function drawHolds(){if(!scope||!holds.length)return;const c=project(0,0),R=ringR*cam.scale;
+    holds.forEach((h,i)=>{const ang=Math.PI*0.6+i*0.5,rx=c.x+Math.cos(ang)*R,ry=c.y+Math.sin(ang)*R,ex=c.x+Math.cos(ang)*(R+30),ey=c.y+Math.sin(ang)*(R+30);
+      g.save();g.setLineDash([3,3]);g.globalAlpha=0.75;g.strokeStyle=PAL.steelHi;g.lineWidth=1;
+      g.beginPath();g.moveTo(rx,ry);g.lineTo(ex,ey);g.stroke();g.setLineDash([]);
+      g.beginPath();g.arc(ex,ey,6,0,7);g.fillStyle=GBG;g.fill();g.stroke();
+      g.beginPath();g.moveTo(ex-4,ey+4);g.lineTo(ex+4,ey-4);g.stroke();
+      const left=Math.cos(ang)<0,tx=left?ex-10:ex+10;g.textAlign=left?'right':'left';g.textBaseline='middle';
+      g.globalAlpha=0.9;g.fillStyle=PAL.steel;g.font='700 7px '+CSSSANS;g.fillText('HELD',tx,ey-5);
+      g.fillStyle=PAL.tx3;g.font='8px '+CSSMONO;g.fillText(String(h.action||'').slice(0,22),tx,ey+5);g.restore();});}
+
+  function drawEdge(e,ns,active){
+    const sa=project(e.a.x,e.a.y),sb=project(e.b.x,e.b.y);let dx=sb.x-sa.x,dy=sb.y-sa.y;const d=Math.hypot(dx,dy)||1;
+    const ux=dx/d,uy=dy/d,ax=sa.x+ux*(e.a.r+2),ay=sa.y+uy*(e.a.r+2),bx=sb.x-ux*(e.b.r+4),by=sb.y-uy*(e.b.r+4);
+    const mx=(ax+bx)/2,my=(ay+by)/2,cx=mx-uy*(e.off*d),cy=my+ux*(e.off*d);
+    let col=PAL.steelLo,w=1,dash=null,al=0.5,arrow=false,flow=false;
+    if(e.cat==='off'){col=PAL.redDim;al=0.9;arrow=true;flow=true;w=1.3;}
+    else if(e.cat==='aff'){col=PAL.high;al=0.42;dash=[4,3];arrow=true;}
+    else if(e.cat==='hold'){col=PAL.steelHi;al=0.6;dash=[3,3];}
+    else if(e.cat==='out'){col=PAL.tx3;al=0.38;dash=[3,3];}
+    else if(e.cat==='find'){al=0.55;}
+    const inc=active&&(e.from===active||e.to===active);
+    if(active){if(inc){al=Math.min(1,al+0.35);w+=0.4;}else{al*=0.16;flow=false;}}
+    g.save();g.globalAlpha=al;g.strokeStyle=col;g.lineWidth=w;if(dash)g.setLineDash(dash);
+    g.beginPath();g.moveTo(ax,ay);g.quadraticCurveTo(cx,cy,bx,by);g.stroke();g.restore();
+    if(arrow){const adx=bx-cx,ady=by-cy,al2=Math.hypot(adx,ady)||1,nx=adx/al2,ny=ady/al2,s=5;
+      g.save();g.globalAlpha=Math.min(1,al+0.1);g.fillStyle=col;
+      poly(g,[[bx,by],[bx-nx*s-ny*s*0.55,by-ny*s+nx*s*0.55],[bx-nx*s+ny*s*0.55,by-ny*s-nx*s*0.55]]);g.fill();g.restore();}
+    if(flow&&!paused){const p=((tNow*0.34)+e.ph)%1,q=1-p,fx=q*q*ax+2*q*p*cx+p*p*bx,fy=q*q*ay+2*q*p*cy+p*p*by;
+      g.save();g.globalAlpha=0.75;g.fillStyle=PAL.steelHi;g.beginPath();g.arc(fx,fy,1.7,0,7);g.fill();g.restore();}
+    if(showLabels||inc){const lb=e.kind.toUpperCase();g.save();g.globalAlpha=inc?0.95:0.62;g.font='700 8px '+CSSMONO;
+      const tw=g.measureText(lb).width;g.fillStyle='rgba(10,13,19,0.85)';g.fillRect(cx-tw/2-3,cy-6,tw+6,11);
+      g.fillStyle=PAL.tx3;g.textAlign='center';g.textBaseline='middle';g.fillText(lb,cx,cy);g.restore();}}
+  function drawNode(nd,active,ns){
+    const s=project(nd.x,nd.y);let a=1;if(active&&nd.id!==active&&!(ns&&ns.has(nd.id)))a=0.24;
+    const col=nd.type==='out'?PAL.tx3:nodeColor(nd);g.save();g.globalAlpha=a;
+    if(selId===nd.id){const pr=nd.r+6+Math.sin(tNow*3)*1.4;g.strokeStyle=PAL.redHi;g.lineWidth=1.2;g.beginPath();g.arc(s.x,s.y,pr,0,7);g.stroke();
+      g.globalAlpha=a*0.35;g.strokeStyle=PAL.red;g.beginPath();g.arc(s.x,s.y,pr+4,0,7);g.stroke();g.globalAlpha=a;}
+    else if(hoverId===nd.id){g.strokeStyle=PAL.steelLo;g.lineWidth=1;g.beginPath();g.arc(s.x,s.y,nd.r+5,0,7);g.stroke();}
+    drawGlyph(g,nd.type,s.x,s.y,nd.r,col);
+    if(nd.type==='exploit'&&nd.state==='proved'){g.globalAlpha=a*0.8;g.strokeStyle=PAL.steelHi;g.lineWidth=1;g.beginPath();g.arc(s.x,s.y,nd.r+3,0,7);g.stroke();}
+    g.restore();
+    const showL=showLabels||selId===nd.id||hoverId===nd.id||nd.type==='root'||nd.type==='host'||nd.type==='foothold'||(active&&(nd.id===active||(ns&&ns.has(nd.id))));
+    if(showL&&nd.label){g.save();g.globalAlpha=a;g.font='600 10px '+CSSSANS;g.textAlign='center';g.textBaseline='top';
+      const t=nd.label.length>26?nd.label.slice(0,25)+'…':nd.label,tw=g.measureText(t).width,ly=s.y+nd.r+3;
+      g.fillStyle='rgba(10,13,19,0.8)';g.fillRect(s.x-tw/2-3,ly-1,tw+6,13);
+      g.fillStyle=nd.type==='finding'?col:PAL.tx2;g.fillText(t,s.x,ly);g.restore();}}
+  function drawEmpty(){g.save();g.strokeStyle=PAL.hair2;g.setLineDash([4,6]);g.globalAlpha=0.55;
+    g.beginPath();g.arc(W/2,H/2,Math.min(W,H)*0.3,0,7);g.stroke();g.restore();
+    g.save();g.textAlign='center';g.fillStyle=PAL.tx3;g.font='700 11px '+CSSSANS;g.fillText('AWAITING SIGNED SCOPE',W/2,H/2-4);
+    g.fillStyle=PAL.tx4;g.font='10px '+CSSSANS;g.fillText('Launch a campaign in Settings to map the attack surface.',W/2,H/2+14);g.restore();}
+  function draw(){g.clearRect(0,0,W,H);drawGrid();if(!nodes.length){drawEmpty();return;}
+    drawRing();drawHolds();const active=hoverId||selId;let ns=null;
+    if(active){ns=new Set();for(const e of edges){if(e.from===active)ns.add(e.to);if(e.to===active)ns.add(e.from);}}
+    for(const e of edges)drawEdge(e,ns,active);for(const nd of nodes)drawNode(nd,active,ns);}
+
+  function hit(sx,sy){for(let i=nodes.length-1;i>=0;i--){const nd=nodes[i],s=project(nd.x,nd.y);if(Math.hypot(s.x-sx,s.y-sy)<=Math.max(nd.r,7)+4)return nd;}return null;}
+  function select(id){selId=id||null;if(opts.onSelect)opts.onSelect(selId?byId.get(selId):null);}
+  cv.addEventListener('pointerdown',ev=>{try{cv.setPointerCapture(ev.pointerId);}catch(e){}const r=cv.getBoundingClientRect(),sx=ev.clientX-r.left,sy=ev.clientY-r.top;
+    moved=false;const nd=hit(sx,sy);if(nd){dragNode=nd;nd.pinned=true;nd.fx=nd.x;nd.fy=nd.y;}else{panning=true;panSX=sx;panSY=sy;}});
+  cv.addEventListener('pointermove',ev=>{const r=cv.getBoundingClientRect(),sx=ev.clientX-r.left,sy=ev.clientY-r.top;
+    if(dragNode){const w=unproj(sx,sy);dragNode.fx=w.x;dragNode.fy=w.y;if(Math.abs(ev.movementX)+Math.abs(ev.movementY)>2)moved=true;kick(0.35);cv.style.cursor='grabbing';return;}
+    if(panning){cam.x-=(sx-panSX)/cam.scale;cam.y-=(sy-panSY)/cam.scale;panSX=sx;panSY=sy;autoFit=false;moved=true;cv.style.cursor='grabbing';return;}
+    const nd=hit(sx,sy);hoverId=nd?nd.id:null;cv.style.cursor=nd?'pointer':'default';});
+  function endPtr(){if(dragNode){if(!moved)select(dragNode.id);dragNode.pinned=false;dragNode=null;kick(0.2);}
+    else if(panning){if(!moved)select(null);panning=false;}cv.style.cursor='default';}
+  cv.addEventListener('pointerup',endPtr);cv.addEventListener('pointercancel',endPtr);
+  cv.addEventListener('pointerleave',()=>{if(!dragNode&&!panning)hoverId=null;});
+  cv.addEventListener('wheel',ev=>{ev.preventDefault();const r=cv.getBoundingClientRect(),sx=ev.clientX-r.left,sy=ev.clientY-r.top;
+    const w=unproj(sx,sy),f=Math.exp(-ev.deltaY*0.0012);cam.scale=Math.max(0.2,Math.min(3.2,cam.scale*f));
+    cam.x=w.x-(sx-W/2)/cam.scale;cam.y=w.y-(sy-H/2)/cam.scale;autoFit=false;},{passive:false});
+
+  function frame(now){raf=requestAnimationFrame(frame);if(!wrap.offsetParent)return;if(W===0||H===0)resize();
+    tNow=now/1000;if(!paused){tick();tick();}fitCamera();draw();}
+  if(window.ResizeObserver){new ResizeObserver(()=>{if(wrap.offsetParent)resize();}).observe(wrap);}
+  window.addEventListener('resize',()=>{if(wrap.offsetParent)resize();});
+  resize();raf=requestAnimationFrame(frame);
+
+  return {setData,deselect:()=>select(null),
+    onShow:()=>{resize();autoFit=true;kick(0.3);},
+    fit:()=>{autoFit=true;kick(0.05);},
+    togglePause:()=>{paused=!paused;return paused;},
+    toggleLabels:()=>{showLabels=!showLabels;return showLabels;},
+    getEdges:()=>edges};
+}
+const GC=makeGraph({wrap:$("#gwrap-c"),canvas:$("#gcanvas-c"),onSelect:n=>fillInspect('c',n)});
+const GS=makeGraph({wrap:$("#gwrap-s"),canvas:$("#gcanvas-s"),onSelect:n=>fillInspect('s',n)});
+window.GC=GC;window.GS=GS;
+function gFit(k){(k==='c'?GC:GS).fit();}
+function gPause(k,btn){const p=(k==='c'?GC:GS).togglePause();btn.textContent=p?'Resume':'Pause';btn.classList.toggle('on',p);}
+function gLabels(k,btn){const s=(k==='c'?GC:GS).toggleLabels();btn.classList.toggle('on',s);}
+
+/* ---------- render orchestration ---------- */
+function render(){try{_render();}catch(e){console.error('render',e);}}
+function _render(){
+  const s=STATE, surf=s&&s.surface, c=(surf&&surf.counts)||{};
+  const ssc=surf&&surf.scope,sci=ssc?(ssc.cidrs||[]):[];
+  $("#scopeV").innerHTML = ssc ? `<b>${esc(ssc.engagement||'—')}</b> · ${sci.length} cidr${sci.length===1?'':'s'}${sci.length?' · '+esc(sci.slice(0,2).join(', '))+(sci.length>2?'…':''):''}` : "<b>—</b>";
+  $("#scopeV").title = sci.length ? sci.join(', ') : '';
+  // THE one ghost mapping (console-helpers ghostChip) over THE one status object —
+  // STATE.ghost, which loadGhost() keeps in lockstep with GET /api/ghost's truth, so the
+  // header chip and the settings ghost card can never disagree (the OFF-at-top-while-armed
+  // bug: they used to render two separately-fetched snapshots).
+  const gh=(s&&s.ghost)||null, gv=$("#ghostV"), gchip=$("#ghostChip"), gc=ghostChip(gh);
+  if(gchip)gchip.title=gc.title;
+  if(gv)gv.innerHTML='<b'+(gc.cls?' class="'+gc.cls+'"':'')+'>'+esc(gc.label)+'</b>';
+  const status=(s&&s.status)||'idle', stv=$("#statusV"), stt=$("#statusT");
+  stt.textContent=String(status).toUpperCase().replace(/^RUNNING:?/,'RUNNING ');
+  let cls='stat';
+  if(/running/i.test(status))cls+=' run'; else if(s&&s.pendingApproval)cls+=' hold';
+  else if(/done|complete/i.test(status))cls+=' done'; else if(/error/i.test(status))cls+=' err';
+  stv.className=cls;
+  document.title=(s&&s.pendingApproval?'\u25CF HOLD \u00b7 ':'')+'VARVEL \u00b7 governed autonomous red team';
+  renderSignal(s,c,status);
+  try{GC.setData(surf||null);GS.setData(surf||null);}catch(e){console.error('graph',e);}
+  buildLegend($("#glegend-c"));buildLegend($("#glegend-s"));
+  const nNodes=(surf&&surf.nodes)?surf.nodes.length:0, nEdges=(surf&&surf.edges)?surf.edges.length:0;
+  const gm=`<b>${nNodes}</b> NODES · <b>${nEdges}</b> EDGES · <b>${c.holds||0}</b> HELD`;
+  $("#gmetat-c").innerHTML=gm;$("#gmetat-s").innerHTML=gm;
+  renderRail(s);renderBudget(s);renderFootprint(s);renderHolds(surf);
+  renderFeed(s);renderThread();renderGate();
+  if(cur==='surface')renderSurfaceSide(surf);
+  renderView();
+}
+function linkChip(){return '<div class="sig link '+(CONN?'up':'down')+'"><span class="lk"></span><span class="sv">'+(CONN?'LINK UP':'LINK LOST')+'</span></div>';}
+function renderSignal(s,c,status){
+  const box=$("#signal");
+  if(!s||status==='idle'){box.innerHTML=linkChip()+'<div class="sig live"><span class="live-dot"></span><span class="sv">STANDBY</span></div><div class="sig"><span class="sk">Engagement</span><span class="sv">not started</span></div>';return;}
+  const fp=(s.opsec&&s.opsec.posture&&s.opsec.posture.footprint)||{};
+  const live=/running/i.test(status)?'LIVE':(/done|complete/i.test(status)?'COMPLETE':(s.pendingApproval?'HELD':'READY'));
+  const M=[['hosts',c.hosts],['subdom',c.subdomains],['svc',c.svcs],['endpt',c.endpoints],['tech',c.tech],['cve',c.cves],['find',c.findings],['crit',c.crit,'warn'],['expl',c.exploits],['cred',c.creds],['foot',c.footholds],['route',c.routes],['held',c.holds,'gov']];
+  let h=linkChip()+'<div class="sig live"><span class="live-dot"></span><span class="sv">'+live+'</span></div>';
+  // THE one budget readout (console-helpers budgetReadout), shared with the Step budget
+  // card below — the 0/40-vs-0/200 bug was two genuinely different budgets (interactive
+  // governed tool turns vs pipeline campaign steps) rendered as lookalike counters. One
+  // mapping now, and the tooltip names the source setting so they can't be confused.
+  const br=budgetReadout(s,MAXTURNS);
+  if(br.kind!=='none')h+='<div class="sig" title="'+esc(br.source)+'"><span class="sk">'+esc(br.chipKey)+'</span><span class="sv">'+br.used+'/'+br.max+'</span></div>';
+  h+='<div class="sig"><span class="sk">Tool calls</span><span class="sv">'+(fp.toolCalls||0)+'</span></div>';
+  M.forEach(m=>{h+='<div class="sig '+(m[2]||'')+'"><span class="sk">'+m[0]+'</span><span class="sv">'+(m[1]||0)+'</span></div>';});
+  box.innerHTML=h;
+}
+/* header clock */
+setInterval(()=>{const d=new Date();$("#clock").textContent=d.toTimeString().slice(0,8);},1000);
+
+/* ---------- console: left column ---------- */
+const PH_FALLBACK=[{id:'recon',name:'Recon',gate:'none'},{id:'validate',name:'Validate',gate:'none'},{id:'exploit',name:'Exploit',gate:'sigil'},{id:'postex',name:'Post-Ex',gate:'sigil'},{id:'report',name:'Report',gate:'none'}];
+function phaseList(){return (phaseDefs&&phaseDefs.length)?phaseDefs:PH_FALLBACK;}
+function phaseAgg(s){const m={},act=(s&&s.activity)||[];act.forEach(a=>{const d=a.data||{};
+  if(a.kind==='phase.result'&&d.phase){(m[d.phase]=m[d.phase]||{}).steps=d.steps;m[d.phase].denials=d.denials;}
+  if(a.kind==='gate.decision'&&d.phase){(m[d.phase]=m[d.phase]||{}).signed=d.signed;}});return m;}
+function renderRail(s){
+  const rail=$("#rail");
+  // Interactive (chat-driven) runs have NO phase pipeline — showing "recon" forever is a lie.
+  const st=(s&&s.status)||'';
+  if(/interactive/.test(st)){
+    rail.innerHTML='<div class="pv act"><div class="pmark"></div><div class="pbody"><div class="pname">Interactive</div><div class="pmeta">operator-driven governed run — no phase pipeline; every move is in the thread, surface + footprint update live</div></div></div>';
+    return;
+  }
+  const phs=phaseList(),idx=s?(s.phaseIndex==null?-1:s.phaseIndex):-1,agg=phaseAgg(s),pend=s&&s.pendingApproval;
+  rail.innerHTML=phs.map((p,i)=>{
+    const done=i<idx,act=i===idx,gate=p.gate&&p.gate!=='none',ai=agg[p.id]||{};
+    let cls='pv'+(done?' done':act?' act':'')+(gate?' gate':''),meta;
+    if(done)meta=(ai.steps!=null?ai.steps+' steps':'complete')+(ai.denials?' · '+ai.denials+' held':'');
+    else if(act)meta=pend===p.id?'awaiting countersignature':(/running/i.test((s&&s.status)||'')?'running…':'active');
+    else meta='pending';
+    let gtag='';
+    if(gate){let gc='',gt='HITL';if(ai.signed===true){gc='sig';gt='SIGNED';}else if(ai.signed===false){gc='dec';gt='DECLINED';}else if(pend===p.id){gt='HOLD';}
+      gtag='<span class="pgate '+gc+'">'+gt+'</span>';}
+    return '<div class="'+cls+'"><div class="pmark"></div><div class="pbody"><div class="pname">'+esc(p.name)+'</div><div class="pmeta">'+esc(meta)+'</div></div>'+gtag+'</div>';
+  }).join('');
+}
+function renderBudget(s){const box=$("#budget");
+  // THE one budget readout (console-helpers budgetReadout) — the same mapping the signal
+  // strip's chip renders. The interactive hint names the turn budget's source WITHOUT a
+  // fabricated live-looking number (the old hardcoded 'the 0/200 campaign step counter'
+  // string is what Jack saw next to the real 0/40).
+  const br=budgetReadout(s,MAXTURNS);
+  if(br.kind==='none'){box.innerHTML='<div class="empty">no campaign</div>';return;}
+  let h='<div class="barhead" title="'+esc(br.source)+'"><b>'+br.used+'<small> / '+br.max+' '+esc(br.unit)+'</small></b><small>'+br.pct+'%'+(br.kind==='turns'?' · interactive':'')+'</small></div>'+
+    '<div class="bar'+(br.pct>80?' hot':'')+'"><i style="width:'+br.pct+'%"></i></div>';
+  if(br.hint)h+='<p class="hint">'+esc(br.hint)+'</p>';
+  if(br.kind==='steps')h+='<div class="kv" style="margin-top:9px"><span class="k">inherited findings</span><span class="v">'+(s.inheritedFindings||0)+'</span></div>';
+  box.innerHTML=h;}
+function riskCls(rk){return rk==='critical'||rk==='high'?'hi':(rk==='elevated'?'warn':'');}
+function renderFootprint(s){const box=$("#footprint");const post=(s&&s.opsec&&s.opsec.posture)||null;const fp=post&&post.footprint;const det=post&&post.detection;
+  if(!fp){box.innerHTML='<div class="empty">no campaign</div>';return;}
+  let h='';
+  if(det&&det.events){h+='<div class="kv"><span class="k">detection risk</span><span class="v '+riskCls(det.risk)+'">'+(det.risk||'low').toUpperCase()+' · '+det.weighted+'/5</span></div>';}
+  h+='<div class="kv"><span class="k">tool calls</span><span class="v">'+(fp.toolCalls||0)+'</span></div>'+
+    '<div class="kv"><span class="k">hosts touched</span><span class="v">'+(fp.hostsTouched||0)+'</span></div>'+
+    '<div class="kv"><span class="k">noisy actions</span><span class="v'+(fp.noisyActions?' warn':'')+'">'+(fp.noisyActions||0)+'</span></div>'+
+    '<div class="kv"><span class="k">enclave holds</span><span class="v hi">'+(fp.holds||0)+'</span></div>';
+  // live footprint-reduction advisor — always-on, deterministic (lower the number)
+  const red=(s&&s.opsec&&s.opsec.reduction)||null;
+  if(red&&red.reducible>0){h+='<div class="kv"><span class="k">↓ reducible to</span><span class="v '+riskCls(red.projectedRisk)+'">'+(red.projectedRisk||'').toUpperCase()+' (−'+red.reducible+')</span></div>';
+    if(red.plan&&red.plan[0])h+='<div class="hint" style="margin-top:6px;border-left-color:var(--steel-lo)">Quietest win — <b>'+esc(red.plan[0].activity)+'</b>: '+esc((red.plan[0].quieter||'').slice(0,110))+'</div>';}
+  const aiAdv=(s&&s.footprintAdvice)||null;
+  if(aiAdv&&aiAdv.text)h+='<div class="hint" style="margin-top:6px;border-left-color:var(--red-lo)"><b>AI OPSEC advisor ('+esc((aiAdv.risk||'').toUpperCase())+'):</b> '+esc(aiAdv.text.slice(0,240))+'</div>';
+  box.innerHTML=h;}
+function renderHolds(surf){const box=$("#holds"),cnt=$("#holdCount"),holds=(surf&&surf.holds)||[];cnt.textContent=holds.length;
+  if(!holds.length){box.innerHTML='<div class="empty">no actions held — clean run</div>';return;}
+  box.innerHTML=holds.map(h=>'<div class="hold-row"><div class="blk"></div><div class="ha"><div class="a">'+esc(h.action)+'</div><div class="r">'+esc(h.rule||'enclave-denied')+' · '+esc(hhmmss(h.at))+'</div></div><div class="tag">HELD</div></div>').join('');}
+
+/* ---------- console: feed / chat / gate ---------- */
+function feedCat(k){k=String(k);
+  if(k.indexOf('gate')===0)return 'gate';
+  if(k.indexOf('campaign')===0)return 'campaign';
+  if(k.indexOf('phase')===0)return 'phase';
+  if(k.indexOf('memory')===0)return 'memory';
+  if(k==='deepthink')return 'think';
+  if(k==='skills'||k==='skill')return 'skill';
+  if(k==='agent.tool'||k==='tool')return 'tool';
+  if(k==='footprint.advise'||k.indexOf('footprint')===0||k==='opsec')return 'opsec';
+  if(k==='guided.search'||k==='guided'||k==='query')return 'search';
+  return k.replace(/[^a-z0-9_-]/gi,'-');}
+// Short labels for the common (chatty, dotted) kinds — the full kind string stays in a title tooltip.
+const KIND_SHORT={'channel.agent.checkin':'checkin','channel.agent.push':'push','channel.agent.registered':'register','channel.agent.killed':'killed','channel.agent.transport':'transport','channel.agent.transport-active':'transport','channel.agent.profile':'profile','channel.agent.tagged':'tagged','channel.agent.renamed':'renamed','channel.task.queued':'task','channel.task.broadcast':'task','channel.task.resulted':'result','channel.artifact.staged':'artifact','channel.artifact.received':'artifact','channel.checkin.rejected':'rejected','channel.dns.error':'dns-error','footprint.advise':'opsec','recon.tool':'recon','memory.inherit':'memory','surface.inherit':'inherit','phase.start':'phase','phase.result':'phase','phase.skip':'skip','phase.error':'error','gate.request':'gate','gate.decision':'gate','gate.timeout':'gate','gate.error':'gate','campaign.start':'start','campaign.done':'done','agent.tool':'tool','guided.search':'search','budget.exceed':'budget','ghost.refused':'ghost','stealth.calibrate':'stealth','validate':'validate','validator.gate':'gate','validate.refused':'refused'};
+function kindShort(k){return KIND_SHORT[k]||k;}
+function fmtEvt(a){const d=a.data||{};switch(a.kind){
+  case 'phase.start':return 'entering '+d.phase+(d.gate&&d.gate!=='none'?' (HITL gate)':'');
+  case 'phase.result':return d.phase+' complete · '+d.steps+' steps · '+(d.denials||0)+' held';
+  case 'finding':return '['+String(d.sev||'').toUpperCase()+'] '+d.title+(d.ref?' ('+d.ref+')':'');
+  case 'validate':return String(d.state||'?').toUpperCase()+' — '+d.finding+(d.oracle?' · '+String(d.oracle).slice(0,140):'')+(d.control?' · '+String(d.control).slice(0,120):'');
+  case 'validator.gate':return 'downgraded to suspected: '+d.title+' (no objective oracle cited)';
+  case 'validate.refused':return 'validation refused (fail-closed): '+d.finding+' — '+d.reason;
+  case 'exploit':return d.title+' — '+d.result+(d.ref?' ('+d.ref+')':'');
+  case 'hold':return 'enclave held: '+d.action;
+  case 'artifact':return 'artifact '+d.kind+' @ '+d.host+':'+d.path;
+  case 'route':return 'pivot '+d.from+' → '+d.to+(d.via?' via '+d.via:'');
+  case 'gate.request':return 'awaiting countersignature — '+d.phase;
+  case 'gate.decision':return d.phase+' '+(d.signed?'countersigned':'declined');
+  case 'memory.inherit':return 'inherited '+d.findings+' findings from prior sessions';
+  case 'campaign.start':return 'campaign started · '+((d.scope&&d.scope.engagement)||'');
+  case 'campaign.done':return 'campaign complete'+(d.counts?' · '+d.counts.findings+' findings, '+d.counts.exploits+' exploits':'');
+  case 'deepthink':return 'deep reasoning'+((d.summary||d.note||d.text)?' — '+String(d.summary||d.note||d.text).slice(0,180):'')+(d.tokens?' ('+d.tokens+' tok)':'');
+  case 'skills':case 'skill':return 'skill · '+(d.skill||d.name||'invoked')+(d.detail?' — '+String(d.detail).slice(0,140):'');
+  case 'agent.tool':case 'tool':return (d.tool||d.name||'tool')+(d.target?' → '+d.target:(d.detail?' '+String(d.detail).slice(0,140):''))+((d.held||d.denied)?' · HELD':'');
+  case 'footprint.advise':return 'OPSEC advisor'+(d.risk?' ['+String(d.risk).toUpperCase()+']':'')+(d.text?' — '+String(d.text).slice(0,180):'');
+  case 'guided.search':return 'surface search'+((d.q||d.query)?' “'+String(d.q||d.query).slice(0,80)+'”':'')+(d.count!=null?' · '+d.count+' match'+(Number(d.count)===1?'':'es'):'');
+  default:try{return JSON.stringify(d);}catch(e){return '';}}}
+let _feedSig='';
+function renderFeed(s){const feed=$("#feed"),cnt=$("#actCount");
+  if(!s||!s.activity||!s.activity.length){cnt.textContent='0';if(_feedSig!=='e'){_feedSig='e';feed.innerHTML='<div class="empty">no activity — start a campaign in Settings</div>';}return;}
+  cnt.textContent=s.activity.length;
+  const atBottom=feed.scrollTop+feed.clientHeight>=feed.scrollHeight-30;
+  // Rebuild the DOM only when the feed actually changed (activity is append-only with
+  // monotonic seq, so length + first-event timestamp + last-seq is a sound signature —
+  // the timestamp also distinguishes a fresh campaign whose seq counter restarted).
+  // The thread got this gate first (renderThread); without it every 1.5s poll wiped
+  // text selection mid-copy.
+  const last=s.activity[s.activity.length-1],sig=s.activity.length+':'+(s.activity[0]&&s.activity[0].at)+':'+(last&&last.seq);
+  if(sig!==_feedSig){_feedSig=sig;
+  // Consecutive repeats of the same event kind from the same agent collapse into ONE row
+  // with an xN pill (heartbeat noise must not drown signal). Presentation only — the raw
+  // activity/audit feed keeps every event; the pill's title shows first/last times.
+  const groups=[];for(const a of s.activity.slice(-220)){const key=a.kind+'|'+((a.data&&a.data.agentId)||'');const g=groups[groups.length-1];if(g&&g.key===key){g.n++;g.last=a;}else{groups.push({key,n:1,first:a,last:a});}}
+  feed.innerHTML=groups.map(g=>{const a=g.last,multi=g.n>1;
+    const tip=multi?(' title="'+g.n+' events: first '+esc(hhmmss(g.first.at))+', last '+esc(hhmmss(g.last.at))+'"'):'';
+    return '<div class="ln '+feedCat(a.kind)+'"'+tip+'><span class="t">'+esc(hhmmss(a.at))+'</span><span class="k" title="'+esc(a.kind)+'">'+esc(kindShort(a.kind))+(multi?' <span class="pill">x'+g.n+'</span>':'')+'</span><span class="x">'+esc(fmtEvt(a))+(multi?'<span style="opacity:.55"> (last of '+g.n+')</span>':'')+'</span></div>';}).join('');}
+  if(atBottom)feed.scrollTop=feed.scrollHeight;}
+function foldText(txt,cap,what){
+  const t=String(txt||'');
+  if(t.length<=cap)return esc(t);
+  return esc(t.slice(0,cap))+'… <details class="fulld"><summary>full '+what+' ('+t.length+' chars)</summary><pre>'+esc(t)+'</pre></details>';
+}
+function stepCard(s){
+  if(!s)return '';
+  // Huge payloads (a Write's full file body, a long curl output) collapse to a preview +
+  // an on-demand <details> — the thread stays readable instead of drowning in code chunks.
+  const fold=foldText;
+  if(s.kind==='tool')return '<div class="stp tool"><span class="sk">'+esc(s.name||'tool')+'</span><span class="sd" style="white-space:normal">'+fold(s.detail,140,'input')+'</span></div>';
+  if(s.kind==='result')return '<div class="stp res'+(s.denied?' denied':'')+'"><span class="sk">'+(s.denied?'HELD':'→')+'</span><span class="sd" style="white-space:normal">'+fold(s.text,180,'result')+'</span></div>';
+  if(s.kind==='text')return '<div class="stp think"><span class="sd">'+fold(s.text,400,'note')+'</span></div>';
+  return '';}
+let _threadSig='';
+function renderThread(force){const t=$("#thread");if(!t)return;
+  const smsgs=(STATE&&Array.isArray(STATE.messages)&&STATE.messages.length)?STATE.messages:null;
+  const msgs=smsgs||window._localMsgs||[];
+  // Only rebuild when something actually changed — otherwise constant re-render wipes text selection.
+  const sig=JSON.stringify(msgs.map(m=>[m.who||m.role,(m.text||'').length,(m.steps?m.steps.length:0),m.pending?1:0]));
+  if(!force&&sig===_threadSig)return; _threadSig=sig;
+  if(!msgs.length){t.innerHTML='<div class="empty">Send an instruction to the agent. It runs governed inside the signed scope — every move shows below.</div>';return;}
+  t.innerHTML=msgs.map(m=>{const ag=m.role==='agent'||m.who==='agent';
+    let inner='';
+    if(ag&&Array.isArray(m.steps)&&m.steps.length)inner+='<div class="steps">'+m.steps.map(stepCard).join('')+'</div>';
+    if(m.text)inner+='<div class="mtext">'+foldText(m.text,700,'reply')+'</div>';
+    if(ag&&m.pending)inner+='<div class="working"><span class="wd"></span>WORKING — running governed tools…</div>';
+    if(ag&&m.denials)inner+='<div class="mheld">'+m.denials+' action(s) held by the Enclave</div>';
+    return '<div class="msg '+(ag?'agent':'me')+'"><div class="who">'+(ag?'AGENT':'OPERATOR')+'</div>'+(inner||esc(m.text||''))+'</div>';}).join('');
+  t.scrollTop=t.scrollHeight;}
+let _gateSig='';
+function renderGate(){const gt=$("#gate"),p=STATE&&STATE.pendingApproval;
+  // Same sig-gate as the thread/feed — while a gate pends, the 1.5s poll must not
+  // rebuild the card out from under a click on Countersign/Decline.
+  const sig=p?String(p):'';
+  if(sig===_gateSig)return;_gateSig=sig;
+  if(!p){gt.classList.remove('on');gt.innerHTML='';return;}
+  gt.classList.add('on');
+  gt.innerHTML='<div class="gh"><span class="sigil"></span><b>HITL GATE — '+esc(String(p).toUpperCase())+'</b></div>'+
+    '<div class="gb"><p>The agent reached a gated phase and is held pending your countersignature. The Enclave enforces this hold independently — nothing proceeds until you sign.</p>'+
+    '<div class="row"><button class="btn go" onclick="approve(\''+jsq(p)+'\',false)">Countersign</button><button class="btn pri" onclick="approve(\''+jsq(p)+'\',true)">Decline</button></div></div>';}
+
+/* ---------- node inspector + surface model ---------- */
+function inspectRows(nd){const rows=[];
+  const add=(k,v)=>{if(v==null||v==='')return;rows.push('<div class="kv"><span class="k">'+k+'</span><span class="v">'+esc(v)+'</span></div>');};
+  add('type',nd.type);add('ip',nd.ip);
+  if(nd.port)add('port',nd.port+'/'+(nd.proto||'tcp'));
+  add('method',nd.method);if(nd.name)add('product',nd.name+(nd.version?' '+nd.version:''));
+  if(nd.sev)rows.push('<div class="kv"><span class="k">severity</span><span class="v"><span class="sev '+esc(nd.sev)+'">'+esc(String(nd.sev).toUpperCase())+'</span></span></div>');
+  {const rw=nd.raw||{};if(nd.type==='finding'&&(rw.confidence||(rw.conf!=null&&rw.conf!=='')))rows.push('<div class="kv"><span class="k">confidence</span><span class="v">'+confInline(rw.confidence,rw.conf)+'</span></div>');}
+  add('ref',nd.ref);add('cve',nd.cve);if(nd.cvss!=null)add('cvss',nd.cvss);
+  if(nd.state)rows.push('<div class="kv"><span class="k">state</span><span class="v"><span class="sev '+(nd.state==='proved'?'proved':'med')+'">'+esc(String(nd.state).toUpperCase())+'</span></span></div>');
+  add('kind',nd.kind);add('host',nd.host);
+  return rows.join('')||'<div class="empty">no attributes</div>';}
+function inspectRel(nd){const surf=STATE&&STATE.surface;if(!surf)return '';
+  const nodes=surf.nodes||[],edges=surf.edges||[],lab=id=>{const n=nodes.find(x=>x.id===id);return n?n.label:id;};
+  const all=edges.filter(e=>e.from===nd.id).map(e=>['→',e.kind,lab(e.to)]).concat(edges.filter(e=>e.to===nd.id).map(e=>['←',e.kind,lab(e.from)]));
+  if(!all.length)return '';
+  return '<div class="cap" style="margin:10px 0 5px">Relationships · '+all.length+'</div>'+
+    all.slice(0,14).map(r=>'<div class="kv"><span class="k">'+r[0]+' '+esc(r[1])+'</span><span class="v" style="font-weight:400">'+esc(r[2])+'</span></div>').join('');}
+function fillInspect(k,nd){
+  if(k==='c'){const box=$("#ginspect-c");if(!nd){box.classList.remove('on');box.innerHTML='';return;}
+    box.classList.add('on');
+    box.innerHTML='<div class="ih"><span class="ttl">'+esc(nd.label||nd.type)+'</span><span class="cl" onclick="GC.deselect()">&times;</span></div><div class="ib">'+inspectRows(nd)+inspectRel(nd)+'</div>';
+  }else{const box=$("#ginspect-s");if(!nd){box.innerHTML='<div class="empty">Click a node in the graph to inspect it.</div>';return;}
+    box.innerHTML='<div style="font:700 12px var(--sans);color:var(--tx);margin-bottom:4px">'+esc(nd.label||nd.type)+'</div>'+inspectRows(nd)+inspectRel(nd);}}
+function renderSurfaceSide(surf){const box=$("#surface-model");if(!surf){box.innerHTML='<div class="empty">no campaign</div>';return;}
+  const nodes=surf.nodes||[],edges=surf.edges||[],nt={},ek={};
+  nodes.forEach(n=>nt[n.type]=(nt[n.type]||0)+1);edges.forEach(e=>ek[e.kind]=(ek[e.kind]||0)+1);
+  const model=surf.model||{nodeTypes:16,edgeKinds:20};
+  let h='<div class="kv"><span class="k">node types in use</span><span class="v">'+Object.keys(nt).length+' / '+(model.nodeTypes||16)+'</span></div>';
+  h+='<div class="kv"><span class="k">edge kinds in use</span><span class="v">'+Object.keys(ek).length+' / '+(model.edgeKinds||20)+'</span></div>';
+  h+='<div class="cap" style="margin:11px 0 6px">Nodes by type</div>';
+  h+=Object.keys(nt).sort((a,b)=>nt[b]-nt[a]).map(t=>'<div class="kv"><span class="k">'+esc(t)+'</span><span class="v">'+nt[t]+'</span></div>').join('');
+  h+='<div class="cap" style="margin:11px 0 6px">Edges by kind</div>';
+  h+=Object.keys(ek).sort((a,b)=>ek[b]-ek[a]).map(t=>'<div class="kv"><span class="k">'+esc(t)+'</span><span class="v">'+ek[t]+'</span></div>').join('');
+  box.innerHTML=h;}
+
+/* ---------- module views (signature-gated so poll never wipes reports/inputs) ---------- */
+function card(title,inner,extra){return '<section class="card"><h3>'+title+(extra?'<span class="r">'+extra+'</span>':'')+'</h3><div class="bd">'+inner+'</div></section>';}
+function sigOf(o){try{return JSON.stringify(o);}catch(e){return String(Math.random());}}
+function build(id,s,fn){if(vsig[id]===s)return;vsig[id]=s;fn();}
+function page(inner,mod){return '<div class="page'+(mod?' '+mod:'')+'">'+inner+'</div>';}
+function phd(title,desc,rhs){return '<div class="phd"><div class="lhs"><h2>'+esc(title)+'</h2>'+(desc?'<div class="desc">'+esc(desc)+'</div>':'')+'</div>'+(rhs?'<div class="rhs">'+rhs+'</div>':'')+'</div>';}
+function tileHTML(n,l,ncls,sub){return '<div class="tile"><div class="n'+(ncls?' '+ncls:'')+'">'+esc(n==null?0:n)+'</div><div class="l">'+esc(l)+'</div>'+(sub?'<div class="sub">'+esc(sub)+'</div>':'')+'</div>';}
+function scopeChip(surf){const sc=surf&&surf.scope;if(!sc)return '';let h='<div class="pchip"><span class="pk">Engagement</span><span class="pv">'+esc(sc.engagement||'\u2014')+'</span></div>';if(sc.cidrs&&sc.cidrs.length)h+='<div class="pchip" title="'+esc(sc.cidrs.join(', '))+'"><span class="pk">Signed scope</span><span class="pv">'+esc(sc.cidrs.length+' cidr'+(sc.cidrs.length===1?'':'s')+' · '+sc.cidrs[0])+(sc.cidrs.length>1?'…':'')+'</span></div>';return h;}
+function renderView(){const s=STATE,surf=s&&s.surface,c=(surf&&surf.counts)||{},status=(s&&s.status)||'idle';
+  if(cur==='recon')build('recon',sigOf([c.hosts,c.subdomains,c.svcs,c.endpoints,c.tech,status]),()=>renderRecon(surf));
+  else if(cur==='exploit')build('exploit',sigOf([c.exploits,c.creds,c.footholds,c.routes,status]),()=>renderExploit(surf));
+  else if(cur==='findings')build('findings',sigOf([c.findings,c.crit,remedKey,triageKey,status,(surf?surf.nodes||[]:[]).filter(n=>n.type==='finding').map(n=>(n.validation&&n.validation.state)||'-').join(',')]),()=>renderFindings(surf));
+  else if(cur==='insights')build('insights',sigOf([c.hosts,c.findings,c.crit,c.exploits,c.holds,REPORT_HTML.length,status,s&&s.productivity]),()=>renderInsights(s));
+  else if(cur==='opsec')build('opsec',sigOf([s&&s.opsec&&s.opsec.posture,(s&&s.opsec&&s.opsec.artifacts||[]).map(a=>a.status),s&&s.opsec&&s.opsec.reduction,s&&s.footprintAdvice,s&&s.stealth,s&&s.stealthBudget&&(s.stealthBudget.spent+'/'+s.stealthBudget.pct+'/'+s.stealthBudget.state+'/'+s.stealthBudget.ceilingHonored),s&&s.targetProfile&&((s.targetProfile.calibration||{}).recommended+'/'+(s.targetProfile.defenses||[]).length)]),()=>renderOpsec(s));
+  else if(cur==='settings')build('settings','const',renderSettings);
+  else if(cur==='bounty')build('bounty','bty:'+((window._btyTick||0))+':'+(window._bty&&window._bty.all?1:0),()=>renderBounty());
+  else if(cur==='channel')build('channel','chan:'+((window._chanTick||0)),()=>renderChannel());
+  else if(cur==='tree'){const act=(s&&s.activity)||[];build('tree',sigOf([act.length,act.length?act[act.length-1].seq:0,(s&&s.waves||[]).length,s&&s.guidedSearch&&s.guidedSearch.probes,status]),()=>renderTree(s));}}
+/* ---------- Bounty (bountyline revenue pipeline + h1watch fresh ground) ---------- */
+window._bty=window._bty||{all:false,msg:''};
+setInterval(()=>{if(cur==='bounty'){window._btyTick=(window._btyTick||0)+1;render();}},4000);
+// The pipeline FSM order (engine/bountyline.mjs STATES) — 'outcome' is the operator's
+// mark, off-pipeline. THE PIPELINE NEVER SUBMITS: 'queued' is the end of the line.
+const BL_STATES=['imported','scoped','hunted','triaged','reported','queued'];
+const BL_STATE_CLS={imported:'med',scoped:'med',hunted:'low',triaged:'low',reported:'proved',queued:'high'};
+const BL_POLICY_CLS={full:'ok','human-cadence':'high',prohibited:'crit'};
+const BL_OUTCOMES=['submitted','duplicate','informative','resolved','paid']; // engine/bountyline OUTCOMES
+function blFsm(state){
+  const ix=BL_STATES.indexOf(state);
+  if(ix===-1)return '<span class="pill">'+esc(state||'?')+'</span>';
+  return '<span class="fsm" title="imported → scoped → hunted → triaged → reported → queued → outcome (operator-marked)">'+
+    BL_STATES.map((st,i)=>'<span class="fsm-s'+(i<ix?' done':'')+(i===ix?' act':'')+'">'+st+'</span>').join('')+'</span>';
+}
+function blPolicyBadge(p){return sevPill(BL_POLICY_CLS[p]||'med',String(p||'?').toUpperCase());}
+function blLedgerCard(L){
+  if(!L)return '';
+  const g=goalReadout(L.goal);
+  let body='<div class="barhead"><b>'+esc(g.paidText)+'<small> / '+esc(g.targetText)+' goal</small></b><small>'+esc(g.pctText)+'</small></div>'+
+    '<div class="bar'+(g.widthPct>=100?' hot':'')+'"><i style="width:'+g.widthPct+'%"></i></div>';
+  const totals=Object.entries(L.totals||{});
+  body+='<div class="cap" style="margin:11px 0 5px">Paid totals · per currency</div>';
+  body+=totals.length?totals.map(([cur,amt])=>'<div class="kv"><span class="k">'+esc(cur)+'</span><span class="v">'+esc(moneyText(amt,cur))+(cur==='GBP'?'':' <span class="pill">never converted</span>')+'</span></div>').join('')
+    :'<div class="kv"><span class="k">paid</span><span class="v">nothing booked yet</span></div>';
+  const byO=L.byOutcome||{},outcomes=Object.keys(byO);
+  body+='<div class="cap" style="margin:11px 0 5px">Outcomes · '+esc(L.events||0)+' event(s)</div>'+
+    (outcomes.length?'<div style="display:flex;gap:5px;flex-wrap:wrap">'+outcomes.sort().map(o=>'<span class="pill">'+esc(o)+' × '+byO[o]+'</span>').join('')+'</div>':'<div class="kv"><span class="k">outcomes</span><span class="v">—</span></div>');
+  if(L.note)body+='<p class="hint" style="margin-top:9px">'+esc(L.note)+'</p>';
+  return card('Ledger — goal '+esc(g.targetText),body,'<span class="pill">GBP only · append-only</span>');
+}
+function blRosterCard(bl){
+  if(!bl||typeof bl!=='object'||bl.ok!==true){
+    const why=(bl&&bl.error)||(typeof bl==='string'
+      ?'the server answered plain text (“'+bl.slice(0,60)+'”) — an older process without this route; it lands on the next operator restart'
+      :'no response');
+    return card('Bountyline — program roster','<div class="empty">bountyline API unavailable: '+esc(why)+'</div>');
+  }
+  const progs=bl.programs||[];
+  if(!progs.length)return card('Bountyline — program roster','<div class="empty">No programs on the roster yet. The pipeline is fed BY HAND from h1watch outbox intake files — <code>program import</code> then <code>bountyline add</code> (tools/cli.mjs); nothing self-imports.</div>');
+  const pipe=bl.pipeline||{};
+  const chips=BL_STATES.filter(st=>pipe[st]).map(st=>'<span class="pill">'+esc(st)+' × '+pipe[st]+'</span>').join(' ');
+  const rows=progs.map(p=>{
+    const mark=p.state==='queued'
+      ?'<td>'+BL_OUTCOMES.map(o=>'<button class="btn" style="padding:2px 8px;font-size:9px" onclick="blMark(\''+jsq(p.id)+'\',\''+o+'\')">'+o+'</button>').join(' ')+'</td>'
+      :'<td><span class="pill">—</span></td>';
+    return '<tr><td><span class="lbl">'+esc(p.handle||p.id)+'</span><br><span style="font:9px var(--mono);color:var(--tx4)">'+esc(p.id)+'</span></td>'+
+      '<td>'+esc(p.platform||'generic')+'</td>'+
+      '<td>'+blFsm(p.state)+'</td>'+
+      '<td>'+blPolicyBadge(p.automation)+'</td>'+
+      '<td class="num">'+esc(p.reports||0)+'</td>'+
+      '<td class="mono">'+esc(fmtSeen(p.updatedAt))+'</td>'+mark+'</tr>';
+  }).join('');
+  return card('Bountyline — program roster · '+progs.length,
+    (chips?'<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px">'+chips+'</div>':'')+
+    '<table><tr><th>Program</th><th>Platform</th><th>Pipeline</th><th>Automation</th><th class="num">Reports</th><th>Updated</th><th>Mark outcome</th></tr>'+rows+'</table>'+
+    '<p class="hint">The FSM runs imported → scoped → hunted → triaged → reported → <b>queued</b> — and STOPS there: the pipeline never submits, the send click is yours. Outcome buttons appear on queued programs and book the platform’s act into the append-only ledger (a <b>paid</b> mark asks amount + currency; GBP alone counts toward the goal).</p>',
+    '<span class="pill">never submits</span>');
+}
+function h1watchCard(hw){
+  if(!hw||typeof hw!=='object'||hw.ok!==true){
+    const why=(hw&&hw.error)||(typeof hw==='string'
+      ?'the server answered plain text (“'+hw.slice(0,60)+'”) — an older process without /api/h1watch; it lands on the next operator restart'
+      :'no response');
+    return card('h1watch — fresh ground','<div class="empty">h1watch state unavailable: '+esc(why)+' — the watcher is CLI-only (node tools/cli.mjs h1watch scan); this card reads its persisted state.</div>');
+  }
+  const evs=Array.isArray(hw.events)?hw.events:[];
+  let head='<div class="kv"><span class="k">latest scan</span><span class="v">'+esc(hw.at||'—')+'</span></div>'+
+    '<div class="kv"><span class="k">programs tracked</span><span class="v">'+esc(hw.tracked||0)+'</span></div>'+
+    '<div class="kv"><span class="k">events '+(window._bty.all?'(whole ring)':'(latest scan)')+'</span><span class="v">'+evs.length+'</span></div>';
+  let body=head;
+  if(!evs.length)body+='<div class="empty">'+(hw.note?esc(hw.note):'No fresh ground in this window — the watcher diffs every scan against recorded state; silence is the honest answer.')+'</div>';
+  else{
+    const view=freshGroundView(evs,30); // the display cap NEVER cuts an exclusion move
+    const rows=view.shown.map(e=>{
+      const rank=(e.rank!=null)?e.rank:7, excl=e.side==='out';
+      const cls=excl?'crit':(rank===1?'ok':(rank<=3?'proved':(rank===6?'high':'med')));
+      const aut=e.automation&&e.automation.policy?' '+blPolicyBadge(e.automation.policy):'';
+      const note=e.note?'<div style="font:9.5px var(--mono);color:var(--red-dim);margin-top:3px">'+esc(e.note)+'</div>':'';
+      return '<tr><td title="'+esc(RANK_WEIGHT[rank]||'')+'"><span class="rk">R'+rank+'</span></td>'+
+        '<td>'+sevPill(cls,String(e.type||'?').toUpperCase())+(e.side?' <span class="pill">'+esc(e.side)+'</span>':'')+'</td>'+
+        '<td><span class="lbl">'+esc(eventSummary(e))+'</span>'+aut+note+'</td></tr>';
+    }).join('');
+    body+='<table><tr><th>rank</th><th>event</th><th>what moved</th></tr>'+rows+'</table>';
+    body+='<p class="hint" style="margin-top:8px">'+(view.hiddenByCap>0?view.hiddenByCap+' more event(s) capped from view — exclusion moves are NEVER capped. ':'')+'<a href="#" style="color:var(--steel-hi)" onclick="window._bty.all=!window._bty.all;vsig.bounty=null;render();return false">'+(window._bty.all?'show latest scan only':'show the whole ring')+'</a></p>';
+  }
+  // The doctrine line, verbatim, at the card foot — always.
+  body+='<p class="hint" style="margin-top:11px;border-left-color:var(--red-lo)">'+esc(hw.doctrine||'fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.')+'</p>';
+  return card('h1watch — fresh ground',body,'<span class="pill">opportunity list, not authorization</span>');
+}
+async function renderBounty(){
+  const v=$("#v-bounty");
+  const bl=await api('/api/bountyline');
+  const hw=await api('/api/h1watch'+(window._bty.all?'?all=1':''));
+  let body='';
+  if(window._bty.msg)body+='<p class="hint">'+esc(window._bty.msg)+'</p>';
+  body+='<div class="cards2">'+blRosterCard(bl)+blLedgerCard(bl&&bl.ledger)+'</div>'+h1watchCard(hw);
+  v.innerHTML=page(phd('Bounty','The revenue loop: programs from intake to the operator’s send click, the ledger’s road to £3332.50, and the watcher’s ranked fresh ground.')+body);
+}
+async function blMark(id,outcome){
+  const body={program:id,outcome};
+  if(outcome==='paid'){
+    const amt=prompt('Amount PAID (number only) — the ledger never converts currencies:','');
+    if(amt==null)return;
+    const cur=prompt('Currency (ISO 4217 — only GBP counts toward the £3332.50 goal):','GBP');
+    if(cur==null)return;
+    body.amount=Number(amt);body.currency=cur;
+    if(!Number.isFinite(body.amount)||body.amount<=0){window._bty.msg='Mark cancelled — a paid outcome needs a positive numeric amount.';vsig.bounty=null;render();return;}
+  }
+  // Operator decision — confirm before booking. The pipeline never submits; this records
+  // the platform's act AFTER the operator's own send click, into the append-only ledger.
+  if(!confirm('Record outcome "'+outcome+'" for program '+id+(outcome==='paid'?(' · '+body.amount+' '+body.currency):'')+'?\n\nThis is your record of the platform’s act (after YOUR send click — VARVEL never submits), appended to the bounty ledger.'))return;
+  const r=await api('/api/bountyline/mark',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+  window._bty.msg=r?(r.ok?('Marked '+id+' → '+outcome+' — ledger updated ('+(r.totals?r.totals.events:'?')+' event(s)).'):('Mark refused: '+(r.reason||r.error||'unknown'))):'Mark failed — no response from the server.';
+  vsig.bounty=null;render();
+}
+/* ---------- Channel (governed callback channel console) ---------- */
+window._chan=window._chan||{sel:null,newCred:null,msg:''};
+setInterval(()=>{if(cur==='channel'){window._chanTick=(window._chanTick||0)+1;render();}},4000);
+function healthPill(h){const c={active:'ok',registered:'info',stale:'warn',quiet:'warn',killed:'crit'}[h]||'info';return sevPill(c,String(h||'?').toUpperCase());}
+function transportCell(a){
+  let h=esc(a.lastTransport||'—');
+  const rec=(a.transportGrade||{}).recommendation;
+  if(rec&&rec.action)h+=' '+sevPill({stay:'ok',watch:'warn',switch:'crit'}[rec.action]||'info',rec.action);
+  if(a.assignedTransport)h+=' <span style="color:var(--tx4)">→</span> '+esc(a.assignedTransport.transport)+' ('+sevPill(a.assignedTransport.state==='active'?'ok':'warn',a.assignedTransport.state||'assigned')+')';
+  return '<td>'+h+'</td>';
+}
+async function renderChannel(){
+  const v=$("#v-channel");
+  const ch=await api('/api/channel');
+  const C=window._chan;
+  // The 4s channel tick rebuilds this view wholesale — snapshot the task composer's
+  // control values + focus/caret and restore them after the rebuild, or an operator
+  // mid-keystroke in #chan-data loses the input every tick.
+  const CMP=['chan-target','chan-kind','chan-data','chan-transport'];
+  const snap=()=>{const o={val:{},foc:null};for(const id of CMP){const e=document.getElementById(id);if(e)o.val[id]=e.value;}
+    const ae=document.activeElement;if(ae&&CMP.indexOf(ae.id)>=0)o.foc={id:ae.id,s:ae.selectionStart,e:ae.selectionEnd};return o;};
+  const back=(o)=>{for(const id of CMP){const e=document.getElementById(id);if(e&&o.val[id]!==undefined)e.value=o.val[id];}
+    if(o.foc){const e=document.getElementById(o.foc.id);if(e){e.focus();try{if(o.foc.s!=null)e.setSelectionRange(o.foc.s,o.foc.e);}catch{}}}};
+  let body='';
+  if(!ch||!ch.armed){
+    body=card('Callback channel','<div class="empty">Not armed. Arm it to manage agents on the governed channel — signed scope enforced, every event audited.</div><div style="margin-top:12px"><button class="btn go" onclick="chanArm()">Arm the channel</button></div>');
+    v.innerHTML=page(phd('Channel','The governed callback channel — agents, tasking, artifacts.')+body);return;
+  }
+  if(C.newCred)body+='<div class="advisor" style="margin-bottom:11px;border-left-color:var(--sage)"><div class="av-h"><span class="av-t" style="color:var(--sage)">Agent credential — shown once</span><span class="av-at" onclick="window._chan.newCred=null;render()" style="cursor:pointer">dismiss</span></div><div class="av-x" style="font-family:var(--mono)">agent: '+esc(C.newCred.agentId)+'<br>token: '+esc(C.newCred.token)+'</div></div>';
+  if(C.msg)body+='<p class="hint">'+esc(C.msg)+'</p>';
+  const agents=ch.agents||[];
+  let rows='';
+  for(const a of agents){
+    const sel=C.sel===a.agentId?' style="outline:1px solid var(--red-lo)"':'';
+    rows+='<tr'+sel+'><td style="font-family:var(--mono)">'+esc(a.agentId)+'</td><td>'+esc(a.label||'—')+'</td><td>'+(a.tags||[]).map(t=>'<span class="pill" style="margin-right:4px">'+esc(t)+'</span>').join('')+'</td><td>'+healthPill(a.health)+'</td>'+transportCell(a)+'<td class="num">'+a.checkins+'</td><td>'+fmtSeen(a.lastSeen)+'</td><td class="num">'+a.pendingTasks+'</td><td class="num">'+a.bufferedResults+'</td>'+
+      '<td><button class="btn" style="padding:2px 8px;font-size:9px" onclick="window._chan.sel=\''+jsq(a.agentId)+'\';render()">tasks</button> <button class="btn" style="padding:2px 8px;font-size:9px" onclick="chanKill(\''+jsq(a.agentId)+'\')">kill</button></td></tr>';
+  }
+  body+=card('Agents · '+agents.length,
+    (agents.length?'<table><tr><th>id</th><th>label</th><th>tags</th><th>health</th><th>transport</th><th class="num">checkins</th><th>last seen</th><th class="num">pend</th><th class="num">res</th><th></th></tr>'+rows+'</table>':'<div class="empty">no agents registered — register one to get its credential</div>')+
+    '<div style="margin-top:10px"><button class="btn" onclick="chanRegister()">+ Register agent</button></div>','<span class="pill">:'+ch.port+'</span>');
+  // task composer
+  const opts=agents.filter(a=>!a.killed).map(a=>'<option value="'+esc(a.agentId)+'"'+(C.sel===a.agentId?' selected':'')+'>'+esc(a.label||a.agentId)+'</option>').join('');
+  body+=card('Task','<div class="form"><label>Target</label><select id="chan-target"><option value="__all">ALL live agents</option>'+opts+'</select>'+
+    '<label>Kind</label><select id="chan-kind"><option>shell</option><option>fetch</option><option>note</option></select>'+
+    '<label>Data / path</label><input id="chan-data" placeholder="whoami · /etc/flag.txt · a note for the agent">'+
+    '<label>Transport</label><select id="chan-transport"><option>http</option><option>dns</option><option>icmp</option><option>doh</option><option>ws</option><option>smb</option><option>ghc</option><option>stg</option></select>'+
+    '</div><div style="margin-top:10px"><button class="btn go" onclick="chanTask()">Queue task</button> <button class="btn" onclick="chanTaskAll()">Task ALL</button> <button class="btn" onclick="chanAssignTransport()">Assign transport</button></div>'+
+    '<p class="hint" style="margin-top:8px">Transport assignment is per-agent (Target must name a single agent) — honored only in failover-list mode; flips active on an observed checkin.</p>');
+  // task ledger for the selected agent
+  if(C.sel){
+    const t=await api('/api/channel/tasks?agent='+encodeURIComponent(C.sel));
+    const trs=(t&&t.tasks)||[];
+    body+=card('Task ledger · '+esc(C.sel),
+      trs.length?'<table><tr><th>kind</th><th>data</th><th>status</th><th>result</th></tr>'+trs.map(x=>'<tr><td>'+esc(x.kind)+'</td><td style="font-family:var(--mono);font-size:9.5px">'+esc(x.data)+'</td><td>'+sevPill(x.status==='resulted'?'ok':(x.status==='delivered'?'info':'warn'),x.status.toUpperCase())+'</td><td style="font-family:var(--mono);font-size:9.5px">'+esc(x.resultPreview||'—')+'</td></tr>').join('')+'</table>':'<div class="empty">no tasks for this agent yet</div>');
+    const flow=await api('/api/channel/flow?agent='+encodeURIComponent(C.sel));
+    const tc=await api('/api/channel/tradecraft?agent='+encodeURIComponent(C.sel));
+    body+=card('Oracle · '+esc(C.sel),oracleBlock('flow',flow)+oracleBlock('tradecraft',tc));
+  }
+  // artifacts
+  const arts=ch.artifacts||[];
+  body+=card('Artifacts · '+arts.length,
+    arts.length?'<table><tr><th>name</th><th>dir</th><th>agent</th><th class="num">bytes</th><th>sha256</th><th></th></tr>'+arts.map(a=>'<tr><td>'+esc(a.name)+'</td><td>'+esc(a.direction)+'</td><td style="font-family:var(--mono);font-size:9.5px">'+esc(a.agentId)+'</td><td class="num">'+a.bytes+'</td><td style="font-family:var(--mono);font-size:9px">'+esc(String(a.sha256||'').slice(0,12))+'…</td><td><a href="/api/channel/artifact?id='+esc(a.id)+'" style="color:var(--steel-hi);font-size:9.5px">download</a></td></tr>').join('')+'</table>':'<div class="empty">no artifacts staged or fetched yet</div>');
+  // defender-view pre-flight (button-driven; state kept on window._chan.pf so the 4s tick never refetches or wipes it)
+  const pf=C.pf||{state:'idle'};
+  let pfBody='';
+  if(pf.state==='loading')pfBody='<div class="empty">running pre-flight…</div>';
+  else if(pf.state==='error')pfBody='<div class="empty">pre-flight failed — '+esc(pf.error||'no response')+'</div>';
+  else if(pf.state==='done'&&pf.data)pfBody=preflightHTML(pf.data);
+  else pfBody='<div class="empty">Not run. Snapshot the defender’s view of this channel — findings, JARM, honest gaps.</div>';
+  body+=card('Defender-view pre-flight',pfBody+'<div style="margin-top:10px"><button class="btn" onclick="chanPreflight()"'+(pf.state==='loading'?' disabled':'')+'>Run pre-flight</button></div>');
+  const _cmp=snap();
+  v.innerHTML=page(phd('Channel','Governed callback channel — Cobalt-class operator experience under signed scope, HITL, and audit.')+body);
+  back(_cmp);
+}
+async function chanArm(){await api('/api/channel/arm',{method:'POST'});render();}
+async function chanRegister(){const label=prompt('Agent label (e.g. rangebox-01):','rangebox-01');if(label==null)return;const r=await api('/api/channel/agent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'register',label})});if(r&&r.agentId){window._chan.newCred={agentId:r.agentId,token:r.token};window._chan.sel=r.agentId;window._chan.msg='Credential issued — give the agent BOTH values (shown once).';}render();}
+async function chanKill(id){if(!confirm('Kill agent '+id+'? Future check-ins are silently rejected.'))return;await api('/api/channel/agent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'kill',agentId:id})});render();}
+async function chanTask(){const t=$('#chan-target').value,k=$('#chan-kind').value,d=$('#chan-data').value;const body=(t==='__all')?{all:true,kind:k,data:d}:{agentId:t,kind:k,data:d};const r=await api('/api/channel/task',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});window._chan.msg=r&&(r.ok||r.tasked)?'Task queued.':'Task failed.';render();}
+async function chanTaskAll(){const k=$('#chan-kind').value,d=$('#chan-data').value;await api('/api/channel/task',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({all:true,kind:k,data:d})});window._chan.msg='Broadcast queued to all live agents.';render();}
+async function chanAssignTransport(){
+  const t=$('#chan-target').value,tp=$('#chan-transport').value;
+  if(t==='__all'){window._chan.msg='Transport assignment is per-agent — pick a single agent in Target.';render();return;}
+  const r=await api('/api/channel/agent',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'transport',agentId:t,transport:tp})});
+  window._chan.msg=(r&&(r.ok||r.assigned||r.transport))?('assigned '+tp+' to '+t+' — flips active only when observed'):('Assign failed: '+((r&&(r.error||r.message))||'no response'));
+  render();
+}
+async function chanPreflight(){
+  window._chan.pf={state:'loading'};render();
+  const r=await api('/api/preflight');
+  window._chan.pf=(r&&typeof r==='object'&&!r.error)?{state:'done',data:r}:{state:'error',error:(r&&r.error)||'no response'};
+  render();
+}
+function oracleBlock(kind,d){
+  const cap='<div class="cap" style="margin:'+(kind==='flow'?'0':'11px')+' 0 6px">'+kind+'</div>';
+  if(!d||typeof d!=='object'||(d.error&&d.band===undefined))return cap+'<div class="empty" style="padding:8px">'+esc(kind+' unavailable'+((d&&d.error)?': '+d.error:''))+'</div>';
+  if(d.score==null)return cap+'<div class="kv"><span class="k">score</span><span class="v">'+sevPill('info','INSUFFICIENT DATA')+'</span></div>'+(d.note?'<p class="hint" style="margin-top:8px">'+esc(d.note)+'</p>':'');
+  const bm=kind==='flow'?{'machine-metric':'crit','mixed':'warn','human-ish':'ok'}:{'agent-shaped':'crit','mixed':'warn','human-like':'ok'};
+  let h=cap+'<div class="kv"><span class="k">score</span><span class="v">'+esc(String(d.score))+' · '+sevPill(bm[d.band]||'info',String(d.band||'?'))+'</span></div>';
+  if(kind==='flow'){
+    const fl=d.flagged||[];
+    h+=fl.length?fl.map(x=>'<p class="hint" style="margin-top:6px">• '+esc(x)+'</p>').join(''):'<div class="kv"><span class="k">flagged</span><span class="v">none</span></div>';
+  }else{
+    const fired=(d.signatures||[]).filter(s=>s&&s.fired);
+    h+='<div class="kv"><span class="k">signatures</span><span class="v">'+(fired.length?fired.map(s=>'<span class="pill" style="margin-left:4px">'+esc(s.id)+'</span>').join(''):'none fired')+'</span></div>';
+  }
+  return h;
+}
+function preflightHTML(d){
+  const fs=d.findings||[];
+  let h=fs.length?'<table><tr><th>sev</th><th>finding</th></tr>'+fs.map(f=>'<tr><td>'+sevPill(f.sev||'info',String(f.sev||'info'))+'</td><td>'+esc(f.title)+(f.ref?'<br><span style="font-family:var(--mono);font-size:9px;color:var(--tx4)">'+esc(f.ref)+'</span>':'')+'</td></tr>').join('')+'</table>':'<div class="empty">no findings — nothing a defender flags yet</div>';
+  const ports=Object.keys(d.jarm||{});
+  if(ports.length)h+='<div class="cap" style="margin:11px 0 6px">jarm</div>'+ports.map(p=>'<div class="kv"><span class="k">:'+esc(p)+'</span><span class="v" style="font-family:var(--mono);font-size:9.5px" title="'+esc(d.jarm[p])+'">'+esc(String(d.jarm[p]).slice(0,16))+'…</span></div>').join('');
+  const gaps=d.honestGaps||[];
+  if(gaps.length)h+='<div class="cap" style="margin:11px 0 6px">honest gaps</div>'+gaps.map(g=>'<p class="hint" style="margin-top:6px">'+esc(g)+'</p>').join('');
+  if(d.reportHash)h+='<div class="kv" style="margin-top:11px;border-bottom:none"><span class="k">report hash</span><span class="v" style="font-family:var(--mono);font-size:9.5px" title="'+esc(d.reportHash)+'">'+esc(String(d.reportHash).slice(0,16))+'…</span></div>';
+  return h;
+}
+function renderTree(s){
+  const v=$("#v-tree");
+  const act=(s&&s.activity)||[],status=(s&&s.status)||'idle';
+  // —— phase spine: last known state per phase, derived from the honest activity feed ——
+  const ORDER=['recon','validate','exploit','postex','report'];
+  const pm={};
+  for(const e of act){const d=e.data||{};
+    if(e.kind==='phase.start'&&d.phase)pm[d.phase]={st:'running',at:e.at};
+    else if(e.kind==='phase.result'&&d.phase)pm[d.phase]={st:'done',steps:d.steps,denials:d.denials,at:e.at};
+    else if(e.kind==='phase.skip'&&d.phase)pm[d.phase]={st:'skipped',reason:d.reason,at:e.at};
+    else if(e.kind==='phase.error'&&d.phase)pm[d.phase]={st:'error',reason:d.error,at:e.at};
+    else if(e.kind==='gate.request'&&d.phase)pm[d.phase]={st:'held',at:e.at};
+    else if(e.kind==='gate.decision'&&d.phase)pm[d.phase]=d.signed?{st:'running',at:e.at}:{st:'held',denied:true,at:e.at};
+  }
+  const runningPhase=(/^running:(\w+)/.exec(status)||[])[1];
+  let spine='';
+  for(const p of ORDER){
+    const st=pm[p]||(p===runningPhase?{st:'running'}:null);
+    const cls=st?({running:'tt-run',done:'tt-done',held:'tt-held',error:'tt-err2',skipped:'tt-skip'}[st.st]||''):'tt-pend';
+    const label=st?st.st.toUpperCase():'PENDING';
+    const sub=st&&st.at?hhmmss(st.at):'';
+    const detail=st&&st.steps!=null?(' · '+st.steps+' steps'+(st.denials?' · '+st.denials+' denied':'')):(st&&st.reason?' · '+esc(String(st.reason).slice(0,90)):'');
+    spine+='<div class="tt-ph '+cls+'"><span class="tt-name">'+esc(p)+'</span>'+sevPill(st&&st.st==='done'?'ok':(st&&(st.st==='held'||st.st==='error')?'warn':'info'),label)+'<span style="font:9px var(--mono);color:var(--tx4)">'+detail+'</span><span class="tt-sub">'+sub+'</span></div>';
+  }
+  let body=card('Phase spine',spine+((s&&s.reconOnly)?'<p class="hint">recon-only campaign — downstream phases intentionally out.</p>':''),'');
+  // —— fireteam waves: parallel specialists with per-member outcomes ——
+  const waves=(s&&s.waves)||[];
+  if(!waves.length)body+=card('Fireteam waves','<div class="empty">No fireteam wave this campaign — enable fireteam at launch and decomposable phases fan out to parallel specialists.</div>');
+  else{let wh='';
+    for(const w of waves){
+      const ok=w.members.filter(m=>!m.error).length;
+      wh+='<div class="tt-wave"><div class="barhead"><b>'+esc(w.phase)+' wave</b><small>'+ok+'/'+w.members.length+' members clean · '+esc(hhmmss(w.at))+'</small></div><div class="tt-members">';
+      for(const m of w.members){
+        wh+='<div class="tt-member'+(m.error?' tt-merr':'')+'"><div class="tt-ml">'+esc(m.label)+'</div><div class="tt-ms">'+m.steps+' step(s)'+(m.denials?' · '+m.denials+' denied':'')+(m.error?' · <span class="tt-err2" style="color:var(--red-hi)">'+esc(m.error)+'</span>':' · clean')+'</div></div>';
+      }
+      wh+='</div></div>';
+    }
+    body+=card('Fireteam waves · parallel specialists',wh,'');
+  }
+  // —— guided search: the LATS tree with honest scores and prunes ——
+  const gs=s&&s.guidedSearch;
+  if(!gs)body+=card('Guided search · LATS','<div class="empty">Guided search not run this campaign — enable it at launch and the value-guided tree search maps the most promising exploit paths before detonation.</div>');
+  else if(!gs.activated)body+=card('Guided search · LATS','<div class="empty">Ran '+esc(gs.probes)+' probe(s) but stayed linear: '+esc(gs.reason||'not enough credible paths')+' — the honest answer, not a fabricated tree.</div>');
+  else{
+    let gh='<div class="barhead"><b>ACTIVATED · '+gs.probes+' probes</b><small>'+gs.trace.length+' nodes · pruned = low value</small></div><div style="margin:8px 0 10px">';
+    const rows=gs.trace.slice(0,80);
+    for(const t of rows){
+      const pct=Math.round((Number(t.score)||0)*100);
+      gh+='<div class="tt-row'+(t.pruned?' tt-pruned':'')+'" style="padding-left:'+(8+(t.depth-1)*18)+'px"><span class="tt-score">'+pct+'</span><span class="tt-bar"><i style="width:'+pct+'%"></i></span><span class="tt-path">'+esc(String(t.path||''))+'</span><span class="tt-cls">'+esc(t.cls||'?')+'</span>'+(t.pruned?'<span class="tt-cls" style="color:var(--tx4);border-color:var(--hair)">pruned</span>':'')+'</div>';
+    }
+    if(gs.trace.length>rows.length)gh+='<div class="tt-row" style="color:var(--tx4)">+ '+(gs.trace.length-rows.length)+' more nodes…</div>';
+    gh+='</div>';
+    if(gs.best&&gs.best.length){
+      gh+='<div class="barhead"><b>Best paths</b><small>cumulative value</small></div>';
+      for(const p of gs.best.slice(0,4)){
+        gh+='<div class="tt-best"><b style="color:var(--sage)">'+p.score+'</b> · '+p.path.map(st=>esc(String(st.path))+''+(st.cls?' <span style="color:var(--tx4)">['+esc(st.cls)+' '+st.score+']</span>':'')).join(' → ')+'</div>';
+      }
+    }
+    body+=card('Guided search · LATS tree (what the search actually probed)',gh,'');
+  }
+  v.innerHTML=page(phd('Task Tree','What the AI is doing — phases, parallel specialists, and the value-guided search tree, with honest states.')+body);
+}
+function renderRecon(surf){const v=$("#v-recon");
+  if(!surf){v.innerHTML=page(phd('Recon','Attack-surface inventory mapped inside the signed scope.')+card('Recon inventory','<div class="empty">no campaign \u2014 start one in Settings</div>'));return;}
+  const N=surf.nodes||[],E=surf.edges||[];
+  const hosts=N.filter(n=>n.type==='host'),svc=N.filter(n=>n.type==='service'),ep=N.filter(n=>n.type==='endpoint'),sub=N.filter(n=>n.type==='subdomain'),tech=N.filter(n=>n.type==='tech');
+  const nlab=id=>{const n=N.find(x=>x.id===id);return n?n.label:'';};
+  const parentHost=id=>{const e=E.find(x=>x.to===id);return e?nlab(e.from):'';};
+  const hostRows=hosts.map(h=>{const ss=svc.filter(x=>x.host===h.id),tt=tech.filter(t=>E.some(e=>e.from===h.id&&e.to===t.id));
+    return '<tr><td><span class="lbl">'+esc(h.label)+'</span></td><td class="mono">'+esc(h.ip||'')+'</td><td class="mono">'+esc(ss.map(x=>x.label).join(', ')||'\u2014')+'</td><td class="mono">'+esc(tt.map(x=>x.label).join(', ')||'\u2014')+'</td></tr>';}).join('')||'<tr><td colspan=4 class="empty">none</td></tr>';
+  const svcRows=svc.map(x=>'<tr><td class="mono">'+esc(nlab(x.host))+'</td><td class="mono num">'+esc(x.port||'')+'/'+esc(x.proto||'tcp')+'</td><td>'+esc(x.label)+'</td></tr>').join('')||'<tr><td colspan=3 class="empty">none</td></tr>';
+  const epRows=ep.map(x=>'<tr><td class="mono">'+esc(x.method||'GET')+'</td><td class="mono">'+esc(x.label)+'</td><td class="mono">'+esc(parentHost(x.id))+'</td></tr>').join('')||'<tr><td colspan=3 class="empty">none</td></tr>';
+  const subRows=sub.map(x=>'<tr><td>'+esc(x.label)+'</td><td class="mono">'+esc(parentHost(x.id)||'\u2014')+'</td></tr>').join('')||'<tr><td colspan=2 class="empty">none</td></tr>';
+  const techRows=tech.map(x=>'<tr><td>'+esc(x.name||x.label)+'</td><td class="mono">'+esc(x.version||'')+'</td></tr>').join('')||'<tr><td colspan=2 class="empty">none</td></tr>';
+  const metrics='<div class="metrics">'+tileHTML(hosts.length,'Hosts')+tileHTML(sub.length,'Subdomains')+tileHTML(svc.length,'Services')+tileHTML(ep.length,'Endpoints')+tileHTML(tech.length,'Technologies')+'</div>';
+  v.innerHTML=page(
+    phd('Recon','Attack-surface inventory mapped inside the signed scope.',scopeChip(surf))+
+    metrics+
+    card('Hosts in scope \u00b7 '+hosts.length,'<table><tr><th>Host</th><th>IP</th><th>Services</th><th>Technology</th></tr>'+hostRows+'</table>')+
+    '<div class="cards2">'+
+      card('Services \u00b7 '+svc.length,'<table><tr><th>Host</th><th class="num">Port</th><th>Service</th></tr>'+svcRows+'</table>')+
+      card('Endpoints \u00b7 '+ep.length,'<table><tr><th>Method</th><th>Path</th><th>Host</th></tr>'+epRows+'</table>')+
+      card('Subdomains \u00b7 '+sub.length,'<table><tr><th>Subdomain</th><th>Resolves to</th></tr>'+subRows+'</table>')+
+      card('Technology \u00b7 '+tech.length,'<table><tr><th>Product</th><th>Version</th></tr>'+techRows+'</table>')+
+    '</div>');}
+
+/* ---------- exploit view + kill-chain ---------- */
+function sevPill(cl,txt){return '<span class="sev '+esc(cl)+'">'+esc(txt)+'</span>';}
+/* validator-gate state: accepts a validation object {state} or a bare state string (triage items); v2: validated-but-stale renders STALE */
+function valPill(v){const st=typeof v==='string'?v:(v&&v.state);const stale=(typeof v==='object'&&!!v&&(v.stale===true||v.display==='stale'))||st==='stale';return sevPill(stale?'warn':st==='validated'?'ok':st==='refuted'?'crit':st==='untestable'?'warn':'info',stale?'STALE':st?String(st).toUpperCase():'UNVALIDATED');}
+/* numeric confidence: string tier ('confirmed'|'suspected') + numeric conf (0-100) */
+function confTier(tier,conf){const t=String(tier||'').toLowerCase();return (t==='confirmed'||(!t&&conf!=null&&conf!==''&&Number(conf)>=70))?'CONFIRMED':'SUSPECTED';}
+function confInline(tier,conf){const lab=confTier(tier,conf);const cn=Number(conf);const has=(conf!=null&&conf!==''&&isFinite(cn));const pct=has?' ('+Math.round(cn)+'%)':'';return '<span class="cf-t '+(lab==='CONFIRMED'?'conf-hi':'conf-lo')+'">'+lab+pct+'</span>';}
+function confCell(n){const tier=n.confidence,conf=n.conf;if(!tier&&(conf==null||conf===''))return '<span class="pill">—</span>';
+  const lab=confTier(tier,conf),hi=lab==='CONFIRMED',has=(conf!=null&&conf!=='');
+  const pct=has?Math.round(Number(conf)):null,w=has?Math.max(4,Math.min(100,pct)):(hi?80:40);
+  return '<div class="cf '+(hi?'conf-hi':'conf-lo')+'"><span class="cf-l">'+lab+(has?' ('+pct+'%)':'')+'</span><span class="cf-m"><i style="width:'+w+'%"></i></span></div>';}
+function chainNode(k,v,hot){return '<div class="cstep"><div class="cnode'+(hot?' hot':'')+'"><div class="ck">'+esc(k)+'</div><div class="cv">'+esc(v||'—')+'</div></div></div>';}
+function chainArrow(lbl){return '<div class="cstep"><div class="carrow"><span class="cl">'+esc(lbl)+'</span></div></div>';}
+function killChain(e,N,E){const nById=id=>N.find(n=>n.id===id);
+  const finding=E.filter(x=>x.to===e.id&&x.kind==='exploit').map(x=>nById(x.from)).filter(Boolean)[0];
+  const cred=E.filter(x=>x.from===e.id&&x.kind==='yields').map(x=>nById(x.to)).filter(Boolean)[0];
+  const foothold=N.filter(n=>n.type==='foothold')[0], route=N.filter(n=>n.type==='route')[0];
+  let target=null;if(route){const le=E.find(x=>x.from===route.id&&x.kind==='lateral');if(le)target=nById(le.to);}
+  const seq=[];if(finding)seq.push(['FINDING',finding.label,false]);seq.push(['EXPLOIT',e.label,true]);
+  if(cred)seq.push(['CREDENTIAL',cred.label,true]);if(foothold)seq.push(['FOOTHOLD',foothold.label,true]);
+  if(route)seq.push(['PIVOT',route.label,true]);if(target)seq.push(['TARGET',target.label,false]);
+  const arrows=['exploit','yields','escalates','pivots','lateral'];
+  let h='<div class="chain">';seq.forEach((st,i)=>{if(i>0)h+=chainArrow(arrows[Math.min(i-1,arrows.length-1)]);h+=chainNode(st[0],st[1],st[2]);});
+  return h+'</div>';}
+function renderExploit(surf){const v=$("#v-exploit");
+  if(!surf){v.innerHTML=page(phd('Exploit','Exploitation runs only after operator countersignature.')+card('Exploit chains','<div class="empty">no campaign</div>'));return;}
+  const N=surf.nodes||[],E=surf.edges||[],ex=N.filter(n=>n.type==='exploit'),nById=id=>N.find(n=>n.id===id);
+  const proved=ex.filter(e=>e.state==='proved').length,creds=N.filter(n=>n.type==='cred').length,foot=N.filter(n=>n.type==='foothold').length,routes=N.filter(n=>n.type==='route').length;
+  const rows=ex.map(e=>{const finding=E.filter(x=>x.to===e.id&&x.kind==='exploit').map(x=>nById(x.from)).filter(Boolean)[0];
+    return '<tr><td><span class="lbl">'+esc(e.label)+'</span></td><td>'+sevPill(e.state==='proved'?'proved':'med',String(e.state||'staged').toUpperCase())+'</td><td class="mono">'+esc(e.ref||'')+'</td><td>'+esc(finding?finding.label:'\u2014')+'</td></tr>';
+  }).join('')||'<tr><td colspan=4 class="empty">no exploits \u2014 the exploit phase is HITL-gated</td></tr>';
+  let chains='';ex.forEach(e=>{chains+=killChain(e,N,E);});
+  if(!chains)chains='<div class="empty">No proven chain yet. Exploitation runs only after operator countersignature.</div>';
+  const metrics='<div class="metrics">'+tileHTML(ex.length,'Exploits')+tileHTML(proved,'Proved',proved?'gov':'')+tileHTML(creds,'Credentials')+tileHTML(foot,'Footholds')+tileHTML(routes,'Pivot routes')+'</div>';
+  // chainforge: the compiler's deterministic exploit plans from the live surface.
+  const forge=(STATE&&STATE.chainPlans)||null;
+  let forgeCard='';
+  if(forge&&forge.plans&&forge.plans.length){
+    const body=forge.plans.map(p=>'<div class="tt-best" style="margin-bottom:8px"><b style="color:var(--sage)">'+esc(p.rule)+'</b> · '+esc(p.title)+'<div style="font:9px var(--mono);color:var(--tx4);margin-top:3px">'+esc(p.confidence)+'</div>'+p.steps.map(s=>'<div style="font:10px var(--mono);color:var(--tx2);padding-left:10px">▸ '+esc(s.id)+' — '+esc(s.note||'')+'</div>').join('')+'</div>').join('');
+    forgeCard=card('Compiled exploit chains · chainforge','<div class="barhead"><b>'+forge.plans.length+' chain(s) compiled</b><small>deterministic · evidence-backed</small></div>'+body);
+  } else if(forge&&forge.gaps&&forge.gaps.length){
+    forgeCard=card('Compiled exploit chains · chainforge','<div class="empty">No chain compiled — missing: '+esc(forge.gaps.map(g=>g.rule+' ('+g.missing.join(', ')+')').join('; '))+'</div>');
+  }
+  v.innerHTML=page(
+    phd('Exploit','Exploitation runs only after operator countersignature.',scopeChip(surf))+
+    metrics+
+    forgeCard+
+    card('Exploit register \u00b7 '+ex.length,'<table><tr><th>Exploit</th><th>State</th><th>Ref</th><th>From finding</th></tr>'+rows+'</table>')+
+    card('Proven kill-chain','<div class="chain-wrap">'+chains+'</div>','<span class="pill">finding \u2192 exploit \u2192 access \u2192 pivot</span>'));}
+
+/* ---------- findings view + remediation ---------- */
+async function loadRemediation(key){const r=await api('/api/remediation');REMED=(r&&r.remediation)||[];remedKey=key;vsig.findings=null;if(cur==='findings')render();}
+async function loadTriage(key){const r=await api('/api/triage');TRIAGE=(r&&Array.isArray(r.items))?r.items:[];triageKey=key;vsig.findings=null;if(cur==='findings')render();}
+function triScore(v){const n=Number(v);if(v==null||v===''||!isFinite(n))return {pct:0,txt:'—',hot:false,has:false};const pct=Math.max(0,Math.min(100,n<=10?n*10:n));return {pct:Math.round(pct),txt:(n<=10?(Math.round(n*10)/10):Math.round(n)),hot:pct>=70,has:true};}
+function triageTable(items){
+  const rows=items.map(it=>{
+    const sc=triScore(it.score);
+    const proven=it.exploited?' '+sevPill('proved','PROVEN'):'';
+    const val=' '+valPill(it.validation||null);
+    const maps=[(it.owasp?'<span class="pill">'+esc(it.owasp)+'</span>':''),(it.attack?'<span class="pill">'+esc(it.attack)+'</span>':'')].filter(Boolean).join('')||'<span class="pill">—</span>';
+    const scoreCell=sc.has?'<div class="scr'+(sc.hot?' hot':'')+'"><span class="sv">'+esc(sc.txt)+'</span><span class="sm"><i style="width:'+sc.pct+'%"></i></span></div>':'<span class="pill">—</span>';
+    return '<tr><td>'+sevPill(it.sev||'med',String(it.sev||'').toUpperCase())+'</td><td>'+scoreCell+'</td><td><span class="lbl">'+esc(it.title||'—')+'</span>'+proven+val+'</td><td class="mono">'+esc(it.host||'—')+'</td><td><div class="maps">'+maps+'</div></td><td><div class="fixcell">'+esc(it.fix||'—')+'</div></td></tr>';
+  }).join('')||'<tr><td colspan=6 class="empty">no remediation items yet</td></tr>';
+  return '<table><tr><th>Severity</th><th>Score</th><th>Finding</th><th>Host</th><th>Mapping</th><th>Recommended fix</th></tr>'+rows+'</table>';
+}
+function renderFindings(surf){const v=$("#v-findings");
+  if(!surf){v.innerHTML=page(phd('Findings','Weaknesses proven inside scope, mapped to remediation.')+card('Findings','<div class="empty">no campaign</div>'));return;}
+  const N=surf.nodes||[],E=surf.edges||[],f=N.filter(n=>n.type==='finding'),key=String(f.length);
+  if(remedKey!==key)loadRemediation(key);
+  if(triageKey!==key)loadTriage(key);
+  const hostOf=id=>{const e=E.find(x=>x.to===id&&x.kind==='finding');return e?(N.find(n=>n.id===e.from)||{}).label||'\u2014':'\u2014';};
+  const order={crit:0,high:1,med:2,low:3},bySev={crit:0,high:0,med:0,low:0};
+  f.forEach(n=>{if(bySev[n.sev]!=null)bySev[n.sev]++;});
+  const fs=f.slice().sort((a,b)=>(order[a.sev]==null?9:order[a.sev])-(order[b.sev]==null?9:order[b.sev]));
+  const rows=fs.map(n=>'<tr><td>'+sevPill(n.sev||'med',String(n.sev||'').toUpperCase())+'</td><td><span class="lbl">'+esc(n.label)+'</span></td><td>'+confCell(n)+'</td><td>'+valPill(n.validation)+' <button class="btn" style="padding:2px 8px;font-size:9px" title="Reproduce this finding against an objective oracle (one governed re-read)" onclick="validateFinding('+f.indexOf(n)+')">validate</button></td><td class="mono">'+esc(hostOf(n.id))+'</td><td class="mono">'+esc(n.ref||'')+'</td><td class="mono">'+esc(n.cve||'')+'</td></tr>').join('')||'<tr><td colspan=7 class="empty">no findings yet</td></tr>';
+  const tri=TRIAGE||[];
+  const rem=REMED||[];
+  const remRows=rem.length?rem.map(r=>'<tr><td>'+sevPill(r.sev||'med',String(r.sev||'').toUpperCase())+'</td><td><span class="lbl">'+esc(r.finding)+'</span>'+(r.ref?' <span class="pill">'+esc(r.ref)+'</span>':'')+'</td><td class="mono">'+esc(r.owasp||'')+'</td><td class="mono">'+esc(r.attack||'')+'</td><td>'+esc(r.fix||'')+'</td></tr>').join(''):'<tr><td colspan=5 class="empty">no remediation mapping</td></tr>';
+  const remNote='<p class="hint" style="margin-top:11px">Ranked by proven exploitability; each item carries a code-level fix. A governed code-fix \u2192 pull-request run is available via <code>POST /api/remediate</code> \u2014 every patch crosses the Enclave hook and lands as a reviewable PR, never an unattended commit.</p>';
+  const remCard=tri.length
+    ? card('Remediation \u00b7 ranked by exploitability \u00b7 '+tri.length,triageTable(tri)+remNote,'<span class="pill">exploitability \u2192 code-level fix</span>')
+    : card('Remediation &amp; mapping','<table><tr><th>Sev</th><th>Finding</th><th>OWASP</th><th>MITRE ATT&amp;CK</th><th>Recommended fix</th></tr>'+remRows+'</table>'+remNote,'<span class="pill">OWASP \u00b7 ATT&amp;CK</span>');
+  const metrics='<div class="metrics">'+tileHTML(f.length,'Total findings')+tileHTML(bySev.crit,'Critical',bySev.crit?'warn':'')+tileHTML(bySev.high,'High')+tileHTML(bySev.med,'Medium')+tileHTML(bySev.low,'Low')+'</div>';
+  v.innerHTML=page(
+    phd('Findings','Weaknesses proven inside scope, mapped to remediation.',scopeChip(surf))+
+    metrics+
+    card('Findings \u00b7 '+f.length,'<table><tr><th>Severity</th><th>Finding</th><th>Confidence</th><th>Validation</th><th>Host</th><th>Ref</th><th>CVE</th></tr>'+rows+'</table>','<span class="pill">validated / claimed-unvalidated / refuted</span>')+
+    remCard);}
+
+/* ---------- insights view + report ---------- */
+function mdToHtml(md){if(!md)return '';
+  const e=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const inl=s=>e(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  const lines=String(md).split(/\r?\n/);let html='',inList=false;
+  const cl=()=>{if(inList){html+='</ul>';inList=false;}};
+  for(const ln of lines){let m;
+    if(/^---+\s*$/.test(ln)){cl();html+='<hr>';continue;}
+    if(m=ln.match(/^###\s+(.*)/)){cl();html+='<h4>'+inl(m[1])+'</h4>';continue;}
+    if(m=ln.match(/^##\s+(.*)/)){cl();html+='<h3>'+inl(m[1])+'</h3>';continue;}
+    if(m=ln.match(/^#\s+(.*)/)){cl();html+='<h2>'+inl(m[1])+'</h2>';continue;}
+    if(m=ln.match(/^\s*[-*]\s+(.*)/)){if(!inList){html+='<ul>';inList=true;}html+='<li>'+inl(m[1])+'</li>';continue;}
+    if(/^\s*$/.test(ln)){cl();continue;}
+    cl();html+='<p>'+inl(ln)+'</p>';}
+  cl();return html;}
+async function loadReport(){const box=$("#reportBox");if(box)box.innerHTML='<div class="empty">Generating…</div>';
+  const md=await api('/api/report');const txt=(typeof md==='string')?md:((md&&md.report)||'');
+  REPORT_HTML=txt?mdToHtml(txt):'<span class="empty">no report available</span>';
+  vsig.insights=null;const b=$("#reportBox");if(b)b.innerHTML='<div class="report">'+REPORT_HTML+'</div>';}
+function tierInfo(t){const k=String(t==null?'':t).toLowerCase().trim();
+  const L=[['var(--sage)',['green','nominal','clean','healthy','ok','good','low','stable']],
+    ['var(--steel)',['steady','moderate','normal','fair','watch']],
+    ['var(--steel-hi)',['elevated','warn','warning','caution','watchlist','notable']],
+    ['var(--high)',['high','degraded','concern','slipping','poor']],
+    ['var(--crit)',['critical','severe','stalled','failing','danger']]];
+  for(let i=0;i<L.length;i++)if(L[i][1].indexOf(k)>=0)return {idx:i,col:L[i][0]};
+  return {idx:-1,col:'var(--steel)'};}
+function tierLadder(pr){if(!pr||pr.tier==null||pr.tier==='')return '';
+  const info=tierInfo(pr.tier),ramp=['var(--sage)','var(--steel)','var(--steel-hi)','var(--high)','var(--crit)'];
+  let segs='';for(let i=0;i<5;i++){const on=info.idx>=0&&i<=info.idx;segs+='<span class="t-seg" style="background:'+(on?ramp[i]:'var(--hair2)')+';opacity:'+(on?'1':'.45')+'"></span>';}
+  return '<div class="tier"><div class="t-top"><span class="t-cap">Productivity tier</span><span class="t-val" style="color:'+info.col+'">'+esc(String(pr.tier).toUpperCase())+'</span></div><div class="t-lad">'+segs+'</div></div>';}
+function renderInsights(s){const v=$("#v-insights"),c=(s&&s.surface&&s.surface.counts)||{};
+  if(!s||s.status==='idle'){v.innerHTML=page(phd('Insights','Engagement metrics and the client-ready report.')+card('Engagement insights','<div class="empty">no campaign \u2014 start one in Settings</div>'));return;}
+  const surf=s.surface||{},N=surf.nodes||[],find=N.filter(n=>n.type==='finding'),bySev={crit:0,high:0,med:0,low:0};
+  find.forEach(f=>{if(bySev[f.sev]!=null)bySev[f.sev]++;});
+  const maxSev=Math.max(1,bySev.crit,bySev.high,bySev.med,bySev.low);
+  const T=[['hosts',c.hosts,''],['subdomains',c.subdomains,''],['services',c.svcs,''],['endpoints',c.endpoints,''],['technologies',c.tech,''],['CVEs',c.cves,''],['findings',c.findings,''],['critical',c.crit,'warn'],['exploits',c.exploits,''],['credentials',c.creds,''],['footholds',c.footholds,''],['pivot routes',c.routes,''],['enclave holds',c.holds,'gov']];
+  const tiles=T.map(t=>tileHTML(t[1]||0,t[0],t[2])).join('');
+  const dc={crit:'var(--crit)',high:'var(--high)',med:'var(--med)',low:'var(--low)'};
+  const dist=['crit','high','med','low'].map(k=>'<div class="dbar"><span class="dl">'+k+'</span><span class="dt"><i style="width:'+Math.round(bySev[k]/maxSev*100)+'%;background:'+dc[k]+'"></i></span><span class="dn">'+bySev[k]+'</span></div>').join('');
+  const rep=REPORT_HTML?'<div class="report">'+REPORT_HTML+'</div>':'<div class="empty">Generate to render the client-ready report.</div>';
+  const pr=s.productivity;let integrity='';
+  if(pr){let hr=null;if(pr.honestyRate!=null)hr=pr.honestyRate<=1?Math.round(pr.honestyRate*100):Math.round(pr.honestyRate);
+    integrity=card('Autonomy integrity',tierLadder(pr)+'<div class="metrics" style="margin:0">'+tileHTML(hr==null?'\u2014':hr+'%','Honesty rate',hr!=null&&hr<100?'warn':'gov')+tileHTML(pr.productive,'Productive phases')+tileHTML(pr.noProgress,'No progress')+tileHTML(pr.stuckStreak||0,'Longest stall',pr.stuckStreak>=2?'warn':'')+tileHTML(pr.dishonest,'Dishonest',pr.dishonest?'warn':'')+'</div><p class="hint">Each autonomous phase is scored for real progress and honest self-report. The longest stall is a deterministic, model-independent stuck signal; dishonest or no-progress phases are held for operator review \u2014 the Enclave records the verdict, not the model.</p>','<span class="pill">'+(pr.phases||0)+' phases scored</span>');}
+  v.innerHTML=page(
+    phd('Insights','Engagement metrics and the client-ready report.',scopeChip(surf))+
+    '<div class="cards2">'+
+      card('Engagement metrics','<div class="tiles">'+tiles+'</div>')+
+      card('Severity distribution','<div class="dist">'+dist+'</div><p class="hint">Critical findings drive the countersignature gate and headline the client report.</p>')+
+    '</div>'+
+    integrity+
+    card('Client report','<div id="reportBox">'+rep+'</div>','<button class="btn" onclick="loadReport()">Generate report</button>'));}
+
+/* ---------- opsec + settings views ---------- */
+function rdCls(r){r=String(r||'').toLowerCase();if(r==='critical'||r==='high')return 'hi';if(r==='elevated'||r==='medium'||r==='moderate'||r==='guarded')return 'warn';if(r==='low'||r==='minimal'||r==='none'||r==='clean')return 'ok';return '';}
+function fmtScore(n){if(n==null||n==='')return '';const v=Number(n);if(!isFinite(v))return '';return v<=5?(Math.round(v*10)/10)+'/5':String(Math.round(v*10)/10);}
+function riskLine(risk,score){const rl=String(risk||'—').toUpperCase(),sc=fmtScore(score);return rl+(sc?' · '+sc:'');}
+async function adviseNow(){const btn=$('#adviseBtn');if(btn){btn.disabled=true;btn.textContent='Consulting…';}
+  await api('/api/footprint/advise',{method:'POST'});vsig.opsec=null;await poll();}
+function renderReduction(s){
+  const red=(s&&s.opsec&&s.opsec.reduction)||null, adv=(s&&s.footprintAdvice)||null;
+  const btn='<button class="btn" id="adviseBtn" onclick="adviseNow()">Advise now</button>';
+  const hasHead=red&&(red.currentRisk||red.currentScore!=null||red.projectedRisk||red.projectedScore!=null||red.reducible!=null);
+  const plan=(red&&Array.isArray(red.plan))?red.plan:[];
+  let body='';
+  if(hasHead){
+    const rc=(red.reducible==null||red.reducible==='')?null:Number(red.reducible);
+    const dLabel=(rc==null||!isFinite(rc))?'—':'−'+(Math.round(rc*10)/10);
+    body+='<div class="rd-head">'+
+      '<div class="rd-risk"><span class="rd-cap">Current detection risk</span><span class="rd-val '+rdCls(red.currentRisk)+'">'+esc(riskLine(red.currentRisk,red.currentScore))+'</span><span class="rd-sub">what the target could see now</span></div>'+
+      '<div class="rd-mid"><span class="ar">→</span><span class="lb">apply<br>plan</span></div>'+
+      '<div class="rd-risk"><span class="rd-cap">Projected if applied</span><span class="rd-val '+rdCls(red.projectedRisk)+'">'+esc(riskLine(red.projectedRisk,red.projectedScore))+'</span><span class="rd-sub">same objectives, quieter tradecraft</span></div>'+
+      '<div class="rd-delta"><span class="dn">'+esc(dLabel)+'</span><span class="dl">noise<br>reducible</span></div>'+
+    '</div>';
+  }
+  if(plan.length){
+    const prows=plan.map(p=>{const ld=Math.max(1,Math.min(5,Number(p.loudness)||1));
+      const save=(p.estReductionPct!=null&&p.estReductionPct!=='')?'<span class="rd-save">−'+Math.round(Number(p.estReductionPct))+'%</span>':'—';
+      return '<tr><td><span class="lbl">'+esc(p.activity||'—')+'</span></td><td><span class="fp-l l'+ld+'">'+ld+'/5</span></td><td>'+esc(p.issue||'')+'</td><td><span class="fp-v q">'+esc(p.quieter||'')+'</span></td><td class="num">'+save+'</td></tr>';
+    }).join('');
+    body+='<table><tr><th>Loud activity</th><th>Loudness</th><th>Why it is loud</th><th>Quieter alternative</th><th class="num">Saving</th></tr>'+prows+'</table>';
+  }
+  if(!hasHead&&!plan.length)body+='<div class="empty">No reduction plan yet — the advisor derives one as tool activity accrues. Use “Advise now” to request an assessment.</div>';
+  if(adv&&adv.text)body+='<div class="advisor" style="margin-top:11px"><div class="av-h"><span class="av-t">AI OPSEC advisor</span>'+(adv.risk?'<span class="av-r">'+esc(String(adv.risk).toUpperCase())+'</span>':'')+(adv.at?'<span class="av-at">'+esc(hhmmss(adv.at))+'</span>':'')+'</div><div class="av-x">'+esc(adv.text)+'</div></div>';
+  body+='<p class="hint" style="margin-top:11px">Operational-stealth footprint management for an authorized engagement — stay quiet against the target while every action stays fully audited by the Enclave. This lowers the noise you make, never the record you leave.</p>';
+  return card('Footprint reduction · OPSEC',body,btn);
+}
+function stealthStateColor(state){switch(String(state||'')){case 'ok':return 'var(--steel)';case 'warn':return 'var(--high)';case 'critical':return 'var(--crit)';case 'exhausted':return 'var(--red)';default:return 'var(--steel-lo)';}}
+function renderStealthBudget(s){
+  const b=(s&&s.stealthBudget)||null,prof=(s&&s.stealth)||(b&&b.profile)||null;
+  const unlimited=!b||b.maxNoise==null||String(prof||'').toLowerCase()==='loud'||String(b.state||'')==='unlimited';
+  if(unlimited){
+    const spent=(b&&b.spent!=null)?b.spent:0,actions=(b&&b.actions!=null)?b.actions:null,pname=String(prof||'loud').toUpperCase();
+    let body='<div class="kv"><span class="k">stealth profile</span><span class="v">'+esc(pname)+' · off</span></div>'+
+      '<div class="kv"><span class="k">noise budget</span><span class="v">unlimited · authorized noisy run</span></div>'+
+      '<div class="kv"><span class="k">noise spent</span><span class="v">'+esc(spent)+' pts'+(actions!=null?' · '+esc(actions)+' actions':'')+'</span></div>'+
+      '<p class="hint">No stealth ceiling on this engagement — speed over subtlety, by authorization. Every action is still in the Enclave’s tamper-evident audit.</p>';
+    return card('Stealth budget',body);
+  }
+  const maxNoise=Number(b.maxNoise)||0,spent=Number(b.spent)||0;
+  const pct=(b.pct!=null&&isFinite(Number(b.pct)))?Math.max(0,Math.min(100,Math.round(Number(b.pct)))):(maxNoise?Math.max(0,Math.min(100,Math.round(spent/maxNoise*100))):0);
+  const state=String(b.state||'ok'),col=stealthStateColor(state);
+  const peakCeiling=(b.peakCeiling!=null)?b.peakCeiling:'—',actualPeak=(b.actualPeak!=null)?b.actualPeak:'—';
+  const overrides=(b.overrides!=null)?b.overrides:0,honored=b.ceilingHonored!==false;
+  let body='<div class="barhead"><b>'+esc(spent)+'<small> / '+esc(maxNoise)+' noise-pts</small></b><small>'+esc(pct)+'% · <span style="color:'+col+';font-weight:600">'+esc(state.toUpperCase())+'</span></small></div>'+
+    '<div class="scr" style="min-width:0;margin-top:8px"><span class="sm" style="height:8px"><i style="width:'+pct+'%;background:'+col+'"></i></span></div>';
+  body+='<div class="metrics" style="margin-top:12px">'+
+    tileHTML(String(prof).toUpperCase(),'Profile')+
+    tileHTML('≤ '+peakCeiling+'/5','Peak ceiling')+
+    tileHTML(actualPeak+'/5','Actual peak',honored?'':'warn')+
+    (overrides>0?tileHTML(overrides,'Overrides','warn'):'')+
+    '</div>';
+  body+='<div style="margin-top:10px">'+(honored
+    ?sevPill('ok','CEILING HONORED — emitted '+actualPeak+'/5 ≤ '+peakCeiling+'/5')
+    :sevPill('crit','CEILING EXCEEDED — emitted '+actualPeak+'/5 vs '+peakCeiling+'/5'))+'</div>';
+  if(!honored){const ab=(b.authorizedBreaches!=null)?b.authorizedBreaches:0,ub=(b.unauthorizedBreaches!=null)?b.unauthorizedBreaches:0;
+    body+='<p class="hint" style="margin-top:8px;border-left-color:var(--red-lo)">'+esc(ab)+' HITL-authorized · '+esc(ub)+' un-approved</p>';}
+  if(b.proof)body+='<div class="advisor" style="margin-top:11px;border-left-color:var(--steel-lo)"><div class="av-h"><span class="av-t" style="color:var(--sage)">Guarantee — we stayed under</span>'+(b.risk?'<span class="av-r">'+esc(String(b.risk).toUpperCase())+'</span>':'')+'</div><div class="av-x">'+esc(b.proof)+'</div></div>';
+  if(b.note)body+='<p class="hint" style="margin-top:9px">'+esc(b.note)+'</p>';
+  body+='<p class="hint" style="margin-top:9px">Enforced operational stealth for an authorized engagement — our native tools pace themselves in code (timing + jitter + concurrency) and this budget caps the noise, escalating louder actions to a human. Quiet against the target, every action still in the Enclave’s tamper-evident audit. This is not evasion.</p>';
+  return card('Stealth budget · what we stayed under',body,'<span class="pill">'+esc(String(prof).toUpperCase())+'</span>');
+}
+function renderTargetProfile(s){
+  const tp=(s&&s.targetProfile)||null;
+  if(!tp||!tp.calibration)return ''; // only shown for the 'auto' stealth profile once a target is fingerprinted
+  const defs=Array.isArray(tp.defenses)?tp.defenses:[];
+  const rec=String(tp.calibration.recommended||'').toUpperCase();
+  const monCls=(m)=>m==='high'?'gov':(m==='med'?'warn':'');
+  let body='';
+  if(defs.length){
+    body+='<div class="metrics">'+defs.map(d=>tileHTML(esc(d.vendor||d.id||'?'),String(d.kind||'').toUpperCase()+(d.monitoring?' · '+esc(d.monitoring):''),monCls(d.monitoring))).join('')+'</div>';
+  } else {
+    body+='<div class="metrics">'+tileHTML('none','WAF / CDN detected','live')+'</div>';
+  }
+  const flags=[];
+  if(tp.rateLimit)flags.push('rate-limited'+(tp.rateLimit.limit!=null?' ('+esc(tp.rateLimit.limit)+'/win)':''));
+  if(tp.challenge)flags.push('bot-challenge');
+  if((tp.securityHeaders||[]).length)flags.push(esc(tp.securityHeaders.length)+' hardened headers');
+  if(flags.length)body+='<div class="fp-row" style="margin-top:10px"><span class="fp-k">Signals</span><span class="fp-v">'+esc(flags.join(' · '))+'</span></div>';
+  body+='<div style="margin-top:10px">'+sevPill('ok','AUTO-CALIBRATED → '+esc(rec))+'</div>';
+  if((tp.calibration.reasons||[]).length)body+='<p class="hint" style="margin-top:9px">'+esc(tp.calibration.reasons.join('; '))+'</p>';
+  body+='<p class="hint" style="margin-top:9px">Measured tradecraft — VARVEL fingerprints the target’s defenses from a couple of benign requests, then picks the quietest fitting stealth profile. This is detection + calibration, not evasion.</p>';
+  return card('Target defenses · auto-calibrated',body,'<span class="pill">'+esc(rec)+'</span>');
+}
+function renderOpsec(s){const v=$("#v-opsec"),o=s&&s.opsec;
+  if(!o){v.innerHTML=page(phd('OPSEC','Leave the target clean; keep tamper-evident proof.')+card('OPSEC','<div class="empty">no campaign</div>'));return;}
+  const p=o.posture||{},clean=p.cleanState,det=p.detection;
+  const banner='<div class="banner '+(clean?'clean':'pending')+'"><span class="bdot"></span><span class="bt">'+(clean?'TARGET CLEAN':'CLEANUP PENDING')+'</span><span class="bs">'+esc(p.note||'')+'</span></div>';
+  const metrics='<div class="metrics">'+tileHTML(p.artifacts||0,'Artifacts dropped')+tileHTML(p.cleaned||0,'Cleaned','live')+tileHTML(p.pending||0,'Pending cleanup',p.pending?'gov':'')+'</div>';
+  // detection footprint \u2014 what a defender would see + what it exposes.
+  let detBlock='';
+  if(det&&det.events){
+    const dtiles='<div class="metrics">'+tileHTML((det.risk||'low').toUpperCase(),'Detection risk',riskCls(det.risk)==='hi'?'gov':'')+tileHTML(det.peakLoudness+'/5','Peak loudness')+tileHTML(det.weighted+'/5','Weighted noise')+tileHTML(det.actions||0,'Noisy actions',det.actions?'live':'')+'</div>';
+    const acts=(det.loudest||[]).map(a=>'<div class="fp-act"><div class="fp-h"><span class="fp-l l'+a.loudness+'">'+a.loudness+'/5</span><b>'+esc(a.label)+'</b>'+(a.count>1?'<span class="fp-x">\u00d7'+a.count+'</span>':'')+'</div>'+
+      '<div class="fp-row"><span class="fp-k">Detected by</span><span class="fp-v">'+esc((a.detectedBy||[]).join(' \u00b7 '))+'</span></div>'+
+      '<div class="fp-row"><span class="fp-k">Exposes</span><span class="fp-v">'+esc((a.exposes||[]).join(' \u00b7 '))+'</span></div>'+
+      '<div class="fp-row"><span class="fp-k">Lower-noise</span><span class="fp-v q">'+esc(a.quieter||'')+'</span></div></div>').join('');
+    detBlock=dtiles+card('What a defender would see \u00b7 loudest first',acts)+
+      card('Detection &amp; exposure summary','<div class="fp-row"><span class="fp-k">Detection surface</span><span class="fp-v">'+esc((det.detectedBy||[]).join(' \u00b7 '))+'</span></div><div class="fp-row"><span class="fp-k">Operator exposure</span><span class="fp-v">'+esc((det.exposes||[]).join(' \u00b7 '))+'</span></div><p class="hint">Tradecraft transparency for an authorized engagement \u2014 this is what the blue team would observe, not a way to hide. Every action is also in the Enclave\u2019s tamper-evident audit.</p>');
+  } else {
+    detBlock=card('Detection footprint','<div class="empty">no activity recorded yet</div>');
+  }
+  const arts=o.artifacts||[];
+  const rows=arts.length?arts.map((a,i)=>'<tr><td class="mono">'+esc(a.host)+'</td><td>'+esc(a.kind)+'</td><td class="mono">'+esc(a.path)+'</td><td>'+(a.status==='cleaned'?sevPill('ok','CLEANED'):sevPill('high','DROPPED'))+'</td><td class="num">'+(a.status==='cleaned'?'':'<button class="btn" onclick="cleanup('+i+')">Clean</button>')+'</td></tr>').join(''):'<tr><td colspan=5 class="empty">no artifacts dropped</td></tr>';
+  v.innerHTML=page(
+    phd('OPSEC','Leave the target clean; keep tamper-evident proof \u2014 and know exactly what you tripped.',scopeChip(s.surface))+
+    banner+
+    metrics+
+    detBlock+
+    renderTargetProfile(s)+
+    renderStealthBudget(s)+
+    renderReduction(s)+
+    card('Artifact ledger \u00b7 '+arts.length,'<table><tr><th>Host</th><th>Kind</th><th>Path</th><th>Status</th><th class="num">Action</th></tr>'+rows+'</table>')+
+    card('Doctrine','<p class="hint">Leftover artifacts are removed from the client environment on disengagement; the Enclave retains a tamper-evident audit of every action taken. The target is left clean \u2014 the proof lives in the vault.</p>'));}
+function renderSettings(){const v=$("#v-settings");if(v.dataset.init)return;v.dataset.init='1';
+  v.innerHTML=page(phd('Settings','Launch a governed engagement and review the enforcement model.')+
+    '<div class="cards2">'+
+      card('Start engagement','<div class="form"><label>Engagement</label><input id="f-eng" placeholder="engagement / workspace"><label>Authorized / signed by</label><input id="f-sig" placeholder="from signed identity"><label>Signed scope (CIDRs, comma-separated)</label><input id="f-cidr" placeholder="from signed engagement scope"><label>Custom targets (IPs — optional)</label><input id="f-targets" placeholder="e.g. 192.168.50.130 — the Win11 VM-lab; empty = bundled demo"><p class="hint" id="vmNote" style="margin:4px 0 0"></p><label>Step budget</label><input id="f-bud" value="200"><label>AI model (VARVEL runs)</label><select id="f-model" onchange="setModel(this.value)"><option>loading…</option></select><p class="hint" id="modelNote" style="margin:4px 0 0"></p><label id="f-effort-lbl" style="display:none">Reasoning effort (Kimi)</label><select id="f-effort" onchange="setEffort(this.value)" style="display:none"><option>high</option></select><label>Operational stealth (enforced)</label><select id="f-stealth" onchange="setStealth(this.value)"><option>loading…</option></select><p class="hint" id="stealthHint">Select a stealth profile.</p></div><div style="margin-top:14px"><button class="btn go" onclick="startCampaign()">Launch campaign (demo)</button> <button class="btn" onclick="breachDemo()">Breach the Acme demo target</button> <button class="btn" onclick="liveBreachDemo()">Run live AI breach (demo)</button> <button class="btn" onclick="useVmTarget()">Use Win11 VM-lab target</button></div><p class="hint" id="liveReady">Checking live-run readiness\u2026</p><p class="hint">Demo mode runs a mock governed agent \u2014 no API key. <b>Breach the Acme demo target</b> points VARVEL\u2019s own native scanner at the bundled site (127.0.0.1:8972): real findings, no API key. <b>Run live AI breach</b> drives the real governed agent (your Kimi/CLI backend) through the full pipeline against the demo under a loopback-scoped signed identity \u2014 every tool call crosses the Enclave hook.</p>')+
+      card('Governance model','<div class="kv"><span class="k">enforcement</span><span class="v hi">Enclave hook \u00b7 unbypassable</span></div><div class="kv"><span class="k">HITL gates</span><span class="v">exploit \u00b7 post-ex</span></div><div class="kv"><span class="k">scope binding</span><span class="v">signed CIDR ring</span></div><div class="kv"><span class="k">audit</span><span class="v">tamper-evident ledger</span></div><p class="hint">Clearance informs the agent; it never authorizes it. Authorization is enforced server-side by the Enclave, independent of anything the model believes.</p>')+
+      card('Ghost Mode — identity posture','<div id="ghostStatus">loading…</div><div class="form" style="margin-top:10px"><label>Mode</label><select id="f-gmode"><option value="off">off — direct egress</option><option value="on">on — route via chain (advisory)</option><option value="required">required — fail-closed until verified</option></select><label>Proxy chain (comma-separated hops)</label><input id="f-gchain" placeholder="socks5://127.0.0.1:9050 (Tor — free) or any socks5:// http(s):// proxy"><label>Exit check URL</label><input id="f-gcheck" placeholder="https://api.ipify.org?format=json"></div><div style="margin-top:10px"><button class="btn" onclick="armGhost()">Arm / update</button> <button class="btn" onclick="checkGhost()">Verify exit now</button> <button class="btn" onclick="checkTlsInspect()">TLS inspection check</button> <button class="btn" onclick="exitCheckGhost()">Exit check</button> <button class="btn" onclick="useTor()">Use Tor — free</button></div><p class="hint">Public engagement traffic rides the chain, DNS resolved by the last proxy. Private/range destinations ALWAYS go direct — the lab never leaves the sealed net. <b>required</b> refuses public egress until the exit-IP check proves the operator is hidden.</p><p class="hint"><b>No paid proxy needed:</b> Tor is the free, strong option — install it (torproject.org), then click <b>Use Tor</b> or just arm with the chain field empty and ghost auto-detects it. Slower, and some sites block Tor exits — that is normal. Paid optional: Mullvad (~€5/mo, no account) or your own VPS. <b>Avoid free proxy lists</b> — logged, pre-flagged, often malicious. Honesty bar: we never claim "100% hidden" — ghost PROVES the exit IP differs from yours and says so loudly when it cannot prove it.</p>')+
+    '</div>'+
+    card('Tool shelf — quarantined AI-written tools','<div id="shelfBox">loading…</div>','<span class="pill">never executed</span>')+ // full-width like Missions below — a 7-column table never fits a half-width grid cell
+    card('Attackbench — ATT&CK emulation coverage','<div id="attackbenchBox">loading…</div>','<span class="pill">capability, never detection</span>')+
+    card('Fingerprint observer — the channel’s passive JA4H ring','<div id="fpBox">loading…</div>','<span class="pill">passive · read-only</span>')+
+    card('Missions — checkpointed sessions','<div id="missionsBox">loading…</div>','<span class="pill">read-only · survives restarts</span>'),'narrow');applyIdentity();loadLiveReadiness();loadModel();loadStealth();loadGhost();}
+/* ---------- Brain / API key card (paste an endpoint key at run time) ----------
+   The provider/baseUrl/model/apiKeyEnv fields are durable, validated engagement settings
+   (POST /api/settings). The KEY ITSELF is never a setting: POST /api/model {apiKeyEnv, apiKey}
+   puts it in the server process memory for this run only — no disk, no log, no echo, and the
+   response carries presence only. An env var exported before launch always wins. */
+function brainCard(){
+  return card('Brain / API key','<div class="form">'
+    +'<label>Brain provider</label><select id="f-bprov" onchange="saveBrainCfg()">'
+      +'<option value="kimi">kimi — platform default (Kimi / Claude CLI)</option>'
+      +'<option value="openai-compatible">openai-compatible — vLLM / llama.cpp / any OpenAI endpoint</option></select>'
+    +'<label>Base URL (openai-compatible)</label><input id="f-burl" placeholder="http://127.0.0.1:8080/v1">'
+    +'<label>Model id</label><input id="f-bmodel" placeholder="the model id that endpoint serves">'
+    +'<label>Env var that holds the key (brain.apiKeyEnv)</label><input id="f-bkeyenv" placeholder="VARVEL_BRAIN_API_KEY">'
+    +'<label>API key — memory only, never written to disk, never echoed back</label><input id="f-bkey" type="password" placeholder="paste the endpoint key (empty = clear)">'
+    +'</div><div style="margin-top:10px"><button class="btn" onclick="saveBrainCfg()">Save brain config</button> '
+    +'<button class="btn go" onclick="saveBrainKey()">Set key (memory)</button> '
+    +'<button class="btn" onclick="clearBrainKey()">Clear key</button></div>'
+    +'<p class="hint" id="brainKeyState">Checking\u2026</p>'
+    +'<p class="hint">The key lives in the server process memory for this run and is lost on restart. '
+    +'A key exported before launch always wins over a runtime key. Every API answer reports presence only \u2014 '
+    +'the value never enters settings.json, a checkpoint, a log or an echo.</p>');
+}
+async function loadBrain(){const v=$("#v-settings");if(!v)return;
+  const box=v.querySelector(".cards2");
+  // idempotent per DOM (not a module flag): a rebuilt Settings view gets the card again
+  if(box&&!box.querySelector("#f-bprov"))box.insertAdjacentHTML("beforeend",brainCard());
+  const r=await api("/api/model");if(!r||!r.brain)return;const b=r.brain;
+  const p=$("#f-bprov");if(p&&b.provider)p.value=b.provider;
+  const u=$("#f-burl");if(u&&!u.value)u.value=b.baseUrl||"";
+  const m=$("#f-bmodel");if(m&&!m.value)m.value=b.model||"";
+  const ke=$("#f-bkeyenv");if(ke&&!ke.value)ke.value=b.apiKeyEnv||"";
+  const st=$("#brainKeyState");if(st)st.textContent=b.error?("brain config error \u2014 "+b.error)
+    :("provider: "+b.provider+" \u00b7 source: "+(b.source||"default")
+      +(b.apiKeyEnv?(" \u00b7 key "+(b.keyPresent?"present":"NOT set")+" for "+b.apiKeyEnv):" \u00b7 no key needed"));}
+async function saveBrainCfg(){
+  const body={provider:$("#f-bprov")?$("#f-bprov").value:"",
+    baseUrl:$("#f-burl")?$("#f-burl").value.trim():"",
+    model:$("#f-bmodel")?$("#f-bmodel").value.trim():"",
+    apiKeyEnv:$("#f-bkeyenv")?$("#f-bkeyenv").value.trim():""};
+  // durable half: validated settings (the key value is deliberately NOT one of them)
+  for(const kv of [["brain.baseUrl",body.baseUrl],["brain.model",body.model],["brain.apiKeyEnv",body.apiKeyEnv]]){
+    if(kv[1]==="")continue;
+    const s=await api("/api/settings",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:kv[0],value:kv[1]})});
+    if(s&&s.error){alert(kv[0]+": "+s.error);return;}}
+  const r=await api("/api/model",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({provider:body.provider})});
+  if(r&&r.ok===false&&r.error)alert("brain: "+r.error);
+  if(r&&r.brain&&r.brain.provider==="openai-compatible"&&r.brain.error)alert("brain: "+r.brain.error);
+  loadBrain();loadModel();loadLiveReadiness();}
+async function saveBrainKey(){
+  const key=$("#f-bkey")?$("#f-bkey").value:"";
+  if(!key){alert("enter the key, or use Clear key");return;}
+  const envName=$("#f-bkeyenv")?$("#f-bkeyenv").value.trim():"";
+  const r=await api("/api/model",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({apiKeyEnv:envName,apiKey:key})});
+  if(r&&r.error){alert("key: "+r.error);return;}
+  const el=$("#f-bkey");if(el)el.value=""; // never leave the secret sitting in the DOM
+  loadBrain();}
+async function clearBrainKey(){
+  const r=await api("/api/model",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({apiKeyEnv:$("#f-bkeyenv")?$("#f-bkeyenv").value.trim():"",apiKey:""})});
+  if(r&&r.error)alert("key: "+r.error);loadBrain();}
+async function loadModel(){const sel=$('#f-model');if(!sel)return;const r=await api('/api/model');if(!r||!r.model)return;const list=(r.available&&r.available.length)?r.available:[r.model];sel.innerHTML=list.map(m=>'<option'+(m===r.model?' selected':'')+'>'+esc(m)+'</option>').join('');
+  window._kimiModels=r.kimiModels||[];window._kimiReady=!!r.kimiReady;
+  const esel=$('#f-effort');if(esel){const efforts=(r.efforts&&r.efforts.length)?r.efforts:['low','medium','high'];esel.innerHTML=efforts.map(e=>'<option'+(e===r.effort?' selected':'')+'>'+esc(e)+'</option>').join('');}
+  effortVis(r.model);}
+function effortVis(model){const isKimi=(window._kimiModels||[]).includes(model);const lbl=$('#f-effort-lbl'),esel=$('#f-effort'),note=$('#modelNote');
+  if(lbl)lbl.style.display=isKimi?'':'none';if(esel)esel.style.display=isKimi?'':'none';
+  if(note)note.textContent=isKimi?('Kimi backend (governed, direct-API)'+(window._kimiReady?'':' — ⚠ no Kimi key configured')):'';}
+async function setModel(m){await api('/api/model',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({model:m})});effortVis(m);loadLiveReadiness();}
+async function setEffort(e){await api('/api/model',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({effort:e})});}
+let STEALTH_PROFILES=null;
+async function loadStealth(){const sel=$('#f-stealth');if(!sel)return;
+  const r=await api('/api/stealth');if(!r)return;
+  const profs=Array.isArray(r.profiles)?r.profiles:[];STEALTH_PROFILES=profs;
+  const cur=r.stealth||'loud';
+  const names=(Array.isArray(r.available)&&r.available.length)?r.available:profs.map(p=>p.name);
+  sel.innerHTML=names.map(n=>{const p=profs.find(x=>x.name===n);const lab=(p&&p.label)||n;
+    return '<option value="'+esc(n)+'"'+(n===cur?' selected':'')+'>'+esc(String(lab).toUpperCase())+'</option>';}).join('');
+  updateStealthHint(cur);}
+function stealthHintText(name){const p=STEALTH_PROFILES&&STEALTH_PROFILES.find(x=>x.name===name);if(!p)return '';
+  const b=p.budget||{},unlimited=(name==='loud')||b.maxNoise==null;
+  if(unlimited)return 'no stealth ceiling — fastest'+(p.concurrency!=null?' · concurrency '+p.concurrency:'');
+  const seg=[];if(p.note)seg.push(p.note);
+  seg.push('budget '+b.maxNoise+' noise-pts, peak ≤ '+(b.peakCeiling!=null?b.peakCeiling:'—'));
+  let pace='concurrency '+(p.concurrency!=null?p.concurrency:'—');
+  if(p.delayMs)pace+=', ~'+p.delayMs+'ms'+(p.jitterMs!=null?'±'+p.jitterMs:'')+' jitter';
+  else if(p.jitterMs!=null)pace+=', ±'+p.jitterMs+' jitter';
+  seg.push(pace);return seg.join(' · ');}
+function updateStealthHint(name){const el=$('#stealthHint');if(el)el.textContent=stealthHintText(name);}
+async function setStealth(v){await api('/api/stealth',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({stealth:v})});updateStealthHint(v);vsig.opsec=null;}
+// THE one client-side ghost truth: GET /api/ghost. The settings card renders it AND it
+// writes STATE.ghost + the header chip, so every ghost surface shows the same fetched
+// object (never two separately-fetched snapshots — the OFF-at-top-while-armed bug).
+async function loadGhost(){const st=await api('/api/ghost');if(!st)return;if(STATE)STATE.ghost=st;const m=$('#f-gmode');if(m&&st.mode)m.value=st.mode;const ch=$('#f-gchain');if(ch&&!ch.value)ch.value=(st.chain||[]).join(', ');const ck=$('#f-gcheck');if(ck&&!ck.value&&st.checkUrl)ck.value=st.checkUrl;renderGhostStatus(st);
+  const gc=ghostChip(st),gv=$("#ghostV");if(gv)gv.innerHTML='<b'+(gc.cls?' class="'+gc.cls+'"':'')+'>'+esc(gc.label)+'</b>';const gchip=$("#ghostChip");if(gchip)gchip.title=gc.title;}
+function renderGhostStatus(st){const el=$('#ghostStatus');if(!el)return;let post='';
+  if(st.mode==='off')post='<span class="v">DIRECT — operator egress exposed to targets</span>';
+  else if(st.verified&&st.verified.ok)post='<span class="v ck-ok">HIDDEN — exit '+esc(st.verified.exitIp||'?')+' ≠ operator</span>';
+  else if(st.verified)post='<span class="v ck-no">NOT HIDDEN — '+esc(st.verified.error||'verification failed')+'</span>';
+  else post='<span class="v">unverified — run the exit check</span>';
+  el.innerHTML='<div class="kv"><span class="k">mode</span><span class="v">'+esc(st.mode||'off')+'</span></div><div class="kv"><span class="k">chain</span><span class="v">'+((st.chain||[]).map(esc).join(' → ')||'—')+'</span></div><div class="kv"><span class="k">dns</span><span class="v">'+esc(st.dns||'—')+'</span></div><div class="kv"><span class="k">private</span><span class="v">'+esc(st.privateDestinations||'—')+'</span></div><div class="kv"><span class="k">tor</span><span class="v">'+(st.tor?(st.tor.detected?'<b class="ck-ok">detected</b> on 127.0.0.1:'+esc(String(st.tor.port||''))+' — free chain ready (Use Tor or arm with an empty chain)':'not detected — install Tor (torproject.org) for the free chain, or enter any proxy above'):'—')+'</span></div><div class="kv"><span class="k">posture</span>'+post+'</div>'+(st.tlsInspect?'<div class="kv"><span class="k">tls inspection</span><span class="v">'+(st.tlsInspect.posture==='tls-inspected'?'<b class="ck-no">TLS-INSPECTED</b>':st.tlsInspect.posture==='partial'?'<b class="ck-no">PARTIAL</b>':st.tlsInspect.posture==='clean'?'<b class="ck-ok">clean</b>':'unknown')+' — '+esc(st.tlsInspect.reason||'')+'</span></div>':'<div class="kv"><span class="k">tls inspection</span><span class="v">not measured — run “TLS inspection check”</span></div>')+(st.exitCheck?exitCheckHTML(st.exitCheck):'<div class="kv"><span class="k">exit check</span><span class="v">not measured — run “Exit check” for the pre-engagement egress proof (stability · class · pinned exit)</span></div>');}
+async function checkTlsInspect(){await api('/api/ghost',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'tlsinspect'})});await loadGhost();poll();}
+async function armGhost(){const j=await api('/api/ghost',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({mode:$('#f-gmode').value,chain:$('#f-gchain').value,checkUrl:$('#f-gcheck').value||undefined})});
+  // VERIFY-BY-GET, never trust the POST body: an arm POST can return an EMPTY body yet
+  // land fine (the recorded trap — api() maps the empty 200 to null, indistinguishable
+  // from a network failure), so the refresh below is the only honest read of whether
+  // anything armed. A JSON error means the arm was REFUSED — prepend it to the truthful card.
+  await loadGhost();poll();
+  if(j&&j.error){const el=$('#ghostStatus');if(el)el.innerHTML='<div class="kv"><span class="k ck-no">arm refused</span><span class="v">'+esc(j.error)+'</span></div>'+el.innerHTML;}}
+async function useTor(){const ch=$('#f-gchain');if(ch)ch.value='socks5://127.0.0.1:9050';const m=$('#f-gmode');if(m&&m.value==='off')m.value='on';await armGhost();}
+async function checkGhost(){await api('/api/ghost',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'check'})});await loadGhost();poll();}
+// Exit check (POST /api/ghost {action:'exitCheck'} → engine/egresscheck) — the measured
+// egress proof run BEFORE an engagement: exit-IP stability across samples, egress class,
+// and the pinned-exit expectation when ghost.expectExit is set. loadGhost() re-GETs the
+// full status afterwards (verify-by-GET, same as arm/check above) — never trust the POST.
+async function exitCheckGhost(){await api('/api/ghost',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'exitCheck'})});await loadGhost();poll();}
+// exitCheckHTML(x) renders one ghost.status().exitCheck result — verdict, sampled exits,
+// class, pin verdict; the engine's own warnings/reason are shown verbatim (they carry the
+// doctrine, e.g. the cf_clearance rotation lesson).
+function exitCheckHTML(x){
+  const vc=x.verdict==='stable'?'ck-ok':(x.verdict==='rotating'?'ck-no':'');
+  let h='<div class="kv"><span class="k">exit check</span><span class="v"><b'+(vc?' class="'+vc+'"':'')+'>'+esc(String(x.verdict||'unknown').toUpperCase())+'</b> · '+esc(x.sampled||0)+'/'+esc((x.sampled||0)+(x.failed||0))+' sampled'+(x.at?' · '+esc(hhmmss(x.at)):'')+'</span></div>';
+  if(x.distinct&&x.distinct.length)h+='<div class="kv"><span class="k">exits seen</span><span class="v">'+esc(x.distinct.join(', '))+'</span></div>';
+  if(x.egress&&x.egress.ok)h+='<div class="kv"><span class="k">egress class</span><span class="v">'+(x.egress.class==='datacenter'?'<b class="ck-no">datacenter</b>':esc(x.egress.class||'?'))+(x.egress.org?' — '+esc(x.egress.org):'')+(x.egress.asn?' · '+esc(x.egress.asn):'')+'</span></div>';
+  if(x.expectExit){
+    let pin;
+    if(x.pinMatch===true)pin='<b class="ck-ok">PIN OK</b> — exit = expected '+esc(x.expectExit);
+    else if(x.pinMatch===false)pin='<b class="ck-no">PIN MISMATCH</b> — expected '+esc(x.expectExit)+', got '+esc((x.distinct||[]).join(', ')||'?')+(x.pinStrict?' — FAIL-CLOSED (pinStrict)':' — advisory (pinStrict off)');
+    else pin='<b>pin UNPROVEN</b> — no exit sample succeeded';
+    h+='<div class="kv"><span class="k">pinned exit</span><span class="v">'+pin+'</span></div>';
+  }
+  if(x.reason)h+='<p class="hint" style="margin-top:7px;border-left-color:var(--red-lo)">'+esc(x.reason)+'</p>';
+  (x.warnings||[]).forEach(w=>{h+='<p class="hint" style="margin-top:7px">'+esc(w)+'</p>';});
+  return h;
+}
+
+/* ---------- tool shelf + mission checkpoints (settings continuity surfaces) ---------- */
+// The shelf (engine/toolshelf, GET/POST /api/toolshelf): tools the AI writes mid-engagement,
+// kept as quarantined DATA — never executed by VARVEL. The console renders the catalog and
+// OFFERS promote; the gating itself is server-side (promotion is a logged human decision).
+async function loadShelf(){const r=await api('/api/toolshelf');const box=$('#shelfBox');if(!box)return; // box queried AFTER the await — show()->render() rebuilds this view on first visit; a pre-await ref is detached and the write would land in the void (the 'loading… forever' bug)
+  if(!r||!Array.isArray(r.entries)){box.innerHTML='<div class="empty">tool shelf unavailable — no response from the server.</div>';return;}
+  const es=r.entries;
+  if(!es.length){box.innerHTML='<div class="empty">The shelf is empty — tools the agent writes mid-engagement are kept here as quarantined DATA (never executed) until a human promotes one for a reviewed native port into tools/.</div>';return;}
+  const rows=es.map(e=>{
+    const files=(e.files||[]).map(f=>esc(f.name)+' ('+f.bytes+'b)').join(', ')||'—';
+    const act=e.status==='quarantined'
+      ?'<button class="btn" style="padding:2px 8px;font-size:9px" onclick="shelfPromote(\''+jsq(e.id)+'\')">promote</button>'
+      :'<span class="pill">promoted'+(e.promoted&&e.promoted.by?' · '+esc(e.promoted.by):'')+(e.promoted&&e.promoted.at?' · '+esc(fmtSeen(e.promoted.at)):'')+'</span>';
+    return '<tr><td><span class="lbl" title="'+esc(e.description||'')+'">'+esc(e.name)+'</span><br><span style="font:9px var(--mono);color:var(--tx4)">'+esc(e.id)+'</span></td>'+
+      '<td>'+sevPill(e.status==='quarantined'?'warn':'ok',String(e.status||'?').toUpperCase())+'</td>'+
+      '<td>'+esc(e.kind||'—')+'</td>'+
+      '<td style="font-family:var(--mono);font-size:9.5px">'+files+'</td>'+
+      '<td>'+esc((e.origin&&e.origin.agent)||'—')+'</td>'+
+      '<td class="mono">'+esc(fmtSeen(e.origin&&e.origin.at))+'</td>'+
+      '<td>'+act+'</td></tr>';}).join('');
+  box.innerHTML='<table><tr><th>tool</th><th>status</th><th>kind</th><th>files</th><th>written by</th><th>at</th><th></th></tr>'+rows+'</table>'+
+    '<p class="hint" style="margin-top:8px">Promotion is a logged OPERATOR decision (who/when/note) meaning “worth a reviewed native port into tools/” — the shelf itself never runs, imports, or wires the bytes.</p>';
+}
+async function shelfPromote(id){
+  const note=prompt('Review note for the promotion log (optional — recorded with who/when):','');
+  if(note===null)return;
+  if(!confirm('Promote shelf tool '+id+'?\n\nA logged HUMAN decision: “worth a reviewed native port into tools/”. Promotion NEVER executes the shelved bytes — quarantined data stays data.'))return;
+  const r=await api('/api/toolshelf',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({action:'promote',id,note:note||undefined})});
+  if(!r||r.error){alert('Promote failed — '+((r&&r.error)||'no response from the server'));return;}
+  await loadShelf();
+}
+// attackbench (GET /api/attackbench → tools/attackbench report): the lab's honest ATT&CK
+// emulation-coverage map — mapped (code exists on disk) / planned (documented) / gap.
+// Read-only; scores are CAPABILITY, never detection — the card says so, like the engine.
+async function loadAttackbench(){const r=await api('/api/attackbench');const box=$('#attackbenchBox');if(!box)return; // post-await query — same detached-node race as loadShelf
+  if(!r||r.ok!==true){box.innerHTML='<div class="empty">attackbench unavailable — '+esc((r&&(r.error||r.reason))||'no response from the server')+'</div>';return;}
+  const c=r.coverage||{};
+  const tiles='<div class="metrics">'+tileHTML((c.mapped||0)+'/'+(c.total||0),'Mapped — code exists','live')+tileHTML(c.plannedOnly||0,'Planned — documented')+tileHTML(c.gaps||0,'Gaps — nothing emulates',c.gaps?'gov':'')+'</div>';
+  const tac=(c.byTactic||[]).map(t=>'<tr><td>'+esc(t.tactic)+'</td><td class="num">'+t.mapped+'</td><td class="num">'+t.plannedOnly+'</td><td class="num">'+(t.gaps||[]).length+'</td><td style="font-family:var(--mono);font-size:9px">'+esc((t.gaps||[]).join(', ')||'—')+'</td></tr>').join('');
+  box.innerHTML=tiles+'<table><tr><th>tactic</th><th class="num">mapped</th><th class="num">planned</th><th class="num">gaps</th><th>gap ids</th></tr>'+tac+'</table>'+
+    '<p class="hint" style="margin-top:8px">Emulation-CAPABILITY coverage of the benchmark scope (data/attackbench/), never a detection result. The catalog is the invention ledger — a genuinely new technique the agent names is verified and added by the OPERATOR, never by the agent. '+esc(r.nonClaim||'')+'</p>';
+}
+// The channel's passive fingerprint observer (GET /api/fp): the JA4H/shape ring of
+// requests that reached the governed channel. Read-only; unarmed = nothing to report.
+async function loadFp(){const r=await api('/api/fp');const box=$('#fpBox');if(!box)return;
+  if(!r||r.ok!==true){box.innerHTML='<div class="empty">'+esc((r&&r.error)||'no response from the server')+'</div>';return;}
+  const obs=r.observations||[];
+  if(!obs.length){box.innerHTML='<div class="empty">The channel is armed but no request has been fingerprinted yet.</div>';return;}
+  const rows=obs.slice(-8).reverse().map(o=>'<tr><td class="mono">'+esc(fmtSeen(o.at))+'</td><td class="mono">'+esc(o.route||'—')+'</td><td class="mono">'+esc(o.agent||o.remoteIp||'—')+'</td><td class="mono" style="font-size:9px">'+esc(o.ja4h||'—')+'</td></tr>').join('');
+  box.innerHTML='<div class="metrics">'+tileHTML(obs.length,'Observed requests')+tileHTML(r.distinctJa4h||0,'Distinct JA4H','live')+'</div>'+
+    '<table><tr><th>at</th><th>route</th><th>agent / source</th><th>JA4H</th></tr>'+rows+'</table>'+
+    '<p class="hint" style="margin-top:8px">Passive self-awareness: every request that reaches the channel is fingerprinted (JA4H + header shape) into a bounded ring — the observer never touches the response path.</p>';
+}
+// Checkpointed missions (GET /api/missions → engine/missions listMissions) — read-only
+// resume context after a restart: what was running, how far it got, what it split into.
+async function loadMissions(){const r=await api('/api/missions');const box=$('#missionsBox');if(!box)return; // post-await query — same detached-node race as loadShelf
+  if(!r||!Array.isArray(r.missions)){box.innerHTML='<div class="empty">missions unavailable — no response from the server.</div>';return;}
+  const ms=r.missions;
+  if(!ms.length){box.innerHTML='<div class="empty">No checkpointed missions yet — interactive sessions checkpoint as they run and reappear here after a restart.</div>';return;}
+  const rows=ms.map(m=>{
+    const st=String(m.status||'?'),cls=/done|complete/.test(st)?'ok':(/error|fail/.test(st)?'crit':(st==='awaiting-input'?'warn':'info'));
+    const when=String(m.updated||m.created||'').replace('T',' ').slice(0,16)||'—';
+    return '<tr><td><span class="lbl">'+esc(m.missionId)+'</span>'+(m.objective?'<br><span style="font:9px var(--mono);color:var(--tx4)">'+esc(m.objective)+'</span>':'')+'</td>'+
+      '<td>'+esc(m.engagement||'—')+'</td>'+
+      '<td>'+sevPill(cls,st.toUpperCase())+(m.error?'<br><span style="font:9px var(--mono);color:var(--red-dim)">'+esc(m.error)+'</span>':'')+'</td>'+
+      '<td class="num">'+esc(m.turns||0)+'</td><td class="num">'+esc(m.toolCalls||0)+'</td><td class="num">'+esc(m.denials||0)+'</td><td class="num">'+esc(m.splits||0)+'</td>'+
+      '<td style="font-family:var(--mono);font-size:9.5px">'+esc(m.model||'—')+'</td>'+
+      '<td class="mono">'+esc(when)+'</td></tr>';}).join('');
+  box.innerHTML='<table><tr><th>mission · objective</th><th>engagement</th><th>status</th><th class="num">turns</th><th class="num">tools</th><th class="num">denials</th><th class="num">splits</th><th>model</th><th>updated</th></tr>'+rows+'</table>'+
+    '<p class="hint" style="margin-top:8px">Checkpoint summaries only — the API never ships message or ledger bodies (server.mjs /api/missions doctrine), and this card offers no actions: it is resume context, not a control surface.</p>';
+}
+
+/* ---------- actions (wiring preserved) ---------- */
+async function startCampaign(){
+  const scope={engagement:$("#f-eng").value,signedBy:$("#f-sig").value,cidrs:$("#f-cidr").value.split(',').map(x=>x.trim()).filter(Boolean)};
+  const budget={maxSteps:Number($("#f-bud").value)||200};
+  const stealth=($("#f-stealth")&&$("#f-stealth").value)||undefined;
+  const targets=(($("#f-targets")&&$("#f-targets").value)||'').split(',').map(x=>x.trim()).filter(Boolean);
+  await api('/api/campaign',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({mode:'demo',scope,budget,stealth,targets,tooledRecon:targets.length>0})});
+  window._localMsgs=[];REPORT_HTML='';remedKey='';REMED=null;vsig={};
+  show('console');poll();}
+async function useVmTarget(){
+  const note=$('#vmNote');
+  const r=await api('/api/vm-target');
+  if(!r||!r.available){if(note)note.textContent=(r&&(r.note||r.error))||'VM-lab not available on this host.';return;}
+  const t=$('#f-targets'),c=$('#f-cidr');
+  if(t)t.value=r.targetIp;
+  if(c&&!(c.value||'').includes('192.168.50'))c.value=(c.value?c.value.replace(/\s*$/,'')+', ':'')+(r.scopeCidr||'192.168.50.0/24');
+  if(note)note.textContent='VM-lab target set: '+r.targetIp+' ('+r.targetOs+'). Scope now includes the lab /24. Boot the lab in the Enclave console (VM-lab workload), pick a live model above, then Launch.';
+}
+async function breachDemo(){
+  await api('/api/breach-demo',{method:'POST'});
+  window._localMsgs=[];REPORT_HTML='';remedKey='';REMED=null;vsig={};
+  show('console');poll();}
+async function liveBreachDemo(){
+  const j=await api('/api/campaign/live-demo',{method:'POST'});
+  if(j&&j.ok){window._localMsgs=[];REPORT_HTML='';remedKey='';REMED=null;vsig={};show('console');poll();}
+  else alert('Live AI breach not ready — '+((j&&j.reason)||'unknown')+'. See the readiness line on Settings.');}
+function backendLabel(r){if(!r)return 'no backend';const k=r.backendKind,m=r.model||'—';
+  if(k==='claude-cli')return 'Claude CLI · '+m;
+  if(k==='kimi')return 'Kimi · '+m;
+  if(k==='none'||!r.backend)return 'no backend';
+  return (r.backendSource||'backend')+' · '+m;}
+function updateBackendChip(r){const chip=$('#backendChip');if(!chip)return;const v=chip.querySelector('.v');if(!v)return;
+  const live=!!(r&&(r.backendKind==='claude-cli'||r.backendKind==='kimi'||r.backend));
+  const dot=live?(r.ready?'ok':'warn'):'off';
+  v.innerHTML='<span class="bkdot '+dot+'"></span><b>'+esc(backendLabel(r))+'</b>';}
+async function loadLiveReadiness(){const r=await api('/api/live/readiness');updateBackendChip(r);
+  const el=$('#liveReady');if(!el)return;if(!r){el.textContent='';return;}
+  const ok=(b)=>b?'<span class="ck-ok">\u2713</span>':'<span class="ck-no">\u2717</span>';
+  const notes=(Array.isArray(r.notes)&&r.notes.length)?' — '+esc(r.notes.join(' · ')):(r.container?'':' (agent network tools need the container tier; native recon still runs)');
+  el.innerHTML='<b>Live-run readiness:</b> backend '+ok(r.backend)+' ('+esc(backendLabel(r))+') · hook '+ok(r.hook)+' · signed session '+ok(r.session)+' · container '+ok(r.container)+' — '+(r.ready?'<b>ready</b>':'<b>not ready</b>')+notes;}
+
+/* ---------- natural-language surface query (GET /api/query?q=) ---------- */
+async function runQuery(){
+  const inp=$('#q-input');if(!inp)return;const q=inp.value.trim();const box=$('#q-result');if(!box)return;
+  if(!q){box.innerHTML='<div class="empty">Type a question about the attack surface.</div>';return;}
+  if(!STATE||!STATE.surface||!(STATE.surface.nodes&&STATE.surface.nodes.length)){box.innerHTML='<div class="empty">No campaign yet — start one in Settings to map the surface.</div>';return;}
+  box.innerHTML='<div class="empty">Searching…</div>';
+  const r=await api('/api/query?q='+encodeURIComponent(q));
+  if(!r){box.innerHTML='<div class="empty">Query unavailable.</div>';return;}
+  const matched=Array.isArray(r.matched)?r.matched:[];
+  const count=(r.count!=null)?r.count:matched.length;
+  let h='';
+  if(r.interpretation)h+='<div class="qinterp"><span class="qi-k">Interpretation</span><span class="qi-v">'+esc(r.interpretation)+'</span></div>';
+  h+='<div class="qcount">'+esc(count)+' match'+(Number(count)===1?'':'es')+'</div>';
+  if(!matched.length){h+='<div class="empty">No nodes matched that query.</div>';}
+  else{h+='<div class="qlist">'+matched.map(m=>{
+    const sev=m.sev?'<span class="sev '+esc(m.sev)+'">'+esc(String(m.sev).toUpperCase())+'</span>':'';
+    const meta=[m.type,(m.port?'port '+m.port:''),(m.confidence?String(m.confidence).toUpperCase():''),m.ref].filter(Boolean).join(' · ');
+    return '<div class="qrow"><div class="qr-top">'+sev+'<span class="qr-lbl">'+esc(m.label||m.id||'—')+'</span></div>'+(meta?'<div class="qr-meta">'+esc(meta)+'</div>':'')+'</div>';
+  }).join('')+'</div>';}
+  box.innerHTML=h;
+}
+
+/* ---------- operator identity (from the Enclave console handoff) ---------- */
+let IDENTITY=null;
+function idLabel(id){if(!id||!id.bound)return 'standalone';const L=id.clearance==null?'':' · L'+id.clearance;return id.principal+(id.role?' · '+id.role:'')+L+(id.verified?'':' · UNVERIFIED');}
+function applyIdentity(){const el=$('#opV');if(el)el.innerHTML='<b>'+esc(idLabel(IDENTITY))+'</b>';
+  if(IDENTITY&&IDENTITY.bound){const eng=$('#f-eng'),sig=$('#f-sig'),cidr=$('#f-cidr');
+    if(eng&&!eng.value)eng.value=IDENTITY.workspace||'';
+    if(sig&&!sig.value)sig.value=IDENTITY.principal+(IDENTITY.role?' · '+IDENTITY.role:'')+(IDENTITY.clearance!=null?' · L'+IDENTITY.clearance:'');
+    if(cidr&&!cidr.value)cidr.value=(IDENTITY.scope||[]).join(', ');}}
+async function loadIdentity(){const j=await api('/api/identity');if(j&&j.identity){IDENTITY=j.identity;applyIdentity();}}
+async function approve(phase,deny){await api('/api/approve',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({phase,deny})});poll();}
+async function cleanup(i){await api('/api/opsec/cleanup',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({index:i})});vsig.opsec=null;poll();}
+async function validateFinding(i){const r=await api('/api/validate',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({index:i})});if(r&&!r.ok)window._valMsg=r.error||'validation failed';vsig.findings=null;poll();}
+window._localMsgs=[];
+async function sendMsg(){const inp=$("#msg");const t=inp.value.trim();if(!t)return;window._localMsgs.push({text:t});inp.value='';renderThread();
+  await api('/api/message',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({text:t})});}
+function recall(){if(confirm('RECALL — signal the agent to stand down? (In live mode this kills the session to glove; the Enclave enforces it.)'))
+  api('/api/message',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({text:'RECALL — stand down immediately.'})});}
+
+/* ---------- live wiring: poll /api/state + subscribe /api/events (SSE) ---------- */
+async function poll(){const s=await api('/api/state');CONN=!!s;if(s){STATE=s;}render();}
+(async()=>{const p=await api('/api/phases');if(p&&p.phases&&p.phases.length){phaseDefs=p.phases;vsig={};if(STATE)render();}})();
+(async()=>{const r=await api('/api/settings');const v=r&&r.current&&r.current.values&&r.current.values['agent.maxTurns'];if(Number.isFinite(v)&&v>0)MAXTURNS=v;})();
+// SSE events nudge an IMMEDIATE poll, throttled to at most one forced fetch per 500ms, so
+// a live campaign's event burst refreshes the console fast without storming /api/state.
+// The 1.5s interval below stays the baseline poller regardless of SSE traffic.
+let _lastSsePoll=0;
+try{const ev=new EventSource('/api/events');ev.onmessage=()=>{const t=Date.now();if(t-_lastSsePoll>=500){_lastSsePoll=t;poll();}};}catch(e){}
+setInterval(()=>poll(),1500);
+GC.onShow();
+loadIdentity();
+loadLiveReadiness();
+setInterval(loadLiveReadiness,15000);
+poll();
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+  "id": "wordfence-madara",
+  "handle": "wordfence-madara",
+  "name": "Wordfence BBP — Madara theme/madara-core",
+  "platform": "generic",
+  "url": "https://www.wordfence.com/threat-intel/bug-bounty-program/",
+  "engagement": "wordfence-madara",
+  "intakePath": ".tmp/wordfence-madara-scope.json",
+  "signedScopePath": null,
+  "scopeVerification": null,
+  "automation": {
+    "policy": "human-cadence",
+    "basis": "operator-override",
+    "evidence": "operator set --automation human-cadence (policy text said: prohibited, default-silent)"
+  },
+  "state": "queued",
+  "createdAt": "2026-08-25T13:42:03.678Z",
+  "updatedAt": "2026-08-25T18:49:31.359Z",
+  "history": [
+    {
+      "at": "2026-08-25T13:42:03.679Z",
+      "from": null,
+      "to": "imported",
+      "note": "intake record .tmp/wordfence-madara-scope.json"
+    },
+    {
+      "at": "2026-08-25T18:49:31.242Z",
+      "from": "imported",
+      "to": "reported",
+      "note": "manual source-review report recorded: .tmp/wordfence-madara-option-overwrite-submission.md"
+    },
+    {
+      "at": "2026-08-25T18:49:31.360Z",
+      "from": "reported",
+      "to": "queued",
+      "note": "queued for the operator send click"
+    }
+  ],
+  "hunt": null,
+  "triage": null,
+  "reports": [
+    {
+      "path": ".tmp/wordfence-madara-option-overwrite-submission.md",
+      "finding": {
+        "label": "madara-core unauthenticated arbitrary option overwrite (2 sinks)"
+      },
+      "redactions": [],
+      "readiness": {
+        "manual": true,
+        "note": "source-review finding recorded by the operator — hunt-lane validator gate not applicable; the evidence standard is the code-cited PoC doc on disk"
+      }
+    }
+  ],
+  "queue": {
+    "at": "2026-08-25T18:49:31.360Z",
+    "items": [
+      {
+        "report": ".tmp/wordfence-madara-option-overwrite-submission.md",
+        "finding": {
+          "label": "madara-core unauthenticated arbitrary option overwrite (2 sinks)"
+        },
+        "checklist": [
+          "Read wordfence-madara-option-overwrite-submission.md end-to-end — the honesty footer lists every unverified gap; resolve or consciously accept each",
+          "Confirm the submission-readiness line reads READY (validator-gate validated and fresh)",
+          "Confirm the scope attestation matches the signed scope on record (null)",
+          "Log in to the program and submit the report BY HAND — VARVEL never submits: no network submission code path exists in this pipeline, by design",
+          "Record the platform's act: bountyline mark wordfence-madara submitted|duplicate|informative|resolved|paid"
+        ]
+      }
+    ]
+  },
+  "rounds": []
+}

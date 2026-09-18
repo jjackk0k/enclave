@@ -1,0 +1,89 @@
+{
+ "at": "2026-09-12T04:26:34.795Z",
+ "opportunity": "remitly",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "remitly.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "FunctionGeneratedResponse from cloudfront",
+    "via": "1.1 b2681b26dfe5ff6abd1161024abe3ee0.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "blog.remitly.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx",
+    "x-cache": "MISS, MISS",
+    "via": "1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=300"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.remitly.androidapp",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.remitly.androidapp:443 refused: host unreachable"
+  },
+  {
+   "host": "api.remitly.io",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "istio-envoy",
+    "x-cache": "Error from cloudfront",
+    "via": "1.1 e7ce508ea436f9dfba9e3864b3102646.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cards.remitly.io",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "istio-envoy",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

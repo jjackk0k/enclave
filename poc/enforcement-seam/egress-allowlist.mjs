@@ -36,7 +36,18 @@ export const WEBRESEARCH_ALLOW = [
 export function extractHost(s) {
   const m = /https?:\/\/([^\/\s"'`)]+)/i.exec(String(s || ''));
   if (!m) return null;
-  return m[1].replace(/^[^@]*@/, '').replace(/:\d+$/, '').toLowerCase(); // strip userinfo + port
+  // strip userinfo, then a port even when trailing shell debris hugs it (":8973$p"),
+  // so downstream scope/allowlist checks never see parser garbage
+  const h = m[1].replace(/^[^@]*@/, '');
+  // bracketed v6 ('[fd00::1]:8080'): the address is between the brackets — the
+  // naive port-strip below would eat the final hextet ('[::1]' -> '[::]')
+  if (h.startsWith('[')) {
+    const e = h.indexOf(']');
+    return (e >= 0 ? h.slice(1, e) : h.slice(1)).toLowerCase();
+  }
+  return h.replace(/:\d+(?=$|[^0-9:])/, '').toLowerCase().replace(/[^a-z0-9._-].*$/, '');
+  // ^ and cut trailing shell debris the port-strip can't see ('$p', '`x`', ';…'):
+  // downstream scope/allowlist checks must never classify parser garbage
 }
 
 export function hostAllowed(host) {

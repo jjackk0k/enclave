@@ -1,0 +1,154 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "semrush",
+      "name": "Semrush",
+      "offersBounties": true,
+      "assets": [
+        "*.berush.com",
+        "*.myinsights.io",
+        "*.prowly.com",
+        "*.scatec.io",
+        "*.sellzone.com",
+        "*.semrush.com",
+        "*.semrush.net",
+        "*.seoab.io",
+        "*.seoquake.com",
+        "Leaked/Сompromised Employee accounts",
+        "Other Semrush Related Asset",
+        "investors.semrush.com",
+        "workflows.semrush.com"
+      ],
+      "exclusions": [
+        "advocates.semrush.com",
+        "email.semrush.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\semrush-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "semrush",
+  "name": "Semrush",
+  "url": "https://hackerone.com/semrush",
+  "policy": "#Program Policy\nPlay by the rules. This includes following this policy (\"Policy\"), HackerOne’s [Disclosure Guidelines](https://hackerone.com/guidelines) and any other relevant agreements.\n\nTest only with your own account(s) when investigating bugs, and do not interact with other accounts without the consent of their owners. \n\nProvide us a reasonable amount of time to resolve the issue. We usually set the following terms for fixes: Low impact - 3 months, Medium impact - 1 month, High/Critical impact - up to 2 weeks for a fully functional fix. However, sometimes it could take more time. Please be patient, you will receive updates when, and if, there will be anything to share. \n\nYou have to avoid privacy violations, destruction of data, and interruption or degradation of our service.\nWe only accept the latest version of browsers for Google Chrome, Mozilla Firefox, Opera, Safari, and Edge.\n\nWhile researching, we'd like to ask you to refrain from:\n+ Denial of service.\n+ Spamming.\n+ Social engineering (including phishing) of Semrush staff or contractors.\n+ Any physical attempts against Semrush property or data centers.\n\nWe do not accept the following types of bugs:\n+ CSRF without clear impact.\n+ Any issues related to software not under Semrush’s control.\n+ Spam or Social Engineering techniques, including SPF/DMARC/DKIM issues.\n+ SSL/TLS best practices that do not contain a fully functional proof of concept.\n+ Broken links. Except links to social accounts of Semrush employees - ineligible for bounty\n+ Bugs that do not represent any security risk - these should be reported to mail@semrush.com.\n\nThe following bugs are unlikely to be eligible for a bounty:\n+ Missing DNSSEC settings.\n+ Attacks requiring physical access to a user's device.\n+ Issues without clearly identified security impact, such as clickjacking on a static website, missing security headers, HTTP methods, cookie flags, or descriptive error messages.\n+ Brute Force attacks.\n+ Issues related to Password Policy - strength, length, lockouts.\n+ Reports relating to the execution of CSV content by a third-party client application due to special treatment of certain characters in the exported CSV. Reflected file download attacks (RFD).\n+ Tab nabbing and window.opener-related issues\n+ Vulnerabilities affecting users of outdated browsers, plugins, or platforms.\n+ Vulnerabilities that allow for the injection of arbitrary text without allowing for hyperlinks, HTML, or JavaScript code to be injected.\n+ Vulnerabilities that require the user/victim to perform extremely unlikely actions (i.e. Self-XSS).\nIDN homograph attacks.\n+ Semrush user’s API-keys and credentials found on any third party services.\n+ Issues found in third party software used by Semrush with the exception of misconfigured 3rd party services. \n+ Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis\n+ Public Zero-day vulnerabilities that have been publicly disclosed for less than 72 hours\n\n#@wearehackerone.com email and custom header\nWhenever possible, please use your [@wearehackerone.com](https://docs.hackerone.com/hackers/hacker-email-alias.html) account (this may stop our fraud team from blocking your account and our Security team may set a bonus for a valid and detailed report), and set a header with your HackerOne username in your requests: ==X-hackerone: <h1 username>==.\nYou can do that with [Burp addon](https://portswigger.net/bappstore/807907f5380c4cb38748ef4fc1d8cdbc) or through Match and Replace option:\n1. Go to Proxy -> Options -> Match and Replace -> Add\n2. Change Type to Request Header\n3. As the default text says in Match 'leave blank to add a new header'\n4. Put the new header in Replace\n\n#Legal Terms and Safe Harbor\nIn connection with your participation in this program, you agree to comply with [Semrush’s Terms of Service](https://www.semrush.com/company/legal/terms-of-service/) (\"Terms\") and [Semrush’s Privacy Policy](https://www.semrush.com/company/legal/privacy-policy/).\n\nSemrush employees and contractors are not eligible to receive bounties or rewards of any kind.\n\nWhen conducting vulnerability research according to this Policy, we consider this research conducted under this Policy to be:\n+ Authorized by Semrush and authorized in view of any applicable anti-hacking laws;\n+ Authorized in view of relevant anti-circumvention laws; and\n+ Lawful, helpful to the overall security of the Internet, and conducted in good faith.\n\nWithin the framework of the program described in this Policy, we will take reasonable steps not to initiate a lawsuit or law enforcement investigation against a researcher in response to reporting a vulnerability provided that the researcher fully complies with this Policy, HackerOne’s [Disclosure Guidelines](https://hackerone.com/guidelines) and with all applicable laws and regulations. \n\nYou are responsible for any tax implications depending on your country of residency and citizenship. There may be additional restrictions on your ability to enter depending upon your local law. This is not a competition, but rather an experimental and discretionary reward program. You should understand that we can cancel the program at any time and the decision as to whether or not to pay a reward has to be entirely at our discretion. Your testing must not violate any law, or disrupt or compromise any data that is not your own.\n\nIf at any time you have concerns or are uncertain whether your security research is consistent with this Policy, please submit a report through one of our Official Channels (HackerOne or via security@semrush.com) before going any further.\n\n#Rewards\nWhen duplicates occur, we award the first report that we can completely reproduce.\n\nWe allow our hackers to split the bounty.\n\nMultiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n\nWe award bounties at the time of validation and will keep you posted as we work to resolve them. Although sometimes it can take more time to investigate the vulnerability severity and the bounty may be paid later.\n\nWe will reward reports according to the severity of their impact (calculated with CVSS v3.0 Calculator) on a case-by-case basis as determined by our security team. We may pay more for unique, hard-to-find bugs, or for high-quality reports; we may also pay less for bugs with complex prerequisites that lower the risk of exploitation. \n\n#Disclosure Policy\nVulnerabilities must be disclosed only according to HackerOne’s Disclosure Guidelines. \nRequests for vulnerability disclosure must be submitted via the HackerOne report interface. We will discuss internally if we need to make a limited disclosure. Usually, we make a full disclosure, after redacting sensitive information, therefore if you need to make a limited disclosure for some reasons please drop us a line. \n\n#Report\n\"Scanner output\" or scanner-generated reports will not be accepted. Please follow the report template that we provided to minimize the response time and increase your chance to get a worthy reward.\nIf you are going to submit a subdomain takeover report: to make sure that you have a full domain takeover (as h1 recommends) we have to get a screenshot with our domain (for ex. *.semrush.com) and custom HTTP content (for example h1 username) to be sure it's possible.\n\n#Promo-code\nSince a large part of our product is paid, we give researchers who proved themselves a promo-code for a paid Semrush functionality. If you want to dive deeper into testing our product, write to us in an existing valid report and we will give you a promo-code. To decide whether to issue it or not we will look at the quality of reports you previously sent us. The promo code can not be issued more than once every three months. The final decision on issuing a promo-code rests with the Semrush security team.\n\n#WAF and reactive protection\nYour requests can be blocked by the WAF solution we use. So if you get error 445, but you feel that you have found a vulnerability and you have serious reasons to believe that the vulnerability really exists - you can write to us about it on the report, we will investigate your case and maybe temporarily add your IP to the white list.\n\nWe believe monitoring and protecting processes must not be impacted by bug bounty. Automated security scans and tests may trigger our security systems and result in reactive measures being enforced, e.g. account or IP may be blocked. \n\n#API/API key related bugs\nWhen you test requests to API or with API key - be careful - to test auth issues change API key, not cookies. \n\nPlease note that API key’s security and confidentiality are the user's responsibility as stated in our Terms. \n\n#Leaked/compromised Employee accounts (Main Scope)\nIf you discover credentials associated with our employee or service accounts that appear to be compromised, please notify us immediately.\n\nReports will be considered if they meet the following criteria:\n- Account Validity: The account must belong to a current and active employee of our company.\n- Non-Duplication: The report must involve a unique incident that has not been previously submitted.\n- Severity Assessment: Accepted reports will typically be classified with a **Low** to **Medium** severity level, based on factors such as account configuration, data accessibility, and the relevant environment.\n\nTo assist in our investigation, please provide as much information as possible about the compromised credentials, such as the date of compromise, associated hostname, and any relevant identifiers.\nIf you encounter credentials but are unsure about the severity level or account type, please report the details for our evaluation.\n\nPlease be aware of the following restrictions:\n- Customer Accounts: Investigating or targeting customer accounts is strictly prohibited.\n- Targeting employees: Any kind of direct or indirect communication with our employees is not allowed, in line with the [Platform Code Of Conduct](https://www.hackerone.com/policies/code-of-conduct). \n\n#Other Semrush Related Asset (Second Scope)\nPlease use this Asset tag for any **High** and **Critical ** report that does not relate directly to another Semrush asset listed in scope, and is also NOT listed under the \"Out of Scope\" section.\nPlease note, that Semrush will only accept and review valid high and critical severity reports within that specific scope.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.semrush.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "advocates.semrush.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "email.semrush.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.berush.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Registration is stopped at the moment. ",
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.semrush.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.seoquake.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.seoab.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "*.scatec.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "workflows.semrush.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "investors.semrush.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.sellzone.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.prowly.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.myinsights.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "high"
+    },
+    {
+      "asset_identifier": "Other Semrush Related Asset",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please use this Asset tag for any High and Critical report that does not relate directly to another Semrush asset listed in scope, and is also NOT listed under the \"Out of Scope\" section.\nPlease note, that Semrush will only accept and review valid high and critical severity reports.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Leaked/Сompromised Employee accounts",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please review the program policy on this scope before submitting your report. ",
+      "max_severity": "medium"
+    }
+  ]
+}

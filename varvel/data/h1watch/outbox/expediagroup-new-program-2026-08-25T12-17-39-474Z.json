@@ -1,0 +1,233 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "expediagroup",
+      "name": "Expedia Group VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.abritel.fr",
+        "*.bookabach.co.nz",
+        "*.carrentals.com",
+        "*.cheaptickets.com",
+        "*.cruiseshipcenters.com",
+        "*.ebookers.com",
+        "*.expedia.com",
+        "*.expediagroup.com",
+        "*.expediapartnercentral.com",
+        "*.fewo-direkt.de",
+        "*.flights.com",
+        "*.homeaway.com",
+        "*.hotels.com",
+        "*.hotwire.com",
+        "*.hotwirepartnercentral.com",
+        "*.lastminute.com.au",
+        "*.orbitz.com",
+        "*.stayz.com.au",
+        "*.travelocity.com",
+        "*.vrbo.com",
+        "*.wotif.com",
+        "Other Expedia-owned Asset "
+      ],
+      "exclusions": [
+        "*.egadvertising.com",
+        "*.hoteis.com",
+        "*.hoteles.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\expediagroup-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "expediagroup",
+  "name": "Expedia Group VDP",
+  "url": "https://hackerone.com/expediagroup",
+  "policy": "==Please note this is a vulnerability disclosure program and does **not** award bounty.==\r\n\r\n# Vulnerability Disclosure Guidelines\r\nExpedia Group recognizes the important role that security researchers play in helping to keep Expedia Group and our customers secure. By submitting a vulnerability to us either directly or indirectly you acknowledge that you have read and agree to abide by these guidelines. \r\n\r\nIf you believe you’ve discovered a security bug or vulnerability, please report it to us as soon as possible.\r\n\r\nWe thank you in advance for your contributions to our vulnerability disclosure program and look forward to working with you!  \r\n\r\nExpedia Group’s global Security team manages the receipt and internal coordination of security vulnerabilities related to Expedia properties. We aim to keep all involved parties, both internal and external, informed of our progress on validating and remediating reported vulnerabilities.  \r\n\r\n**Assets in scope for our vulnerability disclosure program include web and Mobile applications for:** \r\n*.expedia.com, *.hotwire.com, *.orbitz.com, *.hotels.com, *.homeaway.com, *.cheaptickets.com, *.travelocity.com, *.wotif.com, *.cruiseshipcenters.com, *.lastminute.com.au, *.carrentals.com, *.expediapartnercentral.com\r\n\r\n**Please note *.lastminute.com is NOT owned by Expedia Group and is out of scope.**\r\n\r\n| Mobile Asset        | iOS           | Android  |  Windows  |\r\n| ------------- |:-------------:| -----:|-----:|\r\n| ExpediaPartnerCentral | [iOS ](https://itunes.apple.com/app/expedia-partnercentral-hotel/id987675995?mt=8utm_source=Homepage&utm_category=Apple.App.Store&utm_action=User.Click&utm_event=Go.To.Apple)  | [Android](https://play.google.com/store/apps/details?id=com.expediapartnercentral&utm_source=Homepage&utm_category=Google.App.Store&utm_action=User.Click&utm_event=Go.To.Google)|    | \r\n| Carrentals | [iOS ](https://itunes.apple.com/us/app/carrentals-carrentals-com/id506426310?mt=8)   |  [Android](https://play.google.com/store/apps/details?id=com.carrentals&hl=en)|    | \r\n\r\n# Testing\r\nIf registering for accounts on Expedia assets, please use your @wearehackerone.com email alias. \r\n\r\nIf you use automated scanners, please set a header with your HackerOne username in your scanner requests to help us distinguish researcher traffic from malicious activity. (For example: X-hackerone: your_username)\r\n\r\n# Response Targets\r\nExpedia Group will make a best effort to meet the following response targets for hackers participating in our program:\r\n\r\n* Time to first response (from report submit) - 2 business days\r\n* Time to triage (from report submit) - 2 business days\r\n* Time to resolution - varies by severity, 2 to 120+ days \r\n\r\n# Disclosure Policy\r\n- Do not disclose your reported findings to others until we’ve had an opportunity to respond and address them. By keeping your reports private until we resolve them, you’re helping keep Expedia Group secure for our entire community. \r\n- Disclosure requests must be coordinated with and approved by Expedia Group.\r\n- To the extent that you disclose information about a vulnerability that has been fixed, you will remove all identifying information and not use Expedia Group’s name or trademarks or logos in your disclosure, or represent that any work provided by you was approved or endorsed by Expedia Group.\r\n- To the extent that you have discovered an otherwise unreported vulnerability within an Open Source module or component in use on an Expedia Group site, you may disclose in accordance with [HackerOne’s Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines), as long as you remove all references to Expedia Group.\r\n- Please reach out to us at respdisc@expedia.com *before* engaging in conduct that is not addressed by this program policy. \r\n\r\n\r\n# Program Rules\r\nThese Vulnerability Disclosure Guidelines are limited to security vulnerabilities in Expedia Group-owned assets \r\n* Please provide detailed reports with reproducible steps.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own. \r\n* Please combine reports if the same or similar root cause affects multiple endpoints, subdomains or assets. \r\n* Many of our sites share a common platform. Because of this, a vulnerability reported on one domain may exist on another domain if the sites are in the same platform. For example, an issue reported for expedia.com may also be present in the exact same way on expedia.co.in and the issue can be resolved on both sites with the same fix. We ask that you take the time to replicate the issue in other sites, and if replicating, please include all occurrences in one report instead of submitting them as multiple reports. We treat the issue as a single vulnerability and will close out others as duplicates. \r\n\r\n\r\n#Out of scope vulnerabilities\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n \r\n* Clickjacking on pages with no sensitive actions.\r\n* Unauthenticated/logout/login CSRF.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Physical or social engineering attempts (this includes phishing attacks against EG  employees).\r\n* Disclosure of known public files or directories.\r\n* Use of outdated software / library versions.\r\n* Reports from automated tools or scans.\r\n* Mail configuration issues including SPF, DKIM, DMARC settings.\r\n\r\n\r\n# Safe Harbor\r\nIf your activities are conducted in a manner consistent with these guidelines and legal action is initiated by a third party against you in connection with such activities, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep Expedia Group and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.expedia.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hotwire.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.orbitz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hotels.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.homeaway.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cheaptickets.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.travelocity.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.wotif.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.cruiseshipcenters.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lastminute.com.au",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Please note **.lastminute.com* is a different property and is  __NOT__ owned by Expedia Group. As such, submissions on **.lastminute.com* are out of scope. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.carrentals.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.expediapartnercentral.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other Expedia-owned Asset ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Please report any security issues on Expedia-owned assets (i.e. leaked GitHub tokens, AWS secret keys, Expedia PII or other subdomains not listed in the policy) ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.abritel.fr",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bookabach.co.nz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.fewo-direkt.de",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.stayz.com.au",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.expediagroup.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.egadvertising.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.flights.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hoteles.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hoteis.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.vrbo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.hotwirepartnercentral.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ebookers.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

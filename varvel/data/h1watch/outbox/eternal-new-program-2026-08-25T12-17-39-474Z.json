@@ -1,0 +1,236 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "eternal",
+      "name": "Eternal",
+      "offersBounties": true,
+      "assets": [
+        "*.hyperpure.com",
+        "*.runnr.in",
+        "*.zdev.net",
+        "*.zomans.com",
+        "*.zomato.com",
+        "434613896",
+        "All Assets (other than Blinkit)",
+        "Scope Questions: Items not explicitly listed here",
+        "com.application.zomato",
+        "com.application.zomatomerchant",
+        "http://*.grofer.io",
+        "http://*.grofers.com",
+        "winecellar.zomato.com"
+      ],
+      "exclusions": [
+        "blog.zomato.com",
+        "business-blog.zomato.com",
+        "com.application.zomato.ordering",
+        "community.zomato.com",
+        "dev.hyperpure.com",
+        "devapi.hyperpure.com",
+        "devpod.hyperpure.com",
+        "http://*.blinkit.support",
+        "send.zomato.com",
+        "staging*.runnr.in",
+        "success.zomato.com",
+        "www.zomatobook.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\eternal-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "eternal",
+  "name": "Eternal",
+  "url": "https://hackerone.com/eternal",
+  "policy": "We take security seriously at Eternal and are committed to protecting our community. If you are a security researcher or expert and believe you've identified a security-related issue with any of Eternal’s key verticals - Zomato, Blinkit, Hyperpure, or District websites or apps, we encourage you to report it to us responsibly.\n\nOur team is committed to addressing all security reports in a timely and responsible manner. We kindly ask the security community to give us the opportunity to investigate and resolve any issues before making them public. Please include a detailed description of the issue and the steps to reproduce it in your submission.\nWe appreciate the efforts of the security community in helping us safeguard our users’ data and privacy.\n\n\n\n# Disclosure Policy\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n# Test Plan\nPlease include a header `X-Hackerone: <h1_username>` when you test so we can identify your requests easily.\n\n# Scope\nThe scope of issues is limited to technical vulnerabilities in the Eternal website or mobile apps. Please do not attempt to compromise the safety or privacy of our users (so please use test accounts), or the availability of Eternal through DoS attacks or spam. We also request you not to use vulnerability testing tools that generate a significant volume of traffic.\n\nCertain vulnerabilities with a working proof of concept on some of our Android mobile app(s) may qualify for an additional bounty through the [Google Play Security Rewards Program] (https://hackerone.com/googleplay). To see which apps and vulnerabilities may qualify for a bounty, please refer to the [Google Play Security Rewards Program’s Scope and Vulnerability Criteria] (https://hackerone.com/googleplay).\n\n# Rewards\nWe will reward reports according to the severity of their impact on a case-by-case basis as determined by our security team. We may pay more for unique, hard-to-find bugs; we may also pay less for bugs with complex prerequisites that lower the risk of exploitation. \n\nBelow, you can find examples of vulnerabilities and their impacts grouped by our severity ranking. This is not an exhaustive list and it is designed to give you insight on how we rate vulnerabilities. \n\n# Critical \n* Remote Code Execution (RCE) - able to execute arbitrary commands on a remote device\n* SQL Injection - able to read Personally Identifiable Information (PII) or other sensitive data / full read/write access to a database\n* Server-Side Request Forgery (SSRF) - able to pivot to internal application and/or access credentials (not blind)\n* Information Disclosure - mass PII leaks including data such as names, emails, phone numbers and addresses (Combined) \n\n# High \n* Stored Cross-Site Scripting (XSS) - stored XSS with access to non HttpOnly cookies\n* Information Disclosure - leaked credentials\n* Subdomain Takeover - If a proper PoC is provided that can demonstrate an attacker geting access to confidential user data and able to perform unauthorized operations without leveraging phishing attack vectors.\n* Cross-Site Request Forgery (CSRF) - leading to account takeover\n* Account Takeover (ATO) - with no or minimal user interaction\n* Insecure Direct Object Reference (IDOR) - read or write access to sensitive data or important fields that you do not have permission to\n* SQL Injection - able to perform queries with a limited access user\n\n# Medium \n* CSRF - able to modify important information (authenticated) \n* ATO - required user interaction\n* IDOR - write access to modify objects that you do not have permission to\n* XSS - reflected/DOM XSS with access to cookies\n\n# Low \n* Directory listings \n* XSS - Without access to cookies/Auth Data\n* XSS - POST based XSS (with CSRF bypass)\n* Lack of HTTPS on dynamic pages (judged on a case-by-case basis)\n* Server information page (no credentials)\n* Subdomain Takeover - on an unused subdomain\n\n# Eligibility and Responsible Disclosure\nTo promote the discovery and reporting of vulnerabilities and increase user safety, we ask that you:\n* Give us a reasonable time to respond to the issue before making any information about it public.\n* Not access or modify data without the explicit permission of the owner.\n* Act in good faith not to degrade the performance of our services (including denial of service).\n \nWe only reward the first reporter of a vulnerability. Public disclosure of the vulnerability prior to resolution will result in disqualification from the program. You must report a qualifying vulnerability through the HackerOne reporting tool to be eligible for a monetary reward.\n\n# Non-qualifying vulnerabilities / Known Issues\n\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) the security impact of the bug. The following issues are considered out of scope:\n \n##Informative Bugs\n* Broken Link Hijacking issues are categorized as low severity and are not eligible for rewards.\n* Credential leakage reports are considered informational if two-factor authentication (2FA) is in place\n* SSL Pinning/Root Detection Bypass\n* Security issues related to Zomato Legends are considered informational and are not eligible for rewards, regardless of whether the issue is resolved by the team\n\n------- \n&nbsp;\n\n##Policy for Leaked Credentials\n\n* We offer $50-$150 (depending on the asset tier) per report. Multiple credentials for the same user, or multiple employee accounts exposed in the same source, are treated as one finding. Reports involving administrative accounts or access to sensitive systems - such as production environments or large volumes of personal information - may qualify for higher rewards based on impact.\n* Only the first valid, non-duplicate report for a given leak is eligible for a reward. If the same credentials appear across multiple sources, they will still be counted as a single finding.\nEach application and source is evaluated independently.\n* Submissions must include proof of validity, leak origin, and confirmation that credentials were not misused.\n* Researchers should submit the leaked credentials to the program and should NOT test their validity beyond authenticating and then immediately deauthenticating - without exercising any functionality.\n* Such reports will be evaluated on a case-by-case basis to determine an appropriate reward amount.\n* Employee personal accounts, customer accounts, and merchant accounts are not in scope.\n\n\n--------- \n&nbsp;\n\n## Data Protection Program \n\nAs data protection and trust becomes critical, we are introducing a new area of research for our bug bounty program. \nWe aim to strengthen the overall ecosystem of business that is touched by Eternal. \n\nThis program is complementary to our existing bug bounty program in that it *\"follows the data\"* even if the root cause isn't a security flaw in Eternal’s code or Infrastructure. \"External agents can accidentally compromise or leak Eternal’s data, even when no security vulnerabilities exist. This program is intended to protect against that abuse.\"\nThis program is focused on passive monitoring and recon of our data and doesn’t permit/allow for active hunting or testing.\n\nThough we cannot guarantee legal protection from third parties. We strongly recommend \nresearchers understand the legal risks in their jurisdiction.\n\n    ### What is allowed (Data Protection Program):\n Observing publicly accessible data exposure (e.g., unsecured S3 buckets, public APIs returning customer data)\n Monitoring websites/apps for exposed information\n Using publicly leaked credentials to verify access to Eternal data\n Accessing external  systems using credentials found through passive reconnaissance (e.g., exposed in GitHub, paste sites,   breach compilations)\n Documenting the extent of data accessible through compromised credentials\n Scanning for exposed configuration files, API keys, or access tokens\n\n  ### What is not allowed (Data Protection Program):\n\n Active hunting or testing on any of our partners without their prior approval is NOT allowed. Apart from this, all the program  conditions and policies still apply, when in doubt you can raise a scope request or email us at bugbounty@eternal.com for  clarifications.\n\n\n* Active exploitation or vulnerability testing on external systems\n* Brute forcing, credential stuffing, or password spraying attacks\n* Creating test accounts or transactions to probe external systems\n* Social engineering.\n* Lateral movement within any external systems beyond verifying Eternal data access\n* Modifying, deleting, or exfiltrating large volumes of data\n* Any actions beyond read-only verification of Eternal data exposure\n\n\n ### Credential Usage Guidelines (Data Protection Program):\n\n * When Using Found Credentials:\n * Only access systems to verify Eternal data exposure\n * Limit access to the minimum necessary to document the issue\n * Do not access, modify, or delete data belonging to other customers\n * Do not perform actions that could alert or trigger the security systems\n * Document your access but do not download bulk data\n * Report immediately after verification\n * Do not share credentials with others\n\n While we permit credential-based access verification under this program, \n researchers should be aware that:\n -  External agents may pursue legal action independently\n - Laws vary by jurisdiction regarding unauthorized access\n - We will advocate on your behalf but cannot guarantee legal immunity\n - Document your methodology carefully to demonstrate good faith\n - Consider consulting legal counsel before accessing systems with found credentials\n\n\n ### Bounty structure (Data Protection Program):\n\n As this is a pilot program, rewards currently range from $100 to $500 USD, depending on the severity and impact of the  reported exposure.\n\n We determine reward amounts based on a variety of factors, including:\n\n * Sensitivity of exposed data (payment info, PII, credentials)\n * Volume of customer records affected\n * Ease of discovery and access\n * Duration of exposure\n * Impact on privacy\n * Quality and completeness of your report\n\n The amount of any reward is entirely up to our discretion. We will review and potentially increase reward amounts based on the program's success and community response during the pilot phase. \n\n----------- \n\n&nbsp;\n\n\n## Not Applicable  & Out of Scope Bugs\n\n* Issues related to Way Back Machine/Web Archive (e.g., leaked invoices or contract documents) will be marked as Not Applicable or (Spam - if reported repeatedly) \n* Google Maps API Keys Leakage\n* HTML Injection & Context Spoofing(Closed as NA) \n* Cache Poisoning DoS\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Any activity that could lead to the disruption of our service (DoS/DDoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or brute force issues\n* Invalidation/expiry on CDN assets\n* Missing best practices in Content Security Policy.\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Open redirect - unless an additional security implication can be demonstrated \n* Self XSS\n* Promo code abuse (e.g. ordering multiple times using the same promo code)\n* We're aware of Promotion offers/Cash backs Issues (e.g: logic issues in cash back reversing/applying) \n* Abuse of our promotional offers and referral codes\n* CSRF on www.zomato.com/php/* and www.zomato.com/clients*/\n* Promo code enumeration, abuse of our promotional offers and referral codes.\n* Able to retrieve user's public information.\n* Username / email enumeration\n\n# Consequences of complying with this policy\n\nWe will not pursue a civil action or initiate a complaint to law enforcement for accidental, good faith violations of this policy. We consider activities conducted consistent with this policy to constitute “authorized” conduct under the Computer Fraud and Abuse Act (CFAA). We will not bring a DMCA claim against you for circumventing the technological measures we have used to protect the applications in scope.\n\nIf legal action is initiated by a third party against you and you have complied with Eternal's bug bounty policy, Eternal will take steps to make it known that your actions were conducted in compliance with this policy.\n\nPlease submit a [HackerOne report](https://hackerone.com/zomato) to us before engaging in conduct that may be inconsistent with or unaddressed by this policy.\n\nThank you for helping keep @Eternal safe for the community!\nEternal Security Team",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.zomato.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "winecellar.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.zomatobook.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "business-blog.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.application.zomato",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.application.zomatomerchant",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.application.zomato.ordering",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "434613896",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Zomato: Food Delivery & Dining",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.zdev.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Scope Questions: Items not explicitly listed here",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "If you have a question about something that is not explicitly listed as out-of-scope or in-scope, please submit a report and we will provide clarification. We will allow you to self close that report after we answer your question.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "success.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.zomans.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This domain is mainly used for internal applications that are hosted in AWS. Our area of interest is any issue that can potentially give anyone unrestricted access or expose internal or confidential data.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dev.hyperpure.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "devapi.hyperpure.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.hyperpure.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "devpod.hyperpure.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "send.zomato.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.runnr.in",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "staging*.runnr.in",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please don't test on staging/dev instances. Instead, we have created a dedicated environment `bugbounty.runnr.in` which is a replica of the same for testing.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "All Assets (other than Blinkit)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Bounty table header",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://*.blinkit.support",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://*.grofer.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://*.grofers.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

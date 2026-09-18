@@ -1,0 +1,28 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hannob",
+      "name": "Hanno's projects",
+      "offersBounties": false,
+      "assets": [],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hannob-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hannob",
+  "name": "Hanno's projects",
+  "url": "https://hackerone.com/hannob",
+  "policy": "This is the bug bounty program for my personal web pages. Feel free to report anything on subdomains of the assets listed below. If you want to find out which subdomains exist you can use the Certificate Transparency search engine https://crt.sh/ and e.g. search for %.hboeck.de.\r\n\r\n# Not considered vulnerabilities\r\n* SSRF: The server is not in an internal network, so there is no SSRF. Please don't report unless you can show a practical issue.\r\n* Old TLS versions and ciphers: I'm trying to achieve a balance between compatibility and security, which means I won't disable some old features (e.g. TLS 1.0) for now. Please only report if you can show a practical attack that works against modern browsers.\r\n* Missing or unsafe security headers: I'm setting security headers where it's practical and makes sense. However in some situations I use thirdparty software that's e.g. incompatible with strict CSP rules. Again: Please only report if you can show practical impact.\r\n* Public directory listings: I have a couple of hosts where I share files publicly for a variety of reasons. These are intentionally public and not by mistake. In all cases they should contain a file 00README.txt explaining that they're intentionally public. Unless you find files in there that contain sensitive data or enable further attacks please don't report them.\r\n* Intentional information disclosure: Some applications running on this server will expose their name or version, e.g. via headers or banners on connections. I don't believe it's a worthy goal to hide which software is running. As long as these don't expose *vulnerable* software please don't report them. However what you should report is unintentional information disclosure, e.g. if you can read out any information due to a bug that's not intentionally disclosed. (An example would be a Heartbleed-like bug.)\r\n* Disclosure of code and artifacts from free software: Multiple applications in scope of this program are based on common free and open source software. These often include things like documentation, composer files, scripts or other files that are publicly accessible through the web server. As these aren't secret disclosing them is not a vulnerability.\r\n* Disclosure of public keys. No joke: I got multiple reports where people found a public key of mine. Public keys are supposed to be public.\r\n* Lack of brute force protection or open access to login panel: These issues are only relevant if weak passwords are used, and they're a poor defense in any case.\r\n* Lack of DKIM/DMARC. (Known, support is planned, though probably only in softfail mode, as DMARC is inherently broken and incompatible with existing infrastructure.)\r\n\r\n# Disclosure Policy \r\n* Let me know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Denial of service \r\n* Spamming \r\n* Social engineering (including phishing) of Hanno's projects staff or contractors \r\n* Any physical attempts against Hanno's projects property or data centers \r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep Hanno's projects and users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": []
+}

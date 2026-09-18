@@ -1,0 +1,193 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "kayak",
+      "name": "KAYAK",
+      "offersBounties": true,
+      "assets": [
+        "*.kayak.com",
+        "business.kayak.com",
+        "com.kayak.android",
+        "com.kayak.travel",
+        "kayak.ai",
+        "www.cheapflights.com",
+        "www.checkfelix.com",
+        "www.hotelscombined.com",
+        "www.kayak.com",
+        "www.momondo.com",
+        "www.mundi.com.br",
+        "www.swoodoo.com"
+      ],
+      "exclusions": [
+        "affiliates.kayak.com",
+        "cruises.kayak.com",
+        "https://*.kayakairplanemode.com",
+        "kayak.com/guides/*",
+        "kayak.com/hotelowner/*",
+        "kayak.com/moira/ehoe/*",
+        "klassereise.checkfelix.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\kayak-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "kayak",
+  "name": "KAYAK",
+  "url": "https://hackerone.com/kayak",
+  "policy": "KAYAK is committed to working with security experts across the world to stay up to date with the latest security techniques. If you have discovered a security issue that you believe we should know about, we'd welcome working with you. \n\n**Scope**\n\nScope is outlined in the structured scope section. Please do not submit the same report for multiple domains.  Only one report will be accepted.\n\n**Eligible Vulnerabilities**\n\n * You must be the first person to report a vulnerability.\n * Please share with us the full details of any problem you find.\n * The vulnerability must be on an in-scope site or application.\n * Qualification of vulnerabilities is at the sole discretion of the KAYAK security team.\n * The vulnerability must be reproducible on a reasonably recent version of the according client (e.g., at least Microsoft Edge, Chrome 111, Firefox 111, Safari 15)\n * Vulnerabilities raised on the Android or iOS apps must be against the latest app store versions\n\n**Non-Qualifying Vulnerabilities and Exclusions**\n * **Clarification - NEW** We do not take any responsibility for links to third-party/off-site content including social media profiles that may have been owned by us previously or be trying to impersonate us. This includes any links you find on our assets in all areas of the products including headers and footers.\n * Denial of service, distributed denial of service, or other availability attacks.\n * Any techniques related to web scraping\n * Brute force attacks against passwords, hash secrets etc.\n * Physical attacks against any KAYAK office or data center.\n * Social engineering, for example phishing or calling, of any KAYAK employee, contractor or agent.\n * One of the following issues without a proof-of-concept that successfully exploits the issue:\n  * SSL configuration\n  * HTTP response headers including cookie configuration, Content security policy, etc.\n * Logout CSRF and CSRF on endpoints that do not change user state. MITM attacks against a user's CSRF token.\n * Issues with any site or application not explicitly listed as in-scope.\n * Problems found in our iOS apps before v205 and Android apps before v175\n * Issues introduced by third-party components that have not been fixed by the vendor yet. This also includes vulnerabilities introduced by content served through one of our ad networks.\n * Third-party content served on HTTP when KAYAK is accessed on HTTPS. Particularly with ad networks we have no direct control.\n * Clickjacking (except rare, highly sensitive cases)\n * Attacks that require a mobile phone or tablet to be \"rooted\". Attacks that assume that a user intentionally or unintentionally disabled standard OS security features.\n * Absence of SPF, DKIM, DMARC or domain lock records\n * DNSSEC-related reports\n * Lack of \"best practices\" that do not impose a vulnerability that can be leveraged (please send PoC) e.g. session expiration, magic link expiration\n * Missing or not obviously visible rate limiting - please do not test our endpoints for this as this makes noise that we usually pick up and act on\n * Vulnerabilities in third-party software and systems that we use. We are patching components on a regular basis according to our risk assessments.\n * Vulnerable domain/DNS configuration are only in scope as long as they involve our core assets as listed in this program. For example, a domain takeover of some-service.kayak.com is a valid finding while a domain takeover of any other domain owned by us but not part of our core assets is not.\n * We cannot reward or do business with any individual on any U.S sanction lists or any individual residing in any country on any U.S. sanctions lists. This includes residents of Cuba, Sudan, North Korea, Iran, Syria or Russia.\n * Severity level is at the sole discretion of the KAYAK security team.\n\n**Rules of Engagement**\n\n* Use a custom HTTP header and mention that in your report. For example, a header that includes your username: X-Bug-Bounty:HackerOne-your-username.\n * When making an account or reservation, please use your HackerOne Email Alias (e.g., username@wearehackerone.com), so that we can properly identify you\n * Do not compromise any customer accounts or data. Never attempt to view, modify, or damage data belonging to others. If you need to test a vulnerability, create an account.\n * Do not use automated tools that could generate significant traffic and possibly impair the functioning of our services.\n * Do not discuss or post details of your vulnerability outside of the HackerOne platform before it has been approved for disclosure.\n * Do not attempt denial-of-service attacks. **Keep your automated scanning to 10 requests per second or less.**\n * Please communicate with our security team via HackerOne.\n * We may change the terms of this program at any time.\n\nFor any bugs pertaining to Information Disclosure, please do not capture and retain any personally identifiable or sensitive personal information (PII) during the course of your research. If you inadvertently view or change any PII not related to your own account, please stop testing immediately and submit a report with reproduction steps so that our team can evaluate the potential business impact of any exposed PII.\n\nWhen possible, please employ methods that confirm elevated access without exposing PII, for example:\n* Screenshots of navigation bar options or pages without PII that weren’t originally viewable.\n* Improper access to another account you yourself control\n* (in the case of gaining access to a company server) Access to common default files present on any server\n\n\n**Attributes of a Good Report and Bug Bounty Rewards**\n\n * Please provide a detailed report with precise explanations. Please include screenshots, proof-of-concept code, and steps to reproduce.\n * Bug bounty rewards are solely at KAYAK's discretion, based on the severity and creativity of the bug.\n * You must adhere to HackerOne's Disclosure Guidelines and everything outlined in this policy.\nWe are committed to ensuring the privacy and safety of our users. If you think that you have discovered a security vulnerability on our web site or within our mobile apps we appreciate your help in disclosing the issue to us. Please do this responsibly by giving us the opportunity to investigate and fix the vulnerability in a timely fashion before publicly disclosing it. Security vulnerability reports will be treated as high priority. We will validate and fix vulnerabilities in accordance with our commitment to security and privacy.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "www.kayak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "including localised versions: e.g. www.kayak.de, www.kayak.fr and www.kayak.co.uk, etc. Please check https://www.kayak.com/global for full list of domains that belong to us.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.kayak.travel",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The most recent version of this app is in scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.kayak.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The most recent version of this app is in scope",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.swoodoo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.checkfelix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "klassereise.checkfelix.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kayak.com/hotelowner/*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Including local versions ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kayak.com/moira/ehoe/*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "including local versions",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.momondo.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "including localised versions: e.g. www.momondo.dk, www.momondo.se, etc.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.cheapflights.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "including local versions: e.g. www.cheapflights.co.uk, www.cheapflights.com.au, etc. Please check https://www.kayak.com/global for full list of domains that belong to us.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.hotelscombined.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "including local versions: e.g.  www.hotelscombined.com.au, www.hotelscombined.co.kr, etc. Please check https://www.kayak.com/global for full list of domains that belong to us.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.mundi.com.br",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "business.kayak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kayak.com/guides/*",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Anything related to /guides/ on any domain is ineligible for submission since this feature will be removed soon.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.kayak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://*.kayakairplanemode.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.kayak.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "kayak.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cruises.kayak.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We do not run this or anything on this subdomain",
+      "max_severity": "none"
+    }
+  ]
+}

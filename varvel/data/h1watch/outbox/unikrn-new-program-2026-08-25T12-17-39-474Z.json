@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "unikrn",
+      "name": "Unikrn",
+      "offersBounties": true,
+      "assets": [
+        "api.ukrn.io",
+        "auth-adm.ukrn.io",
+        "auth.ukrn.io",
+        "c.ukrn.io",
+        "cashier-r.unikrn.com",
+        "cashier-w.unikrn.com",
+        "cashier.unikrn.com",
+        "casino.ukrn.io",
+        "crm.ukrn.io",
+        "feed.ukrn.io",
+        "help.unikrn.com",
+        "m.ukrn.io",
+        "noti.ukrn.io",
+        "promotions.unikrn.com",
+        "quest.ukrn.io",
+        "socket.ukrn.io",
+        "static.unkrn.com",
+        "sysops.ukrn.io",
+        "trader.ukrn.io",
+        "trans.ukrn.io",
+        "u.ukrn.io",
+        "unikrn.com",
+        "unikrn.ly",
+        "utils.ukrn.io",
+        "virtual.ukrn.io"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\unikrn-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "unikrn",
+  "name": "Unikrn",
+  "url": "https://hackerone.com/unikrn",
+  "policy": "Unikrn built the most technologically advanced sportsbook for esports. We run the best fully-regulated and licensed esports bookmaker on the planet. No technology is perfect, and Unikrn believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder\r\n\r\n# Bounty Program\r\nTo show our appreciation of responsible security researchers, Unikrn offers a monetary bounty for reports of qualifying security vulnerabilities. Reward amounts will vary based upon the severity of the reported vulnerability, and eligibility is at our sole discretion.\r\n\r\n# Scope Exclusions (are not eligible for a reward)\r\n* DNS related or HTTP(S) Header related reports\r\n* Reports relating to self-DoS issues (as in, only the person doing the action is denied service)\r\n* Reports relating to self-Exploit issues (as in, only the logged in person doing the action is exploited in a non sticky fashion)\r\n* Reports of the same issue in an alias domain - if there already is a open report for the same issue on another domain\r\n* Server/Software version disclosure\r\n* login csrf / logout csrf\r\n* Email spoofing  (Dmarc/SPF/DKIM)\r\n* Reflected file download\r\n* Clickjacking on emtpy or stage sites (read: must have high real world impact)\r\n* Flaws affecting out-of-date browsers and plugins\r\n* Publicly accessible login panels or html, js,..\r\n* CSP Policy Weaknesses\r\n* TabNabbing Rel=“noopener”\r\n* HTTP Public Key Pinning\r\n* We use s3 buckets to temporary store files people provided. This files expire and should never transition into anything we deliver as files. As long as you can not show a report where this is the case (we deliver this file or url to someone who did not upload this file) its not relevant. The usecase then is not different to an attacker creating his own s3 bucket and linking people to the file he uploaded (if you have reasons to  disagree with this assessment please open an report about it)\r\n* Vulnerabilities in 3rd party libraries without working exploit against our apps/servers\r\n* Recently disclosed 0-day vulnerabilities\r\n* Vulnerabilities on sites hosted by third parties, unless they lead to a vulnerability on our scoped domains\r\n* Bugs that have not been responsibly investigated and reported or are directly copy and paste from automated scann reports\r\n* Bugs already known to us, or already reported by someone else (reward goes to first reporter)\r\n* Issues that aren't reproducible\r\n* Issues that we can't reasonably be expected to do anything about\r\n\r\n# Requirements\r\n* If you report on a network attack please provide a CURL command line (if possible)\r\n* Researchers are more likely to earn a larger reward by demonstrating how a vulnerability can be exploited to maximum effect\r\n* If you exploit something using a custom crafted request (and it does not affect an api), please describe a real world user impact visiting with a browser\r\n* Please allow 3 business days for us to respond before sending another question on it\r\n* Make sure to correctly classify the report severity. Refrain from reporting an severity above medium, if the report has medium or limited impact towards real users of a unikrn service\r\n\r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Unikrn staff or contractors\r\n* Any physical attempts against Unikrn property or data centers\r\n* Probing well known third party components (like Olark) on our assets\r\n\r\n\r\nIf you are looking to report a non-security-related bug, please make use of this link https://unikrn.com/contact or send an email to support@unikrn.com instead - GPG https://unikrn.com/unikrn.asc\r\n\r\n\r\nThank you for helping keep Unikrn and our users safe!\r\n\r\n\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Main B2C page, and API endpoint(s)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth-adm.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "auth.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "c.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "casino.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "crm.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "feed.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "m.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "noti.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "quest.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "socket.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sysops.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trader.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trans.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "u.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "utils.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "virtual.ukrn.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier-r.unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier-w.unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cashier.unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "help.unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "promotions.unikrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "unikrn.ly",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "static.unkrn.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

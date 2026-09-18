@@ -1,0 +1,229 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "ripio",
+      "name": "Ripio",
+      "offersBounties": true,
+      "assets": [
+        "*ripio.com",
+        "*ripiotrade.co",
+        "Web3 - Smart Contracts Scope",
+        "app.ripio.com",
+        "com.ripio.android",
+        "com.ripio.ios",
+        "defi.ripio.com",
+        "http://auth.ripio.com",
+        "https://basescan.org/address/0xf469eC9dEBf7F0adEBA4d1Db2FF5c70707bEeB30",
+        "https://bridge.ripio.com/",
+        "https://etherscan.io/address/0x0DC4F92879B7670e5f4e4e6e3c801D229129D90D",
+        "https://etherscan.io/address/0x337E7456B420bD3481e7FA61fA9850343d610d34",
+        "https://etherscan.io/address/0x46167cB034feC6ceC46CaeD4f61281f5Aa0Eb0e6",
+        "https://etherscan.io/address/0x465e642387d3d73a57CDc1368fFA53A800bA5D47",
+        "https://etherscan.io/address/0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE",
+        "https://etherscan.io/address/0x61D450a098b6a7f69fC4b98CE68198fe59768651",
+        "https://etherscan.io/address/0x8a1D45e102e886510e891d2Ec656a708991e2D76",
+        "https://etherscan.io/address/0xD168CFbBE260D48cd119497a9a2eE8482080C5E7",
+        "https://etherscan.io/address/0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0",
+        "https://etherscan.io/address/0xdcC340132740AD57E9Fc90C9BD08B00dBbc87986",
+        "https://kyc.ripio.com/",
+        "https://worldscan.org/address/0xDe7Ec97CFDeE9F20f9d256F4a0A0d694479fa2E0",
+        "sandbox-b2b.ripio.com",
+        "trade.ripio.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\ripio-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "ripio",
+  "name": "Ripio",
+  "url": "https://hackerone.com/ripio",
+  "policy": "# Ripio HackerOne Program - Scope & Exclusions Policy (Logic-Based)\n\nTo ensure clear communication and efficient triage, we have defined our scope using strict logic-based rules. Please review these exclusions carefully before submitting.\n\n## 🏆 ATO Challenge (Special Bounty: $6,000)\n**Objective**: Demonstrate a full Account Takeover by bypassing authentication mechanisms, **specifically bypassing 2FA**, to obtain a valid user session and **perform a critical action**.\n*   **Target User**: `ripiotestuser1@gmail.com`\n*   **Password**: `Sup3rs3cr3t!`\n*   **Required Proof**: You must demonstrate access to **Sensitive Information Disclosure**, **Wallet Balance**, or perform a **Minimal Transfer**. Merely logging in is not enough if the session is restricted.\n*   **Security Controls**: 2FA is ENABLED. You must bypass it.\n*   **Constraint**: The email provider itself (`@gmail.com`) is **Out-of-Scope**. Do not attempt to compromise the Google account to read codes.\n*   **Prohibited**: Brute force attacks and Social Engineering are strictly prohibited.\n\n---\n\n## ✅ Qualifying Vulnerabilities (Focus Areas)\n*While we welcome all valid security vulnerabilities, we are specifically interested in:*\n\n### 📱 Mobile Specific\n*   **Insecure Data Storage**: Sensitive data (PII, Credentials) stored in plain text (SharedPrefs, SQLite, External Storage).\n*   **Deep Link / Intent Hijacking**: Malicious intents leading to Account Takeover or Sensitive Action execution.\n*   **Biometric Bypass**: Bypassing local authentication mechanisms.\n*   **Hardcoded Secrets**: Valid API Keys or Credentials found in the binary (must be verified).\n\n### 🌐 Web & API\n*   **Business Logic Errors**: Payment manipulation, unauthorized transfers.\n*   **Broken Access Control**: IDOR, Privilege Escalation.\n*   **Injection**: SQLi, RCE.\n\n---\n\n## 🚫 Hard Exclusions (Auto-Close Rules)\n*Reports falling into these categories will be closed as **N/A (Not Applicable)** immediately. We do not accept theoretical arguments for these issues.*\n\n### Attack Vector Constraints\n*   **Physical & Local Access**: Any attack requiring physical access to the victim's device or access to the victim's local network (e.g., MITM, local malware, self-installed certificates).\n*   **Social Engineering**: Phishing, Vishing, Smishing, or any attack relying on deceiving employees or users.\n*   **Denial of Service (DoS/DDoS)**: Any activity that disrupts, degrades, or interrupts service availability.\n*   **Brute Force**: Repetitive automated attempts against authentication endpoints.\n*   **Third-Party Flaws**: Vulnerabilities in 3rd party providers or integrations, unless they directly compromise Ripio data/infrastructure.\n\n### Infrastructure & Configuration\n*   **SSL/TLS Configuration**: Missing security headers (HSTS, HPKP), weak ciphers, or certificate issues.\n*   **Email Security Records**: Missing or incomplete SPF, DMARC, or DKIM records.\n*   **Information Disclosure (Low Impact)**:\n    *   Verbose error messages or stack traces (unless they contain sensitive PII/Credentials).\n    *   Server banner grabbing / Version disclosure.\n    *   Publicly accessible files (robots.txt, readme.md, WordPress files) without sensitive data.\n*   **CORS**: Cross-Origin Resource Sharing issues without a working PoC demonstrating sensitive data exfiltration.\n*   **COOP**: Cross-Origin Opener Policy issues without a working PoC demonstrating sensitive data exfiltration.\n*   **COEP**: Cross-Origin Embedder Policy issues without a working PoC demonstrating sensitive data exfiltration.\n\n---\n\n## ⚠️ Conditional Exclusions (Proof Required)\n*These issues are considered N/A **UNLESS** the specific condition described below is met and demonstrated in the Proof of Concept.*\n\n### XSS & Client-Side Attacks\n*   **Reflected XSS**:\n    *   **Rule**: **Conditional Exclusion**. Reports showing only `alert(1)` or non-sensitive DOM manipulation are **N/A**.\n    *   **Exception**: Valid **ONLY** if you demonstrate **Account Takeover** or **Sensitive Action Execution** via a clickable link or iframe (e.g., stealing a session token, bypassing CSRF to change email). The impact must be proven, not theoretical.\n*   **Self-XSS**:\n    *   **Rule**: **Out-of-Scope** if it requires the user to paste code into the console or address bar.\n    *   **Exception**: Valid ONLY if chained with another vulnerability (e.g., CSRF) to execute without user self-sabotage.\n*   **Clickjacking**:\n    *   **Rule**: Strictly **Out-of-Scope** on pages without sensitive state-changing actions (e.g., Login, Logout, Static Content).\n    *   **Exception**: Valid ONLY if you demonstrate a critical state change (e.g., Transfer Funds, Delete Account, Authorize App).\n*   **Cookie Flags**:\n    *   **Rule**: Missing `Secure` or `HttpOnly` flags are N/A.\n    *   **Exception**: Valid ONLY if you provide a working PoC that exploits this specific lack of protection.\n\n### Mobile & Native Apps\n*   **Obfuscation / Binary Protection**:\n    *   **Rule**: Lack of obfuscation, anti-debugging, or binary protection is **N/A**.\n    *   **Exception**: Valid ONLY if you can reverse engineer hardcoded secrets (API Keys, Credentials) that grant unauthorized access.\n*   **SSL Pinning / Root Detection**:\n    *   **Rule**: Bypassing client-side controls (Pinning, Root/Jailbreak detection) on your own device is **N/A**.\n    *   **Exception**: Valid ONLY if the bypass allows server-side exploitation that affects other users.\n*   **Local Data Leaks (Snapshots/Pasteboard)**:\n    *   **Rule**: Application snapshots or keyboard cache/pasteboard leakage are **N/A**.\n    *   **Exception**: Valid ONLY if it exposes high-impact sensitive data (e.g., Credit Card numbers, Passwords) in a shared context.\n*   **Tapjacking / Overlay Attacks**:\n    *   **Rule**: **N/A** by default.\n    *   **Exception**: Valid ONLY if on a critical sensitive action (e.g., Confirm Transfer) with no other confirmation step.\n\n---\n\n## 🧪 Test Plan & Rules\n*   **Header**: Include `X-H1-traffic: <username>` in all requests.\n*   **Accounts**: Use your `@wearehackerone.com` alias.\n*   **Unrelated Issues vs. Exploit Chains**:\n    *   Do not group **unrelated** vulnerabilities in a single report.\n    *   **Exception**: You MUST chain vulnerabilities if necessary to demonstrate impact (e.g., chaining Self-XSS with CSRF). This is considered a single \"Exploit Chain\".\n*   **Safe Harbor**: Activities conducted consistent with this policy are authorized. We will not initiate legal action against you.\n\n## 🤐 Disclosure Policy\n*   **Default**: This program follows HackerOne's **Coordinated Disclosure Policy**.\n*   **Public Disclosure**: We generally agree to public disclosure **after a fix has been deployed and verified**.\n*   **Mutual Agreement**: Requests for disclosure will be reviewed on a case-by-case basis. Do not disclose any details publicly without our explicit written consent.\n\n## 📝 Submission Quality Standards\nTo help us validate your report faster:\n1.  **Structured Steps**: Use the numbered steps in the submission form. Do not write paragraphs.\n2.  **Video PoC**: Highly recommended for complex UI bugs.\n\n\n\n---\n\n\n## 🌉 Web3 / Smart Contracts Scope\n\nRipio's Web3 program covers the WFIAT wrapped-fiat stablecoin contracts (wARS, wMXN, wBRL, wCOP, wCLP, wPEN, USDar), the LimitedMinter contracts, and the associated cross-chain bridge infrastructure. Only the addresses listed in the table below are in scope. Any other contract deployed by Ripio and not included here is considered out of scope.\n\n**Important — Upgradable Contracts**: WFIAT token contracts are upgradable and use the `UPGRADER_ROLE` access-control role. \"In scope\" refers to the **current implementation** deployed to the proxy addresses listed below. Vulnerabilities found in prior implementations that have already been upgraded out are **not eligible** for a reward. Researchers should verify the implementation currently pointed to by each proxy at submission time.\n\n### Canonical WFIAT Contract Addresses\n\nAll WFIAT token contracts share the same address across chains (CREATE2 deployment). Verify each contract on the block explorer corresponding to the target network.\n\n**Token Contracts (same address across all listed chains)**\n\n| Contract | Address | Chains |\n|----------|---------|--------|\n| wARS — Peso Argentino | `0x0DC4F92879B7670e5f4e4e6e3c801D229129D90D` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| wMXN — Peso Mexicano | `0x337E7456B420bD3481e7FA61fA9850343d610d34` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| wBRL — Real Brasileño | `0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| wCOP — Peso Colombiano | `0x8a1D45e102e886510e891d2Ec656a708991e2D76` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| wCLP — Peso Chileno | `0x61D450a098b6a7f69fC4b98CE68198fe59768651` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| wPEN — Sol Peruano | `0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| USDar — Dólar Austral | `0xdcC340132740AD57E9Fc90C9BD08B00dBbc87986` | Ethereum only |\n\n**Cross-Chain Bridge Infrastructure (same address across all listed chains)**\n\n| Contract | Address | Chains |\n|----------|---------|--------|\n| BridgeDeposit | `0x465e642387d3d73a57CDc1368fFA53A800bA5D47` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n| LimitedMinterBridge | `0x46167cB034feC6ceC46CaeD4f61281f5Aa0Eb0e6` | Ethereum, Base, Polygon, BSC, Gnosis, World Chain |\n\n**LimitedMinter (address varies by chain)**\n\n| Address | Chains |\n|---------|--------|\n| `0xD168CFbBE260D48cd119497a9a2eE8482080C5E7` | Ethereum, Gnosis, BSC, Polygon |\n| `0xf469eC9dEBf7F0adEBA4d1Db2FF5c70707bEeB30` | Base |\n| `0xDe7Ec97CFDeE9F20f9d256F4a0A0d694479fa2E0` | World Chain |\n\n**Chain IDs (EIP-155)**: Ethereum `1` · Base `8453` · World Chain `480` · Gnosis `100` · BNB Smart Chain `56` · Polygon `137`\n\n### Ripio Web3 Severity & Reward Schedule\n\nRewards for Web3 findings are determined by the business and financial impact of the vulnerability, evaluated by Ripio on a case-by-case basis. The schedule below represents maximum rewards; the final amount depends on exploit feasibility, proof-of-concept quality, and the scope of affected users or funds.\n\n| Severity | Smart Contracts | Web / dApp |\n|----------|-----------------|------------|\n| Critical | up to $25,000   | up to $10,000 |\n| High     | up to $5,000    | up to $2,500  |\n| Medium   | up to $1,000    | up to $500    |\n| Low      | Swag / recognition | Swag / recognition |\n\n### ✅ Qualifying Web3 Vulnerabilities\n\nSeverity is assigned by **demonstrated impact**, not by vulnerability class.\n\n**Critical (Smart Contracts)**\n- Direct theft of user funds held by the contract, whether at rest or in transit\n- Unauthorized minting of WFIAT tokens beyond the intended supply mechanism or beyond the daily limits enforced by the LimitedMinter\n- Unauthorized burning of another user's token balance\n- Permanent freezing of user funds with no admin recovery path\n- Protocol insolvency or accounting errors resulting in value loss for users\n- Bypass of access controls (`DEFAULT_ADMIN_ROLE`, `MINTER_ROLE`, `PAUSER_ROLE`, `UPGRADER_ROLE`) leading to any of the above\n- Cross-chain bridge exploits resulting in double-minting, theft of deposits, or unauthorized withdrawal\n\n**High (Smart Contracts)**\n- Theft or permanent freezing of protocol-owned funds\n- Temporary freezing of user funds for a material duration (> 1 hour)\n- Bypass of access controls without direct fund impact, where the bypass produces a configuration change affecting a listed in-scope contract, its supply, or other users' funds (e.g., altering the daily mint limit, mint destination, or registry entry of a listed WFIAT token). A bypass whose only effect lands on attacker-supplied or attacker-deployed contracts — including registry entries keyed on a contract the researcher deployed — does not qualify; see Web3-Specific Hard Exclusions below.\n\n**Medium (Smart Contracts)**\n- Griefing attacks with demonstrable damage to users or the protocol but no profit motive for the attacker\n- Unbounded gas consumption reachable by arbitrary callers\n- Theft of gas or forced-transaction revert denial-of-service\n\n**Low (Smart Contracts)**\n- Edge cases where the contract fails to deliver expected behavior without direct value loss\n\n**Web / dApp — `bridge.ripio.com`**\n- **Critical**: arbitrary transaction signing from connected wallets without user consent; mass account takeover; exfiltration of private keys or seed phrases\n- **High**: execution of arbitrary JavaScript in the dApp origin with account-takeover impact; subdomain takeover chained to wallet interaction\n- **Medium**: CSRF or authenticated state-changing flaws with limited impact; sensitive data disclosure (non-secret but material)\n\n### 🚫 Web3-Specific Hard Exclusions\n\nIn addition to the program-wide exclusions, the following are considered **N/A by default** for Web3 assets:\n\n**Smart Contracts**\n- Issues documented in any audit report attached to this program — findings Ripio has accepted as residual risk are not eligible\n- **Centralization risks** inherent to the design: admin keys, pausable roles, upgradable proxies, mint/burn permissions held by privileged accounts, and multisig-controlled operations are **accepted design choices**\n- Gas optimization suggestions with no security impact\n- Best-practice violations without a demonstrated exploit (missing events, floating pragma, naming conventions, unused code)\n- Compiler bugs in mainstream Solidity versions\n- **MEV, frontrunning, and sandwich attacks** — these are inherent to public blockchains and are not considered vulnerabilities\n- User-configurable slippage losses\n- Oracle price deviations within the tolerance thresholds documented by the oracle provider\n- Theoretical reentrancy without a working PoC exploiting actual state changes\n- Attacks requiring compromised admin or multisig keys — key compromise is a governance matter, not a smart-contract vulnerability\n- Bugs in third-party libraries (OpenZeppelin contracts, standard token implementations) unless Ripio's specific integration or customization introduces the vulnerability\n- **Registry pollution with attacker-supplied contracts** — reports whose demonstrated end state is the creation, mutation, or non-removability of `LimitedMinter` / `LimitedMinterBridge` `tokenConfigs` entries keyed on a contract the researcher deployed. This includes the `onlyExternalAdmin(address token)` pattern delegating its role lookup to the caller-supplied `token` address. Minting of any listed WFIAT token is gated independently by `MINTER_ROLE` on that token contract, not by `tokenConfigs`, and entries keyed on real WFIAT addresses cannot be created or altered by unprivileged callers. Ripio tracks this as an accepted defense-in-depth item. To qualify, a report must demonstrate an effect on a listed contract's configuration, supply, or user balances.\n\n**Web / dApp**\n- Issues caused by the user's wallet provider (MetaMask, WalletConnect, Ledger, etc.)\n- Lookalike or phishing domains — report to the domain registrar / provider\n- Frontend-only issues (missing headers, cosmetic UI) without on-chain or wallet impact\n\n### 🧪 Web3 Testing Rules\n\n- **No testing on mainnet or public testnets is permitted.** All proofs of concept must be reproducible on a **local fork** using tools such as Foundry, Hardhat, Anvil, or Tenderly.\n- Flash-loan simulations are allowed on local forks.\n- Do not interact with production contracts in ways that could affect real user funds or protocol state. Do not attempt to front-run, extract value from, or manipulate production; such activities are considered attacks, not research, and fall outside Safe Harbor.\n- **A runnable PoC is mandatory** for all Web3 submissions (Foundry test, Hardhat script, or equivalent). Reports without a working PoC will be closed as Not Applicable.\n- **PoCs must include: affected contract and function references, the exploit transaction sequence, and the on-chain state changes demonstrating impact.** ⭐️\n\n### 💰 Payout Conditions\n\n- Payouts are processed via HackerOne in USD.\n- KYC may be required for payouts exceeding $500, following HackerOne's standard flow.\n- Vulnerabilities previously documented in audit reports attached to this program — whether fixed, in progress, or accepted as residual risk — are not eligible for a reward.",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.ripio.ios",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Apple Store iOS download: https://itunes.apple.com/us/app/ripio/id1221006761",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ripio.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Play store download: https://play.google.com/store/apps/details?id=com.ripio.android",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trade.ripio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "app.ripio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://kyc.ripio.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This asset corresponds to the company's identity verification system (KYC), used for the authentication and validation of users across the various platforms and services we have at Ripio. The main purpose of this system is to ensure that users meet identification requirements, helping to mitigate fr",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*ripio.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Vulnerabilities reported in wildcard will be valid for reputation only.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://auth.ripio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "defi.ripio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "defi.ripio.com is an API for investing cryptocurrencies in DeFi protocols, offering deposit and withdrawal features.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*ripiotrade.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sandbox-b2b.ripio.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "B2B API allows a third party to access different use cases and services inside of Ripio ecosystem.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x0DC4F92879B7670e5f4e4e6e3c801D229129D90D",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x337E7456B420bD3481e7FA61fA9850343d610d34",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0xD76f5Faf6888e24D9F04Bf92a0c8B921FE4390e0",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x8a1D45e102e886510e891d2Ec656a708991e2D76",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x61D450a098b6a7f69fC4b98CE68198fe59768651",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x4F34c8b3b5FB6D98Da888F0feA543d4d9C9F2eBE",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0xdcC340132740AD57E9Fc90C9BD08B00dBbc87986",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x465e642387d3d73a57CDc1368fFA53A800bA5D47",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0x46167cB034feC6ceC46CaeD4f61281f5Aa0Eb0e6",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://etherscan.io/address/0xD168CFbBE260D48cd119497a9a2eE8482080C5E7",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://basescan.org/address/0xf469eC9dEBf7F0adEBA4d1Db2FF5c70707bEeB30",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://worldscan.org/address/0xDe7Ec97CFDeE9F20f9d256F4a0A0d694479fa2E0",
+      "asset_type": "SMART_CONTRACT",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://bridge.ripio.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Web3 - Smart Contracts Scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please read the Ripio HackerOne Program - Scope & Exclusions Policy (Logic-Based)",
+      "max_severity": "critical"
+    }
+  ]
+}

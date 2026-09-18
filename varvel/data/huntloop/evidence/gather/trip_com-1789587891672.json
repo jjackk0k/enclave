@@ -1,0 +1,77 @@
+{
+ "at": "2026-09-16T19:44:28.136Z",
+ "opportunity": "trip_com",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.trip.ios",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.trip.ios:443 refused: host unreachable"
+  },
+  {
+   "host": "com.trip.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.trip.android:443 refused: host unreachable"
+  },
+  {
+   "host": "trip.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "via": "HTTP/1.1 SLB.2"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "travix.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [
+    {
+     "id": "nginx",
+     "label": "nginx",
+     "version": null,
+     "evidence": "server: nginx"
+    }
+   ],
+   "headers": {
+    "server": "nginx"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "travix.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-timeout: GET travix.io/ via the chain aborted"
+  }
+ ]
+}

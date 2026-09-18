@@ -1,0 +1,90 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "luminor",
+      "name": "Luminor",
+      "offersBounties": false,
+      "assets": [
+        "*.luminor.ee",
+        "*.luminor.lt",
+        "*.luminor.lv",
+        "*.luminorgroup.com",
+        "Any other Luminor System, Website, App, Domain and IP"
+      ],
+      "exclusions": [
+        "*.ondato.net",
+        "luminor.nyc3.digitaloceanspaces.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\luminor-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "luminor",
+  "name": "Luminor",
+  "url": "https://hackerone.com/luminor",
+  "policy": "# Disclosure Policy\n* Please do not discuss or disclose this program or any vulnerabilities (even resolved ones) outside of the program and keep them in full confidentiality without prior explicit written consent from Luminor Bank AS.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n\n# Program Rules\n* Provide as much information as possible about the potential issue you have discovered with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report unless you need to chain vulnerabilities to provide impact. When duplicates occur, we only triage the first report received (provided if it can be fully reproduced).\n* Use your @wearehackerone.com Email Alias when signing up for any accounts so we can identify you as a security researcher.\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations (incl. any personal data protection breaches), destruction of data, and interruption or degradation of our service.\n* Only interact with accounts you own or with explicit permission of the account holder.\n* Ensure you are only testing on systems which are owned or operated by Luminor Bank AS, do not run any testing on third party systems\n* Remove all Luminor Bank AS Confidential Information, including Personal Data you got from the analysis once the report is resolved.\n\n## All the following conduct is strictly prohibited:\n* Social engineering (e.g. phishing, vishing, smishing).\n* Physical attacks.\n* Any testing that could harm our services or customers, including launching any large-scale automated attacks (e.g. denial-of-service attacks (DDoS)), Spam, pyramid schemes, or deployment or use any other malicious software or technology.\n* Intentional conduct that deletes or alters user-generated data; impairs, disrupts, or disables systems; or renders data inaccessible.\n* Violation of any laws, including Data Protection Laws, other officially binding rules or regulatory provisions, courts of law and administrative court judgements, such as codes of practice, public authority decisions, specifically but not limited to all competition, privacy, personal data protection and information security laws.\n* Accessing, copying, modification, deletion, publishing or otherwise disclosing as well as making any other use or making advantage of any Luminor Bank AS information, including personal data of any kind.\n* Including any Personal Data in the disclosed vulnerability report.\n* Public disclosure of any Luminor Bank AS Confidential Information, specifically the details of the vulnerability, indicator of vulnerability, or the content of information rendered available by a vulnerability, except upon receiving prior explicit written authorization from Luminor Bank AS.\n* Do not complete any fraudulent financial transactions or make financial transactions with other user accounts you do not own.\n\n## Out of scope vulnerabilities\n** When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:** \n* [HackerOne Core Ineligible Findings](https://docs.hackerone.com/en/articles/8494488-core-ineligible-findings)\n* Testing third-party applications, websites, or services that integrate with or link to Luminor Bank AS properties.\n* Password and account recovery policies, such as reset link expiration or password complexity.\n* Clickjacking without an impact.\n* Known-vulnerable library (without evidence of exploitability).\n* Certain reports of spam.\n* Low impact host header issues.\n* Tabnabbing\n* Reports from automated tools or scans without a working Proof of Concept.\n* Exposed credentials that are either no longer valid, or do not pose a risk to an in scope asset.\n* Vulnerabilities only affecting users of outdated or unpatched browsers and platforms.\n* Email/Username enumeration.\n* Cookie and logout policies.\n* Vulnerabilities which require a jailbroken device.\n* API keys found in our mobile applications or any API key exposed without demonstrating proper security impact.\n* Issues that require unlikely user interaction.\n\n\n# Testing\n* Researchers should add headers to HTTP requests such as: `X-HackerOne-Research: [H1 username]`\n* While you’re welcome to create accounts where they are available. We ask that you use your HackerOne alias when doing so. You can find instructions on how to find your alias here: https://docs.hackerone.com/en/articles/8404308-hacker-email-alias\n* We’re unable to provide account licenses or refund expenses incurred during testing.  \n* Cautious testing of input forms or uploads: Identify your testing activities by including the strings “HackerOne-VDP-Testing\"\n\n# Scoping\nThis program features an open scope, please try to classify your findings by type (iOS, Web, Android) and by country while submission. However, any IP address, website, API, mobile application or any other asset operated, owned or controlled by Luminor Bank AS is in scope.\n\nThank you for helping keep Luminor and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Any other Luminor System, Website, App, Domain and IP",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Luminor features an open scope. Any asset owned or operated by Luminor is in scope of this program.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luminor.lt",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luminor.lv",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luminor.ee",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.luminorgroup.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "luminor.nyc3.digitaloceanspaces.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is not an asset owned by Luminor. Do not conduct any testing on this asset.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.ondato.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "E.g. kyc.ondato.net or kyc.api.ondato.net - These are not Luminor owned assets, but third party. Do not test on those systems.",
+      "max_severity": "none"
+    }
+  ]
+}

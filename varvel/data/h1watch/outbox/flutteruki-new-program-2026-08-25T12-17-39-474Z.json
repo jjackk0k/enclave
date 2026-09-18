@@ -1,0 +1,234 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "flutteruki",
+      "name": "Flutter UK&I",
+      "offersBounties": true,
+      "assets": [
+        "*.betfair.com",
+        "*.betfair.es",
+        "*.betfair.it",
+        "*.betfair.ro",
+        "*.betfair.se",
+        "*.betviewapi.com",
+        "*.msgsvc.io",
+        "*.paddypower.com",
+        "*.paddypower.it",
+        "*.platformservices.io",
+        "*.sbgcdn.com",
+        "*.sbgcore.com",
+        "*.sbgorigin.com",
+        "*.sbgservices.com",
+        "*.skybet.com",
+        "*.skybetservices.com",
+        "*.skybettingandgaming.com",
+        "*.skybingo.com",
+        "*.skycasino.com",
+        "*.skygamingcontent.com",
+        "*.skypoker.com",
+        "*.skyvegas.com"
+      ],
+      "exclusions": [
+        "*.betfair.com.au",
+        "*.us.betfair.com",
+        "community.betfair.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Don't use common vulnerability scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\flutteruki-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "flutteruki",
+  "name": "Flutter UK&I",
+  "url": "https://hackerone.com/flutteruki",
+  "policy": "Flutter UK & Ireland looks forward to work with the security community to find vulnerabilities in our brands to keep our businesses and customers safe.\nThe **only brands in scope** of this program are **Betfair, Paddy Power and Sky Betting and Gaming**. Please carefully review the scope section for more details.\n\n# SLA\nFlutter UK & Ireland will make a best effort to meet the following SLAs for hackers participating in our program:\n* Time to triage - first line by HackerOne - 4 business days\n* Time to triage - second line by Flutter UKI - 6 business days\n* Time to bounty (from report submit date) - 8 business days\n\nWe’ll keep you informed about your reports’ state throughout the process.\n\n# Recommendations\n* usage of an IP address from UK or Ireland to prevent geo-blocks\n* usage of identifiers that help to determine you are a security researcher, in logs and account details (e.g. HackerOne email alias)\n\n# Responsible Disclosure & Credit\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Any information you receive or collect about us, our affiliates, users, employees or agents must be kept confidential. It’s strictly prohibited to use, disclose or distribute any such information. \n* Written permission from Flutter UK&I is required for the disclosure of any vulnerability found. Disclosure requests must be submitted through the HackerOne platform.\n\n# Program Rules\n* You must be 18 years of age or older and meet the other eligibility and verification criteria to use our services, as outlined in our General Terms & Conditions available at https://support.skybet.com/s/article/Sky-Betting-and-Gaming-General-Terms-Conditions , https://www.betfair.com/aboutUs/Terms.and.Conditions/ and https://www.paddypower.com/aboutUs/Terms.and.Conditions/.\n* In connection with your participation in this program you agree to comply with all applicable local and national laws.\n* You must use your own account (or a dedicated test account) for testing or research purposes. Do not attempt to gain access to another user's account or confidential information. To prove cross-user account access both accounts must be registered to yourself.\n* Make a good faith effort to avoid privacy violations and destruction of data. Only interact with accounts you own. Also, any operation that leads to the interruption or degradation of our services is explicitly forbidden. \n* Don't use common vulnerability scanners. The search for vulnerabilities should be manual, although custom tools with automated requests are allowed if limited to 5 requests per second. \n* Minimize the mayhem. For instance, when testing for a command injection vulnerability, it is sufficient to show the output of the id or hostname commands, and you should stop the exploitation at this point.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue it won’t be eligible for a reward.\n* Submit one vulnerability per report, unless you can chain vulnerabilities to increase impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded with only one bounty (e.g. multiple domains that point to the same component, general caching vulnerabilities, etc.). Only the first report will be valid, the other reports will be closed as duplicates.\n\nATTENTION, when analysing applications that are hosted by Cloud Service Providers (CSPs), carefully read and always oblige to the CSP Rules Of Engagement (ROE). Examples:\n- ROE for AWS: https://aws.amazon.com/security/penetration-testing/\n- ROE for Azure: https://www.microsoft.com/en-us/msrc/pentest-rules-of-engagement\n- ROE for Google Cloud: https://cloud.google.com/security/overview/\n(these are just examples, always identify the CSP and follow its Rules of Engagement)\n\n\n# Out of scope vulnerabilities\nThe following issues are considered out of scope and won’t be eligible for a bounty:\n* Security issues/best practices that can’t be exploited with real impact (e.g. outdated service, missing cookie flags, clickjacking/CSRF on endpoints with no sensitive actions/data, lack of DKIM/DMARC/SPF, etc.). All reports require a working PoC exploit to be considered valid. For example, a lack of bruteforce protection report requires a PoC with your own account where the password is successfully guessed after 100 failed attempts (using a wordlist with 100 random words before your own testing password).\n* Credential leaks unless impact is proved. Note that it's illegal (and forbidden) to attempt to login to customer accounts.\n* WordPress issues without real impact such as user enumeration and the presence of Xmlrpc.php (https://make.wordpress.org/core/handbook/testing/reporting-security-vulnerabilities/#why-are-disclosures-of-usernames-or-user-ids-not-a-security-issue).\n* Attacks requiring MitM or physical access to a user's device (e.g. lack of TLS protection on non-sensitive HTTP communication, etc.).\n* Flash based client-side vulnerabilities such as Flash XSS, Flash Open Redirect or Flash Content Injection.\n* Any activity that could lead to the disruption of our service (DoS, DDoS).\n* Vulnerabilities with a CVE ID published less than 24 hours prior to the report submission\n\nThank you for helping keep Flutter UK&I and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.betfair.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.paddypower.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.betfair.es",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.betfair.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.betfair.ro",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.betfair.se",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.paddypower.it",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.us.betfair.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Betfair US is not part of the Flutter UK&I division",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.betfair.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This domain is temporarily out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.betfair.com.au",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Betfair Australia is not part of Flutter UK&I division",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.skygamingcontent.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skycasino.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sbgcdn.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skybet.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.betviewapi.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skypoker.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skyvegas.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skybingo.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sbgcore.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.platformservices.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skybetservices.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sbgorigin.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sbgservices.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.skybettingandgaming.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.msgsvc.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

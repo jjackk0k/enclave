@@ -1,0 +1,168 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "truist_financial",
+      "name": "Truist Financial",
+      "offersBounties": false,
+      "assets": [
+        "https://businessdeposits.digitalcommerce.truist.com",
+        "https://creditcard.digitalcommerce.truist.com/",
+        "https://deposits.digitalcommerce.truist.com/",
+        "https://developer.truist.com",
+        "https://developer.truist.com/",
+        "https://dias.bank.truist.com/",
+        "https://dias.oneview.truist.com",
+        "https://dias.oneview.truist.com/",
+        "https://lending.digitalcommerce.truist.com/",
+        "https://new.digitalcommerce.truist.com",
+        "https://oneview.truist.com",
+        "https://teammate.digitalcommerce.truist.com/",
+        "https://trade.digitalcommerce.truist.com",
+        "https://trade.digitalcommerce.truist.com/",
+        "investments.truist.com"
+      ],
+      "exclusions": [
+        "*.truist.com",
+        "Other: Out-of-Scope"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use automated"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\truist_financial-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "truist_financial",
+  "name": "Truist Financial",
+  "url": "https://hackerone.com/truist_financial",
+  "policy": "Truist is committed to maintaining the security of our systems and our customers’ information. We appreciate and encourage security researchers to contact us to report potential vulnerabilities identified in any product, system, or asset belonging to Truist. \r\nIf you believe you have identified a potential security vulnerability, please submit it pursuant to our Responsible Disclosure Program. Thank you in advance for your submission, we appreciate researchers assisting us in our security efforts. Please note, Truist does not operate a public bug bounty program and we make no offer of reward or compensation in exchange for submitting potential issues. \r\n\r\n# Disclosure Policy\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\nResearchers shall disclose potential vulnerabilities in accordance with the following guidelines: \r\n* Do not engage in any activity that can potentially or actually cause harm to Truist, our customers, or our employees. \r\n* Do not engage in any activity that can potentially or actually stop or degrade Truist services or assets. \r\n* Do not engage in any activity that violates (a) federal or state laws or regulations or (b) the laws or regulations of any country where (i) data, assets or systems reside, (ii) data traffic is routed or (iii) the researcher is conducting research activity. \r\n* Do not use automated scanning or testing. \r\n* Do not store, share, compromise or destroy Truist or customer data. If Personally Identifiable Information (PII) is encountered, you should immediately halt your activity, securely delete related data from your system, and immediately contact Truist. This step protects any potentially vulnerable data, and you. \r\n* Do not initiate a fraudulent financial transaction. \r\n\r\nTo participate in our program we ask that you configure your tools accordingly. This will help us best determine that you are a researcher participating in our program and will help reduce they likelihood that you are blocked from our systems.\r\n\r\n(1)\tHTTP Headers:\r\n\r\nInclude a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests.\r\n\r\nIdentifier: Your Username \r\nFormat: X-Bug-Bounty:HackerOne-<username> \r\nExample: X-Bug-Bounty: HackerOne-1337H4x0R\r\n\r\nIdentifier: Tool Identifier \r\nFormat: X-Bug-Bounty:<toolname> \r\nExample: X-Bug-Bounty: BurpSuite\r\n\r\n\r\nProvide Truist reasonable time to fix any reported issue, before such information is shared with a third party or disclosed publicly. \r\n\r\nTruist takes the position that good faith security research to discover and disclose a vulnerability to Truist consistent with these guidelines is an appropriate and legitimate use of Truist's information systems. Once a report is submitted, Truist commits to provide prompt acknowledgement of receipt of all reports and will keep you reasonably informed of the status of any validated vulnerability that you report through this program. \r\n\r\n# Submission Format\r\nWhen reporting a potential vulnerability, please include a detailed summary of the vulnerability, including the target, steps, tools, and artifacts used during discovery (proof of concept scripts or screen captures welcome). \r\n\r\n# Scope\r\nWe have listed the assets in scope for this program, however, if you have found a potential vulnerability (excluding the out-of-scope vulnerabilities listed below) on any product, system or asset you believe belongs to Truist, please submit it through this program as we would like to hear about it. \r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n#### [We have included an exhaustive list. Please delete or edit entries as you see fit, in line with your business risk]\r\n\r\n* Physical Testing \r\n* Social Engineering. For example, attempts to steal cookies, fake login pages to collect credentials \r\n* Phishing \r\n* Denial of service attacks \r\n* Resource Exhaustion Attacks \r\n* Wifi Testing\r\n\r\nPlease also note that Truist employs third-party vendors, and some subdomains may be managed by third parties. When issues reported to the Truist program originate in a different vendor's service, Truist reserves the right to forward submissions to the affected party without further discussion. Please be sure to check our publicly published IP ranges and conduct all necessary due diligence to determine ownership of an asset prior to testing.  \r\n\r\n \r\n\r\nThis Program Policy is subject to change at Truist’s sole discretion. ",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.truist.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Only exception is www.truist.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://developer.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://dias.oneview.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://dias.bank.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Other: Out-of-Scope",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://deposits.digitalcommerce.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://creditcard.digitalcommerce.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://businessdeposits.digitalcommerce.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://lending.digitalcommerce.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://trade.digitalcommerce.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://teammate.digitalcommerce.truist.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "investments.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://new.digitalcommerce.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://oneview.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://developer.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://dias.oneview.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://trade.digitalcommerce.truist.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+ "at": "2026-09-12T05:11:32.780Z",
+ "opportunity": "twilio",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api.twilio.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-powered-by": "AT-5000",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 8e58507d28767baa9bc6994f10da4426.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "tsock.us1.twilio.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.twilio.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 8974e636493f77895a6b6053a608ac34.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31557600"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "twilio.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "awselb/2.0"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "help.twilio.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-5J3S4W6L",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-5J3S4W6L"
+    }
+   ],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 04cb9a524a2f5b52f2abb84002971492.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

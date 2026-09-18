@@ -79,6 +79,13 @@ class Session:
         self.pings = list(items)
         self._append({"t": "ping", "pings": items})
 
+    def set_effort(self, mode: str) -> None:
+        """Persist the current effort tier (fast/standard/reasoning). Stored as one
+        event so /resume restores it exactly - otherwise a reopened session silently
+        falls back to config.DEFAULT_EFFORT and the owner's chosen mode is lost."""
+        self.meta["effort"] = mode
+        self._append({"t": "effort", "mode": mode})
+
     def apply_compact(self, summary: str, kept: List[dict]) -> None:
         self.messages = [{"role": "user", "content": summary}] + list(kept)
         self.last_ctx_used = 0  # unknown until the next stream reports real usage
@@ -161,10 +168,14 @@ class SessionStore:
                     plist = ev.get("pings")
                     if isinstance(plist, list):
                         pings = plist
+                elif t == "effort":
+                    mode = ev.get("mode")
+                    if isinstance(mode, str) and mode:
+                        meta["effort"] = mode
                 elif t == "model":
                     meta["model"] = ev.get("model", meta.get("model"))
         return Session(self, path.stem, path, meta, messages, tot_p, tot_c,
-                       todos=todos, last_ctx_used=last_ctx)
+                       todos=todos, last_ctx_used=last_ctx, pings=pings)
 
     def _find(self, session_id: str) -> Optional[Path]:
         exact = self.root / f"{session_id}.jsonl"

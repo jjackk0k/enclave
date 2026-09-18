@@ -1,0 +1,95 @@
+{
+ "at": "2026-09-12T11:58:24.916Z",
+ "opportunity": "jetblue",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.jetblue.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-5J92P6SM",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-5J92P6SM"
+    }
+   ],
+   "headers": {
+    "x-cache": "MISS, HIT, HIT, MISS",
+    "via": "1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=300"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "book.jetblue.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "x-cache": "HIT",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=300"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "checkin.jetblue.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS, MISS",
+    "via": "1.1 varnish, 1.1 varnish",
+    "strict-transport-security": "max-age=300"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mobile.jetblue.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to mobile.jetblue.com:443 refused: host unreachable"
+  },
+  {
+   "host": "movil.jetblue.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "x-cache": "HIT",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=300"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

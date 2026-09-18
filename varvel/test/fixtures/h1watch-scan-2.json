@@ -1,0 +1,49 @@
+{
+  "_comment": "h1watch recorded-snapshot fixture #2 — the PLAIN shapes (directory as a bare array; program details as plain objects; initech-bounty carries structured_scopes inline with no scopes entry). Changes vs fixture #1 on acme-watch: +app.watch.example.com (in), -203.0.113.0/24 (in), +internal.watch.example.com (EXCLUSION), policy flip prohibited -> human-cadence, bounty table raised. globex-watch is unchanged. initech-bounty is NEW (bountied).",
+  "directory": [
+    { "handle": "acme-watch", "name": "Acme Watch Bounty", "offers_bounties": true },
+    { "handle": "globex-watch", "name": "Globex VDP", "offers_bounties": false },
+    { "handle": "initech-bounty", "name": "Initech Bug Bounty", "offers_bounties": true }
+  ],
+  "programs": {
+    "acme-watch": {
+      "handle": "acme-watch",
+      "name": "Acme Watch Bounty",
+      "offers_bounties": true,
+      "policy": "Acme pledges safe harbor for good-faith research. Automated testing is permitted at a human pace: rate limit — no more than 2 requests per second. Denial of service is prohibited.",
+      "bounty_table": [
+        { "severity": "critical", "bounty": "$7,500 - $20,000" },
+        { "severity": "high", "bounty": "$2,000 - $5,000" }
+      ]
+    },
+    "globex-watch": {
+      "handle": "globex-watch",
+      "name": "Globex VDP",
+      "offers_bounties": false,
+      "policy": "VDP: no bounties are offered; we ask for good-faith testing and prompt reports."
+    },
+    "initech-bounty": {
+      "handle": "initech-bounty",
+      "name": "Initech Bug Bounty",
+      "offers_bounties": true,
+      "policy": "Safe harbor for good-faith research; report promptly and we will work with you.",
+      "bounty_table": [ { "severity": "critical", "bounty": "$1,000" } ],
+      "structured_scopes": [
+        { "asset_identifier": "initech.example", "asset_type": "DOMAIN", "eligible_for_submission": true, "eligible_for_bounty": true },
+        { "asset_identifier": "198.51.100.0/24", "asset_type": "CIDR", "eligible_for_submission": true, "eligible_for_bounty": true }
+      ]
+    }
+  },
+  "scopes": {
+    "acme-watch": [
+      { "asset_identifier": "watch.example.com", "asset_type": "DOMAIN", "eligible_for_submission": true, "eligible_for_bounty": true },
+      { "asset_identifier": "*.api.watch.example.com", "asset_type": "WILDCARD", "eligible_for_submission": true, "eligible_for_bounty": true },
+      { "asset_identifier": "app.watch.example.com", "asset_type": "DOMAIN", "eligible_for_submission": true, "eligible_for_bounty": true, "instruction": "new customer portal" },
+      { "asset_identifier": "status.watch.example.com", "asset_type": "DOMAIN", "eligible_for_submission": false, "instruction": "third-party status page — do not test" },
+      { "asset_identifier": "internal.watch.example.com", "asset_type": "DOMAIN", "eligible_for_submission": false, "instruction": "internal-only — never test" }
+    ],
+    "globex-watch": [
+      { "asset_identifier": "globex.example", "asset_type": "DOMAIN", "eligible_for_submission": true }
+    ]
+  }
+}

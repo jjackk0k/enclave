@@ -1,0 +1,85 @@
+{
+ "at": "2026-09-12T04:33:28.580Z",
+ "opportunity": "robinhood",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "api.robinhood.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 c3d216af46e738d4422328d5f05835e8.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cashier.robinhood.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 fe81b7a56101ab7f8f60c8ec19986806.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000",
+    "x-frame-options": "deny",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "minerva.robinhood.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 1ed109bba2efcfc03bf4c6b8f9bc67e6.cloudfront.net (CloudFront)",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "nummus.robinhood.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "envoy",
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 e457bcb869da0eddc75f07b0f42f8e3e.cloudfront.net (CloudFront)",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "com.robinhood.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.robinhood.android:443 refused: host unreachable"
+  }
+ ]
+}

@@ -1,0 +1,181 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "bitmex",
+      "name": "BitMEX",
+      "offersBounties": true,
+      "assets": [
+        "*.bitmex.com",
+        "1589023233",
+        "All Other BitMEX Assets",
+        "com.bitmex.app.android",
+        "https://play.google.com/store/apps/details?id=com.bitmex.app.android.testnet",
+        "https://testflight.apple.com/join/533gFghn",
+        "testnet.bitmex.com",
+        "www.bitmex.com"
+      ],
+      "exclusions": [
+        "academy.bitmex.com",
+        "affiliates.bitmex.com",
+        "bitmex-org.freshworks.com",
+        "bitmex.freshdesk.com",
+        "blog.bitmex.com",
+        "public-testnet.bitmex.com",
+        "public.bitmex.com",
+        "research.bitmex.com",
+        "status.bitmex.com",
+        "support.bitmex.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\bitmex-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "bitmex",
+  "name": "BitMEX",
+  "url": "https://hackerone.com/bitmex",
+  "policy": "# Disclosure Policy\n\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit, written permission of the account holder that you can provide to BitMEX.\n\n# Program Rules\n\n* Avoid testing on www.bitmex.com; [testnet.bitmex.com](https://testnet.bitmex.com) is typically identical to the production environment, and simplifies testing.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* You must disclose the use of any Artificial Intelligence (AI) or Large Language Models (LLMs), such as ChatGPT, during your vulnerability research.\n  * Reports with fabricated evidence may result in a ban\n  * Generated reports by LLMs indicating non-existent vulnerabilities may result in a ban - if you test with AI be sure to verify before submitting.\n\n### Instructions:\n\n* Hackers will need to register for a BitMEX Testnet account\n* Once the account is created, verify the email associated\n* Login twice - this will automatically KYC approve the account on the second login\n* Start Hacking!\n\n# Exclusions\n\nWhile researching, we'd like to ask you to refrain from engaging in or reporting:\n\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Network disruption of service (DoS) attacks (i.e. connection floods, HTTP GET floods, etc).\n  * App-layer DoS testing is permissible as long as the testing is not load or network based.\n  * As with the rest of the bug bounty program, only test on https://testnet.bitmex.com.\n  * If you have found a probable DoS vector, we encourage proactively reporting it so we can help you evaluate if it is exploitable.\n  * App-layer DoS issues are eligible for up to critical severity, at our discretion based on impact and complexity.\n* DDoS protection bypasses\n* Social engineering (including phishing) of BitMEX staff or contractors.\n* Any physical attempts against BitMEX property or data centers.\n* Bugs in non-standard browsers or browsers not supported by BitMEX.\n* Clickjacking attacks.\n* CSRF issues without a working proof-of-concept in a major, current-version browser.\n* Unauthenticated/logout/login CSRF.\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Missing best practices in SSL/TLS configuration.\n* Missing best practices without a working Proof of Concept.\n* Path disclosure.\n* Missing CSP headers, X-Frame-Options, Content sniffing, HPKP, etc.\n* Content injection or XSS that are mitigated by CSP will be treated as a low-severity issue unless a bypass can be found in the policy in a major, current-version browser.\n  * Bypasses must include a working proof-of-concept to be eligible.\n* Missing email protections, including DKIM and SPF\n* Missing DNS protections, e.g. DNSSEC\n\n# Additional Program Notes\n\n> The user authentication area of the site (login, social login) has recently undergone significant changes. Additional focus on this area is appreciated, given its sensitivity.\n\n* 0-Days will not be rewarded within the first 30 days of release inline to allow for remedial efforts to be undertaken however the first reporter or any report which finds an area we have missed will be rewarded, even if it is within 30 days.\n* Vulnerabilities in software/infrastructure managed by third parties are not eligible for rewards.\n  * This includes 'BitMEX data' found on other platforms: we do not accept reports concerning findings on VirusTotal, the internet archive, random credential dumps found in darknet forums, miscellaneous servers in Shodan that are not part of our infrastructure etc",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "testnet.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "When testing our platform, please use our testing environment at `testnet.bitmex.com` and not `www.bitmex.com`. \n\nAPI Docs: https://testnet.bitmex.com/app/apiOverview",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "blog.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "research.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.bitmex.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "**Do not use automated tools on support.bitmex.com.**",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "status.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "All Other BitMEX Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "All other assets that are provably owned by BitMEX.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "public.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "public-testnet.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bitmex.freshdesk.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bitmex-org.freshworks.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://play.google.com/store/apps/details?id=com.bitmex.app.android.testnet",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please see the instructions under the mobile beta access section of our policy",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://testflight.apple.com/join/533gFghn",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Please see the instructions under the mobile beta access section of our policy",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1589023233",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.bitmex.app.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "academy.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The academy subdomain and its subdomains are deprecated and therefore out of scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "affiliates.bitmex.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

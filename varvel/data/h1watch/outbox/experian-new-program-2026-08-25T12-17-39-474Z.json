@@ -1,0 +1,86 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "experian",
+      "name": "Experian",
+      "offersBounties": false,
+      "assets": [],
+      "exclusions": [
+        "*.accdata.experian.co.uk",
+        "*.smartbusinessreports.com",
+        "bi.experian.ie",
+        "contactorcheck.com",
+        "suppliercheck.com",
+        "www.businesscreditfacts.com",
+        "www.smallbusiness.experian.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\experian-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "experian",
+  "name": "Experian",
+  "url": "https://hackerone.com/experian",
+  "policy": "# Experian Vulnerability Disclosure Program Policy\nMaintaining the security of our networks and applications is a priority at Experian. The security community regularly makes valuable contributions to the security of organizations and Experian recognizes that fostering a close relationship with the community will help improve our own security. So if you have information about a vulnerability in an Experian system or web application, we want to hear from you! Information submitted to Experian under this program will be used for defensive purposes – to mitigate or remediate vulnerabilities in our networks or applications, or the applications of our vendors. As part of this program, you must review, understand, and agree to the following terms and conditions before conducting any testing of Experian networks and before submitting a report. Thank you.\n\n# Note to Researchers\nThe following assets and subdomains within are out-of-scope: SmartBusinessReports.com, ContactorCheck.com, SupplierCheck.com, SmallBusiness.Experian.com, BusinessCreditFacts.com\n\n# Purpose\nThis policy is intended to give security researchers and other participants in the security community clear guidelines under the Experian Vulnerability Disclosure Program for conducting vulnerability discovery activities directed at web properties owned or operated by Experian Inc., its affiliates, or subsidiaries (“Experian”), and submitting discovered vulnerabilities to Experian. Your participation in the program is voluntary and subject to the terms and conditions set forth on this page. By submitting a report, you acknowledge and agree to the terms and conditions contained in this Policy. You also acknowledge that, to the extent they are not inconsistent with this Policy, you are subject to:\n* [HackerOne’s Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines)\n* [Finder Terms and Conditions](https://www.hackerone.com/terms/finder)\n* [General Terms and Conditions](https://www.hackerone.com/terms/general)\n\n# Response Targets\nExperian will make a best effort to meet the following response targets for hackers participating in our program:\n* Time to first response (from report submit): 5 days\n* Time to triage (from report submit): 5 days\n\nWe will investigate reports based on information available and may contact you for further information. Please note that reports marked as triaged are subject to change pending our team’s final analysis. We’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\nAs this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express written consent from the organization.  Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps and submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Make a good faith effort to avoid exfiltration, alteration and/or destruction of data. Please avoid privacy violations and  interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Attack payloads must use professional language only\n* If default credentials are discovered for any service, you must stop and report.\n* Scanning must occur in such a way that allows the researcher to immediately halt scanning if traffic exceeds a reasonable RPM (Requests per Minute) of no more than 50-100\n* Please restrict usage of agentic AI when testing Experian assets\n* Your activities are limited exclusively to testing to detect a vulnerability or identify an indicator related to a vulnerability; or sharing with, or receiving from, Experian information about a vulnerability or an indicator related to a vulnerability.\n* Please do no harm and do not exploit any vulnerability beyond the minimal amount of testing required to prove that a vulnerability exists or to identify an indicator related to a vulnerability.\n* Please avoid intentionally accessing the content of any communications, data, or information transiting or stored on Experian information system(s) – except to the extent that the information is directly related to a vulnerability and the access is necessary to prove that the vulnerability exists. Do not compromise the intellectual property or other commercial or financial interests of any Experian personnel or entities, or any third parties.\n* You do not include any information that may identify an individual other than yourself (such as name, contact information, IP address, or other similar information) in your vulnerability report or any attachments thereto\n * Please avoid submitting a high-volume of low-quality reports.\n\n* If at any point you are uncertain whether to continue testing, please engage with the HackerOne team at [support@hackerone.com](mailto:support@hackerone.com).\n\n#Scope\nAny public-facing system owned, operated, or controlled by Experian, including web applications hosted on those sites. Qualifying vulnerabilities may include cross-site scripting, cross-site request forgery,  authentication or authorization flaws, server-side code execution bugs, and other issues that impact user data or system integrity\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n* Any activity that could lead to the disruption of our service (DoS). This includes brute forcing accounts or password spraying.\n* Pivot attacks from access gained, we expect you to first request permission to perform a pivot via your original vulnerability report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited. Please do not attempt to gain physical access to any of our offices or data centers, or compromise the privacy or safety of Experian personnel or any third parties.\n* DNS/Subdomain takeover, Domain squatting\n* Reflected XSS that uses an external domain (POST-based, Self-inflicted XSS)\n* Missing security headers such as CSP enforcement.\n* Clickjacking\n* HTTP Request smuggling\n* Missing best practices in SSL/TLS configuration.\n* Attacks requiring physical access to a user's device. (MITM attacks permitted if all devices targeted and used are owned by the researcher.)\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Connected third-party services or applications are out of scope, unless specifically stated\n\n# Legal\nYou must comply with [Experian’s Terms of Use](https://www.experian.com/help/terms-and-conditions.html), security industry best practices, and all applicable Federal, State, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program. You agree that any and all information acquired or accessed as part of this exercise is confidential to Experian and you shall hold all such information in strict confidence and shall not copy, reproduce, sell, assign, license, market, transfer or otherwise dispose of, give, or disclose such information to third parties or use such information for any purposes other than for the performance of your work or expressly authorized in writing by Experian.\n\nExperian does not authorize, permit, or otherwise allow (expressly or impliedly) any person, including any individual, group of individuals, consortium, partnership, or any other business or legal entity to engage in any security research or vulnerability or threat disclosure activity that is inconsistent with this policy or the law. If you engage in any activities that are inconsistent with this policy or the law, you may be subject to criminal and/or civil liabilities. To the extent that any security research or vulnerability disclosure activity involves the networks, systems, information, applications, products, or services of a non-Experian entity (e.g., Federal departments or agencies; State, local, or tribal governments; other private sector companies or persons; employees or personnel of any such entities; or any other such third party), that non-Experian third party may independently determine whether to pursue legal action or remedies related to such activities. By submitting a report to Experian, you grant to Experian Inc., its subsidiaries and its affiliates, a perpetual, irrevocable, no charge license to all intellectual property rights licensable by you in or related to the use of information or material submitted. You must notify us if any part of your report is not your own work or is the intellectual property of a third-party.\n\nExperian may modify the terms of this policy or terminate the policy at any time.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\n\nThank you for helping keep Experian and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.smartbusinessreports.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.businesscreditfacts.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.smallbusiness.experian.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "contactorcheck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "suppliercheck.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.accdata.experian.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "bi.experian.ie",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "british_airways_vdp",
+      "name": "British Airways VDP",
+      "offersBounties": false,
+      "assets": [
+        "*.ba.com",
+        "*.britishairways.com",
+        "Security vulnerabilities that are identified in digital properties owned, operated, or controlled by British Airways are considered in scope.",
+        "com.ba.mobile",
+        "com.britishairways.BAFlights",
+        "http://www.britishairways.com/nx",
+        "www.britishairways.com"
+      ],
+      "exclusions": [
+        "Testing is not permitted on internal systems, employee portals, onboard aircraft systems, third-party services, or any assets using external networks or domains not directly owned or controlled by British Airways",
+        "accounts.britishairways.com",
+        "holiday.britishairways.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\british_airways_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "british_airways_vdp",
+  "name": "British Airways VDP",
+  "url": "https://hackerone.com/british_airways_vdp",
+  "policy": "If you believe you’ve discovered a qualifying security vulnerability in a British Airways product, service, or website, please submit a report through HackerOne in accordance with the guidelines below. \n\n# Program Rules\nWhen investigating vulnerabilities, please:\n- Vulnerabilities must only be reported via the **HackerOne platform**. Reports submitted through other channels will not be recognized.\n- Employees, service providers, and individuals in a working relationship with British Airways or any of its subsidiaries are excluded from participating in the program.\n- Do not publicly disclose any details of a vulnerability without **explicit written authorization from British Airways.** Public disclosure is not permitted under this program.\n- Do no harm: do not exploit vulnerabilities beyond the minimal testing required to demonstrate impact or indicator of a vulnerability.\n- Avoid altering or deleting files, changing file permissions, or disrupting services.\n- Do not attempt to exfiltrate any data under any circumstances.\n- If sensitive information or personal data is inadvertently accessed, immediately cease testing and report the finding through HackerOne so that our security team can assist.\n- Use only test accounts that you own or have explicit permission to use.\n- Do not use a vulnerability to pivot into other systems or services.\n- Denial of Service (DoS) testing is not permitted.\n- Social engineering attacks (e.g., phishing, vishing, smishing) are prohibited.\n- Do not conduct physical attacks against British Airways offices, data centers, or related infrastructure.\n- Do not compromise the privacy, safety, intellectual property, or commercial interests of British Airways or third parties.\n- Reports should include a detailed description of your discovery, with clear, reproducible steps or a working proof-of-concept. Reports lacking sufficient detail may not be triaged.\n- Submit **one vulnerability per report**, unless multiple issues must be chained to demonstrate impact.\n- Multiple vulnerabilities caused by a single root issue will be treated as **one report**.\n- When duplicate reports occur, only the **first valid submission** will be triaged.\n- Do not submit a high volume of low-quality reports.\n- **If in doubt at any point, pause testing and contact our security team via HackerOne for clarification.**\n\n\n#Qualifying Vulnerabilities\n\nBritish Airways is particularly interested in reports that demonstrate meaningful security impact. Examples include:\n- Cross-Site Scripting (XSS)\n- Cross-Site Request Forgery (CSRF)\n- Insecure Direct Object References (IDOR)\n- Authentication or Authorization bypasses\n- Injection vulnerabilities (e.g., SQL, LDAP, XML, command)\n- Server-Side Code Execution (RCE)\n- Privilege Escalation\n- Directory Traversal\n- Information Disclosure with real-world impact\n- Security Misconfigurations that expose sensitive data or enable attack scenarios\n- Open Redirects (only where a realistic impact can be demonstrated)\n\n>*British Airways reserves the right to reject submissions that do not meet these criteria or where impact cannot be clearly demonstrated.*\n\n#Non-Qualifying Vulnerabilities\n\nThe following are out of scope and will not be accepted as valid reports:\n- Vulnerabilities disclosed without clear, reproducible steps or a working proof-of-concept\n- Clickjacking or UI redressing attacks without impact\n- Logout CSRF\n- Descriptive error messages, banner disclosures, or stack traces without exploitability\n- Lack of Secure/HTTPOnly cookie flags or missing security headers (unless demonstrably exploitable)\n- Support for outdated SSL/TLS ciphers or common SSL attacks (e.g., BEAST, BREACH)\n- Subdomain takeovers without a full proof-of-concept\n- Content spoofing or text injection without a demonstrated attack vector\n- Vulnerabilities requiring unrealistic user interaction (e.g., user manually pasting in an XSS payload)\n- Flaws in networking protocols, industry standards, or outdated third-party software not controlled by British Airways\n- Issues in code, infrastructure, or services not owned/operated by British Airways\n- Vulnerabilities that require physical access, hardware modification, or device ownership to exploit\n- Reports involving:\n    - Onboard aircraft systems or avionics\n    - Internal corporate systems or employee portals\n    - Third-party services not owned by British Airways\n    - Denial of Service (DoS) attacks\n    - Social engineering of British Airways staff, contractors, or customers\n\n\n#Responsible Disclosure\nBritish Airways supports responsible disclosure and asks that researchers:\n- **Act responsibly and within this policy**, submitting all findings directly to British Airways.\n- **Report vulnerabilities promptly** and provide thorough, actionable details so our security team can assess and address issues quickly.\n- **Uphold integrity and professionalism**, avoiding misleading, coercive, or malicious behavior.\n- **Do not publicly disclose** any vulnerability, indicator, or associated details. Public disclosure is **strictly prohibited under this program** unless explicitly authorized in writing by British Airways.\n- Ensure reports are **clear, detailed, and reproducible**, including proof-of-concept code, screenshots, or other evidence as needed. Reports closed as **Spam, Not Applicable, or Informative** will **not** be approved for disclosure.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.britishairways.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.britishairways.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://www.britishairways.com/nx",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Security vulnerabilities that are identified in digital properties owned, operated, or controlled by British Airways are considered in scope.",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Testing is not permitted on internal systems, employee portals, onboard aircraft systems, third-party services, or any assets using external networks or domains not directly owned or controlled by British Airways",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "accounts.britishairways.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "holiday.britishairways.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.ba.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.britishairways.BAFlights",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.ba.mobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

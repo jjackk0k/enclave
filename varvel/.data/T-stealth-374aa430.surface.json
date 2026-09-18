@@ -1,0 +1,122 @@
+{
+  "scope": {
+    "engagement": "T-stealth",
+    "signedBy": "x",
+    "cidrs": [
+      "127.0.0.0/8"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "root-1",
+      "type": "root",
+      "label": "T-stealth",
+      "sub": "x"
+    },
+    {
+      "id": "host-2",
+      "type": "host",
+      "label": "127.0.0.1",
+      "sub": "",
+      "ip": "127.0.0.1",
+      "sweptAt": "2026-09-17T23:33:09.308Z"
+    },
+    {
+      "id": "tech-3",
+      "type": "tech",
+      "label": "nginx",
+      "sub": "",
+      "name": "nginx"
+    },
+    {
+      "id": "service-4",
+      "type": "service",
+      "label": "http:50349",
+      "sub": "",
+      "port": 50349,
+      "proto": "tcp",
+      "host": "host-2"
+    },
+    {
+      "id": "endpoint-5",
+      "type": "endpoint",
+      "label": "/",
+      "sub": "",
+      "method": "GET"
+    },
+    {
+      "id": "tech-6",
+      "type": "tech",
+      "label": "nginx",
+      "sub": "",
+      "name": "nginx",
+      "version": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "root-1",
+      "to": "host-2",
+      "kind": "recon"
+    },
+    {
+      "from": "host-2",
+      "to": "tech-3",
+      "kind": "runs"
+    },
+    {
+      "from": "host-2",
+      "to": "service-4",
+      "kind": "svc"
+    },
+    {
+      "from": "host-2",
+      "to": "endpoint-5",
+      "kind": "exposes"
+    },
+    {
+      "from": "host-2",
+      "to": "tech-6",
+      "kind": "runs"
+    }
+  ],
+  "holds": [],
+  "phaseLog": [
+    {
+      "phase": "opsec",
+      "summary": "stealth budget: Web content discovery (path brute-force) is loudness 4, above the quiet ceiling of 3 — escalate to HITL to proceed",
+      "at": "2026-09-17T23:33:11.204Z"
+    },
+    {
+      "phase": "opsec",
+      "summary": "watchdog: ceiling-breach",
+      "at": "2026-09-17T23:33:11.204Z"
+    }
+  ],
+  "debunked": [],
+  "counts": {
+    "hosts": 1,
+    "subdomains": 0,
+    "svcs": 1,
+    "endpoints": 1,
+    "tech": 2,
+    "cves": 0,
+    "findings": 0,
+    "confirmed": 0,
+    "crit": 0,
+    "risk": {
+      "high": 0,
+      "medium": 0,
+      "info": 0
+    },
+    "exploits": 0,
+    "creds": 0,
+    "footholds": 0,
+    "routes": 0,
+    "holds": 0
+  },
+  "model": {
+    "nodeTypes": 16,
+    "edgeKinds": 20
+  }
+}

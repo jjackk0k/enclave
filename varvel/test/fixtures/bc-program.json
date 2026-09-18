@@ -1,0 +1,28 @@
+{
+  "program": {
+    "name": "Globex Public Bounty",
+    "handle": "globex",
+    "brief": "Globex rewards good-faith research on its web and network perimeter. Safe harbor applies to testing within the in-scope target groups only.",
+    "target_groups": [
+      {
+        "name": "Website (in scope)",
+        "targets": [
+          { "name": "globex.example", "uri": "https://www.globex.example", "category": "website" },
+          { "name": "10.20.30.0/24", "category": "network" }
+        ]
+      },
+      {
+        "name": "Out of scope",
+        "targets": [
+          { "name": "status.globex.example", "uri": "https://status.globex.example", "category": "website" }
+        ]
+      },
+      {
+        "name": "Mobile",
+        "targets": [
+          { "name": "com.globex.app", "category": "android" }
+        ]
+      }
+    ]
+  }
+}

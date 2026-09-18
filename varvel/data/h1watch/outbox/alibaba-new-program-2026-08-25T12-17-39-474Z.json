@@ -1,0 +1,134 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "alibaba",
+      "name": "Alibaba BBP",
+      "offersBounties": true,
+      "assets": [
+        "*.1688.com",
+        "*.Daraz.com",
+        "*.alibaba-inc.com",
+        "*.alibaba.com",
+        "*.alibabacloud.com",
+        "*.aliexpress.com",
+        "*.aliexpress.ru",
+        "*.alimama.com",
+        "*.aliyun-inc.com",
+        "*.aliyun.com",
+        "*.taobao.com",
+        "*.tmall.com",
+        "www.alibabagroup.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\alibaba-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "alibaba",
+  "name": "Alibaba BBP",
+  "url": "https://hackerone.com/alibaba",
+  "policy": "Alibaba BBP looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nAlibaba BBP will make the best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 2 days |\r\n| Time to Triage | 5 days |\r\n| Time to Bounty | 2 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n* Please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Reward Level\r\nBecause Alibaba has a wide range of business running online, a certain kind of vulnerability may cause different impact on different businesses. To clarify this kind of impact, we have divided our business into 2 levels which are Core Business and Normal Business: \r\n_**Core Business**_: Products and services that related to buyers, sellers, trades and shops on  in-scope domains.\r\n_**Normal Business**_: Products and services that not related to buyers, sellers, trades and shops on  in-scope domains.\r\n\r\nCore business reports will be rewarded by the first line reward standard in the above table, and Normal Business will be rewarded by the second line reward standard.\r\n\r\n**Level 1**\r\n\r\n| Critical | High | Medium | Low\r\n| ------------- | ------------- | ------------- | ------------- | ------------- |\r\n| $2,500 - $3,250 | $1,000 - $1,300 | $100 - $150 | $30 - 50\r\n\r\n**Level 2**\r\n\r\n| Critical | High | Medium | Low\r\n| ------------- | ------------- | ------------- | ------------- | ------------- |\r\n| $1,000 - $1,300 | $400 - $520 | $50 - $80 | $20 - $30\r\n\r\n# Access\r\nResearchers are free to create their own seller, buyer, etc., accounts on the in-scope applications. No credentials or privileged access will be provided by Alibaba, so accounts are limited to what users can create on their own.\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Scope\r\nFor the first stage of Alibaba's Bug Bounty Program, only listed targets are in scope. Other domains/assets owned by Alibaba but not listed, are not in scope and are ineligible for bounty.\r\nYou may submit reports for assets that are previously listed in Alibaba Response Program to the ASRC platform here: https://security.alibaba.com/ We may add those assets gradually in the next program phase. Stay tuned for updates!\r\n\r\n## _Things to note about the Scope_\r\n\r\n**Please note that if an IP belongs to Alibaba Cloud external customer, it's not in scope.**\r\n\r\nIf an IP's description contains 'Alicloud' or 'Aliyun' in the search result here: http://wq.apnic.net/static/search.html, there is a high chance this IP belongs to our external Alibaba Cloud external customer, which is not in scope. But please note that this is only a reference, not a hard and fast rule. If you are not sure and the impact is severe enough, you can submit it, and we will look into your report ASAP.\r\n\r\n**Vulnerabilities in:**\r\n*.anydomain.com|cn/[*/]login.htm *.anydomain.com|cn/[*/]mini[*]login.htm\r\n*.anydomain.com|cn/[*/]icbu[*]login.htm\r\nor patterns like above URLs,\r\nwill consider as only ONE valid report because of the same back-end service. Also, vulnerabilities on different params of the same URL are consider as ONE valid report.\r\nSame vulnerabilities on different country sites are consider as ONE valid report.\r\n\r\n**Aliyuncs.com**\r\nFront-end vulnerabilities on aliyuncs.com is not a 'trust' domain in our business. So the XSS, CSRF, Open Redirection etc. are not in scope. But server-end vulnerabilities are in scope.\r\n\r\n**RCE**\r\nRCE on  non-production environment, such as a cloud server, will no higher than High severity.\r\nRCE on test environment, such as testing webservers, demo sites, etc., will no higher than Medium severity.  (We have many testing severs running online, those server are used only for testing purpose. RCE on those servers dosen't have significant impact.)\r\n\r\n**Stored XSS**\r\nOnly stored XSS (without user interaction) on main shop page, item detail page or chatting page (buyer to Seller) can be High severity, all other kinds of stored XSS will be no higher than Medium severity.\r\n**Please note that following type vulnerabilities severity will not be assessed higher than Medium severity:**\r\nVulnerabilities that requires user visit certain URL or attacker controlled URL, for example:\r\n\r\n* Reflected XSS\r\n* Stored XSS that need to visit certain URL or need a user interaction\r\n* CSRF\r\n* CORS\r\n* Jsonp Hijacking\r\n* OAuth Hijacking\r\n* Privilege Escalation\r\n* Unused or abandoned subdomain takeover\r\n* Arbitrary file upload that only leads to Stored XSS etc.\r\n\r\n**Assessment Guidelines for SSRF Vulnerability Severity**\r\nAlibaba has identified four main types of SSRF for its businesses: \r\n1.SSRF on Production Network Services\r\n2.Blind SSRF on Production Network Services\r\n3.SSRF on Cloud Server\r\n4.Blind SSRF on Cloud Server\r\n\r\nPlease note that the severity of SSRFs may range from low to critical. \r\n\r\n**Open source project of Alibaba**\r\nOpen source project of Alibaba and Aliyun on Github is NOT in this program's scope. If you find any vulnerabilities, you can report it on ASRC: https://security.alibaba.com/ .\r\n\r\n**CSRF in *.alibaba.com is temporarily OUT of scope**\r\nCSRF in *.alibaba.com is temporarily OUT of scope\r\n\r\n\r\n# Out of scope vulnerabilities\r\nThe following finding types are specifically excluded: \r\n* Vulnerabilities affecting users of outdated browsers or platforms\r\n* Account brute force\r\n* Account takeover via CSRF/OAUTH etc.\r\n* CRLF\r\n* Self-XSS\r\n* Flash-based XSS\r\n* Tabnabbing\r\n* Email Spoof\r\n* Session fixation\r\n* Cache Poisoning\r\n* Content Spoofing\r\n* Missing cookie flags\r\n* Best practices/issues\r\n* HTML content injection\r\n* Mixed content warnings\r\n* Clickjacking/UI redressing\r\n* HTTPS/SSL/TLS Related Issues\r\n* Physical or social engineering attacks\r\n* Reflected file download attacks (RFD)\r\n* Issues that require unlikely user interaction\r\n* Login/logout/unauthenticated/low-impact CSRF\r\n* Unverified Results of automated tools or scanners\r\n* No SPF/DMARC in non-email domains/subdomains\r\n* Attacks requiring MITM or physical access to a user's device\r\n* Issues related to networking protocols or industry standards\r\n* Carriage Return Line Feed injection without direct impact (CRLF)\r\n* Error information disclosure that cannot be used to make a direct attack\r\n* Missing security-related HTTP headers which do not lead directly to a vulnerability\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\n# Contacting the team\r\n* Reports: You can communicate with H1 Team and ASRC Team directly under your H1 report.\r\n* Events & Info: ASRC will hold events frequently. See: https://security.alibaba.com/online . You can also follow our [Twitter](https://twitter.com/asrcsecurity) for updates.\r\n\r\nThank you for helping keep Alibaba and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.alibaba.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliexpress.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.taobao.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.tmall.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliyun.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alibabacloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.1688.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "*.alibaba-inc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliyun-inc.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.alibabagroup.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.alimama.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.Daraz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.aliexpress.ru",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

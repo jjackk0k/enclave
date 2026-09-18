@@ -1,0 +1,232 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "gsa_vdp",
+      "name": "U.S. General Services Administration",
+      "offersBounties": false,
+      "assets": [
+        "*.18f.gov",
+        "*.accessibility.gov",
+        "*.acquisition.gov",
+        "*.businessusa.gov",
+        "*.sam.gov",
+        "18f.gov",
+        "accessibility.gov",
+        "acquisition.gov",
+        "businessusa.gov",
+        "buyaccessible.gov",
+        "cao.gov",
+        "cfo.gov",
+        "challenge.gov",
+        "cio.gov",
+        "citizenscience.gov",
+        "cloud.gov",
+        "code.gov",
+        "computersforlearning.gov",
+        "sam.gov",
+        "test.gsa.gov"
+      ],
+      "exclusions": [
+        "*.afadvantage.gov",
+        "cbca.gov",
+        "cfda.gov",
+        "challenges.gov",
+        "connect.gov"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\gsa_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "gsa_vdp",
+  "name": "U.S. General Services Administration",
+  "url": "https://hackerone.com/gsa_vdp",
+  "policy": "GSA Vulnerability Disclosure Policy\r\n\r\nAs a U.S. government agency, the General Services Administration (GSA) takes seriously our responsibility to protect the public's information, including financial and personal information, from unwarranted disclosure.\r\n\r\nSecurity researchers should feel comfortable reporting vulnerabilities discovered, as defined in this policy, to afford GSA the opportunity to remediate the findings for the purpose of ensuring confidentiality, so we can fix them and keep our information safe.\r\n\r\nThis policy describes what systems and types of research are covered under this policy, how to send us vulnerability reports, and how long we ask security researchers to wait before publicly disclosing vulnerabilities.\r\n\r\n**Scope**\r\n\r\nThis policy applies to the systems in the Scope section below.\r\n\r\nAny services not expressly listed above, such as any connected services, are excluded from scope and are not authorized for testing. Additionally, vulnerabilities found in non-federal systems from our vendors fall outside of this policy&#39;s scope and should be reported directly to the vendor according to their disclosure policy (if any). If you aren&#39;t sure whether a system or endpoint is in scope or not, contact HackerOne support before starting your research.\r\n\r\nThe following test types are not authorized:\r\n\r\n- User interface bugs or typos.\r\n- Network denial of service (DoS or DDoS) tests.\r\n- Physical testing (e.g. office access, open doors, tailgating), social engineering (e.g. phishing, vishing), or any other non-technical vulnerability testing.\r\n- Brute Force Attacks against login interfaces\r\n\r\nIf you encounter any of the below on our systems while testing within the scope of this policy, stop your test and notify us immediately. Disclosure of the following may not be made to any third party:\r\n\r\n- Personally identifiable information\r\n- Financial information (e.g. credit card or bank account numbers)\r\n- Proprietary information or trade secrets of companies of any party\r\n\r\n**Guidelines**\r\n\r\nSecurity researchers shall:\r\n\r\n- Make every effort to avoid privacy violations, degradation of user experience, disruption to production systems, and destruction or manipulation of data.\r\n- Only use exploits to the extent necessary to confirm a vulnerability. Do not use an exploit to compromise or exfiltrate data, establish command line access and/or persistence, or use the exploit to &quot;pivot&quot; to other systems. Once you've established that a vulnerability exists, or encountered any of the sensitive data outlined above, you must stop your test and notify us immediately.\r\n- Keep confidential any information about discovered vulnerabilities for up to 90 calendar days after you have notified GSA. For details, please review Coordinated Disclosure.\r\n\r\nGSA is committed to acknowledging receipt of the report within 2 business days via the HackerOne platform.\r\n\r\n**Legal**\r\n\r\nYou must comply with all applicable Federal, State, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program.\r\n\r\nGSA does not authorize, permit, or otherwise allow (expressly or impliedly) any person, including any individual, group of individuals, consortium, partnership, or any other business or legal entity to engage in any security research or vulnerability or threat disclosure activity that is inconsistent with this policy or the law. If you engage in any activities that are inconsistent with this policy or the law, you may be subject to criminal and/or civil liabilities.\r\n\r\nTo the extent that any security research or vulnerability disclosure activity involves the networks, systems, information, applications, products, or services of a non-GSA entity (e.g., other Federal departments or agencies; State, local, or tribal governments; private sector companies or persons; employees or personnel of any such entities; or any other such third party), that non-GSA third party may independently determine whether to pursue legal action or remedies related to such activities.\r\n\r\nIf you conduct your security research and vulnerability disclosure activities in accordance with the restrictions and guidelines set forth in this policy, (1) GSA will not initiate or recommend any law enforcement or civil lawsuits related to such activities, and (2) in the event of any law enforcement or civil action brought by anyone other than GSA, GSA will take steps to make known that your activities were conducted pursuant to and in compliance with this policy.\r\n\r\n**Reporting a Vulnerability**\r\n\r\n_Note: We do not support PGP-encrypted emails. Do not share sensitive information through email. If you believe it is necessary to share sensitive information with us, please indicate as such on the report and GSA will reach out to establish a more secure method._\r\n\r\nReports should include:\r\n\r\n1. Description of the location and potential impact of the vulnerability.\r\n2. A detailed description of the steps required to reproduce the vulnerability. Proof of concept (POC) scripts, screenshots, and screen captures are all helpful. Please use extreme care to properly label and protect any exploit code.\r\n3. Any technical information and related materials we would need to reproduce the issue.\r\n\r\nPlease keep your vulnerability reports current by sending us any new information as it becomes available.\r\n\r\nWe may share your vulnerability reports with [US-CERT](https://www.us-cert.gov/), as well as any affected vendors or open source projects.\r\n\r\n**Coordinated Disclosure**\r\n\r\nGSA is committed to patching vulnerabilities within 90 days or less and disclosing the details of those vulnerabilities when patches are published. We believe that public disclosure of vulnerabilities is an essential part of the vulnerability disclosure process, and that one of the best ways to make software better is to enable everyone to learn from each other's mistakes.\r\n\r\nAt the same time, we believe that disclosure in absence of a readily available patch tends to increase risk rather than reduce it, and so we request that you refrain from sharing your report with others while we work on our patch. If you believe there are others that should be informed of your report before the patch is available, please let us know so we can make arrangements.\r\n\r\nWe may want to coordinate an advisory with you to be published simultaneously with the patch, but you are also welcome to self-disclose if you prefer. By default, we prefer to disclose everything, but we will never publish information about you or our communications with you without your permission. In some cases, we may also have some sensitive information that should be redacted, and so please check with us before self-disclosing.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "sam.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.sam.gov",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "18f.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.18f.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "accessibility.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.accessibility.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "acquisition.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.acquisition.gov",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.afadvantage.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "businessusa.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.businessusa.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "buyaccessible.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "test.gsa.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "This is only for testing hackerone",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cio.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cao.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cbca.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cfda.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cfo.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "challenge.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "challenges.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "citizenscience.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "cloud.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "code.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "computersforlearning.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "connect.gov",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

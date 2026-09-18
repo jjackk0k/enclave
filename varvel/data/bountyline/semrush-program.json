@@ -1,0 +1,125 @@
+{
+  "ok": true,
+  "platform": "generic",
+  "program": {
+    "name": "Semrush",
+    "handle": "semrush",
+    "url": "https://hackerone.com/semrush"
+  },
+  "policy": "Semrush BBP (hackerone.com/semrush), policy fetched 2026-08-26. RULES (law): Test only with your own account(s); no interacting with other accounts. Avoid privacy violations, destruction of data, interruption/degradation of service. Latest-version browsers only for client bugs. REFRAIN FROM: Denial of service; Spamming; Social engineering (incl. phishing) of Semrush staff/contractors; physical attempts. NOT ACCEPTED: CSRF without clear impact; issues in software not under Semrush control; Spam/SE techniques incl. SPF/DMARC/DKIM; SSL/TLS best practices without fully functional PoC; broken links (except employee social accounts - ineligible); bugs with no security risk. UNLIKELY BOUNTY: missing DNSSEC; physical-access attacks; no clear security impact (clickjacking on static site, missing security headers, HTTP methods, cookie flags, descriptive errors); brute force; password policy; CSV-injection/RFD; tabnabbing/window.opener; outdated-browser-only bugs; arbitrary text injection without HTML/JS; self-XSS / extremely-unlikely-action bugs; IDN homograph; Semrush user API-keys/creds from third-party services; third-party software bugs EXCEPT misconfigured 3rd-party services. HEADER: set 'X-hackerone: varvel' in all requests; register test accounts with @wearehackerone.com email. WAF: error 445 = WAF block; can report belief-in-bug with reasoning for whitelist consideration. Automated security scans may trigger reactive measures (account/IP block) — use conservative human-like cadence. REPORTS: 'Scanner output' or scanner-generated reports NOT accepted — every submission must be a manually-validated PoC following their template. Subdomain-takeover reports need screenshot of domain + custom HTTP content (h1 username) proving full takeover. API testing: to test auth issues change API key, not cookies. Employee creds: report compromised EMPLOYEE/service accounts (Low-Med); targeting customer accounts STRICTLY PROHIBITED; no communication with employees. 'Other Semrush Related Asset' scope: only High/Critical accepted there. FIX SLAs: Low 3mo, Medium 1mo, High/Critical ~2wk. Duplicates: first fully-reproducible report wins; one underlying issue = one bounty; bounty splitting allowed; CVSS v3.0 case-by-case; may pay more for unique/hard-to-find or high-quality reports. Disclosure per H1 guidelines; usually full disclosure after redaction. Safe harbor: research per policy = authorized incl. anti-hacking/anti-circumvention laws.",
+  "safeHarbor": null,
+  "rewards": [
+    {
+      "severity": "case-by-case",
+      "bounty": "CVSS v3.0, determined by Semrush security team; bonuses for unique/high-quality"
+    }
+  ],
+  "inScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "investors.semrush.com"
+      },
+      {
+        "asset": "workflows.semrush.com"
+      }
+    ],
+    "wildcards": [
+      {
+        "asset": "*.semrush.com",
+        "suffix": "semrush.com"
+      },
+      {
+        "asset": "*.semrush.net",
+        "suffix": "semrush.net"
+      },
+      {
+        "asset": "*.seoquake.com",
+        "suffix": "seoquake.com"
+      },
+      {
+        "asset": "*.berush.com",
+        "suffix": "berush.com"
+      },
+      {
+        "asset": "*.sellzone.com",
+        "suffix": "sellzone.com"
+      },
+      {
+        "asset": "*.prowly.com",
+        "suffix": "prowly.com"
+      },
+      {
+        "asset": "*.myinsights.io",
+        "suffix": "myinsights.io"
+      },
+      {
+        "asset": "*.scatec.io",
+        "suffix": "scatec.io"
+      },
+      {
+        "asset": "*.seoab.io",
+        "suffix": "seoab.io"
+      }
+    ],
+    "other": [
+      {
+        "asset": "Leaked/Compromised Employee accounts",
+        "note": "asset_type OTHER is not a network asset"
+      },
+      {
+        "asset": "Other Semrush Related Asset",
+        "note": "asset_type OTHER is not a network asset"
+      }
+    ]
+  },
+  "outOfScope": {
+    "cidrs": [],
+    "domains": [
+      {
+        "asset": "advocates.semrush.com"
+      },
+      {
+        "asset": "email.semrush.com"
+      }
+    ],
+    "wildcards": [],
+    "other": []
+  },
+  "engagementScope": "",
+  "signable": false,
+  "overlaps": [
+    {
+      "asset": "investors.semrush.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.semrush.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    },
+    {
+      "asset": "workflows.semrush.com",
+      "direction": "domain also covered by in-scope wildcard",
+      "by": [
+        "*.semrush.com"
+      ],
+      "rule": "kept once (explicit entry wins; no duplicate testing)"
+    }
+  ],
+  "gaps": [
+    "wildcard *.semrush.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "OVERLAP: out-of-scope advocates.semrush.com falls under in-scope wildcard *.semrush.com — advocates.semrush.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "OVERLAP: out-of-scope email.semrush.com falls under in-scope wildcard *.semrush.com — email.semrush.com is EXCLUDED; wildcards are never enumerated, so the operator MUST honor this exclusion by hand",
+    "wildcard *.semrush.net NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.seoquake.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.berush.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.sellzone.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.prowly.com NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.myinsights.io NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.scatec.io NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "wildcard *.seoab.io NOT expanded — offline intake never enumerates subdomains; the signed scope carries no entry for it until the operator resolves and signs concrete /32s+/128s",
+    "2 in-scope domain(s) are NOT in the signed CIDR scope — VARVEL's enforcement is CIDR-based and offline intake never resolves; resolve them (VPN on) and sign the /32s+/128s before any contact",
+    "non-network asset 'Leaked/Compromised Employee accounts' carried as metadata only — not expressible in a CIDR engagement scope (asset_type OTHER is not a network asset)",
+    "non-network asset 'Other Semrush Related Asset' carried as metadata only — not expressible in a CIDR engagement scope (asset_type OTHER is not a network asset)"
+  ]
+}

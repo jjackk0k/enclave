@@ -1,0 +1,103 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "cs_money",
+      "name": "CS Money",
+      "offersBounties": true,
+      "assets": [
+        "3d.cs.money",
+        "blog.cs.money",
+        "cs.money",
+        "support.cs.money",
+        "wiki.cs.money"
+      ],
+      "exclusions": [
+        "CS.Money Antiscam",
+        "grafana.cs.money",
+        "old.cs.money"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "5 request per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\cs_money-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "cs_money",
+  "name": "CS Money",
+  "url": "https://hackerone.com/cs_money",
+  "policy": "No technology is perfect, and CS.MONEY believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly. \r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Exclusions \r\nWhile researching, we'd like to ask you to refrain from: \r\n* Spamming\r\n* Social engineering (including phishing) of CS.MONEY staff or contractors\r\n* Any physical attempts against CS.MONEY property or data centers\r\n* Manipulating CS.MONEY balance on accounts not owned by you\r\n* Withdrawal of unfairly received CS:GO skins from the site\r\n* Stealing and disclosure of CS.MONEY user's private information\r\n* Distributed network/request flooding and another resources exhaustion attacks. Automated scanning tools must be limited to 5 request per second (300 requests per minute) to one target host summing up all tools and threads running in parallel and must not exceed 5 parallel requests at the same time (5 threads).\r\n\r\n# Disclosure Policy \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party. \r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder. \r\n\r\n# Safe Harbor \r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. \r\n\r\nThank you for helping keep CS.MONEY and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[cs.money](https://cs.money/) is our primary web application where users can trade, sell and buy in-game items.\n\n## What to look for:\n* Besides the described scope on our policy tab, please pay attention to anything else that can affect user experience, security and privacy.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "old.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope. This was the old version of our primary web application.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our [web client](https://support.cs.money/) for providing technical support.\n\n## What to look for:\n* Direct access to the client, authentication bypass\n* Vulnerabilities related to user privacy violations\n* Vulnerabilities, directly affecting `cs.money`\n\n#Important information\nIf you are to ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "wiki.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[wiki.cs.money](https://wiki.cs.money/) contains detailed description and characteristics of all CS2 skins as well as a unique 3D viewing system.\n\n## What to look for:\n* Vulnerabilities related to user privacy violations\n* Vulnerabilities directly affecting `cs.money`",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "3d.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "\n[3d.cs.money](https://3d.cs.money/) is a skin model generator.\n\n## What to look for:\n\n* Vulnerabilities related to user privacy violations\n* Vulnerabilities directly affecting `cs.money`\n\n",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "CS.Money Antiscam",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our Google Chrome extension, which protects our users from potential scams. No longer supported and thus out of scope.\n[Chrome Web Store](https://chrome.google.com/webstore/detail/csmoney-antiscam/bocdepodnagbohblgjmooobalmcojkpg)",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "blog.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "By visiting this domain you will be redirected to our blog at [cs.money/blog/](https://cs.money/blog/). This is a web application built on Wordpress. \n\nOut of Scope\nWordPress Core Vulnerabilities\nAny vulnerabilities resulting from bugs or shortcomings in the WordPress core itself (e.g., issues with ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "grafana.cs.money",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of scope. This is our instance of Grafana.",
+      "max_severity": "none"
+    }
+  ]
+}

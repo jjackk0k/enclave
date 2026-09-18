@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "vodafone",
+      "name": "Vodafone",
+      "offersBounties": false,
+      "assets": [
+        "*.ayudavodafone.es",
+        "*.lowi.es",
+        "*.m-pesa.co.tz",
+        "*.upc.hu",
+        "*.vantagetowers.com",
+        "*.vcol.co.uk",
+        "*.vfpt.pt",
+        "*.vodacom.co.ls",
+        "*.vodafone.co.uk",
+        "*.vodafone.com",
+        "*.vodafone.com.tr",
+        "*.vodafone.es",
+        "*.vodafone.ie",
+        "*.vodafone.pt",
+        "*.vodafone.ro",
+        "*.vodafoneaws.co.uk",
+        "*.vodafoneempresa.es",
+        "*.vodafoneinnovus.com",
+        "*.voxi.co.uk",
+        "Vodafone Assets"
+      ],
+      "exclusions": [
+        "https://net-x-x-x-x.cust.dsl.vodafone.it",
+        "https://smart.vodafone.com.eg/",
+        "https://voxxxxxxxx.mynet.vodafone.it/",
+        "https://vpn4.vodafone-us.com",
+        "prg-x-xxx.static.adsl.vodafone.cz"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\vodafone-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "vodafone",
+  "name": "Vodafone",
+  "url": "https://hackerone.com/vodafone",
+  "policy": "#Overview\nVodafone is a telecommunications company who provide internet services for businesses and consumers in a number of regions. Due to the nature of our business, there are many Autonomous System (AS) Numbers and IP address ranges that are registered to us with the various Regional Internet Registries.\n\nAs an internet service provider, we assign these IP addresses to our customers, who use them for many different purposes and without any input or interaction from Vodafone. If you are scanning public IP address ranges and identify vulnerabilities on assets that, when searched on common IP look-up tools, state they are Vodafone, please take additional steps to validate that the services you have identified are actually owned and administered by Vodafone before reporting to us.\n\nTo summarise, not everything that has “vodafone” in its FQDN actually belongs to us or is within our scope. If you discover vulnerabilities in services hosted by Vodafone but owned by third parties, please report them to the application's owner. Please note that in this situation, no permission to test has been granted by Vodafone or any of its subsidiaries.\n\n#Vodafone-Specific Requirements\n###HTTP Headers:\n- To help us distinguish legitimate security research from malicious traffic, please add the following custom HTTP header to all your requests: X-HackerOne-Research: [H1 Username]\n\n###Asset Validation:\n- Validate that the service you are reporting against is actually owned by Vodafone, and is not just running on an IP address within our customer-assigned IP address pools – for example, visit the service on an HTTP port and verify whether it is a Vodafone-owned website.\n\n###Reporting Requirements:\n- Submit reports in English\n- Provide sufficient proof-of-concept to enable reproduction and verification of the vulnerability\n\n###General Disclosure:\n- This program follows HackerOne's standard disclosure guidelines. All vulnerabilities are strictly confidential, therefore public disclosure of your findings via a blog post, social media, or any other type of medium is not allowed.\n\n###Vodafone Commitments:\n- We treat all submitted reports confidentially and will not share the researcher personal details with third parties without authorisation, except when required by legal obligations.\n- We will resolve all submitted reports as quickly as possible.\n\n##Reporting other non-vulnerability issues\nIf you want to report any other issue not related to security, please refer to the support or contact pages of the relevant Vodafone Local Market, Vodafone Partner Market, or Vodafone Business website.",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://net-x-x-x-x.cust.dsl.vodafone.it",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://voxxxxxxxx.mynet.vodafone.it/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "prg-x-xxx.static.adsl.vodafone.cz",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://vpn4.vodafone-us.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://smart.vodafone.com.eg/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Vodafone Assets",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafoneinnovus.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.voxi.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vcol.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafoneaws.co.uk",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vantagetowers.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.ie",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.ro",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.lowi.es",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.es",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafoneempresa.es",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.ayudavodafone.es",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.upc.hu",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.pt",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vfpt.pt",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodacom.co.ls",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.vodafone.com.tr",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.m-pesa.co.tz",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

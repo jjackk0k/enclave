@@ -1,0 +1,143 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "wickr",
+      "name": "Wickr",
+      "offersBounties": true,
+      "assets": [
+        "Wickr Me Android",
+        "Wickr Me Linux",
+        "Wickr Me OS X",
+        "Wickr Me Windows",
+        "Wickr Me iOS",
+        "Wickr Pro Android",
+        "Wickr Pro Linux",
+        "Wickr Pro OS X",
+        "Wickr Pro Windows",
+        "Wickr Pro iOS",
+        "Wickr Pro/Wickr Me (all related technical components) (up to)",
+        "admin.wickr.com",
+        "www.wickr.com"
+      ],
+      "exclusions": [
+        "support.wickr.com"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "5 requests per second"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\wickr-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "wickr",
+  "name": "Wickr",
+  "url": "https://hackerone.com/wickr",
+  "policy": "#Wickr Public Bug Bounty Scope\r\n\r\nThe Wickr Bug Bounty Program is designed to encourage responsible security research focused on Wickr software. It is impossible to overstate the importance of the role the security research community plays in ensuring modern software remains secure. Hunters, academics, security engineers and evangelists have been responsible for some of the most cutting-edge, eye-opening security revelations to date. Their work speeds the pace of advancing security to the benefit of all. Through this program and partnerships with InfoSec organizations, we pledge to continuously improve the security and usability of our network, keeping Wickr as one of the most trusted messaging platforms in the world.\r\n\r\n\r\n##Program Rules\r\n\r\n###General\r\n* The scope of this program is limited to technical security vulnerabilities in Wickr software.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Do not attempt to conduct post-exploitation, including modification or destruction of data, and interruption or degradation of Wickr services\r\n* Under no circumstances should your testing affect the availability of Wickr services, disrupt or compromise any data that is not your own, or violate any law or our [Terms of Service](https://www.wickr.com/terms/).\r\n\r\n###Accounts\r\n* Only interact with accounts you own or granted by the program team.\r\n* Please do NOT test with or otherwise target common Wickr email aliases (support@, sales@, info@, etc...) due to the risk of disruption to those accounts. \r\n\r\n###Tooling\r\n* Scanners must be configured to not send more than **5 requests per second** to any particular asset. If this restriction is severely detrimental to your testing, then please reach out for an exception.\r\n* Please DO help us identify test networks by using email addresses and network names that begin or end with \"H1\". \r\n* Additionally, include a user-agent string in all requests, where applicable, in this format:  ``wickrvrpresearcher_yourh1username``\r\n* Please do not use 3rd party sites when doing testing (for instance, <yourdomains>@xss (https://hackerone.com/xss).ht) - we understand the use case (and value of this testing), but ask that when doing blind XSS (or any) testing, that you only utilize assets that you explicitly own (and control) yourself. While we support blind XSS (SSRF, etc.) testing, please make sure that all of it goes through domains on you have control over. Thanks!\r\n\r\n##Eligibility & Disclosure Policy\r\n\r\n* Thank you for joining us in supporting ethical and responsible disclosure. By participating in this program, you agree not to share publicly or privately any details or descriptions of your findings with any party without explicit authorization from Wickr. \r\n* Let us know as soon as possible upon discovery of a potential security issue, and we’ll make every effort to quickly resolve the issue.\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n\r\n##Rewards\r\n\r\nOur rewards are based on the impact of a vulnerability. Scores below are in CVSS. Please note these are general guidelines and examples, and that reward decisions are up to the discretion of Wickr. **A bounty of $100,000 may be awarded for attacks that compromise the integrity or confidentiality of user messages.** Novel solutions to reported security issues are also concerned when determining reward amounts. Reports resolved by a singular fix will be grouped and rewarded within a singular submission. \r\n\r\nNote that we have designed our products around the concept of defense in depth and an untrusted server. This means that some vulnerabilities that might be high or critical at other companies have a lower severity at Wickr because the result is mitigated by compensating security controls. We take all flaws seriously, but for higher payouts, the report must demonstrate direct impact to Wickr’s secure messaging. Reports for attacks that target our administrative console or those that would only realistically impact the availability of services may receive lower severity ratings and rewards.   \r\n\r\n\r\n##Out of scope vulnerabilities\r\n\r\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n \r\n\r\n* Clickjacking on pages with no sensitive actions.\r\n* Unauthenticated/logout/login CSRF.\r\n* Missing SPF/DKIM/DMARC records.\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Vulnerabilities that rely on deprecated client/browser versions. \r\n* Security issues on test environments without direct customer or service impact. \r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Lack of client logout option in SSO mode\r\n* Zero-Days or CVE’s disclosed publicly within the past 30 day\r\n    \r\n\r\n***Operational Security Issues:***\r\nThe goal of this program is to improve the security of our services for customers. While we understand that \"Operational Security\" (OpSec) issues are important, we will not be rewarding for these types of submissions. OpSec issues include leaked employee passwords, leaked business documents, etc. These submissions will only receive reputation points and/or swag.\r\n\r\n##Restrictions\r\n\r\nTo be eligible for the program, you must not:\r\n\r\n\r\n* Be a resident of, or make your submission from, a country against which the United States has issued export sanctions or other trade restrictions (e.g., Cuba, Iran, North Korea, Sudan and Syria);\r\n* Be employed by Amazon, Wickr, Inc. or any subsidiaries of Amazon.\r\n* Be an immediate family member of a person employed by Amazon, Wickr, Inc. or any subsidiaries of Amazon.\r\n\r\n\r\n##Legal Safe Harbor\r\n\r\nWickr believes that security research performed in good-faith should be provided safe-harbor. We have adopted *[Disclose.io’s Core Terms](https://disclose.io/)*, subject to the conditions defined within this program policy, and we look forward to working with security researchers who share our passion for protecting our customers.\r\n\r\nWickr commits to timely remediation of your findings, and prompt response to relevant questions.\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Wickr Pro/Wickr Me (all related technical components) (up to)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.wickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.wickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "admin.wickr.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Pro Android",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Pro iOS",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Pro Linux",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Me iOS",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Me Android",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Me Linux",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Me OS X",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Pro OS X",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Pro Windows",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Wickr Me Windows",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

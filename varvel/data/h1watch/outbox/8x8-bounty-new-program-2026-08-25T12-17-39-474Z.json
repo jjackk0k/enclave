@@ -1,0 +1,246 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "8x8-bounty",
+      "name": "8x8",
+      "offersBounties": true,
+      "assets": [
+        "*.8x8.vc",
+        "*.8x8staging.com",
+        "*.chalet.8x8.com",
+        "*.jit.si",
+        "*.jitsi.net",
+        "connect.8x8.com",
+        "https://github.com/jitsi",
+        "org.vom8x8.sipua",
+        "platform.8x8.com",
+        "platform.8x8pilot.com",
+        "sso.8x8.com",
+        "sso.8x8pilot.com",
+        "uc.8x8pilot.com",
+        "user-profile-staging.8x8.com",
+        "user-profile.8x8.com",
+        "vcc-*.8x8.com",
+        "voapi.8x8.com",
+        "work-staging.8x8.com",
+        "work.8x8.com"
+      ],
+      "exclusions": [
+        "com.spot8x8.spot",
+        "express.8x8.com",
+        "http://*.callstats.io",
+        "org.jitsi.meet",
+        "support.8x8.com",
+        "www.8x8.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\8x8-bounty-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "8x8-bounty",
+  "name": "8x8",
+  "url": "https://hackerone.com/8x8-bounty",
+  "policy": "At 8x8, we help companies get their employees, customers and applications talking to make people more connected and productive no matter where they are in the world. At 8x8 we value security and recognize the importance of ensuring the integrity and confidentiality of global communications.\n\n## &nbsp;  8x8 Product Scope\n\n| **8x8 Work** | All your essential business communications brought together in one simple app. | \n| ------------ | -------------------|\n⚠️ Testing accounts or credentials are not being provided at this time.\n⚠️ Product Assets:\n* Web App: https://work.8x8.com/\n* 8x8 Work for Desktop: https://support-portal.8x8.com/helpcenter/viewArticle.html?d=8bff4970-6fbf-4daf-842d-8ae9b533153d\n* iOS App: https://apps.apple.com/us/app/8x8-work/id348177448\n* Android App: https://play.google.com/store/apps/details?id=org.vom8x8.sipua\n\n\n| **8x8 Virtual Contact Center** | A complete, secure cloud contact center solution that makes it easy to collaborate with agents and improve customer experiences. | \n| ------------ | -------------------|\n⚠️ Testing accounts or credentials are not being provided at this time. \n⚠️ We will accept one unique report for the application across all related domains as assumed single fix unless proven otherwise.\n⚠️ Latest version of software usually available on https://vcc-na30.8x8.com/\n⚠️ Product Assets:\n* Configuration Manager: vcc-*.8x8.com/CM/\n* 8x8 Agent Workspace: vcc-*.8x8.com/AGUI/\n* 8x8 Quality Management: vcc-*.8x8.com/QM/\n* 8x8 Supervisor Workspace: https://superx.8x8.com/\n* 8x8 Analytics for Contact Center: analytics-*.8x8.com\n\n⚠️  Additional Testing Information regarding \"Contact Center Agent Workspace\":\n* For the application to work properly behind a Proxy (e.g. BURP), an exception has to be added for `jabbind3.php`\n  * Proxy settings\n  * Search \"streaming\"\n  * Add `https://vcc-na1.8x8.com/agui/jabbind3.php` (e.g.) as \"Streaming responses\"\n  * {F3427433}\n\n| **Jitsi** | Jitsi is a world class open source video meeting solution. We strive to make a flexible and secure video meetings platform with the option of **end-to-end encryption (beta)**. | \n| ------------ | -------------------|\n⚠️ Have a feature request or bug not related to security? Let us know or contribute yourself: https://github.com/jitsi/\n⚠️ Product Assets:\n* Infrastructure: *.jitsi.net\n* Infrastructure: *.jit.si\n* Source Code: https://github.com/jitsi\n\nOpen source repositories that support [Jitsi](https://github.com/jitsi/).\nJitsi Meet offers free, secure and open-source video conferencing.\n⚠️ Good faith review of source that a reporter must have no association with the existence of the vulnerability in question.\n\n**Proof of Concept Requirements:**\n⚠️ Vulnerability submissions must include practical exploitation demonstrations on one of the following environments\n▶︎ The public Jitsi Meet instance ([meet.jit.si](https://meet.jit.si/))\n▶︎ 8x8 Video Meetings platform ([8x8.vc](https://8x8.vc/))\n▶︎ A self-hosted Jitsi deployment\n\n⚠️ For E2EE submissions please consult the [Jitsi End-to-End Encryption Whitepaper](https://jitsi.org/e2ee-whitepaper/) to better understand the implemented Threat Model.\n\n**Code Review Reports:**\n⚠️ Code-only vulnerabilities without proof of exploitation in production environments will typically be assessed at a lower severity level\n⚠️ Vulnerabilities requiring local access to exploit will be assessed at a lower severity level (unless exceptional circumstances exist)\n⚠️ Vulnerabilities exploitable only with development configurations (e.g., `BYPASS_AUTHORIZATION=1`) will be assessed at a lower severity level\n\n**Out of Scope:**\n▶︎ Not actively maintained or archived repositories\n▶︎ Experimental repositories\n▶︎ Reports for repositories that are forked should be submitted upstream, unless the report also affects one of our in-scope repos\n▶︎ [github.com/jitsi/jitsi-call-analytics](https://github.com/jitsi/jitsi-call-analytics)\n▶︎ [github.com/jitsi/jitsi](https://github.com/jitsi/jitsi/)\n[Jitsi Desktop](https://github.com/jitsi/jitsi/) is the heritage of [Jitsi Meet](https://github.com/jitsi/jitsi-meet). While some components are still used in e.g.  Jigasi, the project is not actively developed anymore. Improvements, bugfixes and builds are entirely based on community contributions\n▶︎ [.github](https://github.com/jitsi/.github)\n▶︎ [cla-enforcer](https://github.com/jitsi/cla-enforcer)\n▶︎ [eslint-config-jitsi](https://github.com/jitsi/eslint-config-jitsi)\n▶︎ [excalidraw](https://github.com/jitsi/excalidraw)\n▶︎ [excalidraw-backend](https://github.com/jitsi/excalidraw-backend)\n▶︎ [felix](https://github.com/jitsi/felix)\n▶︎ [fmj](https://github.com/jitsi/fmj)\n▶︎ [go-offline-maven-plugin](https://github.com/jitsi/go-offline-maven-plugin)\n▶︎ [growl4j](https://github.com/jitsi/growl4j)\n▶︎ [gsoc-ideas](https://github.com/jitsi/gsoc-ideas)\n▶︎ [irc-api](https://github.com/jitsi/irc-api)\n▶︎ [jebml](https://github.com/jitsi/jebml)\n▶︎ [jitsi-desktop-site](https://github.com/jitsi/jitsi-desktop-site)\n▶︎ [jitsi-maven-repository](https://github.com/jitsi/jitsi-maven-repository)\n▶︎ [jitsi-meet-file-sharing-service](https://github.com/jitsi/jitsi-meet-file-sharing-service)\n▶︎ [jitsi-meet-load-test](https://github.com/jitsi/jitsi-meet-load-test)\n▶︎ [jitsi-meet-logger](https://github.com/jitsi/jitsi-meet-logger)\n▶︎ [jitsi-meet-react-sdk](https://github.com/jitsi/jitsi-meet-react-sdk)\n▶︎ [jitsi-meet-release-notes](https://github.com/jitsi/jitsi-meet-release-notes)\n▶︎ [jitsi-meet-torture](https://github.com/jitsi/jitsi-meet-torture)\n▶︎ [jitsi-pseudotcp](https://github.com/jitsi/jitsi-pseudotcp)\n▶︎ [jitsi-test-lab](https://github.com/jitsi/jitsi-test-lab)\n▶︎ [jitsi-videobridge-openfire-plugin](https://github.com/jitsi/jitsi-videobridge-openfire-plugin)\n▶︎ [jiwer](https://github.com/jitsi/jiwer)\n▶︎ [jsocks](https://github.com/jitsi/jsocks)\n▶︎ [jvb-dashboard](https://github.com/jitsi/jvb-dashboard)\n▶︎ [jxs](https://github.com/jitsi/jxs)\n▶︎ [otr4j](https://github.com/jitsi/otr4j)\n▶︎ [portaudio](https://github.com/jitsi/portaudio)\n▶︎ [security-advisories](https://github.com/jitsi/security-advisories)\n▶︎ [Smack](https://github.com/jitsi/Smack)\n▶︎ [testrtc](https://github.com/jitsi/testrtc)\n▶︎ [winrt-libs](https://github.com/jitsi/winrt-libs)\n▶︎ [zrtp4j](https://github.com/jitsi/zrtp4j)\n\n| **8x8 Video Conferencing** | The best video conferencing solution for businesses of any size. Fully secure, reliable, packed with features and ridiculously simple to use. |\n| ------------ | -------------------|\n⚠️ Testing accounts or credentials are not being provided at this time.\n⚠️ Product Assets:\n* Web App: https://8x8.vc/\n\n\n| **Jitsi as a Service** | World's easiest way to add video meetings to your apps. \n| ------------ | -------------------|\n⚠️ Self Sign-up is available: https://jaas.8x8.vc/\n⚠️ [JaaS developer portal](https://developer.8x8.com/jaas/docs/jaas-onboarding) \n\n|** 8x8 Connect** | A multi-channel communication platform designed for businesses who want to work smart, not hard. | \n| ------------ | -------------------|\n⚠️ Self Sign-up is available: https://connect.8x8.com/\n⚠️ [8x8 CPaaS developer portal](https://developer.8x8.com/connect) \n⚠️ Product Assets:\n* Web App:  https://connect.8x8.com/\n* 8x8 Communication APIs: sms.8x8.com, sms.8x8.uk, sms.8x8.id, sms.us.8x8.com, chatapps.8x8.com, …\n\n----\n&nbsp;  \n\n## &nbsp;  If You See Something, Say Something\nWe welcome and encourage any submissions that help identify potential security vulnerabilities or exposures affecting our organization. Vulnerabilities disclosed under Responsible Disclosure assets will not be eligible for bounties.\n\n### &nbsp; 8x8 IP Ranges & Domains\nhttps://support-portal.8x8.com/viewArticle.html?d=76af47f6-a987-4c2a-a0a2-53d87a79023d&q=x-series-technical-requirements&hl=en\n \n### &nbsp; 8x8 subsidiaries and acquisitions\n* Callroute (2026)\n* Maven Lab (2026)\n* In2Tel (2025)\n* Fuze (2022)\n* Wavecell (2019)\n* Jitsi (2018)\n* Quality Software Corp. (QSC) (2015)\n* MarianaIQ (2015)\n* DXI (2015)\n* Voicenet (2013)\n* Contactual (2011)\n\n----\n&nbsp;  \n\n## Response Targets\n8x8 will make a best effort to meet the following response targets for hackers participating in our program:\n\n* Time to first response (from report submit) - 1 business days\n* Time to triage (from report submit) - 2 business days\n\n## Disclosure Policy \n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. \n* Please do not discuss vulnerabilities outside of the program without proper coordination and express consent from 8x8.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.\n* Only interact with accounts you own or with explicit permission of the account holder. Please notify us immediately if you encounter exposure of information.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n## Scope Exclusions\n\n### Testing Conduct\nPlease do not:\n* Conduct automated or high-volume testing without prior coordination\n* Perform any activity that could disrupt our service (DoS/DDoS)\n* Send spam or unsolicited communications\n* Engage in social engineering or phishing of 8x8 staff or contractors\n* Make physical attempts against 8x8 property or data centers\n\n### Mobile-Specific Exclusions\n* Findings requiring a malicious or attacker-controlled application installed on the victim's device\n* Same-device cross-application attacks via Android intents, activities, services, broadcast receivers, content providers, IPC mechanisms, overlays, or accessibility features\n* Task hijacking (StrandHogg) vulnerabilities\n* Insecure data storage on rooted or jailbroken devices\n* Issues requiring local code execution in the context of another application\n\n### Common Low-Impact Issues\n* Missing security headers (HSTS, CSP, SPF, DMARC, X-Frame-Options, etc.)\n* Missing cookie flags (Secure, HttpOnly, SameSite) without demonstrated exploit\n* SSL/TLS configuration issues (weak ciphers, key size, deprecated protocols, BEAST, CRIME)\n* Software version disclosure, banner identification, or descriptive error messages\n* Clickjacking on non-sensitive pages\n* Self-XSS without further security impact\n* CSRF on unauthenticated forms or forms with no sensitive action\n* CSV injection without demonstrated impact\n* Tab-nabbing\n\n### Authentication & Access Control\n* Credential stuffing attacks (users are responsible for password uniqueness and enabling MFA)\n* Rate limiting or brute force issues without demonstrated account compromise\n* Issues requiring MITM or physical access to a user's device\n\n### Dependencies & Browsers\n* Vulnerable libraries or dependencies without a demonstrated Proof of Concept showing exploitability in our application context\n* Issues only affecting outdated browsers (more than 2 stable versions behind current release)\n\n### Disclosure Timing\n* Public zero-day vulnerabilities patched less than 1 month ago (evaluated case-by-case)\n\n### Scanner Findings\n* Low-severity issues reported by automated scanners without demonstrated security impact or exploitation path\n\n### Target Specific Scope Exclusion - connect.8x8.com\n1. IDORs having unguessable/non-enumerable identifier are out of scope\n    - IDORs in form of an UUID\n    - IDORs based on `AccountId` and `subAccountId`\n2. When testing support functionality please add \"HackerOne\" in your subject line and limit the number of requests to an absolute minimum.\n\n## Testing Identification\n* Please utilize your [username]@wearehackerone.com alias when submitting information within the applications.\n* To help us identify and classify researcher traffic, 8x8 requests you to include your HackerOne username value to each and every HTTP request made by yourself or any tooling you use. Please use the following format appended to `User-Agent`:\n`X-HackerOne: [H1 username]`\n\n## Safe Harbor \nThe [Gold Standard Safe Harbor](https://hackerone.com/8x8-bounty/safe_harbor) applies.\n\n## What other researchers are saying …\n* > *Lightning fast as always, wish all programs were like this!*\n* > *8x8 is the best bug bounty program on HackerOne by far.*\n* > *Best Program Team!*\n* > *Thank you for being one of the fastest response triager as well as super transparent, someone that works with hackers just like a collaboration.*\n* > *That was the fastest triage ever I think.*\n* > *This is the fastest program to date. Not only is the response time is insane, but also the way your security team works with researchers is awesome. Totally love the fact that you guys are putting security as your top priority.*\n* > *The fastest response I've seen in hackerone history, also on the weekend*\n* > *That must be been the fastest fix I've ever seen! <24h from report to remediation, love to see it.*\n\n\n**Thank you for helping keep 8x8 and our users safe!**\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.8x8.vc",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Professional Meetings and Jitsi as a Service. At this time 8x8  does not provide credentials and researchers are responsible for any fees occurred if signing up for the service.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.jit.si",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Jitsi is a set of open-source projects that allows you to easily build and deploy secure videoconferencing solutions. We are best known for our Jitsi Meet video conferencing platform, [meet.jit.si](https://meet.jit.si/) where we host a Jitsi Meet instance that the community can use for totally free ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/jitsi",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Open source repositories that support [Jitsi](https://github.com/jitsi/).\nJitsi Meet offers free, secure and open-source video conferencing.\n⚠️ Good faith review of source that a reporter must have no association with the existence of the vulnerability in question.\n\n**Proof of Concept Requirements:*",
+      "max_severity": "low"
+    },
+    {
+      "asset_identifier": "*.jitsi.net",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Jitsi is a set of open-source projects that allows you to easily build and deploy secure videoconferencing solutions. We are best known for our Jitsi Meet video conferencing platform.\n\n**Out of Scope:**\n⚠️ Application logic bugs or non-production features in [alpha.jitsi.net](https://alpha.jitsi.net",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.spot8x8.spot",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "8x8 Spaces - https://play.google.com/store/apps/details?id=com.spot8x8.spot",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://*.callstats.io",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Sold to Spearline. No longer owned by 8x8.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "connect.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "⚠️ **Temporary Scope Exclusion**: campaign.wavecell.com, contacts.8x8.com (and equivalents in other regions)\n---\n⚠️ out of scope: IDORs in form of unguessable/non-enumerable identifier (UUID)\n⚠️ out of scope: IDORs based on `AccountId` and `subAccountId`\n⚠️ when testing support functionality please ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "org.jitsi.meet",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "https://play.google.com/store/apps/details?id=org.jitsi.meet\n\nWhile some components are still used in e.g. Jigasi, the project is not actively developed anymore. Improvements, bugfixes and builds are entirely based on community contributions.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "platform.8x8pilot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "uc.8x8pilot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sso.8x8pilot.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "8x8 Single Sign-On (SSO) is a session and user authentication service that permits a user to use one set of login credentials, such as name and password, to access multiple 8x8 applications.\n⚠️ MFA-bypasses requiring prior knowledge of credentials will be treated with `MEDIUM` severity.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "work-staging.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "user-profile-staging.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.8x8staging.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "sso.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "8x8 Single Sign-On (SSO) is a session and user authentication service that permits a user to use one set of login credentials, such as name and password, to access multiple 8x8 applications.\n⚠️ MFA-bypasses requiring prior knowledge of credentials will be treated with `MEDIUM` severity.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "platform.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "www.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.chalet.8x8.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "8x8 Chat provides comprehensive team messaging capabilities including 1:1 instant messaging, public and private chat rooms, file sharing, and seamless integration with voice and video calling - all designed to streamline team communications and collaboration within organizations.\n\n**Out of Scope**:\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "work.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "8x8 Work for Web, the browser-based counterpart of 8x8 Work for Desktop, enables you to collaborate efficiently with your colleagues and business contacts.\n\n⚠️ 8x8 does not provide test credentials.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "express.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "user-profile.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "vcc-*.8x8.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "► Contact Center Agent Workspace:\n`./AGUI/login.php`\n► Configuration Manager:\n`./CM/login.php`\n\n⚠️ Latest version of software usually available on https://vcc-na30.8x8.com/\n⚠️ shareable Wallboard links are out of scope\n⚠️ Third-party websites implementing 8x8 chat solutions (outside of `*.8x8.com` d",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "org.vom8x8.sipua",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "8x8 Work - https://play.google.com/store/apps/details?id=org.vom8x8.sipua",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "voapi.8x8.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "VOAPI is a backend application responsible to process phone calls (like InboundCall, OutboundCall, Click2Dial, CallTransfer, CallMerge, Start/Stop CallRecording).\n\n▶︎ AU Region: voapi-au.8x8.com\n▶︎ UK Region: voapi-uk.8x8.com",
+      "max_severity": "critical"
+    }
+  ]
+}

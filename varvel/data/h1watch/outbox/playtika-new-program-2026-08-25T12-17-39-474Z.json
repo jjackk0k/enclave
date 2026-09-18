@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "playtika",
+      "name": "Playtika",
+      "offersBounties": true,
+      "assets": [
+        "*.bingoblitz.com",
+        "*.boardkingsgame.com",
+        "*.caesarsgames.com",
+        "*.houseoffun.com",
+        "*.playtika.com",
+        "*.playwsop.com",
+        "*.serious.li",
+        "*.slotomania.com",
+        "1116488672",
+        "447553564",
+        "529996768",
+        "586634331",
+        "603097018",
+        "654671575",
+        "719525810",
+        "868013618",
+        "air.com.buffalo_studios.newflashbingo",
+        "air.com.playtika.slotomania",
+        "com.Seriously.BestFiends",
+        "com.jellybtn.boardkings",
+        "com.jellybtn.cashkingmobile",
+        "com.pacificinteractive.HouseOfFun",
+        "com.playtika.caesarscasino",
+        "com.playtika.wsop.gp",
+        "gnocchi-www.buffalo-ggn.net"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "policy-text",
+        "evidence": "Do not use any testing tools or scanners"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\playtika-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "playtika",
+  "name": "Playtika",
+  "url": "https://hackerone.com/playtika",
+  "policy": "Playtika is a leading mobile gaming company with over 34 million monthly active users across a portfolio of games titles.\n\nPlaytika Ltd. and all of its affiliate companies (together, “**Playtika**”) look forward to working in collaboration with the security community to find security vulnerabilities in order to keep our businesses and customers safe.\n\nWith that in mind, we invite you to participate in Playtika’s bug bounty program (the “**Program**”), to assist us in detecting and monitoring security vulnerabilities, and submit to us reports regarding any vulnerabilities that you find (each, a “**Report**”), according to the terms of this Bug Bounty Program Policy (the “**Policy**”).\n\nIF YOU DO NOT AGREE TO THIS POLICY OR ANY TERMS AND CONDITIONS REFERRED TO HEREIN, PLEASE DO NOT SEND US ANY REPORTS OR OTHERWISE PARTICIPATE IN THIS PROGRAM.\n\n# Response Targets\nPlaytika will use its best efforts to meet the following response targets for Reports sent by security researchers participating in our Program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| Time to first response (from report submit) | 2 business days |\n| Time to triage (from report submit) | 2 business days |\n| Time to bounty (from triage) | 10 business days |\n| Time to Resolution | depends on severity and complexity |\n\nWe will try to keep you informed about our progress throughout the process.\n\n# Program Rules\nThese requirements apply to security researchers participating in our Program:\n*\tWhen performing scans on our infrastructure, add the following header to all requests: \"X-Bug-Bounty: True\"\n*\tPlease provide detailed Reports with reproducible steps. If we determine that your Report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n*\tDo not use any testing tools or scanners that automatically generate significant volumes of traffic.\n*\tSubmit one vulnerability per Report, unless you need to chain vulnerabilities to provide impact.\n*\tWhen duplicates occur, we only award the first Report that was received (provided that it can be fully reproduced), regardless of the first Report’s source (an existing internal Report or a Report via our program).\n*\tMultiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n*\tSocial engineering (e.g. phishing, vishing, smishing) is prohibited.\n*\tAny physical attempts against Playtika's property or data centers are prohibited.\n*\tAvoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.All of your testing accounts must be registered to the @wearehackerone.com domain (when not using the social login)\n*\tFollow the Disclosure Policy below.\n\n# What we are interested in\n*\tVulnerabilities that lead to compromise of a player’s data (PII) including device ids (Android device id or Apple UDID).\n*\tVulnerabilities that impact another player’s experience, e.g., denial-of-service that prevents another player from playing.\n*\tVulnerabilities that significantly affect other players or allow cheating in a substantial manner (i.e., actions that greatly disrupts the fairness or balance of the game), such as business logic flaws or other forms of significant cheating.\n*\tVulnerabilities that  have a considerable impact on the game economy.\n\n# Games that are Interested in Cheating-Oriented Findings:\n| Games | Cheating Interest |\n| ------------- | ------------- |\n| Slotomania | Yes |\n| House of Fun | Yes |\n| Caesars Slots | Yes |\n| WSOP | Yes |\n| Bingo Blitz | Yes |\n| June's Journey | Yes |\n\n\n# A few words about cheating vulnerabilities in games\nCheating-related vulnerabilities are not the main focus of our bug bounty program, but we are still interested in reports of this type. However, please note such reports are rarely eligible for a high or critical severity reward . The severity of cheating findings is internally assessed using the following criteria:\n\n1) **Ease of Exploitation & Abuse**\nHigher severity: Cheat is very easy to perform and share (e.g., simple requests or basic client changes).\nLower severity: Exploit is complex, requiring advanced skills or setup (like device rooting or reverse engineering).\n\n2) **Impact on Fair Play**\nHigher severity: Cheat gives a clear, repeatable advantage in competitive modes (e.g., PvP, leaderboards).\nLower severity: Cheat has only minor or cosmetic effects, or impacts non-competitive modes.\n\n3) ** Number of Affected Players**\nHigher severity: Exploit affects many users or the overall game economy.\nLower severity: Only the attacker or a very limited group is impacted.\n\n4) **Detection & Monitoring**\nHigher severity: Cheat is hard to detect or block automatically.\nLower severity: Strong monitoring means the cheat is quickly identified and contained (auto-bans, rollbacks).\n\n5) **Scalability & Automation**\nHigher severity: Cheat can be automated, farmed, or scaled with bots and resold easily.\nLower severity: Exploit is only practical manually and can’t be easily automated.\n\n6) **Recoverability**\nHigher severity: Effects are long-lasting or difficult to reverse (e.g., permanent leaderboard changes).\nLower severity: Impacts are short-lived or easily rolled back.\n\n\n# POC For Machine Permissions\nWhen attempting to demonstrate machine permissions with the following primitives in a vulnerable process please use the following commands:\n* Read Root: cat /proc/1/maps\n* Read: cat /proc/self/maps\n* Write Root: touch /root/\\<your H1 username>\n* Write: touch /tmp/\\<your H1 username>>\n* Execute: id, hostname\n\n# Out of scope vulnerabilities\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope of our Program and should not be included in your Report/review:\n \n*\tVulnerabilities in 3rd party products and services themselves, as opposed to insecure configuration of those products/services.\n*\tBrute force attacks to get sensitive data and rate limits issues without showing an attack vector\n*\tUser enumeration (without PII exposure)\n*\tClickjacking on pages with no sensitive actions\n*\tCross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n*\tAttacks requiring MITM or physical access to a user's device\n*\tPreviously known vulnerable libraries without a working Proof of Concept\n*\tComma Separated Values (CSV) injection without demonstrating a vulnerability.\n*\tMissing best practices in SSL/TLS configuration, and HSTS\n*\tAny activity that could lead to the disruption of our service (DoS).\n*\tContent spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n*\tRate limiting or bruteforce issues on non-authentication endpoints\n*\tMissing best practices in Content Security Policy\n*\tMissing HttpOnly or Secure flags on cookies\n*\tInsecure storage of data in the mobile applications\n*\tMobile application crash via tampered deep-links\n*\tLack of mobile best-practices, e.g., SSL-pinning, obfuscation, root protection and etc. without a working Proof of Concept demonstrating an exploit\n*\tLack of other security-related headers and best-practices (X-XSS-Protection, X-Content-Type-Options,.) without a working Proof of Concept demonstrating an exploit\n*\tMissing email best practices (Invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n*\tVulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n*\tSoftware version disclosure / Banner identification issues / Internal hostnames disclosure / Descriptive error messages or headers (e.g. stack traces, application or server errors).\n*\tConfiguration files with no sensitive information (e.g. a configuration file with public app keys, routes information and etc.)\n*\tPublic Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case-by-case basis.\n*\tAny issue exploited in the mobile app because of an operating system vulnerability\n*\tTabnabbing\n*\tMail flooding / any issues related to mail service / support/service tickets\n*\tHeader injections without a demonstrable impact\n*\tOpen redirect - unless an additional security impact can be demonstrated\n*\tHTML Injections in automated emails\n*\tIssues that require unlikely user interaction\n*\tAny vulnerability that has no practical security impact or is based on unlikely or theoretical attack vectors (e.g. self-XSS)\n\n\n# Out of Scope Assets\n## The following assets are considered out of the scope of our Program and should not be included in your Report/review:\n* *.slotobucks.slotomania.com\n\n\n# Clarifications regarding Games that have been deprecated\n### We are willing to accept reports upon game assets that contain vulnerabilities and are no longer supported as Tier 3 assets.\n* 1v1.lol\n* Switchcraft\n* Jackpot Tour\n\n&nbsp;&nbsp;\n\n# Legal\n## Program Eligibility and Compliance\nYou must be 18 or older to be eligible for an award.\nThis Program is not open to individuals who reside in Lebanon, Cuba, Iran, North Korea, Syria, Crimea, Donetsk, Luhansk, Kherson and Zaporizhzhia regions of Ukraine.\n\nPlaytika current or former employees, contractors, consultants and their families are not eligible for rewards. \n\nYou must agree and adhere to the Policy and legal terms and conditions as stated in this Policy.\nDo not violate any laws or regulations, breach any agreements or compromise any data that is not yours, in connection with reviewing, discovering or reporting vulnerabilities.\n\n\n## Third-Party Claims \nAny activities conducted in a manner consistent with this Policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this Program in compliance with this Policy and with all applicable laws and regulations, we will take steps to make it known that your actions were conducted in compliance with this Policy.\n\n## Disclosure Policy\n*\tYou must submit your Report as soon as you discover a potential vulnerability. By submitting the vulnerability, you confirm that you have not disclosed the vulnerability and agree not to disclose it, or your submission, to anyone other than Playtika security team following the process set forth in the Program. Disclosing the vulnerability without Playtika's prior written consent would violate the Program and Policy. It is understood and agreed that monetary damages would not be a sufficient remedy for any breach of this paragraph by you, and that Playtika is entitled to seek any remedy, including injunctive relief, in addition to all other legal or equitable remedies available to Playtika.\n*\tAny information you receive or collect about us, our affiliates or any of our users, employees or agents in connection with the Program (“Confidential Information”) must be kept confidential and only used in connection with the program. You may not use, disclose or distribute any such Confidential Information, including without limitation any information regarding your Report, without Playtika’s prior written consent. You must get such written consent by submitting a disclosure request to Playtika through the HackerOne platform. \n*\tDo not store, share, compromise, or destroy Playtika or customer data. If you encounter personal data, you must immediately cease your activity, purge related data from your system, and immediately contact Playtika. This action safegurds both potentially vulnerable data and yourself.\n*\tFollow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines)\n\n## No Warranties\nPLAYTIKA AND ITS AFFILIATES DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, AND MAKE NO GUARANTEES OR CONDITIONS WITH RESPECT TO THE PROGRAM. YOU UNDERSTAND THAT YOUR PARTICIPATION IN THE PROGRAM IS SOLELY AT YOUR OWN RISK. TO THE EXTENT PERMITTED UNDER APPLICABLE LAW, WE EXCLUDE ANY IMPLIED WARRANTIES IN CONNECTION WITH THE PROGRAM.\n\n## Limited Liability\nIN NO EVENT SHALL PLAYTIKA, ITS DIRECTORS, OFFICERS, AFFILIATES OR AGENTS BE LIABLE FOR ANY COSTS OR DAMAGES WHATSOEVER, INCLUDING BUT NOT LIMITED TO DIRECT, CONSEQUENTIAL, INDIRECT, SPECIAL OR PUNITIVE COSTS OR DAMAGES, ARISING OUT OF OR RELATING TO THE PROGRAM OR THE ARRANGEMENTS CONTEMPLATED HEREIN.\n\n## Changes to Program Terms\nThe Program, this Policy and any other terms and conditions applicable thereto constitute the entire agreement and understanding of the parties with respect to the items listed herein, and such Program, Policy and terms may be modified, suspended, cancelled or terminated by Playtika at its sole discretion at any time, without notice. As such, Playtika may amend this Policy or any other terms or policies applicable to the Program at any time by posting a revised version on our Program page. By continuing to participate in the Program after Playtika posts any such changes, you accept this Policy, as modified.\n\nIf any term of the Program is found to be illegal or unenforceable, then the parties shall be relieved of their responsibilities arising under such term, but only to the extent that such term is illegal or unenforceable.\n\n## Report License\nBy submitting a Report in the Program, you agree to all Program Terms and Conditions, and you give us the right to use your Report for any purpose and you:\n*\tGrant Playtika the following non-exclusive, irrevocable, perpetual, royalty free, worldwide, sublicensable license to the intellectual property in your Report: (i) to use, review, assess, test, and otherwise analyze your Report; (ii) to reproduce, modify, distribute, display and perform publicly, and commercialize and create derivative works of your Report and all its content, in whole or in part; and (iii) to feature your Report and all of its content in connection with the marketing, sale, or promotion of this Program or other programs (including internal and external sales meetings, conference presentations, tradeshows, and screenshots of the Report in press releases) in all media (now known or later developed);\n*\tAgree to assist us in enforcing the rights granted above and sign any documentation that may be required for us or our designees to confirm the rights granted above;\n*\tUnderstand and acknowledge that Playtika may have developed or commissioned materials similar or identical to your Report, and you waive any claims you may have resulting from any similarities to your Report;\n*\tUnderstand that you are not guaranteed any payment or compensation for use of your Report; and\n*\tRepresent and warrant that your Report is your own work, that you haven't used information owned by another person or entity, and that you have the legal right to provide the Report to Playtika.\n\nSubmissions selected for rewards, and the individuals who submitted the vulnerabilities will receive recognition at the sole discretion of Playtika. Eligibility for rewards, including the determination of the recipients and reward amount is left up to the sole discretion of Playtika.\n\nIn addition to the terms above, you will be subject to, and you represent that you will comply with, all relevant terms and customer obligations in [Playtika’s Terms of Use](https://www.playtika.com/terms-service/)\n\n\n## Tax\nYou are responsible for paying any taxes associated with rewards you may recieve in connection with the Program. HackerOne handles all bounty payments through the HackerOne platform. Please refer to HackerOne’s relevant policies [here](https://docs.hackerone.com/en/articles/8395744-tax-forms#___gatsby).\n\n&nbsp;&nbsp;\n\nThank you for helping keep Playtika and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "air.com.playtika.slotomania",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "447553564",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.slotomania.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.playtika.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Reports on any domain/app not specifically included are excluded from the scope.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "gnocchi-www.buffalo-ggn.net",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.bingoblitz.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "air.com.buffalo_studios.newflashbingo",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "529996768",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.caesarsgames.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.playtika.caesarscasino",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "603097018",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.boardkingsgame.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.jellybtn.boardkings",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "1116488672",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.houseoffun.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "586634331",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.pacificinteractive.HouseOfFun",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.playwsop.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "719525810",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.playtika.wsop.gp",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "868013618",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.Seriously.BestFiends",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "654671575",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.jellybtn.cashkingmobile",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.serious.li",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    }
+  ]
+}

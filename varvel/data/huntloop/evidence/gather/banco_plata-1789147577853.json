@@ -1,0 +1,68 @@
+{
+ "at": "2026-09-11T17:26:08.487Z",
+ "opportunity": "banco_plata",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 15,
+  "delayMs": 1200,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "dif.tech.plata",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to dif.tech.plata:443 refused: host unreachable"
+  },
+  {
+   "host": "platacard.mx",
+   "kind": "wildcard-apex",
+   "status": 307,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a398604a4ce0f41c-LHR"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "bancoplata.mx",
+   "kind": "wildcard-apex",
+   "status": 307,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a398605fb8f248b8-LHR",
+    "strict-transport-security": "max-age=7776000; includeSubDomains",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

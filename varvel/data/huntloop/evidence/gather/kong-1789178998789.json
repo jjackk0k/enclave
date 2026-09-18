@@ -1,0 +1,81 @@
+{
+ "at": "2026-09-12T02:09:52.614Z",
+ "opportunity": "kong",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "app.insomnia.rest",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Google Frontend",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=31556926"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "cloud.konghq.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 c6bb9cf9d8e0165f8ce421e143815966.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "report-to konnect-csp; frame-ancestors 'none'; script-src 'self' https://app.getbeamer.com https://js.stripe.com https:/",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "developer.konghq.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "server": "Netlify",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "konghq.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    }
+   ],
+   "headers": {
+    "x-powered-by": "Next.js",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 f59f3000d5bbed733e1102d0cab025be.cloudfront.net (CloudFront)",
+    "content-security-policy": "frame-ancestors 'self' *.konghq.com"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "btfs",
+      "name": "BTFS",
+      "offersBounties": true,
+      "assets": [],
+      "exclusions": [
+        "*.readme.io,*.bittorrent.com,*.bt.co",
+        "https://github.com/ipfs"
+      ],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "Throttl"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\btfs-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "btfs",
+  "name": "BTFS",
+  "url": "https://hackerone.com/btfs",
+  "policy": "BTFS (BitTorrent File System) looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\r\n\r\n# Response Targets\r\nBTFS will make the best effort to meet the following SLAs for hackers participating in our program:\r\n\r\n| Type of Response | SLA in business days |\r\n| ------------- | ------------- |\r\n| First Response | 5 days |\r\n| Time to Triage | 10 days |\r\n| Time to Bounty | 14 days |\r\n| Time to Resolution | depends on severity and complexity |\r\n\r\nWe’ll try to keep you informed about our progress throughout the process.\r\n\r\n# Disclosure Policy\r\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\r\n\r\n# Program Rules\r\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\r\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\r\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\r\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\r\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n\r\n# Test Plan\r\n__BTFS Setup & Documentation__\r\n* Please refer to https://docs.btfs.io/docs for general documentation and setup guides.\r\n* Please ONLY use testnet for your work, instructions here: https://docs.btfs.io/docs/testnet-setup\r\n* Please test against the latest master branch of go-btfs project if possible. When testing, use `btfs config profile apply storage-host-dev` to simulate a testnet host, and `btfs config profile apply storage-client-dev` to simulate a testnet renter.\r\n* Please test BTFS related vulnerabilities in Bittorrent windows client http://download-new.utorrent.com/uuid/241259d7-cef4-400b-a04d-4852c1d585f2.\r\n\r\n__Scope__\r\n* https://github.com/TRON-US/go-btfs\r\n* Any repository under https://github.com/TRON-US that is forked from https://github.com/ipfs or is being used by go-btfs project’s go.mod.\r\n* http://download-new.utorrent.com/uuid/241259d7-cef4-400b-a04d-4852c1d585f\r\n\r\n__Out of Scope for BTFS__\r\n   * Any (development) branch other than release and master for go-btfs.\r\n   * Any branch other than the latest release for all other valid repositories.\r\n   * https://docs.btfs.io or any wording on the site (feel free to contribute).\r\n   * Any bug/vulnerability relate to bittorrent.com domain.\r\n   * Any bug/vulnerability that originates from upstream IPFS projects (https://github.com/ipfs).\r\n   * Any bug/vulnerability that impacts TRON blockchain or sidechains. (please submit a bug under https://hackerone.com/tronfoundation instead).\r\n   * Any bug/vulnerability of Bittorrent client's own vulnerability which is not related to BTFS.\r\n   * Any item in the general Out of Scope section.\r\n\r\n__Bounty Guidelines/Examples__\r\n* Critical\r\n   * Arbitrary remote code execution on a BTFS node through the use of BTFS protocol and HTTP APIs.\r\n   * Arbitrary access to private datastore on a remote BTFS node.\r\n   * Private key leakage and/or loss of funds through BTFS operations.\r\n* High\r\n   * Denial of Service (DoS) attack on BTFS network through libp2p protocol.\r\n   * Denial of Service (DoS) attack on BTFS network through HTTP API.\r\n   * Gaining control or significant influence over centralized service decisions including but not limited to BTFS Escrow, Guard, and Hub.\r\n   * Operations or feasible strategies to disrupt a fair peer-to-peer storage network by becoming malicious nodes.\r\n* Medium\r\n   * Unauthorized operations on behalf of a BTFS user that does not incur a loss of funds.\r\n   * Throttling or significantly reducing BTFS network performance involving either peer-to-peer or centralized components.\r\n   * Bypassing permissions to access non-critical but sensitive user data.\r\n* Low\r\n   * General bugs that can be triggered to prevent users from fairly participating in BTFS network, or running stable nodes.\r\n   * Attacks to influence network states and user decisions on storage parameters.\r\n   * Enabling remote nodes to perform non-essential operations without their consent.\r\n   * Public key leaks or unauthorized access to non-BTFS node components, including officially-backed community components (severity up to impact and team decision).\r\n\r\n__Submission Requirements__\r\n* Summary of the bug/vulnerability\r\n* Steps to reproduce\r\n* Working Proof of Concept\r\n* Impact is based on, but not limited to the following:\r\n      * How easy is it to find the vulnerability?\r\n      * How likely is it getting exploited? Would the economic incentive make sense?\r\n      * [If it has already been exploited] How much impact does it make on a decentralized network? How big is the range of parties affected?\r\n      * Is any private user data exposed?\r\n      * Is any private financial data affected?\r\n\r\n# Out of scope vulnerabilities\r\n\r\n### When reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\r\n\r\n* Clickjacking on pages with no sensitive actions\r\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\r\n* Attacks requiring MITM or physical access to a user's device.\r\n* Previously known vulnerable libraries without a working Proof of Concept.\r\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability.\r\n* Missing best practices in SSL/TLS configuration.\r\n* Any activity that could lead to the disruption of our service (DoS).\r\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\r\n* Rate limiting or bruteforce issues on non-authentication endpoints\r\n* Missing best practices in Content Security Policy.\r\n* Missing HttpOnly or Secure flags on cookies\r\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\r\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\r\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).\r\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\r\n* Tabnabbing\r\n* Open redirect - unless an additional security impact can be demonstrated\r\n* Issues that require unlikely user interaction\r\n\r\n# Safe Harbor\r\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\r\n\r\nThank you for helping keep the BTFS network and our users safe!\r\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.readme.io,*.bittorrent.com,*.bt.co",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Based on the BTFS scope policy, any bug/vulnerability relate to *.bittorrent.com, *.readme.io and *.bt.co domain won't be included in the scope.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/ipfs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Based on the BTFS scope policy, any bug/vulnerability that originates from upstream IPFS projects (https://github.com/ipfs) won't be included in the scope.",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+ "at": "2026-09-16T17:23:03.693Z",
+ "opportunity": "toyota",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "www.dashboard.gatekeepers.co.in",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to www.dashboard.gatekeepers.co.in:443 refused: host unreachable"
+  },
+  {
+   "host": "www.toyotaconnected.co.in",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "cf-ray:"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a3c18e92ad159475-LHR",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "frame-ancestors 'self'",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.toyota.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "apache",
+     "label": "Apache httpd",
+     "version": null,
+     "evidence": "server: Apache"
+    }
+   ],
+   "headers": {
+    "server": "Apache",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 22e421a47e59010b5e8eb6ae4d4bd7e4.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000",
+    "content-security-policy": "connect-src 'self' *.adentifi.com *.adnxs.com *.adobeaemcloud.com *.agkn.com *.analytics.google.com *.awswaf.com *.azure",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/configurator*",
+     "source": "robots.txt"
+    },
+    {
+     "path": "/configurator/*zipcode=",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "www.lexus.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "Miss from cloudfront",
+    "via": "1.1 bbb3db934b588c4f07cae56060c421b0.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubdomains;",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "www.toyotaconnected.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "WP Engine",
+    "cf-ray": "a3c18eaef9513f12-LHR",
+    "x-cache": "HIT: 1",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

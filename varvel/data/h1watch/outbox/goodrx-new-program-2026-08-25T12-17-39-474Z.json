@@ -1,0 +1,119 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "goodrx",
+      "name": "GoodRx",
+      "offersBounties": true,
+      "assets": [
+        "com.goodrx",
+        "com.goodrx.iphone",
+        "www.goodrx.com"
+      ],
+      "exclusions": [
+        "com.goodrx.doctors",
+        "com.goodrx.gold",
+        "investors.goodrx.com",
+        "sso.identity.goodrx.com",
+        "support.goodrx.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\goodrx-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "goodrx",
+  "name": "GoodRx",
+  "url": "https://hackerone.com/goodrx",
+  "policy": "#Intro\nGoodRx is America’s healthcare marketplace. Each month, more than 17 million people use GoodRx’s website and popular mobile apps to find current prices and discounts for their healthcare, and we’ve helped people save more than $20 billion since 2011. We provide discounts available at 70,000 pharmacies in the U.S., as well as telehealth services including doctor visits and lab tests. Thousands of healthcare professionals use GoodRx to help their patients. Our services have been positively reviewed by Good Morning America, The New York Times, NBC News, AARP, and many others. Our goal is to help Americans find convenient and affordable healthcare  in a safe, compliant and private manner.\n\n# Program Rules\n* Please read our **entire** policy page before you begin! Honestly, read the **entire policy**. This will help save you time and reduce the chances of submitting a finding that's deemed Not Applicable. \n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* We want you to search for bugs, not user data. If you encounter user information during your testing stop immediately and notify us through HackerOne. Further guidance will be provided along with an appropriate bounty for your finding.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* Refrain from automated scanning against these URLs: https://www.goodrx.com/coupon/  https://www.goodrx.com/professionals https://www.goodrx.com/discount-card and https://www.goodrx.com/jobs.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Don’t leave any system in a more vulnerable state than you found it.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Please use the **wearehackerone.com** email alias when creating accounts to test our site. More information about this alias can be found at: https://docs.hackerone.com/hackers/hacker-email-alias.html\n* Only interact with GoodRx accounts you own. (Ex: GoodRx Gold family accounts)\n* Be respectful when interacting with our team, and our team will do the same.\n* Social engineering attacks (e.g. spear phishing) are prohibited.\n* Do not engage in conversation with our support or doctor personal.\n* You are prohibited from participating in the program if you are a resident of any U.S. embargoed jurisdiction, including but not limited to Iran, North Korea, Cuba, the Crimea region, and Syria; or if you are on the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Person’s List or Entity List. By participating in the program, you represent and warrant that you are not located in any such country or on any such list.\n\n# Disclosure Policy\n* Don’t publicly disclose a vulnerability without our consent and review.\n* In addition, follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n#Out of scope vulnerabilities\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope and will not be eligible for a bounty:\n \n* CSRF in unauthenticated or non-sensitive forms. (Ex: drug search and logout)\n* Attacks requiring MITM or physical access to a user's device.\n* Rate-limiting issues including on Password Reset URLs or Authentication Endpoints which are managed by Auth0 and not GoodRx.\n* Missing best practices in SSL/TLS configuration. (Lack of HSTS, additional security headers, etc.) \n* Missing email best practices (invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Any activity that could lead to the disruption of our service (DDoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS.\n* Username enumeration based on login or forgot password pages.\n* Enforcement policies for brute force or account lockout.\n* Presence of autocomplete functionality in form fields.\n* Clickjacking due to a lack of X-Frame-Options use.\n* Lack of HttpOnly or Secure cookie flags in non sensitive cookies.\n* Findings related Google Maps API Keys storage or usage.\n* Any vulnerabilities on subdomains or assets that are not explicitly listed in the scope.\n* Reports of vulnerabilities on third party software, such as Zendesk, Palo Alto Networks, reCAPTCHA, etc.\n* Social Media Account Takeovers.\n* We have temporarily removed any vulnerability related to caching due to it being a known issue.\n* Reports detailing where an application must be installed on a phone to be able to exploit the vulnerability.\n\n#GoodRx Login Pages\nGoodRx offers two distinct login workflows for our services. One flow is designed for our traditional savings program experience and the other is for our telehealth service. \n\nThose URLs are: https://www.goodrx.com/account/sign-in and https://www.goodrx.com/care/login\n\nPlease use the **wearehackerone.com** email alias when creating accounts to test our site. More information about this alias can be found at: https://docs.hackerone.com/hackers/hacker-email-alias.html\n\n#GoodRx Coupons Overview\nBe aware that drug prices displayed on GoodRx are coupon prices for a specific pharmacy and drug combination that we do not set. Remember our site provides transparency for drug prices in the United States. Changing these values in the browser, app, or text message will not result in a different price at purchase as the pharmacist at the physical pharmacy will verify the coupon on their end. That being said, if you find a way to modify the prices that are stored on our server and displayed to other users, we'd obviously consider that in-scope for a bounty.\n\n# SLA\nGoodRx will make a best effort to meet the following SLAs for hackers participating in our program:\n\n* Time to first response (from report submit) - 2 business days\n* Time to triage (from report submit) - 2 business days\n* Time to bounty (from triage) - 1 business days\n\nWe’ll try to keep you informed about our progress throughout the process as best as possible. We aim to be an industry leading program in terms of responsiveness and promptness of bounty payments. \n\n#Careers\nIf you enjoy participating in our bounty program, then you'd really enjoy working for us full time! We're always actively hiring security minded individuals and encourage you to view our list of open positions. Make sure to list HackerOne as your reference!\n\nhttps://www.goodrx.com/jobs\n\n#Questions\nAny questions about our bounty program or site can be directed to: security@goodrx.com",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "com.goodrx.iphone",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "iOS Download: https://itunes.apple.com/app/id485357017",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.goodrx",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Playstore Download: https://play.google.com/store/apps/details?id=com.goodrx",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.goodrx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This our primary site. Our mobile site m.goodrx.com is also covered by this scope. Only issues regarding the frontend of https://www.goodrx.com/care will be considered in-scope. Any backend issue is belonging to a partner of ours.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.goodrx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is managed by Zendesk. Any issues on this page would be covered by Zendesk's bug bounty program.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.goodrx.doctors",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "iOS Download: https://itunes.apple.com/app/id1122105489",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.goodrx.doctors",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Playstore Download: https://play.google.com/store/apps/details?id=com.goodrx.doctors",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.goodrx.gold",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "iOS Download: https://itunes.apple.com/app/id1249717355",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "com.goodrx.gold",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Playstore Download: https://play.google.com/store/apps/details?id=com.goodrx.gold\n\nGold workflow and features are being migrated into the primary GoodRx consumer app. Bounties for the Gold application must be replicated within the core GoodRx application to qualify for a bounty.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "sso.identity.goodrx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This sub-domain is manged by Auth0. Bugs hosted on this domain would be covered by Auth0's bug bounty program and not GoodRx's.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "investors.goodrx.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain is not managed by GoodRx.",
+      "max_severity": "none"
+    }
+  ]
+}

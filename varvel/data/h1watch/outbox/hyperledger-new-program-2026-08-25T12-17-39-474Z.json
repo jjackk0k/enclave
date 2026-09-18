@@ -1,0 +1,231 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "hyperledger",
+      "name": "Linux Foundation Decentralized Trust",
+      "offersBounties": true,
+      "assets": [
+        "https://github.com/hyperledger/fabric",
+        "https://github.com/hyperledger/fabric-ca",
+        "https://github.com/hyperledger/fabric-chaincode-java",
+        "https://github.com/hyperledger/fabric-chaincode-node",
+        "https://github.com/hyperledger/fabric-samples",
+        "https://github.com/hyperledger/fabric-sdk-go",
+        "https://github.com/hyperledger/fabric-sdk-java",
+        "https://github.com/hyperledger/fabric-sdk-node",
+        "https://github.com/hyperledger/fabric-sdk-py"
+      ],
+      "exclusions": [
+        "https://github.com/hyperledger/blockchain-explorer",
+        "https://github.com/hyperledger/cello",
+        "https://github.com/hyperledger/cello-analytics",
+        "https://github.com/hyperledger/cello-k8s-operator",
+        "https://github.com/hyperledger/composer",
+        "https://github.com/hyperledger/composer-sample-networks",
+        "https://github.com/hyperledger/composer-vscode-plugin",
+        "https://github.com/hyperledger/fabric-docs",
+        "https://github.com/hyperledger/fabric-test",
+        "https://github.com/hyperledger/fabric-test-resources",
+        "https://github.com/hyperledger/hyperledgerwp",
+        "https://github.com/hyperledger/indy-node",
+        "https://github.com/hyperledger/indy-plenum",
+        "https://github.com/hyperledger/indy-sdk",
+        "https://github.com/hyperledger/iroha",
+        "https://github.com/hyperledger/sawtooth-core"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\hyperledger-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "hyperledger",
+  "name": "Linux Foundation Decentralized Trust",
+  "url": "https://hackerone.com/hyperledger",
+  "policy": "# Overview\n\n**NOTE:** None of the web sites run by The Linux Foundation or by the Linux Foundation Decentralized Trust (LFDT) are eligible for the bounty. That means only the code *in* the codebases for projects hosted by LFDT is eligible for the bounty.  Everything else, including our websites, are *not* in scope (e.g. homepage, DNS, and wiki).\n\nLinux Foundation Decentralized Trust is a global open source collaborative effort created to advance cross-industry blockchain technologies, hosted by The Linux Foundation, and developed by technologists in finance, banking, internet of things, supply chains, manufacturing and technology.\n\nBecause blockchain and distributed ledger technology has such a wide range of applications, ranging from critical infrastructure (e.g. energy markets, bank settlements, etc) to social systems (e.g. digital healthcare records, voting, etc) the LFDT community is eager to work with the broader security community to help identify any security vulnerabilities in the various LFDT technologies and report and fix them in a timely and responsible manner.\n\nBecause LFDT projects are in various stages of development and maturity, the community has chosen to limit our bug bounty program to those projects that have reached a “1.0” release maturity. Not all projects use the same system for naming or numbering releases so a “1.0” release is defined as code that is in use by a production system.\n\nThe LFDT security team consists of volunteer open source developers that will make a best effort to respond to incoming reports within 2 business days and make a bounty determination after validating a legitimate security issue within 60 business days. Our transparency is greater than other organizations, however we are using a confidential vulnerability reporting and resolution system. We will do our best to keep you informed about our progress throughout the process and per our security policy, all vulnerabilities will be disclosed responsibly.\n\nTo better stay connected with the LFDT developers, it is recommended that you create a [Linux Foundation ID](http://openprofile.dev/).  We also have active mailing lists that you can join by going to https://lists.lfdecentralizedtrust.org/. [We use Discord for chat](https://discord.gg/hyperledger).\n\nThank you for your consideration. We hope that you will come join us in making solid blockchain technologies and platforms for the benefit of many different industries/applications.\n\n## Dos\n\n* Follow [HackerOne’s disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* Provide detailed reports with reproducible steps. If there is insufficient detail and we cannot reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you can chain the vulnerabilities.\n* Treat everybody with [respect](https://lf-decentralized-trust.github.io/governance/governing-documents/code-of-conduct/), professionalism, fairness, and sensitivity to our many differences and strengths, including in situations of high pressure and urgency.\n* Be familiar with and follow our [community code of conduct](https://lf-decentralized-trust.github.io/governance/governing-documents/code-of-conduct/).\n\nCome hang out with us--or just lurk--in our chat and mailing lists. We’d love to meet you and have you join our community.\n\n## Don’ts\n\n* Social engineering of any kind (e.g. phishing, vishing, smishing). That is strictly prohibited and outside of the scope of this bounty program.\n\n# Program Rules\n\n* When duplicate reports occur, we will only award the first report received--provided that the report is well formed, can be fully reproduced, and meets all other submission criteria.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Amounts below are the minimum we will pay per category. We aim to be fair; all reward amounts are at our discretion.\n\n# Rewards\n\nOur rewards are based on the impact of a vulnerability. Please note these are general guidelines and examples, and that reward decisions are up to the discretion of the LFDTsecurity team. The following examples show how these guidelines would apply to bugs reported on Hyperledger Fabric, one of the projects hosted by LFDT.\n\n## Critical severity bugs - minimum \\[$2000\\]:\n\nTypes of impacts that LFDT would consider to be critical include:\n\n* Fabric Certificate Authority bypasses--all endorsers and authentication of who can and cannot create transactions that go into the blockchain rely on the Fabric CA.\n* Preventing consensus--figuring out a way to stop the distributed system from achieving consensus.\n* Hyperledger Fabric uses a pluggable architecture for distributed consensus. Issues that can prevent consensus would be considered critical.\n* Escaping from a chaincode container--breaking out of the VM.\n* Unauthorized modifications of chaincode--changing the code that is executed inside of the VM.\n\nTypes of vulnerabilities that may result in these impacts include:\n\n* Vertical authentication bypass.\n* Recording unauthorized, invalid, or forged transactions in the blockchain.\n* Amplification attack where chaincode generates malicious network traffic.\n* Denial of service of the whole blockchain by stopping chaincode execution and/or the consensus network.\n* Establishing a persistent beachhead inside of the firewall protecting the Hyperledger Fabric network.\n\n## High severity bugs - minimum \\[$1500\\]:\n\nTypes of impacts that LFDT would consider to be high include:\n\n* Confused deputy attack on the Fabric Certificate Authority--mistakenly issued credentials to access the permissioned network or being re-issued another user’s credentials or otherwise affecting the permissions of other users.\n* Taking down any Hyperledger Fabric component (e.g. endorser, ordering service, membership service, consensus network) through malformed data submitted from the outside via the API.\n\nTypes of vulnerabilities that may result in these impacts include:\n* Lateral authentication bypass.\n* Remote denial of service.\n* Default configuration errors.\n\n## Medium severity bugs - minimum \\[$500\\]:\n\nTypes of impacts that LFDT would consider to be medium include:\n\n* Taking down any Hyperledger Fabric component (e.g. endorser, ordering service, membership service, consensus network) through malformed data and/or fuzzing of its API used for inter-service communication behind the firewall.  If you fuzz from a privileged network position (e.g. behind the firewall), then the vulnerability is of medium severity unless you can show that it can also be triggered from an unprivileged network position.\n\nTypes of vulnerabilities that may result in these impacts include:\n\n* General instability.\n\n## Low severity bugs - minimum \\[$200\\]:\n\nTypes of impacts that LFDT would consider to be low include:\n\n* Vulnerabilities found in demo/example configuration, chaincode, and applications.\n\nTypes of vulnerabilities that may result in these impacts include:\n\n* Footgun attack.\n\n# Scope\n\n* Only those projects listed, and the identified repositories are in scope.\n* Issues that may impact users with runtime components in production environments.\n\nIf you have any questions, please ask us at security@lfdecentralizedtrust.org BEFORE performing any testing.\n\n## Out of Scope\n\n* All of the Linux Foundation infrastructure in general and all of the Linux Foundation Decentralized Trust infrastructure, specifically.\n* All test and documentation code.\n* Issues in non-Linux Foundation Decentralized Trust dependent projects. Issues in dependent projects should be reported directly to the respective project. LFDT projects regularly update dependency versions to fix issues identified in dependent projects.\n\nIf you identify any scopes not listed above that you believe belong to Linux Foundation Decentralized Trust, please let us know at security@lfdecentralizedtrust.org BEFORE performing any testing.\n\n## Out of scope vulnerabilities\n\nWhen reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Intentionally malicious chaincode.  Chaincode is Go running in a docker container.  The security anchors in the controlled chaincode provisioning system that is designed to carefully manage what chaincode is installed and available to run.\n* Denial of service of any component (e.g. Endorser, etc) from a privileged network position (i.e. inside the firewall).  Fabric is designed to run all components behind a corporate firewall.  Clients outside the firewall will talk to a network service that uses the API to talk to the rest of the system behind the firewall.\n* Insecure configurations.  We do our best to prevent the possibility of insecure configuration but we don’t see this as being in scope.  If you find something, it would be great if you just filed a bug in GitHub.\n* Documentation errors.  We strive to keep the documentation up to date, but sometimes it becomes stale.  We do not consider this to be in scope however we encourage you to file a bug or a pull request to fix it.\n\nThank you for helping keep Linux Foundation Decentralized Trust and our users safe\\!",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-ca",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-sdk-node",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-sdk-java",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-chaincode-java",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-chaincode-node",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-docs",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-samples",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-sdk-go",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-sdk-py",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-test",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/fabric-test-resources",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/blockchain-explorer",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/cello",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/cello-analytics",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/cello-k8s-operator",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/iroha",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/composer",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/indy-plenum",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/sawtooth-core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/indy-node",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/composer-vscode-plugin",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/indy-sdk",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/hyperledgerwp",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/hyperledger/composer-sample-networks",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

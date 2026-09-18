@@ -1,0 +1,98 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "weblate",
+      "name": "Weblate",
+      "offersBounties": false,
+      "assets": [
+        "hosted.weblate.org",
+        "https://github.com/WeblateOrg/docker",
+        "https://github.com/WeblateOrg/translation-finder",
+        "https://github.com/WeblateOrg/weblate",
+        "https://github.com/WeblateOrg/website",
+        "https://github.com/WeblateOrg/wlc"
+      ],
+      "exclusions": [
+        "github.com",
+        "hg.weblate.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\weblate-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "weblate",
+  "name": "Weblate",
+  "url": "https://hackerone.com/weblate",
+  "policy": "No technology is perfect, and Weblate believes that working with skilled security researchers across the globe is crucial in identifying weaknesses in any technology. If you believe you've found a security issue in our product or service, we encourage you to notify us. We welcome working with you to resolve the issue promptly.\r\n\r\n# Disclosure Policy\r\n* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue.\r\n* Provide us a reasonable amount of time to resolve the issue before any disclosure to the public or a third-party.\r\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\r\n* We're open in handling security issues, we will request public disclosure of all issues reported to us once they have been fixed.\r\n* All issues fixed by Git commits will reference corresponding HackerOne report with assumption that it will be publicly disclosed after fixing, so that third parties can verify the fix and original report.\r\n\r\n# Exclusions\r\nWhile researching, we'd like to ask you to refrain from:\r\n* Denial of service\r\n* Spamming\r\n* Social engineering (including phishing) of Weblate staff or contractors\r\n* Any physical attempts against Weblate property or data centers\r\n* Please use the [Sandbox translation project](https://hosted.weblate.org/projects/sandbox/) for testing\r\n\r\nYOU MAY NOT TEST AGAINST SERVERS YOU DO NOT HAVE EXPLICIT PERMISSION TO TEST.\r\n\r\n# Scope\r\nYou are welcome to report issues in any part of our product, this includes:\r\n* [Weblate](https://github.com/WeblateOrg/weblate/)\r\n* [wlc](https://github.com/WeblateOrg/wlc/)\r\n* [Weblate website](https://github.com/WeblateOrg/website/)\r\n* [Weblate Docker container](https://github.com/WeblateOrg/docker/)\r\n* [Hosted Weblate service](https://hosted.weblate.org/)\r\n\r\n# Third parties\r\nPlease report vulnerabilities in third party products directly to them, here are some:\r\n* [Django](/django)\r\n* [Django REST Framework](http://www.django-rest-framework.org/#security)\r\n* [Python Social Auth](https://github.com/python-social-auth)\r\n\r\n# Known or intentional issues\r\n\r\nPlease avoid reporting following issues:\r\n\r\n* [Text injection in error parameter while authenticating](https://github.com/python-social-auth/social-core/issues/72)\r\n* [Captcha weakness](https://github.com/WeblateOrg/weblate/issues/1462)\r\n* We have intentionally enabled autocomplete for forms\r\n* There is a [ssh honeypot](https://haas.nic.cz/) running on some of our servers\r\n\r\n# Translations\r\n\r\nPlease note that Weblate is used for hosting third party translations, please do not report to us problems with these, but contact individual projects.\r\n\r\nThank you for helping keep Weblate and our users safe!",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "hosted.weblate.org",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Please use the [Sandbox translation project](https://hosted.weblate.org/projects/sandbox/) for testing.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "hg.weblate.org",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This site has intentional setup this way to allow mercurial client to clone the repository.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/WeblateOrg/weblate",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/WeblateOrg/wlc",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/WeblateOrg/docker",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/WeblateOrg/website",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/WeblateOrg/translation-finder",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "github.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "The GitHub wiki is intentionally open to public.",
+      "max_severity": "none"
+    }
+  ]
+}

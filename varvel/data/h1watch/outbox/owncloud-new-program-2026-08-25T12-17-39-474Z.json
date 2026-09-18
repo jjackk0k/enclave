@@ -1,0 +1,182 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "owncloud",
+      "name": "ownCloud",
+      "offersBounties": true,
+      "assets": [
+        "Desktop Client",
+        "com.owncloud.android",
+        "https://github.com/owncloud/ocis",
+        "owncloud.iosapp",
+        "owncloud/activity",
+        "owncloud/core",
+        "owncloud/customgroups",
+        "owncloud/files",
+        "owncloud/gallery",
+        "owncloud/guests",
+        "owncloud/notifications",
+        "owncloud/oauth2",
+        "owncloud/richdocuments",
+        "owncloud/updater",
+        "owncloud/user_ldap"
+      ],
+      "exclusions": [
+        "*.owncloud.com",
+        "*.owncloud.org"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\owncloud-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "owncloud",
+  "name": "ownCloud",
+  "url": "https://hackerone.com/owncloud",
+  "policy": "##  ownCloud Security Bug Bounty Program on Hackerone is discontinued\n\nPlease head over to https://security.owncloud.com for our VDP and review bug bounty options there.\n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "owncloud/core",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/core\nThis is our core server software, which is \"the heart\" of owncloud.\nNote that some folders such as tests and so on will not be packaged. Please make sure that the referenced file is thus also existent in our final releases.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.owncloud.android",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our official Android client from https://play.google.com/store/apps/details?id=com.owncloud.android.\nSource: https://github.com/owncloud/android\nNote that the ownCloud server itself is considered a trusted endpoint in our threat model and an eligible vulnerability must not rely on a malicious ownClo",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "owncloud.iosapp",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Our official iOS client from https://apps.apple.com/app/id1359583808\nSource: https://github.com/owncloud/ios-app\nNote that the ownCloud server itself is considered a trusted endpoint in our threat model and an eligible vulnerability must not rely on a malicious ownCloud instance.",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "Desktop Client",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Issues affecting the Desktop Client available from https://owncloud.org/install/#install-clients\nSource: https://github.com/owncloud/client\nNote that the ownCloud server itself is considered a trusted endpoint in our threat model and an eligible vulnerability must not rely on a malicious ownCloud in",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/user_ldap",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/user_ldap\nThis application enables administrators to connect ownCloud to an LDAP-based user directory for authentication and provisioning users, groups and user attributes. Admins can configure this application to connect to one or more LDAP directories or Acti",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/oauth2",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/oauth2\nApplication for using OAuth 2.0 in ownCloud",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/customgroups",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/customgroups\nThis apps makes it possible for users to create their own custom groups and manage members. It is then possible to share files or folders with these groups.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/guests",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/guests\nCreate a guest user by typing his name in to the sharing dialog. The guest will receive an email invite with a link to create an account. He only has access to files which are shared with him.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/richdocuments",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/richdocuments\nCollabora Online for ownCloud provides collaborating editing functions for text documents, spreadsheets and presentations inside ownCloud for improved productivity.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/activity",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/activity\nProvides an activity feed showing your file changes and other interesting things going on in your ownCloud.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/files",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/core/tree/master/apps/files\nThis is the app for owncloud file management.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/notifications",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/notifications\nNotification backend and UI for the notification panel/icon. Used for notifications of other apps (announcementcenter, federatedfilesharing etc.)",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/gallery",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/gallery\nMedia gallery for ownCloud which includes previews for all media types supported by your installation.\nProvides a dedicated view of all images in a grid, adds image viewing capabilities to the files app and adds a gallery view to public links.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "owncloud/updater",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/updater",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.owncloud.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.owncloud.org",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/owncloud/ocis",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Code from: https://github.com/owncloud/ocis\nThis is next generation server software, which is \"the new heart\" of owncloud.\nNote that some folders such as tests and so on will not be packaged. Please make sure that the referenced file is thus also existent in our final releases.",
+      "max_severity": "critical"
+    }
+  ]
+}

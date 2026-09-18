@@ -1,0 +1,139 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "doppler",
+      "name": "Doppler",
+      "offersBounties": true,
+      "assets": [
+        "api.doppler.com",
+        "dashboard.doppler.com",
+        "doppler",
+        "doppler.team",
+        "https://github.com/DopplerHQ/cli",
+        "share.doppler.com"
+      ],
+      "exclusions": [
+        "community.doppler.com",
+        "docs.doppler.com",
+        "doppler.com",
+        "http://calendly.com/doppler/enterprise",
+        "https://github.com/DopplerHQ/awesome-bots",
+        "support.doppler.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\doppler-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "doppler",
+  "name": "Doppler",
+  "url": "https://hackerone.com/doppler",
+  "policy": "Doppler believes that working with skilled security researchers across the globe is crucial in identifying potential security vulnerabilities. If you believe you have found a security issue in our product or service, please notify us. We will make every effort to promptly resolve the issue.\n\n# \\*\\* Register all test accounts using your `<username>+x@wearehackerone.com` address. **\n\n# Response Targets\nDoppler will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 5 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy \n* Submit a detailed report with steps to reproduce, screenshots, and anything else that will help validate your finding\n* We will inform you of remediation and may ask you to help confirm the fix\n* Do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Vulnerability Scoring\nWe will use CVSS 3.1 to guide our initial scoring, however Doppler reserves the right to adjust the score based on other qualitative factors. For example, a vulnerability leaking customer secrets would typically be ranked more highly than one leaking customer contact information.\n\n# Program Rules\n* Register all accounts using your `<username>+x@wearehackerone.com` address.\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n* Please keep account creation for this program to no more than 3 accounts.\n\n# Common Reports and Out of Scope Vulnerabilities\n\n**BugSnag API Key in Frontend Source Code**: This API key is intentionally available publicly. The BugSnag API key is write-only and can only be used report bugs; this key must be exposed in the source code in order for the client JS library to detect and report client-side errors. More information is available here: https://github.com/bugsnag/bugsnag-js/issues/595\n\n### The following issues are considered out of scope:\n* MFA bypass when using Google Auth/SAML (intended behavior)\n* Referral credit accumulation using enumerated/deleted accounts (accepted risk)\n  * Note: findings that allow you to accumulate more than $500 in referral credit ARE valid\n* Issues related to team trial billing\n  * Note: findings related to sustained free access to the team plan after 70 days ARE valid\n* Issues related to exceeding the free seat limit on the Developer plan\n* Issues related to multiple activations of the GitHub Student Developer Pack discount\n* Attacks that allow you to exceed resource limits by switching between plans\n* Attacks requiring MITM or physical access to a user's device.\n* Previously known vulnerable libraries without a working Proof of Concept.\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.\n* Tabnabbing\n* Issues that require unlikely user interaction\n* Issues where the system is working as intended but documentation is incorrect (we may award a small bounty for these at our discretion)\n\n### Exclusions \nWhile researching, please refrain from: \n* Denial of service \n* Brute forcing\n* Spamming \n* Social engineering (including phishing) of Doppler staff, contractors, or customers\n* Any physical attempts against Doppler property or data centers \n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Doppler and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "https://github.com/DopplerHQ/cli",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Doppler CLI is the primary agent for retrieving secrets and executing your applications. It communicates with the Doppler API, which is also in scope.  You can read more about the CLI on our [Docs hub](https://docs.doppler.com/docs/cli), or [Install](https://cli.doppler.com/download) it and give",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "doppler.team",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This domain hosts our internal tools for managing Workplace plans and features. It does not provide access to user secrets.\n\nAccess is protected via Cloudflare Access. Users must authenticate with a valid GSuite account, and must additionally be on the Admin allowlist. For this asset, we're especial",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This domain hosts our public API. It's used by the Doppler CLI as well as by customers directly. All APIs and supported auth schemes are [documented](https://docs.doppler.com/reference) in our Docs hub.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This web app provides the ability to view and manage your secrets, team members, and account. You can read about additional functionality in our [docs](https://docs.doppler.com/).\n\nSupported auth methods:\n- Email/password. Optional: Authy/OTP MFA and/or WebAuthn\n- Google Auth\n- SAML SSO\n",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "doppler",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is the pre-built binary based on the Doppler CLI [source code](https://github.com/DopplerHQ/cli) (also in scope). You can find all builds on [cli.doppler.com](https://cli.doppler.com/download) or on [GitHub](https://github.com/DopplerHQ/cli/releases).\n\nThe CLI can be installed via brew, scoop, ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "share.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only submissions for vulnerabilities that permit access to shared secrets or otherwise bypass secret access controls are eligible for bounty on share.doppler.com.\n\nPlease do not send submissions such as lack of CAPTCHA or rate limiting.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "http://calendly.com/doppler/enterprise",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please do not attempt to test the Doppler calendly integration",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This subdomain points to our docs hosted on ReadMe.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our marketing website built on Webflow.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "community.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our community hub hosted on Discourse.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "support.doppler.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is our support hub hosted on Zendesk.",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://github.com/DopplerHQ/awesome-bots",
+      "asset_type": "OTHER",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "This is a public collection of resources maintained by the community.",
+      "max_severity": "none"
+    }
+  ]
+}

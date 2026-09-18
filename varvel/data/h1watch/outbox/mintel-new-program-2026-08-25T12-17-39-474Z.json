@@ -1,0 +1,250 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mintel",
+      "name": "Mintel",
+      "offersBounties": false,
+      "assets": [
+        "*.comperemedia.com",
+        "*.gnpd.com",
+        "*.mintel.cloud",
+        "*.mintel.com",
+        "https://api.mintel.com",
+        "https://cds.mintel.com/",
+        "https://clients.mintel.com",
+        "https://cms.mintel.com/",
+        "https://data.mintel.com",
+        "https://internal-auth.mintel.com/",
+        "https://lon-dc-pdf.mintel.com",
+        "https://lon-dc-ppt.mintel.com",
+        "https://marketsizes.mintel.com/",
+        "https://oauth.mintel.com/",
+        "https://omni.comperemedia.com/",
+        "https://policy-agent.mintel.com",
+        "https://portal.mintel.com/",
+        "https://qa-server-inventory.mintel.com/",
+        "https://reports.mintel.com/",
+        "https://shibboleth.mintel.com",
+        "https://store.mintel.com/",
+        "https://whoswho.mintel.com/",
+        "https://www.comperemedia.com",
+        "https://www.gnpd.com/",
+        "https://www.mintel.com/"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "human-cadence",
+        "basis": "policy-text",
+        "evidence": "rate limit"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mintel-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mintel",
+  "name": "Mintel",
+  "url": "https://hackerone.com/mintel",
+  "policy": "Mintel looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe.\n\n# Disclosure Policy\n* As this is a private program, please do not discuss this program or any vulnerabilities (even resolved ones) outside of the program without express consent from the organization.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Test Plan\n* Add a X-Hackerone: username header to your requests to allow us to attribute malicious activity to the bug bounty program.\n* Use test accounts. Use your username@wearehackerone.com address whenever possible.\n* Please rate limit your automated scanning tools to 2 requests per second. \n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may not be marked as triaged.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When duplicates occur, we only triage the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be treated as one valid report.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with explicit permission of the account holder.\n\n# Out of scope vulnerabilities\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope:\n\n* Any activity that could lead to the disruption of our service (DoS, DDoS).\n* Social engineering of our employees or contractors, unless explicitly authorized.\n* Attacks against our physical facilities, unless explicitly authorized.\n* Attacks requiring physical access to a user’s device, unless the device is in-scope and explicitly hardened against physical access.\n* Attacks requiring disabling Man In The Middle (MITM) protections.\n* Attacks only affecting obsolete browsers or operating systems.\n* Missing best practices (SSL/TLS configuration, Content Security Policy & Strict Transport Security headers, cookie flags, tabnabbing, autocomplete attribute, email SPF/DKIM/DMARC records, Subresource Integrity), unless a significant impact can be demonstrated.\n* Clickjacking or Cross-Site Request Forgery (CSRF) on unauthenticated pages / forms with no sensitive actions.\n* Open redirects, unless a significant impact can be demonstrated.\n* Self-exploitation (self XSS, self denial-of-service, etc.), unless a method to attack a different user can be demonstrated.\n* Content spoofing, text injection and CSV injection, unless a significant impact can be demonstrated.\n* Software version disclosure / Prometheus metrics / Banner identification issues / Descriptive error messages or stack traces.\n* Issues that require unlikely user interaction by the victim.\n\nThank you for helping keep Mintel and our users safe!\n\n\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.mintel.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mintel.cloud",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.gnpd.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.comperemedia.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://clients.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, React.js",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://cms.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Alfresco, Java",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.comperemedia.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, C++, XSLT, Apache Modules, Backbone.js",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://omni.comperemedia.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, React.js",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://data.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, React-Redux",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://api.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, Graphene",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://cds.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, XSLT",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://portal.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, Celery",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.gnpd.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django with a core of C++",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://oauth.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://marketsizes.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://shibboleth.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://www.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Wordpress",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://internal-auth.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://qa-server-inventory.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://store.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "PHP, Wordpress, Woocommerce",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://reports.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django with a core of C++",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://lon-dc-pdf.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django, Celery, Prince",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://lon-dc-ppt.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Jython, Django, Celery, Aspose",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://policy-agent.mintel.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, SQLAlchemy",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://whoswho.mintel.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "Python, Django",
+      "max_severity": "critical"
+    }
+  ]
+}

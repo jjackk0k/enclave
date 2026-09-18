@@ -1,0 +1,97 @@
+{
+ "at": "2026-09-12T09:55:17.080Z",
+ "opportunity": "fastly-vdp",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "manage.fastly.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-639WJK504N",
+     "evidence": "googletagmanager.com/gtag/js?id=G-639WJK504N"
+    }
+   ],
+   "headers": {
+    "x-cache": "MISS",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+    "content-security-policy": "connect-src https://accounts.fastly.com https://api.fastly.com https://rt.fastly.com https://manage.fastly.com https://f",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "docs.fastly.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [],
+   "headers": {
+    "x-cache": "MISS, MISS",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=315360000",
+    "content-security-policy": "default-src 'self' *.fastly.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' *.fastly.com https://*.googletagmanager",
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.fastly.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "fastly Varnish",
+    "x-cache": "HIT",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "signalsciences.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "AmazonS3",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 5090b605a7b968781de55827dd170bf2.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "fanout.io",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "x-cache": "MISS",
+    "via": "1.1 varnish"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+  "phase": "post-exploitation",
+  "operator": "marcus",
+  "clearance": "L4",
+  "targets": [
+    "www.zomato.com",
+    "mcp-server.zomato.com",
+    "api.zomato.com"
+  ],
+  "confirmed_findings": [
+    {
+      "host": "www.zomato.com",
+      "title": "TLS: overly broad wildcard certificate",
+      "severity": "med",
+      "impact": "A wildcard certificate (*.zomato.com) allows any subdomain to present a valid TLS certificate. This expands the trust boundary and facilitates phishing or MITM if an attacker gains control of any subdomain."
+    },
+    {
+      "host": "mcp-server.zomato.com",
+      "title": "TLS: overly broad wildcard certificate",
+      "severity": "med",
+      "impact": "Same as above. The MCP server shares the overly broad wildcard, meaning its identity cannot be distinguished from arbitrary subdomains via certificate name alone."
+    },
+    {
+      "host": "api.zomato.com",
+      "title": "TLS: overly broad wildcard certificate",
+      "severity": "med",
+      "impact": "Same as above. The API endpoint shares the wildcard, increasing risk if a subdomain is compromised or typo-squatted."
+    }
+  ],
+  "exploitation_status": "No remote exploitation performed. The confirmed findings are configuration weaknesses (TLS certificate scope) that do not provide a vector for remote code execution, file write, or credential compromise on the target hosts. Minimum proof of impact is the confirmed certificate configuration itself, which unnecessarily trusts the entire subdomain space.",
+  "remote_artifacts": [],
+  "local_artifacts": [
+    {
+      "path": "postex-artifacts.json",
+      "purpose": "Post-exploitation ledger and impact proof record",
+      "cleanup": "del postex-artifacts.json"
+    }
+  ],
+  "notes": [
+    "Shell egress to target hosts blocked by Enclave research-allowlist policy; direct IP and hostname access both denied.",
+    "No files, accounts, registry changes, or configurations were modified on client systems.",
+    "Client systems remain in their original state."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+ "at": "2026-09-16T19:37:48.340Z",
+ "opportunity": "reddit",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "new.reddit.com",
+   "kind": "domain",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "snooserv",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "api.reddit.com",
+   "kind": "domain",
+   "status": 403,
+   "techs": [],
+   "headers": {
+    "server": "snooserv",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "mod.reddit.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "ads.reddit.com",
+   "kind": "domain",
+   "status": 302,
+   "techs": [],
+   "headers": {
+    "server": "snooserv",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "content-security-policy": "default-src 'none';child-src blob:;connect-src blob: data: *;form-action 'self' *;frame-ancestors 'self';frame-src *;img",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "gql.reddit.com",
+   "kind": "domain",
+   "status": 404,
+   "techs": [],
+   "headers": {
+    "server": "Varnish",
+    "via": "1.1 varnish",
+    "strict-transport-security": "max-age=31536000; includeSubdomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

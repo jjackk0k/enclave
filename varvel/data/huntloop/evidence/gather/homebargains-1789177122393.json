@@ -1,0 +1,68 @@
+{
+ "at": "2026-09-12T01:38:39.174Z",
+ "opportunity": "homebargains",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "signin-hackerone.hbstaging.website",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b31a608a19d0f-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self' https://*.hbstaging.website https://*.hbweb.io https://*.homebargains.co.uk https://player.vimeo.com ",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "hackerone-m1rtuq8orz.hbstaging.website",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b31af6ea0005f-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self'; img-src data: 'self' https://ecom-cdn.hbstaging.website https://ssl.gstatic.com https://www.gstatic.",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

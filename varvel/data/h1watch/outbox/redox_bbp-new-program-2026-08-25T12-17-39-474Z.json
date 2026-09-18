@@ -1,0 +1,158 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "redox_bbp",
+      "name": "Redox",
+      "offersBounties": true,
+      "assets": [
+        "10x.redoxengine.com",
+        "docs.redoxengine.com",
+        "explore.redoxengine.com",
+        "fhir.redoxengine.com",
+        "help.redoxengine.com",
+        "test*.redoxengine.com",
+        "testapi.redoxengine.com",
+        "testapp.redoxengine.com",
+        "www.redoxengine.com"
+      ],
+      "exclusions": [
+        "api.redoxengine.com",
+        "candi.redoxengine.com",
+        "dashboard.redoxengine.com",
+        "https://redoxengine.atlassian.net",
+        "redox.slack.com",
+        "sso.redoxengine.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\redox_bbp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "redox_bbp",
+  "name": "Redox",
+  "url": "https://hackerone.com/redox_bbp",
+  "policy": "Our Security team identifies, evaluates, and manages vulnerabilities across Redox, including corporate assets, applications, and cloud infrastructure. Our purpose is to reduce risk exposure and support our goal to become the most trusted brand in healthcare technology.\n\nWith you as an extension to our team, we can achieve that goal and ultimately protect patient data.\n\n# Response Targets\nRedox will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 2 days |\n| Time to Bounty | 14 days |\n| Time to Resolution | depends on severity and complexity |\n\n**Important:** Even after HackerOne triage, the Redox team may close a ticket at any time with no payout (e.g., if it's a duplicate or we decide not to fix the issue). For duplicates, we may not provide links to the original ticket, especially if the original reporter prefers privacy or the ticket is in our internal system.\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Program Rules\n\n**Report Requirements:**\n* Provide detailed reports with reproducible steps. Reports lacking sufficient detail for reproduction are not eligible for rewards.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to demonstrate impact.\n* When duplicates occur, we only award the first report received (provided it can be fully reproduced). Evidence will be provided via the original ticket number and/or title.\n* Multiple vulnerabilities caused by one underlying issue will receive one bounty.\n\n**Testing Guidelines:**\n* Social engineering (e.g., phishing, vishing, smishing) is prohibited.\n* Make a good faith effort to avoid privacy violations, data destruction, and service interruption or degradation.\n* Only interact with accounts you own or with explicit permission from the account holder.\n\n**Eligibility:**\n* Current Redox employees and contractors are not eligible. Former employees and contractors become eligible 6 months after termination.\n\n# Getting Started\n\n## Account Setup and Permissions\n\nTo begin testing, request elevated permissions through our Service Portal: - [Google Form - Request for Elevated Permissions / Account Provisioning](https://forms.gle/BmwJaEqCa8ofwdJn7)\n\nThis allows us to provision resources specific to your testing.\n\n**Account Requirements:**\n* Use your `@wearehackerone.com` email address when creating accounts\n* If you need separate accounts, you can [use an alias](https://docs.hackerone.com/hackers/hacker-email-alias.html#multiple-aliases)\n* This helps us identify you as a researcher, not a malicious user\n\n**Testing Guidance:**\n* Reference our [Change Log](https://www.redoxengine.com/blog/category/redox/changelog/) for the latest product additions and functionality to test \n\n## Test Environment URLs\n\n**Important:** All documentation references production resources. Always use the staging equivalents below for testing.\n\n| **Staging URL (Use for Testing)** | **Production Equivalent** | **Description** |\n| ------------- | ------------- | ------------- |\n| **10x.redoxengine.com** | dashboard.redoxengine.com | UI - Frontend of Dashboard |\n| **testapp.redoxengine.com** | candi.redoxengine.com | API - Backend of Dashboard |\n| **testapi.redoxengine.com** | api.redoxengine.com | API - FHIR/DataModel API |\n\n## API Documentation\n\n* [Overall documentation](https://docs.redoxengine.com/)\n* [FHIR API](https://docs.redoxengine.com/permalink/3XuY7RCaQV4Dscsy6gL8wR)\n* [Datamodel API](https://docs.redoxengine.com/permalink/6hnGvNQQLFgb8s0W7SFfvt)\n* [Platform API](https://docs.redoxengine.com/permalink/5mfjvKdJt3bRS8d5B4POP2)\n\n# Program Scope\n\n## Critical Application Resources\n\nWe are primarily looking for vulnerabilities in these critical resources:\n- **10x.redoxengine.com** (Main Dashboard)\n- **testapp.redoxengine.com** (Dashboard Backend API)\n- **testapi.redoxengine.com** (FHIR/DataModel API)\n\n\n# Out of Scope\n\nWhen reporting vulnerabilities, please consider (1) attack scenario/exploitability, and (2) security impact. The following issues are out of scope:\n\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* CSV injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Content spoofing and text injection issues without showing an attack vector or ability to modify HTML/CSS\n* Missing best practices in Content Security Policy\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (invalid, incomplete, or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers (less than 2 stable versions behind the latest release)\n* Software version disclosure, banner identification issues, or descriptive error messages/headers (e.g., stack traces, application or server errors)\n* Public zero-day vulnerabilities that have had an official patch for less than 1 month (awarded on a case-by-case basis)\n* Tabnabbing\n* Open redirect (unless an additional security impact can be demonstrated)\n* Any activity that could lead to service disruption (DoS)\n* Rate limiting or bruteforce issues on non-authentication endpoints and our external Help Desk forums (https://redoxengine.atlassian.net/servicedesk/customer/portals)\n* Removing all organization owners or demoting all users to \"basic user\" role\n* Creating an organization with the same name as an existing organization\n* Broken Link Hijacking on https://www.redoxengine.com\n* Demo Personal Identifiable Information (PII) in `/static/js/main.*.js` or in API Actions\n* Ability to create resources (alerts, sources, destinations) as a Free Tier User/Org\n  * **Note:** There is a frontend UI block, but no backend resource blocking for this.\n\n## Denial of Service (DoS) Policy\n\nDoS vulnerabilities are out of scope (any attack requiring more than a small number of resources). DoS vulnerabilities causing application \"slowdown\" will be considered Informational, unless the researcher can demonstrate the bug is severe enough to disable other sessions and site functionality without significant resources. Bugs that cannot clearly show impact on other users without significant resources will be considered DDoS.\n\n**Rate Limiting Infrastructure:**\n\nWe utilize a Web Application Firewall (WAF) for rate limiting:\n- API traffic: 5000 requests per 5 minutes per IP\n- HTTP traffic: 500 requests per 5 minutes per IP\n\n# Disclosure Policy\n\n* As this is a private program, do not discuss the program or any vulnerabilities (even resolved ones) outside of the program without express consent from Redox.\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n---\n\nThank you for helping to secure Redox!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "10x.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "testapp.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "testapi.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "dashboard.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please ensure all testing is performed against the staging instance at 10x.redoxengine.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "candi.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please ensure all testing is performed against the staging instance at testapp.redoxengine.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "api.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Please ensure all testing is performed against the staging instance at testapi.redoxengine.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "test*.redoxengine.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "fhir.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "explore.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is a marketing site with all public information. Findings here have lesser security implication than our application",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "www.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "This is our wordpress marketing site.  Findings here have lesser security implication than our application",
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "help.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "medium"
+    },
+    {
+      "asset_identifier": "sso.redoxengine.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "redox.slack.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Internal Slack is out of scope",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "https://redoxengine.atlassian.net",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Internal Jira is out of scope",
+      "max_severity": "none"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "anthropic",
+      "name": "Anthropic",
+      "offersBounties": true,
+      "assets": [
+        "API & SDKs",
+        "Claude Code",
+        "Claude Desktop Extensions and Claude.ai MCP servers",
+        "Claude in Chrome",
+        "Infrastructure & Internal Apps/Services",
+        "Leaked Employee API Keys",
+        "Official Clients",
+        "anthropic.atlassian.com",
+        "api.anthropic.com",
+        "claude.ai",
+        "console.anthropic.com",
+        "docs.anthropic.com",
+        "github.com/anthropics",
+        "support.anthropic.com"
+      ],
+      "exclusions": [
+        "https://github.com/modelcontextprotocol"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\anthropic-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "anthropic",
+  "name": "Anthropic",
+  "url": "https://hackerone.com/anthropic",
+  "policy": "The security of our systems and user data is Anthropic's top priority. We appreciate the work of security researchers acting in good faith to identify and report potential vulnerabilities. Involving researchers through our bug bounty program helps us continuously improve our security as our products reach a wider audience.\n\nWe look forward to partnering with you to further strengthen Anthropic's security!\n\n# Program Rules\n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\n* To help us investigate and confirm bug bounty reports, you **must** use your `@wearehackerone.com` email address when creating any accounts and add a `X-HackerOne-Handle: <your handle>` header to your requests.\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to demonstrate impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Reports that lead to updating documentation to describe security risks will be awarded at our discretion with a $100 bounty.\n* Reports in products or features that are released in Research Preview or Beta status will be treated as non-core for a 1-month period following their initial release.\n* Reports of public zero-day vulnerabilities that have had an official patch for less than 7 days will be awarded on a case-by-case basis.\n* False-positive and/or theoretical reports from automated scanners or written by AI will be closed as \"Not Applicable\" at Anthropic's discretion. You must validate all vulnerabilities and provide a working proof of concept with your submission.\n* By submitting a report, you represent that you are the rightful author of the underlying work and grant Anthropic full rights to use the vulnerability report data (including sharing details with third parties as needed) to address any vulnerabilities. Vulnerabilities fixed by third parties coordinated by Anthropic will be awarded at our discretion with a $100 bounty.\n\n## Important Notes\n\n* We are currently working on a remediation project for vulnerabilities bypassing the Claude Code permission modal for command execution. We expect this to provide a more holistic fix for these issues. During this time we still welcome reports about this, but it is likely that reports will be closed as duplicates if they will be fixed by this effort.\n* In auto-accept-edits mode Claude Code is able to modify all files in the CWD. In some cases other software on the machine may execute these files. This behavior is the responsibility of the user that enables auto-accept-edits mode and is not considered to be a vulnerability in Claude Code.\n* GitHub Action vulnerabilities in in-scope repos are treated as non-core vulnerabilities unless they can be shown to impact assets that are otherwise defined as core.\n\n# Out of Scope Findings\n\nThe following vulnerability classes are excluded from rewards, subject to Anthropic's discretion:\n\n* General security or email best practices, or missing best practices in SSL/TLS configurations, without a working proof of concept\n* Physical compromise or intrusions\n* Rate limiting or brute-force issues on non-authenticated endpoints\n* Compromises involving an insider\n* Social engineering (including phishing attempts)\n* Reflected file downloads\n* Account takeovers (including any brute-force attacks on accounts that are not your own)\n* Denial of service attacks\n* Clickjacking on pages with no sensitive actions\n* Missing HttpOnly or Secure flags on cookies\n* Dependency hijacking\n* Any widely publicized zero-day vulnerabilities that have no patch, or have only had a patch available for less than 30 days\n\n# Model Safety and Red Teaming\n\nThis bug bounty program is focused on identifying vulnerabilities in our infrastructure and code. Issues related to model content and responses — including jailbreaks, harmful content generation, and hallucinations — are **out of scope** for this program.\n\nWe are, however, always looking for ways to enhance the safety and harmlessness of our models. \n\nIf your report demonstrates a jailbreak of the **Fable model family**, please submit it to our dedicated bug bounty program at https://hackerone.com/anthropic-cyber-jailbreak. If you encounter safety issues, jailbreaks, or similar concerns, in **any other model** please email **modelbugbounty@anthropic.com** with enough detail for us to replicate the issue.\n\n# Research Guidelines\n\nWhile we reserve final and sole discretion for whether you are acting in good faith and in accordance with this Policy, we will generally presume you are acting in good faith if you abide by this Policy and agree to the following:\n\n* You are testing Anthropic's systems for the sole purpose of identifying or discovering a potential vulnerability or any associated indicator of a vulnerability and reporting such information to us;\n* You will avoid causing any harm to Anthropic's systems, including avoiding any data destruction, use, access, or acquisition; disruption of these systems or any customer user experience (including initiating denial of service attacks or using tools that generate substantial amounts of traffic); violation or compromise of the privacy or security of our customers, employees, or other users; or other illegal or harmful activities;\n* You will avoid exploiting any vulnerability beyond what is minimally required to reasonably prove that such potential vulnerability exists, including avoiding accessing, acquiring, or using data that may be accessible from exploiting the vulnerability;\n* You will avoid accessing, acquiring, or using the content of any communications, data, or information transmitted or stored on Anthropic's systems, unless such access is inadvertent;\n* You will not exfiltrate, download, or otherwise retain any data that you collect. If you inadvertently access any data, you will report such access to us as part of your report;\n* You must not perform any attacks that would compromise the security or confidentiality of any account that is not your own;\n* You must not perform any social engineering attacks (phishing, vishing, etc.) on any Anthropic employee, contractor, or representative;\n* You must not, as a condition of disclosure, require payment or compensation, or otherwise make threats to disclose the vulnerability in an irresponsible manner;\n* You must not be listed on the Specially Designated Nationals and Blocked Persons List as published by the U.S. Treasury Department's Office of Foreign Assets Control (\"OFAC\") or any other sanctions list, or reside in any country that has been sanctioned by the United States Government; and\n* You, at all times, are in compliance with all applicable federal, state, and local laws in connection with your research activities.\n\nIf you have any questions about this Policy or whether your research is consistent with these guidelines, please contact **bugbounty@anthropic.com**.\n\n# Disclosure Policy\n\n* Please follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n* We fully support researchers' right to publicly disclose vulnerabilities they discover. We ask only that you coordinate the timing of disclosure with us to prevent potential harm to our services, customers, and other parties. Please do not disclose the existence of or any details relating to a discovered vulnerability to a third party or to the public until you have received written confirmation from us.\n* Researchers are free to report similar vulnerabilities in other organizations' services — we will never attempt to restrict such disclosures.\n\n# Your Expectations of Us\n\nAll good-faith reports will be taken seriously. Upon promptly and responsibly reporting any potential vulnerability you have discovered, you can expect us to promptly evaluate your findings. If we determine (at our sole discretion) that a vulnerability exists, you can expect us to validate the existence of the vulnerability, confirm the same with you, and promptly take appropriate steps to address, mitigate, or remediate the vulnerability to the extent feasible. Additionally, we will:\n\n* Protect your name and contact information and not disclose such information without your consent, unless required by lawful legal process, law, or court order;\n* Refrain from taking legal action as set forth in the Safe Harbor section below;\n* With your permission, attribute your name and contribution on any public disclosure we make;\n* Acknowledge your submission within three (3) business days; and\n* Make best efforts to keep you updated and promptly complete our investigation.\n\n# Safe Harbor\n\nIf you, in our sole determination, make a good-faith effort to research and disclose vulnerabilities in accordance with this Policy and the above Research Guidelines, we will not pursue any legal action because of your research or responsible disclosure, subject to Anthropic's compliance with applicable laws and legal obligations. To qualify for safe harbor, disclosures to us must be unconditional and may not involve extortion or threats.\n\n# Changes to this Policy\n\nWe reserve the right to make changes to this Policy at any time by publishing a new policy and amending the date of last update. Vulnerabilities disclosed prior to any update of this Policy will remain subject to the policy then in effect.\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "claude.ai",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]\n\nClaude, a next-generation AI assistant trained to be helpful, honest and harmless, is accessible through a chat interface on claude.ai.\n\nClaude is capable of a wide variety of conversational and text and image processing tasks and can help with use cases including summarization, search, crea",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "API & SDKs",
+      "asset_type": "AI_MODEL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]\n\nAnthropic's API enables enterprise customers to programmatically interact with Claude, supporting their diverse business requirements. Claude is a large language model (LLM) that has been trained to be a helpful assistant in a conversational tone.\n\nFor additional information on the API and S",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Infrastructure & Internal Apps/Services",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]\n\nIn scope:\n\n- Vulnerabilities in Anthropic infrastructure that could lead to unauthorized access, data exposure, or service disruption. Examples include server misconfigurations, exposed internal services, subdomain takeovers, etc.\n- Vulnerabilities in internal Anthropic web applications ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Official Clients",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]\n\nClaude, Anthropic's AI assistant, is now available on iOS, Android, and Desktop. \n\nClaude iOS App:\nhttps://apps.apple.com/us/app/claude/id6473753684\n\nClaude Android App:\nhttps://play.google.com/store/apps/details?id=com.anthropic.claude\n\nClaude Desktop:\nhttps://claude.ai/download \nNote: Clau",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://github.com/modelcontextprotocol",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Issues in OSS Model Context Protocol code should be reported directly to MCP maintainers via the Security page for the affected repo. \n\nIssues affecting implementations of MCP in Anthropic products and services (on claude.ai, Claude Desktop, etc) are still in scope and should be submitted under the ",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Claude Code",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]\n\n**In Scope:**\n* Bypassing permission prompts for unauthorized command execution \n(excluding pre-approved or user-allowed commands)\n* Bypassing permission prompts for file write operations outside working directory\n* Misrepresenting parameters or tools in permission prompts by displaying diff",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "console.anthropic.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "api.anthropic.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Core]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Leaked Employee API Keys",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core] \n\nAPI keys belonging to employees that are publicly leaked. Hackers should submit the leaked credentials to the program and should NOT test their validity beyond authenticating and then immediately deauthenticating - without exercising any functionality. We will test validity and measure ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "docs.anthropic.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "support.anthropic.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "github.com/anthropics",
+      "asset_type": "SOURCE_CODE",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]\n\nNote: Vulnerabilities in repos that are marked as archived or repos that are forks of other open source projects are excluded from our bug bounty unless the issue can be demonstrated to impact Anthropic assets.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "anthropic.atlassian.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]\n\nNote: It is working as intended that there are 4 queues accessible with an external account: AP Inbox, Finsys Intake, and Dev Accounts Payable. Reports about this will be closed as Informative. If you are able to access any sensitive information, please do open a report. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Claude Desktop Extensions and Claude.ai MCP servers",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core] \n\nConnectors (e.g., desktop extensions, local MCP servers, and remote MCP servers) installable from the Claude.ai & Desktop Connectors directory may be developed by Anthropic or created independently by third-party developers. Vulnerabilities discovered in Anthropic developed software are",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Claude in Chrome",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "[Non-Core]\n\nhttps://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn",
+      "max_severity": "critical"
+    }
+  ]
+}

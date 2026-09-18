@@ -1,0 +1,84 @@
+{
+ "at": "2026-09-12T01:31:03.474Z",
+ "opportunity": "grindr",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.grindrapp.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.grindrapp.android:443 refused: host unreachable"
+  },
+  {
+   "host": "preprod1.grindr.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to preprod1.grindr.com:443 refused: host unreachable"
+  },
+  {
+   "host": "web.grindr.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39b26921d7fbeab-LHR",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 5cd779a535377ee3833bbb8e5915a61c.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=31536000; includeSubDomains",
+    "content-security-policy": "default-src 'none'; script-src 'self' https://unpkg.com/@enegelai/ https://connect.facebook.net/en_US/sdk.js https://con"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "grindr.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to grindr.io:443 refused: host unreachable"
+  },
+  {
+   "host": "grindr.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "CloudFront",
+    "x-cache": "FunctionGeneratedResponse from cloudfront",
+    "via": "1.1 3449f62ea5d0e0274ae2bb74746bfebc.cloudfront.net (CloudFront)"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

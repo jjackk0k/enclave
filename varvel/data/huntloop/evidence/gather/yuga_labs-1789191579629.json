@@ -1,0 +1,106 @@
+{
+ "at": "2026-09-12T05:39:34.093Z",
+ "opportunity": "yuga_labs",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "boredapeyachtclub.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nextjs",
+     "label": "Next.js",
+     "version": null,
+     "evidence": "/_next/static/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c928d2ad888ef-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+    "content-security-policy": "default-src 'self' https: wss: data: blob: https://*.privy.io; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://c",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [
+    {
+     "path": "/api/",
+     "source": "robots.txt"
+    }
+   ],
+   "requests": 2
+  },
+  {
+   "host": "yuga.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nuxt",
+     "label": "Nuxt",
+     "version": null,
+     "evidence": "/_nuxt/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-W4ZBMQ7P",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-W4ZBMQ7P"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c9298db974ef5-LHR",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "yugalabs.io",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to yugalabs.io:443 refused: host unreachable"
+  },
+  {
+   "host": "otherside.xyz",
+   "kind": "wildcard-apex",
+   "status": 307,
+   "techs": [],
+   "headers": {
+    "server": "Vercel",
+    "strict-transport-security": "max-age=63072000"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

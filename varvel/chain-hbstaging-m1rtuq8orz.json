@@ -1,0 +1,35 @@
+{
+  "name": "hbstaging-m1rtuq8orz-exposed-secrets-auth-bypass",
+  "base": "https://hackerone-m1rtuq8orz.hbstaging.website",
+  "steps": [
+    {
+      "id": "git-head",
+      "path": "/.git/HEAD",
+      "expect": { "status": 200, "contains": "ref: refs/" },
+      "note": "Exposed .git repo — source code leakage"
+    },
+    {
+      "id": "admin-direct",
+      "path": "/admin",
+      "expect": { "status": 200, "notContains": "login" },
+      "note": "Unauthenticated admin panel access"
+    },
+    {
+      "id": "swagger-ui",
+      "path": "/swagger-ui",
+      "expect": { "status": 200, "contains": "swagger" },
+      "note": "Exposed API documentation"
+    },
+    {
+      "id": "api-users",
+      "path": "/api/users",
+      "expect": { "status": 200, "contains": "[" },
+      "note": "Unauthenticated user enumeration via API"
+    }
+  ],
+  "impact": {
+    "step": "git-head",
+    "contains": "ref: refs/",
+    "control": { "refuseStatus": 404 }
+  }
+}

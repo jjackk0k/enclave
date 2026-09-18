@@ -1,0 +1,125 @@
+{
+ "at": "2026-09-12T04:30:32.254Z",
+ "opportunity": "ripio",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.ripio.ios",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.ripio.ios:443 refused: host unreachable"
+  },
+  {
+   "host": "com.ripio.android",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.ripio.android:443 refused: host unreachable"
+  },
+  {
+   "host": "trade.ripio.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-PCFZL8H",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-PCFZL8H"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c2d7c8ed2d094-LHR",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 1e6deedb33b5994f492af7acdec0de4c.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=2592000",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "app.ripio.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "gtm",
+     "label": "Google Tag Manager",
+     "version": "GTM-MNSPB4K",
+     "evidence": "googletagmanager.com/gtm.js?id=GTM-MNSPB4K"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c2d863e7f653e-LHR",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 be8b43f893825967d3e4c649e583b4a0.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=2592000",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "kyc.ripio.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c2d8f4d3c6367-LHR",
+    "x-cache": "Hit from cloudfront",
+    "via": "1.1 229236002d16f0c033cbeb40fc17e164.cloudfront.net (CloudFront)",
+    "strict-transport-security": "max-age=2592000",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

@@ -1,0 +1,256 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "mongodb",
+      "name": "MongoDB",
+      "offersBounties": true,
+      "assets": [
+        "*.mongodb.com/*",
+        "All Evergreen Assets (Excluding staging)",
+        "App Services/Realm",
+        "Atlas Charts",
+        "Atlas IAM",
+        "Cluster-To-Cluster sync",
+        "Compass",
+        "Database Tools",
+        "Drivers",
+        "Enterprise Edition Products and Tools",
+        "Jira Projects",
+        "MongoDB Assistant",
+        "MongoDB Atlas",
+        "MongoDB Community Server",
+        "MongoDB Connectors",
+        "MongoDB IntelliJ Plugin",
+        "MongoDB MCP Server",
+        "MongoDB Owned GitHub Repositories",
+        "MongoDB Partner Integrations",
+        "MongoDB Shell",
+        "MongoDB Toolchain",
+        "Relational Migrator",
+        "University Platform",
+        "VS Code Plugin"
+      ],
+      "exclusions": [
+        "voyageai.com"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\mongodb-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "mongodb",
+  "name": "MongoDB",
+  "url": "https://hackerone.com/mongodb",
+  "policy": "{F1894478}\n\n\nAt MongoDB, our mission is to empower investors to create, transform, and disrupt industries by unleashing the power of software and data. We are a leading modern, general purpose database platform and our open-source model provides transparency to our users. As such we take security seriously and if you believe you have discovered a security vulnerability in one of our products, we encourage you to disclose it to us as quickly as possible. We look forward to working with the security community to find vulnerabilities in order to keep our business and customers safe.\n\n# Table of Contents\n* Rules of Engagement\n   * Program Rules\n   * Disclosure Policy\n   * Safe Harbor\n* Eligibility\n   * Testing\n   * Program Scope\n   * Out of Scope and Non Qualifying Reports\n    * *Do Not Report*\n\n\n# Rules of Engagement\nThis program should be a collaborative effort and we would ask that you allow time for our teams to process reports through to resolution. By participating in this program, you will be agreeing to the [HackerOne Code of Conduct](https://www.hackerone.com/policies/code-of-conduct), [Finder’s T&C](https://www.hackerone.com/terms/finder), [MongoDB’s Privacy Policy](https://www.mongodb.com/legal/privacy-policy) and the Program Rules outlined below.\n\n\n## Program Rules\nPlease provide detailed reports with reproducible steps. Eligibility is discussed further in the following section however, **if the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.**\n* Without explicit and written consent, researchers may not attempt to perform any activity that will cause disruption to accounts that they do not own or already have access to.\n* Submitted reports must be one vulnerability per report, unless multiple vulnerabilities must be demonstrated to prove impact.\n* When duplicates occur, we only award the first report that was received (provided that it can be fully reproduced).\n   * This may apply to reports of similar nature i.e. same vulnerability but different proof of concept provided.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\n* Avoid privacy violations, destruction of data, and interruption or degradation of our service. \n\n\n## Disclosure Policy\nPlease follow [HackerOne's disclosure guidelines](https://www.hackerone.com/disclosure-guidelines). In addition, public disclosure of your findings via a blog post, social media, or any other type of medium is not allowed.\n\n\n## Safe Harbor\nMongoDB will not initiate a lawsuit or law enforcement investigation against a researcher in response to reporting a vulnerability if the researcher fully complies with this policy. Please understand that if your security research involves the networks, systems, information, applications, products, or services of another party (which is not us), that third party may determine whether to pursue legal action. \n\n**You are expected, as always, to comply with all applicable laws and regulations.**\n\n\n# Eligibility\nWe will attempt to provide as much information as possible in the sections below in order to increase the chances of researchers submitting eligible reports. Therefore, we request you to go through the scoping section to ensure that reports are eligible for bounty. Only reports affecting assets listed explicitly in the ‘In Scope’ section are eligible for bounty reward.\n\nPLEASE NOTE eligible subdomain takeover reports will be rewarded at a percentage of the severity reward payout.\n\n## Testing\nOur security team and tooling are constantly monitoring for attacks on our systems, therefore, a lot of traffic may be coming in and out. In order for our team to quickly identify testing by HackerOne researcher and not a malicious attacker, we ask that you provide an identifier in your testing process.\n* Suggested header to requests: **X-HackerOne-Research: [H1 username]**\n   * This could further help us identify your eligibility for bounty\n* Provide your testing IP when applicable in your reports. \n   * This could further help us identify your eligibility for bounty\n   * We will only retain your IP for investigative purposes of the submitted report\n* When testing Atlas, create Atlas accounts using your HackerOne email **yourh1username@wearehackerone.com**.\n* Avoid using automatic scanners when possible as these usually bombard our systems and we are usually not able to provide eligible reports in the past.\n* Always refrain from causing damage or disruption. Researchers can provide proof of concept up to this point and can request for MongoDB to provide confirmation for testing or we can confirm the vulnerability on our end first.\n\nP.S. Please do not hesitate to contact us via the HackerOne support channels.  \n**Attacks on accounts you do not own or have permissions to is strictly prohibited.**\n\n\n## Program Scope\nThe scope of this program is **MongoDB Owned Domains** , **MongoDB Free Tier Atlas** and a **MongoDB Shipped Products** with exceptions (please refer to the Out of Scope section). For a list of our scopes please refer below for a detailed list. When submitting a report, if the asset involved is not explicitly called out in scope, it will not be eligible for bounty.\n\n\n## Out of Scope and Non Qualifying Reports\nAs we continuously mature this program, we identify issues that are not valuable to the overall security of our domains. A rule of thumb is, non-security related or outdated best practices are generally not accepted. The following report types are also not accepted:\n* Public Jira Projects - We have multiple Jira Projects that have been intentionally made public. Please only submit jira related reports that involves sensitive information disclosure.\n* Subdomain takeovers for out of scope domains\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS)\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Rate limiting or bruteforce issues on non-authentication endpoints\n* Missing best practices in Content Security Policy\n* Missing HttpOnly or Secure flags on cookies\n* Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors)\n* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis\n* Tabnabbing\n* Open redirect - unless an additional security impact can be demonstrated\n* Issues that require unlikely user interaction\n* Test/Demo credentials that intentionally exposed for specific use-cases\n* Known false positives:\n   * Content injection\n   * Error Message\n   * SCRAM-SHA1 authentication mechanism's login credentials disclosure\n   * SPF record configuration on 10gen.com or mongodb.com\n   * Server version disclosure\n   * Information Disclosure on /secure/QueryComponent!Default.jspa endpoint\n* Accepted Risks: \n   * CSRF with minimal security implications i.e. CSRF on logout\n   * CSRF Token Leak\n   * JavaScript error\n* Good practice settings: \n   * CSP uses unsafe-inline, Missing Certificate Authority, Authorization Rule, Missing HSTS, Missing security headers, No X-Frame Options Header on developer.mongodb.com, Open redirect using Host header. \n   * No X-Frame Options Header on developer.mongodb.com \n* Any reports on our forums page(https://www.mongodb.com/community/forums/*)\n* Post authentication OOM issues\n\nPlease note that no MongoDB employees and contractors may submit vulnerabilities via HackerOne, and are ineligible for bounties. Please report any findings to the Product Security Team. \n\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Enterprise Edition Products and Tools",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Drivers, cloud tools, enterprise cloud and enterprise server",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "All Evergreen Assets (Excluding staging)",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/evergreen-ci/evergreen",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Owned GitHub Repositories",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Only github.com/mongodb is eligible for bounty. Other MongoDB owned repositories are in scope, but not eligible for bounty. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Cluster-To-Cluster sync",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mongodb.com/try/download/mongosync",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Compass",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mongodb.com/try/download/compass",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Relational Migrator",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mongodb.com/try/download/relational-migrator",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Shell",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mongodb.com/try/download/shell",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "VS Code Plugin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "*.mongodb.com/*",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "*.mongodb.com/* is in scope, and includes\nmongodb.com/docs/\nsupport.mongodb.com\nAll others sites that follow that pattern are in-scope. If the site is owned by MongoDB, it is eligible for a bounty. If it’s owned by a 3rd party, it is not eligible for a bounty. This scope is a catch-all for all produ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Drivers",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "These are the following drivers that are in scope: \nAtlas SQL JDBC Driver\nAtlas SQL ODBC Driver\nC\nC++\nGo\nJVM (Java, Scala, Kotlin)\nLibmongocrypt\nNode.js/Typescript\nPHP\nPython\nRuby\nRust\nThe Swift Driver is not in scope and not eligible for bounty.",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Connectors",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "The Connectors are in scope. This includes\nKafka Connector\nPowerBI Connector\nBI Connector\nSpark Connector\nTableau Connector",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Atlas",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Atlas and Atlas Features and Products are in scope and eligible for bounty. \nAtlas IAM, Charts, Data Federation, Payments/Billing, are listed elsewhere in the scope. Other Atlas products not explicitly listed elsewhere in the scope should be submitted here. This includes, but is not limited to Strea",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Community Server",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "Server Community and Server Enterprise are in scope and eligible for bounty. This includes but is not limited to Cloud Manager, Ops Manager, Search, and the Kubernetes Operators. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Database Tools",
+      "asset_type": "DOWNLOADABLE_EXECUTABLES",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://www.mongodb.com/try/download/database-tools",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB IntelliJ Plugin",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://plugins.jetbrains.com/plugin/24377-mongodb",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Partner Integrations",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://cloud.mongodb.com/ecosystem\nPartner integrations may be eligible for bounties, depending on the owner of the issue. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB MCP Server",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "https://github.com/mongodb-js/mongodb-mcp-server",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Assistant",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "MongoDB Assistant is integrated into Data Explorer and Compass. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Jira Projects",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "MongoDB is open-sourced and has publicly visible JIRA tickets. Only report information disclosure issues-- no technical bugs are accepted. Bounty may be varied. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "University Platform",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "learn.mongodb.com is owned by 3rd party and not eligible for bounty",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "MongoDB Toolchain",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "http://mongodbtoolchain.build.10gen.cc",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "App Services/Realm",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "instruction": "MongoDB App Services (fka Realm) has been deprecated. ",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "voyageai.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "Out of Scope and Ineligible for Bounty \nhttps://www.voyageai.com",
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "Atlas Charts",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "charts.mongodb.com",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "Atlas IAM",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "account.mongodb.com and other Identity and Access Management bugs within Atlas, regarding Organizations, Projects and permissions. ",
+      "max_severity": "critical"
+    }
+  ]
+}

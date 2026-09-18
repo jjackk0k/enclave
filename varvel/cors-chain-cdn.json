@@ -1,0 +1,29 @@
+{
+  "name": "cors-theft-cdn",
+  "base": "https://cdn.moderntreasury.com",
+  "steps": [
+    {
+      "id": "preflight-cors",
+      "path": "/",
+      "method": "OPTIONS",
+      "headers": {
+        "Origin": "https://attacker.invalid",
+        "Access-Control-Request-Method": "GET"
+      },
+      "expect": { "status": 204 },
+      "note": "Preflight must succeed for credentialed cross-origin reads"
+    },
+    {
+      "id": "verify-cors-root",
+      "path": "/",
+      "headers": { "Origin": "https://attacker.invalid" },
+      "expect": { "status": 200 },
+      "note": "Arbitrary origin reflected with credentials on CDN"
+    }
+  ],
+  "impact": {
+    "step": "verify-cors-root",
+    "contains": "<!doctype",
+    "control": { "stripHeaders": ["Origin"], "refuseStatus": [403], "mustDiffer": true }
+  }
+}

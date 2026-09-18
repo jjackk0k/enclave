@@ -1,0 +1,113 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "boozt",
+      "name": "Boozt Fashion AB",
+      "offersBounties": true,
+      "assets": [
+        "*.boozt.com",
+        "*.booztlet.com",
+        "com.boozt",
+        "com.boozt.app",
+        "com.boozt.booztlet",
+        "com.booztlet",
+        "kronor.io"
+      ],
+      "exclusions": [
+        "analytics.boozt.com",
+        "bmp.boozt.com",
+        "www.kronor.io"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\boozt-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "boozt",
+  "name": "Boozt Fashion AB",
+  "url": "https://hackerone.com/boozt",
+  "policy": "Boozt invites you to help enhance our security. We value your expertise in identifying vulnerabilities. We're serious about security and eager to collaborate. Join us in making a difference.\n\n# Response Targets\nBoozt will make its best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response   | SLA in business days               |\n|--------------------|------------------------------------|\n| First Response     | 2 days                             |\n| Time to Triage     | 5 days                             |\n| Time to Bounty     | 14 days                            |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\nFollow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# How we determine severity of a report\nAfter a report has been triaged by HackerOne, we will conduct an internal investigation to understand the impact of the vulnerability on our customers; the final severity will always factor in an assessment of how the issue affects our customers. Issues that can only be leveraged to attack one's own account will have their severity score or applicability reflect this.\n\nReports for security issues that aren't vulnerabilities in our systems might receive a bounty based on our assessment of the impact of the finding.\n\n# Targets\n\nWe invite you to identify and report security vulnerabilities in our core services, specifically our primary websites and the associated payment gateway, Kronor. The following targets are within the scope of this program:\n\nCore applications: these are our websites and companion mobile applications.\n\n1. Web applications:\n   1. `www.boozt.com`\n   2. `www.booztlet.com`\n\n2. Mobile applications:\n   1. `com.boozt.app` / `com.boozt`\n   2. `com.boozt.booztlet` / `com.booztlet`\n\nKronor, a payment gateway serving merchants in the nordics.\n\n1. `https://kronor.io/v1/graphql`\n2. `https://payment-gateway.kronor.io`\n3. `https://kronor.io/cde/gql`\n\nWe are interested in both isolated vulnerabilities in these endpoints and issues related to the integration of these endpoints with our websites and mobile applications.\n\n# Program Rules\n\nPlease provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue will not be eligible for a reward.\n\n* Submit one vulnerability per report, unless you need to chain vulnerabilities to provide impact.\n* When reporting vulnerabilities, please consider attack scenario, exploitability, and security impact of the bug on our customers. \n* When duplicates occur, we only award the first fully reproducible report that we receive.\n* Multiple vulnerabilities caused by one underlying issue will be awarded one bounty. This also applies in the case of the vulnerability affecting both Boozt and Booztlet domains.\n* If you require an account with our services to showcase a vulnerability, please use your `@wearehackerone.com` email when registering.\n* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. Only interact with accounts you own or with the explicit permission of the account holder.\n\n**The following are prohibited:**\n\n* Social engineering (phishing, vishing, smishing).\n* Public or third-party disclosure before resolution.\n\n**Eligibility Requirements:**\n\n* First reporter of a specific vulnerability.\n* Clear textual description and reproduction steps.\n* Responsible disclosure.\n* Testing only on owned accounts.\n\nIn addition to the above consideration, you are not eligible for the program if you are a current or former Boozt Group employee or consultant.\n\n# Out of Scope\n\nPlease note that any vulnerabilities found in third-party libraries or frameworks used by any of the targets are not in scope for this program, unless they directly impact the security of the target applications.\n\n## The following issues are considered out of scope:\n\n* Best practice concerns: evidence of a security issue is required.\n* Issues that can only be leveraged to attack one's own account.\n* Vulnerabilities allowing to obtain infinite \"Boozter\" points or circumventing validation on the amount of points when purchasing a \"Boozter\"\n* Clickjacking on pages with no sensitive actions.\n* Attacks requiring MITM or physical access to a customer's device.\n* Use of known vulnerable libraries without a working proof of concept showcasing leverage of that vulnerability.\n* CSV injection without demonstrating a vulnerability.\n* Any vulnerability affecting the availability of Boozt systems (e.g. denial of service vulnerabilities).\n* Missing `HttpOnly` or `Secure` flags on cookies.\n* Vulnerabilities only affecting users of outdated or unpatched browsers (less than two stable versions behind the latest released stable version).\n* Software version disclosure.\n* Public 0-day vulnerabilities that have had an official patch for less than one month will be awarded on a case by case basis.\n* Tabnabbing.\n* Open redirect - unless an additional security impact can be demonstrated.\n* Sessions being hijacked because of insecure protocol use.\n* Reports from automated tools or scans.\n* Spam techniques.\n* Code obfuscation in mobile applications.\n* Issues relating to password policies.\n* Race conditions that don't compromise the security of Boozt or our customers.\n* Issues that require unlikely customer interaction.\n* Issues related to hardcoded vendor tokens on mobile applications which don't compromise the security of Boozt or our customers.\n* User enumeration vulnerabilities.\n\n### System and Infrastructure Credentials\n\nThe disclosure of platform API keys, infrastructure tokens, or system credentials will generally be assessed as Low severity, unless the report demonstrates systemic impact, such as:\n\n* Mass unauthorized access to customer data.\n* Financial or transactional manipulation, such as bypassing payment controls or altering pricing.\n* Bypass of platform-level authentication or authorization controls.\n\nCredentials that are expired, revoked, environment-restricted, or otherwise non-exploitable will generally be considered Informational or Out of Scope.\n\n### User Account Credentials and Third-Party Leaks\n\nReports involving customer credentials obtained from third-party breaches, malware stealer logs, credential stuffing lists, public dumps, or similar sources are generally Out of Scope, unless they demonstrate a large-scale, coordinated threat to our customer base and are directly relevant to Boozt systems.\n\nWe are only interested in third-party credential leaks when the dataset is massive in scale and contains a substantial number of active, verified accounts, or when the source of the data breach is directly attributable to Boozt.\n\n### Known issues\n\nThe following issues are known to us and are being actively worked on. We consider them to be out of scope while remediation is in progress.\n\n* Cross-Site Request Forgery (CSRF) vulnerabilities on the `/api/me/favorites` endpoint.\n* Issues related to mobile application authentication tokens.\n* Brute-force issues, in particular with authentication endpoints. \n* Issues on Android apps affecting Webviews.\n\n### Jailbroken or rooted devices\nAny issue in our mobile applications that can only be exploited on a jailbroken or rooted device will be considered out of scope.\n\n# Changelog\n\nWe will keep this section regularly updated with changes to our assets that might have relevant security implications.\n\n## Q2 2025\n* New OAuth based authentication flow for mobile applications\n* Tighter integration with Keychain for secrets in iOS applications\n\nThank you for helping keep Boozt and our customers safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*.boozt.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "analytics.boozt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.booztlet.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.boozt.app",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.boozt.booztlet",
+      "asset_type": "APPLE_STORE_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.boozt",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "com.booztlet",
+      "asset_type": "GOOGLE_PLAY_APP_ID",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "bmp.boozt.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "kronor.io",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "instruction": "We are interested in reports covering the following endpoints only:\n\n1. https://kronor.io/v1/graphql\n2. https://payment-gateway.kronor.io\n3. https://kronor.io/cde/gql",
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.kronor.io",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "instruction": "We are not interested in issues found in the www.kronor.io website.",
+      "max_severity": "none"
+    }
+  ]
+}

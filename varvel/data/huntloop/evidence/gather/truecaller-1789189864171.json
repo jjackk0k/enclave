@@ -1,0 +1,111 @@
+{
+ "at": "2026-09-12T05:10:56.386Z",
+ "opportunity": "truecaller",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.truecaller",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.truecaller:443 refused: host unreachable"
+  },
+  {
+   "host": "business.truecaller.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nuxt",
+     "label": "Nuxt",
+     "version": null,
+     "evidence": "/_nuxt/"
+    }
+   ],
+   "headers": {
+    "server": "Google Frontend",
+    "x-cache": "MISS",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "content-security-policy": "base-uri 'none'; font-src 'self' data: *.gstatic.com https://cdn.jsdelivr.net *.typekit.net *.zohocdn.com; form-action '",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "web.truecaller.com",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to web.truecaller.com:443 refused: host unreachable"
+  },
+  {
+   "host": "www.truecaller.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "nuxt",
+     "label": "Nuxt",
+     "version": null,
+     "evidence": "/_nuxt/"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "cf-ray": "a39c68bce99d7dcd-LHR",
+    "strict-transport-security": "max-age=15552000; includeSubDomains",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "business-resources.truecaller.com",
+   "kind": "domain",
+   "status": 200,
+   "techs": [
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": "G-CSEL3YGBDH",
+     "evidence": "googletagmanager.com/gtag/js?id=G-CSEL3YGBDH"
+    }
+   ],
+   "headers": {
+    "server": "Pepyaka",
+    "x-cache": "HIT",
+    "via": "1.1 google",
+    "strict-transport-security": "max-age=31556952",
+    "x-content-type-options": "nosniff"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

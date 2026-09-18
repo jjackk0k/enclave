@@ -1,0 +1,70 @@
+{
+ "at": "2026-09-12T04:45:03.577Z",
+ "opportunity": "shein",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.zzkko",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.zzkko:443 refused: host unreachable"
+  },
+  {
+   "host": "com.romwe",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.romwe:443 refused: host unreachable"
+  },
+  {
+   "host": "shein.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "openresty"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "romwe.com",
+   "kind": "wildcard-apex",
+   "status": 301,
+   "techs": [],
+   "headers": {
+    "server": "openresty"
+   },
+   "endpoints": [],
+   "requests": 2
+  },
+  {
+   "host": "sheingsp.com",
+   "kind": "wildcard-apex",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to sheingsp.com:443 refused: host unreachable"
+  }
+ ]
+}

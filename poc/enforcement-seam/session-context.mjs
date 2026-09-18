@@ -35,7 +35,8 @@ export function capabilities(session) {
     const resource = chk.res === 'target'
       ? { type: 'Target', id: '10.10.5.20' }
       : { type: 'Workspace', id: session.workspace };
-    const v = authorize({ principalId: session.principal, action: chk.action, resource, context: chk.ctx });
+    const v = authorize({ principalId: session.principal, action: chk.action, resource, context: chk.ctx,
+      sessionWorkspace: chk.res === 'ws' ? session.workspace : undefined }); // truthful display: workspace capability is evaluated against the SIGNED session workspace, same as the hook's PDP call
     (v.decision === 'allow' ? permitted : escalate).push(chk.label);
   }
   return { permitted, escalate };

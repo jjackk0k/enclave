@@ -1,0 +1,55 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "msci",
+      "name": "MSCI",
+      "offersBounties": false,
+      "assets": [
+        "Any public-facing system owned, operated, or controlled by MSCI, including web applications hosted on those sites. "
+      ],
+      "exclusions": [
+        "*.msci.com.ar",
+        "https://careers.msci.com/"
+      ],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\msci-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "msci",
+  "name": "MSCI",
+  "url": "https://hackerone.com/msci",
+  "policy": "**Purpose** \n\nThis policy is intended to give security researchers and other participants in the security community clear guidelines under the MSCI Vulnerability Disclosure Program for conducting vulnerability discovery activities directed at web properties owned or operated by MSCI, its affiliates, or subsidiaries and submitting discovered vulnerabilities to MSCI. Your participation in the program is voluntary and subject to the terms and conditions set forth on this page. By submitting a report, you acknowledge and agree to the terms and conditions contained in this Policy. You also acknowledge that, to the extent they are not inconsistent with this Policy; you are subject to: \n\n[HackerOne’s Disclosure Guidelines](https://www.hackerone.com/disclosure-guidelines/)\n\n[Finder Terms and Conditions](https://www.hackerone.com/terms/finder/)\n\n[General Terms and Conditions](https://www.hackerone.com/terms/general/)\n\n**Guidelines** \n\n- Your activities are limited exclusively to: \n\nTesting to detect a vulnerability or identify an indicator related to a vulnerability; or \n\nSharing with, or receiving from, MSCI information about a vulnerability or an indicator related to a vulnerability. \n\n- You do no harm and do not exploit any vulnerability beyond the minimal amount of testing required to prove that a vulnerability exists or to identify an indicator related to a vulnerability. \n\n- You avoid intentionally accessing the content of any communications, data, or information transiting or stored on MSCI information system(s) – except to the extent that the information is directly related to a vulnerability and the access is necessary to prove that the vulnerability exists. \n\n- You do not exfiltrate, alter, or destroy any data under any circumstances. \n\n- You do not compromise the privacy or safety of MSCI personnel or any third parties. \n\n- You do not compromise the intellectual property or other commercial or financial interests of any MSCI personnel or entities, or any third parties. \n\n- You do not publicly disclose or share with any third-party any details of the vulnerability, indicator of vulnerability, or the content of information rendered available by a vulnerability, except upon receiving explicit written authorization from MSCI. \n\n- You do not conduct denial of service testing or other testing that impacts the availability of MSCI services. \n\n- You do not conduct social engineering, including spear phishing, of MSCI personnel, contractors, customers. \n\n- You do not attempt to gain physical access to any of our offices or data centres. \n\n- You do not include any information that may identify an individual other than yourself (such as name, contact information, IP address, or other similar information) in your vulnerability report or any attachments thereto. \n\n- You do not submit a high-volume of low-quality reports. \n\n- For information on how MSCI processes your personal data and your rights regarding data processing in the Vulnerability Disclosure Program, please refer to our Privacy Notice: Privacy notice - MSCI \n\n- If at any point you are uncertain whether to continue testing, please engage with the HackerOne team at support@hackerone.com. \n\n**Accepted Vulnerabilities**  \n\n- **OWASP Top 10 vulnerability categories** \n\n- **Other vulnerabilities with demonstrated impact (CVSS greater than 6)** \n\n**Out of Scope Techniques and Methods** \n\nCertain vulnerabilities are considered out of scope for our Responsible Disclosure Program. Out-of-scope vulnerabilities include: \n\n- Physical testing \n\n- Social engineering or phishing \n\n- Denial of service attacks \n\n- Resource Exhaustion Attacks \n\n- Attacks requiring MITM or physical access to a user's device. \n\n**Low Impact Vulnerability** \n\nThe following vulnerabilities are considered too low of an impact to the client and would be marked as Out of Scope if submitted: \n\n- Google Maps API Keys \n\n- Account/e-mail enumeration using brute-force attacks \n\n- Any low impact issues related to session management (i.e. concurrent sessions, session expiration, password reset/change logout, etc.) \n\n- Clickjacking/UI redressing \n\n- Client-side application/browser autocomplete or saved password/credentials \n\n- Descriptive or verbose error pages without proof of exploitability or obtaining sensitive information: Information Sensitivity will be determined by MSCI  \n\n- Directory structure enumeration (unless the fact reveals exceptionally useful information) \n\n- Incomplete or missing SPF/DMARC/DKIM records \n\n- Issues related to password/credential strength, length, lock outs, or lack of brute-force/rate limiting protections \n\n- Lack of SSL or Mixed content \n\n- If leaking of sensitive data requires MiTM positioning to exploit, it will be considered out of scope \n\n- Login/Logout/Unauthenticated/Low-impact CSRF \n\n- Low impact Information disclosures (including Software version disclosure) \n\n- Missing Cookie flags \n\n- Missing/Enabled HTTP Headers/Methods which do not lead directly to a security vulnerability \n\n- Reflected file download attacks (RFD) \n\n- SSL/TLS best practices that do not contain a fully functional proof of concept \n\n- Heartbleed requires a valid POC which shows sensitive data leakage. Information Sensitivity will be determined by MSCI  \n\n- POODLE requires a POC demonstrating a downgrade, not just the result of SSLScan or Nmap scan \n\n- URL Redirection \n\n- Use of a known-vulnerable library which leads to a low-impact vulnerability (i.e. jQuery outdated version leads to low impact XSS) \n\n- Valid bugs that are not directly related to the security posture of the client \n\n- Vulnerabilities affecting users of outdated browsers, plugins or platforms \n\n- Vulnerabilities that allow for the injection of arbitrary text without allowing for hyperlinks, HTML, or JavaScript code to be injected \n\n- Vulnerabilities that require the user/victim to perform extremely unlikely actions (i.e. Self-XSS) \n\n\n**What You Can Expect from Us** \n\nMSCI remains committed to coordinating with you as openly and quickly as possible under the circumstances. We will aim to respond to new reports within five business days. We will investigate reports based on information available and may contact you for further information. Please note, reports marked as triaged are subject to change pending our team’s final analysis. We’ll try to keep you informed about our progress throughout the process. \n\n**Legal** \n\nYou must comply with [MSCI’s Terms of Use](https://www.msci.com/terms-of-use/), security industry best practices, and all applicable Federal, State, and local laws in connection with your security research activities or other participation in this vulnerability disclosure program. You agree that any and all information acquired or accessed as part of this exercise is confidential to MSCI and you shall hold all such information in strict confidence and shall not copy, reproduce, sell, assign, license, market, transfer or otherwise dispose of, give, or disclose such information to third parties or use such information for any purposes other than for the performance of your work or expressly authorized in writing by MSCI. \n\nMSCI does not authorize, permit, or otherwise allow (expressly or impliedly) any person, including any individual, group of individuals, consortium, partnership, or any other business or legal entity to engage in any security research or vulnerability or threat disclosure activity that is inconsistent with this policy or the law. If you engage in any activities that are inconsistent with this policy or the law, you may be subject to criminal and/or civil liabilities. \n\nTo the extent that any security research or vulnerability disclosure activity involves the networks, systems, information, applications, products, or services of a non-MSCI entity (e.g., Federal departments or agencies; State, local, or tribal governments; other private sector companies or persons; employees or personnel of any such entities; or any other such third party), that non-MSCI third party may independently determine whether to pursue legal action or remedies related to such activities. \n\nBy submitting a report to MSCI, you grant to MSCI, its subsidiaries and its affiliates, a perpetual, irrevocable, no charge license to all intellectual property rights licensable by you in or related to the use of information or material submitted. You must notify us if any part of your report is not your own work or is the intellectual property of a third-party. \n\nMSCI may modify the terms of this policy or terminate the policy at any time. \n\nThank you for helping keep MSCI Inc. and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "Any public-facing system owned, operated, or controlled by MSCI, including web applications hosted on those sites. ",
+      "asset_type": "OTHER",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://careers.msci.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "*.msci.com.ar",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}

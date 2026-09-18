@@ -1,0 +1,74 @@
+{
+ "at": "2026-09-12T08:03:35.658Z",
+ "opportunity": "companyhub",
+ "cadence": {
+  "maxAssets": 5,
+  "maxRequestsPerAsset": 2,
+  "maxRequests": 25,
+  "delayMs": 500,
+  "timeoutMs": 15000,
+  "gatherDeadlineMs": 150000,
+  "maxBodyKB": 256,
+  "maxBundleKB": 12,
+  "maxBrainKB": 4,
+  "maxEndpointsPerAsset": 10
+ },
+ "assets": [
+  {
+   "host": "com.companyhub.crm",
+   "kind": "domain",
+   "status": null,
+   "techs": [],
+   "headers": {},
+   "endpoints": [],
+   "requests": 0,
+   "error": "ghost-connect-refused: proxy CONNECT to com.companyhub.crm:443 refused: host unreachable"
+  },
+  {
+   "host": "companyhub.com",
+   "kind": "wildcard-apex",
+   "status": 200,
+   "techs": [
+    {
+     "id": "wordpress",
+     "label": "WordPress",
+     "version": "6.9.7",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 6.9.7\""
+    },
+    {
+     "id": "jquery",
+     "label": "jQuery",
+     "version": null,
+     "evidence": "jquery.min.js"
+    },
+    {
+     "id": "php",
+     "label": "PHP",
+     "version": "8.3.33",
+     "evidence": "x-powered-by: PHP/8.3.33"
+    },
+    {
+     "id": "cloudflare",
+     "label": "Cloudflare",
+     "version": null,
+     "evidence": "server: cloudflare"
+    },
+    {
+     "id": "ga",
+     "label": "Google Analytics",
+     "version": null,
+     "evidence": "google-analytics.com/analytics.js"
+    }
+   ],
+   "headers": {
+    "server": "cloudflare",
+    "x-powered-by": "PHP/8.3.33",
+    "cf-ray": "a39d658dab050037-LHR",
+    "content-security-policy": "upgrade-insecure-requests",
+    "x-frame-options": "SAMEORIGIN"
+   },
+   "endpoints": [],
+   "requests": 2
+  }
+ ]
+}

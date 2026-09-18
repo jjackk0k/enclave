@@ -1,0 +1,230 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T12:17:39.474Z",
+      "type": "new-program",
+      "handle": "fifth_third_bank_vdp",
+      "name": "Fifth Third Bank VDP",
+      "offersBounties": false,
+      "assets": [
+        "*53.com",
+        "216.131.54.65",
+        "express.53.com",
+        "https://ablreporter.53.com/",
+        "https://cdao.53.com/onboarding",
+        "https://commercialcard.53.com/",
+        "https://dpm.53.com/identityservice/identityservice.asmx",
+        "https://express.53.com/portal",
+        "https://globaltradedirect.53.com/",
+        "https://load-webescrow.info53.com",
+        "https://lqm.53.com/",
+        "https://myapps.53.com/app/fifththird_degreedcontractor_1/exk5q7jnnuzgrrdct4h7/sso/saml",
+        "https://onlinebanking.53.com/",
+        "https://openonline.53.com/",
+        "https://pingfederate-admin-ocp-prd-bc3574.ocpf.info53.com/pingfederate/app",
+        "https://shipper-stage.info53.com/shipper/app/",
+        "https://slapmsp001.info53.com:9443",
+        "https://sys.express.53.com",
+        "https://wsde260n-1.info53.com:481/olb/#/login",
+        "locations.53.com",
+        "newline53.com",
+        "onlinebanking.53.com",
+        "www.53.com",
+        "zta.nube.53.com",
+        "ztc.nube.53.com"
+      ],
+      "exclusions": [],
+      "automation": {
+        "policy": "prohibited",
+        "basis": "default-silent",
+        "evidence": "the policy text never speaks on automation — DEFAULT prohibited (the safe direction) until it does"
+      }
+    },
+    "scannedAt": "2026-08-25T12:17:39.474Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\fifth_third_bank_vdp-new-program-2026-08-25T12-17-39-474Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "fifth_third_bank_vdp",
+  "name": "Fifth Third Bank VDP",
+  "url": "https://hackerone.com/fifth_third_bank_vdp",
+  "policy": "Welcome to Fifth Third Bank Vulnerability Disclosure Program!\n=====================\n\nFifth Third Bank, National Association is dedicated to proactively advance our security, identify new vulnerabilities and help keep our customer information secure. We value the important role of the security community in helping us mitigate information security risk as the threat landscaping continuous to evolve.  \n\n# Response Targets\nFifth Third Bank will make a best effort to meet the following SLAs for hackers participating in our program:\n\n| Type of Response | SLA in business days |\n| ------------- | ------------- |\n| First Response | 2 days |\n| Time to Triage | 10 days |\n| Time to Resolution | depends on severity and complexity |\n\nWe’ll try to keep you informed about our progress throughout the process.\n\n# Disclosure Policy\n* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).\n\n# Program Rules\n* Please provide detailed reports with reproducible steps. If the report is not detailed enough to reproduce the issue, the issue may be closed as Information or N/A.\n* Multiple vulnerabilities caused by one underlying issue will be treated as one vulnerability; the first report will be triaged as the original, and all future reports will be closed as Duplicate.\n* Social engineering (e.g. phishing, vishing, smishing) is prohibited.\nMake a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service. \n* Only interact with accounts you own or with explicit permission of the account holder.\n* Large-scale vulnerability scanners, scrapers, or automated tools which produce excessive amounts of traffic are prohibited at this time. \n\nTo participate in our program we ask that you configure your tools accordingly. This will help us best determine that you are a researcher participating in our program and will help reduce they likelihood that you are blocked from our systems. \n\n \n\n(1) HTTP Headers:\n\nInclude a custom HTTP header in all your traffic. Burp and other proxies allow the easy automatic addition of headers to all outbound requests\n\nIdentifier: Your Username\nFormat: X-Bug-Bounty:HackerOne-<username>\nExample: X-Bug-Bounty: HackerOne-flyingtoasters\n\nIdentifier: Tool Identifier\nFormat: X-Bug-Bounty:<toolname>\nExample: X-Bug-Bounty: BurpSuitePro\n\n(2) @wearehackerone.com email alias: \n\nFor anything that requires credentials researchers must use their `@wearehackerone.com` email alias as part of the HackerOne platform.\n# Known issues\nPlease note that the Fifth Third Security Team also actively looks for vulnerabilities across all assets internally. For reported issues that are already known to us, we will close them as duplicates.\nWe seek your kind cooperation to respect our final decision and to refrain from making multiple negotiations once the decision has been made.\n\n# Qualifying Vulnerabilities (In Scope)\n\nWe are interested in the following types of vulnerabilities:\n\n* Cross-Site Scripting (XSS)\n* Cross-Site Request Forgery (CSRF)\n* Insecure Direct Object References (IDOR)\n* Injection Vulnerabilities\n* Authentication Vulnerabilities\n* Server-Side Code Execution\n* Privilege Escalation\n* Directory Traversal\n* Information Disclosure\n* Open Redirects\n\n# Non-Qualifying Vulnerabilities (Out of Scope)\n\n### When reporting vulnerabilities, please consider (1) attack scenario / exploitability, and (2) security impact of the bug. The following issues are considered out of scope.\n\nThe following issues are considered out of scope:\n\n* We do not accept purchased credentials from the web/dark web without an associated vulnerability (we only accept credential submissions when they are directly tied to a vulnerability being actively reported or if the vulnerability demonstrates how the credentials were compromised)\n* Multiple small credential submissions that could reasonably be included in a single report\n* Credentials obtained from 3rd party breaches without demonstrating a direct impact on our systems (any credential submissions that do not meet these requirements will be close as Not Applicable)\n* No reports will be accepted that require sending a user malware\n* Tabnabbing\n* Publicly accessible login panels\n* Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin: * or accepting of custom Origin header that do not specifically show a valid attack scenario.\n* Reports from automated tools or scans\n* Host Header Injection (Unless it gives you access to interim proxies)\n* IP Address Disclosure\n* Bugs in content/services that are not owned/operated by 5/3.\n* CSRF on forms that are available to anonymous users.\n* Clickjacking and issues that are only exploitable through clickjacking.\n* Descriptive error messages (e.g. Stack Traces, application or server errors) that have no security implications.\n* HTTP 404 codes/pages or other HTTP non-200 codes/pages.\n* Fingerprinting / banner disclosure on common/public services.\n* Disclosure of known public files or directories, (e.g. robots.txt, crossdomain.xml, p3p.xml).\n* Lack of Secure and HTTPOnly cookie flags.\n* Email configuration issues (SPF, DKIM, DMARC).\n* Forced Login / Logout CSRF.\n* Account lockout by repetitive incorrect password submissions.\n* Password complexity or account recovery policies.\n* HTTPS Mixed Content.\n* Missing HTTP security headers, specifically: Strict-Transport-Security, X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Content-Security-Policy.\n* OPTIONS HTTP method enabled.\n* Missing best practices in SSL/TLS configuration\n* Use of a known-vulnerable library without evidence of exploitability.\n* Attacks requiring physical access to a user’s unlocked device.\n* Reports of spam, phishing, or security best practices.\n* Issues that require unlikely user interaction.\n* Attacks requiring MITM or physical access to a user's device.\n* Information disclosures that only reveal email address or phone numbers.\n* Information Disclosure: If a document is deemed not actually sensitive or classified, then Fifth Third Bank will mark it as informational and close the vulnerability\nCache Poisoning/Akamai Configurations: Akamai’s default configuration applies negative caching to HTTP 400 responses for 10 seconds, limited to the individual edge server that processed the request rather than across the full CDN. This behavior is part of the standard platform baseline and is intended to safeguard both customer environments and shared infrastructure. The negative caching of 400 is in our code baseline and in place to protect you, as well as all Akamai customers' infrastructure, from attackers making volumetric requests for assets that do not exist on the end user's side. This helps in preventing Denial of Service at the origin.  Cache poisoning submissions that do not account for these factors will not be accepted.\n\n# Test Instructions\n* All assets in scope are on production; no VPN or credentials are required for testing.\n\n# Safe Harbor\nAny activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy.\n\nThank you for helping keep Fifth Third Bank and our users safe!\n",
+  "safe_harbor": null,
+  "offers_bounties": false,
+  "structured_scopes": [
+    {
+      "asset_identifier": "*53.com",
+      "asset_type": "WILDCARD",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "express.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://ablreporter.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://cdao.53.com/onboarding",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://commercialcard.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://dpm.53.com/identityservice/identityservice.asmx",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://express.53.com/portal",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://globaltradedirect.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://lqm.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://myapps.53.com/app/fifththird_degreedcontractor_1/exk5q7jnnuzgrrdct4h7/sso/saml",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://onlinebanking.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://openonline.53.com/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://sys.express.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "locations.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "onlinebanking.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "zta.nube.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "ztc.nube.53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://load-webescrow.info53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://pingfederate-admin-ocp-prd-bc3574.ocpf.info53.com/pingfederate/app",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://shipper-stage.info53.com/shipper/app/",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://slapmsp001.info53.com:9443",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "https://wsde260n-1.info53.com:481/olb/#/login",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "216.131.54.65",
+      "asset_type": "IP_ADDRESS",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "newline53.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": false,
+      "max_severity": "critical"
+    }
+  ]
+}

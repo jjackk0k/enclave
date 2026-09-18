@@ -1,0 +1,33 @@
+{
+  "v": 1,
+  "missionId": "msn-trace-demo",
+  "engagement": "trace-eng",
+  "created": "2026-08-20T09:58:00.000Z",
+  "updated": "2026-08-20T10:05:00.000Z",
+  "status": "awaiting-input",
+  "model": "kimi-for-coding",
+  "effort": "high",
+  "provider": "kimi",
+  "objective": "validate the login SQLi on 203.0.113.10 and draft the bounty report",
+  "turnsTotal": 2,
+  "msgs": [
+    { "role": "user", "content": "Objective: validate the login SQLi on 203.0.113.10 (in-scope 203.0.113.0/24), then draft the report." },
+    { "role": "assistant", "content": [
+      { "type": "text", "text": "Reproducing with the governed re-read; collision-proof marker VRV-SQLI-9f2, paired garbage control." },
+      { "type": "tool_use", "id": "tu_01", "name": "Bash", "input": { "command": "node tools/cli.mjs vulncheck http://203.0.113.10", "session": "sess-cookie-value-must-redact" } }
+    ] },
+    { "role": "user", "content": [
+      { "type": "tool_result", "tool_use_id": "tu_01", "content": "HTTP/1.1 200 OK\nCookie: session=4f8a2c-live-cookie-value\nAuthorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJVadQssw5c\nmarker VRV-SQLI-9f2 present; password=hunter2 under the paired read" }
+    ] },
+    { "role": "assistant", "content": [
+      { "type": "text", "text": "Validated — marker present under the real read, absent under the control. Drafting the report." }
+    ] }
+  ],
+  "ledger": [
+    { "seq": 1, "id": "tu_01", "name": "Bash", "inputDigest": "sha256:deadbeef", "inputPreview": "{\"command\":\"node tools/cli.mjs vulncheck http://203.0.113.10\"}", "status": "done", "resultDigest": "sha256:cafe", "result": { "type": "tool_result", "tool_use_id": "tu_01", "content": "HTTP/1.1 200 OK marker VRV-SQLI-9f2 present" }, "truncated": false, "at": "2026-08-20T10:01:00.000Z" }
+  ],
+  "retries": [],
+  "denials": [],
+  "gates": [],
+  "finalText": "Validated and drafted."
+}

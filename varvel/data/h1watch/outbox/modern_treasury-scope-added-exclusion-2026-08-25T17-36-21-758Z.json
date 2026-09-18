@@ -1,0 +1,81 @@
+{
+  "_h1watch": {
+    "note": "fresh ground found is an opportunity list, not authorization — scope must be signed before any contact.",
+    "event": {
+      "at": "2026-08-25T17:36:21.758Z",
+      "type": "scope-added",
+      "side": "out",
+      "handle": "modern_treasury",
+      "assets": [
+        "http://app.moderntreasury.com/tell_us_more"
+      ],
+      "note": "NEW EXCLUSION — this ground is now OFF LIMITS; honor it before any contact"
+    },
+    "scannedAt": "2026-08-25T17:36:21.758Z",
+    "next": "operator review, then BY HAND: node tools/cli.mjs program import \"C:\\Users\\Jack\\Downloads\\enclave\\varvel\\data\\h1watch\\outbox\\modern_treasury-scope-added-exclusion-2026-08-25T17-36-21-758Z.json\" --platform hackerone --out <record.json> ; node tools/cli.mjs bountyline add <record.json> — the watcher NEVER signs and NEVER runs"
+  },
+  "handle": "modern_treasury",
+  "name": "Modern Treasury",
+  "url": "https://hackerone.com/modern_treasury",
+  "policy": "#Modern Treasury Bug Bounty Policy\n\nModern Treasury looks forward to working with the security community to find vulnerabilities in order to keep our businesses and customers safe. This policy (“Policy”) governs your participation in our bug bounty program (“Program”). By submitting any vulnerabilities to Modern Treasury or otherwise participating in the Program, you agree to this Policy.\n\nModern Treasury may modify this Policy from time to time, to please check this site regularly. Modifications are effective on posting. You can [subscribe](https://docs.hackerone.com/hackers/manage-notifications.html#program-notifications) to receive email notifications when this Policy is updated.\n\n#Participant Eligibility\nTo participate in our Program, you must be at least 18 years old. Modern Treasury employees and contractors (and their family members) are not eligible to participate directly or indirectly in our Program or to share information about our products or vulnerabilities with participants.\nYou may not participate in the Program if: (a) you are a resident of any U.S. embargoed jurisdiction, including, but not limited to, Iran, North Korea, Cuba, the Crimea region, and Syria or (b) you are on the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Persons List or Entity List. By participating in the Program, you represent and warrant that you are not located in any such country or on any such list.\nEligible Assets - Important\n* **You must perform testing using @WeAreHackerOne.com emails, to allow Modern Treasury to track security research activity.**\n* Perform testing only in sandbox mode (after login, ensure the left hand panel says “Viewing Sandbox mode”) and only accounts that are your own personal/test accounts (“Eligible Assets”). \n* You may not perform testing of any other Modern Treasury systems or assets.\n\n#Rewards\n* Rewards are based on severity per CVSS (the [Common Vulnerability Scoring Standard](https://docs.hackerone.com/hackers/severity.html?))\n* All bounty amounts will be at the discretion of the Modern Treasury Bug Bounty team.\n* Reports submitted using methods that violate this Policy will not be eligible for a reward.\n* To be eligible for a reward, the report must be for Eligible Assets.\n* Multiple reports describing the same vulnerability against multiple assets or endpoints where the root cause is the same will be treated as one report. Do not submit duplicate reports for the same issue across multiple sites as the duplicates will be closed, and the issue will be treated as one report.\n* While we aim for consistency, previous reports and prior bounty amounts will not set a precedent for future report eligibility or severity.\n* Understand that there could be submissions for which we accept the risk, have other compensating controls, or will not address in the manner expected. When this happens, we will act as transparently as we can to provide you with the necessary context as to how the decision was made.\n\n# Reporting Best Practices\n* When reporting issues, especially if permissions are involved, please include a breakdown of:\n  - The users involved, and their roles and permissions\n  - The accounts and objects being set up before the vulnerability, and what users have which permissions for each\n  - The actual malicious flow that's being called, specifying affected objects and users involved, AND why it isn't a valid flow, i.e.\n  ```\nAdmin user has admin access to the organization\nInvited user has per account access to account 1\nAdmin account creates account 1,2,3, invited user has access to only account 1\nInvited user makes an API call to create a payment from account 3 to account 1 successsfuly\nThis is an invalid flow because invited user only has access to account 1, and should not be able to make a payment from  account 3\n ```\n* This will expedite triage, verification, and awarding\n\n#Program Conduct\n* You agree and adhere to this Policy.\n* You are the first to submit a sufficiently reproducible report for a vulnerability in order to be eligible for the report to be accepted and triaged.\n* You are available to supply additional information, as needed by our team, to reproduce and triage the issue.\n* Publically-known zero-day vulnerabilities will not be considered for eligibility until more than 30 days have passed since patch availability.\n* Out-of-scope vulnerability reports or reports that are technically reproducible but pose a very low security impact are likely to be closed as Informative.\n\n\n#Key Targets \nThese are endpoints and actions that are critical and will warrant an increased bounty\n* Any non-public administration or debugging endpoints\n* \"Modern Treasury\" organization in production\n* Authorization issues, ig. any lateral movement between organizations\n\n\n#Program Rules\n*Do*\n* Read and abide by this program Policy.\n* Only test Eligible Assets.\n* Exercise caution when testing to avoid negative impact to customers and the services they depend on. \n* STOP testing if you are unsure about the impact it may have on our systems. If you think you may cause, or have caused, damage with testing a vulnerability, report your initial finding(s) and request authorization to continue testing.\n\n*Do NOT:*\n* Do not attempt to use Modern Treasury’s products to move money, access any bank accounts, or connect to any bank accounts.\n* Do not access Modern Treasury system or assets other than the Eligible Assets identified in this Policy.\n* Do not violate any laws or regulations.\n* Do not brute force credentials or guess credentials to gain access to systems.\n* Do not participate in denial of service attacks.\n* Do not upload shells or create a backdoor of any kind.\n* Do not engage in any form of social engineering of Modern Treasury employees, customers, or vendors.\n* Do not engage or target any Modern Treasury employee, customer, or vendor during your testing.\n* Do not attempt to access or interact with other users’ accounts or extract, download, or otherwise exfiltrate data other than your own.\n* Do not access non-public information without authorization\n* Do not change passwords of any account that is not yours. If ever prompted to change a password of an account you did not register yourself or an account that was not provided to you, stop and report the finding immediately.\n* Do not do anything that would be considered a privacy violation, cause destruction of data, or interrupt or degrade our service.\n* Do not attempt to extort or threaten Modern Treasury or make any ransom requests.\n\n\n#Disclosure Policies\nYou may not disclose your submissions, findings, communications with Modern Treasury related to the Program, any vulnerabilities (even invalid and resolved ones) or anything you learned about Modern Treasury through the Program without our express written consent. \n\n\n#Legal Terms\n* By reporting a vulnerability, you grant Modern Treasury and its affiliates a perpetual, irrevocable, worldwide, royalty-free license to use, copy, adapt, develop, create derivative work from, or share your submission for any purpose. You waive all claims, including breach of contract or implied-in-fact contract, arising out of your submission.\n\n\n#Out of scope vulnerabilities\nModern Treasury reserves the right to add to and subtract from the below list depending on the evaluated severity of reported vulnerabilities and risk acceptance.\n* Payment orders not checking for the permissions of the receiving account (permissions are only checked on the originating account)\n* AccountGroups permissions checks missing (AccountGroups are just a grouping of accounts for a view, and not sensitive within an organization)\n* Foreign exchange quote requests allowed without authorization check (Foreign exchange quote requests in Sandbox are allowed for any Internal Account)\n* Missing export url authorization check (Export url access is only limited by login and organization, anyone in the org with the URL can view and download the export)\n* InternalAccount permissions not applying to other permissions (InternalAccount permissions only apply to direct CRUD interactions with InternalAccount, not other interactions like Payment Orders)\n* Clickjacking on pages with no sensitive actions\n* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no sensitive actions\n* Attacks requiring MITM or physical access to a user's device\n* Previously known vulnerable libraries without a working Proof of Concept\n* Comma Separated Values (CSV) injection without demonstrating a vulnerability\n* Missing best practices in SSL/TLS configuration\n* Any activity that could lead to the disruption of our service (DoS).\n* Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS\n* Any activity that could lead to the disruption of our service (DoS), including but not limited to, inundating support services with invalid requests\n* Bruteforce oracle attacks against unauthenticated endpoints\n* Missing best practices in Content Security Policy\n* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]\n* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g., stack traces, application or server errors)\n* Tabnabbing\n* Issues that require unlikely user interaction by the victim\n* Self-XSS\n* Social engineering\n* Unconfirmed vulnerabilities from automated vulnerability scanners\n* Homoglyph phishing attacks / domain registration\n* Best practices concerns\n* Issues that depend on unpatched or outdated browsers or mobile platforms\n* EXIF metadata not stripped from uploaded images\n\n\n\n#Accountability\nModern Treasury reserves the right to terminate your participation in the Program if you violate this Policy, including without limitation the Disclosure Policies. \n\n\n# Known Issues\nKnown Issues include, but not limited to, are listed below. They will not be eligible for bounties:\n* Instability after running Reset Sandbox\n* User session id does not change after login\n* Failure to invalidate session during email verification (sign up + oauth)\n* DNSSEC not implemented.\n* X-Forwarded-Host and X-Forwarded-Scheme redirection\n* Missing Audit Trails log when user changes the password\n\n\n#FAQs\n1. Can I get Modern Treasury swag?\n*Modern Treasury does not currently offer swag*\n\n2. Can Modern Treasury provide me with a pre-configured test account?\n*This Program does not provide credentials or any special access*\n\n3. [What is required when submitting a report](https://docs.hackerone.com/hackers/submitting-reports.html)?\n\n4. [How do I make my report great?](https://docs.hackerone.com/hackers/quality-reports.html)\n\n5. [I submitted a report. Now what? I have questions.](https://www.hackerone.com/blog/how-bug-bounty-reports-work)\n\n6. [What causes a report to be closed as Informative, Duplicate, N/A, or Spam?](https://docs.hackerone.com/hackers/report-states.html)\n\n7. What is an example of an accepted vulnerability?\n*Valid and accepted vulnerabilities would be the type of report that identifies a unique security impact on this program’s specific scope. The report must also meet any submission criteria outlined in the policy, such as test plan instructions and a working proof of concept.*",
+  "safe_harbor": null,
+  "offers_bounties": true,
+  "structured_scopes": [
+    {
+      "asset_identifier": "app.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "www.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "docs.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "cdn.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": true,
+      "eligible_for_bounty": true,
+      "max_severity": "critical"
+    },
+    {
+      "asset_identifier": "trust.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "help.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "ph.moderntreasury.com",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    },
+    {
+      "asset_identifier": "http://app.moderntreasury.com/tell_us_more",
+      "asset_type": "URL",
+      "eligible_for_submission": false,
+      "eligible_for_bounty": false,
+      "max_severity": "none"
+    }
+  ]
+}
