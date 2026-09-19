@@ -54,7 +54,7 @@
 //       detail or their own endpoint. The readers tolerate JSON:API AND plain shapes;
 //       whatever they cannot parse lands EMPTY with a named gap — never guessed.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync, renameSync, unlinkSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -86,7 +86,33 @@ const OUTBOX = () => join(ROOT(), 'outbox');
 
 // --- small persisted-store helpers (the store.mjs discipline: readJson fallback, write-through) ---
 const readJson = (p, fb) => { try { return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fb; } catch { return fb; } };
-const writeJson = (p, obj) => { mkdirSync(dirname(p), { recursive: true }); writeFileSync(p, JSON.stringify(obj, null, 2) + '\n'); };
+// LOCK-TOLERANT ATOMIC WRITE (measured 2026-09-19). Both writers here are WRITE-THROUGH caches
+// (state.json is re-derivable; the walk checkpoint is an optimisation written on EVERY program
+// unit against a file that grows to hundreds of KB). A plain writeFileSync dies with
+// "UNKNOWN: unknown error, open <path>" (EBUSY/EPERM) the instant another process briefly holds
+// the file — a concurrent scanner, or an AV real-time scan of the growing file — and that killed
+// a live walk at page 6. So: write temp-then-RENAME (readers can never see a partial file),
+// retry briefly on a lock, and DEGRADE LOUDLY instead of throwing — a checkpoint that cannot be
+// written must never take the run down with it.
+const sleepMs = (ms) => { try { Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms); } catch { /* best effort */ } };
+const writeJson = (p, obj) => {
+  const text = JSON.stringify(obj, null, 2) + '\n';
+  try { mkdirSync(dirname(p), { recursive: true }); } catch { /* a mkdir race is harmless */ }
+  const tmp = `${p}.tmp-${process.pid}`;
+  let lastErr = null;
+  for (let attempt = 0; attempt < 6; attempt++) {
+    try {
+      writeFileSync(tmp, text);
+      renameSync(tmp, p); // atomic replace: a reader sees the old or the new file, never a partial
+      return { ok: true };
+    } catch (e) {
+      lastErr = e;
+      try { if (existsSync(tmp)) unlinkSync(tmp); } catch { /* best effort */ }
+      sleepMs(40 * (attempt + 1)); // 40..240ms backoff for a transient AV/other-process lock
+    }
+  }
+  return { ok: false, error: String((lastErr && lastErr.message) || lastErr) };
+};
 const iso = (now) => (now === undefined ? new Date().toISOString() : (typeof now === 'number' ? new Date(now).toISOString() : String(now)));
 const sha256 = (x) => 'sha256:' + createHash('sha256').update(typeof x === 'string' ? x : JSON.stringify(x)).digest('hex');
 
@@ -466,6 +492,7 @@ export async function scan({ source, now, emit = false, outboxDir, onProgress, s
   }
 
   let stopped = false;
+  let walkWriteWarned = false;
   const fetchMs = [];
   for (const p of listed.programs) {
     if (p.handle in walk.docs) continue; // checkpoint unit — resume material, never re-fetched
@@ -481,7 +508,11 @@ export async function scan({ source, now, emit = false, outboxDir, onProgress, s
     } else {
       walk.docs[p.handle] = got.doc;
     }
-    saveWalk(walk); // write-through EVERY unit — crash-safe, kill-safe, restart-safe
+    const swr = saveWalk(walk); // write-through EVERY unit — crash-safe, kill-safe, restart-safe
+    if (swr && swr.ok === false && !walkWriteWarned) {
+      walkWriteWarned = true;
+      gaps.push(`checkpoint write blocked (${swr.error}) — the walk CONTINUES; state.json remains the record of truth and resume may be one unit shorter`);
+    }
     try { if (onProgress) onProgress({ scanned: Object.keys(walk.docs).length, total, handle: p.handle, errors: errors.length, resumedFrom }); } catch { /* a progress listener never breaks the scan */ }
   }
 
